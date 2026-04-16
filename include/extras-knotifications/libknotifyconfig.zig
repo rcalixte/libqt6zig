@@ -3,7 +3,15 @@ const qtc = @import("qt6c");
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/knotifyconfig.html)
-pub const knotifyconfig = struct {
+pub const KNotifyConfig = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/knotifyconfig.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KNotifyConfig,
+
+    pub const _is_KNotifyConfig = {};
+
     /// New constructs a new KNotifyConfig object.
     ///
     /// ## Parameter(s):
@@ -12,7 +20,7 @@ pub const knotifyconfig = struct {
     ///
     /// ` eventId: []const u8 `
     ///
-    pub fn New(applicationName: []const u8, eventId: []const u8) QtC.KNotifyConfig {
+    pub fn New(applicationName: []const u8, eventId: []const u8) KNotifyConfig {
         const applicationName_str = qtc.libqt_string{
             .len = applicationName.len,
             .data = applicationName.ptr,
@@ -21,42 +29,43 @@ pub const knotifyconfig = struct {
             .len = eventId.len,
             .data = eventId.ptr,
         };
-
-        return qtc.KNotifyConfig_new(applicationName_str, eventId_str);
+        return .{ .ptr = qtc.KNotifyConfig_new(applicationName_str, eventId_str) };
     }
 
     /// New2 constructs a new KNotifyConfig object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.KNotifyConfig `
+    /// ` other: KNotifyConfig `
     ///
-    pub fn New2(other: ?*anyopaque) QtC.KNotifyConfig {
-        return qtc.KNotifyConfig_new2(@ptrCast(other));
+    pub fn New2(other: anytype) KNotifyConfig {
+        comptime _ = @TypeOf(other)._is_KNotifyConfig;
+        return .{ .ptr = qtc.KNotifyConfig_new2(@ptrCast(other.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/knotifyconfig.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNotifyConfig `
+    /// ` self: KNotifyConfig `
     ///
-    /// ` other: QtC.KNotifyConfig `
+    /// ` other: KNotifyConfig `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.KNotifyConfig_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorAssign(self: KNotifyConfig, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_KNotifyConfig;
+        qtc.KNotifyConfig_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knotifyconfig.html#applicationName)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNotifyConfig `
+    /// ` self: KNotifyConfig `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ApplicationName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KNotifyConfig_ApplicationName(@ptrCast(self));
+    pub fn ApplicationName(self: KNotifyConfig, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KNotifyConfig_ApplicationName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("knotifyconfig.ApplicationName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -67,12 +76,12 @@ pub const knotifyconfig = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNotifyConfig `
+    /// ` self: KNotifyConfig `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn EventId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KNotifyConfig_EventId(@ptrCast(self));
+    pub fn EventId(self: KNotifyConfig, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KNotifyConfig_EventId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("knotifyconfig.EventId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -83,28 +92,28 @@ pub const knotifyconfig = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNotifyConfig `
+    /// ` self: KNotifyConfig `
     ///
-    pub fn IsValid(self: ?*anyopaque) bool {
-        return qtc.KNotifyConfig_IsValid(@ptrCast(self));
+    pub fn IsValid(self: KNotifyConfig) bool {
+        return qtc.KNotifyConfig_IsValid(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knotifyconfig.html#readGlobalEntry)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNotifyConfig `
-    ///
-    /// ` key: []const u8 `
+    /// ` self: KNotifyConfig `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadGlobalEntry(self: ?*anyopaque, key: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` key: []const u8 `
+    ///
+    pub fn ReadGlobalEntry(self: KNotifyConfig, allocator: std.mem.Allocator, key: []const u8) []const u8 {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
-        var _str = qtc.KNotifyConfig_ReadGlobalEntry(@ptrCast(self), key_str);
+        var _str = qtc.KNotifyConfig_ReadGlobalEntry(@ptrCast(self.ptr), key_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("knotifyconfig.ReadGlobalEntry: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -115,18 +124,18 @@ pub const knotifyconfig = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNotifyConfig `
-    ///
-    /// ` key: []const u8 `
+    /// ` self: KNotifyConfig `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadEntry(self: ?*anyopaque, key: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` key: []const u8 `
+    ///
+    pub fn ReadEntry(self: KNotifyConfig, allocator: std.mem.Allocator, key: []const u8) []const u8 {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
-        var _str = qtc.KNotifyConfig_ReadEntry(@ptrCast(self), key_str);
+        var _str = qtc.KNotifyConfig_ReadEntry(@ptrCast(self.ptr), key_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("knotifyconfig.ReadEntry: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -137,18 +146,18 @@ pub const knotifyconfig = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNotifyConfig `
-    ///
-    /// ` key: []const u8 `
+    /// ` self: KNotifyConfig `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadPathEntry(self: ?*anyopaque, key: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` key: []const u8 `
+    ///
+    pub fn ReadPathEntry(self: KNotifyConfig, allocator: std.mem.Allocator, key: []const u8) []const u8 {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
-        var _str = qtc.KNotifyConfig_ReadPathEntry(@ptrCast(self), key_str);
+        var _str = qtc.KNotifyConfig_ReadPathEntry(@ptrCast(self.ptr), key_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("knotifyconfig.ReadPathEntry: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -185,9 +194,9 @@ pub const knotifyconfig = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KNotifyConfig `
+    /// ` self: KNotifyConfig `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KNotifyConfig_Delete(@ptrCast(self));
+    pub fn Delete(self: KNotifyConfig) void {
+        qtc.KNotifyConfig_Delete(@ptrCast(self.ptr));
     }
 };

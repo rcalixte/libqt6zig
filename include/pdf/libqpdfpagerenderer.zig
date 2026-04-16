@@ -1,36 +1,60 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QEvent = @import("libqt6").QEvent;
+const QImage = @import("libqt6").QImage;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QPdfDocument = @import("libqt6").QPdfDocument;
+const QPdfDocumentRenderOptions = @import("libqt6").QPdfDocumentRenderOptions;
+const QSize = @import("libqt6").QSize;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const qpdfpagerenderer_enums = enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfpagerenderer.html)
-pub const qpdfpagerenderer = struct {
+pub const QPdfPageRenderer = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfpagerenderer.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QPdfPageRenderer,
+
+    pub const _is_QPdfPageRenderer = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new QPdfPageRenderer object.
     ///
-    pub fn New() QtC.QPdfPageRenderer {
-        return qtc.QPdfPageRenderer_new();
+    pub fn New() QPdfPageRenderer {
+        return .{ .ptr = qtc.QPdfPageRenderer_new() };
     }
 
     /// New2 constructs a new QPdfPageRenderer object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New2(parent: ?*anyopaque) QtC.QPdfPageRenderer {
-        return qtc.QPdfPageRenderer_new2(@ptrCast(parent));
+    pub fn New2(parent: anytype) QPdfPageRenderer {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.QPdfPageRenderer_new2(@ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QPdfPageRenderer_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QPdfPageRenderer) QMetaObject {
+        return .{ .ptr = qtc.QPdfPageRenderer_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -39,12 +63,12 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QPdfPageRenderer_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QPdfPageRenderer, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QPdfPageRenderer_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -57,33 +81,33 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QPdfPageRenderer_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QPdfPageRenderer) QMetaObject {
+        return .{ .ptr = qtc.QPdfPageRenderer_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QPdfPageRenderer, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QPdfPageRenderer_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QPdfPageRenderer_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfPageRenderer, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QPdfPageRenderer, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QPdfPageRenderer_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QPdfPageRenderer, callback: *const fn (QPdfPageRenderer, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QPdfPageRenderer_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -94,18 +118,18 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QPdfPageRenderer, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QPdfPageRenderer_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QPdfPageRenderer_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -113,20 +137,20 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QPdfPageRenderer_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QPdfPageRenderer, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QPdfPageRenderer_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfPageRenderer, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QPdfPageRenderer, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QPdfPageRenderer_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QPdfPageRenderer, callback: *const fn (QPdfPageRenderer, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QPdfPageRenderer_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -137,7 +161,7 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -145,19 +169,19 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QPdfPageRenderer_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QPdfPageRenderer, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QPdfPageRenderer_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -170,155 +194,161 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
     /// ## Returns:
     ///
     /// ` qpdfpagerenderer_enums.RenderMode `
     ///
-    pub fn RenderMode(self: ?*anyopaque) i32 {
-        return qtc.QPdfPageRenderer_RenderMode(@ptrCast(self));
+    pub fn RenderMode(self: QPdfPageRenderer) i32 {
+        return qtc.QPdfPageRenderer_RenderMode(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfpagerenderer.html#setRenderMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
     /// ` mode: qpdfpagerenderer_enums.RenderMode `
     ///
-    pub fn SetRenderMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QPdfPageRenderer_SetRenderMode(@ptrCast(self), @bitCast(mode));
+    pub fn SetRenderMode(self: QPdfPageRenderer, mode: i32) void {
+        qtc.QPdfPageRenderer_SetRenderMode(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfpagerenderer.html#document)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    pub fn Document(self: ?*anyopaque) QtC.QPdfDocument {
-        return qtc.QPdfPageRenderer_Document(@ptrCast(self));
+    pub fn Document(self: QPdfPageRenderer) QPdfDocument {
+        return .{ .ptr = qtc.QPdfPageRenderer_Document(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfpagerenderer.html#setDocument)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    /// ` document: QtC.QPdfDocument `
+    /// ` document: QPdfDocument `
     ///
-    pub fn SetDocument(self: ?*anyopaque, document: ?*anyopaque) void {
-        qtc.QPdfPageRenderer_SetDocument(@ptrCast(self), @ptrCast(document));
+    pub fn SetDocument(self: QPdfPageRenderer, document: anytype) void {
+        comptime _ = @TypeOf(document)._is_QPdfDocument;
+        qtc.QPdfPageRenderer_SetDocument(@ptrCast(self.ptr), @ptrCast(document.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfpagerenderer.html#requestPage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
     /// ` pageNumber: i32 `
     ///
-    /// ` imageSize: QtC.QSize `
+    /// ` imageSize: QSize `
     ///
-    pub fn RequestPage(self: ?*anyopaque, pageNumber: i32, imageSize: QtC.QSize) u64 {
-        return qtc.QPdfPageRenderer_RequestPage(@ptrCast(self), @bitCast(pageNumber), @ptrCast(imageSize));
+    pub fn RequestPage(self: QPdfPageRenderer, pageNumber: i32, imageSize: anytype) u64 {
+        comptime _ = @TypeOf(imageSize)._is_QSize;
+        return qtc.QPdfPageRenderer_RequestPage(@ptrCast(self.ptr), @bitCast(pageNumber), @ptrCast(imageSize.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfpagerenderer.html#documentChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    /// ` document: QtC.QPdfDocument `
+    /// ` document: QPdfDocument `
     ///
-    pub fn DocumentChanged(self: ?*anyopaque, document: ?*anyopaque) void {
-        qtc.QPdfPageRenderer_DocumentChanged(@ptrCast(self), @ptrCast(document));
+    pub fn DocumentChanged(self: QPdfPageRenderer, document: anytype) void {
+        comptime _ = @TypeOf(document)._is_QPdfDocument;
+        qtc.QPdfPageRenderer_DocumentChanged(@ptrCast(self.ptr), @ptrCast(document.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfpagerenderer.html#documentChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfPageRenderer, document: QtC.QPdfDocument) callconv(.c) void `
+    /// ` callback: *const fn (self: QPdfPageRenderer, document: QPdfDocument) callconv(.c) void `
     ///
-    pub fn OnDocumentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPdfPageRenderer_Connect_DocumentChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDocumentChanged(self: QPdfPageRenderer, callback: *const fn (QPdfPageRenderer, QPdfDocument) callconv(.c) void) void {
+        qtc.QPdfPageRenderer_Connect_DocumentChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfpagerenderer.html#renderModeChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
     /// ` renderMode: qpdfpagerenderer_enums.RenderMode `
     ///
-    pub fn RenderModeChanged(self: ?*anyopaque, renderMode: i32) void {
-        qtc.QPdfPageRenderer_RenderModeChanged(@ptrCast(self), @bitCast(renderMode));
+    pub fn RenderModeChanged(self: QPdfPageRenderer, renderMode: i32) void {
+        qtc.QPdfPageRenderer_RenderModeChanged(@ptrCast(self.ptr), @bitCast(renderMode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfpagerenderer.html#renderModeChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfPageRenderer, renderMode: qpdfpagerenderer_enums.RenderMode) callconv(.c) void `
+    /// ` callback: *const fn (self: QPdfPageRenderer, renderMode: qpdfpagerenderer_enums.RenderMode) callconv(.c) void `
     ///
-    pub fn OnRenderModeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QPdfPageRenderer_Connect_RenderModeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRenderModeChanged(self: QPdfPageRenderer, callback: *const fn (QPdfPageRenderer, i32) callconv(.c) void) void {
+        qtc.QPdfPageRenderer_Connect_RenderModeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfpagerenderer.html#pageRendered)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
     /// ` pageNumber: i32 `
     ///
-    /// ` imageSize: QtC.QSize `
+    /// ` imageSize: QSize `
     ///
-    /// ` image: QtC.QImage `
+    /// ` image: QImage `
     ///
-    /// ` options: QtC.QPdfDocumentRenderOptions `
+    /// ` options: QPdfDocumentRenderOptions `
     ///
     /// ` requestId: u64 `
     ///
-    pub fn PageRendered(self: ?*anyopaque, pageNumber: i32, imageSize: QtC.QSize, image: ?*anyopaque, options: QtC.QPdfDocumentRenderOptions, requestId: u64) void {
-        qtc.QPdfPageRenderer_PageRendered(@ptrCast(self), @bitCast(pageNumber), @ptrCast(imageSize), @ptrCast(image), @ptrCast(options), @bitCast(requestId));
+    pub fn PageRendered(self: QPdfPageRenderer, pageNumber: i32, imageSize: anytype, image: anytype, options: anytype, requestId: u64) void {
+        comptime _ = @TypeOf(imageSize)._is_QSize;
+        comptime _ = @TypeOf(image)._is_QImage;
+        comptime _ = @TypeOf(options)._is_QPdfDocumentRenderOptions;
+        qtc.QPdfPageRenderer_PageRendered(@ptrCast(self.ptr), @bitCast(pageNumber), @ptrCast(imageSize.ptr), @ptrCast(image.ptr), @ptrCast(options.ptr), @bitCast(requestId));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfpagerenderer.html#pageRendered)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfPageRenderer, pageNumber: i32, imageSize: QtC.QSize, image: QtC.QImage, options: QtC.QPdfDocumentRenderOptions, requestId: u64) callconv(.c) void `
+    /// ` callback: *const fn (self: QPdfPageRenderer, pageNumber: i32, imageSize: QSize, image: QImage, options: QPdfDocumentRenderOptions, requestId: u64) callconv(.c) void `
     ///
-    pub fn OnPageRendered(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, QtC.QSize, ?*anyopaque, QtC.QPdfDocumentRenderOptions, u64) callconv(.c) void) void {
-        qtc.QPdfPageRenderer_Connect_PageRendered(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPageRendered(self: QPdfPageRenderer, callback: *const fn (QPdfPageRenderer, i32, QSize, QImage, QPdfDocumentRenderOptions, u64) callconv(.c) void) void {
+        qtc.QPdfPageRenderer_Connect_PageRendered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -332,15 +362,15 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -354,16 +384,18 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
     /// ` pageNumber: i32 `
     ///
-    /// ` imageSize: QtC.QSize `
+    /// ` imageSize: QSize `
     ///
-    /// ` options: QtC.QPdfDocumentRenderOptions `
+    /// ` options: QPdfDocumentRenderOptions `
     ///
-    pub fn RequestPage3(self: ?*anyopaque, pageNumber: i32, imageSize: QtC.QSize, options: QtC.QPdfDocumentRenderOptions) u64 {
-        return qtc.QPdfPageRenderer_RequestPage3(@ptrCast(self), @bitCast(pageNumber), @ptrCast(imageSize), @ptrCast(options));
+    pub fn RequestPage3(self: QPdfPageRenderer, pageNumber: i32, imageSize: anytype, options: anytype) u64 {
+        comptime _ = @TypeOf(imageSize)._is_QSize;
+        comptime _ = @TypeOf(options)._is_QPdfDocumentRenderOptions;
+        return qtc.QPdfPageRenderer_RequestPage3(@ptrCast(self.ptr), @bitCast(pageNumber), @ptrCast(imageSize.ptr), @ptrCast(options.ptr));
     }
 
     /// Inherited from QObject
@@ -372,12 +404,12 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QPdfPageRenderer, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qpdfpagerenderer.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -390,12 +422,12 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QPdfPageRenderer, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -404,10 +436,10 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QPdfPageRenderer) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -416,10 +448,10 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QPdfPageRenderer) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -428,10 +460,10 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QPdfPageRenderer) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -440,10 +472,10 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QPdfPageRenderer) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -452,12 +484,12 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QPdfPageRenderer, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -466,10 +498,10 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QPdfPageRenderer) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -478,12 +510,13 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QPdfPageRenderer, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -492,12 +525,12 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QPdfPageRenderer, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -506,12 +539,12 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QPdfPageRenderer, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -520,12 +553,12 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QPdfPageRenderer, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -534,12 +567,12 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QPdfPageRenderer, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -548,16 +581,17 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QPdfPageRenderer, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qpdfpagerenderer.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qpdfpagerenderer.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -567,12 +601,13 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QPdfPageRenderer, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -581,12 +616,13 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QPdfPageRenderer, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -595,12 +631,13 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QPdfPageRenderer, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -609,18 +646,20 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -629,16 +668,20 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -647,18 +690,19 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QPdfPageRenderer, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -667,18 +711,20 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -687,16 +733,20 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -705,10 +755,10 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QPdfPageRenderer) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -717,12 +767,13 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QPdfPageRenderer, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -731,10 +782,11 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -743,10 +795,10 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QPdfPageRenderer) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -755,10 +807,10 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QPdfPageRenderer) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -767,15 +819,16 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QPdfPageRenderer, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -784,13 +837,13 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QPdfPageRenderer, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -799,17 +852,16 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QPdfPageRenderer, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qpdfpagerenderer.DynamicPropertyNames: Memory allocation failed");
@@ -828,10 +880,10 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QPdfPageRenderer) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -840,10 +892,10 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QPdfPageRenderer) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -852,10 +904,10 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QPdfPageRenderer) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -864,12 +916,12 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfPageRenderer) callconv(.c) void `
+    /// ` callback: *const fn (self: QPdfPageRenderer) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QPdfPageRenderer, callback: *const fn (QPdfPageRenderer) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -878,10 +930,10 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QPdfPageRenderer) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -890,13 +942,13 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QPdfPageRenderer, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -905,10 +957,10 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QPdfPageRenderer) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -917,14 +969,14 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QPdfPageRenderer, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -933,14 +985,14 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QPdfPageRenderer, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -949,20 +1001,22 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -971,18 +1025,22 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -991,9 +1049,9 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1001,10 +1059,11 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QPdfPageRenderer, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1013,13 +1072,13 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QPdfPageRenderer, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1028,15 +1087,16 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QPdfPageRenderer, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1045,18 +1105,19 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QPdfPageRenderer, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1065,15 +1126,16 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QPdfPageRenderer, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1082,12 +1144,13 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QPdfPageRenderer, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1096,12 +1159,12 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfPageRenderer, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QPdfPageRenderer, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QPdfPageRenderer, callback: *const fn (QPdfPageRenderer, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1112,12 +1175,13 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QPdfPageRenderer_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: QPdfPageRenderer, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QPdfPageRenderer_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -1132,12 +1196,13 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QPdfPageRenderer_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: QPdfPageRenderer, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QPdfPageRenderer_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1148,12 +1213,12 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPdfPageRenderer`
+    /// ` self: QPdfPageRenderer`
     ///
-    /// ` callback: *const fn (self: QtC.QPdfPageRenderer, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QPdfPageRenderer, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QPdfPageRenderer_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QPdfPageRenderer, callback: *const fn (QPdfPageRenderer, QEvent) callconv(.c) bool) void {
+        qtc.QPdfPageRenderer_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1164,14 +1229,16 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QPdfPageRenderer_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: QPdfPageRenderer, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QPdfPageRenderer_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -1186,14 +1253,16 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QPdfPageRenderer_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: QPdfPageRenderer, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QPdfPageRenderer_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1204,12 +1273,12 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPdfPageRenderer`
+    /// ` self: QPdfPageRenderer`
     ///
-    /// ` callback: *const fn (self: QtC.QPdfPageRenderer, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QPdfPageRenderer, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QPdfPageRenderer_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QPdfPageRenderer, callback: *const fn (QPdfPageRenderer, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QPdfPageRenderer_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1220,12 +1289,13 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QPdfPageRenderer_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: QPdfPageRenderer, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QPdfPageRenderer_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -1240,12 +1310,13 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QPdfPageRenderer_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: QPdfPageRenderer, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QPdfPageRenderer_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1256,12 +1327,12 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPdfPageRenderer`
+    /// ` self: QPdfPageRenderer`
     ///
-    /// ` callback: *const fn (self: QtC.QPdfPageRenderer, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QPdfPageRenderer, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPdfPageRenderer_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QPdfPageRenderer, callback: *const fn (QPdfPageRenderer, QTimerEvent) callconv(.c) void) void {
+        qtc.QPdfPageRenderer_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1272,12 +1343,13 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QPdfPageRenderer_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: QPdfPageRenderer, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QPdfPageRenderer_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -1292,12 +1364,13 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QPdfPageRenderer_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: QPdfPageRenderer, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QPdfPageRenderer_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1308,12 +1381,12 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPdfPageRenderer`
+    /// ` self: QPdfPageRenderer`
     ///
-    /// ` callback: *const fn (self: QtC.QPdfPageRenderer, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QPdfPageRenderer, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPdfPageRenderer_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QPdfPageRenderer, callback: *const fn (QPdfPageRenderer, QChildEvent) callconv(.c) void) void {
+        qtc.QPdfPageRenderer_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1324,12 +1397,13 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QPdfPageRenderer_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QPdfPageRenderer, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QPdfPageRenderer_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -1344,12 +1418,13 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QPdfPageRenderer_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QPdfPageRenderer, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QPdfPageRenderer_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1360,12 +1435,12 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPdfPageRenderer`
+    /// ` self: QPdfPageRenderer`
     ///
-    /// ` callback: *const fn (self: QtC.QPdfPageRenderer, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QPdfPageRenderer, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPdfPageRenderer_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QPdfPageRenderer, callback: *const fn (QPdfPageRenderer, QEvent) callconv(.c) void) void {
+        qtc.QPdfPageRenderer_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1376,12 +1451,13 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QPdfPageRenderer_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QPdfPageRenderer, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QPdfPageRenderer_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -1396,12 +1472,13 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QPdfPageRenderer_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QPdfPageRenderer, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QPdfPageRenderer_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1412,12 +1489,12 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPdfPageRenderer`
+    /// ` self: QPdfPageRenderer`
     ///
-    /// ` callback: *const fn (self: QtC.QPdfPageRenderer, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QPdfPageRenderer, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPdfPageRenderer_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QPdfPageRenderer, callback: *const fn (QPdfPageRenderer, QMetaMethod) callconv(.c) void) void {
+        qtc.QPdfPageRenderer_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1428,12 +1505,13 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QPdfPageRenderer_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QPdfPageRenderer, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QPdfPageRenderer_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -1448,12 +1526,13 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QPdfPageRenderer_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QPdfPageRenderer, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QPdfPageRenderer_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1464,12 +1543,12 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPdfPageRenderer`
+    /// ` self: QPdfPageRenderer`
     ///
-    /// ` callback: *const fn (self: QtC.QPdfPageRenderer, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QPdfPageRenderer, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPdfPageRenderer_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QPdfPageRenderer, callback: *const fn (QPdfPageRenderer, QMetaMethod) callconv(.c) void) void {
+        qtc.QPdfPageRenderer_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1480,10 +1559,10 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QPdfPageRenderer_Sender(@ptrCast(self));
+    pub fn Sender(self: QPdfPageRenderer) QObject {
+        return .{ .ptr = qtc.QPdfPageRenderer_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -1498,10 +1577,10 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QPdfPageRenderer_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QPdfPageRenderer) QObject {
+        return .{ .ptr = qtc.QPdfPageRenderer_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1512,12 +1591,12 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPdfPageRenderer`
+    /// ` self: QPdfPageRenderer`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QPdfPageRenderer_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QPdfPageRenderer, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QPdfPageRenderer_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1528,10 +1607,10 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QPdfPageRenderer_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QPdfPageRenderer) i32 {
+        return qtc.QPdfPageRenderer_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -1546,10 +1625,10 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QPdfPageRenderer_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QPdfPageRenderer) i32 {
+        return qtc.QPdfPageRenderer_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1560,12 +1639,12 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPdfPageRenderer`
+    /// ` self: QPdfPageRenderer`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QPdfPageRenderer_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QPdfPageRenderer, callback: *const fn () callconv(.c) i32) void {
+        qtc.QPdfPageRenderer_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1576,13 +1655,13 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QPdfPageRenderer, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QPdfPageRenderer_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QPdfPageRenderer_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -1597,13 +1676,13 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QPdfPageRenderer, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QPdfPageRenderer_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QPdfPageRenderer_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1614,12 +1693,12 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPdfPageRenderer`
+    /// ` self: QPdfPageRenderer`
     ///
-    /// ` callback: *const fn (self: QtC.QPdfPageRenderer, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QPdfPageRenderer, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QPdfPageRenderer_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QPdfPageRenderer, callback: *const fn (QPdfPageRenderer, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QPdfPageRenderer_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1630,12 +1709,13 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QPdfPageRenderer_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QPdfPageRenderer, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QPdfPageRenderer_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -1650,12 +1730,13 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QPdfPageRenderer_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QPdfPageRenderer, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QPdfPageRenderer_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1666,12 +1747,12 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPdfPageRenderer`
+    /// ` self: QPdfPageRenderer`
     ///
-    /// ` callback: *const fn (self: QtC.QPdfPageRenderer, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QPdfPageRenderer, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QPdfPageRenderer_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QPdfPageRenderer, callback: *const fn (QPdfPageRenderer, QMetaMethod) callconv(.c) bool) void {
+        qtc.QPdfPageRenderer_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1682,12 +1763,12 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    /// ` callback: *const fn (self: QtC.QPdfPageRenderer, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QPdfPageRenderer, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QPdfPageRenderer, callback: *const fn (QPdfPageRenderer, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -1700,10 +1781,10 @@ pub const qpdfpagerenderer = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QPdfPageRenderer `
+    /// ` self: QPdfPageRenderer `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QPdfPageRenderer_Delete(@ptrCast(self));
+    pub fn Delete(self: QPdfPageRenderer) void {
+        qtc.QPdfPageRenderer_Delete(@ptrCast(self.ptr));
     }
 };
 

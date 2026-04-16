@@ -1,24 +1,34 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QDBusMessage = @import("libqt6").QDBusMessage;
 const qdbuserror_enums = enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html)
-pub const qdbuserror = struct {
+pub const QDBusError = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QDBusError,
+
+    pub const _is_QDBusError = {};
+
     /// New constructs a new QDBusError object.
     ///
-    pub fn New() QtC.QDBusError {
-        return qtc.QDBusError_new();
+    pub fn New() QDBusError {
+        return .{ .ptr = qtc.QDBusError_new() };
     }
 
     /// New2 constructs a new QDBusError object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` msg: QtC.QDBusMessage `
+    /// ` msg: QDBusMessage `
     ///
-    pub fn New2(msg: ?*anyopaque) QtC.QDBusError {
-        return qtc.QDBusError_new2(@ptrCast(msg));
+    pub fn New2(msg: anytype) QDBusError {
+        comptime _ = @TypeOf(msg)._is_QDBusMessage;
+        return .{ .ptr = qtc.QDBusError_new2(@ptrCast(msg.ptr)) };
     }
 
     /// New3 constructs a new QDBusError object.
@@ -29,85 +39,88 @@ pub const qdbuserror = struct {
     ///
     /// ` message: []const u8 `
     ///
-    pub fn New3(errorVal: i32, message: []const u8) QtC.QDBusError {
+    pub fn New3(errorVal: i32, message: []const u8) QDBusError {
         const message_str = qtc.libqt_string{
             .len = message.len,
             .data = message.ptr,
         };
-
-        return qtc.QDBusError_new3(@bitCast(errorVal), message_str);
+        return .{ .ptr = qtc.QDBusError_new3(@bitCast(errorVal), message_str) };
     }
 
     /// New4 constructs a new QDBusError object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QDBusError `
+    /// ` other: QDBusError `
     ///
-    pub fn New4(other: ?*anyopaque) QtC.QDBusError {
-        return qtc.QDBusError_new4(@ptrCast(other));
+    pub fn New4(other: anytype) QDBusError {
+        comptime _ = @TypeOf(other)._is_QDBusError;
+        return .{ .ptr = qtc.QDBusError_new4(@ptrCast(other.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusError `
+    /// ` self: QDBusError `
     ///
-    /// ` other: QtC.QDBusError `
+    /// ` other: QDBusError `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QDBusError_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorAssign(self: QDBusError, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QDBusError;
+        qtc.QDBusError_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusError `
+    /// ` self: QDBusError `
     ///
-    /// ` msg: QtC.QDBusMessage `
+    /// ` msg: QDBusMessage `
     ///
-    pub fn OperatorAssign2(self: ?*anyopaque, msg: ?*anyopaque) void {
-        qtc.QDBusError_OperatorAssign2(@ptrCast(self), @ptrCast(msg));
+    pub fn OperatorAssign2(self: QDBusError, msg: anytype) void {
+        comptime _ = @TypeOf(msg)._is_QDBusMessage;
+        qtc.QDBusError_OperatorAssign2(@ptrCast(self.ptr), @ptrCast(msg.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html#swap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusError `
+    /// ` self: QDBusError `
     ///
-    /// ` other: QtC.QDBusError `
+    /// ` other: QDBusError `
     ///
-    pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QDBusError_Swap(@ptrCast(self), @ptrCast(other));
+    pub fn Swap(self: QDBusError, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QDBusError;
+        qtc.QDBusError_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html#type)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusError `
+    /// ` self: QDBusError `
     ///
     /// ## Returns:
     ///
     /// ` qdbuserror_enums.ErrorType `
     ///
-    pub fn Type(self: ?*anyopaque) i32 {
-        return qtc.QDBusError_Type(@ptrCast(self));
+    pub fn Type(self: QDBusError) i32 {
+        return qtc.QDBusError_Type(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html#name)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusError `
+    /// ` self: QDBusError `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDBusError_Name(@ptrCast(self));
+    pub fn Name(self: QDBusError, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDBusError_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdbuserror.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -118,12 +131,12 @@ pub const qdbuserror = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusError `
+    /// ` self: QDBusError `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Message(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDBusError_Message(@ptrCast(self));
+    pub fn Message(self: QDBusError, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDBusError_Message(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdbuserror.Message: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -134,21 +147,21 @@ pub const qdbuserror = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusError `
+    /// ` self: QDBusError `
     ///
-    pub fn IsValid(self: ?*anyopaque) bool {
-        return qtc.QDBusError_IsValid(@ptrCast(self));
+    pub fn IsValid(self: QDBusError) bool {
+        return qtc.QDBusError_IsValid(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html#errorString)
     ///
     /// ## Parameter(s):
     ///
-    /// ` errorVal: qdbuserror_enums.ErrorType `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorString(errorVal: i32, allocator: std.mem.Allocator) []const u8 {
+    /// ` errorVal: qdbuserror_enums.ErrorType `
+    ///
+    pub fn ErrorString(allocator: std.mem.Allocator, errorVal: i32) []const u8 {
         var _str = qtc.QDBusError_ErrorString(@bitCast(errorVal));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdbuserror.ErrorString: Memory allocation failed");
@@ -166,10 +179,10 @@ pub const qdbuserror = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QDBusError `
+    /// ` self: QDBusError `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QDBusError_Delete(@ptrCast(self));
+    pub fn Delete(self: QDBusError) void {
+        qtc.QDBusError_Delete(@ptrCast(self.ptr));
     }
 };
 

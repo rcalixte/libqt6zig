@@ -1,24 +1,34 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const KConfigGroup = @import("libqt6").KConfigGroup;
 
 /// ### [Upstream resources](https://api.kde.org/ktexteditor-sessionconfiginterface.html)
-pub const ktexteditor__sessionconfiginterface = struct {
+pub const KTextEditor__SessionConfigInterface = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-sessionconfiginterface.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KTextEditor__SessionConfigInterface,
+
+    pub const _is_KTextEditor__SessionConfigInterface = {};
+
     /// New constructs a new KTextEditor::SessionConfigInterface object.
     ///
-    pub fn New() QtC.KTextEditor__SessionConfigInterface {
-        return qtc.KTextEditor__SessionConfigInterface_new();
+    pub fn New() KTextEditor__SessionConfigInterface {
+        return .{ .ptr = qtc.KTextEditor__SessionConfigInterface_new() };
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-sessionconfiginterface.html#readSessionConfig)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__SessionConfigInterface `
+    /// ` self: KTextEditor__SessionConfigInterface `
     ///
-    /// ` config: QtC.KConfigGroup `
+    /// ` config: KConfigGroup `
     ///
-    pub fn ReadSessionConfig(self: ?*anyopaque, config: ?*anyopaque) void {
-        qtc.KTextEditor__SessionConfigInterface_ReadSessionConfig(@ptrCast(self), @ptrCast(config));
+    pub fn ReadSessionConfig(self: KTextEditor__SessionConfigInterface, config: anytype) void {
+        comptime _ = @TypeOf(config)._is_KConfigGroup;
+        qtc.KTextEditor__SessionConfigInterface_ReadSessionConfig(@ptrCast(self.ptr), @ptrCast(config.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-sessionconfiginterface.html#readSessionConfig)
@@ -27,12 +37,12 @@ pub const ktexteditor__sessionconfiginterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__SessionConfigInterface `
+    /// ` self: KTextEditor__SessionConfigInterface `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__SessionConfigInterface, config: QtC.KConfigGroup) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__SessionConfigInterface, config: KConfigGroup) callconv(.c) void `
     ///
-    pub fn OnReadSessionConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTextEditor__SessionConfigInterface_OnReadSessionConfig(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReadSessionConfig(self: KTextEditor__SessionConfigInterface, callback: *const fn (KTextEditor__SessionConfigInterface, KConfigGroup) callconv(.c) void) void {
+        qtc.KTextEditor__SessionConfigInterface_OnReadSessionConfig(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperReadSessionConfig` instead
@@ -45,24 +55,26 @@ pub const ktexteditor__sessionconfiginterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__SessionConfigInterface `
+    /// ` self: KTextEditor__SessionConfigInterface `
     ///
-    /// ` config: QtC.KConfigGroup `
+    /// ` config: KConfigGroup `
     ///
-    pub fn SuperReadSessionConfig(self: ?*anyopaque, config: ?*anyopaque) void {
-        qtc.KTextEditor__SessionConfigInterface_SuperReadSessionConfig(@ptrCast(self), @ptrCast(config));
+    pub fn SuperReadSessionConfig(self: KTextEditor__SessionConfigInterface, config: anytype) void {
+        comptime _ = @TypeOf(config)._is_KConfigGroup;
+        qtc.KTextEditor__SessionConfigInterface_SuperReadSessionConfig(@ptrCast(self.ptr), @ptrCast(config.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-sessionconfiginterface.html#writeSessionConfig)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__SessionConfigInterface `
+    /// ` self: KTextEditor__SessionConfigInterface `
     ///
-    /// ` config: QtC.KConfigGroup `
+    /// ` config: KConfigGroup `
     ///
-    pub fn WriteSessionConfig(self: ?*anyopaque, config: ?*anyopaque) void {
-        qtc.KTextEditor__SessionConfigInterface_WriteSessionConfig(@ptrCast(self), @ptrCast(config));
+    pub fn WriteSessionConfig(self: KTextEditor__SessionConfigInterface, config: anytype) void {
+        comptime _ = @TypeOf(config)._is_KConfigGroup;
+        qtc.KTextEditor__SessionConfigInterface_WriteSessionConfig(@ptrCast(self.ptr), @ptrCast(config.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-sessionconfiginterface.html#writeSessionConfig)
@@ -71,12 +83,12 @@ pub const ktexteditor__sessionconfiginterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__SessionConfigInterface `
+    /// ` self: KTextEditor__SessionConfigInterface `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__SessionConfigInterface, config: QtC.KConfigGroup) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__SessionConfigInterface, config: KConfigGroup) callconv(.c) void `
     ///
-    pub fn OnWriteSessionConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTextEditor__SessionConfigInterface_OnWriteSessionConfig(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWriteSessionConfig(self: KTextEditor__SessionConfigInterface, callback: *const fn (KTextEditor__SessionConfigInterface, KConfigGroup) callconv(.c) void) void {
+        qtc.KTextEditor__SessionConfigInterface_OnWriteSessionConfig(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperWriteSessionConfig` instead
@@ -89,12 +101,13 @@ pub const ktexteditor__sessionconfiginterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__SessionConfigInterface `
+    /// ` self: KTextEditor__SessionConfigInterface `
     ///
-    /// ` config: QtC.KConfigGroup `
+    /// ` config: KConfigGroup `
     ///
-    pub fn SuperWriteSessionConfig(self: ?*anyopaque, config: ?*anyopaque) void {
-        qtc.KTextEditor__SessionConfigInterface_SuperWriteSessionConfig(@ptrCast(self), @ptrCast(config));
+    pub fn SuperWriteSessionConfig(self: KTextEditor__SessionConfigInterface, config: anytype) void {
+        comptime _ = @TypeOf(config)._is_KConfigGroup;
+        qtc.KTextEditor__SessionConfigInterface_SuperWriteSessionConfig(@ptrCast(self.ptr), @ptrCast(config.ptr));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -105,9 +118,9 @@ pub const ktexteditor__sessionconfiginterface = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KTextEditor__SessionConfigInterface `
+    /// ` self: KTextEditor__SessionConfigInterface `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KTextEditor__SessionConfigInterface_Delete(@ptrCast(self));
+    pub fn Delete(self: KTextEditor__SessionConfigInterface) void {
+        qtc.KTextEditor__SessionConfigInterface_Delete(@ptrCast(self.ptr));
     }
 };

@@ -2,96 +2,106 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const metadata_enums = enums;
 const std = @import("std");
-const struct_u8_u8 = struct { first: []u8, second: []u8 };
+const Struct_u8_u8 = struct { first: []u8, second: []u8 };
 
 /// ### [Upstream resources](https://api.kde.org/attica-metadata.html)
-pub const attica__metadata = struct {
+pub const Attica__Metadata = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/attica-metadata.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.Attica__Metadata,
+
+    pub const _is_Attica__Metadata = {};
+
     /// New constructs a new Attica::Metadata object.
     ///
-    pub fn New() QtC.Attica__Metadata {
-        return qtc.Attica__Metadata_new();
+    pub fn New() Attica__Metadata {
+        return .{ .ptr = qtc.Attica__Metadata_new() };
     }
 
     /// New2 constructs a new Attica::Metadata object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.Attica__Metadata `
+    /// ` other: Attica__Metadata `
     ///
-    pub fn New2(other: ?*anyopaque) QtC.Attica__Metadata {
-        return qtc.Attica__Metadata_new2(@ptrCast(other));
+    pub fn New2(other: anytype) Attica__Metadata {
+        comptime _ = @TypeOf(other)._is_Attica__Metadata;
+        return .{ .ptr = qtc.Attica__Metadata_new2(@ptrCast(other.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-metadata.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Attica__Metadata `
+    /// ` self: Attica__Metadata `
     ///
-    /// ` other: QtC.Attica__Metadata `
+    /// ` other: Attica__Metadata `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.Attica__Metadata_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorAssign(self: Attica__Metadata, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_Attica__Metadata;
+        qtc.Attica__Metadata_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-metadata.html#error)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Attica__Metadata `
+    /// ` self: Attica__Metadata `
     ///
     /// ## Returns:
     ///
     /// ` metadata_enums.Error `
     ///
-    pub fn Error(self: ?*anyopaque) i32 {
-        return qtc.Attica__Metadata_Error(@ptrCast(self));
+    pub fn Error(self: Attica__Metadata) i32 {
+        return qtc.Attica__Metadata_Error(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-metadata.html#setError)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Attica__Metadata `
+    /// ` self: Attica__Metadata `
     ///
     /// ` errorVal: metadata_enums.Error `
     ///
-    pub fn SetError(self: ?*anyopaque, errorVal: i32) void {
-        qtc.Attica__Metadata_SetError(@ptrCast(self), @bitCast(errorVal));
+    pub fn SetError(self: Attica__Metadata, errorVal: i32) void {
+        qtc.Attica__Metadata_SetError(@ptrCast(self.ptr), @bitCast(errorVal));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-metadata.html#statusCode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Attica__Metadata `
+    /// ` self: Attica__Metadata `
     ///
-    pub fn StatusCode(self: ?*anyopaque) i32 {
-        return qtc.Attica__Metadata_StatusCode(@ptrCast(self));
+    pub fn StatusCode(self: Attica__Metadata) i32 {
+        return qtc.Attica__Metadata_StatusCode(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-metadata.html#setStatusCode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Attica__Metadata `
+    /// ` self: Attica__Metadata `
     ///
     /// ` code: i32 `
     ///
-    pub fn SetStatusCode(self: ?*anyopaque, code: i32) void {
-        qtc.Attica__Metadata_SetStatusCode(@ptrCast(self), @bitCast(code));
+    pub fn SetStatusCode(self: Attica__Metadata, code: i32) void {
+        qtc.Attica__Metadata_SetStatusCode(@ptrCast(self.ptr), @bitCast(code));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-metadata.html#statusString)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Attica__Metadata `
+    /// ` self: Attica__Metadata `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Attica__Metadata_StatusString(@ptrCast(self));
+    pub fn StatusString(self: Attica__Metadata, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Attica__Metadata_StatusString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__metadata.StatusString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -102,28 +112,28 @@ pub const attica__metadata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Attica__Metadata `
+    /// ` self: Attica__Metadata `
     ///
     /// ` status: []const u8 `
     ///
-    pub fn SetStatusString(self: ?*anyopaque, status: []const u8) void {
+    pub fn SetStatusString(self: Attica__Metadata, status: []const u8) void {
         const status_str = qtc.libqt_string{
             .len = status.len,
             .data = status.ptr,
         };
-        qtc.Attica__Metadata_SetStatusString(@ptrCast(self), status_str);
+        qtc.Attica__Metadata_SetStatusString(@ptrCast(self.ptr), status_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-metadata.html#message)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Attica__Metadata `
+    /// ` self: Attica__Metadata `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Message(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Attica__Metadata_Message(@ptrCast(self));
+    pub fn Message(self: Attica__Metadata, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Attica__Metadata_Message(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__metadata.Message: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -134,72 +144,72 @@ pub const attica__metadata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Attica__Metadata `
+    /// ` self: Attica__Metadata `
     ///
     /// ` message: []const u8 `
     ///
-    pub fn SetMessage(self: ?*anyopaque, message: []const u8) void {
+    pub fn SetMessage(self: Attica__Metadata, message: []const u8) void {
         const message_str = qtc.libqt_string{
             .len = message.len,
             .data = message.ptr,
         };
-        qtc.Attica__Metadata_SetMessage(@ptrCast(self), message_str);
+        qtc.Attica__Metadata_SetMessage(@ptrCast(self.ptr), message_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-metadata.html#totalItems)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Attica__Metadata `
+    /// ` self: Attica__Metadata `
     ///
-    pub fn TotalItems(self: ?*anyopaque) i32 {
-        return qtc.Attica__Metadata_TotalItems(@ptrCast(self));
+    pub fn TotalItems(self: Attica__Metadata) i32 {
+        return qtc.Attica__Metadata_TotalItems(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-metadata.html#setTotalItems)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Attica__Metadata `
+    /// ` self: Attica__Metadata `
     ///
     /// ` items: i32 `
     ///
-    pub fn SetTotalItems(self: ?*anyopaque, items: i32) void {
-        qtc.Attica__Metadata_SetTotalItems(@ptrCast(self), @bitCast(items));
+    pub fn SetTotalItems(self: Attica__Metadata, items: i32) void {
+        qtc.Attica__Metadata_SetTotalItems(@ptrCast(self.ptr), @bitCast(items));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-metadata.html#itemsPerPage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Attica__Metadata `
+    /// ` self: Attica__Metadata `
     ///
-    pub fn ItemsPerPage(self: ?*anyopaque) i32 {
-        return qtc.Attica__Metadata_ItemsPerPage(@ptrCast(self));
+    pub fn ItemsPerPage(self: Attica__Metadata) i32 {
+        return qtc.Attica__Metadata_ItemsPerPage(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-metadata.html#setItemsPerPage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Attica__Metadata `
+    /// ` self: Attica__Metadata `
     ///
     /// ` itemsPerPage: i32 `
     ///
-    pub fn SetItemsPerPage(self: ?*anyopaque, itemsPerPage: i32) void {
-        qtc.Attica__Metadata_SetItemsPerPage(@ptrCast(self), @bitCast(itemsPerPage));
+    pub fn SetItemsPerPage(self: Attica__Metadata, itemsPerPage: i32) void {
+        qtc.Attica__Metadata_SetItemsPerPage(@ptrCast(self.ptr), @bitCast(itemsPerPage));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-metadata.html#resultingId)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Attica__Metadata `
+    /// ` self: Attica__Metadata `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ResultingId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Attica__Metadata_ResultingId(@ptrCast(self));
+    pub fn ResultingId(self: Attica__Metadata, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Attica__Metadata_ResultingId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__metadata.ResultingId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -210,28 +220,28 @@ pub const attica__metadata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Attica__Metadata `
+    /// ` self: Attica__Metadata `
     ///
     /// ` id: []const u8 `
     ///
-    pub fn SetResultingId(self: ?*anyopaque, id: []const u8) void {
+    pub fn SetResultingId(self: Attica__Metadata, id: []const u8) void {
         const id_str = qtc.libqt_string{
             .len = id.len,
             .data = id.ptr,
         };
-        qtc.Attica__Metadata_SetResultingId(@ptrCast(self), id_str);
+        qtc.Attica__Metadata_SetResultingId(@ptrCast(self.ptr), id_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-metadata.html#headers)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Attica__Metadata `
+    /// ` self: Attica__Metadata `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Headers(self: ?*anyopaque, allocator: std.mem.Allocator) []struct_u8_u8 {
-        const _arr: qtc.libqt_list = qtc.Attica__Metadata_Headers(@ptrCast(self));
+    pub fn Headers(self: Attica__Metadata, allocator: std.mem.Allocator) []Struct_u8_u8 {
+        const _arr: qtc.libqt_list = qtc.Attica__Metadata_Headers(@ptrCast(self.ptr));
         const _data: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
@@ -240,7 +250,7 @@ pub const attica__metadata = struct {
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc(struct_u8_u8, _arr.len) catch @panic("attica__metadata.Headers: Memory allocation failed");
+        const _ret = allocator.alloc(Struct_u8_u8, _arr.len) catch @panic("attica__metadata.Headers: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _first_str: *qtc.libqt_string = @ptrCast(@alignCast(_data[i].first));
             const _first_slice = allocator.alloc(u8, _first_str.len) catch @panic("attica__metadata.Headers: Memory allocation failed");
@@ -248,7 +258,7 @@ pub const attica__metadata = struct {
             const _second_str: *qtc.libqt_string = @ptrCast(@alignCast(_data[i].second));
             const _second_slice = allocator.alloc(u8, _second_str.len) catch @panic("attica__metadata.Headers: Memory allocation failed");
             @memcpy(_second_slice, _second_str.data[0.._second_str.len]);
-            _ret[i] = struct_u8_u8{
+            _ret[i] = Struct_u8_u8{
                 .first = _first_slice,
                 .second = _second_slice,
             };
@@ -260,13 +270,13 @@ pub const attica__metadata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Attica__Metadata `
-    ///
-    /// ` headers: []struct_u8_u8 `
+    /// ` self: Attica__Metadata `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetHeaders(self: ?*anyopaque, headers: []struct_u8_u8, allocator: std.mem.Allocator) void {
+    /// ` headers: []Struct_u8_u8 `
+    ///
+    pub fn SetHeaders(self: Attica__Metadata, allocator: std.mem.Allocator, headers: []Struct_u8_u8) void {
         const headers_pairs = allocator.alloc(qtc.libqt_pair, headers.len) catch @panic("attica__metadata.SetHeaders: Memory allocation failed");
         defer allocator.free(headers_pairs);
         const headers_str = allocator.alloc(qtc.libqt_string, headers.len * 2) catch @panic("attica__metadata.SetHeaders: Memory allocation failed");
@@ -289,7 +299,7 @@ pub const attica__metadata = struct {
             .len = headers.len,
             .data = @ptrCast(headers_pairs.ptr),
         };
-        qtc.Attica__Metadata_SetHeaders(@ptrCast(self), headers_list);
+        qtc.Attica__Metadata_SetHeaders(@ptrCast(self.ptr), headers_list);
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -300,10 +310,10 @@ pub const attica__metadata = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.Attica__Metadata `
+    /// ` self: Attica__Metadata `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.Attica__Metadata_Delete(@ptrCast(self));
+    pub fn Delete(self: Attica__Metadata) void {
+        qtc.Attica__Metadata_Delete(@ptrCast(self.ptr));
     }
 };
 

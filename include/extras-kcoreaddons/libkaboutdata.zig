@@ -1,10 +1,22 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QCommandLineParser = @import("libqt6").QCommandLineParser;
+const QJsonObject = @import("libqt6").QJsonObject;
+const QUrl = @import("libqt6").QUrl;
+const QVariant = @import("libqt6").QVariant;
 const kaboutdata_enums = enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/kcrash.html)
-pub const kcrash = struct {
+pub const KCrash = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kcrash.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KCrash,
+
+    pub const _is_KCrash = {};
+
     /// ### [Upstream resources](https://api.kde.org/kcrash.html#defaultCrashHandler)
     ///
     /// ## Parameter(s):
@@ -17,21 +29,30 @@ pub const kcrash = struct {
 };
 
 /// ### [Upstream resources](https://api.kde.org/kaboutperson.html)
-pub const kaboutperson = struct {
+pub const KAboutPerson = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kaboutperson.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KAboutPerson,
+
+    pub const _is_KAboutPerson = {};
+
     /// New constructs a new KAboutPerson object.
     ///
-    pub fn New() QtC.KAboutPerson {
-        return qtc.KAboutPerson_new();
+    pub fn New() KAboutPerson {
+        return .{ .ptr = qtc.KAboutPerson_new() };
     }
 
     /// New2 constructs a new KAboutPerson object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.KAboutPerson `
+    /// ` other: KAboutPerson `
     ///
-    pub fn New2(other: ?*anyopaque) QtC.KAboutPerson {
-        return qtc.KAboutPerson_new2(@ptrCast(other));
+    pub fn New2(other: anytype) KAboutPerson {
+        comptime _ = @TypeOf(other)._is_KAboutPerson;
+        return .{ .ptr = qtc.KAboutPerson_new2(@ptrCast(other.ptr)) };
     }
 
     /// New3 constructs a new KAboutPerson object.
@@ -40,13 +61,12 @@ pub const kaboutperson = struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn New3(name: []const u8) QtC.KAboutPerson {
+    pub fn New3(name: []const u8) KAboutPerson {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-
-        return qtc.KAboutPerson_new3(name_str);
+        return .{ .ptr = qtc.KAboutPerson_new3(name_str) };
     }
 
     /// New4 constructs a new KAboutPerson object.
@@ -57,7 +77,7 @@ pub const kaboutperson = struct {
     ///
     /// ` task: []const u8 `
     ///
-    pub fn New4(name: []const u8, task: []const u8) QtC.KAboutPerson {
+    pub fn New4(name: []const u8, task: []const u8) KAboutPerson {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -66,8 +86,7 @@ pub const kaboutperson = struct {
             .len = task.len,
             .data = task.ptr,
         };
-
-        return qtc.KAboutPerson_new4(name_str, task_str);
+        return .{ .ptr = qtc.KAboutPerson_new4(name_str, task_str) };
     }
 
     /// New5 constructs a new KAboutPerson object.
@@ -80,7 +99,7 @@ pub const kaboutperson = struct {
     ///
     /// ` emailAddress: []const u8 `
     ///
-    pub fn New5(name: []const u8, task: []const u8, emailAddress: []const u8) QtC.KAboutPerson {
+    pub fn New5(name: []const u8, task: []const u8, emailAddress: []const u8) KAboutPerson {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -93,8 +112,7 @@ pub const kaboutperson = struct {
             .len = emailAddress.len,
             .data = emailAddress.ptr,
         };
-
-        return qtc.KAboutPerson_new5(name_str, task_str, emailAddress_str);
+        return .{ .ptr = qtc.KAboutPerson_new5(name_str, task_str, emailAddress_str) };
     }
 
     /// New6 constructs a new KAboutPerson object.
@@ -109,7 +127,7 @@ pub const kaboutperson = struct {
     ///
     /// ` webAddress: []const u8 `
     ///
-    pub fn New6(name: []const u8, task: []const u8, emailAddress: []const u8, webAddress: []const u8) QtC.KAboutPerson {
+    pub fn New6(name: []const u8, task: []const u8, emailAddress: []const u8, webAddress: []const u8) KAboutPerson {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -126,8 +144,7 @@ pub const kaboutperson = struct {
             .len = webAddress.len,
             .data = webAddress.ptr,
         };
-
-        return qtc.KAboutPerson_new6(name_str, task_str, emailAddress_str, webAddress_str);
+        return .{ .ptr = qtc.KAboutPerson_new6(name_str, task_str, emailAddress_str, webAddress_str) };
     }
 
     /// New7 constructs a new KAboutPerson object.
@@ -142,9 +159,9 @@ pub const kaboutperson = struct {
     ///
     /// ` webAddress: []const u8 `
     ///
-    /// ` avatarUrl: QtC.QUrl `
+    /// ` avatarUrl: QUrl `
     ///
-    pub fn New7(name: []const u8, task: []const u8, emailAddress: []const u8, webAddress: []const u8, avatarUrl: ?*anyopaque) QtC.KAboutPerson {
+    pub fn New7(name: []const u8, task: []const u8, emailAddress: []const u8, webAddress: []const u8, avatarUrl: anytype) KAboutPerson {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -161,32 +178,33 @@ pub const kaboutperson = struct {
             .len = webAddress.len,
             .data = webAddress.ptr,
         };
-
-        return qtc.KAboutPerson_new7(name_str, task_str, emailAddress_str, webAddress_str, @ptrCast(avatarUrl));
+        comptime _ = @TypeOf(avatarUrl)._is_QUrl;
+        return .{ .ptr = qtc.KAboutPerson_new7(name_str, task_str, emailAddress_str, webAddress_str, @ptrCast(avatarUrl.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutperson.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutPerson `
+    /// ` self: KAboutPerson `
     ///
-    /// ` other: QtC.KAboutPerson `
+    /// ` other: KAboutPerson `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.KAboutPerson_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorAssign(self: KAboutPerson, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_KAboutPerson;
+        qtc.KAboutPerson_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutperson.html#name)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutPerson `
+    /// ` self: KAboutPerson `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KAboutPerson_Name(@ptrCast(self));
+    pub fn Name(self: KAboutPerson, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KAboutPerson_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutperson.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -197,12 +215,12 @@ pub const kaboutperson = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutPerson `
+    /// ` self: KAboutPerson `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Task(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KAboutPerson_Task(@ptrCast(self));
+    pub fn Task(self: KAboutPerson, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KAboutPerson_Task(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutperson.Task: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -213,12 +231,12 @@ pub const kaboutperson = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutPerson `
+    /// ` self: KAboutPerson `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn EmailAddress(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KAboutPerson_EmailAddress(@ptrCast(self));
+    pub fn EmailAddress(self: KAboutPerson, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KAboutPerson_EmailAddress(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutperson.EmailAddress: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -229,12 +247,12 @@ pub const kaboutperson = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutPerson `
+    /// ` self: KAboutPerson `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WebAddress(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KAboutPerson_WebAddress(@ptrCast(self));
+    pub fn WebAddress(self: KAboutPerson, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KAboutPerson_WebAddress(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutperson.WebAddress: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -245,20 +263,21 @@ pub const kaboutperson = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutPerson `
+    /// ` self: KAboutPerson `
     ///
-    pub fn AvatarUrl(self: ?*anyopaque) QtC.QUrl {
-        return qtc.KAboutPerson_AvatarUrl(@ptrCast(self));
+    pub fn AvatarUrl(self: KAboutPerson) QUrl {
+        return .{ .ptr = qtc.KAboutPerson_AvatarUrl(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutperson.html#fromJSON)
     ///
     /// ## Parameter(s):
     ///
-    /// ` obj: QtC.QJsonObject `
+    /// ` obj: QJsonObject `
     ///
-    pub fn FromJSON(obj: ?*anyopaque) QtC.KAboutPerson {
-        return qtc.KAboutPerson_FromJSON(@ptrCast(obj));
+    pub fn FromJSON(obj: anytype) KAboutPerson {
+        comptime _ = @TypeOf(obj)._is_QJsonObject;
+        return .{ .ptr = qtc.KAboutPerson_FromJSON(@ptrCast(obj.ptr)) };
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -271,53 +290,63 @@ pub const kaboutperson = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KAboutPerson `
+    /// ` self: KAboutPerson `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KAboutPerson_Delete(@ptrCast(self));
+    pub fn Delete(self: KAboutPerson) void {
+        qtc.KAboutPerson_Delete(@ptrCast(self.ptr));
     }
 };
 
 /// ### [Upstream resources](https://api.kde.org/kaboutlicense.html)
-pub const kaboutlicense = struct {
+pub const KAboutLicense = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kaboutlicense.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KAboutLicense,
+
+    pub const _is_KAboutLicense = {};
+
     /// New constructs a new KAboutLicense object.
     ///
-    pub fn New() QtC.KAboutLicense {
-        return qtc.KAboutLicense_new();
+    pub fn New() KAboutLicense {
+        return .{ .ptr = qtc.KAboutLicense_new() };
     }
 
     /// New2 constructs a new KAboutLicense object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.KAboutLicense `
+    /// ` other: KAboutLicense `
     ///
-    pub fn New2(other: ?*anyopaque) QtC.KAboutLicense {
-        return qtc.KAboutLicense_new2(@ptrCast(other));
+    pub fn New2(other: anytype) KAboutLicense {
+        comptime _ = @TypeOf(other)._is_KAboutLicense;
+        return .{ .ptr = qtc.KAboutLicense_new2(@ptrCast(other.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutlicense.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutLicense `
+    /// ` self: KAboutLicense `
     ///
-    /// ` other: QtC.KAboutLicense `
+    /// ` other: KAboutLicense `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.KAboutLicense_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorAssign(self: KAboutLicense, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_KAboutLicense;
+        qtc.KAboutLicense_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutlicense.html#text)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutLicense `
+    /// ` self: KAboutLicense `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KAboutLicense_Text(@ptrCast(self));
+    pub fn Text(self: KAboutLicense, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KAboutLicense_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutlicense.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -328,12 +357,12 @@ pub const kaboutlicense = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutLicense `
+    /// ` self: KAboutLicense `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KAboutLicense_Name(@ptrCast(self));
+    pub fn Name(self: KAboutLicense, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KAboutLicense_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutlicense.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -344,26 +373,26 @@ pub const kaboutlicense = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutLicense `
+    /// ` self: KAboutLicense `
     ///
     /// ## Returns:
     ///
     /// ` kaboutdata_enums.LicenseKey `
     ///
-    pub fn Key(self: ?*anyopaque) i32 {
-        return qtc.KAboutLicense_Key(@ptrCast(self));
+    pub fn Key(self: KAboutLicense) i32 {
+        return qtc.KAboutLicense_Key(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutlicense.html#spdx)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutLicense `
+    /// ` self: KAboutLicense `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Spdx(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KAboutLicense_Spdx(@ptrCast(self));
+    pub fn Spdx(self: KAboutLicense, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KAboutLicense_Spdx(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutlicense.Spdx: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -376,26 +405,26 @@ pub const kaboutlicense = struct {
     ///
     /// ` keyword: []const u8 `
     ///
-    pub fn ByKeyword(keyword: []const u8) QtC.KAboutLicense {
+    pub fn ByKeyword(keyword: []const u8) KAboutLicense {
         const keyword_str = qtc.libqt_string{
             .len = keyword.len,
             .data = keyword.ptr,
         };
-        return qtc.KAboutLicense_ByKeyword(keyword_str);
+        return .{ .ptr = qtc.KAboutLicense_ByKeyword(keyword_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutlicense.html#name)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutLicense `
-    ///
-    /// ` formatName: kaboutdata_enums.NameFormat `
+    /// ` self: KAboutLicense `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name1(self: ?*anyopaque, formatName: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KAboutLicense_Name1(@ptrCast(self), @bitCast(formatName));
+    /// ` formatName: kaboutdata_enums.NameFormat `
+    ///
+    pub fn Name1(self: KAboutLicense, allocator: std.mem.Allocator, formatName: i32) []const u8 {
+        var _str = qtc.KAboutLicense_Name1(@ptrCast(self.ptr), @bitCast(formatName));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutlicense.Name1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -412,19 +441,27 @@ pub const kaboutlicense = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KAboutLicense `
+    /// ` self: KAboutLicense `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KAboutLicense_Delete(@ptrCast(self));
+    pub fn Delete(self: KAboutLicense) void {
+        qtc.KAboutLicense_Delete(@ptrCast(self.ptr));
     }
 };
 
 /// ### [Upstream resources](https://api.kde.org/kaboutcomponent.html)
-pub const kaboutcomponent = struct {
+pub const KAboutComponent = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kaboutcomponent.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KAboutComponent,
+
+    pub const _is_KAboutComponent = {};
+
     /// New constructs a new KAboutComponent object.
     ///
-    pub fn New() QtC.KAboutComponent {
-        return qtc.KAboutComponent_new();
+    pub fn New() KAboutComponent {
+        return .{ .ptr = qtc.KAboutComponent_new() };
     }
 
     /// New2 constructs a new KAboutComponent object.
@@ -441,7 +478,7 @@ pub const kaboutcomponent = struct {
     ///
     /// ` pathToLicenseFile: []const u8 `
     ///
-    pub fn New2(name: []const u8, description: []const u8, version: []const u8, webAddress: []const u8, pathToLicenseFile: []const u8) QtC.KAboutComponent {
+    pub fn New2(name: []const u8, description: []const u8, version: []const u8, webAddress: []const u8, pathToLicenseFile: []const u8) KAboutComponent {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -462,18 +499,18 @@ pub const kaboutcomponent = struct {
             .len = pathToLicenseFile.len,
             .data = pathToLicenseFile.ptr,
         };
-
-        return qtc.KAboutComponent_new2(name_str, description_str, version_str, webAddress_str, pathToLicenseFile_str);
+        return .{ .ptr = qtc.KAboutComponent_new2(name_str, description_str, version_str, webAddress_str, pathToLicenseFile_str) };
     }
 
     /// New3 constructs a new KAboutComponent object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.KAboutComponent `
+    /// ` other: KAboutComponent `
     ///
-    pub fn New3(other: ?*anyopaque) QtC.KAboutComponent {
-        return qtc.KAboutComponent_new3(@ptrCast(other));
+    pub fn New3(other: anytype) KAboutComponent {
+        comptime _ = @TypeOf(other)._is_KAboutComponent;
+        return .{ .ptr = qtc.KAboutComponent_new3(@ptrCast(other.ptr)) };
     }
 
     /// New4 constructs a new KAboutComponent object.
@@ -482,13 +519,12 @@ pub const kaboutcomponent = struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn New4(name: []const u8) QtC.KAboutComponent {
+    pub fn New4(name: []const u8) KAboutComponent {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-
-        return qtc.KAboutComponent_new4(name_str);
+        return .{ .ptr = qtc.KAboutComponent_new4(name_str) };
     }
 
     /// New5 constructs a new KAboutComponent object.
@@ -499,7 +535,7 @@ pub const kaboutcomponent = struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn New5(name: []const u8, description: []const u8) QtC.KAboutComponent {
+    pub fn New5(name: []const u8, description: []const u8) KAboutComponent {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -508,8 +544,7 @@ pub const kaboutcomponent = struct {
             .len = description.len,
             .data = description.ptr,
         };
-
-        return qtc.KAboutComponent_new5(name_str, description_str);
+        return .{ .ptr = qtc.KAboutComponent_new5(name_str, description_str) };
     }
 
     /// New6 constructs a new KAboutComponent object.
@@ -522,7 +557,7 @@ pub const kaboutcomponent = struct {
     ///
     /// ` version: []const u8 `
     ///
-    pub fn New6(name: []const u8, description: []const u8, version: []const u8) QtC.KAboutComponent {
+    pub fn New6(name: []const u8, description: []const u8, version: []const u8) KAboutComponent {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -535,8 +570,7 @@ pub const kaboutcomponent = struct {
             .len = version.len,
             .data = version.ptr,
         };
-
-        return qtc.KAboutComponent_new6(name_str, description_str, version_str);
+        return .{ .ptr = qtc.KAboutComponent_new6(name_str, description_str, version_str) };
     }
 
     /// New7 constructs a new KAboutComponent object.
@@ -551,7 +585,7 @@ pub const kaboutcomponent = struct {
     ///
     /// ` webAddress: []const u8 `
     ///
-    pub fn New7(name: []const u8, description: []const u8, version: []const u8, webAddress: []const u8) QtC.KAboutComponent {
+    pub fn New7(name: []const u8, description: []const u8, version: []const u8, webAddress: []const u8) KAboutComponent {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -568,8 +602,7 @@ pub const kaboutcomponent = struct {
             .len = webAddress.len,
             .data = webAddress.ptr,
         };
-
-        return qtc.KAboutComponent_new7(name_str, description_str, version_str, webAddress_str);
+        return .{ .ptr = qtc.KAboutComponent_new7(name_str, description_str, version_str, webAddress_str) };
     }
 
     /// New8 constructs a new KAboutComponent object.
@@ -586,7 +619,7 @@ pub const kaboutcomponent = struct {
     ///
     /// ` licenseType: kaboutdata_enums.LicenseKey `
     ///
-    pub fn New8(name: []const u8, description: []const u8, version: []const u8, webAddress: []const u8, licenseType: i32) QtC.KAboutComponent {
+    pub fn New8(name: []const u8, description: []const u8, version: []const u8, webAddress: []const u8, licenseType: i32) KAboutComponent {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -603,32 +636,32 @@ pub const kaboutcomponent = struct {
             .len = webAddress.len,
             .data = webAddress.ptr,
         };
-
-        return qtc.KAboutComponent_new8(name_str, description_str, version_str, webAddress_str, @bitCast(licenseType));
+        return .{ .ptr = qtc.KAboutComponent_new8(name_str, description_str, version_str, webAddress_str, @bitCast(licenseType)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutcomponent.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutComponent `
+    /// ` self: KAboutComponent `
     ///
-    /// ` other: QtC.KAboutComponent `
+    /// ` other: KAboutComponent `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.KAboutComponent_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorAssign(self: KAboutComponent, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_KAboutComponent;
+        qtc.KAboutComponent_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutcomponent.html#name)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutComponent `
+    /// ` self: KAboutComponent `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KAboutComponent_Name(@ptrCast(self));
+    pub fn Name(self: KAboutComponent, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KAboutComponent_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutcomponent.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -639,12 +672,12 @@ pub const kaboutcomponent = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutComponent `
+    /// ` self: KAboutComponent `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KAboutComponent_Description(@ptrCast(self));
+    pub fn Description(self: KAboutComponent, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KAboutComponent_Description(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutcomponent.Description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -655,12 +688,12 @@ pub const kaboutcomponent = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutComponent `
+    /// ` self: KAboutComponent `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Version(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KAboutComponent_Version(@ptrCast(self));
+    pub fn Version(self: KAboutComponent, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KAboutComponent_Version(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutcomponent.Version: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -671,12 +704,12 @@ pub const kaboutcomponent = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutComponent `
+    /// ` self: KAboutComponent `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WebAddress(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KAboutComponent_WebAddress(@ptrCast(self));
+    pub fn WebAddress(self: KAboutComponent, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KAboutComponent_WebAddress(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutcomponent.WebAddress: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -687,10 +720,10 @@ pub const kaboutcomponent = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutComponent `
+    /// ` self: KAboutComponent `
     ///
-    pub fn License(self: ?*anyopaque) QtC.KAboutLicense {
-        return qtc.KAboutComponent_License(@ptrCast(self));
+    pub fn License(self: KAboutComponent) KAboutLicense {
+        return .{ .ptr = qtc.KAboutComponent_License(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -703,15 +736,23 @@ pub const kaboutcomponent = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KAboutComponent `
+    /// ` self: KAboutComponent `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KAboutComponent_Delete(@ptrCast(self));
+    pub fn Delete(self: KAboutComponent) void {
+        qtc.KAboutComponent_Delete(@ptrCast(self.ptr));
     }
 };
 
 /// ### [Upstream resources](https://api.kde.org/kaboutdata.html)
-pub const kaboutdata = struct {
+pub const KAboutData = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kaboutdata.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KAboutData,
+
+    pub const _is_KAboutData = {};
+
     /// New constructs a new KAboutData object.
     ///
     /// ## Parameter(s):
@@ -726,7 +767,7 @@ pub const kaboutdata = struct {
     ///
     /// ` licenseType: kaboutdata_enums.LicenseKey `
     ///
-    pub fn New(componentName: []const u8, displayName: []const u8, version: []const u8, shortDescription: []const u8, licenseType: i32) QtC.KAboutData {
+    pub fn New(componentName: []const u8, displayName: []const u8, version: []const u8, shortDescription: []const u8, licenseType: i32) KAboutData {
         const componentName_str = qtc.libqt_string{
             .len = componentName.len,
             .data = componentName.ptr,
@@ -743,24 +784,24 @@ pub const kaboutdata = struct {
             .len = shortDescription.len,
             .data = shortDescription.ptr,
         };
-
-        return qtc.KAboutData_new(componentName_str, displayName_str, version_str, shortDescription_str, @bitCast(licenseType));
+        return .{ .ptr = qtc.KAboutData_new(componentName_str, displayName_str, version_str, shortDescription_str, @bitCast(licenseType)) };
     }
 
     /// New2 constructs a new KAboutData object.
     ///
-    pub fn New2() QtC.KAboutData {
-        return qtc.KAboutData_new2();
+    pub fn New2() KAboutData {
+        return .{ .ptr = qtc.KAboutData_new2() };
     }
 
     /// New3 constructs a new KAboutData object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.KAboutData `
+    /// ` other: KAboutData `
     ///
-    pub fn New3(other: ?*anyopaque) QtC.KAboutData {
-        return qtc.KAboutData_new3(@ptrCast(other));
+    pub fn New3(other: anytype) KAboutData {
+        comptime _ = @TypeOf(other)._is_KAboutData;
+        return .{ .ptr = qtc.KAboutData_new3(@ptrCast(other.ptr)) };
     }
 
     /// New4 constructs a new KAboutData object.
@@ -779,7 +820,7 @@ pub const kaboutdata = struct {
     ///
     /// ` copyrightStatement: []const u8 `
     ///
-    pub fn New4(componentName: []const u8, displayName: []const u8, version: []const u8, shortDescription: []const u8, licenseType: i32, copyrightStatement: []const u8) QtC.KAboutData {
+    pub fn New4(componentName: []const u8, displayName: []const u8, version: []const u8, shortDescription: []const u8, licenseType: i32, copyrightStatement: []const u8) KAboutData {
         const componentName_str = qtc.libqt_string{
             .len = componentName.len,
             .data = componentName.ptr,
@@ -800,8 +841,7 @@ pub const kaboutdata = struct {
             .len = copyrightStatement.len,
             .data = copyrightStatement.ptr,
         };
-
-        return qtc.KAboutData_new4(componentName_str, displayName_str, version_str, shortDescription_str, @bitCast(licenseType), copyrightStatement_str);
+        return .{ .ptr = qtc.KAboutData_new4(componentName_str, displayName_str, version_str, shortDescription_str, @bitCast(licenseType), copyrightStatement_str) };
     }
 
     /// New5 constructs a new KAboutData object.
@@ -822,7 +862,7 @@ pub const kaboutdata = struct {
     ///
     /// ` otherText: []const u8 `
     ///
-    pub fn New5(componentName: []const u8, displayName: []const u8, version: []const u8, shortDescription: []const u8, licenseType: i32, copyrightStatement: []const u8, otherText: []const u8) QtC.KAboutData {
+    pub fn New5(componentName: []const u8, displayName: []const u8, version: []const u8, shortDescription: []const u8, licenseType: i32, copyrightStatement: []const u8, otherText: []const u8) KAboutData {
         const componentName_str = qtc.libqt_string{
             .len = componentName.len,
             .data = componentName.ptr,
@@ -847,8 +887,7 @@ pub const kaboutdata = struct {
             .len = otherText.len,
             .data = otherText.ptr,
         };
-
-        return qtc.KAboutData_new5(componentName_str, displayName_str, version_str, shortDescription_str, @bitCast(licenseType), copyrightStatement_str, otherText_str);
+        return .{ .ptr = qtc.KAboutData_new5(componentName_str, displayName_str, version_str, shortDescription_str, @bitCast(licenseType), copyrightStatement_str, otherText_str) };
     }
 
     /// New6 constructs a new KAboutData object.
@@ -871,7 +910,7 @@ pub const kaboutdata = struct {
     ///
     /// ` homePageAddress: []const u8 `
     ///
-    pub fn New6(componentName: []const u8, displayName: []const u8, version: []const u8, shortDescription: []const u8, licenseType: i32, copyrightStatement: []const u8, otherText: []const u8, homePageAddress: []const u8) QtC.KAboutData {
+    pub fn New6(componentName: []const u8, displayName: []const u8, version: []const u8, shortDescription: []const u8, licenseType: i32, copyrightStatement: []const u8, otherText: []const u8, homePageAddress: []const u8) KAboutData {
         const componentName_str = qtc.libqt_string{
             .len = componentName.len,
             .data = componentName.ptr,
@@ -900,8 +939,7 @@ pub const kaboutdata = struct {
             .len = homePageAddress.len,
             .data = homePageAddress.ptr,
         };
-
-        return qtc.KAboutData_new6(componentName_str, displayName_str, version_str, shortDescription_str, @bitCast(licenseType), copyrightStatement_str, otherText_str, homePageAddress_str);
+        return .{ .ptr = qtc.KAboutData_new6(componentName_str, displayName_str, version_str, shortDescription_str, @bitCast(licenseType), copyrightStatement_str, otherText_str, homePageAddress_str) };
     }
 
     /// New7 constructs a new KAboutData object.
@@ -926,7 +964,7 @@ pub const kaboutdata = struct {
     ///
     /// ` bugAddress: []const u8 `
     ///
-    pub fn New7(componentName: []const u8, displayName: []const u8, version: []const u8, shortDescription: []const u8, licenseType: i32, copyrightStatement: []const u8, otherText: []const u8, homePageAddress: []const u8, bugAddress: []const u8) QtC.KAboutData {
+    pub fn New7(componentName: []const u8, displayName: []const u8, version: []const u8, shortDescription: []const u8, licenseType: i32, copyrightStatement: []const u8, otherText: []const u8, homePageAddress: []const u8, bugAddress: []const u8) KAboutData {
         const componentName_str = qtc.libqt_string{
             .len = componentName.len,
             .data = componentName.ptr,
@@ -959,8 +997,7 @@ pub const kaboutdata = struct {
             .len = bugAddress.len,
             .data = bugAddress.ptr,
         };
-
-        return qtc.KAboutData_new7(componentName_str, displayName_str, version_str, shortDescription_str, @bitCast(licenseType), copyrightStatement_str, otherText_str, homePageAddress_str, bugAddress_str);
+        return .{ .ptr = qtc.KAboutData_new7(componentName_str, displayName_str, version_str, shortDescription_str, @bitCast(licenseType), copyrightStatement_str, otherText_str, homePageAddress_str, bugAddress_str) };
     }
 
     /// New8 constructs a new KAboutData object.
@@ -969,13 +1006,12 @@ pub const kaboutdata = struct {
     ///
     /// ` componentName: []const u8 `
     ///
-    pub fn New8(componentName: []const u8) QtC.KAboutData {
+    pub fn New8(componentName: []const u8) KAboutData {
         const componentName_str = qtc.libqt_string{
             .len = componentName.len,
             .data = componentName.ptr,
         };
-
-        return qtc.KAboutData_new8(componentName_str);
+        return .{ .ptr = qtc.KAboutData_new8(componentName_str) };
     }
 
     /// New9 constructs a new KAboutData object.
@@ -986,7 +1022,7 @@ pub const kaboutdata = struct {
     ///
     /// ` displayName: []const u8 `
     ///
-    pub fn New9(componentName: []const u8, displayName: []const u8) QtC.KAboutData {
+    pub fn New9(componentName: []const u8, displayName: []const u8) KAboutData {
         const componentName_str = qtc.libqt_string{
             .len = componentName.len,
             .data = componentName.ptr,
@@ -995,8 +1031,7 @@ pub const kaboutdata = struct {
             .len = displayName.len,
             .data = displayName.ptr,
         };
-
-        return qtc.KAboutData_new9(componentName_str, displayName_str);
+        return .{ .ptr = qtc.KAboutData_new9(componentName_str, displayName_str) };
     }
 
     /// New10 constructs a new KAboutData object.
@@ -1009,7 +1044,7 @@ pub const kaboutdata = struct {
     ///
     /// ` version: []const u8 `
     ///
-    pub fn New10(componentName: []const u8, displayName: []const u8, version: []const u8) QtC.KAboutData {
+    pub fn New10(componentName: []const u8, displayName: []const u8, version: []const u8) KAboutData {
         const componentName_str = qtc.libqt_string{
             .len = componentName.len,
             .data = componentName.ptr,
@@ -1022,71 +1057,73 @@ pub const kaboutdata = struct {
             .len = version.len,
             .data = version.ptr,
         };
-
-        return qtc.KAboutData_new10(componentName_str, displayName_str, version_str);
+        return .{ .ptr = qtc.KAboutData_new10(componentName_str, displayName_str, version_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#applicationData)
     ///
-    pub fn ApplicationData() QtC.KAboutData {
-        return qtc.KAboutData_ApplicationData();
+    pub fn ApplicationData() KAboutData {
+        return .{ .ptr = qtc.KAboutData_ApplicationData() };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#setApplicationData)
     ///
     /// ## Parameter(s):
     ///
-    /// ` aboutData: QtC.KAboutData `
+    /// ` aboutData: KAboutData `
     ///
-    pub fn SetApplicationData(aboutData: ?*anyopaque) void {
-        qtc.KAboutData_SetApplicationData(@ptrCast(aboutData));
+    pub fn SetApplicationData(aboutData: anytype) void {
+        comptime _ = @TypeOf(aboutData)._is_KAboutData;
+        qtc.KAboutData_SetApplicationData(@ptrCast(aboutData.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
-    /// ` other: QtC.KAboutData `
+    /// ` other: KAboutData `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.KAboutData_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorAssign(self: KAboutData, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_KAboutData;
+        qtc.KAboutData_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#addAuthor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
-    /// ` author: QtC.KAboutPerson `
+    /// ` author: KAboutPerson `
     ///
-    pub fn AddAuthor(self: ?*anyopaque, author: ?*anyopaque) QtC.KAboutData {
-        return qtc.KAboutData_AddAuthor(@ptrCast(self), @ptrCast(author));
+    pub fn AddAuthor(self: KAboutData, author: anytype) KAboutData {
+        comptime _ = @TypeOf(author)._is_KAboutPerson;
+        return .{ .ptr = qtc.KAboutData_AddAuthor(@ptrCast(self.ptr), @ptrCast(author.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#addAuthor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn AddAuthor2(self: ?*anyopaque, name: []const u8) QtC.KAboutData {
+    pub fn AddAuthor2(self: KAboutData, name: []const u8) KAboutData {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.KAboutData_AddAuthor2(@ptrCast(self), name_str);
+        return .{ .ptr = qtc.KAboutData_AddAuthor2(@ptrCast(self.ptr), name_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#addAuthor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` name: []const u8 `
     ///
@@ -1098,7 +1135,7 @@ pub const kaboutdata = struct {
     ///
     /// ` kdeStoreUsername: []const u8 `
     ///
-    pub fn AddAuthor3(self: ?*anyopaque, name: []const u8, task: []const u8, emailAddress: []const u8, webAddress: []const u8, kdeStoreUsername: []const u8) QtC.KAboutData {
+    pub fn AddAuthor3(self: KAboutData, name: []const u8, task: []const u8, emailAddress: []const u8, webAddress: []const u8, kdeStoreUsername: []const u8) KAboutData {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1119,42 +1156,43 @@ pub const kaboutdata = struct {
             .len = kdeStoreUsername.len,
             .data = kdeStoreUsername.ptr,
         };
-        return qtc.KAboutData_AddAuthor3(@ptrCast(self), name_str, task_str, emailAddress_str, webAddress_str, kdeStoreUsername_str);
+        return .{ .ptr = qtc.KAboutData_AddAuthor3(@ptrCast(self.ptr), name_str, task_str, emailAddress_str, webAddress_str, kdeStoreUsername_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#addCredit)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
-    /// ` person: QtC.KAboutPerson `
+    /// ` person: KAboutPerson `
     ///
-    pub fn AddCredit(self: ?*anyopaque, person: ?*anyopaque) QtC.KAboutData {
-        return qtc.KAboutData_AddCredit(@ptrCast(self), @ptrCast(person));
+    pub fn AddCredit(self: KAboutData, person: anytype) KAboutData {
+        comptime _ = @TypeOf(person)._is_KAboutPerson;
+        return .{ .ptr = qtc.KAboutData_AddCredit(@ptrCast(self.ptr), @ptrCast(person.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#addCredit)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn AddCredit2(self: ?*anyopaque, name: []const u8) QtC.KAboutData {
+    pub fn AddCredit2(self: KAboutData, name: []const u8) KAboutData {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.KAboutData_AddCredit2(@ptrCast(self), name_str);
+        return .{ .ptr = qtc.KAboutData_AddCredit2(@ptrCast(self.ptr), name_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#addCredit)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` name: []const u8 `
     ///
@@ -1166,7 +1204,7 @@ pub const kaboutdata = struct {
     ///
     /// ` kdeStoreUsername: []const u8 `
     ///
-    pub fn AddCredit3(self: ?*anyopaque, name: []const u8, task: []const u8, emailAddress: []const u8, webAddress: []const u8, kdeStoreUsername: []const u8) QtC.KAboutData {
+    pub fn AddCredit3(self: KAboutData, name: []const u8, task: []const u8, emailAddress: []const u8, webAddress: []const u8, kdeStoreUsername: []const u8) KAboutData {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1187,20 +1225,20 @@ pub const kaboutdata = struct {
             .len = kdeStoreUsername.len,
             .data = kdeStoreUsername.ptr,
         };
-        return qtc.KAboutData_AddCredit3(@ptrCast(self), name_str, task_str, emailAddress_str, webAddress_str, kdeStoreUsername_str);
+        return .{ .ptr = qtc.KAboutData_AddCredit3(@ptrCast(self.ptr), name_str, task_str, emailAddress_str, webAddress_str, kdeStoreUsername_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#setTranslator)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` name: []const u8 `
     ///
     /// ` emailAddress: []const u8 `
     ///
-    pub fn SetTranslator(self: ?*anyopaque, name: []const u8, emailAddress: []const u8) QtC.KAboutData {
+    pub fn SetTranslator(self: KAboutData, name: []const u8, emailAddress: []const u8) KAboutData {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1209,42 +1247,43 @@ pub const kaboutdata = struct {
             .len = emailAddress.len,
             .data = emailAddress.ptr,
         };
-        return qtc.KAboutData_SetTranslator(@ptrCast(self), name_str, emailAddress_str);
+        return .{ .ptr = qtc.KAboutData_SetTranslator(@ptrCast(self.ptr), name_str, emailAddress_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#addComponent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
-    /// ` component: QtC.KAboutComponent `
+    /// ` component: KAboutComponent `
     ///
-    pub fn AddComponent(self: ?*anyopaque, component: ?*anyopaque) QtC.KAboutData {
-        return qtc.KAboutData_AddComponent(@ptrCast(self), @ptrCast(component));
+    pub fn AddComponent(self: KAboutData, component: anytype) KAboutData {
+        comptime _ = @TypeOf(component)._is_KAboutComponent;
+        return .{ .ptr = qtc.KAboutData_AddComponent(@ptrCast(self.ptr), @ptrCast(component.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#addComponent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn AddComponent2(self: ?*anyopaque, name: []const u8) QtC.KAboutData {
+    pub fn AddComponent2(self: KAboutData, name: []const u8) KAboutData {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.KAboutData_AddComponent2(@ptrCast(self), name_str);
+        return .{ .ptr = qtc.KAboutData_AddComponent2(@ptrCast(self.ptr), name_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#addComponent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` name: []const u8 `
     ///
@@ -1256,7 +1295,7 @@ pub const kaboutdata = struct {
     ///
     /// ` pathToLicenseFile: []const u8 `
     ///
-    pub fn AddComponent3(self: ?*anyopaque, name: []const u8, description: []const u8, version: []const u8, webAddress: []const u8, pathToLicenseFile: []const u8) QtC.KAboutData {
+    pub fn AddComponent3(self: KAboutData, name: []const u8, description: []const u8, version: []const u8, webAddress: []const u8, pathToLicenseFile: []const u8) KAboutData {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1277,307 +1316,308 @@ pub const kaboutdata = struct {
             .len = pathToLicenseFile.len,
             .data = pathToLicenseFile.ptr,
         };
-        return qtc.KAboutData_AddComponent3(@ptrCast(self), name_str, description_str, version_str, webAddress_str, pathToLicenseFile_str);
+        return .{ .ptr = qtc.KAboutData_AddComponent3(@ptrCast(self.ptr), name_str, description_str, version_str, webAddress_str, pathToLicenseFile_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#setLicenseText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` license: []const u8 `
     ///
-    pub fn SetLicenseText(self: ?*anyopaque, license: []const u8) QtC.KAboutData {
+    pub fn SetLicenseText(self: KAboutData, license: []const u8) KAboutData {
         const license_str = qtc.libqt_string{
             .len = license.len,
             .data = license.ptr,
         };
-        return qtc.KAboutData_SetLicenseText(@ptrCast(self), license_str);
+        return .{ .ptr = qtc.KAboutData_SetLicenseText(@ptrCast(self.ptr), license_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#addLicenseText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` license: []const u8 `
     ///
-    pub fn AddLicenseText(self: ?*anyopaque, license: []const u8) QtC.KAboutData {
+    pub fn AddLicenseText(self: KAboutData, license: []const u8) KAboutData {
         const license_str = qtc.libqt_string{
             .len = license.len,
             .data = license.ptr,
         };
-        return qtc.KAboutData_AddLicenseText(@ptrCast(self), license_str);
+        return .{ .ptr = qtc.KAboutData_AddLicenseText(@ptrCast(self.ptr), license_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#setLicenseTextFile)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` file: []const u8 `
     ///
-    pub fn SetLicenseTextFile(self: ?*anyopaque, file: []const u8) QtC.KAboutData {
+    pub fn SetLicenseTextFile(self: KAboutData, file: []const u8) KAboutData {
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
         };
-        return qtc.KAboutData_SetLicenseTextFile(@ptrCast(self), file_str);
+        return .{ .ptr = qtc.KAboutData_SetLicenseTextFile(@ptrCast(self.ptr), file_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#addLicenseTextFile)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` file: []const u8 `
     ///
-    pub fn AddLicenseTextFile(self: ?*anyopaque, file: []const u8) QtC.KAboutData {
+    pub fn AddLicenseTextFile(self: KAboutData, file: []const u8) KAboutData {
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
         };
-        return qtc.KAboutData_AddLicenseTextFile(@ptrCast(self), file_str);
+        return .{ .ptr = qtc.KAboutData_AddLicenseTextFile(@ptrCast(self.ptr), file_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#setComponentName)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` componentName: []const u8 `
     ///
-    pub fn SetComponentName(self: ?*anyopaque, componentName: []const u8) QtC.KAboutData {
+    pub fn SetComponentName(self: KAboutData, componentName: []const u8) KAboutData {
         const componentName_str = qtc.libqt_string{
             .len = componentName.len,
             .data = componentName.ptr,
         };
-        return qtc.KAboutData_SetComponentName(@ptrCast(self), componentName_str);
+        return .{ .ptr = qtc.KAboutData_SetComponentName(@ptrCast(self.ptr), componentName_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#setDisplayName)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` displayName: []const u8 `
     ///
-    pub fn SetDisplayName(self: ?*anyopaque, displayName: []const u8) QtC.KAboutData {
+    pub fn SetDisplayName(self: KAboutData, displayName: []const u8) KAboutData {
         const displayName_str = qtc.libqt_string{
             .len = displayName.len,
             .data = displayName.ptr,
         };
-        return qtc.KAboutData_SetDisplayName(@ptrCast(self), displayName_str);
+        return .{ .ptr = qtc.KAboutData_SetDisplayName(@ptrCast(self.ptr), displayName_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#setProgramLogo)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
-    /// ` image: QtC.QVariant `
+    /// ` image: QVariant `
     ///
-    pub fn SetProgramLogo(self: ?*anyopaque, image: ?*anyopaque) QtC.KAboutData {
-        return qtc.KAboutData_SetProgramLogo(@ptrCast(self), @ptrCast(image));
+    pub fn SetProgramLogo(self: KAboutData, image: anytype) KAboutData {
+        comptime _ = @TypeOf(image)._is_QVariant;
+        return .{ .ptr = qtc.KAboutData_SetProgramLogo(@ptrCast(self.ptr), @ptrCast(image.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#setVersion)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` version: []u8 `
     ///
-    pub fn SetVersion(self: ?*anyopaque, version: []u8) QtC.KAboutData {
+    pub fn SetVersion(self: KAboutData, version: []u8) KAboutData {
         const version_str = qtc.libqt_string{
             .len = version.len,
             .data = version.ptr,
         };
-        return qtc.KAboutData_SetVersion(@ptrCast(self), version_str);
+        return .{ .ptr = qtc.KAboutData_SetVersion(@ptrCast(self.ptr), version_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#setShortDescription)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` shortDescription: []const u8 `
     ///
-    pub fn SetShortDescription(self: ?*anyopaque, shortDescription: []const u8) QtC.KAboutData {
+    pub fn SetShortDescription(self: KAboutData, shortDescription: []const u8) KAboutData {
         const shortDescription_str = qtc.libqt_string{
             .len = shortDescription.len,
             .data = shortDescription.ptr,
         };
-        return qtc.KAboutData_SetShortDescription(@ptrCast(self), shortDescription_str);
+        return .{ .ptr = qtc.KAboutData_SetShortDescription(@ptrCast(self.ptr), shortDescription_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#setLicense)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` licenseKey: kaboutdata_enums.LicenseKey `
     ///
-    pub fn SetLicense(self: ?*anyopaque, licenseKey: i32) QtC.KAboutData {
-        return qtc.KAboutData_SetLicense(@ptrCast(self), @bitCast(licenseKey));
+    pub fn SetLicense(self: KAboutData, licenseKey: i32) KAboutData {
+        return .{ .ptr = qtc.KAboutData_SetLicense(@ptrCast(self.ptr), @bitCast(licenseKey)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#setLicense)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` licenseKey: kaboutdata_enums.LicenseKey `
     ///
     /// ` versionRestriction: kaboutdata_enums.VersionRestriction `
     ///
-    pub fn SetLicense2(self: ?*anyopaque, licenseKey: i32, versionRestriction: i32) QtC.KAboutData {
-        return qtc.KAboutData_SetLicense2(@ptrCast(self), @bitCast(licenseKey), @bitCast(versionRestriction));
+    pub fn SetLicense2(self: KAboutData, licenseKey: i32, versionRestriction: i32) KAboutData {
+        return .{ .ptr = qtc.KAboutData_SetLicense2(@ptrCast(self.ptr), @bitCast(licenseKey), @bitCast(versionRestriction)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#addLicense)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` licenseKey: kaboutdata_enums.LicenseKey `
     ///
-    pub fn AddLicense(self: ?*anyopaque, licenseKey: i32) QtC.KAboutData {
-        return qtc.KAboutData_AddLicense(@ptrCast(self), @bitCast(licenseKey));
+    pub fn AddLicense(self: KAboutData, licenseKey: i32) KAboutData {
+        return .{ .ptr = qtc.KAboutData_AddLicense(@ptrCast(self.ptr), @bitCast(licenseKey)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#addLicense)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` licenseKey: kaboutdata_enums.LicenseKey `
     ///
     /// ` versionRestriction: kaboutdata_enums.VersionRestriction `
     ///
-    pub fn AddLicense2(self: ?*anyopaque, licenseKey: i32, versionRestriction: i32) QtC.KAboutData {
-        return qtc.KAboutData_AddLicense2(@ptrCast(self), @bitCast(licenseKey), @bitCast(versionRestriction));
+    pub fn AddLicense2(self: KAboutData, licenseKey: i32, versionRestriction: i32) KAboutData {
+        return .{ .ptr = qtc.KAboutData_AddLicense2(@ptrCast(self.ptr), @bitCast(licenseKey), @bitCast(versionRestriction)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#setCopyrightStatement)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` copyrightStatement: []const u8 `
     ///
-    pub fn SetCopyrightStatement(self: ?*anyopaque, copyrightStatement: []const u8) QtC.KAboutData {
+    pub fn SetCopyrightStatement(self: KAboutData, copyrightStatement: []const u8) KAboutData {
         const copyrightStatement_str = qtc.libqt_string{
             .len = copyrightStatement.len,
             .data = copyrightStatement.ptr,
         };
-        return qtc.KAboutData_SetCopyrightStatement(@ptrCast(self), copyrightStatement_str);
+        return .{ .ptr = qtc.KAboutData_SetCopyrightStatement(@ptrCast(self.ptr), copyrightStatement_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#setOtherText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` otherText: []const u8 `
     ///
-    pub fn SetOtherText(self: ?*anyopaque, otherText: []const u8) QtC.KAboutData {
+    pub fn SetOtherText(self: KAboutData, otherText: []const u8) KAboutData {
         const otherText_str = qtc.libqt_string{
             .len = otherText.len,
             .data = otherText.ptr,
         };
-        return qtc.KAboutData_SetOtherText(@ptrCast(self), otherText_str);
+        return .{ .ptr = qtc.KAboutData_SetOtherText(@ptrCast(self.ptr), otherText_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#setHomepage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` homepage: []const u8 `
     ///
-    pub fn SetHomepage(self: ?*anyopaque, homepage: []const u8) QtC.KAboutData {
+    pub fn SetHomepage(self: KAboutData, homepage: []const u8) KAboutData {
         const homepage_str = qtc.libqt_string{
             .len = homepage.len,
             .data = homepage.ptr,
         };
-        return qtc.KAboutData_SetHomepage(@ptrCast(self), homepage_str);
+        return .{ .ptr = qtc.KAboutData_SetHomepage(@ptrCast(self.ptr), homepage_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#setBugAddress)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` bugAddress: []u8 `
     ///
-    pub fn SetBugAddress(self: ?*anyopaque, bugAddress: []u8) QtC.KAboutData {
+    pub fn SetBugAddress(self: KAboutData, bugAddress: []u8) KAboutData {
         const bugAddress_str = qtc.libqt_string{
             .len = bugAddress.len,
             .data = bugAddress.ptr,
         };
-        return qtc.KAboutData_SetBugAddress(@ptrCast(self), bugAddress_str);
+        return .{ .ptr = qtc.KAboutData_SetBugAddress(@ptrCast(self.ptr), bugAddress_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#setOrganizationDomain)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` domain: []u8 `
     ///
-    pub fn SetOrganizationDomain(self: ?*anyopaque, domain: []u8) QtC.KAboutData {
+    pub fn SetOrganizationDomain(self: KAboutData, domain: []u8) KAboutData {
         const domain_str = qtc.libqt_string{
             .len = domain.len,
             .data = domain.ptr,
         };
-        return qtc.KAboutData_SetOrganizationDomain(@ptrCast(self), domain_str);
+        return .{ .ptr = qtc.KAboutData_SetOrganizationDomain(@ptrCast(self.ptr), domain_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#setProductName)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` name: []u8 `
     ///
-    pub fn SetProductName(self: ?*anyopaque, name: []u8) QtC.KAboutData {
+    pub fn SetProductName(self: KAboutData, name: []u8) KAboutData {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.KAboutData_SetProductName(@ptrCast(self), name_str);
+        return .{ .ptr = qtc.KAboutData_SetProductName(@ptrCast(self.ptr), name_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#componentName)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ComponentName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KAboutData_ComponentName(@ptrCast(self));
+    pub fn ComponentName(self: KAboutData, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KAboutData_ComponentName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutdata.ComponentName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1588,12 +1628,12 @@ pub const kaboutdata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ProductName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KAboutData_ProductName(@ptrCast(self));
+    pub fn ProductName(self: KAboutData, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KAboutData_ProductName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutdata.ProductName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1604,10 +1644,10 @@ pub const kaboutdata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
-    pub fn InternalProductName(self: ?*anyopaque) [:0]const u8 {
-        const _ret = qtc.KAboutData_InternalProductName(@ptrCast(self));
+    pub fn InternalProductName(self: KAboutData) [:0]const u8 {
+        const _ret = qtc.KAboutData_InternalProductName(@ptrCast(self.ptr));
         return std.mem.span(_ret);
     }
 
@@ -1615,12 +1655,12 @@ pub const kaboutdata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DisplayName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KAboutData_DisplayName(@ptrCast(self));
+    pub fn DisplayName(self: KAboutData, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KAboutData_DisplayName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutdata.DisplayName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1631,12 +1671,12 @@ pub const kaboutdata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn OrganizationDomain(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KAboutData_OrganizationDomain(@ptrCast(self));
+    pub fn OrganizationDomain(self: KAboutData, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KAboutData_OrganizationDomain(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutdata.OrganizationDomain: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1647,10 +1687,10 @@ pub const kaboutdata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
-    pub fn InternalProgramName(self: ?*anyopaque) [:0]const u8 {
-        const _ret = qtc.KAboutData_InternalProgramName(@ptrCast(self));
+    pub fn InternalProgramName(self: KAboutData) [:0]const u8 {
+        const _ret = qtc.KAboutData_InternalProgramName(@ptrCast(self.ptr));
         return std.mem.span(_ret);
     }
 
@@ -1658,22 +1698,22 @@ pub const kaboutdata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
-    pub fn ProgramLogo(self: ?*anyopaque) QtC.QVariant {
-        return qtc.KAboutData_ProgramLogo(@ptrCast(self));
+    pub fn ProgramLogo(self: KAboutData) QVariant {
+        return .{ .ptr = qtc.KAboutData_ProgramLogo(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#version)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Version(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KAboutData_Version(@ptrCast(self));
+    pub fn Version(self: KAboutData, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KAboutData_Version(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutdata.Version: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1684,10 +1724,10 @@ pub const kaboutdata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
-    pub fn InternalVersion(self: ?*anyopaque) [:0]const u8 {
-        const _ret = qtc.KAboutData_InternalVersion(@ptrCast(self));
+    pub fn InternalVersion(self: KAboutData) [:0]const u8 {
+        const _ret = qtc.KAboutData_InternalVersion(@ptrCast(self.ptr));
         return std.mem.span(_ret);
     }
 
@@ -1695,12 +1735,12 @@ pub const kaboutdata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ShortDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KAboutData_ShortDescription(@ptrCast(self));
+    pub fn ShortDescription(self: KAboutData, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KAboutData_ShortDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutdata.ShortDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1711,12 +1751,12 @@ pub const kaboutdata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Homepage(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KAboutData_Homepage(@ptrCast(self));
+    pub fn Homepage(self: KAboutData, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KAboutData_Homepage(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutdata.Homepage: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1727,12 +1767,12 @@ pub const kaboutdata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn BugAddress(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KAboutData_BugAddress(@ptrCast(self));
+    pub fn BugAddress(self: KAboutData, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KAboutData_BugAddress(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutdata.BugAddress: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1743,10 +1783,10 @@ pub const kaboutdata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
-    pub fn InternalBugAddress(self: ?*anyopaque) [:0]const u8 {
-        const _ret = qtc.KAboutData_InternalBugAddress(@ptrCast(self));
+    pub fn InternalBugAddress(self: KAboutData) [:0]const u8 {
+        const _ret = qtc.KAboutData_InternalBugAddress(@ptrCast(self.ptr));
         return std.mem.span(_ret);
     }
 
@@ -1754,16 +1794,17 @@ pub const kaboutdata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Authors(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KAboutPerson {
-        const _arr: qtc.libqt_list = qtc.KAboutData_Authors(@ptrCast(self));
+    pub fn Authors(self: KAboutData, allocator: std.mem.Allocator) []KAboutPerson {
+        const _arr: qtc.libqt_list = qtc.KAboutData_Authors(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.KAboutPerson, _arr.len) catch @panic("kaboutdata.Authors: Memory allocation failed");
+        const _ret = allocator.alloc(KAboutPerson, _arr.len) catch @panic("kaboutdata.Authors: Memory allocation failed");
         const _data: [*]QtC.KAboutPerson = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1771,16 +1812,17 @@ pub const kaboutdata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Credits(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KAboutPerson {
-        const _arr: qtc.libqt_list = qtc.KAboutData_Credits(@ptrCast(self));
+    pub fn Credits(self: KAboutData, allocator: std.mem.Allocator) []KAboutPerson {
+        const _arr: qtc.libqt_list = qtc.KAboutData_Credits(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.KAboutPerson, _arr.len) catch @panic("kaboutdata.Credits: Memory allocation failed");
+        const _ret = allocator.alloc(KAboutPerson, _arr.len) catch @panic("kaboutdata.Credits: Memory allocation failed");
         const _data: [*]QtC.KAboutPerson = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1788,16 +1830,17 @@ pub const kaboutdata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Translators(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KAboutPerson {
-        const _arr: qtc.libqt_list = qtc.KAboutData_Translators(@ptrCast(self));
+    pub fn Translators(self: KAboutData, allocator: std.mem.Allocator) []KAboutPerson {
+        const _arr: qtc.libqt_list = qtc.KAboutData_Translators(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.KAboutPerson, _arr.len) catch @panic("kaboutdata.Translators: Memory allocation failed");
+        const _ret = allocator.alloc(KAboutPerson, _arr.len) catch @panic("kaboutdata.Translators: Memory allocation failed");
         const _data: [*]QtC.KAboutPerson = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1819,16 +1862,17 @@ pub const kaboutdata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Components(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KAboutComponent {
-        const _arr: qtc.libqt_list = qtc.KAboutData_Components(@ptrCast(self));
+    pub fn Components(self: KAboutData, allocator: std.mem.Allocator) []KAboutComponent {
+        const _arr: qtc.libqt_list = qtc.KAboutData_Components(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.KAboutComponent, _arr.len) catch @panic("kaboutdata.Components: Memory allocation failed");
+        const _ret = allocator.alloc(KAboutComponent, _arr.len) catch @panic("kaboutdata.Components: Memory allocation failed");
         const _data: [*]QtC.KAboutComponent = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1836,12 +1880,12 @@ pub const kaboutdata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn OtherText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KAboutData_OtherText(@ptrCast(self));
+    pub fn OtherText(self: KAboutData, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KAboutData_OtherText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutdata.OtherText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1852,16 +1896,17 @@ pub const kaboutdata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Licenses(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KAboutLicense {
-        const _arr: qtc.libqt_list = qtc.KAboutData_Licenses(@ptrCast(self));
+    pub fn Licenses(self: KAboutData, allocator: std.mem.Allocator) []KAboutLicense {
+        const _arr: qtc.libqt_list = qtc.KAboutData_Licenses(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.KAboutLicense, _arr.len) catch @panic("kaboutdata.Licenses: Memory allocation failed");
+        const _ret = allocator.alloc(KAboutLicense, _arr.len) catch @panic("kaboutdata.Licenses: Memory allocation failed");
         const _data: [*]QtC.KAboutLicense = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1869,12 +1914,12 @@ pub const kaboutdata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CopyrightStatement(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KAboutData_CopyrightStatement(@ptrCast(self));
+    pub fn CopyrightStatement(self: KAboutData, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KAboutData_CopyrightStatement(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutdata.CopyrightStatement: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1885,12 +1930,12 @@ pub const kaboutdata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CustomAuthorPlainText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KAboutData_CustomAuthorPlainText(@ptrCast(self));
+    pub fn CustomAuthorPlainText(self: KAboutData, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KAboutData_CustomAuthorPlainText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutdata.CustomAuthorPlainText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1901,12 +1946,12 @@ pub const kaboutdata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CustomAuthorRichText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KAboutData_CustomAuthorRichText(@ptrCast(self));
+    pub fn CustomAuthorRichText(self: KAboutData, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KAboutData_CustomAuthorRichText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutdata.CustomAuthorRichText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1917,23 +1962,23 @@ pub const kaboutdata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
-    pub fn CustomAuthorTextEnabled(self: ?*anyopaque) bool {
-        return qtc.KAboutData_CustomAuthorTextEnabled(@ptrCast(self));
+    pub fn CustomAuthorTextEnabled(self: KAboutData) bool {
+        return qtc.KAboutData_CustomAuthorTextEnabled(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#setCustomAuthorText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` plainText: []const u8 `
     ///
     /// ` richText: []const u8 `
     ///
-    pub fn SetCustomAuthorText(self: ?*anyopaque, plainText: []const u8, richText: []const u8) QtC.KAboutData {
+    pub fn SetCustomAuthorText(self: KAboutData, plainText: []const u8, richText: []const u8) KAboutData {
         const plainText_str = qtc.libqt_string{
             .len = plainText.len,
             .data = plainText.ptr,
@@ -1942,69 +1987,71 @@ pub const kaboutdata = struct {
             .len = richText.len,
             .data = richText.ptr,
         };
-        return qtc.KAboutData_SetCustomAuthorText(@ptrCast(self), plainText_str, richText_str);
+        return .{ .ptr = qtc.KAboutData_SetCustomAuthorText(@ptrCast(self.ptr), plainText_str, richText_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#unsetCustomAuthorText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
-    pub fn UnsetCustomAuthorText(self: ?*anyopaque) QtC.KAboutData {
-        return qtc.KAboutData_UnsetCustomAuthorText(@ptrCast(self));
+    pub fn UnsetCustomAuthorText(self: KAboutData) KAboutData {
+        return .{ .ptr = qtc.KAboutData_UnsetCustomAuthorText(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#setupCommandLine)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
-    /// ` parser: QtC.QCommandLineParser `
+    /// ` parser: QCommandLineParser `
     ///
-    pub fn SetupCommandLine(self: ?*anyopaque, parser: ?*anyopaque) bool {
-        return qtc.KAboutData_SetupCommandLine(@ptrCast(self), @ptrCast(parser));
+    pub fn SetupCommandLine(self: KAboutData, parser: anytype) bool {
+        comptime _ = @TypeOf(parser)._is_QCommandLineParser;
+        return qtc.KAboutData_SetupCommandLine(@ptrCast(self.ptr), @ptrCast(parser.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#processCommandLine)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
-    /// ` parser: QtC.QCommandLineParser `
+    /// ` parser: QCommandLineParser `
     ///
-    pub fn ProcessCommandLine(self: ?*anyopaque, parser: ?*anyopaque) void {
-        qtc.KAboutData_ProcessCommandLine(@ptrCast(self), @ptrCast(parser));
+    pub fn ProcessCommandLine(self: KAboutData, parser: anytype) void {
+        comptime _ = @TypeOf(parser)._is_QCommandLineParser;
+        qtc.KAboutData_ProcessCommandLine(@ptrCast(self.ptr), @ptrCast(parser.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#setDesktopFileName)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` desktopFileName: []const u8 `
     ///
-    pub fn SetDesktopFileName(self: ?*anyopaque, desktopFileName: []const u8) QtC.KAboutData {
+    pub fn SetDesktopFileName(self: KAboutData, desktopFileName: []const u8) KAboutData {
         const desktopFileName_str = qtc.libqt_string{
             .len = desktopFileName.len,
             .data = desktopFileName.ptr,
         };
-        return qtc.KAboutData_SetDesktopFileName(@ptrCast(self), desktopFileName_str);
+        return .{ .ptr = qtc.KAboutData_SetDesktopFileName(@ptrCast(self.ptr), desktopFileName_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#desktopFileName)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DesktopFileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KAboutData_DesktopFileName(@ptrCast(self));
+    pub fn DesktopFileName(self: KAboutData, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KAboutData_DesktopFileName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kaboutdata.DesktopFileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2015,13 +2062,13 @@ pub const kaboutdata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` name: []const u8 `
     ///
     /// ` task: []const u8 `
     ///
-    pub fn AddAuthor22(self: ?*anyopaque, name: []const u8, task: []const u8) QtC.KAboutData {
+    pub fn AddAuthor22(self: KAboutData, name: []const u8, task: []const u8) KAboutData {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -2030,14 +2077,14 @@ pub const kaboutdata = struct {
             .len = task.len,
             .data = task.ptr,
         };
-        return qtc.KAboutData_AddAuthor22(@ptrCast(self), name_str, task_str);
+        return .{ .ptr = qtc.KAboutData_AddAuthor22(@ptrCast(self.ptr), name_str, task_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#addAuthor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` name: []const u8 `
     ///
@@ -2045,7 +2092,7 @@ pub const kaboutdata = struct {
     ///
     /// ` emailAddress: []const u8 `
     ///
-    pub fn AddAuthor32(self: ?*anyopaque, name: []const u8, task: []const u8, emailAddress: []const u8) QtC.KAboutData {
+    pub fn AddAuthor32(self: KAboutData, name: []const u8, task: []const u8, emailAddress: []const u8) KAboutData {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -2058,14 +2105,14 @@ pub const kaboutdata = struct {
             .len = emailAddress.len,
             .data = emailAddress.ptr,
         };
-        return qtc.KAboutData_AddAuthor32(@ptrCast(self), name_str, task_str, emailAddress_str);
+        return .{ .ptr = qtc.KAboutData_AddAuthor32(@ptrCast(self.ptr), name_str, task_str, emailAddress_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#addAuthor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` name: []const u8 `
     ///
@@ -2075,7 +2122,7 @@ pub const kaboutdata = struct {
     ///
     /// ` webAddress: []const u8 `
     ///
-    pub fn AddAuthor4(self: ?*anyopaque, name: []const u8, task: []const u8, emailAddress: []const u8, webAddress: []const u8) QtC.KAboutData {
+    pub fn AddAuthor4(self: KAboutData, name: []const u8, task: []const u8, emailAddress: []const u8, webAddress: []const u8) KAboutData {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -2092,14 +2139,14 @@ pub const kaboutdata = struct {
             .len = webAddress.len,
             .data = webAddress.ptr,
         };
-        return qtc.KAboutData_AddAuthor4(@ptrCast(self), name_str, task_str, emailAddress_str, webAddress_str);
+        return .{ .ptr = qtc.KAboutData_AddAuthor4(@ptrCast(self.ptr), name_str, task_str, emailAddress_str, webAddress_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#addAuthor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` name: []const u8 `
     ///
@@ -2109,9 +2156,9 @@ pub const kaboutdata = struct {
     ///
     /// ` webAddress: []const u8 `
     ///
-    /// ` avatarUrl: QtC.QUrl `
+    /// ` avatarUrl: QUrl `
     ///
-    pub fn AddAuthor5(self: ?*anyopaque, name: []const u8, task: []const u8, emailAddress: []const u8, webAddress: []const u8, avatarUrl: ?*anyopaque) QtC.KAboutData {
+    pub fn AddAuthor5(self: KAboutData, name: []const u8, task: []const u8, emailAddress: []const u8, webAddress: []const u8, avatarUrl: anytype) KAboutData {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -2128,20 +2175,21 @@ pub const kaboutdata = struct {
             .len = webAddress.len,
             .data = webAddress.ptr,
         };
-        return qtc.KAboutData_AddAuthor5(@ptrCast(self), name_str, task_str, emailAddress_str, webAddress_str, @ptrCast(avatarUrl));
+        comptime _ = @TypeOf(avatarUrl)._is_QUrl;
+        return .{ .ptr = qtc.KAboutData_AddAuthor5(@ptrCast(self.ptr), name_str, task_str, emailAddress_str, webAddress_str, @ptrCast(avatarUrl.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#addCredit)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` name: []const u8 `
     ///
     /// ` task: []const u8 `
     ///
-    pub fn AddCredit22(self: ?*anyopaque, name: []const u8, task: []const u8) QtC.KAboutData {
+    pub fn AddCredit22(self: KAboutData, name: []const u8, task: []const u8) KAboutData {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -2150,14 +2198,14 @@ pub const kaboutdata = struct {
             .len = task.len,
             .data = task.ptr,
         };
-        return qtc.KAboutData_AddCredit22(@ptrCast(self), name_str, task_str);
+        return .{ .ptr = qtc.KAboutData_AddCredit22(@ptrCast(self.ptr), name_str, task_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#addCredit)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` name: []const u8 `
     ///
@@ -2165,7 +2213,7 @@ pub const kaboutdata = struct {
     ///
     /// ` emailAddress: []const u8 `
     ///
-    pub fn AddCredit32(self: ?*anyopaque, name: []const u8, task: []const u8, emailAddress: []const u8) QtC.KAboutData {
+    pub fn AddCredit32(self: KAboutData, name: []const u8, task: []const u8, emailAddress: []const u8) KAboutData {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -2178,14 +2226,14 @@ pub const kaboutdata = struct {
             .len = emailAddress.len,
             .data = emailAddress.ptr,
         };
-        return qtc.KAboutData_AddCredit32(@ptrCast(self), name_str, task_str, emailAddress_str);
+        return .{ .ptr = qtc.KAboutData_AddCredit32(@ptrCast(self.ptr), name_str, task_str, emailAddress_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#addCredit)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` name: []const u8 `
     ///
@@ -2195,7 +2243,7 @@ pub const kaboutdata = struct {
     ///
     /// ` webAddress: []const u8 `
     ///
-    pub fn AddCredit4(self: ?*anyopaque, name: []const u8, task: []const u8, emailAddress: []const u8, webAddress: []const u8) QtC.KAboutData {
+    pub fn AddCredit4(self: KAboutData, name: []const u8, task: []const u8, emailAddress: []const u8, webAddress: []const u8) KAboutData {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -2212,14 +2260,14 @@ pub const kaboutdata = struct {
             .len = webAddress.len,
             .data = webAddress.ptr,
         };
-        return qtc.KAboutData_AddCredit4(@ptrCast(self), name_str, task_str, emailAddress_str, webAddress_str);
+        return .{ .ptr = qtc.KAboutData_AddCredit4(@ptrCast(self.ptr), name_str, task_str, emailAddress_str, webAddress_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#addCredit)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` name: []const u8 `
     ///
@@ -2229,9 +2277,9 @@ pub const kaboutdata = struct {
     ///
     /// ` webAddress: []const u8 `
     ///
-    /// ` avatarUrl: QtC.QUrl `
+    /// ` avatarUrl: QUrl `
     ///
-    pub fn AddCredit5(self: ?*anyopaque, name: []const u8, task: []const u8, emailAddress: []const u8, webAddress: []const u8, avatarUrl: ?*anyopaque) QtC.KAboutData {
+    pub fn AddCredit5(self: KAboutData, name: []const u8, task: []const u8, emailAddress: []const u8, webAddress: []const u8, avatarUrl: anytype) KAboutData {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -2248,20 +2296,21 @@ pub const kaboutdata = struct {
             .len = webAddress.len,
             .data = webAddress.ptr,
         };
-        return qtc.KAboutData_AddCredit5(@ptrCast(self), name_str, task_str, emailAddress_str, webAddress_str, @ptrCast(avatarUrl));
+        comptime _ = @TypeOf(avatarUrl)._is_QUrl;
+        return .{ .ptr = qtc.KAboutData_AddCredit5(@ptrCast(self.ptr), name_str, task_str, emailAddress_str, webAddress_str, @ptrCast(avatarUrl.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#addComponent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` name: []const u8 `
     ///
     /// ` description: []const u8 `
     ///
-    pub fn AddComponent22(self: ?*anyopaque, name: []const u8, description: []const u8) QtC.KAboutData {
+    pub fn AddComponent22(self: KAboutData, name: []const u8, description: []const u8) KAboutData {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -2270,14 +2319,14 @@ pub const kaboutdata = struct {
             .len = description.len,
             .data = description.ptr,
         };
-        return qtc.KAboutData_AddComponent22(@ptrCast(self), name_str, description_str);
+        return .{ .ptr = qtc.KAboutData_AddComponent22(@ptrCast(self.ptr), name_str, description_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#addComponent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` name: []const u8 `
     ///
@@ -2285,7 +2334,7 @@ pub const kaboutdata = struct {
     ///
     /// ` version: []const u8 `
     ///
-    pub fn AddComponent32(self: ?*anyopaque, name: []const u8, description: []const u8, version: []const u8) QtC.KAboutData {
+    pub fn AddComponent32(self: KAboutData, name: []const u8, description: []const u8, version: []const u8) KAboutData {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -2298,14 +2347,14 @@ pub const kaboutdata = struct {
             .len = version.len,
             .data = version.ptr,
         };
-        return qtc.KAboutData_AddComponent32(@ptrCast(self), name_str, description_str, version_str);
+        return .{ .ptr = qtc.KAboutData_AddComponent32(@ptrCast(self.ptr), name_str, description_str, version_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#addComponent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` name: []const u8 `
     ///
@@ -2315,7 +2364,7 @@ pub const kaboutdata = struct {
     ///
     /// ` webAddress: []const u8 `
     ///
-    pub fn AddComponent4(self: ?*anyopaque, name: []const u8, description: []const u8, version: []const u8, webAddress: []const u8) QtC.KAboutData {
+    pub fn AddComponent4(self: KAboutData, name: []const u8, description: []const u8, version: []const u8, webAddress: []const u8) KAboutData {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -2332,14 +2381,14 @@ pub const kaboutdata = struct {
             .len = webAddress.len,
             .data = webAddress.ptr,
         };
-        return qtc.KAboutData_AddComponent4(@ptrCast(self), name_str, description_str, version_str, webAddress_str);
+        return .{ .ptr = qtc.KAboutData_AddComponent4(@ptrCast(self.ptr), name_str, description_str, version_str, webAddress_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#addComponent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
     /// ` name: []const u8 `
     ///
@@ -2351,7 +2400,7 @@ pub const kaboutdata = struct {
     ///
     /// ` licenseKey: kaboutdata_enums.LicenseKey `
     ///
-    pub fn AddComponent5(self: ?*anyopaque, name: []const u8, description: []const u8, version: []const u8, webAddress: []const u8, licenseKey: i32) QtC.KAboutData {
+    pub fn AddComponent5(self: KAboutData, name: []const u8, description: []const u8, version: []const u8, webAddress: []const u8, licenseKey: i32) KAboutData {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -2368,7 +2417,7 @@ pub const kaboutdata = struct {
             .len = webAddress.len,
             .data = webAddress.ptr,
         };
-        return qtc.KAboutData_AddComponent5(@ptrCast(self), name_str, description_str, version_str, webAddress_str, @bitCast(licenseKey));
+        return .{ .ptr = qtc.KAboutData_AddComponent5(@ptrCast(self.ptr), name_str, description_str, version_str, webAddress_str, @bitCast(licenseKey)) };
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -2381,10 +2430,10 @@ pub const kaboutdata = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KAboutData `
+    /// ` self: KAboutData `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KAboutData_Delete(@ptrCast(self));
+    pub fn Delete(self: KAboutData) void {
+        qtc.KAboutData_Delete(@ptrCast(self.ptr));
     }
 };
 

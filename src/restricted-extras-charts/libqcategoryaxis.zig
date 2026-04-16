@@ -1,5 +1,19 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QBrush = @import("libqt6").QBrush;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QColor = @import("libqt6").QColor;
+const QEvent = @import("libqt6").QEvent;
+const QFont = @import("libqt6").QFont;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QPen = @import("libqt6").QPen;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
 const qabstractaxis_enums = @import("libqabstractaxis.zig").enums;
 const qcategoryaxis_enums = enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
@@ -8,31 +22,43 @@ const qvalueaxis_enums = @import("libqvalueaxis.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html)
-pub const qcategoryaxis = struct {
+pub const QCategoryAxis = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QCategoryAxis,
+
+    pub const _is_QCategoryAxis = {};
+    pub const _is_QValueAxis = {};
+    pub const _is_QAbstractAxis = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new QCategoryAxis object.
     ///
-    pub fn New() QtC.QCategoryAxis {
-        return qtc.QCategoryAxis_new();
+    pub fn New() QCategoryAxis {
+        return .{ .ptr = qtc.QCategoryAxis_new() };
     }
 
     /// New2 constructs a new QCategoryAxis object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New2(parent: ?*anyopaque) QtC.QCategoryAxis {
-        return qtc.QCategoryAxis_new2(@ptrCast(parent));
+    pub fn New2(parent: anytype) QCategoryAxis {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.QCategoryAxis_new2(@ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QCategoryAxis_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QCategoryAxis) QMetaObject {
+        return .{ .ptr = qtc.QCategoryAxis_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -41,12 +67,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QCategoryAxis_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QCategoryAxis, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QCategoryAxis_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -59,33 +85,33 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QCategoryAxis_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QCategoryAxis) QMetaObject {
+        return .{ .ptr = qtc.QCategoryAxis_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QCategoryAxis, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QCategoryAxis_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QCategoryAxis_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QCategoryAxis, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QCategoryAxis_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QCategoryAxis, callback: *const fn (QCategoryAxis, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QCategoryAxis_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -96,18 +122,18 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QCategoryAxis, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QCategoryAxis_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QCategoryAxis_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -115,20 +141,20 @@ pub const qcategoryaxis = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QCategoryAxis_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QCategoryAxis, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QCategoryAxis_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QCategoryAxis, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QCategoryAxis_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QCategoryAxis, callback: *const fn (QCategoryAxis, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QCategoryAxis_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -139,7 +165,7 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -147,19 +173,19 @@ pub const qcategoryaxis = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QCategoryAxis_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QCategoryAxis, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QCategoryAxis_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -172,14 +198,14 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ## Returns:
     ///
     /// ` qabstractaxis_enums.AxisType `
     ///
-    pub fn Type(self: ?*anyopaque) i32 {
-        return qtc.QCategoryAxis_Type(@ptrCast(self));
+    pub fn Type(self: QCategoryAxis) i32 {
+        return qtc.QCategoryAxis_Type(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#type)
@@ -188,12 +214,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QCategoryAxis_OnType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnType(self: QCategoryAxis, callback: *const fn () callconv(.c) i32) void {
+        qtc.QCategoryAxis_OnType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperType` instead
@@ -206,61 +232,61 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ## Returns:
     ///
     /// ` qabstractaxis_enums.AxisType `
     ///
-    pub fn SuperType(self: ?*anyopaque) i32 {
-        return qtc.QCategoryAxis_SuperType(@ptrCast(self));
+    pub fn SuperType(self: QCategoryAxis) i32 {
+        return qtc.QCategoryAxis_SuperType(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#append)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` label: []const u8 `
     ///
     /// ` categoryEndValue: f64 `
     ///
-    pub fn Append(self: ?*anyopaque, label: []const u8, categoryEndValue: f64) void {
+    pub fn Append(self: QCategoryAxis, label: []const u8, categoryEndValue: f64) void {
         const label_str = qtc.libqt_string{
             .len = label.len,
             .data = label.ptr,
         };
-        qtc.QCategoryAxis_Append(@ptrCast(self), label_str, @bitCast(categoryEndValue));
+        qtc.QCategoryAxis_Append(@ptrCast(self.ptr), label_str, @bitCast(categoryEndValue));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#remove)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` label: []const u8 `
     ///
-    pub fn Remove(self: ?*anyopaque, label: []const u8) void {
+    pub fn Remove(self: QCategoryAxis, label: []const u8) void {
         const label_str = qtc.libqt_string{
             .len = label.len,
             .data = label.ptr,
         };
-        qtc.QCategoryAxis_Remove(@ptrCast(self), label_str);
+        qtc.QCategoryAxis_Remove(@ptrCast(self.ptr), label_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#replaceLabel)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` oldLabel: []const u8 `
     ///
     /// ` newLabel: []const u8 `
     ///
-    pub fn ReplaceLabel(self: ?*anyopaque, oldLabel: []const u8, newLabel: []const u8) void {
+    pub fn ReplaceLabel(self: QCategoryAxis, oldLabel: []const u8, newLabel: []const u8) void {
         const oldLabel_str = qtc.libqt_string{
             .len = oldLabel.len,
             .data = oldLabel.ptr,
@@ -269,62 +295,61 @@ pub const qcategoryaxis = struct {
             .len = newLabel.len,
             .data = newLabel.ptr,
         };
-        qtc.QCategoryAxis_ReplaceLabel(@ptrCast(self), oldLabel_str, newLabel_str);
+        qtc.QCategoryAxis_ReplaceLabel(@ptrCast(self.ptr), oldLabel_str, newLabel_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#startValue)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn StartValue(self: ?*anyopaque) f64 {
-        return qtc.QCategoryAxis_StartValue(@ptrCast(self));
+    pub fn StartValue(self: QCategoryAxis) f64 {
+        return qtc.QCategoryAxis_StartValue(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#setStartValue)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` min: f64 `
     ///
-    pub fn SetStartValue(self: ?*anyopaque, min: f64) void {
-        qtc.QCategoryAxis_SetStartValue(@ptrCast(self), @bitCast(min));
+    pub fn SetStartValue(self: QCategoryAxis, min: f64) void {
+        qtc.QCategoryAxis_SetStartValue(@ptrCast(self.ptr), @bitCast(min));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#endValue)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` categoryLabel: []const u8 `
     ///
-    pub fn EndValue(self: ?*anyopaque, categoryLabel: []const u8) f64 {
+    pub fn EndValue(self: QCategoryAxis, categoryLabel: []const u8) f64 {
         const categoryLabel_str = qtc.libqt_string{
             .len = categoryLabel.len,
             .data = categoryLabel.ptr,
         };
-        return qtc.QCategoryAxis_EndValue(@ptrCast(self), categoryLabel_str);
+        return qtc.QCategoryAxis_EndValue(@ptrCast(self.ptr), categoryLabel_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#categoriesLabels)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CategoriesLabels(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QCategoryAxis_CategoriesLabels(@ptrCast(self));
+    pub fn CategoriesLabels(self: QCategoryAxis, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.QCategoryAxis_CategoriesLabels(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qcategoryaxis.CategoriesLabels: Memory allocation failed");
@@ -341,95 +366,95 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn Count(self: ?*anyopaque) i32 {
-        return qtc.QCategoryAxis_Count(@ptrCast(self));
+    pub fn Count(self: QCategoryAxis) i32 {
+        return qtc.QCategoryAxis_Count(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#labelsPosition)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ## Returns:
     ///
     /// ` qcategoryaxis_enums.AxisLabelsPosition `
     ///
-    pub fn LabelsPosition(self: ?*anyopaque) i32 {
-        return qtc.QCategoryAxis_LabelsPosition(@ptrCast(self));
+    pub fn LabelsPosition(self: QCategoryAxis) i32 {
+        return qtc.QCategoryAxis_LabelsPosition(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#setLabelsPosition)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` position: qcategoryaxis_enums.AxisLabelsPosition `
     ///
-    pub fn SetLabelsPosition(self: ?*anyopaque, position: i32) void {
-        qtc.QCategoryAxis_SetLabelsPosition(@ptrCast(self), @bitCast(position));
+    pub fn SetLabelsPosition(self: QCategoryAxis, position: i32) void {
+        qtc.QCategoryAxis_SetLabelsPosition(@ptrCast(self.ptr), @bitCast(position));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#categoriesChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn CategoriesChanged(self: ?*anyopaque) void {
-        qtc.QCategoryAxis_CategoriesChanged(@ptrCast(self));
+    pub fn CategoriesChanged(self: QCategoryAxis) void {
+        qtc.QCategoryAxis_CategoriesChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#categoriesChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis) callconv(.c) void `
     ///
-    pub fn OnCategoriesChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QCategoryAxis_Connect_CategoriesChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCategoriesChanged(self: QCategoryAxis, callback: *const fn (QCategoryAxis) callconv(.c) void) void {
+        qtc.QCategoryAxis_Connect_CategoriesChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#labelsPositionChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` position: qcategoryaxis_enums.AxisLabelsPosition `
     ///
-    pub fn LabelsPositionChanged(self: ?*anyopaque, position: i32) void {
-        qtc.QCategoryAxis_LabelsPositionChanged(@ptrCast(self), @bitCast(position));
+    pub fn LabelsPositionChanged(self: QCategoryAxis, position: i32) void {
+        qtc.QCategoryAxis_LabelsPositionChanged(@ptrCast(self.ptr), @bitCast(position));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#labelsPositionChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, position: qcategoryaxis_enums.AxisLabelsPosition) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis, position: qcategoryaxis_enums.AxisLabelsPosition) callconv(.c) void `
     ///
-    pub fn OnLabelsPositionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QCategoryAxis_Connect_LabelsPositionChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLabelsPositionChanged(self: QCategoryAxis, callback: *const fn (QCategoryAxis, i32) callconv(.c) void) void {
+        qtc.QCategoryAxis_Connect_LabelsPositionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -443,15 +468,15 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -465,16 +490,16 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` categoryLabel: []const u8 `
     ///
-    pub fn StartValue1(self: ?*anyopaque, categoryLabel: []const u8) f64 {
+    pub fn StartValue1(self: QCategoryAxis, categoryLabel: []const u8) f64 {
         const categoryLabel_str = qtc.libqt_string{
             .len = categoryLabel.len,
             .data = categoryLabel.ptr,
         };
-        return qtc.QCategoryAxis_StartValue1(@ptrCast(self), categoryLabel_str);
+        return qtc.QCategoryAxis_StartValue1(@ptrCast(self.ptr), categoryLabel_str);
     }
 
     /// Inherited from QValueAxis
@@ -483,12 +508,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` min: f64 `
     ///
-    pub fn SetMin(self: ?*anyopaque, min: f64) void {
-        qtc.QValueAxis_SetMin(@ptrCast(self), @bitCast(min));
+    pub fn SetMin(self: QCategoryAxis, min: f64) void {
+        qtc.QValueAxis_SetMin(@ptrCast(self.ptr), @bitCast(min));
     }
 
     /// Inherited from QValueAxis
@@ -497,10 +522,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn Min(self: ?*anyopaque) f64 {
-        return qtc.QValueAxis_Min(@ptrCast(self));
+    pub fn Min(self: QCategoryAxis) f64 {
+        return qtc.QValueAxis_Min(@ptrCast(self.ptr));
     }
 
     /// Inherited from QValueAxis
@@ -509,12 +534,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` max: f64 `
     ///
-    pub fn SetMax(self: ?*anyopaque, max: f64) void {
-        qtc.QValueAxis_SetMax(@ptrCast(self), @bitCast(max));
+    pub fn SetMax(self: QCategoryAxis, max: f64) void {
+        qtc.QValueAxis_SetMax(@ptrCast(self.ptr), @bitCast(max));
     }
 
     /// Inherited from QValueAxis
@@ -523,10 +548,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn Max(self: ?*anyopaque) f64 {
-        return qtc.QValueAxis_Max(@ptrCast(self));
+    pub fn Max(self: QCategoryAxis) f64 {
+        return qtc.QValueAxis_Max(@ptrCast(self.ptr));
     }
 
     /// Inherited from QValueAxis
@@ -535,14 +560,14 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` min: f64 `
     ///
     /// ` max: f64 `
     ///
-    pub fn SetRange(self: ?*anyopaque, min: f64, max: f64) void {
-        qtc.QValueAxis_SetRange(@ptrCast(self), @bitCast(min), @bitCast(max));
+    pub fn SetRange(self: QCategoryAxis, min: f64, max: f64) void {
+        qtc.QValueAxis_SetRange(@ptrCast(self.ptr), @bitCast(min), @bitCast(max));
     }
 
     /// Inherited from QValueAxis
@@ -551,12 +576,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` count: i32 `
     ///
-    pub fn SetTickCount(self: ?*anyopaque, count: i32) void {
-        qtc.QValueAxis_SetTickCount(@ptrCast(self), @bitCast(count));
+    pub fn SetTickCount(self: QCategoryAxis, count: i32) void {
+        qtc.QValueAxis_SetTickCount(@ptrCast(self.ptr), @bitCast(count));
     }
 
     /// Inherited from QValueAxis
@@ -565,10 +590,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn TickCount(self: ?*anyopaque) i32 {
-        return qtc.QValueAxis_TickCount(@ptrCast(self));
+    pub fn TickCount(self: QCategoryAxis) i32 {
+        return qtc.QValueAxis_TickCount(@ptrCast(self.ptr));
     }
 
     /// Inherited from QValueAxis
@@ -577,12 +602,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` count: i32 `
     ///
-    pub fn SetMinorTickCount(self: ?*anyopaque, count: i32) void {
-        qtc.QValueAxis_SetMinorTickCount(@ptrCast(self), @bitCast(count));
+    pub fn SetMinorTickCount(self: QCategoryAxis, count: i32) void {
+        qtc.QValueAxis_SetMinorTickCount(@ptrCast(self.ptr), @bitCast(count));
     }
 
     /// Inherited from QValueAxis
@@ -591,10 +616,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn MinorTickCount(self: ?*anyopaque) i32 {
-        return qtc.QValueAxis_MinorTickCount(@ptrCast(self));
+    pub fn MinorTickCount(self: QCategoryAxis) i32 {
+        return qtc.QValueAxis_MinorTickCount(@ptrCast(self.ptr));
     }
 
     /// Inherited from QValueAxis
@@ -603,12 +628,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` anchor: f64 `
     ///
-    pub fn SetTickAnchor(self: ?*anyopaque, anchor: f64) void {
-        qtc.QValueAxis_SetTickAnchor(@ptrCast(self), @bitCast(anchor));
+    pub fn SetTickAnchor(self: QCategoryAxis, anchor: f64) void {
+        qtc.QValueAxis_SetTickAnchor(@ptrCast(self.ptr), @bitCast(anchor));
     }
 
     /// Inherited from QValueAxis
@@ -617,10 +642,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn TickAnchor(self: ?*anyopaque) f64 {
-        return qtc.QValueAxis_TickAnchor(@ptrCast(self));
+    pub fn TickAnchor(self: QCategoryAxis) f64 {
+        return qtc.QValueAxis_TickAnchor(@ptrCast(self.ptr));
     }
 
     /// Inherited from QValueAxis
@@ -629,12 +654,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` insterval: f64 `
     ///
-    pub fn SetTickInterval(self: ?*anyopaque, insterval: f64) void {
-        qtc.QValueAxis_SetTickInterval(@ptrCast(self), @bitCast(insterval));
+    pub fn SetTickInterval(self: QCategoryAxis, insterval: f64) void {
+        qtc.QValueAxis_SetTickInterval(@ptrCast(self.ptr), @bitCast(insterval));
     }
 
     /// Inherited from QValueAxis
@@ -643,10 +668,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn TickInterval(self: ?*anyopaque) f64 {
-        return qtc.QValueAxis_TickInterval(@ptrCast(self));
+    pub fn TickInterval(self: QCategoryAxis) f64 {
+        return qtc.QValueAxis_TickInterval(@ptrCast(self.ptr));
     }
 
     /// Inherited from QValueAxis
@@ -655,12 +680,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` typeVal: qvalueaxis_enums.TickType `
     ///
-    pub fn SetTickType(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QValueAxis_SetTickType(@ptrCast(self), @bitCast(typeVal));
+    pub fn SetTickType(self: QCategoryAxis, typeVal: i32) void {
+        qtc.QValueAxis_SetTickType(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QValueAxis
@@ -669,14 +694,14 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ## Returns:
     ///
     /// ` qvalueaxis_enums.TickType `
     ///
-    pub fn TickType(self: ?*anyopaque) i32 {
-        return qtc.QValueAxis_TickType(@ptrCast(self));
+    pub fn TickType(self: QCategoryAxis) i32 {
+        return qtc.QValueAxis_TickType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QValueAxis
@@ -685,16 +710,16 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` format: []const u8 `
     ///
-    pub fn SetLabelFormat(self: ?*anyopaque, format: []const u8) void {
+    pub fn SetLabelFormat(self: QCategoryAxis, format: []const u8) void {
         const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
-        qtc.QValueAxis_SetLabelFormat(@ptrCast(self), format_str);
+        qtc.QValueAxis_SetLabelFormat(@ptrCast(self.ptr), format_str);
     }
 
     /// Inherited from QValueAxis
@@ -703,12 +728,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LabelFormat(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QValueAxis_LabelFormat(@ptrCast(self));
+    pub fn LabelFormat(self: QCategoryAxis, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QValueAxis_LabelFormat(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcategoryaxis.LabelFormat: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -721,10 +746,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn ApplyNiceNumbers(self: ?*anyopaque) void {
-        qtc.QValueAxis_ApplyNiceNumbers(@ptrCast(self));
+    pub fn ApplyNiceNumbers(self: QCategoryAxis) void {
+        qtc.QValueAxis_ApplyNiceNumbers(@ptrCast(self.ptr));
     }
 
     /// Inherited from QValueAxis
@@ -733,12 +758,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` min: f64 `
     ///
-    pub fn MinChanged(self: ?*anyopaque, min: f64) void {
-        qtc.QValueAxis_MinChanged(@ptrCast(self), @bitCast(min));
+    pub fn MinChanged(self: QCategoryAxis, min: f64) void {
+        qtc.QValueAxis_MinChanged(@ptrCast(self.ptr), @bitCast(min));
     }
 
     /// Inherited from QValueAxis
@@ -747,12 +772,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, min: f64) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis, min: f64) callconv(.c) void `
     ///
-    pub fn OnMinChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
-        qtc.QValueAxis_Connect_MinChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMinChanged(self: QCategoryAxis, callback: *const fn (QCategoryAxis, f64) callconv(.c) void) void {
+        qtc.QValueAxis_Connect_MinChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QValueAxis
@@ -761,12 +786,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` max: f64 `
     ///
-    pub fn MaxChanged(self: ?*anyopaque, max: f64) void {
-        qtc.QValueAxis_MaxChanged(@ptrCast(self), @bitCast(max));
+    pub fn MaxChanged(self: QCategoryAxis, max: f64) void {
+        qtc.QValueAxis_MaxChanged(@ptrCast(self.ptr), @bitCast(max));
     }
 
     /// Inherited from QValueAxis
@@ -775,12 +800,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, max: f64) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis, max: f64) callconv(.c) void `
     ///
-    pub fn OnMaxChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
-        qtc.QValueAxis_Connect_MaxChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMaxChanged(self: QCategoryAxis, callback: *const fn (QCategoryAxis, f64) callconv(.c) void) void {
+        qtc.QValueAxis_Connect_MaxChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QValueAxis
@@ -789,14 +814,14 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` min: f64 `
     ///
     /// ` max: f64 `
     ///
-    pub fn RangeChanged(self: ?*anyopaque, min: f64, max: f64) void {
-        qtc.QValueAxis_RangeChanged(@ptrCast(self), @bitCast(min), @bitCast(max));
+    pub fn RangeChanged(self: QCategoryAxis, min: f64, max: f64) void {
+        qtc.QValueAxis_RangeChanged(@ptrCast(self.ptr), @bitCast(min), @bitCast(max));
     }
 
     /// Inherited from QValueAxis
@@ -805,12 +830,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, min: f64, max: f64) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis, min: f64, max: f64) callconv(.c) void `
     ///
-    pub fn OnRangeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64, f64) callconv(.c) void) void {
-        qtc.QValueAxis_Connect_RangeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRangeChanged(self: QCategoryAxis, callback: *const fn (QCategoryAxis, f64, f64) callconv(.c) void) void {
+        qtc.QValueAxis_Connect_RangeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QValueAxis
@@ -819,12 +844,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` tickCount: i32 `
     ///
-    pub fn TickCountChanged(self: ?*anyopaque, tickCount: i32) void {
-        qtc.QValueAxis_TickCountChanged(@ptrCast(self), @bitCast(tickCount));
+    pub fn TickCountChanged(self: QCategoryAxis, tickCount: i32) void {
+        qtc.QValueAxis_TickCountChanged(@ptrCast(self.ptr), @bitCast(tickCount));
     }
 
     /// Inherited from QValueAxis
@@ -833,12 +858,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, tickCount: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis, tickCount: i32) callconv(.c) void `
     ///
-    pub fn OnTickCountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QValueAxis_Connect_TickCountChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTickCountChanged(self: QCategoryAxis, callback: *const fn (QCategoryAxis, i32) callconv(.c) void) void {
+        qtc.QValueAxis_Connect_TickCountChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QValueAxis
@@ -847,12 +872,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` tickCount: i32 `
     ///
-    pub fn MinorTickCountChanged(self: ?*anyopaque, tickCount: i32) void {
-        qtc.QValueAxis_MinorTickCountChanged(@ptrCast(self), @bitCast(tickCount));
+    pub fn MinorTickCountChanged(self: QCategoryAxis, tickCount: i32) void {
+        qtc.QValueAxis_MinorTickCountChanged(@ptrCast(self.ptr), @bitCast(tickCount));
     }
 
     /// Inherited from QValueAxis
@@ -861,12 +886,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, tickCount: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis, tickCount: i32) callconv(.c) void `
     ///
-    pub fn OnMinorTickCountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QValueAxis_Connect_MinorTickCountChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMinorTickCountChanged(self: QCategoryAxis, callback: *const fn (QCategoryAxis, i32) callconv(.c) void) void {
+        qtc.QValueAxis_Connect_MinorTickCountChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QValueAxis
@@ -875,16 +900,16 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` format: []const u8 `
     ///
-    pub fn LabelFormatChanged(self: ?*anyopaque, format: []const u8) void {
+    pub fn LabelFormatChanged(self: QCategoryAxis, format: []const u8) void {
         const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
-        qtc.QValueAxis_LabelFormatChanged(@ptrCast(self), format_str);
+        qtc.QValueAxis_LabelFormatChanged(@ptrCast(self.ptr), format_str);
     }
 
     /// Inherited from QValueAxis
@@ -893,12 +918,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, format: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis, format: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnLabelFormatChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QValueAxis_Connect_LabelFormatChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLabelFormatChanged(self: QCategoryAxis, callback: *const fn (QCategoryAxis, [*:0]const u8) callconv(.c) void) void {
+        qtc.QValueAxis_Connect_LabelFormatChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QValueAxis
@@ -907,12 +932,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` interval: f64 `
     ///
-    pub fn TickIntervalChanged(self: ?*anyopaque, interval: f64) void {
-        qtc.QValueAxis_TickIntervalChanged(@ptrCast(self), @bitCast(interval));
+    pub fn TickIntervalChanged(self: QCategoryAxis, interval: f64) void {
+        qtc.QValueAxis_TickIntervalChanged(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QValueAxis
@@ -921,12 +946,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, interval: f64) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis, interval: f64) callconv(.c) void `
     ///
-    pub fn OnTickIntervalChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
-        qtc.QValueAxis_Connect_TickIntervalChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTickIntervalChanged(self: QCategoryAxis, callback: *const fn (QCategoryAxis, f64) callconv(.c) void) void {
+        qtc.QValueAxis_Connect_TickIntervalChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QValueAxis
@@ -935,12 +960,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` anchor: f64 `
     ///
-    pub fn TickAnchorChanged(self: ?*anyopaque, anchor: f64) void {
-        qtc.QValueAxis_TickAnchorChanged(@ptrCast(self), @bitCast(anchor));
+    pub fn TickAnchorChanged(self: QCategoryAxis, anchor: f64) void {
+        qtc.QValueAxis_TickAnchorChanged(@ptrCast(self.ptr), @bitCast(anchor));
     }
 
     /// Inherited from QValueAxis
@@ -949,12 +974,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, anchor: f64) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis, anchor: f64) callconv(.c) void `
     ///
-    pub fn OnTickAnchorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
-        qtc.QValueAxis_Connect_TickAnchorChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTickAnchorChanged(self: QCategoryAxis, callback: *const fn (QCategoryAxis, f64) callconv(.c) void) void {
+        qtc.QValueAxis_Connect_TickAnchorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QValueAxis
@@ -963,12 +988,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` typeVal: qvalueaxis_enums.TickType `
     ///
-    pub fn TickTypeChanged(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QValueAxis_TickTypeChanged(@ptrCast(self), @bitCast(typeVal));
+    pub fn TickTypeChanged(self: QCategoryAxis, typeVal: i32) void {
+        qtc.QValueAxis_TickTypeChanged(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QValueAxis
@@ -977,12 +1002,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, typeVal: qvalueaxis_enums.TickType) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis, typeVal: qvalueaxis_enums.TickType) callconv(.c) void `
     ///
-    pub fn OnTickTypeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QValueAxis_Connect_TickTypeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTickTypeChanged(self: QCategoryAxis, callback: *const fn (QCategoryAxis, i32) callconv(.c) void) void {
+        qtc.QValueAxis_Connect_TickTypeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -991,10 +1016,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn IsVisible(self: ?*anyopaque) bool {
-        return qtc.QAbstractAxis_IsVisible(@ptrCast(self));
+    pub fn IsVisible(self: QCategoryAxis) bool {
+        return qtc.QAbstractAxis_IsVisible(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -1003,10 +1028,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn SetVisible(self: ?*anyopaque) void {
-        qtc.QAbstractAxis_SetVisible(@ptrCast(self));
+    pub fn SetVisible(self: QCategoryAxis) void {
+        qtc.QAbstractAxis_SetVisible(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -1015,10 +1040,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn Show(self: ?*anyopaque) void {
-        qtc.QAbstractAxis_Show(@ptrCast(self));
+    pub fn Show(self: QCategoryAxis) void {
+        qtc.QAbstractAxis_Show(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -1027,10 +1052,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn Hide(self: ?*anyopaque) void {
-        qtc.QAbstractAxis_Hide(@ptrCast(self));
+    pub fn Hide(self: QCategoryAxis) void {
+        qtc.QAbstractAxis_Hide(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -1039,10 +1064,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn IsLineVisible(self: ?*anyopaque) bool {
-        return qtc.QAbstractAxis_IsLineVisible(@ptrCast(self));
+    pub fn IsLineVisible(self: QCategoryAxis) bool {
+        return qtc.QAbstractAxis_IsLineVisible(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -1051,10 +1076,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn SetLineVisible(self: ?*anyopaque) void {
-        qtc.QAbstractAxis_SetLineVisible(@ptrCast(self));
+    pub fn SetLineVisible(self: QCategoryAxis) void {
+        qtc.QAbstractAxis_SetLineVisible(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -1063,12 +1088,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` pen: QtC.QPen `
+    /// ` pen: QPen `
     ///
-    pub fn SetLinePen(self: ?*anyopaque, pen: ?*anyopaque) void {
-        qtc.QAbstractAxis_SetLinePen(@ptrCast(self), @ptrCast(pen));
+    pub fn SetLinePen(self: QCategoryAxis, pen: anytype) void {
+        comptime _ = @TypeOf(pen)._is_QPen;
+        qtc.QAbstractAxis_SetLinePen(@ptrCast(self.ptr), @ptrCast(pen.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -1077,10 +1103,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn LinePen(self: ?*anyopaque) QtC.QPen {
-        return qtc.QAbstractAxis_LinePen(@ptrCast(self));
+    pub fn LinePen(self: QCategoryAxis) QPen {
+        return .{ .ptr = qtc.QAbstractAxis_LinePen(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractAxis
@@ -1089,12 +1115,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` color: QtC.QColor `
+    /// ` color: QColor `
     ///
-    pub fn SetLinePenColor(self: ?*anyopaque, color: QtC.QColor) void {
-        qtc.QAbstractAxis_SetLinePenColor(@ptrCast(self), @ptrCast(color));
+    pub fn SetLinePenColor(self: QCategoryAxis, color: anytype) void {
+        comptime _ = @TypeOf(color)._is_QColor;
+        qtc.QAbstractAxis_SetLinePenColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -1103,10 +1130,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn LinePenColor(self: ?*anyopaque) QtC.QColor {
-        return qtc.QAbstractAxis_LinePenColor(@ptrCast(self));
+    pub fn LinePenColor(self: QCategoryAxis) QColor {
+        return .{ .ptr = qtc.QAbstractAxis_LinePenColor(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractAxis
@@ -1115,10 +1142,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn IsGridLineVisible(self: ?*anyopaque) bool {
-        return qtc.QAbstractAxis_IsGridLineVisible(@ptrCast(self));
+    pub fn IsGridLineVisible(self: QCategoryAxis) bool {
+        return qtc.QAbstractAxis_IsGridLineVisible(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -1127,10 +1154,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn SetGridLineVisible(self: ?*anyopaque) void {
-        qtc.QAbstractAxis_SetGridLineVisible(@ptrCast(self));
+    pub fn SetGridLineVisible(self: QCategoryAxis) void {
+        qtc.QAbstractAxis_SetGridLineVisible(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -1139,12 +1166,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` pen: QtC.QPen `
+    /// ` pen: QPen `
     ///
-    pub fn SetGridLinePen(self: ?*anyopaque, pen: ?*anyopaque) void {
-        qtc.QAbstractAxis_SetGridLinePen(@ptrCast(self), @ptrCast(pen));
+    pub fn SetGridLinePen(self: QCategoryAxis, pen: anytype) void {
+        comptime _ = @TypeOf(pen)._is_QPen;
+        qtc.QAbstractAxis_SetGridLinePen(@ptrCast(self.ptr), @ptrCast(pen.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -1153,10 +1181,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn GridLinePen(self: ?*anyopaque) QtC.QPen {
-        return qtc.QAbstractAxis_GridLinePen(@ptrCast(self));
+    pub fn GridLinePen(self: QCategoryAxis) QPen {
+        return .{ .ptr = qtc.QAbstractAxis_GridLinePen(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractAxis
@@ -1165,10 +1193,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn IsMinorGridLineVisible(self: ?*anyopaque) bool {
-        return qtc.QAbstractAxis_IsMinorGridLineVisible(@ptrCast(self));
+    pub fn IsMinorGridLineVisible(self: QCategoryAxis) bool {
+        return qtc.QAbstractAxis_IsMinorGridLineVisible(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -1177,10 +1205,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn SetMinorGridLineVisible(self: ?*anyopaque) void {
-        qtc.QAbstractAxis_SetMinorGridLineVisible(@ptrCast(self));
+    pub fn SetMinorGridLineVisible(self: QCategoryAxis) void {
+        qtc.QAbstractAxis_SetMinorGridLineVisible(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -1189,12 +1217,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` pen: QtC.QPen `
+    /// ` pen: QPen `
     ///
-    pub fn SetMinorGridLinePen(self: ?*anyopaque, pen: ?*anyopaque) void {
-        qtc.QAbstractAxis_SetMinorGridLinePen(@ptrCast(self), @ptrCast(pen));
+    pub fn SetMinorGridLinePen(self: QCategoryAxis, pen: anytype) void {
+        comptime _ = @TypeOf(pen)._is_QPen;
+        qtc.QAbstractAxis_SetMinorGridLinePen(@ptrCast(self.ptr), @ptrCast(pen.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -1203,10 +1232,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn MinorGridLinePen(self: ?*anyopaque) QtC.QPen {
-        return qtc.QAbstractAxis_MinorGridLinePen(@ptrCast(self));
+    pub fn MinorGridLinePen(self: QCategoryAxis) QPen {
+        return .{ .ptr = qtc.QAbstractAxis_MinorGridLinePen(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractAxis
@@ -1215,12 +1244,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` color: QtC.QColor `
+    /// ` color: QColor `
     ///
-    pub fn SetGridLineColor(self: ?*anyopaque, color: ?*anyopaque) void {
-        qtc.QAbstractAxis_SetGridLineColor(@ptrCast(self), @ptrCast(color));
+    pub fn SetGridLineColor(self: QCategoryAxis, color: anytype) void {
+        comptime _ = @TypeOf(color)._is_QColor;
+        qtc.QAbstractAxis_SetGridLineColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -1229,10 +1259,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn GridLineColor(self: ?*anyopaque) QtC.QColor {
-        return qtc.QAbstractAxis_GridLineColor(@ptrCast(self));
+    pub fn GridLineColor(self: QCategoryAxis) QColor {
+        return .{ .ptr = qtc.QAbstractAxis_GridLineColor(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractAxis
@@ -1241,12 +1271,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` color: QtC.QColor `
+    /// ` color: QColor `
     ///
-    pub fn SetMinorGridLineColor(self: ?*anyopaque, color: ?*anyopaque) void {
-        qtc.QAbstractAxis_SetMinorGridLineColor(@ptrCast(self), @ptrCast(color));
+    pub fn SetMinorGridLineColor(self: QCategoryAxis, color: anytype) void {
+        comptime _ = @TypeOf(color)._is_QColor;
+        qtc.QAbstractAxis_SetMinorGridLineColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -1255,10 +1286,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn MinorGridLineColor(self: ?*anyopaque) QtC.QColor {
-        return qtc.QAbstractAxis_MinorGridLineColor(@ptrCast(self));
+    pub fn MinorGridLineColor(self: QCategoryAxis) QColor {
+        return .{ .ptr = qtc.QAbstractAxis_MinorGridLineColor(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractAxis
@@ -1267,10 +1298,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn LabelsVisible(self: ?*anyopaque) bool {
-        return qtc.QAbstractAxis_LabelsVisible(@ptrCast(self));
+    pub fn LabelsVisible(self: QCategoryAxis) bool {
+        return qtc.QAbstractAxis_LabelsVisible(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -1279,10 +1310,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn SetLabelsVisible(self: ?*anyopaque) void {
-        qtc.QAbstractAxis_SetLabelsVisible(@ptrCast(self));
+    pub fn SetLabelsVisible(self: QCategoryAxis) void {
+        qtc.QAbstractAxis_SetLabelsVisible(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -1291,12 +1322,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` brush: QtC.QBrush `
+    /// ` brush: QBrush `
     ///
-    pub fn SetLabelsBrush(self: ?*anyopaque, brush: ?*anyopaque) void {
-        qtc.QAbstractAxis_SetLabelsBrush(@ptrCast(self), @ptrCast(brush));
+    pub fn SetLabelsBrush(self: QCategoryAxis, brush: anytype) void {
+        comptime _ = @TypeOf(brush)._is_QBrush;
+        qtc.QAbstractAxis_SetLabelsBrush(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -1305,10 +1337,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn LabelsBrush(self: ?*anyopaque) QtC.QBrush {
-        return qtc.QAbstractAxis_LabelsBrush(@ptrCast(self));
+    pub fn LabelsBrush(self: QCategoryAxis) QBrush {
+        return .{ .ptr = qtc.QAbstractAxis_LabelsBrush(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractAxis
@@ -1317,12 +1349,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` font: QtC.QFont `
+    /// ` font: QFont `
     ///
-    pub fn SetLabelsFont(self: ?*anyopaque, font: ?*anyopaque) void {
-        qtc.QAbstractAxis_SetLabelsFont(@ptrCast(self), @ptrCast(font));
+    pub fn SetLabelsFont(self: QCategoryAxis, font: anytype) void {
+        comptime _ = @TypeOf(font)._is_QFont;
+        qtc.QAbstractAxis_SetLabelsFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -1331,10 +1364,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn LabelsFont(self: ?*anyopaque) QtC.QFont {
-        return qtc.QAbstractAxis_LabelsFont(@ptrCast(self));
+    pub fn LabelsFont(self: QCategoryAxis) QFont {
+        return .{ .ptr = qtc.QAbstractAxis_LabelsFont(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractAxis
@@ -1343,12 +1376,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` angle: i32 `
     ///
-    pub fn SetLabelsAngle(self: ?*anyopaque, angle: i32) void {
-        qtc.QAbstractAxis_SetLabelsAngle(@ptrCast(self), @bitCast(angle));
+    pub fn SetLabelsAngle(self: QCategoryAxis, angle: i32) void {
+        qtc.QAbstractAxis_SetLabelsAngle(@ptrCast(self.ptr), @bitCast(angle));
     }
 
     /// Inherited from QAbstractAxis
@@ -1357,10 +1390,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn LabelsAngle(self: ?*anyopaque) i32 {
-        return qtc.QAbstractAxis_LabelsAngle(@ptrCast(self));
+    pub fn LabelsAngle(self: QCategoryAxis) i32 {
+        return qtc.QAbstractAxis_LabelsAngle(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -1369,12 +1402,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` color: QtC.QColor `
+    /// ` color: QColor `
     ///
-    pub fn SetLabelsColor(self: ?*anyopaque, color: QtC.QColor) void {
-        qtc.QAbstractAxis_SetLabelsColor(@ptrCast(self), @ptrCast(color));
+    pub fn SetLabelsColor(self: QCategoryAxis, color: anytype) void {
+        comptime _ = @TypeOf(color)._is_QColor;
+        qtc.QAbstractAxis_SetLabelsColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -1383,10 +1417,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn LabelsColor(self: ?*anyopaque) QtC.QColor {
-        return qtc.QAbstractAxis_LabelsColor(@ptrCast(self));
+    pub fn LabelsColor(self: QCategoryAxis) QColor {
+        return .{ .ptr = qtc.QAbstractAxis_LabelsColor(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractAxis
@@ -1395,10 +1429,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn IsTitleVisible(self: ?*anyopaque) bool {
-        return qtc.QAbstractAxis_IsTitleVisible(@ptrCast(self));
+    pub fn IsTitleVisible(self: QCategoryAxis) bool {
+        return qtc.QAbstractAxis_IsTitleVisible(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -1407,10 +1441,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn SetTitleVisible(self: ?*anyopaque) void {
-        qtc.QAbstractAxis_SetTitleVisible(@ptrCast(self));
+    pub fn SetTitleVisible(self: QCategoryAxis) void {
+        qtc.QAbstractAxis_SetTitleVisible(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -1419,12 +1453,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` brush: QtC.QBrush `
+    /// ` brush: QBrush `
     ///
-    pub fn SetTitleBrush(self: ?*anyopaque, brush: ?*anyopaque) void {
-        qtc.QAbstractAxis_SetTitleBrush(@ptrCast(self), @ptrCast(brush));
+    pub fn SetTitleBrush(self: QCategoryAxis, brush: anytype) void {
+        comptime _ = @TypeOf(brush)._is_QBrush;
+        qtc.QAbstractAxis_SetTitleBrush(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -1433,10 +1468,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn TitleBrush(self: ?*anyopaque) QtC.QBrush {
-        return qtc.QAbstractAxis_TitleBrush(@ptrCast(self));
+    pub fn TitleBrush(self: QCategoryAxis) QBrush {
+        return .{ .ptr = qtc.QAbstractAxis_TitleBrush(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractAxis
@@ -1445,12 +1480,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` font: QtC.QFont `
+    /// ` font: QFont `
     ///
-    pub fn SetTitleFont(self: ?*anyopaque, font: ?*anyopaque) void {
-        qtc.QAbstractAxis_SetTitleFont(@ptrCast(self), @ptrCast(font));
+    pub fn SetTitleFont(self: QCategoryAxis, font: anytype) void {
+        comptime _ = @TypeOf(font)._is_QFont;
+        qtc.QAbstractAxis_SetTitleFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -1459,10 +1495,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn TitleFont(self: ?*anyopaque) QtC.QFont {
-        return qtc.QAbstractAxis_TitleFont(@ptrCast(self));
+    pub fn TitleFont(self: QCategoryAxis) QFont {
+        return .{ .ptr = qtc.QAbstractAxis_TitleFont(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractAxis
@@ -1471,16 +1507,16 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` title: []const u8 `
     ///
-    pub fn SetTitleText(self: ?*anyopaque, title: []const u8) void {
+    pub fn SetTitleText(self: QCategoryAxis, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        qtc.QAbstractAxis_SetTitleText(@ptrCast(self), title_str);
+        qtc.QAbstractAxis_SetTitleText(@ptrCast(self.ptr), title_str);
     }
 
     /// Inherited from QAbstractAxis
@@ -1489,12 +1525,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TitleText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QAbstractAxis_TitleText(@ptrCast(self));
+    pub fn TitleText(self: QCategoryAxis, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QAbstractAxis_TitleText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcategoryaxis.TitleText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1507,10 +1543,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn ShadesVisible(self: ?*anyopaque) bool {
-        return qtc.QAbstractAxis_ShadesVisible(@ptrCast(self));
+    pub fn ShadesVisible(self: QCategoryAxis) bool {
+        return qtc.QAbstractAxis_ShadesVisible(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -1519,10 +1555,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn SetShadesVisible(self: ?*anyopaque) void {
-        qtc.QAbstractAxis_SetShadesVisible(@ptrCast(self));
+    pub fn SetShadesVisible(self: QCategoryAxis) void {
+        qtc.QAbstractAxis_SetShadesVisible(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -1531,12 +1567,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` pen: QtC.QPen `
+    /// ` pen: QPen `
     ///
-    pub fn SetShadesPen(self: ?*anyopaque, pen: ?*anyopaque) void {
-        qtc.QAbstractAxis_SetShadesPen(@ptrCast(self), @ptrCast(pen));
+    pub fn SetShadesPen(self: QCategoryAxis, pen: anytype) void {
+        comptime _ = @TypeOf(pen)._is_QPen;
+        qtc.QAbstractAxis_SetShadesPen(@ptrCast(self.ptr), @ptrCast(pen.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -1545,10 +1582,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn ShadesPen(self: ?*anyopaque) QtC.QPen {
-        return qtc.QAbstractAxis_ShadesPen(@ptrCast(self));
+    pub fn ShadesPen(self: QCategoryAxis) QPen {
+        return .{ .ptr = qtc.QAbstractAxis_ShadesPen(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractAxis
@@ -1557,12 +1594,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` brush: QtC.QBrush `
+    /// ` brush: QBrush `
     ///
-    pub fn SetShadesBrush(self: ?*anyopaque, brush: ?*anyopaque) void {
-        qtc.QAbstractAxis_SetShadesBrush(@ptrCast(self), @ptrCast(brush));
+    pub fn SetShadesBrush(self: QCategoryAxis, brush: anytype) void {
+        comptime _ = @TypeOf(brush)._is_QBrush;
+        qtc.QAbstractAxis_SetShadesBrush(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -1571,10 +1609,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn ShadesBrush(self: ?*anyopaque) QtC.QBrush {
-        return qtc.QAbstractAxis_ShadesBrush(@ptrCast(self));
+    pub fn ShadesBrush(self: QCategoryAxis) QBrush {
+        return .{ .ptr = qtc.QAbstractAxis_ShadesBrush(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractAxis
@@ -1583,12 +1621,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` color: QtC.QColor `
+    /// ` color: QColor `
     ///
-    pub fn SetShadesColor(self: ?*anyopaque, color: QtC.QColor) void {
-        qtc.QAbstractAxis_SetShadesColor(@ptrCast(self), @ptrCast(color));
+    pub fn SetShadesColor(self: QCategoryAxis, color: anytype) void {
+        comptime _ = @TypeOf(color)._is_QColor;
+        qtc.QAbstractAxis_SetShadesColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -1597,10 +1636,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn ShadesColor(self: ?*anyopaque) QtC.QColor {
-        return qtc.QAbstractAxis_ShadesColor(@ptrCast(self));
+    pub fn ShadesColor(self: QCategoryAxis) QColor {
+        return .{ .ptr = qtc.QAbstractAxis_ShadesColor(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractAxis
@@ -1609,12 +1648,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` color: QtC.QColor `
+    /// ` color: QColor `
     ///
-    pub fn SetShadesBorderColor(self: ?*anyopaque, color: QtC.QColor) void {
-        qtc.QAbstractAxis_SetShadesBorderColor(@ptrCast(self), @ptrCast(color));
+    pub fn SetShadesBorderColor(self: QCategoryAxis, color: anytype) void {
+        comptime _ = @TypeOf(color)._is_QColor;
+        qtc.QAbstractAxis_SetShadesBorderColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -1623,10 +1663,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn ShadesBorderColor(self: ?*anyopaque) QtC.QColor {
-        return qtc.QAbstractAxis_ShadesBorderColor(@ptrCast(self));
+    pub fn ShadesBorderColor(self: QCategoryAxis) QColor {
+        return .{ .ptr = qtc.QAbstractAxis_ShadesBorderColor(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractAxis
@@ -1635,14 +1675,14 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.Orientation `
     ///
-    pub fn Orientation(self: ?*anyopaque) i32 {
-        return qtc.QAbstractAxis_Orientation(@ptrCast(self));
+    pub fn Orientation(self: QCategoryAxis) i32 {
+        return qtc.QAbstractAxis_Orientation(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -1651,14 +1691,14 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn Alignment(self: ?*anyopaque) i32 {
-        return qtc.QAbstractAxis_Alignment(@ptrCast(self));
+    pub fn Alignment(self: QCategoryAxis) i32 {
+        return qtc.QAbstractAxis_Alignment(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -1667,10 +1707,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn SetReverse(self: ?*anyopaque) void {
-        qtc.QAbstractAxis_SetReverse(@ptrCast(self));
+    pub fn SetReverse(self: QCategoryAxis) void {
+        qtc.QAbstractAxis_SetReverse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -1679,10 +1719,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn IsReverse(self: ?*anyopaque) bool {
-        return qtc.QAbstractAxis_IsReverse(@ptrCast(self));
+    pub fn IsReverse(self: QCategoryAxis) bool {
+        return qtc.QAbstractAxis_IsReverse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -1691,10 +1731,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn SetLabelsEditable(self: ?*anyopaque) void {
-        qtc.QAbstractAxis_SetLabelsEditable(@ptrCast(self));
+    pub fn SetLabelsEditable(self: QCategoryAxis) void {
+        qtc.QAbstractAxis_SetLabelsEditable(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -1703,10 +1743,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn LabelsEditable(self: ?*anyopaque) bool {
-        return qtc.QAbstractAxis_LabelsEditable(@ptrCast(self));
+    pub fn LabelsEditable(self: QCategoryAxis) bool {
+        return qtc.QAbstractAxis_LabelsEditable(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -1715,10 +1755,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn LabelsTruncated(self: ?*anyopaque) bool {
-        return qtc.QAbstractAxis_LabelsTruncated(@ptrCast(self));
+    pub fn LabelsTruncated(self: QCategoryAxis) bool {
+        return qtc.QAbstractAxis_LabelsTruncated(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -1727,10 +1767,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn SetTruncateLabels(self: ?*anyopaque) void {
-        qtc.QAbstractAxis_SetTruncateLabels(@ptrCast(self));
+    pub fn SetTruncateLabels(self: QCategoryAxis) void {
+        qtc.QAbstractAxis_SetTruncateLabels(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -1739,10 +1779,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn TruncateLabels(self: ?*anyopaque) bool {
-        return qtc.QAbstractAxis_TruncateLabels(@ptrCast(self));
+    pub fn TruncateLabels(self: QCategoryAxis) bool {
+        return qtc.QAbstractAxis_TruncateLabels(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -1751,12 +1791,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` visible: bool `
     ///
-    pub fn VisibleChanged(self: ?*anyopaque, visible: bool) void {
-        qtc.QAbstractAxis_VisibleChanged(@ptrCast(self), visible);
+    pub fn VisibleChanged(self: QCategoryAxis, visible: bool) void {
+        qtc.QAbstractAxis_VisibleChanged(@ptrCast(self.ptr), visible);
     }
 
     /// Inherited from QAbstractAxis
@@ -1765,12 +1805,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, visible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis, visible: bool) callconv(.c) void `
     ///
-    pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_VisibleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnVisibleChanged(self: QCategoryAxis, callback: *const fn (QCategoryAxis, bool) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_VisibleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1779,12 +1819,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` pen: QtC.QPen `
+    /// ` pen: QPen `
     ///
-    pub fn LinePenChanged(self: ?*anyopaque, pen: ?*anyopaque) void {
-        qtc.QAbstractAxis_LinePenChanged(@ptrCast(self), @ptrCast(pen));
+    pub fn LinePenChanged(self: QCategoryAxis, pen: anytype) void {
+        comptime _ = @TypeOf(pen)._is_QPen;
+        qtc.QAbstractAxis_LinePenChanged(@ptrCast(self.ptr), @ptrCast(pen.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -1793,12 +1834,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, pen: QtC.QPen) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis, pen: QPen) callconv(.c) void `
     ///
-    pub fn OnLinePenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_LinePenChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLinePenChanged(self: QCategoryAxis, callback: *const fn (QCategoryAxis, QPen) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_LinePenChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1807,12 +1848,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` visible: bool `
     ///
-    pub fn LineVisibleChanged(self: ?*anyopaque, visible: bool) void {
-        qtc.QAbstractAxis_LineVisibleChanged(@ptrCast(self), visible);
+    pub fn LineVisibleChanged(self: QCategoryAxis, visible: bool) void {
+        qtc.QAbstractAxis_LineVisibleChanged(@ptrCast(self.ptr), visible);
     }
 
     /// Inherited from QAbstractAxis
@@ -1821,12 +1862,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, visible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis, visible: bool) callconv(.c) void `
     ///
-    pub fn OnLineVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_LineVisibleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLineVisibleChanged(self: QCategoryAxis, callback: *const fn (QCategoryAxis, bool) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_LineVisibleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1835,12 +1876,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` visible: bool `
     ///
-    pub fn LabelsVisibleChanged(self: ?*anyopaque, visible: bool) void {
-        qtc.QAbstractAxis_LabelsVisibleChanged(@ptrCast(self), visible);
+    pub fn LabelsVisibleChanged(self: QCategoryAxis, visible: bool) void {
+        qtc.QAbstractAxis_LabelsVisibleChanged(@ptrCast(self.ptr), visible);
     }
 
     /// Inherited from QAbstractAxis
@@ -1849,12 +1890,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, visible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis, visible: bool) callconv(.c) void `
     ///
-    pub fn OnLabelsVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_LabelsVisibleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLabelsVisibleChanged(self: QCategoryAxis, callback: *const fn (QCategoryAxis, bool) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_LabelsVisibleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1863,12 +1904,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` brush: QtC.QBrush `
+    /// ` brush: QBrush `
     ///
-    pub fn LabelsBrushChanged(self: ?*anyopaque, brush: ?*anyopaque) void {
-        qtc.QAbstractAxis_LabelsBrushChanged(@ptrCast(self), @ptrCast(brush));
+    pub fn LabelsBrushChanged(self: QCategoryAxis, brush: anytype) void {
+        comptime _ = @TypeOf(brush)._is_QBrush;
+        qtc.QAbstractAxis_LabelsBrushChanged(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -1877,12 +1919,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, brush: QtC.QBrush) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis, brush: QBrush) callconv(.c) void `
     ///
-    pub fn OnLabelsBrushChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_LabelsBrushChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLabelsBrushChanged(self: QCategoryAxis, callback: *const fn (QCategoryAxis, QBrush) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_LabelsBrushChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1891,12 +1933,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` pen: QtC.QFont `
+    /// ` pen: QFont `
     ///
-    pub fn LabelsFontChanged(self: ?*anyopaque, pen: ?*anyopaque) void {
-        qtc.QAbstractAxis_LabelsFontChanged(@ptrCast(self), @ptrCast(pen));
+    pub fn LabelsFontChanged(self: QCategoryAxis, pen: anytype) void {
+        comptime _ = @TypeOf(pen)._is_QFont;
+        qtc.QAbstractAxis_LabelsFontChanged(@ptrCast(self.ptr), @ptrCast(pen.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -1905,12 +1948,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, pen: QtC.QFont) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis, pen: QFont) callconv(.c) void `
     ///
-    pub fn OnLabelsFontChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_LabelsFontChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLabelsFontChanged(self: QCategoryAxis, callback: *const fn (QCategoryAxis, QFont) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_LabelsFontChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1919,12 +1962,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` angle: i32 `
     ///
-    pub fn LabelsAngleChanged(self: ?*anyopaque, angle: i32) void {
-        qtc.QAbstractAxis_LabelsAngleChanged(@ptrCast(self), @bitCast(angle));
+    pub fn LabelsAngleChanged(self: QCategoryAxis, angle: i32) void {
+        qtc.QAbstractAxis_LabelsAngleChanged(@ptrCast(self.ptr), @bitCast(angle));
     }
 
     /// Inherited from QAbstractAxis
@@ -1933,12 +1976,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, angle: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis, angle: i32) callconv(.c) void `
     ///
-    pub fn OnLabelsAngleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_LabelsAngleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLabelsAngleChanged(self: QCategoryAxis, callback: *const fn (QCategoryAxis, i32) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_LabelsAngleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1947,12 +1990,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` pen: QtC.QPen `
+    /// ` pen: QPen `
     ///
-    pub fn GridLinePenChanged(self: ?*anyopaque, pen: ?*anyopaque) void {
-        qtc.QAbstractAxis_GridLinePenChanged(@ptrCast(self), @ptrCast(pen));
+    pub fn GridLinePenChanged(self: QCategoryAxis, pen: anytype) void {
+        comptime _ = @TypeOf(pen)._is_QPen;
+        qtc.QAbstractAxis_GridLinePenChanged(@ptrCast(self.ptr), @ptrCast(pen.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -1961,12 +2005,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, pen: QtC.QPen) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis, pen: QPen) callconv(.c) void `
     ///
-    pub fn OnGridLinePenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_GridLinePenChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnGridLinePenChanged(self: QCategoryAxis, callback: *const fn (QCategoryAxis, QPen) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_GridLinePenChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1975,12 +2019,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` visible: bool `
     ///
-    pub fn GridVisibleChanged(self: ?*anyopaque, visible: bool) void {
-        qtc.QAbstractAxis_GridVisibleChanged(@ptrCast(self), visible);
+    pub fn GridVisibleChanged(self: QCategoryAxis, visible: bool) void {
+        qtc.QAbstractAxis_GridVisibleChanged(@ptrCast(self.ptr), visible);
     }
 
     /// Inherited from QAbstractAxis
@@ -1989,12 +2033,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, visible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis, visible: bool) callconv(.c) void `
     ///
-    pub fn OnGridVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_GridVisibleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnGridVisibleChanged(self: QCategoryAxis, callback: *const fn (QCategoryAxis, bool) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_GridVisibleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -2003,12 +2047,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` visible: bool `
     ///
-    pub fn MinorGridVisibleChanged(self: ?*anyopaque, visible: bool) void {
-        qtc.QAbstractAxis_MinorGridVisibleChanged(@ptrCast(self), visible);
+    pub fn MinorGridVisibleChanged(self: QCategoryAxis, visible: bool) void {
+        qtc.QAbstractAxis_MinorGridVisibleChanged(@ptrCast(self.ptr), visible);
     }
 
     /// Inherited from QAbstractAxis
@@ -2017,12 +2061,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, visible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis, visible: bool) callconv(.c) void `
     ///
-    pub fn OnMinorGridVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_MinorGridVisibleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMinorGridVisibleChanged(self: QCategoryAxis, callback: *const fn (QCategoryAxis, bool) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_MinorGridVisibleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -2031,12 +2075,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` pen: QtC.QPen `
+    /// ` pen: QPen `
     ///
-    pub fn MinorGridLinePenChanged(self: ?*anyopaque, pen: ?*anyopaque) void {
-        qtc.QAbstractAxis_MinorGridLinePenChanged(@ptrCast(self), @ptrCast(pen));
+    pub fn MinorGridLinePenChanged(self: QCategoryAxis, pen: anytype) void {
+        comptime _ = @TypeOf(pen)._is_QPen;
+        qtc.QAbstractAxis_MinorGridLinePenChanged(@ptrCast(self.ptr), @ptrCast(pen.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -2045,12 +2090,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, pen: QtC.QPen) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis, pen: QPen) callconv(.c) void `
     ///
-    pub fn OnMinorGridLinePenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_MinorGridLinePenChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMinorGridLinePenChanged(self: QCategoryAxis, callback: *const fn (QCategoryAxis, QPen) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_MinorGridLinePenChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -2059,12 +2104,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` color: QtC.QColor `
+    /// ` color: QColor `
     ///
-    pub fn GridLineColorChanged(self: ?*anyopaque, color: ?*anyopaque) void {
-        qtc.QAbstractAxis_GridLineColorChanged(@ptrCast(self), @ptrCast(color));
+    pub fn GridLineColorChanged(self: QCategoryAxis, color: anytype) void {
+        comptime _ = @TypeOf(color)._is_QColor;
+        qtc.QAbstractAxis_GridLineColorChanged(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -2073,12 +2119,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, color: QtC.QColor) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis, color: QColor) callconv(.c) void `
     ///
-    pub fn OnGridLineColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_GridLineColorChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnGridLineColorChanged(self: QCategoryAxis, callback: *const fn (QCategoryAxis, QColor) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_GridLineColorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -2087,12 +2133,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` color: QtC.QColor `
+    /// ` color: QColor `
     ///
-    pub fn MinorGridLineColorChanged(self: ?*anyopaque, color: ?*anyopaque) void {
-        qtc.QAbstractAxis_MinorGridLineColorChanged(@ptrCast(self), @ptrCast(color));
+    pub fn MinorGridLineColorChanged(self: QCategoryAxis, color: anytype) void {
+        comptime _ = @TypeOf(color)._is_QColor;
+        qtc.QAbstractAxis_MinorGridLineColorChanged(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -2101,12 +2148,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, color: QtC.QColor) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis, color: QColor) callconv(.c) void `
     ///
-    pub fn OnMinorGridLineColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_MinorGridLineColorChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMinorGridLineColorChanged(self: QCategoryAxis, callback: *const fn (QCategoryAxis, QColor) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_MinorGridLineColorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -2115,12 +2162,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` color: QtC.QColor `
+    /// ` color: QColor `
     ///
-    pub fn ColorChanged(self: ?*anyopaque, color: QtC.QColor) void {
-        qtc.QAbstractAxis_ColorChanged(@ptrCast(self), @ptrCast(color));
+    pub fn ColorChanged(self: QCategoryAxis, color: anytype) void {
+        comptime _ = @TypeOf(color)._is_QColor;
+        qtc.QAbstractAxis_ColorChanged(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -2129,12 +2177,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, color: QtC.QColor) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis, color: QColor) callconv(.c) void `
     ///
-    pub fn OnColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_ColorChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColorChanged(self: QCategoryAxis, callback: *const fn (QCategoryAxis, QColor) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_ColorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -2143,12 +2191,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` color: QtC.QColor `
+    /// ` color: QColor `
     ///
-    pub fn LabelsColorChanged(self: ?*anyopaque, color: QtC.QColor) void {
-        qtc.QAbstractAxis_LabelsColorChanged(@ptrCast(self), @ptrCast(color));
+    pub fn LabelsColorChanged(self: QCategoryAxis, color: anytype) void {
+        comptime _ = @TypeOf(color)._is_QColor;
+        qtc.QAbstractAxis_LabelsColorChanged(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -2157,12 +2206,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, color: QtC.QColor) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis, color: QColor) callconv(.c) void `
     ///
-    pub fn OnLabelsColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_LabelsColorChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLabelsColorChanged(self: QCategoryAxis, callback: *const fn (QCategoryAxis, QColor) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_LabelsColorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -2171,16 +2220,16 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` title: []const u8 `
     ///
-    pub fn TitleTextChanged(self: ?*anyopaque, title: []const u8) void {
+    pub fn TitleTextChanged(self: QCategoryAxis, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        qtc.QAbstractAxis_TitleTextChanged(@ptrCast(self), title_str);
+        qtc.QAbstractAxis_TitleTextChanged(@ptrCast(self.ptr), title_str);
     }
 
     /// Inherited from QAbstractAxis
@@ -2189,12 +2238,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, title: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnTitleTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_TitleTextChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTitleTextChanged(self: QCategoryAxis, callback: *const fn (QCategoryAxis, [*:0]const u8) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_TitleTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -2203,12 +2252,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` brush: QtC.QBrush `
+    /// ` brush: QBrush `
     ///
-    pub fn TitleBrushChanged(self: ?*anyopaque, brush: ?*anyopaque) void {
-        qtc.QAbstractAxis_TitleBrushChanged(@ptrCast(self), @ptrCast(brush));
+    pub fn TitleBrushChanged(self: QCategoryAxis, brush: anytype) void {
+        comptime _ = @TypeOf(brush)._is_QBrush;
+        qtc.QAbstractAxis_TitleBrushChanged(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -2217,12 +2267,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, brush: QtC.QBrush) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis, brush: QBrush) callconv(.c) void `
     ///
-    pub fn OnTitleBrushChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_TitleBrushChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTitleBrushChanged(self: QCategoryAxis, callback: *const fn (QCategoryAxis, QBrush) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_TitleBrushChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -2231,12 +2281,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` visible: bool `
     ///
-    pub fn TitleVisibleChanged(self: ?*anyopaque, visible: bool) void {
-        qtc.QAbstractAxis_TitleVisibleChanged(@ptrCast(self), visible);
+    pub fn TitleVisibleChanged(self: QCategoryAxis, visible: bool) void {
+        qtc.QAbstractAxis_TitleVisibleChanged(@ptrCast(self.ptr), visible);
     }
 
     /// Inherited from QAbstractAxis
@@ -2245,12 +2295,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, visible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis, visible: bool) callconv(.c) void `
     ///
-    pub fn OnTitleVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_TitleVisibleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTitleVisibleChanged(self: QCategoryAxis, callback: *const fn (QCategoryAxis, bool) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_TitleVisibleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -2259,12 +2309,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` font: QtC.QFont `
+    /// ` font: QFont `
     ///
-    pub fn TitleFontChanged(self: ?*anyopaque, font: ?*anyopaque) void {
-        qtc.QAbstractAxis_TitleFontChanged(@ptrCast(self), @ptrCast(font));
+    pub fn TitleFontChanged(self: QCategoryAxis, font: anytype) void {
+        comptime _ = @TypeOf(font)._is_QFont;
+        qtc.QAbstractAxis_TitleFontChanged(@ptrCast(self.ptr), @ptrCast(font.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -2273,12 +2324,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, font: QtC.QFont) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis, font: QFont) callconv(.c) void `
     ///
-    pub fn OnTitleFontChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_TitleFontChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTitleFontChanged(self: QCategoryAxis, callback: *const fn (QCategoryAxis, QFont) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_TitleFontChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -2287,12 +2338,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` visible: bool `
     ///
-    pub fn ShadesVisibleChanged(self: ?*anyopaque, visible: bool) void {
-        qtc.QAbstractAxis_ShadesVisibleChanged(@ptrCast(self), visible);
+    pub fn ShadesVisibleChanged(self: QCategoryAxis, visible: bool) void {
+        qtc.QAbstractAxis_ShadesVisibleChanged(@ptrCast(self.ptr), visible);
     }
 
     /// Inherited from QAbstractAxis
@@ -2301,12 +2352,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, visible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis, visible: bool) callconv(.c) void `
     ///
-    pub fn OnShadesVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_ShadesVisibleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnShadesVisibleChanged(self: QCategoryAxis, callback: *const fn (QCategoryAxis, bool) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_ShadesVisibleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -2315,12 +2366,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` color: QtC.QColor `
+    /// ` color: QColor `
     ///
-    pub fn ShadesColorChanged(self: ?*anyopaque, color: QtC.QColor) void {
-        qtc.QAbstractAxis_ShadesColorChanged(@ptrCast(self), @ptrCast(color));
+    pub fn ShadesColorChanged(self: QCategoryAxis, color: anytype) void {
+        comptime _ = @TypeOf(color)._is_QColor;
+        qtc.QAbstractAxis_ShadesColorChanged(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -2329,12 +2381,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, color: QtC.QColor) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis, color: QColor) callconv(.c) void `
     ///
-    pub fn OnShadesColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_ShadesColorChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnShadesColorChanged(self: QCategoryAxis, callback: *const fn (QCategoryAxis, QColor) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_ShadesColorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -2343,12 +2395,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` color: QtC.QColor `
+    /// ` color: QColor `
     ///
-    pub fn ShadesBorderColorChanged(self: ?*anyopaque, color: QtC.QColor) void {
-        qtc.QAbstractAxis_ShadesBorderColorChanged(@ptrCast(self), @ptrCast(color));
+    pub fn ShadesBorderColorChanged(self: QCategoryAxis, color: anytype) void {
+        comptime _ = @TypeOf(color)._is_QColor;
+        qtc.QAbstractAxis_ShadesBorderColorChanged(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -2357,12 +2410,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, color: QtC.QColor) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis, color: QColor) callconv(.c) void `
     ///
-    pub fn OnShadesBorderColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_ShadesBorderColorChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnShadesBorderColorChanged(self: QCategoryAxis, callback: *const fn (QCategoryAxis, QColor) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_ShadesBorderColorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -2371,12 +2424,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` pen: QtC.QPen `
+    /// ` pen: QPen `
     ///
-    pub fn ShadesPenChanged(self: ?*anyopaque, pen: ?*anyopaque) void {
-        qtc.QAbstractAxis_ShadesPenChanged(@ptrCast(self), @ptrCast(pen));
+    pub fn ShadesPenChanged(self: QCategoryAxis, pen: anytype) void {
+        comptime _ = @TypeOf(pen)._is_QPen;
+        qtc.QAbstractAxis_ShadesPenChanged(@ptrCast(self.ptr), @ptrCast(pen.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -2385,12 +2439,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, pen: QtC.QPen) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis, pen: QPen) callconv(.c) void `
     ///
-    pub fn OnShadesPenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_ShadesPenChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnShadesPenChanged(self: QCategoryAxis, callback: *const fn (QCategoryAxis, QPen) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_ShadesPenChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -2399,12 +2453,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` brush: QtC.QBrush `
+    /// ` brush: QBrush `
     ///
-    pub fn ShadesBrushChanged(self: ?*anyopaque, brush: ?*anyopaque) void {
-        qtc.QAbstractAxis_ShadesBrushChanged(@ptrCast(self), @ptrCast(brush));
+    pub fn ShadesBrushChanged(self: QCategoryAxis, brush: anytype) void {
+        comptime _ = @TypeOf(brush)._is_QBrush;
+        qtc.QAbstractAxis_ShadesBrushChanged(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
 
     /// Inherited from QAbstractAxis
@@ -2413,12 +2468,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, brush: QtC.QBrush) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis, brush: QBrush) callconv(.c) void `
     ///
-    pub fn OnShadesBrushChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_ShadesBrushChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnShadesBrushChanged(self: QCategoryAxis, callback: *const fn (QCategoryAxis, QBrush) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_ShadesBrushChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -2427,12 +2482,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` reverse: bool `
     ///
-    pub fn ReverseChanged(self: ?*anyopaque, reverse: bool) void {
-        qtc.QAbstractAxis_ReverseChanged(@ptrCast(self), reverse);
+    pub fn ReverseChanged(self: QCategoryAxis, reverse: bool) void {
+        qtc.QAbstractAxis_ReverseChanged(@ptrCast(self.ptr), reverse);
     }
 
     /// Inherited from QAbstractAxis
@@ -2441,12 +2496,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, reverse: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis, reverse: bool) callconv(.c) void `
     ///
-    pub fn OnReverseChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_ReverseChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReverseChanged(self: QCategoryAxis, callback: *const fn (QCategoryAxis, bool) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_ReverseChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -2455,12 +2510,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` editable: bool `
     ///
-    pub fn LabelsEditableChanged(self: ?*anyopaque, editable: bool) void {
-        qtc.QAbstractAxis_LabelsEditableChanged(@ptrCast(self), editable);
+    pub fn LabelsEditableChanged(self: QCategoryAxis, editable: bool) void {
+        qtc.QAbstractAxis_LabelsEditableChanged(@ptrCast(self.ptr), editable);
     }
 
     /// Inherited from QAbstractAxis
@@ -2469,12 +2524,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, editable: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis, editable: bool) callconv(.c) void `
     ///
-    pub fn OnLabelsEditableChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_LabelsEditableChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLabelsEditableChanged(self: QCategoryAxis, callback: *const fn (QCategoryAxis, bool) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_LabelsEditableChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -2483,12 +2538,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` labelsTruncated: bool `
     ///
-    pub fn LabelsTruncatedChanged(self: ?*anyopaque, labelsTruncated: bool) void {
-        qtc.QAbstractAxis_LabelsTruncatedChanged(@ptrCast(self), labelsTruncated);
+    pub fn LabelsTruncatedChanged(self: QCategoryAxis, labelsTruncated: bool) void {
+        qtc.QAbstractAxis_LabelsTruncatedChanged(@ptrCast(self.ptr), labelsTruncated);
     }
 
     /// Inherited from QAbstractAxis
@@ -2497,12 +2552,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, labelsTruncated: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis, labelsTruncated: bool) callconv(.c) void `
     ///
-    pub fn OnLabelsTruncatedChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_LabelsTruncatedChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLabelsTruncatedChanged(self: QCategoryAxis, callback: *const fn (QCategoryAxis, bool) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_LabelsTruncatedChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -2511,12 +2566,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` truncateLabels: bool `
     ///
-    pub fn TruncateLabelsChanged(self: ?*anyopaque, truncateLabels: bool) void {
-        qtc.QAbstractAxis_TruncateLabelsChanged(@ptrCast(self), truncateLabels);
+    pub fn TruncateLabelsChanged(self: QCategoryAxis, truncateLabels: bool) void {
+        qtc.QAbstractAxis_TruncateLabelsChanged(@ptrCast(self.ptr), truncateLabels);
     }
 
     /// Inherited from QAbstractAxis
@@ -2525,12 +2580,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, truncateLabels: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis, truncateLabels: bool) callconv(.c) void `
     ///
-    pub fn OnTruncateLabelsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_TruncateLabelsChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTruncateLabelsChanged(self: QCategoryAxis, callback: *const fn (QCategoryAxis, bool) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_TruncateLabelsChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -2539,12 +2594,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible1(self: ?*anyopaque, visible: bool) void {
-        qtc.QAbstractAxis_SetVisible1(@ptrCast(self), visible);
+    pub fn SetVisible1(self: QCategoryAxis, visible: bool) void {
+        qtc.QAbstractAxis_SetVisible1(@ptrCast(self.ptr), visible);
     }
 
     /// Inherited from QAbstractAxis
@@ -2553,12 +2608,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` visible: bool `
     ///
-    pub fn SetLineVisible1(self: ?*anyopaque, visible: bool) void {
-        qtc.QAbstractAxis_SetLineVisible1(@ptrCast(self), visible);
+    pub fn SetLineVisible1(self: QCategoryAxis, visible: bool) void {
+        qtc.QAbstractAxis_SetLineVisible1(@ptrCast(self.ptr), visible);
     }
 
     /// Inherited from QAbstractAxis
@@ -2567,12 +2622,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` visible: bool `
     ///
-    pub fn SetGridLineVisible1(self: ?*anyopaque, visible: bool) void {
-        qtc.QAbstractAxis_SetGridLineVisible1(@ptrCast(self), visible);
+    pub fn SetGridLineVisible1(self: QCategoryAxis, visible: bool) void {
+        qtc.QAbstractAxis_SetGridLineVisible1(@ptrCast(self.ptr), visible);
     }
 
     /// Inherited from QAbstractAxis
@@ -2581,12 +2636,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` visible: bool `
     ///
-    pub fn SetMinorGridLineVisible1(self: ?*anyopaque, visible: bool) void {
-        qtc.QAbstractAxis_SetMinorGridLineVisible1(@ptrCast(self), visible);
+    pub fn SetMinorGridLineVisible1(self: QCategoryAxis, visible: bool) void {
+        qtc.QAbstractAxis_SetMinorGridLineVisible1(@ptrCast(self.ptr), visible);
     }
 
     /// Inherited from QAbstractAxis
@@ -2595,12 +2650,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` visible: bool `
     ///
-    pub fn SetLabelsVisible1(self: ?*anyopaque, visible: bool) void {
-        qtc.QAbstractAxis_SetLabelsVisible1(@ptrCast(self), visible);
+    pub fn SetLabelsVisible1(self: QCategoryAxis, visible: bool) void {
+        qtc.QAbstractAxis_SetLabelsVisible1(@ptrCast(self.ptr), visible);
     }
 
     /// Inherited from QAbstractAxis
@@ -2609,12 +2664,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` visible: bool `
     ///
-    pub fn SetTitleVisible1(self: ?*anyopaque, visible: bool) void {
-        qtc.QAbstractAxis_SetTitleVisible1(@ptrCast(self), visible);
+    pub fn SetTitleVisible1(self: QCategoryAxis, visible: bool) void {
+        qtc.QAbstractAxis_SetTitleVisible1(@ptrCast(self.ptr), visible);
     }
 
     /// Inherited from QAbstractAxis
@@ -2623,12 +2678,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` visible: bool `
     ///
-    pub fn SetShadesVisible1(self: ?*anyopaque, visible: bool) void {
-        qtc.QAbstractAxis_SetShadesVisible1(@ptrCast(self), visible);
+    pub fn SetShadesVisible1(self: QCategoryAxis, visible: bool) void {
+        qtc.QAbstractAxis_SetShadesVisible1(@ptrCast(self.ptr), visible);
     }
 
     /// Inherited from QAbstractAxis
@@ -2637,12 +2692,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` reverse: bool `
     ///
-    pub fn SetReverse1(self: ?*anyopaque, reverse: bool) void {
-        qtc.QAbstractAxis_SetReverse1(@ptrCast(self), reverse);
+    pub fn SetReverse1(self: QCategoryAxis, reverse: bool) void {
+        qtc.QAbstractAxis_SetReverse1(@ptrCast(self.ptr), reverse);
     }
 
     /// Inherited from QAbstractAxis
@@ -2651,12 +2706,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` editable: bool `
     ///
-    pub fn SetLabelsEditable1(self: ?*anyopaque, editable: bool) void {
-        qtc.QAbstractAxis_SetLabelsEditable1(@ptrCast(self), editable);
+    pub fn SetLabelsEditable1(self: QCategoryAxis, editable: bool) void {
+        qtc.QAbstractAxis_SetLabelsEditable1(@ptrCast(self.ptr), editable);
     }
 
     /// Inherited from QAbstractAxis
@@ -2665,12 +2720,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` truncateLabels: bool `
     ///
-    pub fn SetTruncateLabels1(self: ?*anyopaque, truncateLabels: bool) void {
-        qtc.QAbstractAxis_SetTruncateLabels1(@ptrCast(self), truncateLabels);
+    pub fn SetTruncateLabels1(self: QCategoryAxis, truncateLabels: bool) void {
+        qtc.QAbstractAxis_SetTruncateLabels1(@ptrCast(self.ptr), truncateLabels);
     }
 
     /// Inherited from QObject
@@ -2679,12 +2734,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QCategoryAxis, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcategoryaxis.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2697,12 +2752,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QCategoryAxis, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -2711,10 +2766,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QCategoryAxis) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2723,10 +2778,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QCategoryAxis) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2735,10 +2790,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QCategoryAxis) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2747,10 +2802,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QCategoryAxis) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2759,12 +2814,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QCategoryAxis, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -2773,10 +2828,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QCategoryAxis) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2785,12 +2840,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QCategoryAxis, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -2799,12 +2855,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QCategoryAxis, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -2813,12 +2869,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QCategoryAxis, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -2827,12 +2883,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QCategoryAxis, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -2841,12 +2897,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QCategoryAxis, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -2855,16 +2911,17 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QCategoryAxis, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qcategoryaxis.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qcategoryaxis.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -2874,12 +2931,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QCategoryAxis, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -2888,12 +2946,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QCategoryAxis, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -2902,12 +2961,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QCategoryAxis, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -2916,18 +2976,20 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -2936,16 +2998,20 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2954,18 +3020,19 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QCategoryAxis, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -2974,18 +3041,20 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -2994,16 +3063,20 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -3012,10 +3085,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QCategoryAxis) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -3024,12 +3097,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QCategoryAxis, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -3038,10 +3112,11 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -3050,10 +3125,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QCategoryAxis) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -3062,10 +3137,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QCategoryAxis) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -3074,15 +3149,16 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QCategoryAxis, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -3091,13 +3167,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QCategoryAxis, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -3106,17 +3182,16 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QCategoryAxis, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcategoryaxis.DynamicPropertyNames: Memory allocation failed");
@@ -3135,10 +3210,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QCategoryAxis) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -3147,10 +3222,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QCategoryAxis) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -3159,10 +3234,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QCategoryAxis) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -3171,12 +3246,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QCategoryAxis, callback: *const fn (QCategoryAxis) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3185,10 +3260,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QCategoryAxis) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -3197,13 +3272,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QCategoryAxis, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -3212,10 +3287,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QCategoryAxis) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -3224,14 +3299,14 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QCategoryAxis, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -3240,14 +3315,14 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QCategoryAxis, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -3256,20 +3331,22 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -3278,18 +3355,22 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -3298,9 +3379,9 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -3308,10 +3389,11 @@ pub const qcategoryaxis = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QCategoryAxis, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -3320,13 +3402,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QCategoryAxis, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -3335,15 +3417,16 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QCategoryAxis, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -3352,18 +3435,19 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QCategoryAxis, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -3372,15 +3456,16 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QCategoryAxis, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -3389,12 +3474,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QCategoryAxis, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -3403,12 +3489,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QCategoryAxis, callback: *const fn (QCategoryAxis, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3419,12 +3505,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QCategoryAxis_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: QCategoryAxis, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QCategoryAxis_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -3439,12 +3526,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QCategoryAxis_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: QCategoryAxis, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QCategoryAxis_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3455,12 +3543,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis`
+    /// ` self: QCategoryAxis`
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QCategoryAxis, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QCategoryAxis_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QCategoryAxis, callback: *const fn (QCategoryAxis, QEvent) callconv(.c) bool) void {
+        qtc.QCategoryAxis_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3471,14 +3559,16 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QCategoryAxis_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: QCategoryAxis, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QCategoryAxis_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -3493,14 +3583,16 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QCategoryAxis_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: QCategoryAxis, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QCategoryAxis_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3511,12 +3603,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis`
+    /// ` self: QCategoryAxis`
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QCategoryAxis, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QCategoryAxis_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QCategoryAxis, callback: *const fn (QCategoryAxis, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QCategoryAxis_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3527,12 +3619,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QCategoryAxis_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: QCategoryAxis, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QCategoryAxis_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -3547,12 +3640,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QCategoryAxis_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: QCategoryAxis, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QCategoryAxis_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3563,12 +3657,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis`
+    /// ` self: QCategoryAxis`
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCategoryAxis_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QCategoryAxis, callback: *const fn (QCategoryAxis, QTimerEvent) callconv(.c) void) void {
+        qtc.QCategoryAxis_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3579,12 +3673,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QCategoryAxis_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: QCategoryAxis, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QCategoryAxis_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -3599,12 +3694,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QCategoryAxis_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: QCategoryAxis, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QCategoryAxis_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3615,12 +3711,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis`
+    /// ` self: QCategoryAxis`
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCategoryAxis_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QCategoryAxis, callback: *const fn (QCategoryAxis, QChildEvent) callconv(.c) void) void {
+        qtc.QCategoryAxis_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3631,12 +3727,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QCategoryAxis_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QCategoryAxis, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QCategoryAxis_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -3651,12 +3748,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QCategoryAxis_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QCategoryAxis, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QCategoryAxis_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3667,12 +3765,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis`
+    /// ` self: QCategoryAxis`
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCategoryAxis_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QCategoryAxis, callback: *const fn (QCategoryAxis, QEvent) callconv(.c) void) void {
+        qtc.QCategoryAxis_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3683,12 +3781,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QCategoryAxis_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QCategoryAxis, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QCategoryAxis_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -3703,12 +3802,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QCategoryAxis_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QCategoryAxis, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QCategoryAxis_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -3719,12 +3819,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis`
+    /// ` self: QCategoryAxis`
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCategoryAxis_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QCategoryAxis, callback: *const fn (QCategoryAxis, QMetaMethod) callconv(.c) void) void {
+        qtc.QCategoryAxis_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3735,12 +3835,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QCategoryAxis_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QCategoryAxis, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QCategoryAxis_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -3755,12 +3856,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QCategoryAxis_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QCategoryAxis, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QCategoryAxis_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -3771,12 +3873,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis`
+    /// ` self: QCategoryAxis`
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCategoryAxis_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QCategoryAxis, callback: *const fn (QCategoryAxis, QMetaMethod) callconv(.c) void) void {
+        qtc.QCategoryAxis_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3787,10 +3889,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QCategoryAxis_Sender(@ptrCast(self));
+    pub fn Sender(self: QCategoryAxis) QObject {
+        return .{ .ptr = qtc.QCategoryAxis_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -3805,10 +3907,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QCategoryAxis_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QCategoryAxis) QObject {
+        return .{ .ptr = qtc.QCategoryAxis_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -3819,12 +3921,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis`
+    /// ` self: QCategoryAxis`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QCategoryAxis_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QCategoryAxis, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QCategoryAxis_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3835,10 +3937,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QCategoryAxis_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QCategoryAxis) i32 {
+        return qtc.QCategoryAxis_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -3853,10 +3955,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QCategoryAxis_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QCategoryAxis) i32 {
+        return qtc.QCategoryAxis_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -3867,12 +3969,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis`
+    /// ` self: QCategoryAxis`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QCategoryAxis_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QCategoryAxis, callback: *const fn () callconv(.c) i32) void {
+        qtc.QCategoryAxis_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3883,13 +3985,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QCategoryAxis, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QCategoryAxis_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QCategoryAxis_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -3904,13 +4006,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QCategoryAxis, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QCategoryAxis_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QCategoryAxis_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -3921,12 +4023,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis`
+    /// ` self: QCategoryAxis`
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QCategoryAxis, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QCategoryAxis_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QCategoryAxis, callback: *const fn (QCategoryAxis, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QCategoryAxis_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3937,12 +4039,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QCategoryAxis_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QCategoryAxis, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QCategoryAxis_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -3957,12 +4060,13 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QCategoryAxis_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QCategoryAxis, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QCategoryAxis_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -3973,12 +4077,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis`
+    /// ` self: QCategoryAxis`
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QCategoryAxis, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QCategoryAxis_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QCategoryAxis, callback: *const fn (QCategoryAxis, QMetaMethod) callconv(.c) bool) void {
+        qtc.QCategoryAxis_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3989,12 +4093,12 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    /// ` callback: *const fn (self: QtC.QCategoryAxis, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QCategoryAxis, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QCategoryAxis, callback: *const fn (QCategoryAxis, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -4007,10 +4111,10 @@ pub const qcategoryaxis = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QCategoryAxis `
+    /// ` self: QCategoryAxis `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QCategoryAxis_Delete(@ptrCast(self));
+    pub fn Delete(self: QCategoryAxis) void {
+        qtc.QCategoryAxis_Delete(@ptrCast(self.ptr));
     }
 };
 

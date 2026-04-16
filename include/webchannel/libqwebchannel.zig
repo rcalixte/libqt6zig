@@ -1,36 +1,57 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QEvent = @import("libqt6").QEvent;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
+const QWebChannelAbstractTransport = @import("libqt6").QWebChannelAbstractTransport;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-const map_constu8_qtcqobject = std.StringHashMapUnmanaged(QtC.QObject);
+const Map_constu8_QObject = std.StringHashMapUnmanaged(QObject);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebchannel.html)
-pub const qwebchannel = struct {
+pub const QWebChannel = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebchannel.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QWebChannel,
+
+    pub const _is_QWebChannel = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new QWebChannel object.
     ///
-    pub fn New() QtC.QWebChannel {
-        return qtc.QWebChannel_new();
+    pub fn New() QWebChannel {
+        return .{ .ptr = qtc.QWebChannel_new() };
     }
 
     /// New2 constructs a new QWebChannel object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New2(parent: ?*anyopaque) QtC.QWebChannel {
-        return qtc.QWebChannel_new2(@ptrCast(parent));
+    pub fn New2(parent: anytype) QWebChannel {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.QWebChannel_new2(@ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QWebChannel_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QWebChannel) QMetaObject {
+        return .{ .ptr = qtc.QWebChannel_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -39,12 +60,12 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QWebChannel_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QWebChannel, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QWebChannel_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -57,33 +78,33 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QWebChannel_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QWebChannel) QMetaObject {
+        return .{ .ptr = qtc.QWebChannel_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QWebChannel, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QWebChannel_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QWebChannel_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    /// ` callback: *const fn (self: QtC.QWebChannel, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QWebChannel, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QWebChannel_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QWebChannel, callback: *const fn (QWebChannel, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QWebChannel_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -94,18 +115,18 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QWebChannel, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QWebChannel_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QWebChannel_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -113,20 +134,20 @@ pub const qwebchannel = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QWebChannel_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QWebChannel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QWebChannel_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    /// ` callback: *const fn (self: QtC.QWebChannel, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QWebChannel, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QWebChannel_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QWebChannel, callback: *const fn (QWebChannel, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QWebChannel_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -137,7 +158,7 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -145,19 +166,19 @@ pub const qwebchannel = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QWebChannel_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QWebChannel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QWebChannel_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -170,13 +191,13 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
-    ///
-    /// ` objects: map_constu8_qtcqobject `
+    /// ` self: QWebChannel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn RegisterObjects(self: ?*anyopaque, objects: map_constu8_qtcqobject, allocator: std.mem.Allocator) void {
+    /// ` objects: Map_constu8_QObject `
+    ///
+    pub fn RegisterObjects(self: QWebChannel, allocator: std.mem.Allocator, objects: Map_constu8_QObject) void {
         const objects_count = objects.count();
         const objects_keys = allocator.alloc(qtc.libqt_string, objects_count) catch @panic("qwebchannel.RegisterObjects: Memory allocation failed");
         defer allocator.free(objects_keys);
@@ -190,27 +211,27 @@ pub const qwebchannel = struct {
                 .len = objects_key.len,
                 .data = objects_key.ptr,
             };
-            objects_values[i] = @ptrCast(it_entry.value_ptr.*);
+            objects_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const objects_map = qtc.libqt_map{
             .len = objects_count,
             .keys = @ptrCast(objects_keys.ptr),
             .values = @ptrCast(objects_values.ptr),
         };
-        qtc.QWebChannel_RegisterObjects(@ptrCast(self), objects_map);
+        qtc.QWebChannel_RegisterObjects(@ptrCast(self.ptr), objects_map);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebchannel.html#registeredObjects)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn RegisteredObjects(self: ?*anyopaque, allocator: std.mem.Allocator) map_constu8_qtcqobject {
-        const _map: qtc.libqt_map = qtc.QWebChannel_RegisteredObjects(@ptrCast(self));
-        var _ret: map_constu8_qtcqobject = .empty;
+    pub fn RegisteredObjects(self: QWebChannel, allocator: std.mem.Allocator) Map_constu8_QObject {
+        const _map: qtc.libqt_map = qtc.QWebChannel_RegisteredObjects(@ptrCast(self.ptr));
+        var _ret: Map_constu8_QObject = .empty;
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
@@ -227,7 +248,7 @@ pub const qwebchannel = struct {
             const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("qwebchannel.RegisteredObjects: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            _ret.put(allocator, _entry_slice, @ptrCast(_value)) catch @panic("qwebchannel.RegisteredObjects: Memory allocation failed");
+            _ret.put(allocator, _entry_slice, .{ .ptr = @ptrCast(_value) }) catch @panic("qwebchannel.RegisteredObjects: Memory allocation failed");
         }
         return _ret;
     }
@@ -236,135 +257,139 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
     /// ` id: []const u8 `
     ///
-    /// ` object: QtC.QObject `
+    /// ` object: QObject `
     ///
-    pub fn RegisterObject(self: ?*anyopaque, id: []const u8, object: ?*anyopaque) void {
+    pub fn RegisterObject(self: QWebChannel, id: []const u8, object: anytype) void {
         const id_str = qtc.libqt_string{
             .len = id.len,
             .data = id.ptr,
         };
-        qtc.QWebChannel_RegisterObject(@ptrCast(self), id_str, @ptrCast(object));
+        comptime _ = @TypeOf(object)._is_QObject;
+        qtc.QWebChannel_RegisterObject(@ptrCast(self.ptr), id_str, @ptrCast(object.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebchannel.html#deregisterObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    /// ` object: QtC.QObject `
+    /// ` object: QObject `
     ///
-    pub fn DeregisterObject(self: ?*anyopaque, object: ?*anyopaque) void {
-        qtc.QWebChannel_DeregisterObject(@ptrCast(self), @ptrCast(object));
+    pub fn DeregisterObject(self: QWebChannel, object: anytype) void {
+        comptime _ = @TypeOf(object)._is_QObject;
+        qtc.QWebChannel_DeregisterObject(@ptrCast(self.ptr), @ptrCast(object.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebchannel.html#blockUpdates)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    pub fn BlockUpdates(self: ?*anyopaque) bool {
-        return qtc.QWebChannel_BlockUpdates(@ptrCast(self));
+    pub fn BlockUpdates(self: QWebChannel) bool {
+        return qtc.QWebChannel_BlockUpdates(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebchannel.html#setBlockUpdates)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
     /// ` block: bool `
     ///
-    pub fn SetBlockUpdates(self: ?*anyopaque, block: bool) void {
-        qtc.QWebChannel_SetBlockUpdates(@ptrCast(self), block);
+    pub fn SetBlockUpdates(self: QWebChannel, block: bool) void {
+        qtc.QWebChannel_SetBlockUpdates(@ptrCast(self.ptr), block);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebchannel.html#propertyUpdateInterval)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    pub fn PropertyUpdateInterval(self: ?*anyopaque) i32 {
-        return qtc.QWebChannel_PropertyUpdateInterval(@ptrCast(self));
+    pub fn PropertyUpdateInterval(self: QWebChannel) i32 {
+        return qtc.QWebChannel_PropertyUpdateInterval(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebchannel.html#setPropertyUpdateInterval)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
     /// ` ms: i32 `
     ///
-    pub fn SetPropertyUpdateInterval(self: ?*anyopaque, ms: i32) void {
-        qtc.QWebChannel_SetPropertyUpdateInterval(@ptrCast(self), @bitCast(ms));
+    pub fn SetPropertyUpdateInterval(self: QWebChannel, ms: i32) void {
+        qtc.QWebChannel_SetPropertyUpdateInterval(@ptrCast(self.ptr), @bitCast(ms));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebchannel.html#blockUpdatesChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
     /// ` block: bool `
     ///
-    pub fn BlockUpdatesChanged(self: ?*anyopaque, block: bool) void {
-        qtc.QWebChannel_BlockUpdatesChanged(@ptrCast(self), block);
+    pub fn BlockUpdatesChanged(self: QWebChannel, block: bool) void {
+        qtc.QWebChannel_BlockUpdatesChanged(@ptrCast(self.ptr), block);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebchannel.html#blockUpdatesChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    /// ` callback: *const fn (self: QtC.QWebChannel, block: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QWebChannel, block: bool) callconv(.c) void `
     ///
-    pub fn OnBlockUpdatesChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QWebChannel_Connect_BlockUpdatesChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBlockUpdatesChanged(self: QWebChannel, callback: *const fn (QWebChannel, bool) callconv(.c) void) void {
+        qtc.QWebChannel_Connect_BlockUpdatesChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebchannel.html#connectTo)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    /// ` transport: QtC.QWebChannelAbstractTransport `
+    /// ` transport: QWebChannelAbstractTransport `
     ///
-    pub fn ConnectTo(self: ?*anyopaque, transport: ?*anyopaque) void {
-        qtc.QWebChannel_ConnectTo(@ptrCast(self), @ptrCast(transport));
+    pub fn ConnectTo(self: QWebChannel, transport: anytype) void {
+        comptime _ = @TypeOf(transport)._is_QWebChannelAbstractTransport;
+        qtc.QWebChannel_ConnectTo(@ptrCast(self.ptr), @ptrCast(transport.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebchannel.html#disconnectFrom)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    /// ` transport: QtC.QWebChannelAbstractTransport `
+    /// ` transport: QWebChannelAbstractTransport `
     ///
-    pub fn DisconnectFrom(self: ?*anyopaque, transport: ?*anyopaque) void {
-        qtc.QWebChannel_DisconnectFrom(@ptrCast(self), @ptrCast(transport));
+    pub fn DisconnectFrom(self: QWebChannel, transport: anytype) void {
+        comptime _ = @TypeOf(transport)._is_QWebChannelAbstractTransport;
+        qtc.QWebChannel_DisconnectFrom(@ptrCast(self.ptr), @ptrCast(transport.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -378,15 +403,15 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -402,12 +427,12 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QWebChannel, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebchannel.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -420,12 +445,12 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QWebChannel, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -434,10 +459,10 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QWebChannel) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -446,10 +471,10 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QWebChannel) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -458,10 +483,10 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QWebChannel) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -470,10 +495,10 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QWebChannel) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -482,12 +507,12 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QWebChannel, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -496,10 +521,10 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QWebChannel) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -508,12 +533,13 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QWebChannel, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -522,12 +548,12 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QWebChannel, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -536,12 +562,12 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QWebChannel, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -550,12 +576,12 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QWebChannel, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -564,12 +590,12 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QWebChannel, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -578,16 +604,17 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QWebChannel, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qwebchannel.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qwebchannel.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -597,12 +624,13 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QWebChannel, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -611,12 +639,13 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QWebChannel, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -625,12 +654,13 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QWebChannel, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -639,18 +669,20 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -659,16 +691,20 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -677,18 +713,19 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QWebChannel, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -697,18 +734,20 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -717,16 +756,20 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -735,10 +778,10 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QWebChannel) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -747,12 +790,13 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QWebChannel, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -761,10 +805,11 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -773,10 +818,10 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QWebChannel) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -785,10 +830,10 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QWebChannel) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -797,15 +842,16 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QWebChannel, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -814,13 +860,13 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QWebChannel, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -829,17 +875,16 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QWebChannel, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qwebchannel.DynamicPropertyNames: Memory allocation failed");
@@ -858,10 +903,10 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QWebChannel) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -870,10 +915,10 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QWebChannel) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -882,10 +927,10 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QWebChannel) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -894,12 +939,12 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    /// ` callback: *const fn (self: QtC.QWebChannel) callconv(.c) void `
+    /// ` callback: *const fn (self: QWebChannel) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QWebChannel, callback: *const fn (QWebChannel) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -908,10 +953,10 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QWebChannel) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -920,13 +965,13 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QWebChannel, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -935,10 +980,10 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QWebChannel) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -947,14 +992,14 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QWebChannel, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -963,14 +1008,14 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QWebChannel, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -979,20 +1024,22 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -1001,18 +1048,22 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1021,9 +1072,9 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1031,10 +1082,11 @@ pub const qwebchannel = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QWebChannel, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1043,13 +1095,13 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QWebChannel, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1058,15 +1110,16 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QWebChannel, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1075,18 +1128,19 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QWebChannel, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1095,15 +1149,16 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QWebChannel, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1112,12 +1167,13 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QWebChannel, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1126,12 +1182,12 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    /// ` callback: *const fn (self: QtC.QWebChannel, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QWebChannel, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QWebChannel, callback: *const fn (QWebChannel, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1142,12 +1198,13 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QWebChannel_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: QWebChannel, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QWebChannel_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -1162,12 +1219,13 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QWebChannel_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: QWebChannel, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QWebChannel_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1178,12 +1236,12 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWebChannel`
+    /// ` self: QWebChannel`
     ///
-    /// ` callback: *const fn (self: QtC.QWebChannel, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QWebChannel, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QWebChannel_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QWebChannel, callback: *const fn (QWebChannel, QEvent) callconv(.c) bool) void {
+        qtc.QWebChannel_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1194,14 +1252,16 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QWebChannel_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: QWebChannel, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QWebChannel_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -1216,14 +1276,16 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QWebChannel_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: QWebChannel, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QWebChannel_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1234,12 +1296,12 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWebChannel`
+    /// ` self: QWebChannel`
     ///
-    /// ` callback: *const fn (self: QtC.QWebChannel, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QWebChannel, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QWebChannel_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QWebChannel, callback: *const fn (QWebChannel, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QWebChannel_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1250,12 +1312,13 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWebChannel_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: QWebChannel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QWebChannel_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -1270,12 +1333,13 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWebChannel_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: QWebChannel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QWebChannel_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1286,12 +1350,12 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWebChannel`
+    /// ` self: QWebChannel`
     ///
-    /// ` callback: *const fn (self: QtC.QWebChannel, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWebChannel, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWebChannel_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QWebChannel, callback: *const fn (QWebChannel, QTimerEvent) callconv(.c) void) void {
+        qtc.QWebChannel_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1302,12 +1366,13 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWebChannel_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: QWebChannel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QWebChannel_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -1322,12 +1387,13 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWebChannel_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: QWebChannel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QWebChannel_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1338,12 +1404,12 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWebChannel`
+    /// ` self: QWebChannel`
     ///
-    /// ` callback: *const fn (self: QtC.QWebChannel, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWebChannel, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWebChannel_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QWebChannel, callback: *const fn (QWebChannel, QChildEvent) callconv(.c) void) void {
+        qtc.QWebChannel_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1354,12 +1420,13 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWebChannel_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QWebChannel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QWebChannel_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -1374,12 +1441,13 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWebChannel_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QWebChannel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QWebChannel_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1390,12 +1458,12 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWebChannel`
+    /// ` self: QWebChannel`
     ///
-    /// ` callback: *const fn (self: QtC.QWebChannel, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWebChannel, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWebChannel_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QWebChannel, callback: *const fn (QWebChannel, QEvent) callconv(.c) void) void {
+        qtc.QWebChannel_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1406,12 +1474,13 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QWebChannel_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QWebChannel, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QWebChannel_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -1426,12 +1495,13 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QWebChannel_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QWebChannel, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QWebChannel_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1442,12 +1512,12 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWebChannel`
+    /// ` self: QWebChannel`
     ///
-    /// ` callback: *const fn (self: QtC.QWebChannel, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QWebChannel, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWebChannel_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QWebChannel, callback: *const fn (QWebChannel, QMetaMethod) callconv(.c) void) void {
+        qtc.QWebChannel_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1458,12 +1528,13 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QWebChannel_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QWebChannel, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QWebChannel_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -1478,12 +1549,13 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QWebChannel_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QWebChannel, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QWebChannel_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1494,12 +1566,12 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWebChannel`
+    /// ` self: QWebChannel`
     ///
-    /// ` callback: *const fn (self: QtC.QWebChannel, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QWebChannel, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWebChannel_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QWebChannel, callback: *const fn (QWebChannel, QMetaMethod) callconv(.c) void) void {
+        qtc.QWebChannel_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1510,10 +1582,10 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QWebChannel_Sender(@ptrCast(self));
+    pub fn Sender(self: QWebChannel) QObject {
+        return .{ .ptr = qtc.QWebChannel_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -1528,10 +1600,10 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QWebChannel_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QWebChannel) QObject {
+        return .{ .ptr = qtc.QWebChannel_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1542,12 +1614,12 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWebChannel`
+    /// ` self: QWebChannel`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QWebChannel_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QWebChannel, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QWebChannel_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1558,10 +1630,10 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QWebChannel_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QWebChannel) i32 {
+        return qtc.QWebChannel_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -1576,10 +1648,10 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QWebChannel_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QWebChannel) i32 {
+        return qtc.QWebChannel_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1590,12 +1662,12 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWebChannel`
+    /// ` self: QWebChannel`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QWebChannel_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QWebChannel, callback: *const fn () callconv(.c) i32) void {
+        qtc.QWebChannel_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1606,13 +1678,13 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QWebChannel, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QWebChannel_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QWebChannel_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -1627,13 +1699,13 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QWebChannel, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QWebChannel_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QWebChannel_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1644,12 +1716,12 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWebChannel`
+    /// ` self: QWebChannel`
     ///
-    /// ` callback: *const fn (self: QtC.QWebChannel, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QWebChannel, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QWebChannel_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QWebChannel, callback: *const fn (QWebChannel, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QWebChannel_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1660,12 +1732,13 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QWebChannel_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QWebChannel, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QWebChannel_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -1680,12 +1753,13 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QWebChannel_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QWebChannel, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QWebChannel_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1696,12 +1770,12 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWebChannel`
+    /// ` self: QWebChannel`
     ///
-    /// ` callback: *const fn (self: QtC.QWebChannel, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QWebChannel, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QWebChannel_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QWebChannel, callback: *const fn (QWebChannel, QMetaMethod) callconv(.c) bool) void {
+        qtc.QWebChannel_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1712,12 +1786,12 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    /// ` callback: *const fn (self: QtC.QWebChannel, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QWebChannel, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QWebChannel, callback: *const fn (QWebChannel, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -1730,9 +1804,9 @@ pub const qwebchannel = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QWebChannel `
+    /// ` self: QWebChannel `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QWebChannel_Delete(@ptrCast(self));
+    pub fn Delete(self: QWebChannel) void {
+        qtc.QWebChannel_Delete(@ptrCast(self.ptr));
     }
 };

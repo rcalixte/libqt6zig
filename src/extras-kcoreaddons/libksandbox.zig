@@ -1,9 +1,18 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QProcess = @import("libqt6").QProcess;
 const qiodevicebase_enums = @import("../libqiodevicebase.zig").enums;
 
 /// ### [Upstream resources](https://api.kde.org/ksandbox.html)
-pub const ksandbox = struct {
+pub const KSandbox = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/ksandbox.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KSandbox,
+
+    pub const _is_KSandbox = {};
+
     /// ### [Upstream resources](https://api.kde.org/ksandbox.html#isInside)
     ///
     pub fn IsInside() bool {
@@ -26,35 +35,46 @@ pub const ksandbox = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QProcess `
+    /// ` param1: QProcess `
     ///
-    pub fn MakeHostContext(param1: ?*anyopaque) QtC.KSandbox__ProcessContext {
-        return qtc.KSandbox_MakeHostContext(@ptrCast(param1));
+    pub fn MakeHostContext(param1: anytype) KSandbox__ProcessContext {
+        comptime _ = @TypeOf(param1)._is_QProcess;
+        return .{ .ptr = qtc.KSandbox_MakeHostContext(@ptrCast(param1.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksandbox.html#startHostProcess)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QProcess `
+    /// ` param1: QProcess `
     ///
     /// ` param2: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn StartHostProcess(param1: ?*anyopaque, param2: i32) void {
-        qtc.KSandbox_StartHostProcess(@ptrCast(param1), @bitCast(param2));
+    pub fn StartHostProcess(param1: anytype, param2: i32) void {
+        comptime _ = @TypeOf(param1)._is_QProcess;
+        qtc.KSandbox_StartHostProcess(@ptrCast(param1.ptr), @bitCast(param2));
     }
 };
 
 /// ### [Upstream resources](https://api.kde.org/ksandbox-processcontext.html)
-pub const ksandbox__processcontext = struct {
+pub const KSandbox__ProcessContext = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/ksandbox-processcontext.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KSandbox__ProcessContext,
+
+    pub const _is_KSandbox__ProcessContext = {};
+
     /// New constructs a new KSandbox::ProcessContext object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.KSandbox__ProcessContext `
+    /// ` param1: KSandbox__ProcessContext `
     ///
-    pub fn New(param1: ?*anyopaque) QtC.KSandbox__ProcessContext {
-        return qtc.KSandbox__ProcessContext_new(@ptrCast(param1));
+    pub fn New(param1: anytype) KSandbox__ProcessContext {
+        comptime _ = @TypeOf(param1)._is_KSandbox__ProcessContext;
+        return .{ .ptr = qtc.KSandbox__ProcessContext_new(@ptrCast(param1.ptr)) };
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -65,9 +85,9 @@ pub const ksandbox__processcontext = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KSandbox__ProcessContext `
+    /// ` self: KSandbox__ProcessContext `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KSandbox__ProcessContext_Delete(@ptrCast(self));
+    pub fn Delete(self: KSandbox__ProcessContext) void {
+        qtc.KSandbox__ProcessContext_Delete(@ptrCast(self.ptr));
     }
 };

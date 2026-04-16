@@ -1,48 +1,86 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const KActionCollection = @import("libqt6").KActionCollection;
+const KParts__GUIActivateEvent = @import("libqt6").KParts__GUIActivateEvent;
+const KParts__PartActivateEvent = @import("libqt6").KParts__PartActivateEvent;
+const KParts__PartManager = @import("libqt6").KParts__PartManager;
+const KPluginMetaData = @import("libqt6").KPluginMetaData;
+const KXMLGUIBuilder = @import("libqt6").KXMLGUIBuilder;
+const KXMLGUIClient = @import("libqt6").KXMLGUIClient;
+const KXMLGUIClient__StateChange = @import("libqt6").KXMLGUIClient__StateChange;
+const KXMLGUIFactory = @import("libqt6").KXMLGUIFactory;
+const QAction = @import("libqt6").QAction;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QDomDocument = @import("libqt6").QDomDocument;
+const QDomElement = @import("libqt6").QDomElement;
+const QEvent = @import("libqt6").QEvent;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QPoint = @import("libqt6").QPoint;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
+const QWidget = @import("libqt6").QWidget;
 const kxmlguiclient_enums = @import("../extras-kxmlgui/libkxmlguiclient.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/kparts-part.html)
-pub const kparts__part = struct {
+pub const KParts__Part = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kparts-part.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KParts__Part,
+
+    pub const _is_KParts__Part = {};
+    pub const _is_QObject = {};
+    pub const _is_KParts__PartBase = {};
+    pub const _is_KXMLGUIClient = {};
+
     /// New constructs a new KParts::Part object.
     ///
-    pub fn New() QtC.KParts__Part {
-        return qtc.KParts__Part_new();
+    pub fn New() KParts__Part {
+        return .{ .ptr = qtc.KParts__Part_new() };
     }
 
     /// New2 constructs a new KParts::Part object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New2(parent: ?*anyopaque) QtC.KParts__Part {
-        return qtc.KParts__Part_new2(@ptrCast(parent));
+    pub fn New2(parent: anytype) KParts__Part {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.KParts__Part_new2(@ptrCast(parent.ptr)) };
     }
 
     /// New3 constructs a new KParts::Part object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    /// ` data: QtC.KPluginMetaData `
+    /// ` data: KPluginMetaData `
     ///
-    pub fn New3(parent: ?*anyopaque, data: ?*anyopaque) QtC.KParts__Part {
-        return qtc.KParts__Part_new3(@ptrCast(parent), @ptrCast(data));
+    pub fn New3(parent: anytype, data: anytype) KParts__Part {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        comptime _ = @TypeOf(data)._is_KPluginMetaData;
+        return .{ .ptr = qtc.KParts__Part_new3(@ptrCast(parent.ptr), @ptrCast(data.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KParts__Part_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: KParts__Part) QMetaObject {
+        return .{ .ptr = qtc.KParts__Part_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -51,12 +89,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.KParts__Part_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: KParts__Part, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.KParts__Part_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -69,33 +107,33 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KParts__Part_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: KParts__Part) QMetaObject {
+        return .{ .ptr = qtc.KParts__Part_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: KParts__Part, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KParts__Part_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.KParts__Part_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__Part, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: KParts__Part, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.KParts__Part_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: KParts__Part, callback: *const fn (KParts__Part, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.KParts__Part_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -106,18 +144,18 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: KParts__Part, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KParts__Part_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KParts__Part_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -125,20 +163,20 @@ pub const kparts__part = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KParts__Part_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: KParts__Part, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KParts__Part_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__Part, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KParts__Part, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.KParts__Part_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: KParts__Part, callback: *const fn (KParts__Part, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.KParts__Part_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -149,7 +187,7 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -157,19 +195,19 @@ pub const kparts__part = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KParts__Part_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: KParts__Part, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KParts__Part_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -182,10 +220,10 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    pub fn Widget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.KParts__Part_Widget(@ptrCast(self));
+    pub fn Widget(self: KParts__Part) QWidget {
+        return .{ .ptr = qtc.KParts__Part_Widget(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-part.html#widget)
@@ -194,12 +232,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QWidget `
+    /// ` callback: *const fn () callconv(.c) QWidget `
     ///
-    pub fn OnWidget(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QWidget) void {
-        qtc.KParts__Part_OnWidget(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWidget(self: KParts__Part, callback: *const fn () callconv(.c) QWidget) void {
+        qtc.KParts__Part_OnWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperWidget` instead
@@ -212,22 +250,23 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    pub fn SuperWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.KParts__Part_SuperWidget(@ptrCast(self));
+    pub fn SuperWidget(self: KParts__Part) QWidget {
+        return .{ .ptr = qtc.KParts__Part_SuperWidget(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-part.html#setManager)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` manager: QtC.KParts__PartManager `
+    /// ` manager: KParts__PartManager `
     ///
-    pub fn SetManager(self: ?*anyopaque, manager: ?*anyopaque) void {
-        qtc.KParts__Part_SetManager(@ptrCast(self), @ptrCast(manager));
+    pub fn SetManager(self: KParts__Part, manager: anytype) void {
+        comptime _ = @TypeOf(manager)._is_KParts__PartManager;
+        qtc.KParts__Part_SetManager(@ptrCast(self.ptr), @ptrCast(manager.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-part.html#setManager)
@@ -236,12 +275,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__Part, manager: QtC.KParts__PartManager) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__Part, manager: KParts__PartManager) callconv(.c) void `
     ///
-    pub fn OnSetManager(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__Part_OnSetManager(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetManager(self: KParts__Part, callback: *const fn (KParts__Part, KParts__PartManager) callconv(.c) void) void {
+        qtc.KParts__Part_OnSetManager(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetManager` instead
@@ -254,60 +293,63 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` manager: QtC.KParts__PartManager `
+    /// ` manager: KParts__PartManager `
     ///
-    pub fn SuperSetManager(self: ?*anyopaque, manager: ?*anyopaque) void {
-        qtc.KParts__Part_SuperSetManager(@ptrCast(self), @ptrCast(manager));
+    pub fn SuperSetManager(self: KParts__Part, manager: anytype) void {
+        comptime _ = @TypeOf(manager)._is_KParts__PartManager;
+        qtc.KParts__Part_SuperSetManager(@ptrCast(self.ptr), @ptrCast(manager.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-part.html#manager)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    pub fn Manager(self: ?*anyopaque) QtC.KParts__PartManager {
-        return qtc.KParts__Part_Manager(@ptrCast(self));
+    pub fn Manager(self: KParts__Part) KParts__PartManager {
+        return .{ .ptr = qtc.KParts__Part_Manager(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-part.html#setAutoDeleteWidget)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` autoDeleteWidget: bool `
     ///
-    pub fn SetAutoDeleteWidget(self: ?*anyopaque, autoDeleteWidget: bool) void {
-        qtc.KParts__Part_SetAutoDeleteWidget(@ptrCast(self), autoDeleteWidget);
+    pub fn SetAutoDeleteWidget(self: KParts__Part, autoDeleteWidget: bool) void {
+        qtc.KParts__Part_SetAutoDeleteWidget(@ptrCast(self.ptr), autoDeleteWidget);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-part.html#setAutoDeletePart)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` autoDeletePart: bool `
     ///
-    pub fn SetAutoDeletePart(self: ?*anyopaque, autoDeletePart: bool) void {
-        qtc.KParts__Part_SetAutoDeletePart(@ptrCast(self), autoDeletePart);
+    pub fn SetAutoDeletePart(self: KParts__Part, autoDeletePart: bool) void {
+        qtc.KParts__Part_SetAutoDeletePart(@ptrCast(self.ptr), autoDeletePart);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-part.html#hitTest)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    /// ` globalPos: QtC.QPoint `
+    /// ` globalPos: QPoint `
     ///
-    pub fn HitTest(self: ?*anyopaque, widget: ?*anyopaque, globalPos: ?*anyopaque) QtC.KParts__Part {
-        return qtc.KParts__Part_HitTest(@ptrCast(self), @ptrCast(widget), @ptrCast(globalPos));
+    pub fn HitTest(self: KParts__Part, widget: anytype, globalPos: anytype) KParts__Part {
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        comptime _ = @TypeOf(globalPos)._is_QPoint;
+        return .{ .ptr = qtc.KParts__Part_HitTest(@ptrCast(self.ptr), @ptrCast(widget.ptr), @ptrCast(globalPos.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-part.html#hitTest)
@@ -316,12 +358,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__Part, widget: QtC.QWidget, globalPos: QtC.QPoint) callconv(.c) QtC.KParts__Part `
+    /// ` callback: *const fn (self: KParts__Part, widget: QWidget, globalPos: QPoint) callconv(.c) KParts__Part `
     ///
-    pub fn OnHitTest(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) QtC.KParts__Part) void {
-        qtc.KParts__Part_OnHitTest(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHitTest(self: KParts__Part, callback: *const fn (KParts__Part, QWidget, QPoint) callconv(.c) KParts__Part) void {
+        qtc.KParts__Part_OnHitTest(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperHitTest` instead
@@ -334,92 +376,95 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    /// ` globalPos: QtC.QPoint `
+    /// ` globalPos: QPoint `
     ///
-    pub fn SuperHitTest(self: ?*anyopaque, widget: ?*anyopaque, globalPos: ?*anyopaque) QtC.KParts__Part {
-        return qtc.KParts__Part_SuperHitTest(@ptrCast(self), @ptrCast(widget), @ptrCast(globalPos));
+    pub fn SuperHitTest(self: KParts__Part, widget: anytype, globalPos: anytype) KParts__Part {
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        comptime _ = @TypeOf(globalPos)._is_QPoint;
+        return .{ .ptr = qtc.KParts__Part_SuperHitTest(@ptrCast(self.ptr), @ptrCast(widget.ptr), @ptrCast(globalPos.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-part.html#metaData)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    pub fn MetaData(self: ?*anyopaque) QtC.KPluginMetaData {
-        return qtc.KParts__Part_MetaData(@ptrCast(self));
+    pub fn MetaData(self: KParts__Part) KPluginMetaData {
+        return .{ .ptr = qtc.KParts__Part_MetaData(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-part.html#setWindowCaption)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` caption: []const u8 `
     ///
-    pub fn SetWindowCaption(self: ?*anyopaque, caption: []const u8) void {
+    pub fn SetWindowCaption(self: KParts__Part, caption: []const u8) void {
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
-        qtc.KParts__Part_SetWindowCaption(@ptrCast(self), caption_str);
+        qtc.KParts__Part_SetWindowCaption(@ptrCast(self.ptr), caption_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-part.html#setWindowCaption)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__Part, caption: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__Part, caption: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetWindowCaption(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KParts__Part_Connect_SetWindowCaption(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetWindowCaption(self: KParts__Part, callback: *const fn (KParts__Part, [*:0]const u8) callconv(.c) void) void {
+        qtc.KParts__Part_Connect_SetWindowCaption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-part.html#setStatusBarText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetStatusBarText(self: ?*anyopaque, text: []const u8) void {
+    pub fn SetStatusBarText(self: KParts__Part, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.KParts__Part_SetStatusBarText(@ptrCast(self), text_str);
+        qtc.KParts__Part_SetStatusBarText(@ptrCast(self.ptr), text_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-part.html#setStatusBarText)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__Part, text: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__Part, text: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetStatusBarText(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KParts__Part_Connect_SetStatusBarText(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetStatusBarText(self: KParts__Part, callback: *const fn (KParts__Part, [*:0]const u8) callconv(.c) void) void {
+        qtc.KParts__Part_Connect_SetStatusBarText(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-part.html#setWidget)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn SetWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.KParts__Part_SetWidget(@ptrCast(self), @ptrCast(widget));
+    pub fn SetWidget(self: KParts__Part, widget: anytype) void {
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.KParts__Part_SetWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-part.html#setWidget)
@@ -428,12 +473,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__Part, widget: QtC.QWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__Part, widget: QWidget) callconv(.c) void `
     ///
-    pub fn OnSetWidget(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__Part_OnSetWidget(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetWidget(self: KParts__Part, callback: *const fn (KParts__Part, QWidget) callconv(.c) void) void {
+        qtc.KParts__Part_OnSetWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetWidget` instead
@@ -446,24 +491,26 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn SuperSetWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.KParts__Part_SuperSetWidget(@ptrCast(self), @ptrCast(widget));
+    pub fn SuperSetWidget(self: KParts__Part, widget: anytype) void {
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.KParts__Part_SuperSetWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-part.html#customEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__Part_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: KParts__Part, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KParts__Part_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-part.html#customEvent)
@@ -472,12 +519,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__Part, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__Part, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__Part_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: KParts__Part, callback: *const fn (KParts__Part, QEvent) callconv(.c) void) void {
+        qtc.KParts__Part_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -490,24 +537,26 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__Part_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: KParts__Part, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KParts__Part_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-part.html#partActivateEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` event: QtC.KParts__PartActivateEvent `
+    /// ` event: KParts__PartActivateEvent `
     ///
-    pub fn PartActivateEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__Part_PartActivateEvent(@ptrCast(self), @ptrCast(event));
+    pub fn PartActivateEvent(self: KParts__Part, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_KParts__PartActivateEvent;
+        qtc.KParts__Part_PartActivateEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-part.html#partActivateEvent)
@@ -516,12 +565,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__Part, event: QtC.KParts__PartActivateEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__Part, event: KParts__PartActivateEvent) callconv(.c) void `
     ///
-    pub fn OnPartActivateEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__Part_OnPartActivateEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPartActivateEvent(self: KParts__Part, callback: *const fn (KParts__Part, KParts__PartActivateEvent) callconv(.c) void) void {
+        qtc.KParts__Part_OnPartActivateEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperPartActivateEvent` instead
@@ -534,24 +583,26 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` event: QtC.KParts__PartActivateEvent `
+    /// ` event: KParts__PartActivateEvent `
     ///
-    pub fn SuperPartActivateEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__Part_SuperPartActivateEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperPartActivateEvent(self: KParts__Part, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_KParts__PartActivateEvent;
+        qtc.KParts__Part_SuperPartActivateEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-part.html#guiActivateEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` event: QtC.KParts__GUIActivateEvent `
+    /// ` event: KParts__GUIActivateEvent `
     ///
-    pub fn GuiActivateEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__Part_GuiActivateEvent(@ptrCast(self), @ptrCast(event));
+    pub fn GuiActivateEvent(self: KParts__Part, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_KParts__GUIActivateEvent;
+        qtc.KParts__Part_GuiActivateEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-part.html#guiActivateEvent)
@@ -560,12 +611,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__Part, event: QtC.KParts__GUIActivateEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__Part, event: KParts__GUIActivateEvent) callconv(.c) void `
     ///
-    pub fn OnGuiActivateEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__Part_OnGuiActivateEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnGuiActivateEvent(self: KParts__Part, callback: *const fn (KParts__Part, KParts__GUIActivateEvent) callconv(.c) void) void {
+        qtc.KParts__Part_OnGuiActivateEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperGuiActivateEvent` instead
@@ -578,28 +629,29 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` event: QtC.KParts__GUIActivateEvent `
+    /// ` event: KParts__GUIActivateEvent `
     ///
-    pub fn SuperGuiActivateEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__Part_SuperGuiActivateEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperGuiActivateEvent(self: KParts__Part, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_KParts__GUIActivateEvent;
+        qtc.KParts__Part_SuperGuiActivateEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-part.html#hostContainer)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` containerName: []const u8 `
     ///
-    pub fn HostContainer(self: ?*anyopaque, containerName: []const u8) QtC.QWidget {
+    pub fn HostContainer(self: KParts__Part, containerName: []const u8) QWidget {
         const containerName_str = qtc.libqt_string{
             .len = containerName.len,
             .data = containerName.ptr,
         };
-        return qtc.KParts__Part_HostContainer(@ptrCast(self), containerName_str);
+        return .{ .ptr = qtc.KParts__Part_HostContainer(@ptrCast(self.ptr), containerName_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-part.html#hostContainer)
@@ -608,12 +660,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__Part, containerName: [*:0]const u8) callconv(.c) QtC.QWidget `
+    /// ` callback: *const fn (self: KParts__Part, containerName: [*:0]const u8) callconv(.c) QWidget `
     ///
-    pub fn OnHostContainer(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) QtC.QWidget) void {
-        qtc.KParts__Part_OnHostContainer(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHostContainer(self: KParts__Part, callback: *const fn (KParts__Part, [*:0]const u8) callconv(.c) QWidget) void {
+        qtc.KParts__Part_OnHostContainer(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperHostContainer` instead
@@ -626,26 +678,26 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` containerName: []const u8 `
     ///
-    pub fn SuperHostContainer(self: ?*anyopaque, containerName: []const u8) QtC.QWidget {
+    pub fn SuperHostContainer(self: KParts__Part, containerName: []const u8) QWidget {
         const containerName_str = qtc.libqt_string{
             .len = containerName.len,
             .data = containerName.ptr,
         };
-        return qtc.KParts__Part_SuperHostContainer(@ptrCast(self), containerName_str);
+        return .{ .ptr = qtc.KParts__Part_SuperHostContainer(@ptrCast(self.ptr), containerName_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-part.html#slotWidgetDestroyed)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    pub fn SlotWidgetDestroyed(self: ?*anyopaque) void {
-        qtc.KParts__Part_SlotWidgetDestroyed(@ptrCast(self));
+    pub fn SlotWidgetDestroyed(self: KParts__Part) void {
+        qtc.KParts__Part_SlotWidgetDestroyed(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-part.html#slotWidgetDestroyed)
@@ -654,12 +706,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnSlotWidgetDestroyed(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KParts__Part_OnSlotWidgetDestroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSlotWidgetDestroyed(self: KParts__Part, callback: *const fn () callconv(.c) void) void {
+        qtc.KParts__Part_OnSlotWidgetDestroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSlotWidgetDestroyed` instead
@@ -672,23 +724,23 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    pub fn SuperSlotWidgetDestroyed(self: ?*anyopaque) void {
-        qtc.KParts__Part_SuperSlotWidgetDestroyed(@ptrCast(self));
+    pub fn SuperSlotWidgetDestroyed(self: KParts__Part) void {
+        qtc.KParts__Part_SuperSlotWidgetDestroyed(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -702,15 +754,15 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -726,12 +778,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: KParts__Part, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__part.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -744,12 +796,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: KParts__Part, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -758,10 +810,10 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: KParts__Part) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -770,10 +822,10 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: KParts__Part) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -782,10 +834,10 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: KParts__Part) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -794,10 +846,10 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: KParts__Part) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -806,12 +858,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: KParts__Part, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -820,10 +872,10 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: KParts__Part) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -832,12 +884,13 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: KParts__Part, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -846,12 +899,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: KParts__Part, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -860,12 +913,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: KParts__Part, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -874,12 +927,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: KParts__Part, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -888,12 +941,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: KParts__Part, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -902,16 +955,17 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: KParts__Part, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("kparts__part.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kparts__part.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -921,12 +975,13 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: KParts__Part, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -935,12 +990,13 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: KParts__Part, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -949,12 +1005,13 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: KParts__Part, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -963,18 +1020,20 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -983,16 +1042,20 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1001,18 +1064,19 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: KParts__Part, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1021,18 +1085,20 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1041,16 +1107,20 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -1059,10 +1129,10 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: KParts__Part) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1071,12 +1141,13 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: KParts__Part, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1085,10 +1156,11 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1097,10 +1169,10 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: KParts__Part) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1109,10 +1181,10 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: KParts__Part) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1121,15 +1193,16 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: KParts__Part, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -1138,13 +1211,13 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: KParts__Part, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1153,17 +1226,16 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: KParts__Part, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kparts__part.DynamicPropertyNames: Memory allocation failed");
@@ -1182,10 +1254,10 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: KParts__Part) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1194,10 +1266,10 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: KParts__Part) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1206,10 +1278,10 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: KParts__Part) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1218,12 +1290,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__Part) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__Part) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: KParts__Part, callback: *const fn (KParts__Part) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1232,10 +1304,10 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: KParts__Part) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1244,13 +1316,13 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: KParts__Part, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -1259,10 +1331,10 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: KParts__Part) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1271,14 +1343,14 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: KParts__Part, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1287,14 +1359,14 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: KParts__Part, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1303,20 +1375,22 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -1325,18 +1399,22 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1345,9 +1423,9 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1355,10 +1433,11 @@ pub const kparts__part = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: KParts__Part, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1367,13 +1446,13 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: KParts__Part, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1382,15 +1461,16 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: KParts__Part, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1399,18 +1479,19 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: KParts__Part, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1419,15 +1500,16 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: KParts__Part, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1436,12 +1518,13 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: KParts__Part, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1450,12 +1533,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__Part, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__Part, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: KParts__Part, callback: *const fn (KParts__Part, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KParts::PartBase
@@ -1464,12 +1547,13 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` object: QtC.QObject `
+    /// ` object: QObject `
     ///
-    pub fn SetPartObject(self: ?*anyopaque, object: ?*anyopaque) void {
-        qtc.KParts__PartBase_SetPartObject(@ptrCast(self), @ptrCast(object));
+    pub fn SetPartObject(self: KParts__Part, object: anytype) void {
+        comptime _ = @TypeOf(object)._is_QObject;
+        qtc.KParts__PartBase_SetPartObject(@ptrCast(self.ptr), @ptrCast(object.ptr));
     }
 
     /// Inherited from KParts::PartBase
@@ -1478,10 +1562,10 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    pub fn PartObject(self: ?*anyopaque) QtC.QObject {
-        return qtc.KParts__PartBase_PartObject(@ptrCast(self));
+    pub fn PartObject(self: KParts__Part) QObject {
+        return .{ .ptr = qtc.KParts__PartBase_PartObject(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from KXMLGUIClient
@@ -1490,16 +1574,16 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn Action(self: ?*anyopaque, name: []const u8) QtC.QAction {
+    pub fn Action(self: KParts__Part, name: []const u8) QAction {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.KXMLGUIClient_Action(@ptrCast(self), name_str);
+        return .{ .ptr = qtc.KXMLGUIClient_Action(@ptrCast(self.ptr), name_str) };
     }
 
     /// Inherited from KXMLGUIClient
@@ -1508,12 +1592,13 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` doc: QtC.QDomDocument `
+    /// ` doc: QDomDocument `
     ///
-    pub fn SetXMLGUIBuildDocument(self: ?*anyopaque, doc: ?*anyopaque) void {
-        qtc.KXMLGUIClient_SetXMLGUIBuildDocument(@ptrCast(self), @ptrCast(doc));
+    pub fn SetXMLGUIBuildDocument(self: KParts__Part, doc: anytype) void {
+        comptime _ = @TypeOf(doc)._is_QDomDocument;
+        qtc.KXMLGUIClient_SetXMLGUIBuildDocument(@ptrCast(self.ptr), @ptrCast(doc.ptr));
     }
 
     /// Inherited from KXMLGUIClient
@@ -1522,10 +1607,10 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    pub fn XmlguiBuildDocument(self: ?*anyopaque) QtC.QDomDocument {
-        return qtc.KXMLGUIClient_XmlguiBuildDocument(@ptrCast(self));
+    pub fn XmlguiBuildDocument(self: KParts__Part) QDomDocument {
+        return .{ .ptr = qtc.KXMLGUIClient_XmlguiBuildDocument(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from KXMLGUIClient
@@ -1534,12 +1619,13 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` factory: QtC.KXMLGUIFactory `
+    /// ` factory: KXMLGUIFactory `
     ///
-    pub fn SetFactory(self: ?*anyopaque, factory: ?*anyopaque) void {
-        qtc.KXMLGUIClient_SetFactory(@ptrCast(self), @ptrCast(factory));
+    pub fn SetFactory(self: KParts__Part, factory: anytype) void {
+        comptime _ = @TypeOf(factory)._is_KXMLGUIFactory;
+        qtc.KXMLGUIClient_SetFactory(@ptrCast(self.ptr), @ptrCast(factory.ptr));
     }
 
     /// Inherited from KXMLGUIClient
@@ -1548,10 +1634,10 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    pub fn Factory(self: ?*anyopaque) QtC.KXMLGUIFactory {
-        return qtc.KXMLGUIClient_Factory(@ptrCast(self));
+    pub fn Factory(self: KParts__Part) KXMLGUIFactory {
+        return .{ .ptr = qtc.KXMLGUIClient_Factory(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from KXMLGUIClient
@@ -1560,10 +1646,10 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    pub fn ParentClient(self: ?*anyopaque) QtC.KXMLGUIClient {
-        return qtc.KXMLGUIClient_ParentClient(@ptrCast(self));
+    pub fn ParentClient(self: KParts__Part) KXMLGUIClient {
+        return .{ .ptr = qtc.KXMLGUIClient_ParentClient(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from KXMLGUIClient
@@ -1572,12 +1658,13 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` child: QtC.KXMLGUIClient `
+    /// ` child: KXMLGUIClient `
     ///
-    pub fn InsertChildClient(self: ?*anyopaque, child: ?*anyopaque) void {
-        qtc.KXMLGUIClient_InsertChildClient(@ptrCast(self), @ptrCast(child));
+    pub fn InsertChildClient(self: KParts__Part, child: anytype) void {
+        comptime _ = @TypeOf(child)._is_KXMLGUIClient;
+        qtc.KXMLGUIClient_InsertChildClient(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
 
     /// Inherited from KXMLGUIClient
@@ -1586,12 +1673,13 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` child: QtC.KXMLGUIClient `
+    /// ` child: KXMLGUIClient `
     ///
-    pub fn RemoveChildClient(self: ?*anyopaque, child: ?*anyopaque) void {
-        qtc.KXMLGUIClient_RemoveChildClient(@ptrCast(self), @ptrCast(child));
+    pub fn RemoveChildClient(self: KParts__Part, child: anytype) void {
+        comptime _ = @TypeOf(child)._is_KXMLGUIClient;
+        qtc.KXMLGUIClient_RemoveChildClient(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
 
     /// Inherited from KXMLGUIClient
@@ -1600,16 +1688,17 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ChildClients(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KXMLGUIClient {
-        const _arr: qtc.libqt_list = qtc.KXMLGUIClient_ChildClients(@ptrCast(self));
+    pub fn ChildClients(self: KParts__Part, allocator: std.mem.Allocator) []KXMLGUIClient {
+        const _arr: qtc.libqt_list = qtc.KXMLGUIClient_ChildClients(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.KXMLGUIClient, _arr.len) catch @panic("kparts__part.ChildClients: Memory allocation failed");
+        const _ret = allocator.alloc(KXMLGUIClient, _arr.len) catch @panic("kparts__part.ChildClients: Memory allocation failed");
         const _data: [*]QtC.KXMLGUIClient = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1619,12 +1708,13 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` builder: QtC.KXMLGUIBuilder `
+    /// ` builder: KXMLGUIBuilder `
     ///
-    pub fn SetClientBuilder(self: ?*anyopaque, builder: ?*anyopaque) void {
-        qtc.KXMLGUIClient_SetClientBuilder(@ptrCast(self), @ptrCast(builder));
+    pub fn SetClientBuilder(self: KParts__Part, builder: anytype) void {
+        comptime _ = @TypeOf(builder)._is_KXMLGUIBuilder;
+        qtc.KXMLGUIClient_SetClientBuilder(@ptrCast(self.ptr), @ptrCast(builder.ptr));
     }
 
     /// Inherited from KXMLGUIClient
@@ -1633,10 +1723,10 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    pub fn ClientBuilder(self: ?*anyopaque) QtC.KXMLGUIBuilder {
-        return qtc.KXMLGUIClient_ClientBuilder(@ptrCast(self));
+    pub fn ClientBuilder(self: KParts__Part) KXMLGUIBuilder {
+        return .{ .ptr = qtc.KXMLGUIClient_ClientBuilder(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from KXMLGUIClient
@@ -1645,10 +1735,10 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    pub fn ReloadXML(self: ?*anyopaque) void {
-        qtc.KXMLGUIClient_ReloadXML(@ptrCast(self));
+    pub fn ReloadXML(self: KParts__Part) void {
+        qtc.KXMLGUIClient_ReloadXML(@ptrCast(self.ptr));
     }
 
     /// Inherited from KXMLGUIClient
@@ -1657,13 +1747,13 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` name: []const u8 `
     ///
-    /// ` actionList: []QtC.QAction `
+    /// ` actionList: []QAction `
     ///
-    pub fn PlugActionList(self: ?*anyopaque, name: []const u8, actionList: []?*anyopaque) void {
+    pub fn PlugActionList(self: KParts__Part, name: []const u8, actionList: []QAction) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1672,7 +1762,7 @@ pub const kparts__part = struct {
             .len = actionList.len,
             .data = @ptrCast(actionList.ptr),
         };
-        qtc.KXMLGUIClient_PlugActionList(@ptrCast(self), name_str, actionList_list);
+        qtc.KXMLGUIClient_PlugActionList(@ptrCast(self.ptr), name_str, actionList_list);
     }
 
     /// Inherited from KXMLGUIClient
@@ -1681,16 +1771,16 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn UnplugActionList(self: ?*anyopaque, name: []const u8) void {
+    pub fn UnplugActionList(self: KParts__Part, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.KXMLGUIClient_UnplugActionList(@ptrCast(self), name_str);
+        qtc.KXMLGUIClient_UnplugActionList(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from KXMLGUIClient
@@ -1699,21 +1789,20 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` files: []const []const u8 `
     ///
     /// ` doc: []const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn FindMostRecentXMLFile(files: []const []const u8, doc: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn FindMostRecentXMLFile(allocator: std.mem.Allocator, files: []const []const u8, doc: []const u8) []const u8 {
         const files_arr = allocator.alloc(qtc.libqt_string, files.len) catch @panic("kparts__part.FindMostRecentXMLFile: Memory allocation failed");
         defer allocator.free(files_arr);
-        for (files, 0..files.len) |item, i| {
+        for (files, 0..files.len) |item, i|
             files_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const files_list = qtc.libqt_list{
             .len = files.len,
             .data = files_arr.ptr,
@@ -1735,13 +1824,13 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` state: []const u8 `
     ///
     /// ` action: []const u8 `
     ///
-    pub fn AddStateActionEnabled(self: ?*anyopaque, state: []const u8, action: []const u8) void {
+    pub fn AddStateActionEnabled(self: KParts__Part, state: []const u8, action: []const u8) void {
         const state_str = qtc.libqt_string{
             .len = state.len,
             .data = state.ptr,
@@ -1750,7 +1839,7 @@ pub const kparts__part = struct {
             .len = action.len,
             .data = action.ptr,
         };
-        qtc.KXMLGUIClient_AddStateActionEnabled(@ptrCast(self), state_str, action_str);
+        qtc.KXMLGUIClient_AddStateActionEnabled(@ptrCast(self.ptr), state_str, action_str);
     }
 
     /// Inherited from KXMLGUIClient
@@ -1759,13 +1848,13 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` state: []const u8 `
     ///
     /// ` action: []const u8 `
     ///
-    pub fn AddStateActionDisabled(self: ?*anyopaque, state: []const u8, action: []const u8) void {
+    pub fn AddStateActionDisabled(self: KParts__Part, state: []const u8, action: []const u8) void {
         const state_str = qtc.libqt_string{
             .len = state.len,
             .data = state.ptr,
@@ -1774,7 +1863,7 @@ pub const kparts__part = struct {
             .len = action.len,
             .data = action.ptr,
         };
-        qtc.KXMLGUIClient_AddStateActionDisabled(@ptrCast(self), state_str, action_str);
+        qtc.KXMLGUIClient_AddStateActionDisabled(@ptrCast(self.ptr), state_str, action_str);
     }
 
     /// Inherited from KXMLGUIClient
@@ -1783,16 +1872,16 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` state: []const u8 `
     ///
-    pub fn GetActionsToChangeForState(self: ?*anyopaque, state: []const u8) QtC.KXMLGUIClient__StateChange {
+    pub fn GetActionsToChangeForState(self: KParts__Part, state: []const u8) KXMLGUIClient__StateChange {
         const state_str = qtc.libqt_string{
             .len = state.len,
             .data = state.ptr,
         };
-        return qtc.KXMLGUIClient_GetActionsToChangeForState(@ptrCast(self), state_str);
+        return .{ .ptr = qtc.KXMLGUIClient_GetActionsToChangeForState(@ptrCast(self.ptr), state_str) };
     }
 
     /// Inherited from KXMLGUIClient
@@ -1801,12 +1890,13 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn BeginXMLPlug(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KXMLGUIClient_BeginXMLPlug(@ptrCast(self), @ptrCast(param1));
+    pub fn BeginXMLPlug(self: KParts__Part, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        qtc.KXMLGUIClient_BeginXMLPlug(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from KXMLGUIClient
@@ -1815,10 +1905,10 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    pub fn EndXMLPlug(self: ?*anyopaque) void {
-        qtc.KXMLGUIClient_EndXMLPlug(@ptrCast(self));
+    pub fn EndXMLPlug(self: KParts__Part) void {
+        qtc.KXMLGUIClient_EndXMLPlug(@ptrCast(self.ptr));
     }
 
     /// Inherited from KXMLGUIClient
@@ -1827,12 +1917,13 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn PrepareXMLUnplug(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KXMLGUIClient_PrepareXMLUnplug(@ptrCast(self), @ptrCast(param1));
+    pub fn PrepareXMLUnplug(self: KParts__Part, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        qtc.KXMLGUIClient_PrepareXMLUnplug(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from KXMLGUIClient
@@ -1841,13 +1932,13 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` xmlfile: []const u8 `
     ///
     /// ` localxmlfile: []const u8 `
     ///
-    pub fn ReplaceXMLFile(self: ?*anyopaque, xmlfile: []const u8, localxmlfile: []const u8) void {
+    pub fn ReplaceXMLFile(self: KParts__Part, xmlfile: []const u8, localxmlfile: []const u8) void {
         const xmlfile_str = qtc.libqt_string{
             .len = xmlfile.len,
             .data = xmlfile.ptr,
@@ -1856,7 +1947,7 @@ pub const kparts__part = struct {
             .len = localxmlfile.len,
             .data = localxmlfile.ptr,
         };
-        qtc.KXMLGUIClient_ReplaceXMLFile(@ptrCast(self), xmlfile_str, localxmlfile_str);
+        qtc.KXMLGUIClient_ReplaceXMLFile(@ptrCast(self.ptr), xmlfile_str, localxmlfile_str);
     }
 
     /// Inherited from KXMLGUIClient
@@ -1865,11 +1956,11 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` xml: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FindVersionNumber(xml: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` xml: []const u8 `
+    ///
+    pub fn FindVersionNumber(allocator: std.mem.Allocator, xml: []const u8) []const u8 {
         const xml_str = qtc.libqt_string{
             .len = xml.len,
             .data = xml.ptr,
@@ -1887,7 +1978,7 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` xmlfile: []const u8 `
     ///
@@ -1895,7 +1986,7 @@ pub const kparts__part = struct {
     ///
     /// ` merge: bool `
     ///
-    pub fn ReplaceXMLFile3(self: ?*anyopaque, xmlfile: []const u8, localxmlfile: []const u8, merge: bool) void {
+    pub fn ReplaceXMLFile3(self: KParts__Part, xmlfile: []const u8, localxmlfile: []const u8, merge: bool) void {
         const xmlfile_str = qtc.libqt_string{
             .len = xmlfile.len,
             .data = xmlfile.ptr,
@@ -1904,7 +1995,7 @@ pub const kparts__part = struct {
             .len = localxmlfile.len,
             .data = localxmlfile.ptr,
         };
-        qtc.KXMLGUIClient_ReplaceXMLFile3(@ptrCast(self), xmlfile_str, localxmlfile_str, merge);
+        qtc.KXMLGUIClient_ReplaceXMLFile3(@ptrCast(self.ptr), xmlfile_str, localxmlfile_str, merge);
     }
 
     /// Inherited from QObject
@@ -1915,12 +2006,13 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KParts__Part_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: KParts__Part, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KParts__Part_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -1935,12 +2027,13 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KParts__Part_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: KParts__Part, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KParts__Part_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1951,12 +2044,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__Part`
+    /// ` self: KParts__Part`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__Part, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KParts__Part, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KParts__Part_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: KParts__Part, callback: *const fn (KParts__Part, QEvent) callconv(.c) bool) void {
+        qtc.KParts__Part_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1967,14 +2060,16 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KParts__Part_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: KParts__Part, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KParts__Part_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -1989,14 +2084,16 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KParts__Part_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: KParts__Part, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KParts__Part_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2007,12 +2104,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__Part`
+    /// ` self: KParts__Part`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__Part, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KParts__Part, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KParts__Part_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: KParts__Part, callback: *const fn (KParts__Part, QObject, QEvent) callconv(.c) bool) void {
+        qtc.KParts__Part_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2023,12 +2120,13 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__Part_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: KParts__Part, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KParts__Part_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -2043,12 +2141,13 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__Part_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: KParts__Part, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KParts__Part_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2059,12 +2158,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__Part`
+    /// ` self: KParts__Part`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__Part, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__Part, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__Part_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: KParts__Part, callback: *const fn (KParts__Part, QTimerEvent) callconv(.c) void) void {
+        qtc.KParts__Part_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2075,12 +2174,13 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__Part_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: KParts__Part, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KParts__Part_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -2095,12 +2195,13 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__Part_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: KParts__Part, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KParts__Part_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2111,12 +2212,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__Part`
+    /// ` self: KParts__Part`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__Part, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__Part, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__Part_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: KParts__Part, callback: *const fn (KParts__Part, QChildEvent) callconv(.c) void) void {
+        qtc.KParts__Part_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2127,12 +2228,13 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KParts__Part_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: KParts__Part, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KParts__Part_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -2147,12 +2249,13 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KParts__Part_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: KParts__Part, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KParts__Part_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -2163,12 +2266,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__Part`
+    /// ` self: KParts__Part`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__Part, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__Part, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__Part_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: KParts__Part, callback: *const fn (KParts__Part, QMetaMethod) callconv(.c) void) void {
+        qtc.KParts__Part_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2179,12 +2282,13 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KParts__Part_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: KParts__Part, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KParts__Part_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -2199,12 +2303,13 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KParts__Part_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: KParts__Part, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KParts__Part_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -2215,12 +2320,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__Part`
+    /// ` self: KParts__Part`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__Part, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__Part, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__Part_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: KParts__Part, callback: *const fn (KParts__Part, QMetaMethod) callconv(.c) void) void {
+        qtc.KParts__Part_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -2231,12 +2336,13 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` element: QtC.QDomElement `
+    /// ` element: QDomElement `
     ///
-    pub fn Action2(self: ?*anyopaque, element: ?*anyopaque) QtC.QAction {
-        return qtc.KParts__Part_Action2(@ptrCast(self), @ptrCast(element));
+    pub fn Action2(self: KParts__Part, element: anytype) QAction {
+        comptime _ = @TypeOf(element)._is_QDomElement;
+        return .{ .ptr = qtc.KParts__Part_Action2(@ptrCast(self.ptr), @ptrCast(element.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperAction2` instead
@@ -2251,12 +2357,13 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` element: QtC.QDomElement `
+    /// ` element: QDomElement `
     ///
-    pub fn SuperAction2(self: ?*anyopaque, element: ?*anyopaque) QtC.QAction {
-        return qtc.KParts__Part_SuperAction2(@ptrCast(self), @ptrCast(element));
+    pub fn SuperAction2(self: KParts__Part, element: anytype) QAction {
+        comptime _ = @TypeOf(element)._is_QDomElement;
+        return .{ .ptr = qtc.KParts__Part_SuperAction2(@ptrCast(self.ptr), @ptrCast(element.ptr)) };
     }
 
     /// Inherited from KXMLGUIClient
@@ -2267,12 +2374,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__Part`
+    /// ` self: KParts__Part`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__Part, element: QtC.QDomElement) callconv(.c) QtC.QAction `
+    /// ` callback: *const fn (self: KParts__Part, element: QDomElement) callconv(.c) QAction `
     ///
-    pub fn OnAction2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QAction) void {
-        qtc.KParts__Part_OnAction2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAction2(self: KParts__Part, callback: *const fn (KParts__Part, QDomElement) callconv(.c) QAction) void {
+        qtc.KParts__Part_OnAction2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -2283,10 +2390,10 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    pub fn ActionCollection(self: ?*anyopaque) QtC.KActionCollection {
-        return qtc.KParts__Part_ActionCollection(@ptrCast(self));
+    pub fn ActionCollection(self: KParts__Part) KActionCollection {
+        return .{ .ptr = qtc.KParts__Part_ActionCollection(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperActionCollection` instead
@@ -2301,10 +2408,10 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    pub fn SuperActionCollection(self: ?*anyopaque) QtC.KActionCollection {
-        return qtc.KParts__Part_SuperActionCollection(@ptrCast(self));
+    pub fn SuperActionCollection(self: KParts__Part) KActionCollection {
+        return .{ .ptr = qtc.KParts__Part_SuperActionCollection(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from KXMLGUIClient
@@ -2315,12 +2422,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__Part`
+    /// ` self: KParts__Part`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.KActionCollection `
+    /// ` callback: *const fn () callconv(.c) KActionCollection `
     ///
-    pub fn OnActionCollection(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.KActionCollection) void {
-        qtc.KParts__Part_OnActionCollection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnActionCollection(self: KParts__Part, callback: *const fn () callconv(.c) KActionCollection) void {
+        qtc.KParts__Part_OnActionCollection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -2331,12 +2438,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ComponentName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KParts__Part_ComponentName(@ptrCast(self));
+    pub fn ComponentName(self: KParts__Part, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KParts__Part_ComponentName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__part.ComponentName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2355,12 +2462,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperComponentName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KParts__Part_SuperComponentName(@ptrCast(self));
+    pub fn SuperComponentName(self: KParts__Part, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KParts__Part_SuperComponentName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__part.ComponentName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2373,16 +2480,16 @@ pub const kparts__part = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__Part`
+    /// ` self: KParts__Part`
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnComponentName(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.KParts__Part_OnComponentName(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnComponentName(self: KParts__Part, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.KParts__Part_OnComponentName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -2393,10 +2500,10 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    pub fn DomDocument(self: ?*anyopaque) QtC.QDomDocument {
-        return qtc.KParts__Part_DomDocument(@ptrCast(self));
+    pub fn DomDocument(self: KParts__Part) QDomDocument {
+        return .{ .ptr = qtc.KParts__Part_DomDocument(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperDomDocument` instead
@@ -2411,10 +2518,10 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    pub fn SuperDomDocument(self: ?*anyopaque) QtC.QDomDocument {
-        return qtc.KParts__Part_SuperDomDocument(@ptrCast(self));
+    pub fn SuperDomDocument(self: KParts__Part) QDomDocument {
+        return .{ .ptr = qtc.KParts__Part_SuperDomDocument(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from KXMLGUIClient
@@ -2425,12 +2532,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__Part`
+    /// ` self: KParts__Part`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QDomDocument `
+    /// ` callback: *const fn () callconv(.c) QDomDocument `
     ///
-    pub fn OnDomDocument(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QDomDocument) void {
-        qtc.KParts__Part_OnDomDocument(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDomDocument(self: KParts__Part, callback: *const fn () callconv(.c) QDomDocument) void {
+        qtc.KParts__Part_OnDomDocument(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -2441,12 +2548,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn XmlFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KParts__Part_XmlFile(@ptrCast(self));
+    pub fn XmlFile(self: KParts__Part, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KParts__Part_XmlFile(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__part.XmlFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2465,12 +2572,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperXmlFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KParts__Part_SuperXmlFile(@ptrCast(self));
+    pub fn SuperXmlFile(self: KParts__Part, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KParts__Part_SuperXmlFile(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__part.XmlFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2483,16 +2590,16 @@ pub const kparts__part = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__Part`
+    /// ` self: KParts__Part`
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnXmlFile(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.KParts__Part_OnXmlFile(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnXmlFile(self: KParts__Part, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.KParts__Part_OnXmlFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -2503,12 +2610,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LocalXMLFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KParts__Part_LocalXMLFile(@ptrCast(self));
+    pub fn LocalXMLFile(self: KParts__Part, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KParts__Part_LocalXMLFile(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__part.LocalXMLFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2527,12 +2634,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperLocalXMLFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KParts__Part_SuperLocalXMLFile(@ptrCast(self));
+    pub fn SuperLocalXMLFile(self: KParts__Part, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KParts__Part_SuperLocalXMLFile(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__part.LocalXMLFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2545,16 +2652,16 @@ pub const kparts__part = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__Part`
+    /// ` self: KParts__Part`
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnLocalXMLFile(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.KParts__Part_OnLocalXMLFile(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLocalXMLFile(self: KParts__Part, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.KParts__Part_OnLocalXMLFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -2565,13 +2672,13 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` componentName: []const u8 `
     ///
     /// ` componentDisplayName: []const u8 `
     ///
-    pub fn SetComponentName(self: ?*anyopaque, componentName: []const u8, componentDisplayName: []const u8) void {
+    pub fn SetComponentName(self: KParts__Part, componentName: []const u8, componentDisplayName: []const u8) void {
         const componentName_str = qtc.libqt_string{
             .len = componentName.len,
             .data = componentName.ptr,
@@ -2580,7 +2687,7 @@ pub const kparts__part = struct {
             .len = componentDisplayName.len,
             .data = componentDisplayName.ptr,
         };
-        qtc.KParts__Part_SetComponentName(@ptrCast(self), componentName_str, componentDisplayName_str);
+        qtc.KParts__Part_SetComponentName(@ptrCast(self.ptr), componentName_str, componentDisplayName_str);
     }
 
     /// ### DEPRECATED: Use `SuperSetComponentName` instead
@@ -2595,13 +2702,13 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` componentName: []const u8 `
     ///
     /// ` componentDisplayName: []const u8 `
     ///
-    pub fn SuperSetComponentName(self: ?*anyopaque, componentName: []const u8, componentDisplayName: []const u8) void {
+    pub fn SuperSetComponentName(self: KParts__Part, componentName: []const u8, componentDisplayName: []const u8) void {
         const componentName_str = qtc.libqt_string{
             .len = componentName.len,
             .data = componentName.ptr,
@@ -2610,7 +2717,7 @@ pub const kparts__part = struct {
             .len = componentDisplayName.len,
             .data = componentDisplayName.ptr,
         };
-        qtc.KParts__Part_SuperSetComponentName(@ptrCast(self), componentName_str, componentDisplayName_str);
+        qtc.KParts__Part_SuperSetComponentName(@ptrCast(self.ptr), componentName_str, componentDisplayName_str);
     }
 
     /// Inherited from KXMLGUIClient
@@ -2621,12 +2728,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__Part`
+    /// ` self: KParts__Part`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__Part, componentName: [*:0]const u8, componentDisplayName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__Part, componentName: [*:0]const u8, componentDisplayName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetComponentName(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
-        qtc.KParts__Part_OnSetComponentName(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetComponentName(self: KParts__Part, callback: *const fn (KParts__Part, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
+        qtc.KParts__Part_OnSetComponentName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -2637,7 +2744,7 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` file: []const u8 `
     ///
@@ -2645,12 +2752,12 @@ pub const kparts__part = struct {
     ///
     /// ` setXMLDoc: bool `
     ///
-    pub fn SetXMLFile(self: ?*anyopaque, file: []const u8, merge: bool, setXMLDoc: bool) void {
+    pub fn SetXMLFile(self: KParts__Part, file: []const u8, merge: bool, setXMLDoc: bool) void {
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
         };
-        qtc.KParts__Part_SetXMLFile(@ptrCast(self), file_str, merge, setXMLDoc);
+        qtc.KParts__Part_SetXMLFile(@ptrCast(self.ptr), file_str, merge, setXMLDoc);
     }
 
     /// ### DEPRECATED: Use `SuperSetXMLFile` instead
@@ -2665,7 +2772,7 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` file: []const u8 `
     ///
@@ -2673,12 +2780,12 @@ pub const kparts__part = struct {
     ///
     /// ` setXMLDoc: bool `
     ///
-    pub fn SuperSetXMLFile(self: ?*anyopaque, file: []const u8, merge: bool, setXMLDoc: bool) void {
+    pub fn SuperSetXMLFile(self: KParts__Part, file: []const u8, merge: bool, setXMLDoc: bool) void {
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
         };
-        qtc.KParts__Part_SuperSetXMLFile(@ptrCast(self), file_str, merge, setXMLDoc);
+        qtc.KParts__Part_SuperSetXMLFile(@ptrCast(self.ptr), file_str, merge, setXMLDoc);
     }
 
     /// Inherited from KXMLGUIClient
@@ -2689,12 +2796,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__Part`
+    /// ` self: KParts__Part`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__Part, file: [*:0]const u8, merge: bool, setXMLDoc: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__Part, file: [*:0]const u8, merge: bool, setXMLDoc: bool) callconv(.c) void `
     ///
-    pub fn OnSetXMLFile(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, bool, bool) callconv(.c) void) void {
-        qtc.KParts__Part_OnSetXMLFile(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetXMLFile(self: KParts__Part, callback: *const fn (KParts__Part, [*:0]const u8, bool, bool) callconv(.c) void) void {
+        qtc.KParts__Part_OnSetXMLFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -2705,16 +2812,16 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` file: []const u8 `
     ///
-    pub fn SetLocalXMLFile(self: ?*anyopaque, file: []const u8) void {
+    pub fn SetLocalXMLFile(self: KParts__Part, file: []const u8) void {
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
         };
-        qtc.KParts__Part_SetLocalXMLFile(@ptrCast(self), file_str);
+        qtc.KParts__Part_SetLocalXMLFile(@ptrCast(self.ptr), file_str);
     }
 
     /// ### DEPRECATED: Use `SuperSetLocalXMLFile` instead
@@ -2729,16 +2836,16 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` file: []const u8 `
     ///
-    pub fn SuperSetLocalXMLFile(self: ?*anyopaque, file: []const u8) void {
+    pub fn SuperSetLocalXMLFile(self: KParts__Part, file: []const u8) void {
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
         };
-        qtc.KParts__Part_SuperSetLocalXMLFile(@ptrCast(self), file_str);
+        qtc.KParts__Part_SuperSetLocalXMLFile(@ptrCast(self.ptr), file_str);
     }
 
     /// Inherited from KXMLGUIClient
@@ -2749,12 +2856,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__Part`
+    /// ` self: KParts__Part`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__Part, file: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__Part, file: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetLocalXMLFile(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KParts__Part_OnSetLocalXMLFile(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetLocalXMLFile(self: KParts__Part, callback: *const fn (KParts__Part, [*:0]const u8) callconv(.c) void) void {
+        qtc.KParts__Part_OnSetLocalXMLFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -2765,18 +2872,18 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` document: []const u8 `
     ///
     /// ` merge: bool `
     ///
-    pub fn SetXML(self: ?*anyopaque, document: []const u8, merge: bool) void {
+    pub fn SetXML(self: KParts__Part, document: []const u8, merge: bool) void {
         const document_str = qtc.libqt_string{
             .len = document.len,
             .data = document.ptr,
         };
-        qtc.KParts__Part_SetXML(@ptrCast(self), document_str, merge);
+        qtc.KParts__Part_SetXML(@ptrCast(self.ptr), document_str, merge);
     }
 
     /// ### DEPRECATED: Use `SuperSetXML` instead
@@ -2791,18 +2898,18 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` document: []const u8 `
     ///
     /// ` merge: bool `
     ///
-    pub fn SuperSetXML(self: ?*anyopaque, document: []const u8, merge: bool) void {
+    pub fn SuperSetXML(self: KParts__Part, document: []const u8, merge: bool) void {
         const document_str = qtc.libqt_string{
             .len = document.len,
             .data = document.ptr,
         };
-        qtc.KParts__Part_SuperSetXML(@ptrCast(self), document_str, merge);
+        qtc.KParts__Part_SuperSetXML(@ptrCast(self.ptr), document_str, merge);
     }
 
     /// Inherited from KXMLGUIClient
@@ -2813,12 +2920,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__Part`
+    /// ` self: KParts__Part`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__Part, document: [*:0]const u8, merge: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__Part, document: [*:0]const u8, merge: bool) callconv(.c) void `
     ///
-    pub fn OnSetXML(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, bool) callconv(.c) void) void {
-        qtc.KParts__Part_OnSetXML(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetXML(self: KParts__Part, callback: *const fn (KParts__Part, [*:0]const u8, bool) callconv(.c) void) void {
+        qtc.KParts__Part_OnSetXML(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -2829,14 +2936,15 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` document: QtC.QDomDocument `
+    /// ` document: QDomDocument `
     ///
     /// ` merge: bool `
     ///
-    pub fn SetDOMDocument(self: ?*anyopaque, document: ?*anyopaque, merge: bool) void {
-        qtc.KParts__Part_SetDOMDocument(@ptrCast(self), @ptrCast(document), merge);
+    pub fn SetDOMDocument(self: KParts__Part, document: anytype, merge: bool) void {
+        comptime _ = @TypeOf(document)._is_QDomDocument;
+        qtc.KParts__Part_SetDOMDocument(@ptrCast(self.ptr), @ptrCast(document.ptr), merge);
     }
 
     /// ### DEPRECATED: Use `SuperSetDOMDocument` instead
@@ -2851,14 +2959,15 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` document: QtC.QDomDocument `
+    /// ` document: QDomDocument `
     ///
     /// ` merge: bool `
     ///
-    pub fn SuperSetDOMDocument(self: ?*anyopaque, document: ?*anyopaque, merge: bool) void {
-        qtc.KParts__Part_SuperSetDOMDocument(@ptrCast(self), @ptrCast(document), merge);
+    pub fn SuperSetDOMDocument(self: KParts__Part, document: anytype, merge: bool) void {
+        comptime _ = @TypeOf(document)._is_QDomDocument;
+        qtc.KParts__Part_SuperSetDOMDocument(@ptrCast(self.ptr), @ptrCast(document.ptr), merge);
     }
 
     /// Inherited from KXMLGUIClient
@@ -2869,12 +2978,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__Part`
+    /// ` self: KParts__Part`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__Part, document: QtC.QDomDocument, merge: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__Part, document: QDomDocument, merge: bool) callconv(.c) void `
     ///
-    pub fn OnSetDOMDocument(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KParts__Part_OnSetDOMDocument(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetDOMDocument(self: KParts__Part, callback: *const fn (KParts__Part, QDomDocument, bool) callconv(.c) void) void {
+        qtc.KParts__Part_OnSetDOMDocument(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -2885,18 +2994,18 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` newstate: []const u8 `
     ///
     /// ` reverse: kxmlguiclient_enums.ReverseStateChange `
     ///
-    pub fn StateChanged(self: ?*anyopaque, newstate: []const u8, reverse: i32) void {
+    pub fn StateChanged(self: KParts__Part, newstate: []const u8, reverse: i32) void {
         const newstate_str = qtc.libqt_string{
             .len = newstate.len,
             .data = newstate.ptr,
         };
-        qtc.KParts__Part_StateChanged(@ptrCast(self), newstate_str, @bitCast(reverse));
+        qtc.KParts__Part_StateChanged(@ptrCast(self.ptr), newstate_str, @bitCast(reverse));
     }
 
     /// ### DEPRECATED: Use `SuperStateChanged` instead
@@ -2911,18 +3020,18 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` newstate: []const u8 `
     ///
     /// ` reverse: kxmlguiclient_enums.ReverseStateChange `
     ///
-    pub fn SuperStateChanged(self: ?*anyopaque, newstate: []const u8, reverse: i32) void {
+    pub fn SuperStateChanged(self: KParts__Part, newstate: []const u8, reverse: i32) void {
         const newstate_str = qtc.libqt_string{
             .len = newstate.len,
             .data = newstate.ptr,
         };
-        qtc.KParts__Part_SuperStateChanged(@ptrCast(self), newstate_str, @bitCast(reverse));
+        qtc.KParts__Part_SuperStateChanged(@ptrCast(self.ptr), newstate_str, @bitCast(reverse));
     }
 
     /// Inherited from KXMLGUIClient
@@ -2933,12 +3042,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__Part`
+    /// ` self: KParts__Part`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__Part, newstate: [*:0]const u8, reverse: kxmlguiclient_enums.ReverseStateChange) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__Part, newstate: [*:0]const u8, reverse: kxmlguiclient_enums.ReverseStateChange) callconv(.c) void `
     ///
-    pub fn OnStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) void) void {
-        qtc.KParts__Part_OnStateChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnStateChanged(self: KParts__Part, callback: *const fn (KParts__Part, [*:0]const u8, i32) callconv(.c) void) void {
+        qtc.KParts__Part_OnStateChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2949,10 +3058,10 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KParts__Part_Sender(@ptrCast(self));
+    pub fn Sender(self: KParts__Part) QObject {
+        return .{ .ptr = qtc.KParts__Part_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -2967,10 +3076,10 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KParts__Part_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: KParts__Part) QObject {
+        return .{ .ptr = qtc.KParts__Part_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2981,12 +3090,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__Part`
+    /// ` self: KParts__Part`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.KParts__Part_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: KParts__Part, callback: *const fn () callconv(.c) QObject) void {
+        qtc.KParts__Part_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2997,10 +3106,10 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KParts__Part_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: KParts__Part) i32 {
+        return qtc.KParts__Part_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -3015,10 +3124,10 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KParts__Part_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: KParts__Part) i32 {
+        return qtc.KParts__Part_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -3029,12 +3138,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__Part`
+    /// ` self: KParts__Part`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KParts__Part_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: KParts__Part, callback: *const fn () callconv(.c) i32) void {
+        qtc.KParts__Part_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3045,13 +3154,13 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: KParts__Part, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KParts__Part_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.KParts__Part_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -3066,13 +3175,13 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: KParts__Part, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KParts__Part_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KParts__Part_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -3083,12 +3192,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__Part`
+    /// ` self: KParts__Part`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__Part, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KParts__Part, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KParts__Part_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: KParts__Part, callback: *const fn (KParts__Part, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KParts__Part_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3099,12 +3208,13 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KParts__Part_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: KParts__Part, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KParts__Part_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -3119,12 +3229,13 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KParts__Part_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: KParts__Part, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KParts__Part_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -3135,12 +3246,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__Part`
+    /// ` self: KParts__Part`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__Part, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: KParts__Part, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KParts__Part_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: KParts__Part, callback: *const fn (KParts__Part, QMetaMethod) callconv(.c) bool) void {
+        qtc.KParts__Part_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -3151,12 +3262,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StandardsXmlFileLocation(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KParts__Part_StandardsXmlFileLocation(@ptrCast(self));
+    pub fn StandardsXmlFileLocation(self: KParts__Part, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KParts__Part_StandardsXmlFileLocation(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__part.StandardsXmlFileLocation: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3175,12 +3286,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperStandardsXmlFileLocation(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KParts__Part_SuperStandardsXmlFileLocation(@ptrCast(self));
+    pub fn SuperStandardsXmlFileLocation(self: KParts__Part, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KParts__Part_SuperStandardsXmlFileLocation(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__part.StandardsXmlFileLocation: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3193,16 +3304,16 @@ pub const kparts__part = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__Part`
+    /// ` self: KParts__Part`
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnStandardsXmlFileLocation(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.KParts__Part_OnStandardsXmlFileLocation(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnStandardsXmlFileLocation(self: KParts__Part, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.KParts__Part_OnStandardsXmlFileLocation(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -3213,10 +3324,10 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    pub fn LoadStandardsXmlFile(self: ?*anyopaque) void {
-        qtc.KParts__Part_LoadStandardsXmlFile(@ptrCast(self));
+    pub fn LoadStandardsXmlFile(self: KParts__Part) void {
+        qtc.KParts__Part_LoadStandardsXmlFile(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperLoadStandardsXmlFile` instead
@@ -3231,10 +3342,10 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    pub fn SuperLoadStandardsXmlFile(self: ?*anyopaque) void {
-        qtc.KParts__Part_SuperLoadStandardsXmlFile(@ptrCast(self));
+    pub fn SuperLoadStandardsXmlFile(self: KParts__Part) void {
+        qtc.KParts__Part_SuperLoadStandardsXmlFile(@ptrCast(self.ptr));
     }
 
     /// Inherited from KXMLGUIClient
@@ -3245,12 +3356,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__Part`
+    /// ` self: KParts__Part`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnLoadStandardsXmlFile(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KParts__Part_OnLoadStandardsXmlFile(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLoadStandardsXmlFile(self: KParts__Part, callback: *const fn () callconv(.c) void) void {
+        qtc.KParts__Part_OnLoadStandardsXmlFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3261,12 +3372,12 @@ pub const kparts__part = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__Part, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__Part, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: KParts__Part, callback: *const fn (KParts__Part, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -3277,9 +3388,9 @@ pub const kparts__part = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KParts__Part `
+    /// ` self: KParts__Part `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KParts__Part_Delete(@ptrCast(self));
+    pub fn Delete(self: KParts__Part) void {
+        qtc.KParts__Part_Delete(@ptrCast(self.ptr));
     }
 };

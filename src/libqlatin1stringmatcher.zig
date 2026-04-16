@@ -3,37 +3,45 @@ const qtc = @import("qt6c");
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qlatin1stringmatcher.html)
-pub const qlatin1stringmatcher = struct {
+pub const QLatin1StringMatcher = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlatin1stringmatcher.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QLatin1StringMatcher,
+
+    pub const _is_QLatin1StringMatcher = {};
+
     /// New constructs a new QLatin1StringMatcher object.
     ///
-    pub fn New() QtC.QLatin1StringMatcher {
-        return qtc.QLatin1StringMatcher_new();
+    pub fn New() QLatin1StringMatcher {
+        return .{ .ptr = qtc.QLatin1StringMatcher_new() };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlatin1stringmatcher.html#setCaseSensitivity)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLatin1StringMatcher `
+    /// ` self: QLatin1StringMatcher `
     ///
     /// ` cs: qnamespace_enums.CaseSensitivity `
     ///
-    pub fn SetCaseSensitivity(self: ?*anyopaque, cs: i32) void {
-        qtc.QLatin1StringMatcher_SetCaseSensitivity(@ptrCast(self), @bitCast(cs));
+    pub fn SetCaseSensitivity(self: QLatin1StringMatcher, cs: i32) void {
+        qtc.QLatin1StringMatcher_SetCaseSensitivity(@ptrCast(self.ptr), @bitCast(cs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlatin1stringmatcher.html#caseSensitivity)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLatin1StringMatcher `
+    /// ` self: QLatin1StringMatcher `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.CaseSensitivity `
     ///
-    pub fn CaseSensitivity(self: ?*anyopaque) i32 {
-        return qtc.QLatin1StringMatcher_CaseSensitivity(@ptrCast(self));
+    pub fn CaseSensitivity(self: QLatin1StringMatcher) i32 {
+        return qtc.QLatin1StringMatcher_CaseSensitivity(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -46,9 +54,9 @@ pub const qlatin1stringmatcher = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QLatin1StringMatcher `
+    /// ` self: QLatin1StringMatcher `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QLatin1StringMatcher_Delete(@ptrCast(self));
+    pub fn Delete(self: QLatin1StringMatcher) void {
+        qtc.QLatin1StringMatcher_Delete(@ptrCast(self.ptr));
     }
 };

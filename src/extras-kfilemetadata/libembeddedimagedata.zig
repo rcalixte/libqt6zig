@@ -2,11 +2,19 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 
 /// ### [Upstream resources](https://api.kde.org/kfilemetadata-embeddedimagedata.html)
-pub const kfilemetadata__embeddedimagedata = struct {
+pub const KFileMetaData__EmbeddedImageData = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kfilemetadata-embeddedimagedata.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KFileMetaData__EmbeddedImageData,
+
+    pub const _is_KFileMetaData__EmbeddedImageData = {};
+
     /// New constructs a new KFileMetaData::EmbeddedImageData object.
     ///
-    pub fn New() QtC.KFileMetaData__EmbeddedImageData {
-        return qtc.KFileMetaData__EmbeddedImageData_new();
+    pub fn New() KFileMetaData__EmbeddedImageData {
+        return .{ .ptr = qtc.KFileMetaData__EmbeddedImageData_new() };
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -17,10 +25,10 @@ pub const kfilemetadata__embeddedimagedata = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KFileMetaData__EmbeddedImageData `
+    /// ` self: KFileMetaData__EmbeddedImageData `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KFileMetaData__EmbeddedImageData_Delete(@ptrCast(self));
+    pub fn Delete(self: KFileMetaData__EmbeddedImageData) void {
+        qtc.KFileMetaData__EmbeddedImageData_Delete(@ptrCast(self.ptr));
     }
 };
 

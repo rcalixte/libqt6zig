@@ -1,35 +1,58 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QEvent = @import("libqt6").QEvent;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QState = @import("libqt6").QState;
+const QStateMachine = @import("libqt6").QStateMachine;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qfinalstate.html)
-pub const qfinalstate = struct {
+pub const QFinalState = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfinalstate.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QFinalState,
+
+    pub const _is_QFinalState = {};
+    pub const _is_QAbstractState = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new QFinalState object.
     ///
-    pub fn New() QtC.QFinalState {
-        return qtc.QFinalState_new();
+    pub fn New() QFinalState {
+        return .{ .ptr = qtc.QFinalState_new() };
     }
 
     /// New2 constructs a new QFinalState object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QState `
+    /// ` parent: QState `
     ///
-    pub fn New2(parent: ?*anyopaque) QtC.QFinalState {
-        return qtc.QFinalState_new2(@ptrCast(parent));
+    pub fn New2(parent: anytype) QFinalState {
+        comptime _ = @TypeOf(parent)._is_QState;
+        return .{ .ptr = qtc.QFinalState_new2(@ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QFinalState_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QFinalState) QMetaObject {
+        return .{ .ptr = qtc.QFinalState_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -38,12 +61,12 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QFinalState_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QFinalState, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QFinalState_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -56,33 +79,33 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QFinalState_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QFinalState) QMetaObject {
+        return .{ .ptr = qtc.QFinalState_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QFinalState, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QFinalState_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QFinalState_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    /// ` callback: *const fn (self: QtC.QFinalState, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QFinalState, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QFinalState_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QFinalState, callback: *const fn (QFinalState, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QFinalState_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -93,18 +116,18 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QFinalState, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QFinalState_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QFinalState_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -112,20 +135,20 @@ pub const qfinalstate = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QFinalState_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QFinalState, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QFinalState_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    /// ` callback: *const fn (self: QtC.QFinalState, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QFinalState, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QFinalState_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QFinalState, callback: *const fn (QFinalState, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QFinalState_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -136,7 +159,7 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -144,19 +167,19 @@ pub const qfinalstate = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QFinalState_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QFinalState, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QFinalState_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -169,12 +192,13 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn OnEntry(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFinalState_OnEntry(@ptrCast(self), @ptrCast(event));
+    pub fn OnEntry(self: QFinalState, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QFinalState_OnEntry(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfinalstate.html#onEntry)
@@ -183,12 +207,12 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    /// ` callback: *const fn (self: QtC.QFinalState, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFinalState, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnOnEntry(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFinalState_OnOnEntry(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnOnEntry(self: QFinalState, callback: *const fn (QFinalState, QEvent) callconv(.c) void) void {
+        qtc.QFinalState_OnOnEntry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperOnEntry` instead
@@ -201,24 +225,26 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperOnEntry(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFinalState_SuperOnEntry(@ptrCast(self), @ptrCast(event));
+    pub fn SuperOnEntry(self: QFinalState, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QFinalState_SuperOnEntry(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfinalstate.html#onExit)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn OnExit(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFinalState_OnExit(@ptrCast(self), @ptrCast(event));
+    pub fn OnExit(self: QFinalState, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QFinalState_OnExit(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfinalstate.html#onExit)
@@ -227,12 +253,12 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    /// ` callback: *const fn (self: QtC.QFinalState, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFinalState, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnOnExit(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFinalState_OnOnExit(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnOnExit(self: QFinalState, callback: *const fn (QFinalState, QEvent) callconv(.c) void) void {
+        qtc.QFinalState_OnOnExit(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperOnExit` instead
@@ -245,24 +271,26 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperOnExit(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFinalState_SuperOnExit(@ptrCast(self), @ptrCast(event));
+    pub fn SuperOnExit(self: QFinalState, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QFinalState_SuperOnExit(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfinalstate.html#event)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    /// ` e: QtC.QEvent `
+    /// ` e: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, e: ?*anyopaque) bool {
-        return qtc.QFinalState_Event(@ptrCast(self), @ptrCast(e));
+    pub fn Event(self: QFinalState, e: anytype) bool {
+        comptime _ = @TypeOf(e)._is_QEvent;
+        return qtc.QFinalState_Event(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfinalstate.html#event)
@@ -271,12 +299,12 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    /// ` callback: *const fn (self: QtC.QFinalState, e: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QFinalState, e: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QFinalState_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QFinalState, callback: *const fn (QFinalState, QEvent) callconv(.c) bool) void {
+        qtc.QFinalState_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -289,25 +317,26 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    /// ` e: QtC.QEvent `
+    /// ` e: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, e: ?*anyopaque) bool {
-        return qtc.QFinalState_SuperEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperEvent(self: QFinalState, e: anytype) bool {
+        comptime _ = @TypeOf(e)._is_QEvent;
+        return qtc.QFinalState_SuperEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -321,15 +350,15 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -345,10 +374,10 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    pub fn ParentState(self: ?*anyopaque) QtC.QState {
-        return qtc.QAbstractState_ParentState(@ptrCast(self));
+    pub fn ParentState(self: QFinalState) QState {
+        return .{ .ptr = qtc.QAbstractState_ParentState(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractState
@@ -357,10 +386,10 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    pub fn Machine(self: ?*anyopaque) QtC.QStateMachine {
-        return qtc.QAbstractState_Machine(@ptrCast(self));
+    pub fn Machine(self: QFinalState) QStateMachine {
+        return .{ .ptr = qtc.QAbstractState_Machine(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractState
@@ -369,10 +398,10 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    pub fn Active(self: ?*anyopaque) bool {
-        return qtc.QAbstractState_Active(@ptrCast(self));
+    pub fn Active(self: QFinalState) bool {
+        return qtc.QAbstractState_Active(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractState
@@ -381,12 +410,12 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
     /// ` active: bool `
     ///
-    pub fn ActiveChanged(self: ?*anyopaque, active: bool) void {
-        qtc.QAbstractState_ActiveChanged(@ptrCast(self), active);
+    pub fn ActiveChanged(self: QFinalState, active: bool) void {
+        qtc.QAbstractState_ActiveChanged(@ptrCast(self.ptr), active);
     }
 
     /// Inherited from QAbstractState
@@ -395,12 +424,12 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    /// ` callback: *const fn (self: QtC.QFinalState, active: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QFinalState, active: bool) callconv(.c) void `
     ///
-    pub fn OnActiveChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractState_Connect_ActiveChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnActiveChanged(self: QFinalState, callback: *const fn (QFinalState, bool) callconv(.c) void) void {
+        qtc.QAbstractState_Connect_ActiveChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -409,12 +438,12 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QFinalState, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfinalstate.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -427,12 +456,12 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QFinalState, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -441,10 +470,10 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QFinalState) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -453,10 +482,10 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QFinalState) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -465,10 +494,10 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QFinalState) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -477,10 +506,10 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QFinalState) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -489,12 +518,12 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QFinalState, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -503,10 +532,10 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QFinalState) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -515,12 +544,13 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QFinalState, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -529,12 +559,12 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QFinalState, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -543,12 +573,12 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QFinalState, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -557,12 +587,12 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QFinalState, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -571,12 +601,12 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QFinalState, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -585,16 +615,17 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QFinalState, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qfinalstate.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qfinalstate.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -604,12 +635,13 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QFinalState, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -618,12 +650,13 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QFinalState, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -632,12 +665,13 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QFinalState, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -646,18 +680,20 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -666,16 +702,20 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -684,18 +724,19 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QFinalState, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -704,18 +745,20 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -724,16 +767,20 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -742,10 +789,10 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QFinalState) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -754,12 +801,13 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QFinalState, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -768,10 +816,11 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -780,10 +829,10 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QFinalState) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -792,10 +841,10 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QFinalState) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -804,15 +853,16 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QFinalState, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -821,13 +871,13 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QFinalState, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -836,17 +886,16 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QFinalState, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qfinalstate.DynamicPropertyNames: Memory allocation failed");
@@ -865,10 +914,10 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QFinalState) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -877,10 +926,10 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QFinalState) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -889,10 +938,10 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QFinalState) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -901,12 +950,12 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    /// ` callback: *const fn (self: QtC.QFinalState) callconv(.c) void `
+    /// ` callback: *const fn (self: QFinalState) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QFinalState, callback: *const fn (QFinalState) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -915,10 +964,10 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QFinalState) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -927,13 +976,13 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QFinalState, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -942,10 +991,10 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QFinalState) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -954,14 +1003,14 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QFinalState, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -970,14 +1019,14 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QFinalState, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -986,20 +1035,22 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -1008,18 +1059,22 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1028,9 +1083,9 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1038,10 +1093,11 @@ pub const qfinalstate = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QFinalState, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1050,13 +1106,13 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QFinalState, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1065,15 +1121,16 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QFinalState, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1082,18 +1139,19 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QFinalState, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1102,15 +1160,16 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QFinalState, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1119,12 +1178,13 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QFinalState, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1133,12 +1193,12 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    /// ` callback: *const fn (self: QtC.QFinalState, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QFinalState, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QFinalState, callback: *const fn (QFinalState, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1149,14 +1209,16 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QFinalState_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: QFinalState, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QFinalState_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -1171,14 +1233,16 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QFinalState_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: QFinalState, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QFinalState_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1189,12 +1253,12 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFinalState`
+    /// ` self: QFinalState`
     ///
-    /// ` callback: *const fn (self: QtC.QFinalState, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QFinalState, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QFinalState_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QFinalState, callback: *const fn (QFinalState, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QFinalState_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1205,12 +1269,13 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFinalState_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: QFinalState, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QFinalState_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -1225,12 +1290,13 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFinalState_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: QFinalState, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QFinalState_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1241,12 +1307,12 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFinalState`
+    /// ` self: QFinalState`
     ///
-    /// ` callback: *const fn (self: QtC.QFinalState, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFinalState, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFinalState_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QFinalState, callback: *const fn (QFinalState, QTimerEvent) callconv(.c) void) void {
+        qtc.QFinalState_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1257,12 +1323,13 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFinalState_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: QFinalState, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QFinalState_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -1277,12 +1344,13 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFinalState_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: QFinalState, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QFinalState_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1293,12 +1361,12 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFinalState`
+    /// ` self: QFinalState`
     ///
-    /// ` callback: *const fn (self: QtC.QFinalState, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFinalState, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFinalState_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QFinalState, callback: *const fn (QFinalState, QChildEvent) callconv(.c) void) void {
+        qtc.QFinalState_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1309,12 +1377,13 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFinalState_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QFinalState, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QFinalState_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -1329,12 +1398,13 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFinalState_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QFinalState, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QFinalState_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1345,12 +1415,12 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFinalState`
+    /// ` self: QFinalState`
     ///
-    /// ` callback: *const fn (self: QtC.QFinalState, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFinalState, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFinalState_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QFinalState, callback: *const fn (QFinalState, QEvent) callconv(.c) void) void {
+        qtc.QFinalState_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1361,12 +1431,13 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QFinalState_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QFinalState, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QFinalState_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -1381,12 +1452,13 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QFinalState_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QFinalState, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QFinalState_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1397,12 +1469,12 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFinalState`
+    /// ` self: QFinalState`
     ///
-    /// ` callback: *const fn (self: QtC.QFinalState, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QFinalState, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFinalState_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QFinalState, callback: *const fn (QFinalState, QMetaMethod) callconv(.c) void) void {
+        qtc.QFinalState_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1413,12 +1485,13 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QFinalState_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QFinalState, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QFinalState_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -1433,12 +1506,13 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QFinalState_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QFinalState, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QFinalState_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1449,12 +1523,12 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFinalState`
+    /// ` self: QFinalState`
     ///
-    /// ` callback: *const fn (self: QtC.QFinalState, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QFinalState, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFinalState_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QFinalState, callback: *const fn (QFinalState, QMetaMethod) callconv(.c) void) void {
+        qtc.QFinalState_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1465,10 +1539,10 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QFinalState_Sender(@ptrCast(self));
+    pub fn Sender(self: QFinalState) QObject {
+        return .{ .ptr = qtc.QFinalState_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -1483,10 +1557,10 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QFinalState_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QFinalState) QObject {
+        return .{ .ptr = qtc.QFinalState_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1497,12 +1571,12 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFinalState`
+    /// ` self: QFinalState`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QFinalState_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QFinalState, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QFinalState_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1513,10 +1587,10 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QFinalState_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QFinalState) i32 {
+        return qtc.QFinalState_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -1531,10 +1605,10 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QFinalState_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QFinalState) i32 {
+        return qtc.QFinalState_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1545,12 +1619,12 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFinalState`
+    /// ` self: QFinalState`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QFinalState_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QFinalState, callback: *const fn () callconv(.c) i32) void {
+        qtc.QFinalState_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1561,13 +1635,13 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QFinalState, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QFinalState_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QFinalState_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -1582,13 +1656,13 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QFinalState, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QFinalState_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QFinalState_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1599,12 +1673,12 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFinalState`
+    /// ` self: QFinalState`
     ///
-    /// ` callback: *const fn (self: QtC.QFinalState, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QFinalState, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QFinalState_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QFinalState, callback: *const fn (QFinalState, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QFinalState_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1615,12 +1689,13 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QFinalState_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QFinalState, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QFinalState_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -1635,12 +1710,13 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QFinalState_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QFinalState, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QFinalState_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1651,12 +1727,12 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFinalState`
+    /// ` self: QFinalState`
     ///
-    /// ` callback: *const fn (self: QtC.QFinalState, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QFinalState, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QFinalState_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QFinalState, callback: *const fn (QFinalState, QMetaMethod) callconv(.c) bool) void {
+        qtc.QFinalState_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractState
@@ -1667,12 +1743,12 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    /// ` callback: *const fn (self: QtC.QFinalState) callconv(.c) void `
+    /// ` callback: *const fn (self: QFinalState) callconv(.c) void `
     ///
-    pub fn OnEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractState_Connect_Entered(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEntered(self: QFinalState, callback: *const fn (QFinalState) callconv(.c) void) void {
+        qtc.QAbstractState_Connect_Entered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractState
@@ -1683,12 +1759,12 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    /// ` callback: *const fn (self: QtC.QFinalState) callconv(.c) void `
+    /// ` callback: *const fn (self: QFinalState) callconv(.c) void `
     ///
-    pub fn OnExited(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractState_Connect_Exited(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnExited(self: QFinalState, callback: *const fn (QFinalState) callconv(.c) void) void {
+        qtc.QAbstractState_Connect_Exited(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1699,12 +1775,12 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    /// ` callback: *const fn (self: QtC.QFinalState, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QFinalState, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QFinalState, callback: *const fn (QFinalState, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -1717,9 +1793,9 @@ pub const qfinalstate = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QFinalState `
+    /// ` self: QFinalState `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QFinalState_Delete(@ptrCast(self));
+    pub fn Delete(self: QFinalState) void {
+        qtc.QFinalState_Delete(@ptrCast(self.ptr));
     }
 };

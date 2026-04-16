@@ -1,5 +1,18 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QBluetoothAddress = @import("libqt6").QBluetoothAddress;
+const QBluetoothServiceInfo = @import("libqt6").QBluetoothServiceInfo;
+const QBluetoothUuid = @import("libqt6").QBluetoothUuid;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QEvent = @import("libqt6").QEvent;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
 const qbluetooth_enums = @import("libqbluetooth.zig").enums;
 const qbluetoothserviceinfo_enums = @import("libqbluetoothserviceinfo.zig").enums;
 const qbluetoothsocket_enums = enums;
@@ -10,21 +23,32 @@ const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html)
-pub const qbluetoothsocket = struct {
+pub const QBluetoothSocket = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QBluetoothSocket,
+
+    pub const _is_QBluetoothSocket = {};
+    pub const _is_QIODevice = {};
+    pub const _is_QObject = {};
+    pub const _is_QIODeviceBase = {};
+
     /// New constructs a new QBluetoothSocket object.
     ///
     /// ## Parameter(s):
     ///
     /// ` socketType: qbluetoothserviceinfo_enums.Protocol `
     ///
-    pub fn New(socketType: i32) QtC.QBluetoothSocket {
-        return qtc.QBluetoothSocket_new(@bitCast(socketType));
+    pub fn New(socketType: i32) QBluetoothSocket {
+        return .{ .ptr = qtc.QBluetoothSocket_new(@bitCast(socketType)) };
     }
 
     /// New2 constructs a new QBluetoothSocket object.
     ///
-    pub fn New2() QtC.QBluetoothSocket {
-        return qtc.QBluetoothSocket_new2();
+    pub fn New2() QBluetoothSocket {
+        return .{ .ptr = qtc.QBluetoothSocket_new2() };
     }
 
     /// New3 constructs a new QBluetoothSocket object.
@@ -33,30 +57,32 @@ pub const qbluetoothsocket = struct {
     ///
     /// ` socketType: qbluetoothserviceinfo_enums.Protocol `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New3(socketType: i32, parent: ?*anyopaque) QtC.QBluetoothSocket {
-        return qtc.QBluetoothSocket_new3(@bitCast(socketType), @ptrCast(parent));
+    pub fn New3(socketType: i32, parent: anytype) QBluetoothSocket {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.QBluetoothSocket_new3(@bitCast(socketType), @ptrCast(parent.ptr)) };
     }
 
     /// New4 constructs a new QBluetoothSocket object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New4(parent: ?*anyopaque) QtC.QBluetoothSocket {
-        return qtc.QBluetoothSocket_new4(@ptrCast(parent));
+    pub fn New4(parent: anytype) QBluetoothSocket {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.QBluetoothSocket_new4(@ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QBluetoothSocket_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QBluetoothSocket) QMetaObject {
+        return .{ .ptr = qtc.QBluetoothSocket_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -65,12 +91,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QBluetoothSocket_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QBluetoothSocket, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QBluetoothSocket_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -83,33 +109,33 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QBluetoothSocket_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QBluetoothSocket) QMetaObject {
+        return .{ .ptr = qtc.QBluetoothSocket_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QBluetoothSocket, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QBluetoothSocket_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QBluetoothSocket_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QBluetoothSocket, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QBluetoothSocket, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QBluetoothSocket_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QBluetoothSocket, callback: *const fn (QBluetoothSocket, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QBluetoothSocket_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -120,18 +146,18 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QBluetoothSocket, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QBluetoothSocket_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QBluetoothSocket_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -139,20 +165,20 @@ pub const qbluetoothsocket = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QBluetoothSocket_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QBluetoothSocket, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QBluetoothSocket_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QBluetoothSocket, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QBluetoothSocket, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QBluetoothSocket_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QBluetoothSocket, callback: *const fn (QBluetoothSocket, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QBluetoothSocket_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -163,7 +189,7 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -171,19 +197,19 @@ pub const qbluetoothsocket = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QBluetoothSocket_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QBluetoothSocket, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QBluetoothSocket_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -196,20 +222,20 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn Abort(self: ?*anyopaque) void {
-        qtc.QBluetoothSocket_Abort(@ptrCast(self));
+    pub fn Abort(self: QBluetoothSocket) void {
+        qtc.QBluetoothSocket_Abort(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#close)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn Close(self: ?*anyopaque) void {
-        qtc.QBluetoothSocket_Close(@ptrCast(self));
+    pub fn Close(self: QBluetoothSocket) void {
+        qtc.QBluetoothSocket_Close(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#close)
@@ -218,12 +244,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnClose(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QBluetoothSocket_OnClose(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnClose(self: QBluetoothSocket, callback: *const fn () callconv(.c) void) void {
+        qtc.QBluetoothSocket_OnClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperClose` instead
@@ -236,20 +262,20 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn SuperClose(self: ?*anyopaque) void {
-        qtc.QBluetoothSocket_SuperClose(@ptrCast(self));
+    pub fn SuperClose(self: QBluetoothSocket) void {
+        qtc.QBluetoothSocket_SuperClose(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#isSequential)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn IsSequential(self: ?*anyopaque) bool {
-        return qtc.QBluetoothSocket_IsSequential(@ptrCast(self));
+    pub fn IsSequential(self: QBluetoothSocket) bool {
+        return qtc.QBluetoothSocket_IsSequential(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#isSequential)
@@ -258,12 +284,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnIsSequential(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QBluetoothSocket_OnIsSequential(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSequential(self: QBluetoothSocket, callback: *const fn () callconv(.c) bool) void {
+        qtc.QBluetoothSocket_OnIsSequential(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperIsSequential` instead
@@ -276,20 +302,20 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn SuperIsSequential(self: ?*anyopaque) bool {
-        return qtc.QBluetoothSocket_SuperIsSequential(@ptrCast(self));
+    pub fn SuperIsSequential(self: QBluetoothSocket) bool {
+        return qtc.QBluetoothSocket_SuperIsSequential(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#bytesAvailable)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn BytesAvailable(self: ?*anyopaque) i64 {
-        return qtc.QBluetoothSocket_BytesAvailable(@ptrCast(self));
+    pub fn BytesAvailable(self: QBluetoothSocket) i64 {
+        return qtc.QBluetoothSocket_BytesAvailable(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#bytesAvailable)
@@ -298,12 +324,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
-    pub fn OnBytesAvailable(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
-        qtc.QBluetoothSocket_OnBytesAvailable(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBytesAvailable(self: QBluetoothSocket, callback: *const fn () callconv(.c) i64) void {
+        qtc.QBluetoothSocket_OnBytesAvailable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperBytesAvailable` instead
@@ -316,20 +342,20 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn SuperBytesAvailable(self: ?*anyopaque) i64 {
-        return qtc.QBluetoothSocket_SuperBytesAvailable(@ptrCast(self));
+    pub fn SuperBytesAvailable(self: QBluetoothSocket) i64 {
+        return qtc.QBluetoothSocket_SuperBytesAvailable(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#bytesToWrite)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn BytesToWrite(self: ?*anyopaque) i64 {
-        return qtc.QBluetoothSocket_BytesToWrite(@ptrCast(self));
+    pub fn BytesToWrite(self: QBluetoothSocket) i64 {
+        return qtc.QBluetoothSocket_BytesToWrite(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#bytesToWrite)
@@ -338,12 +364,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
-    pub fn OnBytesToWrite(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
-        qtc.QBluetoothSocket_OnBytesToWrite(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBytesToWrite(self: QBluetoothSocket, callback: *const fn () callconv(.c) i64) void {
+        qtc.QBluetoothSocket_OnBytesToWrite(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperBytesToWrite` instead
@@ -356,20 +382,20 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn SuperBytesToWrite(self: ?*anyopaque) i64 {
-        return qtc.QBluetoothSocket_SuperBytesToWrite(@ptrCast(self));
+    pub fn SuperBytesToWrite(self: QBluetoothSocket) i64 {
+        return qtc.QBluetoothSocket_SuperBytesToWrite(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#canReadLine)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn CanReadLine(self: ?*anyopaque) bool {
-        return qtc.QBluetoothSocket_CanReadLine(@ptrCast(self));
+    pub fn CanReadLine(self: QBluetoothSocket) bool {
+        return qtc.QBluetoothSocket_CanReadLine(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#canReadLine)
@@ -378,12 +404,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnCanReadLine(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QBluetoothSocket_OnCanReadLine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCanReadLine(self: QBluetoothSocket, callback: *const fn () callconv(.c) bool) void {
+        qtc.QBluetoothSocket_OnCanReadLine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperCanReadLine` instead
@@ -396,86 +422,91 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn SuperCanReadLine(self: ?*anyopaque) bool {
-        return qtc.QBluetoothSocket_SuperCanReadLine(@ptrCast(self));
+    pub fn SuperCanReadLine(self: QBluetoothSocket) bool {
+        return qtc.QBluetoothSocket_SuperCanReadLine(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#connectToService)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` service: QtC.QBluetoothServiceInfo `
+    /// ` service: QBluetoothServiceInfo `
     ///
-    pub fn ConnectToService(self: ?*anyopaque, service: ?*anyopaque) void {
-        qtc.QBluetoothSocket_ConnectToService(@ptrCast(self), @ptrCast(service));
+    pub fn ConnectToService(self: QBluetoothSocket, service: anytype) void {
+        comptime _ = @TypeOf(service)._is_QBluetoothServiceInfo;
+        qtc.QBluetoothSocket_ConnectToService(@ptrCast(self.ptr), @ptrCast(service.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#connectToService)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` address: QtC.QBluetoothAddress `
+    /// ` address: QBluetoothAddress `
     ///
-    /// ` uuid: QtC.QBluetoothUuid `
+    /// ` uuid: QBluetoothUuid `
     ///
-    pub fn ConnectToService2(self: ?*anyopaque, address: ?*anyopaque, uuid: ?*anyopaque) void {
-        qtc.QBluetoothSocket_ConnectToService2(@ptrCast(self), @ptrCast(address), @ptrCast(uuid));
+    pub fn ConnectToService2(self: QBluetoothSocket, address: anytype, uuid: anytype) void {
+        comptime _ = @TypeOf(address)._is_QBluetoothAddress;
+        comptime _ = @TypeOf(uuid)._is_QBluetoothUuid;
+        qtc.QBluetoothSocket_ConnectToService2(@ptrCast(self.ptr), @ptrCast(address.ptr), @ptrCast(uuid.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#connectToService)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` address: QtC.QBluetoothAddress `
+    /// ` address: QBluetoothAddress `
     ///
     /// ` port: u16 `
     ///
-    pub fn ConnectToService3(self: ?*anyopaque, address: ?*anyopaque, port: u16) void {
-        qtc.QBluetoothSocket_ConnectToService3(@ptrCast(self), @ptrCast(address), @bitCast(port));
+    pub fn ConnectToService3(self: QBluetoothSocket, address: anytype, port: u16) void {
+        comptime _ = @TypeOf(address)._is_QBluetoothAddress;
+        qtc.QBluetoothSocket_ConnectToService3(@ptrCast(self.ptr), @ptrCast(address.ptr), @bitCast(port));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#connectToService)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` address: QtC.QBluetoothAddress `
+    /// ` address: QBluetoothAddress `
     ///
     /// ` uuid: qbluetoothuuid_enums.ServiceClassUuid `
     ///
-    pub fn ConnectToService4(self: ?*anyopaque, address: ?*anyopaque, uuid: i32) void {
-        qtc.QBluetoothSocket_ConnectToService4(@ptrCast(self), @ptrCast(address), @bitCast(uuid));
+    pub fn ConnectToService4(self: QBluetoothSocket, address: anytype, uuid: i32) void {
+        comptime _ = @TypeOf(address)._is_QBluetoothAddress;
+        qtc.QBluetoothSocket_ConnectToService4(@ptrCast(self.ptr), @ptrCast(address.ptr), @bitCast(uuid));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#disconnectFromService)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn DisconnectFromService(self: ?*anyopaque) void {
-        qtc.QBluetoothSocket_DisconnectFromService(@ptrCast(self));
+    pub fn DisconnectFromService(self: QBluetoothSocket) void {
+        qtc.QBluetoothSocket_DisconnectFromService(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#localName)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LocalName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QBluetoothSocket_LocalName(@ptrCast(self));
+    pub fn LocalName(self: QBluetoothSocket, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QBluetoothSocket_LocalName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qbluetoothsocket.LocalName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -486,32 +517,32 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn LocalAddress(self: ?*anyopaque) QtC.QBluetoothAddress {
-        return qtc.QBluetoothSocket_LocalAddress(@ptrCast(self));
+    pub fn LocalAddress(self: QBluetoothSocket) QBluetoothAddress {
+        return .{ .ptr = qtc.QBluetoothSocket_LocalAddress(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#localPort)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn LocalPort(self: ?*anyopaque) u16 {
-        return qtc.QBluetoothSocket_LocalPort(@ptrCast(self));
+    pub fn LocalPort(self: QBluetoothSocket) u16 {
+        return qtc.QBluetoothSocket_LocalPort(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#peerName)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PeerName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QBluetoothSocket_PeerName(@ptrCast(self));
+    pub fn PeerName(self: QBluetoothSocket, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QBluetoothSocket_PeerName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qbluetoothsocket.PeerName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -522,98 +553,98 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn PeerAddress(self: ?*anyopaque) QtC.QBluetoothAddress {
-        return qtc.QBluetoothSocket_PeerAddress(@ptrCast(self));
+    pub fn PeerAddress(self: QBluetoothSocket) QBluetoothAddress {
+        return .{ .ptr = qtc.QBluetoothSocket_PeerAddress(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#peerPort)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn PeerPort(self: ?*anyopaque) u16 {
-        return qtc.QBluetoothSocket_PeerPort(@ptrCast(self));
+    pub fn PeerPort(self: QBluetoothSocket) u16 {
+        return qtc.QBluetoothSocket_PeerPort(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#setSocketDescriptor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` socketDescriptor: i32 `
     ///
     /// ` socketType: qbluetoothserviceinfo_enums.Protocol `
     ///
-    pub fn SetSocketDescriptor(self: ?*anyopaque, socketDescriptor: i32, socketType: i32) bool {
-        return qtc.QBluetoothSocket_SetSocketDescriptor(@ptrCast(self), @bitCast(socketDescriptor), @bitCast(socketType));
+    pub fn SetSocketDescriptor(self: QBluetoothSocket, socketDescriptor: i32, socketType: i32) bool {
+        return qtc.QBluetoothSocket_SetSocketDescriptor(@ptrCast(self.ptr), @bitCast(socketDescriptor), @bitCast(socketType));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#socketDescriptor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn SocketDescriptor(self: ?*anyopaque) i32 {
-        return qtc.QBluetoothSocket_SocketDescriptor(@ptrCast(self));
+    pub fn SocketDescriptor(self: QBluetoothSocket) i32 {
+        return qtc.QBluetoothSocket_SocketDescriptor(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#socketType)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ## Returns:
     ///
     /// ` qbluetoothserviceinfo_enums.Protocol `
     ///
-    pub fn SocketType(self: ?*anyopaque) i32 {
-        return qtc.QBluetoothSocket_SocketType(@ptrCast(self));
+    pub fn SocketType(self: QBluetoothSocket) i32 {
+        return qtc.QBluetoothSocket_SocketType(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#state)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ## Returns:
     ///
     /// ` qbluetoothsocket_enums.SocketState `
     ///
-    pub fn State(self: ?*anyopaque) i32 {
-        return qtc.QBluetoothSocket_State(@ptrCast(self));
+    pub fn State(self: QBluetoothSocket) i32 {
+        return qtc.QBluetoothSocket_State(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#error)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ## Returns:
     ///
     /// ` qbluetoothsocket_enums.SocketError `
     ///
-    pub fn Error(self: ?*anyopaque) i32 {
-        return qtc.QBluetoothSocket_Error(@ptrCast(self));
+    pub fn Error(self: QBluetoothSocket) i32 {
+        return qtc.QBluetoothSocket_Error(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#errorString)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QBluetoothSocket_ErrorString(@ptrCast(self));
+    pub fn ErrorString(self: QBluetoothSocket, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QBluetoothSocket_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qbluetoothsocket.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -624,133 +655,133 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` flags: flag of qbluetooth_enums.Security `
     ///
-    pub fn SetPreferredSecurityFlags(self: ?*anyopaque, flags: i32) void {
-        qtc.QBluetoothSocket_SetPreferredSecurityFlags(@ptrCast(self), @bitCast(flags));
+    pub fn SetPreferredSecurityFlags(self: QBluetoothSocket, flags: i32) void {
+        qtc.QBluetoothSocket_SetPreferredSecurityFlags(@ptrCast(self.ptr), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#preferredSecurityFlags)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ## Returns:
     ///
     /// ` flag of qbluetooth_enums.Security `
     ///
-    pub fn PreferredSecurityFlags(self: ?*anyopaque) i32 {
-        return qtc.QBluetoothSocket_PreferredSecurityFlags(@ptrCast(self));
+    pub fn PreferredSecurityFlags(self: QBluetoothSocket) i32 {
+        return qtc.QBluetoothSocket_PreferredSecurityFlags(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#connected)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn Connected(self: ?*anyopaque) void {
-        qtc.QBluetoothSocket_Connected(@ptrCast(self));
+    pub fn Connected(self: QBluetoothSocket) void {
+        qtc.QBluetoothSocket_Connected(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#connected)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QBluetoothSocket) callconv(.c) void `
+    /// ` callback: *const fn (self: QBluetoothSocket) callconv(.c) void `
     ///
-    pub fn OnConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QBluetoothSocket_Connect_Connected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnected(self: QBluetoothSocket, callback: *const fn (QBluetoothSocket) callconv(.c) void) void {
+        qtc.QBluetoothSocket_Connect_Connected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#disconnected)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn Disconnected(self: ?*anyopaque) void {
-        qtc.QBluetoothSocket_Disconnected(@ptrCast(self));
+    pub fn Disconnected(self: QBluetoothSocket) void {
+        qtc.QBluetoothSocket_Disconnected(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#disconnected)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QBluetoothSocket) callconv(.c) void `
+    /// ` callback: *const fn (self: QBluetoothSocket) callconv(.c) void `
     ///
-    pub fn OnDisconnected(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QBluetoothSocket_Connect_Disconnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnected(self: QBluetoothSocket, callback: *const fn (QBluetoothSocket) callconv(.c) void) void {
+        qtc.QBluetoothSocket_Connect_Disconnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#errorOccurred)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` errorVal: qbluetoothsocket_enums.SocketError `
     ///
-    pub fn ErrorOccurred(self: ?*anyopaque, errorVal: i32) void {
-        qtc.QBluetoothSocket_ErrorOccurred(@ptrCast(self), @bitCast(errorVal));
+    pub fn ErrorOccurred(self: QBluetoothSocket, errorVal: i32) void {
+        qtc.QBluetoothSocket_ErrorOccurred(@ptrCast(self.ptr), @bitCast(errorVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#errorOccurred)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QBluetoothSocket, errorVal: qbluetoothsocket_enums.SocketError) callconv(.c) void `
+    /// ` callback: *const fn (self: QBluetoothSocket, errorVal: qbluetoothsocket_enums.SocketError) callconv(.c) void `
     ///
-    pub fn OnErrorOccurred(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QBluetoothSocket_Connect_ErrorOccurred(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnErrorOccurred(self: QBluetoothSocket, callback: *const fn (QBluetoothSocket, i32) callconv(.c) void) void {
+        qtc.QBluetoothSocket_Connect_ErrorOccurred(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#stateChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` state: qbluetoothsocket_enums.SocketState `
     ///
-    pub fn StateChanged(self: ?*anyopaque, state: i32) void {
-        qtc.QBluetoothSocket_StateChanged(@ptrCast(self), @bitCast(state));
+    pub fn StateChanged(self: QBluetoothSocket, state: i32) void {
+        qtc.QBluetoothSocket_StateChanged(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#stateChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QBluetoothSocket, state: qbluetoothsocket_enums.SocketState) callconv(.c) void `
+    /// ` callback: *const fn (self: QBluetoothSocket, state: qbluetoothsocket_enums.SocketState) callconv(.c) void `
     ///
-    pub fn OnStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QBluetoothSocket_Connect_StateChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnStateChanged(self: QBluetoothSocket, callback: *const fn (QBluetoothSocket, i32) callconv(.c) void) void {
+        qtc.QBluetoothSocket_Connect_StateChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#readData)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` data: [:0]u8 `
     ///
     /// ` maxSize: i64 `
     ///
-    pub fn ReadData(self: ?*anyopaque, data: [:0]u8, maxSize: i64) i64 {
+    pub fn ReadData(self: QBluetoothSocket, data: [:0]u8, maxSize: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QBluetoothSocket_ReadData(@ptrCast(self), data_Cstring, @bitCast(maxSize));
+        return qtc.QBluetoothSocket_ReadData(@ptrCast(self.ptr), data_Cstring, @bitCast(maxSize));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#readData)
@@ -759,12 +790,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QBluetoothSocket, data: qtc.libqt_string, maxSize: i64) callconv(.c) i64 `
+    /// ` callback: *const fn (self: QBluetoothSocket, data: qtc.libqt_string, maxSize: i64) callconv(.c) i64 `
     ///
-    pub fn OnReadData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, i64) callconv(.c) i64) void {
-        qtc.QBluetoothSocket_OnReadData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReadData(self: QBluetoothSocket, callback: *const fn (QBluetoothSocket, qtc.libqt_string, i64) callconv(.c) i64) void {
+        qtc.QBluetoothSocket_OnReadData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperReadData` instead
@@ -777,30 +808,30 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` data: [:0]u8 `
     ///
     /// ` maxSize: i64 `
     ///
-    pub fn SuperReadData(self: ?*anyopaque, data: [:0]u8, maxSize: i64) i64 {
+    pub fn SuperReadData(self: QBluetoothSocket, data: [:0]u8, maxSize: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QBluetoothSocket_SuperReadData(@ptrCast(self), data_Cstring, @bitCast(maxSize));
+        return qtc.QBluetoothSocket_SuperReadData(@ptrCast(self.ptr), data_Cstring, @bitCast(maxSize));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#writeData)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` data: [:0]const u8 `
     ///
     /// ` maxSize: i64 `
     ///
-    pub fn WriteData(self: ?*anyopaque, data: [:0]const u8, maxSize: i64) i64 {
+    pub fn WriteData(self: QBluetoothSocket, data: [:0]const u8, maxSize: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QBluetoothSocket_WriteData(@ptrCast(self), data_Cstring, @bitCast(maxSize));
+        return qtc.QBluetoothSocket_WriteData(@ptrCast(self.ptr), data_Cstring, @bitCast(maxSize));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#writeData)
@@ -809,12 +840,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QBluetoothSocket, data: [*:0]const u8, maxSize: i64) callconv(.c) i64 `
+    /// ` callback: *const fn (self: QBluetoothSocket, data: [*:0]const u8, maxSize: i64) callconv(.c) i64 `
     ///
-    pub fn OnWriteData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
-        qtc.QBluetoothSocket_OnWriteData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWriteData(self: QBluetoothSocket, callback: *const fn (QBluetoothSocket, [*:0]const u8, i64) callconv(.c) i64) void {
+        qtc.QBluetoothSocket_OnWriteData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperWriteData` instead
@@ -827,27 +858,27 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` data: [:0]const u8 `
     ///
     /// ` maxSize: i64 `
     ///
-    pub fn SuperWriteData(self: ?*anyopaque, data: [:0]const u8, maxSize: i64) i64 {
+    pub fn SuperWriteData(self: QBluetoothSocket, data: [:0]const u8, maxSize: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QBluetoothSocket_SuperWriteData(@ptrCast(self), data_Cstring, @bitCast(maxSize));
+        return qtc.QBluetoothSocket_SuperWriteData(@ptrCast(self.ptr), data_Cstring, @bitCast(maxSize));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#setSocketState)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` state: qbluetoothsocket_enums.SocketState `
     ///
-    pub fn SetSocketState(self: ?*anyopaque, state: i32) void {
-        qtc.QBluetoothSocket_SetSocketState(@ptrCast(self), @bitCast(state));
+    pub fn SetSocketState(self: QBluetoothSocket, state: i32) void {
+        qtc.QBluetoothSocket_SetSocketState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#setSocketState)
@@ -856,12 +887,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QBluetoothSocket, state: qbluetoothsocket_enums.SocketState) callconv(.c) void `
+    /// ` callback: *const fn (self: QBluetoothSocket, state: qbluetoothsocket_enums.SocketState) callconv(.c) void `
     ///
-    pub fn OnSetSocketState(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QBluetoothSocket_OnSetSocketState(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetSocketState(self: QBluetoothSocket, callback: *const fn (QBluetoothSocket, i32) callconv(.c) void) void {
+        qtc.QBluetoothSocket_OnSetSocketState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetSocketState` instead
@@ -874,24 +905,24 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` state: qbluetoothsocket_enums.SocketState `
     ///
-    pub fn SuperSetSocketState(self: ?*anyopaque, state: i32) void {
-        qtc.QBluetoothSocket_SuperSetSocketState(@ptrCast(self), @bitCast(state));
+    pub fn SuperSetSocketState(self: QBluetoothSocket, state: i32) void {
+        qtc.QBluetoothSocket_SuperSetSocketState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#setSocketError)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` errorVal: qbluetoothsocket_enums.SocketError `
     ///
-    pub fn SetSocketError(self: ?*anyopaque, errorVal: i32) void {
-        qtc.QBluetoothSocket_SetSocketError(@ptrCast(self), @bitCast(errorVal));
+    pub fn SetSocketError(self: QBluetoothSocket, errorVal: i32) void {
+        qtc.QBluetoothSocket_SetSocketError(@ptrCast(self.ptr), @bitCast(errorVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#setSocketError)
@@ -900,12 +931,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QBluetoothSocket, errorVal: qbluetoothsocket_enums.SocketError) callconv(.c) void `
+    /// ` callback: *const fn (self: QBluetoothSocket, errorVal: qbluetoothsocket_enums.SocketError) callconv(.c) void `
     ///
-    pub fn OnSetSocketError(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QBluetoothSocket_OnSetSocketError(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetSocketError(self: QBluetoothSocket, callback: *const fn (QBluetoothSocket, i32) callconv(.c) void) void {
+        qtc.QBluetoothSocket_OnSetSocketError(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetSocketError` instead
@@ -918,26 +949,27 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` errorVal: qbluetoothsocket_enums.SocketError `
     ///
-    pub fn SuperSetSocketError(self: ?*anyopaque, errorVal: i32) void {
-        qtc.QBluetoothSocket_SuperSetSocketError(@ptrCast(self), @bitCast(errorVal));
+    pub fn SuperSetSocketError(self: QBluetoothSocket, errorVal: i32) void {
+        qtc.QBluetoothSocket_SuperSetSocketError(@ptrCast(self.ptr), @bitCast(errorVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#doDeviceDiscovery)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` service: QtC.QBluetoothServiceInfo `
+    /// ` service: QBluetoothServiceInfo `
     ///
     /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn DoDeviceDiscovery(self: ?*anyopaque, service: ?*anyopaque, openMode: i32) void {
-        qtc.QBluetoothSocket_DoDeviceDiscovery(@ptrCast(self), @ptrCast(service), @bitCast(openMode));
+    pub fn DoDeviceDiscovery(self: QBluetoothSocket, service: anytype, openMode: i32) void {
+        comptime _ = @TypeOf(service)._is_QBluetoothServiceInfo;
+        qtc.QBluetoothSocket_DoDeviceDiscovery(@ptrCast(self.ptr), @ptrCast(service.ptr), @bitCast(openMode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#doDeviceDiscovery)
@@ -946,12 +978,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QBluetoothSocket, service: QtC.QBluetoothServiceInfo, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void `
+    /// ` callback: *const fn (self: QBluetoothSocket, service: QBluetoothServiceInfo, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void `
     ///
-    pub fn OnDoDeviceDiscovery(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QBluetoothSocket_OnDoDeviceDiscovery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDoDeviceDiscovery(self: QBluetoothSocket, callback: *const fn (QBluetoothSocket, QBluetoothServiceInfo, i32) callconv(.c) void) void {
+        qtc.QBluetoothSocket_OnDoDeviceDiscovery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperDoDeviceDiscovery` instead
@@ -964,27 +996,28 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` service: QtC.QBluetoothServiceInfo `
+    /// ` service: QBluetoothServiceInfo `
     ///
     /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn SuperDoDeviceDiscovery(self: ?*anyopaque, service: ?*anyopaque, openMode: i32) void {
-        qtc.QBluetoothSocket_SuperDoDeviceDiscovery(@ptrCast(self), @ptrCast(service), @bitCast(openMode));
+    pub fn SuperDoDeviceDiscovery(self: QBluetoothSocket, service: anytype, openMode: i32) void {
+        comptime _ = @TypeOf(service)._is_QBluetoothServiceInfo;
+        qtc.QBluetoothSocket_SuperDoDeviceDiscovery(@ptrCast(self.ptr), @ptrCast(service.ptr), @bitCast(openMode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -998,15 +1031,15 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -1020,69 +1053,74 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` service: QtC.QBluetoothServiceInfo `
+    /// ` service: QBluetoothServiceInfo `
     ///
     /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn ConnectToService22(self: ?*anyopaque, service: ?*anyopaque, openMode: i32) void {
-        qtc.QBluetoothSocket_ConnectToService22(@ptrCast(self), @ptrCast(service), @bitCast(openMode));
+    pub fn ConnectToService22(self: QBluetoothSocket, service: anytype, openMode: i32) void {
+        comptime _ = @TypeOf(service)._is_QBluetoothServiceInfo;
+        qtc.QBluetoothSocket_ConnectToService22(@ptrCast(self.ptr), @ptrCast(service.ptr), @bitCast(openMode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#connectToService)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` address: QtC.QBluetoothAddress `
+    /// ` address: QBluetoothAddress `
     ///
-    /// ` uuid: QtC.QBluetoothUuid `
+    /// ` uuid: QBluetoothUuid `
     ///
     /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn ConnectToService32(self: ?*anyopaque, address: ?*anyopaque, uuid: ?*anyopaque, openMode: i32) void {
-        qtc.QBluetoothSocket_ConnectToService32(@ptrCast(self), @ptrCast(address), @ptrCast(uuid), @bitCast(openMode));
+    pub fn ConnectToService32(self: QBluetoothSocket, address: anytype, uuid: anytype, openMode: i32) void {
+        comptime _ = @TypeOf(address)._is_QBluetoothAddress;
+        comptime _ = @TypeOf(uuid)._is_QBluetoothUuid;
+        qtc.QBluetoothSocket_ConnectToService32(@ptrCast(self.ptr), @ptrCast(address.ptr), @ptrCast(uuid.ptr), @bitCast(openMode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#connectToService)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` address: QtC.QBluetoothAddress `
+    /// ` address: QBluetoothAddress `
     ///
     /// ` port: u16 `
     ///
     /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn ConnectToService33(self: ?*anyopaque, address: ?*anyopaque, port: u16, openMode: i32) void {
-        qtc.QBluetoothSocket_ConnectToService33(@ptrCast(self), @ptrCast(address), @bitCast(port), @bitCast(openMode));
+    pub fn ConnectToService33(self: QBluetoothSocket, address: anytype, port: u16, openMode: i32) void {
+        comptime _ = @TypeOf(address)._is_QBluetoothAddress;
+        qtc.QBluetoothSocket_ConnectToService33(@ptrCast(self.ptr), @ptrCast(address.ptr), @bitCast(port), @bitCast(openMode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#connectToService)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` address: QtC.QBluetoothAddress `
+    /// ` address: QBluetoothAddress `
     ///
     /// ` uuid: qbluetoothuuid_enums.ServiceClassUuid `
     ///
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn ConnectToService34(self: ?*anyopaque, address: ?*anyopaque, uuid: i32, mode: i32) void {
-        qtc.QBluetoothSocket_ConnectToService34(@ptrCast(self), @ptrCast(address), @bitCast(uuid), @bitCast(mode));
+    pub fn ConnectToService34(self: QBluetoothSocket, address: anytype, uuid: i32, mode: i32) void {
+        comptime _ = @TypeOf(address)._is_QBluetoothAddress;
+        qtc.QBluetoothSocket_ConnectToService34(@ptrCast(self.ptr), @ptrCast(address.ptr), @bitCast(uuid), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#setSocketDescriptor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` socketDescriptor: i32 `
     ///
@@ -1090,15 +1128,15 @@ pub const qbluetoothsocket = struct {
     ///
     /// ` socketState: qbluetoothsocket_enums.SocketState `
     ///
-    pub fn SetSocketDescriptor3(self: ?*anyopaque, socketDescriptor: i32, socketType: i32, socketState: i32) bool {
-        return qtc.QBluetoothSocket_SetSocketDescriptor3(@ptrCast(self), @bitCast(socketDescriptor), @bitCast(socketType), @bitCast(socketState));
+    pub fn SetSocketDescriptor3(self: QBluetoothSocket, socketDescriptor: i32, socketType: i32, socketState: i32) bool {
+        return qtc.QBluetoothSocket_SetSocketDescriptor3(@ptrCast(self.ptr), @bitCast(socketDescriptor), @bitCast(socketType), @bitCast(socketState));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#setSocketDescriptor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` socketDescriptor: i32 `
     ///
@@ -1108,8 +1146,8 @@ pub const qbluetoothsocket = struct {
     ///
     /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn SetSocketDescriptor4(self: ?*anyopaque, socketDescriptor: i32, socketType: i32, socketState: i32, openMode: i32) bool {
-        return qtc.QBluetoothSocket_SetSocketDescriptor4(@ptrCast(self), @bitCast(socketDescriptor), @bitCast(socketType), @bitCast(socketState), @bitCast(openMode));
+    pub fn SetSocketDescriptor4(self: QBluetoothSocket, socketDescriptor: i32, socketType: i32, socketState: i32, openMode: i32) bool {
+        return qtc.QBluetoothSocket_SetSocketDescriptor4(@ptrCast(self.ptr), @bitCast(socketDescriptor), @bitCast(socketType), @bitCast(socketState), @bitCast(openMode));
     }
 
     /// Inherited from QIODevice
@@ -1118,14 +1156,14 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ## Returns:
     ///
     /// ` flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn OpenMode(self: ?*anyopaque) i32 {
-        return qtc.QIODevice_OpenMode(@ptrCast(self));
+    pub fn OpenMode(self: QBluetoothSocket) i32 {
+        return qtc.QIODevice_OpenMode(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1134,12 +1172,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetTextModeEnabled(self: ?*anyopaque, enabled: bool) void {
-        qtc.QIODevice_SetTextModeEnabled(@ptrCast(self), enabled);
+    pub fn SetTextModeEnabled(self: QBluetoothSocket, enabled: bool) void {
+        qtc.QIODevice_SetTextModeEnabled(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QIODevice
@@ -1148,10 +1186,10 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn IsTextModeEnabled(self: ?*anyopaque) bool {
-        return qtc.QIODevice_IsTextModeEnabled(@ptrCast(self));
+    pub fn IsTextModeEnabled(self: QBluetoothSocket) bool {
+        return qtc.QIODevice_IsTextModeEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1160,10 +1198,10 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn IsOpen(self: ?*anyopaque) bool {
-        return qtc.QIODevice_IsOpen(@ptrCast(self));
+    pub fn IsOpen(self: QBluetoothSocket) bool {
+        return qtc.QIODevice_IsOpen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1172,10 +1210,10 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn IsReadable(self: ?*anyopaque) bool {
-        return qtc.QIODevice_IsReadable(@ptrCast(self));
+    pub fn IsReadable(self: QBluetoothSocket) bool {
+        return qtc.QIODevice_IsReadable(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1184,10 +1222,10 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn IsWritable(self: ?*anyopaque) bool {
-        return qtc.QIODevice_IsWritable(@ptrCast(self));
+    pub fn IsWritable(self: QBluetoothSocket) bool {
+        return qtc.QIODevice_IsWritable(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1196,10 +1234,10 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn ReadChannelCount(self: ?*anyopaque) i32 {
-        return qtc.QIODevice_ReadChannelCount(@ptrCast(self));
+    pub fn ReadChannelCount(self: QBluetoothSocket) i32 {
+        return qtc.QIODevice_ReadChannelCount(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1208,10 +1246,10 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn WriteChannelCount(self: ?*anyopaque) i32 {
-        return qtc.QIODevice_WriteChannelCount(@ptrCast(self));
+    pub fn WriteChannelCount(self: QBluetoothSocket) i32 {
+        return qtc.QIODevice_WriteChannelCount(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1220,10 +1258,10 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn CurrentReadChannel(self: ?*anyopaque) i32 {
-        return qtc.QIODevice_CurrentReadChannel(@ptrCast(self));
+    pub fn CurrentReadChannel(self: QBluetoothSocket) i32 {
+        return qtc.QIODevice_CurrentReadChannel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1232,12 +1270,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` channel: i32 `
     ///
-    pub fn SetCurrentReadChannel(self: ?*anyopaque, channel: i32) void {
-        qtc.QIODevice_SetCurrentReadChannel(@ptrCast(self), @bitCast(channel));
+    pub fn SetCurrentReadChannel(self: QBluetoothSocket, channel: i32) void {
+        qtc.QIODevice_SetCurrentReadChannel(@ptrCast(self.ptr), @bitCast(channel));
     }
 
     /// Inherited from QIODevice
@@ -1246,10 +1284,10 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn CurrentWriteChannel(self: ?*anyopaque) i32 {
-        return qtc.QIODevice_CurrentWriteChannel(@ptrCast(self));
+    pub fn CurrentWriteChannel(self: QBluetoothSocket) i32 {
+        return qtc.QIODevice_CurrentWriteChannel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1258,12 +1296,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` channel: i32 `
     ///
-    pub fn SetCurrentWriteChannel(self: ?*anyopaque, channel: i32) void {
-        qtc.QIODevice_SetCurrentWriteChannel(@ptrCast(self), @bitCast(channel));
+    pub fn SetCurrentWriteChannel(self: QBluetoothSocket, channel: i32) void {
+        qtc.QIODevice_SetCurrentWriteChannel(@ptrCast(self.ptr), @bitCast(channel));
     }
 
     /// Inherited from QIODevice
@@ -1272,15 +1310,15 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` data: [:0]u8 `
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn Read(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn Read(self: QBluetoothSocket, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_Read(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.QIODevice_Read(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
     /// Inherited from QIODevice
@@ -1289,14 +1327,14 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
-    ///
-    /// ` maxlen: i64 `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Read2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QIODevice_Read2(@ptrCast(self), @bitCast(maxlen));
+    /// ` maxlen: i64 `
+    ///
+    pub fn Read2(self: QBluetoothSocket, allocator: std.mem.Allocator, maxlen: i64) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QIODevice_Read2(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbluetoothsocket.Read2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1309,12 +1347,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadAll(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadAll(@ptrCast(self));
+    pub fn ReadAll(self: QBluetoothSocket, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadAll(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbluetoothsocket.ReadAll: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1327,15 +1365,15 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` data: [:0]u8 `
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn ReadLine(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn ReadLine(self: QBluetoothSocket, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_ReadLine(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.QIODevice_ReadLine(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
     /// Inherited from QIODevice
@@ -1344,12 +1382,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadLine2(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine2(@ptrCast(self));
+    pub fn ReadLine2(self: QBluetoothSocket, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine2(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbluetoothsocket.ReadLine2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1362,10 +1400,10 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn StartTransaction(self: ?*anyopaque) void {
-        qtc.QIODevice_StartTransaction(@ptrCast(self));
+    pub fn StartTransaction(self: QBluetoothSocket) void {
+        qtc.QIODevice_StartTransaction(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1374,10 +1412,10 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn CommitTransaction(self: ?*anyopaque) void {
-        qtc.QIODevice_CommitTransaction(@ptrCast(self));
+    pub fn CommitTransaction(self: QBluetoothSocket) void {
+        qtc.QIODevice_CommitTransaction(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1386,10 +1424,10 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn RollbackTransaction(self: ?*anyopaque) void {
-        qtc.QIODevice_RollbackTransaction(@ptrCast(self));
+    pub fn RollbackTransaction(self: QBluetoothSocket) void {
+        qtc.QIODevice_RollbackTransaction(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1398,10 +1436,10 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn IsTransactionStarted(self: ?*anyopaque) bool {
-        return qtc.QIODevice_IsTransactionStarted(@ptrCast(self));
+    pub fn IsTransactionStarted(self: QBluetoothSocket) bool {
+        return qtc.QIODevice_IsTransactionStarted(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1410,15 +1448,15 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` data: [:0]const u8 `
     ///
     /// ` lenVal: i64 `
     ///
-    pub fn Write(self: ?*anyopaque, data: [:0]const u8, lenVal: i64) i64 {
+    pub fn Write(self: QBluetoothSocket, data: [:0]const u8, lenVal: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_Write(@ptrCast(self), data_Cstring, @bitCast(lenVal));
+        return qtc.QIODevice_Write(@ptrCast(self.ptr), data_Cstring, @bitCast(lenVal));
     }
 
     /// Inherited from QIODevice
@@ -1427,13 +1465,13 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` data: [:0]const u8 `
     ///
-    pub fn Write2(self: ?*anyopaque, data: [:0]const u8) i64 {
+    pub fn Write2(self: QBluetoothSocket, data: [:0]const u8) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_Write2(@ptrCast(self), data_Cstring);
+        return qtc.QIODevice_Write2(@ptrCast(self.ptr), data_Cstring);
     }
 
     /// Inherited from QIODevice
@@ -1442,16 +1480,16 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` data: []u8 `
     ///
-    pub fn Write3(self: ?*anyopaque, data: []u8) i64 {
+    pub fn Write3(self: QBluetoothSocket, data: []u8) i64 {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
-        return qtc.QIODevice_Write3(@ptrCast(self), data_str);
+        return qtc.QIODevice_Write3(@ptrCast(self.ptr), data_str);
     }
 
     /// Inherited from QIODevice
@@ -1460,15 +1498,15 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` data: [:0]u8 `
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn Peek(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn Peek(self: QBluetoothSocket, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_Peek(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.QIODevice_Peek(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
     /// Inherited from QIODevice
@@ -1477,14 +1515,14 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
-    ///
-    /// ` maxlen: i64 `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Peek2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QIODevice_Peek2(@ptrCast(self), @bitCast(maxlen));
+    /// ` maxlen: i64 `
+    ///
+    pub fn Peek2(self: QBluetoothSocket, allocator: std.mem.Allocator, maxlen: i64) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QIODevice_Peek2(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbluetoothsocket.Peek2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1497,12 +1535,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` maxSize: i64 `
     ///
-    pub fn Skip(self: ?*anyopaque, maxSize: i64) i64 {
-        return qtc.QIODevice_Skip(@ptrCast(self), @bitCast(maxSize));
+    pub fn Skip(self: QBluetoothSocket, maxSize: i64) i64 {
+        return qtc.QIODevice_Skip(@ptrCast(self.ptr), @bitCast(maxSize));
     }
 
     /// Inherited from QIODevice
@@ -1511,12 +1549,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` c: u8 `
     ///
-    pub fn UngetChar(self: ?*anyopaque, c: u8) void {
-        qtc.QIODevice_UngetChar(@ptrCast(self), @bitCast(c));
+    pub fn UngetChar(self: QBluetoothSocket, c: u8) void {
+        qtc.QIODevice_UngetChar(@ptrCast(self.ptr), @bitCast(c));
     }
 
     /// Inherited from QIODevice
@@ -1525,12 +1563,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` c: u8 `
     ///
-    pub fn PutChar(self: ?*anyopaque, c: u8) bool {
-        return qtc.QIODevice_PutChar(@ptrCast(self), @bitCast(c));
+    pub fn PutChar(self: QBluetoothSocket, c: u8) bool {
+        return qtc.QIODevice_PutChar(@ptrCast(self.ptr), @bitCast(c));
     }
 
     /// Inherited from QIODevice
@@ -1539,13 +1577,13 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` c: [:0]u8 `
     ///
-    pub fn GetChar(self: ?*anyopaque, c: [:0]u8) bool {
+    pub fn GetChar(self: QBluetoothSocket, c: [:0]u8) bool {
         const c_Cstring = c.ptr;
-        return qtc.QIODevice_GetChar(@ptrCast(self), c_Cstring);
+        return qtc.QIODevice_GetChar(@ptrCast(self.ptr), c_Cstring);
     }
 
     /// Inherited from QIODevice
@@ -1554,10 +1592,10 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn ReadyRead(self: ?*anyopaque) void {
-        qtc.QIODevice_ReadyRead(@ptrCast(self));
+    pub fn ReadyRead(self: QBluetoothSocket) void {
+        qtc.QIODevice_ReadyRead(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1566,12 +1604,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QBluetoothSocket) callconv(.c) void `
+    /// ` callback: *const fn (self: QBluetoothSocket) callconv(.c) void `
     ///
-    pub fn OnReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ReadyRead(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReadyRead(self: QBluetoothSocket, callback: *const fn (QBluetoothSocket) callconv(.c) void) void {
+        qtc.QIODevice_Connect_ReadyRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1580,12 +1618,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` channel: i32 `
     ///
-    pub fn ChannelReadyRead(self: ?*anyopaque, channel: i32) void {
-        qtc.QIODevice_ChannelReadyRead(@ptrCast(self), @bitCast(channel));
+    pub fn ChannelReadyRead(self: QBluetoothSocket, channel: i32) void {
+        qtc.QIODevice_ChannelReadyRead(@ptrCast(self.ptr), @bitCast(channel));
     }
 
     /// Inherited from QIODevice
@@ -1594,12 +1632,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QBluetoothSocket, channel: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QBluetoothSocket, channel: i32) callconv(.c) void `
     ///
-    pub fn OnChannelReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ChannelReadyRead(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChannelReadyRead(self: QBluetoothSocket, callback: *const fn (QBluetoothSocket, i32) callconv(.c) void) void {
+        qtc.QIODevice_Connect_ChannelReadyRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1608,12 +1646,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` bytes: i64 `
     ///
-    pub fn BytesWritten(self: ?*anyopaque, bytes: i64) void {
-        qtc.QIODevice_BytesWritten(@ptrCast(self), @bitCast(bytes));
+    pub fn BytesWritten(self: QBluetoothSocket, bytes: i64) void {
+        qtc.QIODevice_BytesWritten(@ptrCast(self.ptr), @bitCast(bytes));
     }
 
     /// Inherited from QIODevice
@@ -1622,12 +1660,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QBluetoothSocket, bytes: i64) callconv(.c) void `
+    /// ` callback: *const fn (self: QBluetoothSocket, bytes: i64) callconv(.c) void `
     ///
-    pub fn OnBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) void) void {
-        qtc.QIODevice_Connect_BytesWritten(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBytesWritten(self: QBluetoothSocket, callback: *const fn (QBluetoothSocket, i64) callconv(.c) void) void {
+        qtc.QIODevice_Connect_BytesWritten(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1636,14 +1674,14 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` channel: i32 `
     ///
     /// ` bytes: i64 `
     ///
-    pub fn ChannelBytesWritten(self: ?*anyopaque, channel: i32, bytes: i64) void {
-        qtc.QIODevice_ChannelBytesWritten(@ptrCast(self), @bitCast(channel), @bitCast(bytes));
+    pub fn ChannelBytesWritten(self: QBluetoothSocket, channel: i32, bytes: i64) void {
+        qtc.QIODevice_ChannelBytesWritten(@ptrCast(self.ptr), @bitCast(channel), @bitCast(bytes));
     }
 
     /// Inherited from QIODevice
@@ -1652,12 +1690,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QBluetoothSocket, channel: i32, bytes: i64) callconv(.c) void `
+    /// ` callback: *const fn (self: QBluetoothSocket, channel: i32, bytes: i64) callconv(.c) void `
     ///
-    pub fn OnChannelBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i64) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ChannelBytesWritten(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChannelBytesWritten(self: QBluetoothSocket, callback: *const fn (QBluetoothSocket, i32, i64) callconv(.c) void) void {
+        qtc.QIODevice_Connect_ChannelBytesWritten(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1666,10 +1704,10 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn AboutToClose(self: ?*anyopaque) void {
-        qtc.QIODevice_AboutToClose(@ptrCast(self));
+    pub fn AboutToClose(self: QBluetoothSocket) void {
+        qtc.QIODevice_AboutToClose(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1678,12 +1716,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QBluetoothSocket) callconv(.c) void `
+    /// ` callback: *const fn (self: QBluetoothSocket) callconv(.c) void `
     ///
-    pub fn OnAboutToClose(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QIODevice_Connect_AboutToClose(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAboutToClose(self: QBluetoothSocket, callback: *const fn (QBluetoothSocket) callconv(.c) void) void {
+        qtc.QIODevice_Connect_AboutToClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1692,10 +1730,10 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn ReadChannelFinished(self: ?*anyopaque) void {
-        qtc.QIODevice_ReadChannelFinished(@ptrCast(self));
+    pub fn ReadChannelFinished(self: QBluetoothSocket) void {
+        qtc.QIODevice_ReadChannelFinished(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1704,12 +1742,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QBluetoothSocket) callconv(.c) void `
+    /// ` callback: *const fn (self: QBluetoothSocket) callconv(.c) void `
     ///
-    pub fn OnReadChannelFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ReadChannelFinished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReadChannelFinished(self: QBluetoothSocket, callback: *const fn (QBluetoothSocket) callconv(.c) void) void {
+        qtc.QIODevice_Connect_ReadChannelFinished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1718,14 +1756,14 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
-    ///
-    /// ` maxlen: i64 `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadLine1(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine1(@ptrCast(self), @bitCast(maxlen));
+    /// ` maxlen: i64 `
+    ///
+    pub fn ReadLine1(self: QBluetoothSocket, allocator: std.mem.Allocator, maxlen: i64) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine1(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbluetoothsocket.ReadLine1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1738,12 +1776,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QBluetoothSocket, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qbluetoothsocket.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1756,12 +1794,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QBluetoothSocket, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -1770,10 +1808,10 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QBluetoothSocket) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1782,10 +1820,10 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QBluetoothSocket) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1794,10 +1832,10 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QBluetoothSocket) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1806,10 +1844,10 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QBluetoothSocket) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1818,12 +1856,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QBluetoothSocket, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -1832,10 +1870,10 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QBluetoothSocket) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1844,12 +1882,13 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QBluetoothSocket, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -1858,12 +1897,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QBluetoothSocket, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1872,12 +1911,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QBluetoothSocket, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1886,12 +1925,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QBluetoothSocket, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1900,12 +1939,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QBluetoothSocket, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1914,16 +1953,17 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QBluetoothSocket, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qbluetoothsocket.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qbluetoothsocket.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1933,12 +1973,13 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QBluetoothSocket, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -1947,12 +1988,13 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QBluetoothSocket, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -1961,12 +2003,13 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QBluetoothSocket, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -1975,18 +2018,20 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1995,16 +2040,20 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2013,18 +2062,19 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QBluetoothSocket, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -2033,18 +2083,20 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -2053,16 +2105,20 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -2071,10 +2127,10 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QBluetoothSocket) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2083,12 +2139,13 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QBluetoothSocket, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -2097,10 +2154,11 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -2109,10 +2167,10 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QBluetoothSocket) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2121,10 +2179,10 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QBluetoothSocket) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2133,15 +2191,16 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QBluetoothSocket, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -2150,13 +2209,13 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QBluetoothSocket, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -2165,17 +2224,16 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QBluetoothSocket, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qbluetoothsocket.DynamicPropertyNames: Memory allocation failed");
@@ -2194,10 +2252,10 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QBluetoothSocket) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2206,10 +2264,10 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QBluetoothSocket) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2218,10 +2276,10 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QBluetoothSocket) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2230,12 +2288,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QBluetoothSocket) callconv(.c) void `
+    /// ` callback: *const fn (self: QBluetoothSocket) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QBluetoothSocket, callback: *const fn (QBluetoothSocket) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2244,10 +2302,10 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QBluetoothSocket) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2256,13 +2314,13 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QBluetoothSocket, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -2271,10 +2329,10 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QBluetoothSocket) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2283,14 +2341,14 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QBluetoothSocket, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2299,14 +2357,14 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QBluetoothSocket, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2315,20 +2373,22 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -2337,18 +2397,22 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -2357,9 +2421,9 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2367,10 +2431,11 @@ pub const qbluetoothsocket = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QBluetoothSocket, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -2379,13 +2444,13 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QBluetoothSocket, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2394,15 +2459,16 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QBluetoothSocket, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -2411,18 +2477,19 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QBluetoothSocket, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -2431,15 +2498,16 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QBluetoothSocket, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -2448,12 +2516,13 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QBluetoothSocket, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -2462,12 +2531,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QBluetoothSocket, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QBluetoothSocket, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QBluetoothSocket, callback: *const fn (QBluetoothSocket, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2478,12 +2547,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn Open(self: ?*anyopaque, mode: i32) bool {
-        return qtc.QBluetoothSocket_Open(@ptrCast(self), @bitCast(mode));
+    pub fn Open(self: QBluetoothSocket, mode: i32) bool {
+        return qtc.QBluetoothSocket_Open(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// ### DEPRECATED: Use `SuperOpen` instead
@@ -2498,12 +2567,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn SuperOpen(self: ?*anyopaque, mode: i32) bool {
-        return qtc.QBluetoothSocket_SuperOpen(@ptrCast(self), @bitCast(mode));
+    pub fn SuperOpen(self: QBluetoothSocket, mode: i32) bool {
+        return qtc.QBluetoothSocket_SuperOpen(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// Inherited from QIODevice
@@ -2514,12 +2583,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket`
+    /// ` self: QBluetoothSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QBluetoothSocket, mode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool `
+    /// ` callback: *const fn (self: QBluetoothSocket, mode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool `
     ///
-    pub fn OnOpen(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QBluetoothSocket_OnOpen(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnOpen(self: QBluetoothSocket, callback: *const fn (QBluetoothSocket, i32) callconv(.c) bool) void {
+        qtc.QBluetoothSocket_OnOpen(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2530,10 +2599,10 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn Pos(self: ?*anyopaque) i64 {
-        return qtc.QBluetoothSocket_Pos(@ptrCast(self));
+    pub fn Pos(self: QBluetoothSocket) i64 {
+        return qtc.QBluetoothSocket_Pos(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperPos` instead
@@ -2548,10 +2617,10 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn SuperPos(self: ?*anyopaque) i64 {
-        return qtc.QBluetoothSocket_SuperPos(@ptrCast(self));
+    pub fn SuperPos(self: QBluetoothSocket) i64 {
+        return qtc.QBluetoothSocket_SuperPos(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -2562,12 +2631,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket`
+    /// ` self: QBluetoothSocket`
     ///
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
-    pub fn OnPos(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
-        qtc.QBluetoothSocket_OnPos(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPos(self: QBluetoothSocket, callback: *const fn () callconv(.c) i64) void {
+        qtc.QBluetoothSocket_OnPos(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2578,10 +2647,10 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn Size(self: ?*anyopaque) i64 {
-        return qtc.QBluetoothSocket_Size(@ptrCast(self));
+    pub fn Size(self: QBluetoothSocket) i64 {
+        return qtc.QBluetoothSocket_Size(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSize` instead
@@ -2596,10 +2665,10 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn SuperSize(self: ?*anyopaque) i64 {
-        return qtc.QBluetoothSocket_SuperSize(@ptrCast(self));
+    pub fn SuperSize(self: QBluetoothSocket) i64 {
+        return qtc.QBluetoothSocket_SuperSize(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -2610,12 +2679,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket`
+    /// ` self: QBluetoothSocket`
     ///
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
-    pub fn OnSize(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
-        qtc.QBluetoothSocket_OnSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSize(self: QBluetoothSocket, callback: *const fn () callconv(.c) i64) void {
+        qtc.QBluetoothSocket_OnSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2626,12 +2695,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` pos: i64 `
     ///
-    pub fn Seek(self: ?*anyopaque, pos: i64) bool {
-        return qtc.QBluetoothSocket_Seek(@ptrCast(self), @bitCast(pos));
+    pub fn Seek(self: QBluetoothSocket, pos: i64) bool {
+        return qtc.QBluetoothSocket_Seek(@ptrCast(self.ptr), @bitCast(pos));
     }
 
     /// ### DEPRECATED: Use `SuperSeek` instead
@@ -2646,12 +2715,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` pos: i64 `
     ///
-    pub fn SuperSeek(self: ?*anyopaque, pos: i64) bool {
-        return qtc.QBluetoothSocket_SuperSeek(@ptrCast(self), @bitCast(pos));
+    pub fn SuperSeek(self: QBluetoothSocket, pos: i64) bool {
+        return qtc.QBluetoothSocket_SuperSeek(@ptrCast(self.ptr), @bitCast(pos));
     }
 
     /// Inherited from QIODevice
@@ -2662,12 +2731,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket`
+    /// ` self: QBluetoothSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QBluetoothSocket, pos: i64) callconv(.c) bool `
+    /// ` callback: *const fn (self: QBluetoothSocket, pos: i64) callconv(.c) bool `
     ///
-    pub fn OnSeek(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) bool) void {
-        qtc.QBluetoothSocket_OnSeek(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSeek(self: QBluetoothSocket, callback: *const fn (QBluetoothSocket, i64) callconv(.c) bool) void {
+        qtc.QBluetoothSocket_OnSeek(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2678,10 +2747,10 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn AtEnd(self: ?*anyopaque) bool {
-        return qtc.QBluetoothSocket_AtEnd(@ptrCast(self));
+    pub fn AtEnd(self: QBluetoothSocket) bool {
+        return qtc.QBluetoothSocket_AtEnd(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperAtEnd` instead
@@ -2696,10 +2765,10 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn SuperAtEnd(self: ?*anyopaque) bool {
-        return qtc.QBluetoothSocket_SuperAtEnd(@ptrCast(self));
+    pub fn SuperAtEnd(self: QBluetoothSocket) bool {
+        return qtc.QBluetoothSocket_SuperAtEnd(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -2710,12 +2779,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket`
+    /// ` self: QBluetoothSocket`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnAtEnd(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QBluetoothSocket_OnAtEnd(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAtEnd(self: QBluetoothSocket, callback: *const fn () callconv(.c) bool) void {
+        qtc.QBluetoothSocket_OnAtEnd(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2726,10 +2795,10 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn Reset(self: ?*anyopaque) bool {
-        return qtc.QBluetoothSocket_Reset(@ptrCast(self));
+    pub fn Reset(self: QBluetoothSocket) bool {
+        return qtc.QBluetoothSocket_Reset(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperReset` instead
@@ -2744,10 +2813,10 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn SuperReset(self: ?*anyopaque) bool {
-        return qtc.QBluetoothSocket_SuperReset(@ptrCast(self));
+    pub fn SuperReset(self: QBluetoothSocket) bool {
+        return qtc.QBluetoothSocket_SuperReset(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -2758,12 +2827,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket`
+    /// ` self: QBluetoothSocket`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnReset(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QBluetoothSocket_OnReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReset(self: QBluetoothSocket, callback: *const fn () callconv(.c) bool) void {
+        qtc.QBluetoothSocket_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2774,12 +2843,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` msecs: i32 `
     ///
-    pub fn WaitForReadyRead(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QBluetoothSocket_WaitForReadyRead(@ptrCast(self), @bitCast(msecs));
+    pub fn WaitForReadyRead(self: QBluetoothSocket, msecs: i32) bool {
+        return qtc.QBluetoothSocket_WaitForReadyRead(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
     /// ### DEPRECATED: Use `SuperWaitForReadyRead` instead
@@ -2794,12 +2863,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` msecs: i32 `
     ///
-    pub fn SuperWaitForReadyRead(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QBluetoothSocket_SuperWaitForReadyRead(@ptrCast(self), @bitCast(msecs));
+    pub fn SuperWaitForReadyRead(self: QBluetoothSocket, msecs: i32) bool {
+        return qtc.QBluetoothSocket_SuperWaitForReadyRead(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
     /// Inherited from QIODevice
@@ -2810,12 +2879,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket`
+    /// ` self: QBluetoothSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QBluetoothSocket, msecs: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: QBluetoothSocket, msecs: i32) callconv(.c) bool `
     ///
-    pub fn OnWaitForReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QBluetoothSocket_OnWaitForReadyRead(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWaitForReadyRead(self: QBluetoothSocket, callback: *const fn (QBluetoothSocket, i32) callconv(.c) bool) void {
+        qtc.QBluetoothSocket_OnWaitForReadyRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2826,12 +2895,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` msecs: i32 `
     ///
-    pub fn WaitForBytesWritten(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QBluetoothSocket_WaitForBytesWritten(@ptrCast(self), @bitCast(msecs));
+    pub fn WaitForBytesWritten(self: QBluetoothSocket, msecs: i32) bool {
+        return qtc.QBluetoothSocket_WaitForBytesWritten(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
     /// ### DEPRECATED: Use `SuperWaitForBytesWritten` instead
@@ -2846,12 +2915,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` msecs: i32 `
     ///
-    pub fn SuperWaitForBytesWritten(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QBluetoothSocket_SuperWaitForBytesWritten(@ptrCast(self), @bitCast(msecs));
+    pub fn SuperWaitForBytesWritten(self: QBluetoothSocket, msecs: i32) bool {
+        return qtc.QBluetoothSocket_SuperWaitForBytesWritten(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
     /// Inherited from QIODevice
@@ -2862,12 +2931,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket`
+    /// ` self: QBluetoothSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QBluetoothSocket, msecs: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: QBluetoothSocket, msecs: i32) callconv(.c) bool `
     ///
-    pub fn OnWaitForBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QBluetoothSocket_OnWaitForBytesWritten(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWaitForBytesWritten(self: QBluetoothSocket, callback: *const fn (QBluetoothSocket, i32) callconv(.c) bool) void {
+        qtc.QBluetoothSocket_OnWaitForBytesWritten(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2878,15 +2947,15 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` data: [:0]u8 `
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn ReadLineData(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn ReadLineData(self: QBluetoothSocket, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QBluetoothSocket_ReadLineData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.QBluetoothSocket_ReadLineData(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
     /// ### DEPRECATED: Use `SuperReadLineData` instead
@@ -2901,15 +2970,15 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` data: [:0]u8 `
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn SuperReadLineData(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn SuperReadLineData(self: QBluetoothSocket, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QBluetoothSocket_SuperReadLineData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.QBluetoothSocket_SuperReadLineData(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
     /// Inherited from QIODevice
@@ -2920,12 +2989,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket`
+    /// ` self: QBluetoothSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QBluetoothSocket, data: qtc.libqt_string, maxlen: i64) callconv(.c) i64 `
+    /// ` callback: *const fn (self: QBluetoothSocket, data: qtc.libqt_string, maxlen: i64) callconv(.c) i64 `
     ///
-    pub fn OnReadLineData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, i64) callconv(.c) i64) void {
-        qtc.QBluetoothSocket_OnReadLineData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReadLineData(self: QBluetoothSocket, callback: *const fn (QBluetoothSocket, qtc.libqt_string, i64) callconv(.c) i64) void {
+        qtc.QBluetoothSocket_OnReadLineData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2936,12 +3005,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` maxSize: i64 `
     ///
-    pub fn SkipData(self: ?*anyopaque, maxSize: i64) i64 {
-        return qtc.QBluetoothSocket_SkipData(@ptrCast(self), @bitCast(maxSize));
+    pub fn SkipData(self: QBluetoothSocket, maxSize: i64) i64 {
+        return qtc.QBluetoothSocket_SkipData(@ptrCast(self.ptr), @bitCast(maxSize));
     }
 
     /// ### DEPRECATED: Use `SuperSkipData` instead
@@ -2956,12 +3025,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` maxSize: i64 `
     ///
-    pub fn SuperSkipData(self: ?*anyopaque, maxSize: i64) i64 {
-        return qtc.QBluetoothSocket_SuperSkipData(@ptrCast(self), @bitCast(maxSize));
+    pub fn SuperSkipData(self: QBluetoothSocket, maxSize: i64) i64 {
+        return qtc.QBluetoothSocket_SuperSkipData(@ptrCast(self.ptr), @bitCast(maxSize));
     }
 
     /// Inherited from QIODevice
@@ -2972,12 +3041,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket`
+    /// ` self: QBluetoothSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QBluetoothSocket, maxSize: i64) callconv(.c) i64 `
+    /// ` callback: *const fn (self: QBluetoothSocket, maxSize: i64) callconv(.c) i64 `
     ///
-    pub fn OnSkipData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) i64) void {
-        qtc.QBluetoothSocket_OnSkipData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSkipData(self: QBluetoothSocket, callback: *const fn (QBluetoothSocket, i64) callconv(.c) i64) void {
+        qtc.QBluetoothSocket_OnSkipData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2988,12 +3057,13 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QBluetoothSocket_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: QBluetoothSocket, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QBluetoothSocket_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -3008,12 +3078,13 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QBluetoothSocket_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: QBluetoothSocket, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QBluetoothSocket_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3024,12 +3095,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket`
+    /// ` self: QBluetoothSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QBluetoothSocket, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QBluetoothSocket, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QBluetoothSocket_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QBluetoothSocket, callback: *const fn (QBluetoothSocket, QEvent) callconv(.c) bool) void {
+        qtc.QBluetoothSocket_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3040,14 +3111,16 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QBluetoothSocket_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: QBluetoothSocket, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QBluetoothSocket_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -3062,14 +3135,16 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QBluetoothSocket_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: QBluetoothSocket, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QBluetoothSocket_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3080,12 +3155,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket`
+    /// ` self: QBluetoothSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QBluetoothSocket, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QBluetoothSocket, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QBluetoothSocket_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QBluetoothSocket, callback: *const fn (QBluetoothSocket, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QBluetoothSocket_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3096,12 +3171,13 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QBluetoothSocket_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: QBluetoothSocket, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QBluetoothSocket_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -3116,12 +3192,13 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QBluetoothSocket_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: QBluetoothSocket, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QBluetoothSocket_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3132,12 +3209,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket`
+    /// ` self: QBluetoothSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QBluetoothSocket, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QBluetoothSocket, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBluetoothSocket_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QBluetoothSocket, callback: *const fn (QBluetoothSocket, QTimerEvent) callconv(.c) void) void {
+        qtc.QBluetoothSocket_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3148,12 +3225,13 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QBluetoothSocket_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: QBluetoothSocket, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QBluetoothSocket_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -3168,12 +3246,13 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QBluetoothSocket_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: QBluetoothSocket, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QBluetoothSocket_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3184,12 +3263,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket`
+    /// ` self: QBluetoothSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QBluetoothSocket, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QBluetoothSocket, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBluetoothSocket_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QBluetoothSocket, callback: *const fn (QBluetoothSocket, QChildEvent) callconv(.c) void) void {
+        qtc.QBluetoothSocket_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3200,12 +3279,13 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QBluetoothSocket_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QBluetoothSocket, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QBluetoothSocket_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -3220,12 +3300,13 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QBluetoothSocket_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QBluetoothSocket, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QBluetoothSocket_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3236,12 +3317,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket`
+    /// ` self: QBluetoothSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QBluetoothSocket, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QBluetoothSocket, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBluetoothSocket_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QBluetoothSocket, callback: *const fn (QBluetoothSocket, QEvent) callconv(.c) void) void {
+        qtc.QBluetoothSocket_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3252,12 +3333,13 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QBluetoothSocket_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QBluetoothSocket, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QBluetoothSocket_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -3272,12 +3354,13 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QBluetoothSocket_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QBluetoothSocket, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QBluetoothSocket_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -3288,12 +3371,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket`
+    /// ` self: QBluetoothSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QBluetoothSocket, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QBluetoothSocket, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBluetoothSocket_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QBluetoothSocket, callback: *const fn (QBluetoothSocket, QMetaMethod) callconv(.c) void) void {
+        qtc.QBluetoothSocket_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3304,12 +3387,13 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QBluetoothSocket_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QBluetoothSocket, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QBluetoothSocket_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -3324,12 +3408,13 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QBluetoothSocket_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QBluetoothSocket, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QBluetoothSocket_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -3340,12 +3425,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket`
+    /// ` self: QBluetoothSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QBluetoothSocket, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QBluetoothSocket, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBluetoothSocket_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QBluetoothSocket, callback: *const fn (QBluetoothSocket, QMetaMethod) callconv(.c) void) void {
+        qtc.QBluetoothSocket_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -3356,12 +3441,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn SetOpenMode(self: ?*anyopaque, openMode: i32) void {
-        qtc.QBluetoothSocket_SetOpenMode(@ptrCast(self), @bitCast(openMode));
+    pub fn SetOpenMode(self: QBluetoothSocket, openMode: i32) void {
+        qtc.QBluetoothSocket_SetOpenMode(@ptrCast(self.ptr), @bitCast(openMode));
     }
 
     /// ### DEPRECATED: Use `SuperSetOpenMode` instead
@@ -3376,12 +3461,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn SuperSetOpenMode(self: ?*anyopaque, openMode: i32) void {
-        qtc.QBluetoothSocket_SuperSetOpenMode(@ptrCast(self), @bitCast(openMode));
+    pub fn SuperSetOpenMode(self: QBluetoothSocket, openMode: i32) void {
+        qtc.QBluetoothSocket_SuperSetOpenMode(@ptrCast(self.ptr), @bitCast(openMode));
     }
 
     /// Inherited from QIODevice
@@ -3392,12 +3477,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket`
+    /// ` self: QBluetoothSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QBluetoothSocket, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void `
+    /// ` callback: *const fn (self: QBluetoothSocket, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void `
     ///
-    pub fn OnSetOpenMode(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QBluetoothSocket_OnSetOpenMode(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetOpenMode(self: QBluetoothSocket, callback: *const fn (QBluetoothSocket, i32) callconv(.c) void) void {
+        qtc.QBluetoothSocket_OnSetOpenMode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -3408,16 +3493,16 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` errorString: []const u8 `
     ///
-    pub fn SetErrorString(self: ?*anyopaque, errorString: []const u8) void {
+    pub fn SetErrorString(self: QBluetoothSocket, errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
             .len = errorString.len,
             .data = errorString.ptr,
         };
-        qtc.QBluetoothSocket_SetErrorString(@ptrCast(self), errorString_str);
+        qtc.QBluetoothSocket_SetErrorString(@ptrCast(self.ptr), errorString_str);
     }
 
     /// ### DEPRECATED: Use `SuperSetErrorString` instead
@@ -3432,16 +3517,16 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` errorString: []const u8 `
     ///
-    pub fn SuperSetErrorString(self: ?*anyopaque, errorString: []const u8) void {
+    pub fn SuperSetErrorString(self: QBluetoothSocket, errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
             .len = errorString.len,
             .data = errorString.ptr,
         };
-        qtc.QBluetoothSocket_SuperSetErrorString(@ptrCast(self), errorString_str);
+        qtc.QBluetoothSocket_SuperSetErrorString(@ptrCast(self.ptr), errorString_str);
     }
 
     /// Inherited from QIODevice
@@ -3452,12 +3537,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket`
+    /// ` self: QBluetoothSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QBluetoothSocket, errorString: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QBluetoothSocket, errorString: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetErrorString(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QBluetoothSocket_OnSetErrorString(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetErrorString(self: QBluetoothSocket, callback: *const fn (QBluetoothSocket, [*:0]const u8) callconv(.c) void) void {
+        qtc.QBluetoothSocket_OnSetErrorString(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3468,10 +3553,10 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QBluetoothSocket_Sender(@ptrCast(self));
+    pub fn Sender(self: QBluetoothSocket) QObject {
+        return .{ .ptr = qtc.QBluetoothSocket_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -3486,10 +3571,10 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QBluetoothSocket_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QBluetoothSocket) QObject {
+        return .{ .ptr = qtc.QBluetoothSocket_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -3500,12 +3585,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket`
+    /// ` self: QBluetoothSocket`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QBluetoothSocket_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QBluetoothSocket, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QBluetoothSocket_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3516,10 +3601,10 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QBluetoothSocket_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QBluetoothSocket) i32 {
+        return qtc.QBluetoothSocket_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -3534,10 +3619,10 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QBluetoothSocket_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QBluetoothSocket) i32 {
+        return qtc.QBluetoothSocket_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -3548,12 +3633,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket`
+    /// ` self: QBluetoothSocket`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QBluetoothSocket_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QBluetoothSocket, callback: *const fn () callconv(.c) i32) void {
+        qtc.QBluetoothSocket_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3564,13 +3649,13 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QBluetoothSocket, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QBluetoothSocket_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QBluetoothSocket_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -3585,13 +3670,13 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QBluetoothSocket, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QBluetoothSocket_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QBluetoothSocket_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -3602,12 +3687,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket`
+    /// ` self: QBluetoothSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QBluetoothSocket, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QBluetoothSocket, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QBluetoothSocket_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QBluetoothSocket, callback: *const fn (QBluetoothSocket, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QBluetoothSocket_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3618,12 +3703,13 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QBluetoothSocket_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QBluetoothSocket, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QBluetoothSocket_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -3638,12 +3724,13 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QBluetoothSocket_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QBluetoothSocket, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QBluetoothSocket_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -3654,12 +3741,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket`
+    /// ` self: QBluetoothSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QBluetoothSocket, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QBluetoothSocket, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QBluetoothSocket_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QBluetoothSocket, callback: *const fn (QBluetoothSocket, QMetaMethod) callconv(.c) bool) void {
+        qtc.QBluetoothSocket_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3670,12 +3757,12 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QBluetoothSocket, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QBluetoothSocket, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QBluetoothSocket, callback: *const fn (QBluetoothSocket, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -3688,10 +3775,10 @@ pub const qbluetoothsocket = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QBluetoothSocket `
+    /// ` self: QBluetoothSocket `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QBluetoothSocket_Delete(@ptrCast(self));
+    pub fn Delete(self: QBluetoothSocket) void {
+        qtc.QBluetoothSocket_Delete(@ptrCast(self.ptr));
     }
 };
 

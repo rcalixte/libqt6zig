@@ -2,34 +2,42 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qvlabasebase.html)
-pub const qvlabasebase = struct {
+pub const QVLABaseBase = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvlabasebase.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QVLABaseBase,
+
+    pub const _is_QVLABaseBase = {};
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvlabasebase.html#capacity)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVLABaseBase `
+    /// ` self: QVLABaseBase `
     ///
-    pub fn Capacity(self: ?*anyopaque) isize {
-        return qtc.QVLABaseBase_Capacity(@ptrCast(self));
+    pub fn Capacity(self: QVLABaseBase) isize {
+        return qtc.QVLABaseBase_Capacity(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvlabasebase.html#size)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVLABaseBase `
+    /// ` self: QVLABaseBase `
     ///
-    pub fn Size(self: ?*anyopaque) isize {
-        return qtc.QVLABaseBase_Size(@ptrCast(self));
+    pub fn Size(self: QVLABaseBase) isize {
+        return qtc.QVLABaseBase_Size(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvlabasebase.html#empty)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVLABaseBase `
+    /// ` self: QVLABaseBase `
     ///
-    pub fn Empty(self: ?*anyopaque) bool {
-        return qtc.QVLABaseBase_Empty(@ptrCast(self));
+    pub fn Empty(self: QVLABaseBase) bool {
+        return qtc.QVLABaseBase_Empty(@ptrCast(self.ptr));
     }
 };

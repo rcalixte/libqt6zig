@@ -1,25 +1,46 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QEvent = @import("libqt6").QEvent;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QMetaType = @import("libqt6").QMetaType;
+const QObject = @import("libqt6").QObject;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QUrl = @import("libqt6").QUrl;
+const QVariant = @import("libqt6").QVariant;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html)
-pub const qmimedata = struct {
+pub const QMimeData = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QMimeData,
+
+    pub const _is_QMimeData = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new QMimeData object.
     ///
-    pub fn New() QtC.QMimeData {
-        return qtc.QMimeData_new();
+    pub fn New() QMimeData {
+        return .{ .ptr = qtc.QMimeData_new() };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QMimeData_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QMimeData) QMetaObject {
+        return .{ .ptr = qtc.QMimeData_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -28,12 +49,12 @@ pub const qmimedata = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QMimeData_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QMimeData, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QMimeData_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -46,33 +67,33 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QMimeData_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QMimeData) QMetaObject {
+        return .{ .ptr = qtc.QMimeData_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QMimeData, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QMimeData_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QMimeData_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    /// ` callback: *const fn (self: QtC.QMimeData, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QMimeData, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QMimeData_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QMimeData, callback: *const fn (QMimeData, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QMimeData_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -83,18 +104,18 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QMimeData, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QMimeData_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QMimeData_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -102,20 +123,20 @@ pub const qmimedata = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QMimeData_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QMimeData, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QMimeData_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    /// ` callback: *const fn (self: QtC.QMimeData, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QMimeData, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QMimeData_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QMimeData, callback: *const fn (QMimeData, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QMimeData_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -126,7 +147,7 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -134,19 +155,19 @@ pub const qmimedata = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QMimeData_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QMimeData, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QMimeData_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -159,16 +180,17 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Urls(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QUrl {
-        const _arr: qtc.libqt_list = qtc.QMimeData_Urls(@ptrCast(self));
+    pub fn Urls(self: QMimeData, allocator: std.mem.Allocator) []QUrl {
+        const _arr: qtc.libqt_list = qtc.QMimeData_Urls(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QUrl, _arr.len) catch @panic("qmimedata.Urls: Memory allocation failed");
+        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("qmimedata.Urls: Memory allocation failed");
         const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -176,38 +198,38 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    /// ` urls: []QtC.QUrl `
+    /// ` urls: []QUrl `
     ///
-    pub fn SetUrls(self: ?*anyopaque, urls: []QtC.QUrl) void {
+    pub fn SetUrls(self: QMimeData, urls: []QUrl) void {
         const urls_list = qtc.libqt_list{
             .len = urls.len,
             .data = @ptrCast(urls.ptr),
         };
-        qtc.QMimeData_SetUrls(@ptrCast(self), urls_list);
+        qtc.QMimeData_SetUrls(@ptrCast(self.ptr), urls_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#hasUrls)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    pub fn HasUrls(self: ?*anyopaque) bool {
-        return qtc.QMimeData_HasUrls(@ptrCast(self));
+    pub fn HasUrls(self: QMimeData) bool {
+        return qtc.QMimeData_HasUrls(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#text)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QMimeData_Text(@ptrCast(self));
+    pub fn Text(self: QMimeData, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QMimeData_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qmimedata.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -218,38 +240,38 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetText(self: ?*anyopaque, text: []const u8) void {
+    pub fn SetText(self: QMimeData, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QMimeData_SetText(@ptrCast(self), text_str);
+        qtc.QMimeData_SetText(@ptrCast(self.ptr), text_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#hasText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    pub fn HasText(self: ?*anyopaque) bool {
-        return qtc.QMimeData_HasText(@ptrCast(self));
+    pub fn HasText(self: QMimeData) bool {
+        return qtc.QMimeData_HasText(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Html(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QMimeData_Html(@ptrCast(self));
+    pub fn Html(self: QMimeData, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QMimeData_Html(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qmimedata.Html: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -260,108 +282,110 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
     /// ` html: []const u8 `
     ///
-    pub fn SetHtml(self: ?*anyopaque, html: []const u8) void {
+    pub fn SetHtml(self: QMimeData, html: []const u8) void {
         const html_str = qtc.libqt_string{
             .len = html.len,
             .data = html.ptr,
         };
-        qtc.QMimeData_SetHtml(@ptrCast(self), html_str);
+        qtc.QMimeData_SetHtml(@ptrCast(self.ptr), html_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#hasHtml)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    pub fn HasHtml(self: ?*anyopaque) bool {
-        return qtc.QMimeData_HasHtml(@ptrCast(self));
+    pub fn HasHtml(self: QMimeData) bool {
+        return qtc.QMimeData_HasHtml(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#imageData)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    pub fn ImageData(self: ?*anyopaque) QtC.QVariant {
-        return qtc.QMimeData_ImageData(@ptrCast(self));
+    pub fn ImageData(self: QMimeData) QVariant {
+        return .{ .ptr = qtc.QMimeData_ImageData(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#setImageData)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    /// ` image: QtC.QVariant `
+    /// ` image: QVariant `
     ///
-    pub fn SetImageData(self: ?*anyopaque, image: ?*anyopaque) void {
-        qtc.QMimeData_SetImageData(@ptrCast(self), @ptrCast(image));
+    pub fn SetImageData(self: QMimeData, image: anytype) void {
+        comptime _ = @TypeOf(image)._is_QVariant;
+        qtc.QMimeData_SetImageData(@ptrCast(self.ptr), @ptrCast(image.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#hasImage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    pub fn HasImage(self: ?*anyopaque) bool {
-        return qtc.QMimeData_HasImage(@ptrCast(self));
+    pub fn HasImage(self: QMimeData) bool {
+        return qtc.QMimeData_HasImage(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#colorData)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    pub fn ColorData(self: ?*anyopaque) QtC.QVariant {
-        return qtc.QMimeData_ColorData(@ptrCast(self));
+    pub fn ColorData(self: QMimeData) QVariant {
+        return .{ .ptr = qtc.QMimeData_ColorData(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#setColorData)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    /// ` color: QtC.QVariant `
+    /// ` color: QVariant `
     ///
-    pub fn SetColorData(self: ?*anyopaque, color: ?*anyopaque) void {
-        qtc.QMimeData_SetColorData(@ptrCast(self), @ptrCast(color));
+    pub fn SetColorData(self: QMimeData, color: anytype) void {
+        comptime _ = @TypeOf(color)._is_QVariant;
+        qtc.QMimeData_SetColorData(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#hasColor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    pub fn HasColor(self: ?*anyopaque) bool {
-        return qtc.QMimeData_HasColor(@ptrCast(self));
+    pub fn HasColor(self: QMimeData) bool {
+        return qtc.QMimeData_HasColor(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#data)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
-    ///
-    /// ` mimetype: []const u8 `
+    /// ` self: QMimeData `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Data(self: ?*anyopaque, mimetype: []const u8, allocator: std.mem.Allocator) []u8 {
+    /// ` mimetype: []const u8 `
+    ///
+    pub fn Data(self: QMimeData, allocator: std.mem.Allocator, mimetype: []const u8) []u8 {
         const mimetype_str = qtc.libqt_string{
             .len = mimetype.len,
             .data = mimetype.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.QMimeData_Data(@ptrCast(self), mimetype_str);
+        var _bytearray: qtc.libqt_string = qtc.QMimeData_Data(@ptrCast(self.ptr), mimetype_str);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qmimedata.Data: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -372,13 +396,13 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
     /// ` mimetype: []const u8 `
     ///
     /// ` data: []u8 `
     ///
-    pub fn SetData(self: ?*anyopaque, mimetype: []const u8, data: []u8) void {
+    pub fn SetData(self: QMimeData, mimetype: []const u8, data: []u8) void {
         const mimetype_str = qtc.libqt_string{
             .len = mimetype.len,
             .data = mimetype.ptr,
@@ -387,39 +411,39 @@ pub const qmimedata = struct {
             .len = data.len,
             .data = data.ptr,
         };
-        qtc.QMimeData_SetData(@ptrCast(self), mimetype_str, data_str);
+        qtc.QMimeData_SetData(@ptrCast(self.ptr), mimetype_str, data_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#removeFormat)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
     /// ` mimetype: []const u8 `
     ///
-    pub fn RemoveFormat(self: ?*anyopaque, mimetype: []const u8) void {
+    pub fn RemoveFormat(self: QMimeData, mimetype: []const u8) void {
         const mimetype_str = qtc.libqt_string{
             .len = mimetype.len,
             .data = mimetype.ptr,
         };
-        qtc.QMimeData_RemoveFormat(@ptrCast(self), mimetype_str);
+        qtc.QMimeData_RemoveFormat(@ptrCast(self.ptr), mimetype_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#hasFormat)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
     /// ` mimetype: []const u8 `
     ///
-    pub fn HasFormat(self: ?*anyopaque, mimetype: []const u8) bool {
+    pub fn HasFormat(self: QMimeData, mimetype: []const u8) bool {
         const mimetype_str = qtc.libqt_string{
             .len = mimetype.len,
             .data = mimetype.ptr,
         };
-        return qtc.QMimeData_HasFormat(@ptrCast(self), mimetype_str);
+        return qtc.QMimeData_HasFormat(@ptrCast(self.ptr), mimetype_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#hasFormat)
@@ -428,12 +452,12 @@ pub const qmimedata = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    /// ` callback: *const fn (self: QtC.QMimeData, mimetype: [*:0]const u8) callconv(.c) bool `
+    /// ` callback: *const fn (self: QMimeData, mimetype: [*:0]const u8) callconv(.c) bool `
     ///
-    pub fn OnHasFormat(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) bool) void {
-        qtc.QMimeData_OnHasFormat(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHasFormat(self: QMimeData, callback: *const fn (QMimeData, [*:0]const u8) callconv(.c) bool) void {
+        qtc.QMimeData_OnHasFormat(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperHasFormat` instead
@@ -446,33 +470,32 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
     /// ` mimetype: []const u8 `
     ///
-    pub fn SuperHasFormat(self: ?*anyopaque, mimetype: []const u8) bool {
+    pub fn SuperHasFormat(self: QMimeData, mimetype: []const u8) bool {
         const mimetype_str = qtc.libqt_string{
             .len = mimetype.len,
             .data = mimetype.ptr,
         };
-        return qtc.QMimeData_SuperHasFormat(@ptrCast(self), mimetype_str);
+        return qtc.QMimeData_SuperHasFormat(@ptrCast(self.ptr), mimetype_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#formats)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Formats(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QMimeData_Formats(@ptrCast(self));
+    pub fn Formats(self: QMimeData, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.QMimeData_Formats(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qmimedata.Formats: Memory allocation failed");
@@ -489,16 +512,16 @@ pub const qmimedata = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
     /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnFormats(self: ?*anyopaque, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
-        qtc.QMimeData_OnFormats(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFormats(self: QMimeData, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
+        qtc.QMimeData_OnFormats(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperFormats` instead
@@ -511,17 +534,16 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperFormats(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QMimeData_SuperFormats(@ptrCast(self));
+    pub fn SuperFormats(self: QMimeData, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.QMimeData_SuperFormats(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qmimedata.Formats: Memory allocation failed");
@@ -538,28 +560,29 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    pub fn Clear(self: ?*anyopaque) void {
-        qtc.QMimeData_Clear(@ptrCast(self));
+    pub fn Clear(self: QMimeData) void {
+        qtc.QMimeData_Clear(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#retrieveData)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
     /// ` mimetype: []const u8 `
     ///
-    /// ` preferredType: QtC.QMetaType `
+    /// ` preferredType: QMetaType `
     ///
-    pub fn RetrieveData(self: ?*anyopaque, mimetype: []const u8, preferredType: QtC.QMetaType) QtC.QVariant {
+    pub fn RetrieveData(self: QMimeData, mimetype: []const u8, preferredType: anytype) QVariant {
         const mimetype_str = qtc.libqt_string{
             .len = mimetype.len,
             .data = mimetype.ptr,
         };
-        return qtc.QMimeData_RetrieveData(@ptrCast(self), mimetype_str, @ptrCast(preferredType));
+        comptime _ = @TypeOf(preferredType)._is_QMetaType;
+        return .{ .ptr = qtc.QMimeData_RetrieveData(@ptrCast(self.ptr), mimetype_str, @ptrCast(preferredType.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmimedata.html#retrieveData)
@@ -568,12 +591,12 @@ pub const qmimedata = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    /// ` callback: *const fn (self: QtC.QMimeData, mimetype: [*:0]const u8, preferredType: QtC.QMetaType) callconv(.c) QtC.QVariant `
+    /// ` callback: *const fn (self: QMimeData, mimetype: [*:0]const u8, preferredType: QMetaType) callconv(.c) QVariant `
     ///
-    pub fn OnRetrieveData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, QtC.QMetaType) callconv(.c) QtC.QVariant) void {
-        qtc.QMimeData_OnRetrieveData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRetrieveData(self: QMimeData, callback: *const fn (QMimeData, [*:0]const u8, QMetaType) callconv(.c) QVariant) void {
+        qtc.QMimeData_OnRetrieveData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperRetrieveData` instead
@@ -586,31 +609,32 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
     /// ` mimetype: []const u8 `
     ///
-    /// ` preferredType: QtC.QMetaType `
+    /// ` preferredType: QMetaType `
     ///
-    pub fn SuperRetrieveData(self: ?*anyopaque, mimetype: []const u8, preferredType: QtC.QMetaType) QtC.QVariant {
+    pub fn SuperRetrieveData(self: QMimeData, mimetype: []const u8, preferredType: anytype) QVariant {
         const mimetype_str = qtc.libqt_string{
             .len = mimetype.len,
             .data = mimetype.ptr,
         };
-        return qtc.QMimeData_SuperRetrieveData(@ptrCast(self), mimetype_str, @ptrCast(preferredType));
+        comptime _ = @TypeOf(preferredType)._is_QMetaType;
+        return .{ .ptr = qtc.QMimeData_SuperRetrieveData(@ptrCast(self.ptr), mimetype_str, @ptrCast(preferredType.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -624,15 +648,15 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -648,12 +672,12 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QMimeData, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qmimedata.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -666,12 +690,12 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QMimeData, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -680,10 +704,10 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QMimeData) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -692,10 +716,10 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QMimeData) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -704,10 +728,10 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QMimeData) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -716,10 +740,10 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QMimeData) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -728,12 +752,12 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QMimeData, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -742,10 +766,10 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QMimeData) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -754,12 +778,13 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QMimeData, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -768,12 +793,12 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QMimeData, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -782,12 +807,12 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QMimeData, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -796,12 +821,12 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QMimeData, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -810,12 +835,12 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QMimeData, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -824,16 +849,17 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QMimeData, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qmimedata.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qmimedata.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -843,12 +869,13 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QMimeData, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -857,12 +884,13 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QMimeData, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -871,12 +899,13 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QMimeData, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -885,18 +914,20 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -905,16 +936,20 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -923,18 +958,19 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QMimeData, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -943,18 +979,20 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -963,16 +1001,20 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -981,10 +1023,10 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QMimeData) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -993,12 +1035,13 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QMimeData, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1007,10 +1050,11 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1019,10 +1063,10 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QMimeData) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1031,10 +1075,10 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QMimeData) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1043,15 +1087,16 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QMimeData, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -1060,13 +1105,13 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QMimeData, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1075,17 +1120,16 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QMimeData, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qmimedata.DynamicPropertyNames: Memory allocation failed");
@@ -1104,10 +1148,10 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QMimeData) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1116,10 +1160,10 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QMimeData) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1128,10 +1172,10 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QMimeData) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1140,12 +1184,12 @@ pub const qmimedata = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    /// ` callback: *const fn (self: QtC.QMimeData) callconv(.c) void `
+    /// ` callback: *const fn (self: QMimeData) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QMimeData, callback: *const fn (QMimeData) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1154,10 +1198,10 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QMimeData) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1166,13 +1210,13 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QMimeData, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -1181,10 +1225,10 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QMimeData) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1193,14 +1237,14 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QMimeData, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1209,14 +1253,14 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QMimeData, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1225,20 +1269,22 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -1247,18 +1293,22 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1267,9 +1317,9 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1277,10 +1327,11 @@ pub const qmimedata = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QMimeData, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1289,13 +1340,13 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QMimeData, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1304,15 +1355,16 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QMimeData, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1321,18 +1373,19 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QMimeData, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1341,15 +1394,16 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QMimeData, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1358,12 +1412,13 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QMimeData, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1372,12 +1427,12 @@ pub const qmimedata = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    /// ` callback: *const fn (self: QtC.QMimeData, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QMimeData, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QMimeData, callback: *const fn (QMimeData, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1388,12 +1443,13 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QMimeData_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: QMimeData, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QMimeData_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -1408,12 +1464,13 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QMimeData_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: QMimeData, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QMimeData_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1424,12 +1481,12 @@ pub const qmimedata = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QMimeData`
+    /// ` self: QMimeData`
     ///
-    /// ` callback: *const fn (self: QtC.QMimeData, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QMimeData, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QMimeData_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QMimeData, callback: *const fn (QMimeData, QEvent) callconv(.c) bool) void {
+        qtc.QMimeData_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1440,14 +1497,16 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QMimeData_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: QMimeData, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QMimeData_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -1462,14 +1521,16 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QMimeData_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: QMimeData, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QMimeData_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1480,12 +1541,12 @@ pub const qmimedata = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QMimeData`
+    /// ` self: QMimeData`
     ///
-    /// ` callback: *const fn (self: QtC.QMimeData, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QMimeData, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QMimeData_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QMimeData, callback: *const fn (QMimeData, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QMimeData_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1496,12 +1557,13 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QMimeData_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: QMimeData, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QMimeData_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -1516,12 +1578,13 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QMimeData_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: QMimeData, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QMimeData_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1532,12 +1595,12 @@ pub const qmimedata = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QMimeData`
+    /// ` self: QMimeData`
     ///
-    /// ` callback: *const fn (self: QtC.QMimeData, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QMimeData, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QMimeData_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QMimeData, callback: *const fn (QMimeData, QTimerEvent) callconv(.c) void) void {
+        qtc.QMimeData_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1548,12 +1611,13 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QMimeData_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: QMimeData, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QMimeData_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -1568,12 +1632,13 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QMimeData_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: QMimeData, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QMimeData_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1584,12 +1649,12 @@ pub const qmimedata = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QMimeData`
+    /// ` self: QMimeData`
     ///
-    /// ` callback: *const fn (self: QtC.QMimeData, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QMimeData, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QMimeData_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QMimeData, callback: *const fn (QMimeData, QChildEvent) callconv(.c) void) void {
+        qtc.QMimeData_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1600,12 +1665,13 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QMimeData_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QMimeData, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QMimeData_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -1620,12 +1686,13 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QMimeData_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QMimeData, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QMimeData_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1636,12 +1703,12 @@ pub const qmimedata = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QMimeData`
+    /// ` self: QMimeData`
     ///
-    /// ` callback: *const fn (self: QtC.QMimeData, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QMimeData, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QMimeData_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QMimeData, callback: *const fn (QMimeData, QEvent) callconv(.c) void) void {
+        qtc.QMimeData_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1652,12 +1719,13 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QMimeData_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QMimeData, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QMimeData_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -1672,12 +1740,13 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QMimeData_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QMimeData, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QMimeData_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1688,12 +1757,12 @@ pub const qmimedata = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QMimeData`
+    /// ` self: QMimeData`
     ///
-    /// ` callback: *const fn (self: QtC.QMimeData, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QMimeData, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QMimeData_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QMimeData, callback: *const fn (QMimeData, QMetaMethod) callconv(.c) void) void {
+        qtc.QMimeData_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1704,12 +1773,13 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QMimeData_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QMimeData, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QMimeData_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -1724,12 +1794,13 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QMimeData_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QMimeData, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QMimeData_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1740,12 +1811,12 @@ pub const qmimedata = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QMimeData`
+    /// ` self: QMimeData`
     ///
-    /// ` callback: *const fn (self: QtC.QMimeData, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QMimeData, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QMimeData_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QMimeData, callback: *const fn (QMimeData, QMetaMethod) callconv(.c) void) void {
+        qtc.QMimeData_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1756,10 +1827,10 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QMimeData_Sender(@ptrCast(self));
+    pub fn Sender(self: QMimeData) QObject {
+        return .{ .ptr = qtc.QMimeData_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -1774,10 +1845,10 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QMimeData_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QMimeData) QObject {
+        return .{ .ptr = qtc.QMimeData_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1788,12 +1859,12 @@ pub const qmimedata = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QMimeData`
+    /// ` self: QMimeData`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QMimeData_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QMimeData, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QMimeData_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1804,10 +1875,10 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QMimeData_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QMimeData) i32 {
+        return qtc.QMimeData_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -1822,10 +1893,10 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QMimeData_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QMimeData) i32 {
+        return qtc.QMimeData_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1836,12 +1907,12 @@ pub const qmimedata = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QMimeData`
+    /// ` self: QMimeData`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QMimeData_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QMimeData, callback: *const fn () callconv(.c) i32) void {
+        qtc.QMimeData_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1852,13 +1923,13 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QMimeData, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QMimeData_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QMimeData_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -1873,13 +1944,13 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QMimeData, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QMimeData_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QMimeData_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1890,12 +1961,12 @@ pub const qmimedata = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QMimeData`
+    /// ` self: QMimeData`
     ///
-    /// ` callback: *const fn (self: QtC.QMimeData, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QMimeData, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QMimeData_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QMimeData, callback: *const fn (QMimeData, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QMimeData_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1906,12 +1977,13 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QMimeData_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QMimeData, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QMimeData_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -1926,12 +1998,13 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QMimeData_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QMimeData, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QMimeData_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1942,12 +2015,12 @@ pub const qmimedata = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QMimeData`
+    /// ` self: QMimeData`
     ///
-    /// ` callback: *const fn (self: QtC.QMimeData, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QMimeData, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QMimeData_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QMimeData, callback: *const fn (QMimeData, QMetaMethod) callconv(.c) bool) void {
+        qtc.QMimeData_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1958,12 +2031,12 @@ pub const qmimedata = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    /// ` callback: *const fn (self: QtC.QMimeData, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QMimeData, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QMimeData, callback: *const fn (QMimeData, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -1976,9 +2049,9 @@ pub const qmimedata = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QMimeData `
+    /// ` self: QMimeData `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QMimeData_Delete(@ptrCast(self));
+    pub fn Delete(self: QMimeData) void {
+        qtc.QMimeData_Delete(@ptrCast(self.ptr));
     }
 };

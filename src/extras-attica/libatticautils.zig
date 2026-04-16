@@ -1,52 +1,63 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QDateTime = @import("libqt6").QDateTime;
 const qnetworkaccessmanager_enums = @import("../network/libqnetworkaccessmanager.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/attica-utils.html)
-pub const attica__utils = struct {
+pub const Attica__Utils = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/attica-utils.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.Attica__Utils,
+
+    pub const _is_Attica__Utils = {};
+
     /// New constructs a new Attica::Utils object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.Attica__Utils `
+    /// ` other: Attica__Utils `
     ///
-    pub fn New(other: ?*anyopaque) QtC.Attica__Utils {
-        return qtc.Attica__Utils_new(@ptrCast(other));
+    pub fn New(other: anytype) Attica__Utils {
+        comptime _ = @TypeOf(other)._is_Attica__Utils;
+        return .{ .ptr = qtc.Attica__Utils_new(@ptrCast(other.ptr)) };
     }
 
     /// New2 constructs a new Attica::Utils object and invalidates the source Attica::Utils object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.Attica__Utils `
+    /// ` other: Attica__Utils `
     ///
-    pub fn New2(other: ?*anyopaque) QtC.Attica__Utils {
-        return qtc.Attica__Utils_new2(@ptrCast(other));
+    pub fn New2(other: anytype) Attica__Utils {
+        comptime _ = @TypeOf(other)._is_Attica__Utils;
+        return .{ .ptr = qtc.Attica__Utils_new2(@ptrCast(other.ptr)) };
     }
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Attica__Utils `
+    /// ` self: Attica__Utils `
     ///
-    /// ` other: QtC.Attica__Utils `
+    /// ` other: Attica__Utils `
     ///
-    pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.Attica__Utils_CopyAssign(@ptrCast(self), @ptrCast(other));
+    pub fn CopyAssign(self: Attica__Utils, other: Attica__Utils) void {
+        qtc.Attica__Utils_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Attica__Utils `
+    /// ` self: Attica__Utils `
     ///
-    /// ` other: QtC.Attica__Utils `
+    /// ` other: Attica__Utils `
     ///
-    pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.Attica__Utils_MoveAssign(@ptrCast(self), @ptrCast(other));
+    pub fn MoveAssign(self: Attica__Utils, other: Attica__Utils) void {
+        qtc.Attica__Utils_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-utils.html#parseQtDateTimeIso8601)
@@ -55,12 +66,12 @@ pub const attica__utils = struct {
     ///
     /// ` str: []const u8 `
     ///
-    pub fn ParseQtDateTimeIso8601(str: []const u8) QtC.QDateTime {
+    pub fn ParseQtDateTimeIso8601(str: []const u8) QDateTime {
         const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
-        return qtc.Attica__Utils_ParseQtDateTimeIso8601(str_str);
+        return .{ .ptr = qtc.Attica__Utils_ParseQtDateTimeIso8601(str_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-utils.html#toString)
@@ -82,9 +93,9 @@ pub const attica__utils = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.Attica__Utils `
+    /// ` self: Attica__Utils `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.Attica__Utils_Delete(@ptrCast(self));
+    pub fn Delete(self: Attica__Utils) void {
+        qtc.Attica__Utils_Delete(@ptrCast(self.ptr));
     }
 };

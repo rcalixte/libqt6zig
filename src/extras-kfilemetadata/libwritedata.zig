@@ -1,13 +1,22 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QVariant = @import("libqt6").QVariant;
 const embeddedimagedata_enums = @import("libembeddedimagedata.zig").enums;
 const properties_enums = @import("libproperties.zig").enums;
 const std = @import("std");
-const arraymap_i32_sliceqtcqvariant = std.array_hash_map.Auto(i32, []QtC.QVariant);
-const arraymap_i32_u8 = std.array_hash_map.Auto(i32, []u8);
+const ArrayMap_i32_SliceQVariant = std.array_hash_map.Auto(i32, []QVariant);
+const ArrayMap_i32_u8 = std.array_hash_map.Auto(i32, []u8);
 
 /// ### [Upstream resources](https://api.kde.org/kfilemetadata-writedata.html)
-pub const kfilemetadata__writedata = struct {
+pub const KFileMetaData__WriteData = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kfilemetadata-writedata.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KFileMetaData__WriteData,
+
+    pub const _is_KFileMetaData__WriteData = {};
+
     /// New constructs a new KFileMetaData::WriteData object.
     ///
     /// ## Parameter(s):
@@ -16,7 +25,7 @@ pub const kfilemetadata__writedata = struct {
     ///
     /// ` mimetype: []const u8 `
     ///
-    pub fn New(url: []const u8, mimetype: []const u8) QtC.KFileMetaData__WriteData {
+    pub fn New(url: []const u8, mimetype: []const u8) KFileMetaData__WriteData {
         const url_str = qtc.libqt_string{
             .len = url.len,
             .data = url.ptr,
@@ -25,54 +34,56 @@ pub const kfilemetadata__writedata = struct {
             .len = mimetype.len,
             .data = mimetype.ptr,
         };
-
-        return qtc.KFileMetaData__WriteData_new(url_str, mimetype_str);
+        return .{ .ptr = qtc.KFileMetaData__WriteData_new(url_str, mimetype_str) };
     }
 
     /// New2 constructs a new KFileMetaData::WriteData object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` rhs: QtC.KFileMetaData__WriteData `
+    /// ` rhs: KFileMetaData__WriteData `
     ///
-    pub fn New2(rhs: ?*anyopaque) QtC.KFileMetaData__WriteData {
-        return qtc.KFileMetaData__WriteData_new2(@ptrCast(rhs));
+    pub fn New2(rhs: anytype) KFileMetaData__WriteData {
+        comptime _ = @TypeOf(rhs)._is_KFileMetaData__WriteData;
+        return .{ .ptr = qtc.KFileMetaData__WriteData_new2(@ptrCast(rhs.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-writedata.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFileMetaData__WriteData `
+    /// ` self: KFileMetaData__WriteData `
     ///
-    /// ` rhs: QtC.KFileMetaData__WriteData `
+    /// ` rhs: KFileMetaData__WriteData `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, rhs: ?*anyopaque) void {
-        qtc.KFileMetaData__WriteData_OperatorAssign(@ptrCast(self), @ptrCast(rhs));
+    pub fn OperatorAssign(self: KFileMetaData__WriteData, rhs: anytype) void {
+        comptime _ = @TypeOf(rhs)._is_KFileMetaData__WriteData;
+        qtc.KFileMetaData__WriteData_OperatorAssign(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-writedata.html#operator-eq-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFileMetaData__WriteData `
+    /// ` self: KFileMetaData__WriteData `
     ///
-    /// ` rhs: QtC.KFileMetaData__WriteData `
+    /// ` rhs: KFileMetaData__WriteData `
     ///
-    pub fn OperatorEqual(self: ?*anyopaque, rhs: ?*anyopaque) bool {
-        return qtc.KFileMetaData__WriteData_OperatorEqual(@ptrCast(self), @ptrCast(rhs));
+    pub fn OperatorEqual(self: KFileMetaData__WriteData, rhs: anytype) bool {
+        comptime _ = @TypeOf(rhs)._is_KFileMetaData__WriteData;
+        return qtc.KFileMetaData__WriteData_OperatorEqual(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-writedata.html#inputUrl)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFileMetaData__WriteData `
+    /// ` self: KFileMetaData__WriteData `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn InputUrl(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KFileMetaData__WriteData_InputUrl(@ptrCast(self));
+    pub fn InputUrl(self: KFileMetaData__WriteData, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KFileMetaData__WriteData_InputUrl(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kfilemetadata__writedata.InputUrl: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -83,12 +94,12 @@ pub const kfilemetadata__writedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFileMetaData__WriteData `
+    /// ` self: KFileMetaData__WriteData `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn InputMimetype(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KFileMetaData__WriteData_InputMimetype(@ptrCast(self));
+    pub fn InputMimetype(self: KFileMetaData__WriteData, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KFileMetaData__WriteData_InputMimetype(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kfilemetadata__writedata.InputMimetype: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -99,27 +110,28 @@ pub const kfilemetadata__writedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFileMetaData__WriteData `
+    /// ` self: KFileMetaData__WriteData `
     ///
     /// ` property: properties_enums.Property `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn Add(self: ?*anyopaque, property: i32, value: ?*anyopaque) void {
-        qtc.KFileMetaData__WriteData_Add(@ptrCast(self), @bitCast(property), @ptrCast(value));
+    pub fn Add(self: KFileMetaData__WriteData, property: i32, value: anytype) void {
+        comptime _ = @TypeOf(value)._is_QVariant;
+        qtc.KFileMetaData__WriteData_Add(@ptrCast(self.ptr), @bitCast(property), @ptrCast(value.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-writedata.html#addImageData)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFileMetaData__WriteData `
-    ///
-    /// ` images: arraymap_i32_u8 (key: embeddedimagedata_enums.ImageType) `
+    /// ` self: KFileMetaData__WriteData `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AddImageData(self: ?*anyopaque, images: arraymap_i32_u8, allocator: std.mem.Allocator) void {
+    /// ` images: ArrayMap_i32_u8 (key: embeddedimagedata_enums.ImageType) `
+    ///
+    pub fn AddImageData(self: KFileMetaData__WriteData, allocator: std.mem.Allocator, images: ArrayMap_i32_u8) void {
         const images_count = images.count();
         const images_keys = allocator.alloc(i32, images_count) catch @panic("kfilemetadata__writedata.AddImageData: Memory allocation failed");
         defer allocator.free(images_keys);
@@ -141,24 +153,24 @@ pub const kfilemetadata__writedata = struct {
             .keys = @ptrCast(images_keys.ptr),
             .values = @ptrCast(images_values.ptr),
         };
-        qtc.KFileMetaData__WriteData_AddImageData(@ptrCast(self), images_map);
+        qtc.KFileMetaData__WriteData_AddImageData(@ptrCast(self.ptr), images_map);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-writedata.html#properties)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFileMetaData__WriteData `
+    /// ` self: KFileMetaData__WriteData `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
     /// ## Returns:
     ///
-    /// ` arraymap_i32_sliceqtcqvariant (key: properties_enums.Property) `
+    /// ` ArrayMap_i32_SliceQVariant (key: properties_enums.Property) `
     ///
-    pub fn Properties(self: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_sliceqtcqvariant {
-        const _map: qtc.libqt_map = qtc.KFileMetaData__WriteData_Properties(@ptrCast(self));
-        var _ret: arraymap_i32_sliceqtcqvariant = .empty;
+    pub fn Properties(self: KFileMetaData__WriteData, allocator: std.mem.Allocator) ArrayMap_i32_SliceQVariant {
+        const _map: qtc.libqt_map = qtc.KFileMetaData__WriteData_Properties(@ptrCast(self.ptr));
+        var _ret: ArrayMap_i32_SliceQVariant = .empty;
         defer {
             const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -173,10 +185,11 @@ pub const kfilemetadata__writedata = struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            const _value_slice = allocator.alloc(QtC.QVariant, _value.len) catch @panic("kfilemetadata__writedata.Properties: Memory allocation failed");
+            const _value_slice = allocator.alloc(QVariant, _value.len) catch @panic("kfilemetadata__writedata.Properties: Memory allocation failed");
             const _value_data: [*]QtC.QVariant = @ptrCast(@alignCast(_value.data));
-            @memcpy(_value_slice, _value_data);
-            _ret.put(allocator, _key, @ptrCast(_value_slice)) catch @panic("kfilemetadata__writedata.Properties: Memory allocation failed");
+            for (0.._value.len) |ii|
+                _value_slice[ii] = .{ .ptr = _value_data[ii] };
+            _ret.put(allocator, _key, _value_slice) catch @panic("kfilemetadata__writedata.Properties: Memory allocation failed");
         }
         return _ret;
     }
@@ -185,17 +198,17 @@ pub const kfilemetadata__writedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFileMetaData__WriteData `
+    /// ` self: KFileMetaData__WriteData `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
     /// ## Returns:
     ///
-    /// ` arraymap_i32_u8 (key: embeddedimagedata_enums.ImageType) `
+    /// ` ArrayMap_i32_u8 (key: embeddedimagedata_enums.ImageType) `
     ///
-    pub fn ImageData(self: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_u8 {
-        const _map: qtc.libqt_map = qtc.KFileMetaData__WriteData_ImageData(@ptrCast(self));
-        var _ret: arraymap_i32_u8 = .empty;
+    pub fn ImageData(self: KFileMetaData__WriteData, allocator: std.mem.Allocator) ArrayMap_i32_u8 {
+        const _map: qtc.libqt_map = qtc.KFileMetaData__WriteData_ImageData(@ptrCast(self.ptr));
+        var _ret: ArrayMap_i32_u8 = .empty;
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -225,9 +238,9 @@ pub const kfilemetadata__writedata = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KFileMetaData__WriteData `
+    /// ` self: KFileMetaData__WriteData `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KFileMetaData__WriteData_Delete(@ptrCast(self));
+    pub fn Delete(self: KFileMetaData__WriteData) void {
+        qtc.KFileMetaData__WriteData_Delete(@ptrCast(self.ptr));
     }
 };

@@ -4,10 +4,20 @@ const qcryptographichash_enums = @import("../libqcryptographichash.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qpassworddigestor.html)
-pub const qpassworddigestor = struct {
+pub const QPasswordDigestor = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpassworddigestor.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QPasswordDigestor,
+
+    pub const _is_QPasswordDigestor = {};
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpassworddigestor.html#deriveKeyPbkdf1)
     ///
     /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` param1: qcryptographichash_enums.Algorithm `
     ///
@@ -19,9 +29,7 @@ pub const qpassworddigestor = struct {
     ///
     /// ` param5: u64 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn DeriveKeyPbkdf1(param1: i32, param2: []u8, param3: []u8, param4: i32, param5: u64, allocator: std.mem.Allocator) []u8 {
+    pub fn DeriveKeyPbkdf1(allocator: std.mem.Allocator, param1: i32, param2: []u8, param3: []u8, param4: i32, param5: u64) []u8 {
         const param2_str = qtc.libqt_string{
             .len = param2.len,
             .data = param2.ptr,
@@ -41,6 +49,8 @@ pub const qpassworddigestor = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` param1: qcryptographichash_enums.Algorithm `
     ///
     /// ` param2: []u8 `
@@ -51,9 +61,7 @@ pub const qpassworddigestor = struct {
     ///
     /// ` param5: u64 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn DeriveKeyPbkdf2(param1: i32, param2: []u8, param3: []u8, param4: i32, param5: u64, allocator: std.mem.Allocator) []u8 {
+    pub fn DeriveKeyPbkdf2(allocator: std.mem.Allocator, param1: i32, param2: []u8, param3: []u8, param4: i32, param5: u64) []u8 {
         const param2_str = qtc.libqt_string{
             .len = param2.len,
             .data = param2.ptr,

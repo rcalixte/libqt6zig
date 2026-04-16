@@ -1,20 +1,34 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const KArchive = @import("libqt6").KArchive;
+const KZip = @import("libqt6").KZip;
+const QDateTime = @import("libqt6").QDateTime;
+const QIODevice = @import("libqt6").QIODevice;
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/kzipfileentry.html)
-pub const kzipfileentry = struct {
+pub const KZipFileEntry = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kzipfileentry.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KZipFileEntry,
+
+    pub const _is_KZipFileEntry = {};
+    pub const _is_KArchiveFile = {};
+    pub const _is_KArchiveEntry = {};
+
     /// New constructs a new KZipFileEntry object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` zip: QtC.KZip `
+    /// ` zip: KZip `
     ///
     /// ` name: []const u8 `
     ///
     /// ` access: i32 `
     ///
-    /// ` date: QtC.QDateTime `
+    /// ` date: QDateTime `
     ///
     /// ` user: []const u8 `
     ///
@@ -32,11 +46,13 @@ pub const kzipfileentry = struct {
     ///
     /// ` compressedSize: i64 `
     ///
-    pub fn New(zip: ?*anyopaque, name: []const u8, access: i32, date: ?*anyopaque, user: []const u8, group: []const u8, symlink: []const u8, path: []const u8, start: i64, uncompressedSize: i64, encoding: i32, compressedSize: i64) QtC.KZipFileEntry {
+    pub fn New(zip: anytype, name: []const u8, access: i32, date: anytype, user: []const u8, group: []const u8, symlink: []const u8, path: []const u8, start: i64, uncompressedSize: i64, encoding: i32, compressedSize: i64) KZipFileEntry {
+        comptime _ = @TypeOf(zip)._is_KZip;
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
+        comptime _ = @TypeOf(date)._is_QDateTime;
         const user_str = qtc.libqt_string{
             .len = user.len,
             .data = user.ptr,
@@ -53,106 +69,106 @@ pub const kzipfileentry = struct {
             .len = path.len,
             .data = path.ptr,
         };
-
-        return qtc.KZipFileEntry_new(@ptrCast(zip), name_str, @bitCast(access), @ptrCast(date), user_str, group_str, symlink_str, path_str, @bitCast(start), @bitCast(uncompressedSize), @bitCast(encoding), @bitCast(compressedSize));
+        return .{ .ptr = qtc.KZipFileEntry_new(@ptrCast(zip.ptr), name_str, @bitCast(access), @ptrCast(date.ptr), user_str, group_str, symlink_str, path_str, @bitCast(start), @bitCast(uncompressedSize), @bitCast(encoding), @bitCast(compressedSize)) };
     }
 
     /// New2 constructs a new KZipFileEntry object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.KZipFileEntry `
+    /// ` param1: KZipFileEntry `
     ///
-    pub fn New2(param1: ?*anyopaque) QtC.KZipFileEntry {
-        return qtc.KZipFileEntry_new2(@ptrCast(param1));
+    pub fn New2(param1: anytype) KZipFileEntry {
+        comptime _ = @TypeOf(param1)._is_KZipFileEntry;
+        return .{ .ptr = qtc.KZipFileEntry_new2(@ptrCast(param1.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kzipfileentry.html#encoding)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KZipFileEntry `
+    /// ` self: KZipFileEntry `
     ///
-    pub fn Encoding(self: ?*anyopaque) i32 {
-        return qtc.KZipFileEntry_Encoding(@ptrCast(self));
+    pub fn Encoding(self: KZipFileEntry) i32 {
+        return qtc.KZipFileEntry_Encoding(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kzipfileentry.html#compressedSize)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KZipFileEntry `
+    /// ` self: KZipFileEntry `
     ///
-    pub fn CompressedSize(self: ?*anyopaque) i64 {
-        return qtc.KZipFileEntry_CompressedSize(@ptrCast(self));
+    pub fn CompressedSize(self: KZipFileEntry) i64 {
+        return qtc.KZipFileEntry_CompressedSize(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kzipfileentry.html#setCompressedSize)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KZipFileEntry `
+    /// ` self: KZipFileEntry `
     ///
     /// ` compressedSize: i64 `
     ///
-    pub fn SetCompressedSize(self: ?*anyopaque, compressedSize: i64) void {
-        qtc.KZipFileEntry_SetCompressedSize(@ptrCast(self), @bitCast(compressedSize));
+    pub fn SetCompressedSize(self: KZipFileEntry, compressedSize: i64) void {
+        qtc.KZipFileEntry_SetCompressedSize(@ptrCast(self.ptr), @bitCast(compressedSize));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kzipfileentry.html#setHeaderStart)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KZipFileEntry `
+    /// ` self: KZipFileEntry `
     ///
     /// ` headerstart: i64 `
     ///
-    pub fn SetHeaderStart(self: ?*anyopaque, headerstart: i64) void {
-        qtc.KZipFileEntry_SetHeaderStart(@ptrCast(self), @bitCast(headerstart));
+    pub fn SetHeaderStart(self: KZipFileEntry, headerstart: i64) void {
+        qtc.KZipFileEntry_SetHeaderStart(@ptrCast(self.ptr), @bitCast(headerstart));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kzipfileentry.html#headerStart)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KZipFileEntry `
+    /// ` self: KZipFileEntry `
     ///
-    pub fn HeaderStart(self: ?*anyopaque) i64 {
-        return qtc.KZipFileEntry_HeaderStart(@ptrCast(self));
+    pub fn HeaderStart(self: KZipFileEntry) i64 {
+        return qtc.KZipFileEntry_HeaderStart(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kzipfileentry.html#crc32)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KZipFileEntry `
+    /// ` self: KZipFileEntry `
     ///
-    pub fn Crc32(self: ?*anyopaque) usize {
-        return qtc.KZipFileEntry_Crc32(@ptrCast(self));
+    pub fn Crc32(self: KZipFileEntry) usize {
+        return qtc.KZipFileEntry_Crc32(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kzipfileentry.html#setCRC32)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KZipFileEntry `
+    /// ` self: KZipFileEntry `
     ///
     /// ` crc32: usize `
     ///
-    pub fn SetCRC32(self: ?*anyopaque, crc32: usize) void {
-        qtc.KZipFileEntry_SetCRC32(@ptrCast(self), @bitCast(crc32));
+    pub fn SetCRC32(self: KZipFileEntry, crc32: usize) void {
+        qtc.KZipFileEntry_SetCRC32(@ptrCast(self.ptr), @bitCast(crc32));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kzipfileentry.html#path)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KZipFileEntry `
+    /// ` self: KZipFileEntry `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Path(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KZipFileEntry_Path(@ptrCast(self));
+    pub fn Path(self: KZipFileEntry, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KZipFileEntry_Path(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kzipfileentry.Path: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -163,12 +179,12 @@ pub const kzipfileentry = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KZipFileEntry `
+    /// ` self: KZipFileEntry `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Data(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.KZipFileEntry_Data(@ptrCast(self));
+    pub fn Data(self: KZipFileEntry, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.KZipFileEntry_Data(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kzipfileentry.Data: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -181,12 +197,12 @@ pub const kzipfileentry = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KZipFileEntry `
+    /// ` self: KZipFileEntry `
     ///
     /// ` callback: *const fn () callconv(.c) qtc.libqt_string `
     ///
-    pub fn OnData(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_string) void {
-        qtc.KZipFileEntry_OnData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnData(self: KZipFileEntry, callback: *const fn () callconv(.c) qtc.libqt_string) void {
+        qtc.KZipFileEntry_OnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperData` instead
@@ -199,12 +215,12 @@ pub const kzipfileentry = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KZipFileEntry `
+    /// ` self: KZipFileEntry `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperData(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.KZipFileEntry_SuperData(@ptrCast(self));
+    pub fn SuperData(self: KZipFileEntry, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.KZipFileEntry_SuperData(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kzipfileentry.Data: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -215,10 +231,10 @@ pub const kzipfileentry = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KZipFileEntry `
+    /// ` self: KZipFileEntry `
     ///
-    pub fn CreateDevice(self: ?*anyopaque) QtC.QIODevice {
-        return qtc.KZipFileEntry_CreateDevice(@ptrCast(self));
+    pub fn CreateDevice(self: KZipFileEntry) QIODevice {
+        return .{ .ptr = qtc.KZipFileEntry_CreateDevice(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kzipfileentry.html#createDevice)
@@ -227,12 +243,12 @@ pub const kzipfileentry = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KZipFileEntry `
+    /// ` self: KZipFileEntry `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QIODevice `
+    /// ` callback: *const fn () callconv(.c) QIODevice `
     ///
-    pub fn OnCreateDevice(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QIODevice) void {
-        qtc.KZipFileEntry_OnCreateDevice(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreateDevice(self: KZipFileEntry, callback: *const fn () callconv(.c) QIODevice) void {
+        qtc.KZipFileEntry_OnCreateDevice(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperCreateDevice` instead
@@ -245,10 +261,10 @@ pub const kzipfileentry = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KZipFileEntry `
+    /// ` self: KZipFileEntry `
     ///
-    pub fn SuperCreateDevice(self: ?*anyopaque) QtC.QIODevice {
-        return qtc.KZipFileEntry_SuperCreateDevice(@ptrCast(self));
+    pub fn SuperCreateDevice(self: KZipFileEntry) QIODevice {
+        return .{ .ptr = qtc.KZipFileEntry_SuperCreateDevice(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from KArchiveFile
@@ -257,10 +273,10 @@ pub const kzipfileentry = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KZipFileEntry `
+    /// ` self: KZipFileEntry `
     ///
-    pub fn Position(self: ?*anyopaque) i64 {
-        return qtc.KArchiveFile_Position(@ptrCast(self));
+    pub fn Position(self: KZipFileEntry) i64 {
+        return qtc.KArchiveFile_Position(@ptrCast(self.ptr));
     }
 
     /// Inherited from KArchiveFile
@@ -269,10 +285,10 @@ pub const kzipfileentry = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KZipFileEntry `
+    /// ` self: KZipFileEntry `
     ///
-    pub fn Size(self: ?*anyopaque) i64 {
-        return qtc.KArchiveFile_Size(@ptrCast(self));
+    pub fn Size(self: KZipFileEntry) i64 {
+        return qtc.KArchiveFile_Size(@ptrCast(self.ptr));
     }
 
     /// Inherited from KArchiveFile
@@ -281,12 +297,12 @@ pub const kzipfileentry = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KZipFileEntry `
+    /// ` self: KZipFileEntry `
     ///
     /// ` s: i64 `
     ///
-    pub fn SetSize(self: ?*anyopaque, s: i64) void {
-        qtc.KArchiveFile_SetSize(@ptrCast(self), @bitCast(s));
+    pub fn SetSize(self: KZipFileEntry, s: i64) void {
+        qtc.KArchiveFile_SetSize(@ptrCast(self.ptr), @bitCast(s));
     }
 
     /// Inherited from KArchiveFile
@@ -295,16 +311,16 @@ pub const kzipfileentry = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KZipFileEntry `
+    /// ` self: KZipFileEntry `
     ///
     /// ` dest: []const u8 `
     ///
-    pub fn CopyTo(self: ?*anyopaque, dest: []const u8) bool {
+    pub fn CopyTo(self: KZipFileEntry, dest: []const u8) bool {
         const dest_str = qtc.libqt_string{
             .len = dest.len,
             .data = dest.ptr,
         };
-        return qtc.KArchiveFile_CopyTo(@ptrCast(self), dest_str);
+        return qtc.KArchiveFile_CopyTo(@ptrCast(self.ptr), dest_str);
     }
 
     /// Inherited from KArchiveEntry
@@ -313,10 +329,10 @@ pub const kzipfileentry = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KZipFileEntry `
+    /// ` self: KZipFileEntry `
     ///
-    pub fn Date(self: ?*anyopaque) QtC.QDateTime {
-        return qtc.KArchiveEntry_Date(@ptrCast(self));
+    pub fn Date(self: KZipFileEntry) QDateTime {
+        return .{ .ptr = qtc.KArchiveEntry_Date(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from KArchiveEntry
@@ -325,12 +341,12 @@ pub const kzipfileentry = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KZipFileEntry `
+    /// ` self: KZipFileEntry `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KArchiveEntry_Name(@ptrCast(self));
+    pub fn Name(self: KZipFileEntry, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KArchiveEntry_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kzipfileentry.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -343,10 +359,10 @@ pub const kzipfileentry = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KZipFileEntry `
+    /// ` self: KZipFileEntry `
     ///
-    pub fn Permissions(self: ?*anyopaque) u32 {
-        return @bitCast(qtc.KArchiveEntry_Permissions(@ptrCast(self)));
+    pub fn Permissions(self: KZipFileEntry) u32 {
+        return @bitCast(qtc.KArchiveEntry_Permissions(@ptrCast(self.ptr)));
     }
 
     /// Inherited from KArchiveEntry
@@ -355,12 +371,12 @@ pub const kzipfileentry = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KZipFileEntry `
+    /// ` self: KZipFileEntry `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn User(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KArchiveEntry_User(@ptrCast(self));
+    pub fn User(self: KZipFileEntry, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KArchiveEntry_User(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kzipfileentry.User: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -373,12 +389,12 @@ pub const kzipfileentry = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KZipFileEntry `
+    /// ` self: KZipFileEntry `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Group(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KArchiveEntry_Group(@ptrCast(self));
+    pub fn Group(self: KZipFileEntry, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KArchiveEntry_Group(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kzipfileentry.Group: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -391,12 +407,12 @@ pub const kzipfileentry = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KZipFileEntry `
+    /// ` self: KZipFileEntry `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SymLinkTarget(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KArchiveEntry_SymLinkTarget(@ptrCast(self));
+    pub fn SymLinkTarget(self: KZipFileEntry, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KArchiveEntry_SymLinkTarget(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kzipfileentry.SymLinkTarget: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -411,10 +427,10 @@ pub const kzipfileentry = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KZipFileEntry `
+    /// ` self: KZipFileEntry `
     ///
-    pub fn IsFile(self: ?*anyopaque) bool {
-        return qtc.KZipFileEntry_IsFile(@ptrCast(self));
+    pub fn IsFile(self: KZipFileEntry) bool {
+        return qtc.KZipFileEntry_IsFile(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsFile` instead
@@ -429,10 +445,10 @@ pub const kzipfileentry = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KZipFileEntry `
+    /// ` self: KZipFileEntry `
     ///
-    pub fn SuperIsFile(self: ?*anyopaque) bool {
-        return qtc.KZipFileEntry_SuperIsFile(@ptrCast(self));
+    pub fn SuperIsFile(self: KZipFileEntry) bool {
+        return qtc.KZipFileEntry_SuperIsFile(@ptrCast(self.ptr));
     }
 
     /// Inherited from KArchiveFile
@@ -443,12 +459,12 @@ pub const kzipfileentry = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KZipFileEntry`
+    /// ` self: KZipFileEntry`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnIsFile(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KZipFileEntry_OnIsFile(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsFile(self: KZipFileEntry, callback: *const fn () callconv(.c) bool) void {
+        qtc.KZipFileEntry_OnIsFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KArchiveFile
@@ -459,14 +475,14 @@ pub const kzipfileentry = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KZipFileEntry `
+    /// ` self: KZipFileEntry `
     ///
     /// ` id: i32 `
     ///
     /// ` data: ?*anyopaque `
     ///
-    pub fn VirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KZipFileEntry_VirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
+    pub fn VirtualHook(self: KZipFileEntry, id: i32, data: ?*anyopaque) void {
+        qtc.KZipFileEntry_VirtualHook(@ptrCast(self.ptr), @bitCast(id), @ptrCast(data));
     }
 
     /// ### DEPRECATED: Use `SuperVirtualHook` instead
@@ -481,14 +497,14 @@ pub const kzipfileentry = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KZipFileEntry `
+    /// ` self: KZipFileEntry `
     ///
     /// ` id: i32 `
     ///
     /// ` data: ?*anyopaque `
     ///
-    pub fn SuperVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KZipFileEntry_SuperVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
+    pub fn SuperVirtualHook(self: KZipFileEntry, id: i32, data: ?*anyopaque) void {
+        qtc.KZipFileEntry_SuperVirtualHook(@ptrCast(self.ptr), @bitCast(id), @ptrCast(data));
     }
 
     /// Inherited from KArchiveFile
@@ -499,12 +515,12 @@ pub const kzipfileentry = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KZipFileEntry`
+    /// ` self: KZipFileEntry`
     ///
-    /// ` callback: *const fn (self: QtC.KZipFileEntry, id: i32, data: ?*anyopaque) callconv(.c) void `
+    /// ` callback: *const fn (self: KZipFileEntry, id: i32, data: ?*anyopaque) callconv(.c) void `
     ///
-    pub fn OnVirtualHook(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.KZipFileEntry_OnVirtualHook(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnVirtualHook(self: KZipFileEntry, callback: *const fn (KZipFileEntry, i32, ?*anyopaque) callconv(.c) void) void {
+        qtc.KZipFileEntry_OnVirtualHook(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KArchiveEntry
@@ -515,10 +531,10 @@ pub const kzipfileentry = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KZipFileEntry `
+    /// ` self: KZipFileEntry `
     ///
-    pub fn IsDirectory(self: ?*anyopaque) bool {
-        return qtc.KZipFileEntry_IsDirectory(@ptrCast(self));
+    pub fn IsDirectory(self: KZipFileEntry) bool {
+        return qtc.KZipFileEntry_IsDirectory(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsDirectory` instead
@@ -533,10 +549,10 @@ pub const kzipfileentry = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KZipFileEntry `
+    /// ` self: KZipFileEntry `
     ///
-    pub fn SuperIsDirectory(self: ?*anyopaque) bool {
-        return qtc.KZipFileEntry_SuperIsDirectory(@ptrCast(self));
+    pub fn SuperIsDirectory(self: KZipFileEntry) bool {
+        return qtc.KZipFileEntry_SuperIsDirectory(@ptrCast(self.ptr));
     }
 
     /// Inherited from KArchiveEntry
@@ -547,12 +563,12 @@ pub const kzipfileentry = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KZipFileEntry`
+    /// ` self: KZipFileEntry`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnIsDirectory(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KZipFileEntry_OnIsDirectory(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsDirectory(self: KZipFileEntry, callback: *const fn () callconv(.c) bool) void {
+        qtc.KZipFileEntry_OnIsDirectory(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KArchiveEntry
@@ -563,10 +579,10 @@ pub const kzipfileentry = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KZipFileEntry `
+    /// ` self: KZipFileEntry `
     ///
-    pub fn Archive(self: ?*anyopaque) QtC.KArchive {
-        return qtc.KZipFileEntry_Archive(@ptrCast(self));
+    pub fn Archive(self: KZipFileEntry) KArchive {
+        return .{ .ptr = qtc.KZipFileEntry_Archive(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperArchive` instead
@@ -581,10 +597,10 @@ pub const kzipfileentry = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KZipFileEntry `
+    /// ` self: KZipFileEntry `
     ///
-    pub fn SuperArchive(self: ?*anyopaque) QtC.KArchive {
-        return qtc.KZipFileEntry_SuperArchive(@ptrCast(self));
+    pub fn SuperArchive(self: KZipFileEntry) KArchive {
+        return .{ .ptr = qtc.KZipFileEntry_SuperArchive(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from KArchiveEntry
@@ -595,12 +611,12 @@ pub const kzipfileentry = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KZipFileEntry`
+    /// ` self: KZipFileEntry`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.KArchive `
+    /// ` callback: *const fn () callconv(.c) KArchive `
     ///
-    pub fn OnArchive(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.KArchive) void {
-        qtc.KZipFileEntry_OnArchive(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnArchive(self: KZipFileEntry, callback: *const fn () callconv(.c) KArchive) void {
+        qtc.KZipFileEntry_OnArchive(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -613,9 +629,9 @@ pub const kzipfileentry = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KZipFileEntry `
+    /// ` self: KZipFileEntry `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KZipFileEntry_Delete(@ptrCast(self));
+    pub fn Delete(self: KZipFileEntry) void {
+        qtc.KZipFileEntry_Delete(@ptrCast(self.ptr));
     }
 };

@@ -1,61 +1,81 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QUrl = @import("libqt6").QUrl;
 const jobuidelegateextension_enums = enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/kio-jobuidelegateextension.html)
-pub const kio__jobuidelegateextension = struct {
+pub const KIO__JobUiDelegateExtension = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kio-jobuidelegateextension.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KIO__JobUiDelegateExtension,
+
+    pub const _is_KIO__JobUiDelegateExtension = {};
+
     /// ### [Upstream resources](https://api.kde.org/kio-jobuidelegateextension.html#askDeleteConfirmation)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__JobUiDelegateExtension `
+    /// ` self: KIO__JobUiDelegateExtension `
     ///
-    /// ` urls: []QtC.QUrl `
+    /// ` urls: []QUrl `
     ///
     /// ` deletionType: jobuidelegateextension_enums.DeletionType `
     ///
     /// ` confirmationType: jobuidelegateextension_enums.ConfirmationType `
     ///
-    pub fn AskDeleteConfirmation(self: ?*anyopaque, urls: []QtC.QUrl, deletionType: i32, confirmationType: i32) bool {
+    pub fn AskDeleteConfirmation(self: KIO__JobUiDelegateExtension, urls: []QUrl, deletionType: i32, confirmationType: i32) bool {
         const urls_list = qtc.libqt_list{
             .len = urls.len,
             .data = @ptrCast(urls.ptr),
         };
-        return qtc.KIO__JobUiDelegateExtension_AskDeleteConfirmation(@ptrCast(self), urls_list, @bitCast(deletionType), @bitCast(confirmationType));
+        return qtc.KIO__JobUiDelegateExtension_AskDeleteConfirmation(@ptrCast(self.ptr), urls_list, @bitCast(deletionType), @bitCast(confirmationType));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-jobuidelegateextension.html#updateUrlInClipboard)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__JobUiDelegateExtension `
+    /// ` self: KIO__JobUiDelegateExtension `
     ///
-    /// ` src: QtC.QUrl `
+    /// ` src: QUrl `
     ///
-    /// ` dest: QtC.QUrl `
+    /// ` dest: QUrl `
     ///
-    pub fn UpdateUrlInClipboard(self: ?*anyopaque, src: ?*anyopaque, dest: ?*anyopaque) void {
-        qtc.KIO__JobUiDelegateExtension_UpdateUrlInClipboard(@ptrCast(self), @ptrCast(src), @ptrCast(dest));
+    pub fn UpdateUrlInClipboard(self: KIO__JobUiDelegateExtension, src: anytype, dest: anytype) void {
+        comptime _ = @TypeOf(src)._is_QUrl;
+        comptime _ = @TypeOf(dest)._is_QUrl;
+        qtc.KIO__JobUiDelegateExtension_UpdateUrlInClipboard(@ptrCast(self.ptr), @ptrCast(src.ptr), @ptrCast(dest.ptr));
     }
 };
 
 /// ### [Upstream resources](https://api.kde.org/kio.html)
-pub const kio = struct {
+pub const KIO = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kio.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KIO,
+
+    pub const _is_KIO = {};
+
     /// ### [Upstream resources](https://api.kde.org/kio.html#defaultJobUiDelegateExtension)
     ///
-    pub fn DefaultJobUiDelegateExtension() QtC.KIO__JobUiDelegateExtension {
-        return qtc.KIO_DefaultJobUiDelegateExtension();
+    pub fn DefaultJobUiDelegateExtension() KIO__JobUiDelegateExtension {
+        return .{ .ptr = qtc.KIO_DefaultJobUiDelegateExtension() };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#setDefaultJobUiDelegateExtension)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.KIO__JobUiDelegateExtension `
+    /// ` param1: KIO__JobUiDelegateExtension `
     ///
-    pub fn SetDefaultJobUiDelegateExtension(param1: ?*anyopaque) void {
-        qtc.KIO_SetDefaultJobUiDelegateExtension(@ptrCast(param1));
+    pub fn SetDefaultJobUiDelegateExtension(param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_KIO__JobUiDelegateExtension;
+        qtc.KIO_SetDefaultJobUiDelegateExtension(@ptrCast(param1.ptr));
     }
 };
 

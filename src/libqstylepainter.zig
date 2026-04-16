@@ -1,5 +1,35 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QBrush = @import("libqt6").QBrush;
+const QColor = @import("libqt6").QColor;
+const QFont = @import("libqt6").QFont;
+const QFontInfo = @import("libqt6").QFontInfo;
+const QFontMetrics = @import("libqt6").QFontMetrics;
+const QGlyphRun = @import("libqt6").QGlyphRun;
+const QImage = @import("libqt6").QImage;
+const QLine = @import("libqt6").QLine;
+const QLineF = @import("libqt6").QLineF;
+const QPaintDevice = @import("libqt6").QPaintDevice;
+const QPaintEngine = @import("libqt6").QPaintEngine;
+const QPainterPath = @import("libqt6").QPainterPath;
+const QPainter__PixmapFragment = @import("libqt6").QPainter__PixmapFragment;
+const QPalette = @import("libqt6").QPalette;
+const QPen = @import("libqt6").QPen;
+const QPicture = @import("libqt6").QPicture;
+const QPixmap = @import("libqt6").QPixmap;
+const QPoint = @import("libqt6").QPoint;
+const QPointF = @import("libqt6").QPointF;
+const QRect = @import("libqt6").QRect;
+const QRectF = @import("libqt6").QRectF;
+const QRegion = @import("libqt6").QRegion;
+const QStaticText = @import("libqt6").QStaticText;
+const QStyle = @import("libqt6").QStyle;
+const QStyleOption = @import("libqt6").QStyleOption;
+const QStyleOptionComplex = @import("libqt6").QStyleOptionComplex;
+const QTextItem = @import("libqt6").QTextItem;
+const QTextOption = @import("libqt6").QTextOption;
+const QTransform = @import("libqt6").QTransform;
+const QWidget = @import("libqt6").QWidget;
 const qbrush_enums = @import("libqbrush.zig").enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qpainter_enums = @import("libqpainter.zig").enums;
@@ -8,164 +38,186 @@ const qstyle_enums = @import("libqstyle.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylepainter.html)
-pub const qstylepainter = struct {
+pub const QStylePainter = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylepainter.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QStylePainter,
+
+    pub const _is_QStylePainter = {};
+    pub const _is_QPainter = {};
+
     /// New constructs a new QStylePainter object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` w: QtC.QWidget `
+    /// ` w: QWidget `
     ///
-    pub fn New(w: ?*anyopaque) QtC.QStylePainter {
-        return qtc.QStylePainter_new(@ptrCast(w));
+    pub fn New(w: anytype) QStylePainter {
+        comptime _ = @TypeOf(w)._is_QWidget;
+        return .{ .ptr = qtc.QStylePainter_new(@ptrCast(w.ptr)) };
     }
 
     /// New2 constructs a new QStylePainter object.
     ///
-    pub fn New2() QtC.QStylePainter {
-        return qtc.QStylePainter_new2();
+    pub fn New2() QStylePainter {
+        return .{ .ptr = qtc.QStylePainter_new2() };
     }
 
     /// New3 constructs a new QStylePainter object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` pd: QtC.QPaintDevice `
+    /// ` pd: QPaintDevice `
     ///
-    /// ` w: QtC.QWidget `
+    /// ` w: QWidget `
     ///
-    pub fn New3(pd: ?*anyopaque, w: ?*anyopaque) QtC.QStylePainter {
-        return qtc.QStylePainter_new3(@ptrCast(pd), @ptrCast(w));
+    pub fn New3(pd: anytype, w: anytype) QStylePainter {
+        comptime _ = @TypeOf(pd)._is_QPaintDevice;
+        comptime _ = @TypeOf(w)._is_QWidget;
+        return .{ .ptr = qtc.QStylePainter_new3(@ptrCast(pd.ptr), @ptrCast(w.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylepainter.html#begin)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` w: QtC.QWidget `
+    /// ` w: QWidget `
     ///
-    pub fn Begin(self: ?*anyopaque, w: ?*anyopaque) bool {
-        return qtc.QStylePainter_Begin(@ptrCast(self), @ptrCast(w));
+    pub fn Begin(self: QStylePainter, w: anytype) bool {
+        comptime _ = @TypeOf(w)._is_QWidget;
+        return qtc.QStylePainter_Begin(@ptrCast(self.ptr), @ptrCast(w.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylepainter.html#begin)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` pd: QtC.QPaintDevice `
+    /// ` pd: QPaintDevice `
     ///
-    /// ` w: QtC.QWidget `
+    /// ` w: QWidget `
     ///
-    pub fn Begin2(self: ?*anyopaque, pd: ?*anyopaque, w: ?*anyopaque) bool {
-        return qtc.QStylePainter_Begin2(@ptrCast(self), @ptrCast(pd), @ptrCast(w));
+    pub fn Begin2(self: QStylePainter, pd: anytype, w: anytype) bool {
+        comptime _ = @TypeOf(pd)._is_QPaintDevice;
+        comptime _ = @TypeOf(w)._is_QWidget;
+        return qtc.QStylePainter_Begin2(@ptrCast(self.ptr), @ptrCast(pd.ptr), @ptrCast(w.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylepainter.html#drawPrimitive)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` pe: qstyle_enums.PrimitiveElement `
     ///
-    /// ` opt: QtC.QStyleOption `
+    /// ` opt: QStyleOption `
     ///
-    pub fn DrawPrimitive(self: ?*anyopaque, pe: i32, opt: ?*anyopaque) void {
-        qtc.QStylePainter_DrawPrimitive(@ptrCast(self), @bitCast(pe), @ptrCast(opt));
+    pub fn DrawPrimitive(self: QStylePainter, pe: i32, opt: anytype) void {
+        comptime _ = @TypeOf(opt)._is_QStyleOption;
+        qtc.QStylePainter_DrawPrimitive(@ptrCast(self.ptr), @bitCast(pe), @ptrCast(opt.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylepainter.html#drawControl)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` ce: qstyle_enums.ControlElement `
     ///
-    /// ` opt: QtC.QStyleOption `
+    /// ` opt: QStyleOption `
     ///
-    pub fn DrawControl(self: ?*anyopaque, ce: i32, opt: ?*anyopaque) void {
-        qtc.QStylePainter_DrawControl(@ptrCast(self), @bitCast(ce), @ptrCast(opt));
+    pub fn DrawControl(self: QStylePainter, ce: i32, opt: anytype) void {
+        comptime _ = @TypeOf(opt)._is_QStyleOption;
+        qtc.QStylePainter_DrawControl(@ptrCast(self.ptr), @bitCast(ce), @ptrCast(opt.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylepainter.html#drawComplexControl)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` cc: qstyle_enums.ComplexControl `
     ///
-    /// ` opt: QtC.QStyleOptionComplex `
+    /// ` opt: QStyleOptionComplex `
     ///
-    pub fn DrawComplexControl(self: ?*anyopaque, cc: i32, opt: ?*anyopaque) void {
-        qtc.QStylePainter_DrawComplexControl(@ptrCast(self), @bitCast(cc), @ptrCast(opt));
+    pub fn DrawComplexControl(self: QStylePainter, cc: i32, opt: anytype) void {
+        comptime _ = @TypeOf(opt)._is_QStyleOptionComplex;
+        qtc.QStylePainter_DrawComplexControl(@ptrCast(self.ptr), @bitCast(cc), @ptrCast(opt.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylepainter.html#drawItemText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` r: QtC.QRect `
+    /// ` r: QRect `
     ///
     /// ` flags: i32 `
     ///
-    /// ` pal: QtC.QPalette `
+    /// ` pal: QPalette `
     ///
     /// ` enabled: bool `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn DrawItemText(self: ?*anyopaque, r: ?*anyopaque, flags: i32, pal: ?*anyopaque, enabled: bool, text: []const u8) void {
+    pub fn DrawItemText(self: QStylePainter, r: anytype, flags: i32, pal: anytype, enabled: bool, text: []const u8) void {
+        comptime _ = @TypeOf(r)._is_QRect;
+        comptime _ = @TypeOf(pal)._is_QPalette;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QStylePainter_DrawItemText(@ptrCast(self), @ptrCast(r), @bitCast(flags), @ptrCast(pal), enabled, text_str);
+        qtc.QStylePainter_DrawItemText(@ptrCast(self.ptr), @ptrCast(r.ptr), @bitCast(flags), @ptrCast(pal.ptr), enabled, text_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylepainter.html#drawItemPixmap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` r: QtC.QRect `
+    /// ` r: QRect `
     ///
     /// ` flags: i32 `
     ///
-    /// ` pixmap: QtC.QPixmap `
+    /// ` pixmap: QPixmap `
     ///
-    pub fn DrawItemPixmap(self: ?*anyopaque, r: ?*anyopaque, flags: i32, pixmap: ?*anyopaque) void {
-        qtc.QStylePainter_DrawItemPixmap(@ptrCast(self), @ptrCast(r), @bitCast(flags), @ptrCast(pixmap));
+    pub fn DrawItemPixmap(self: QStylePainter, r: anytype, flags: i32, pixmap: anytype) void {
+        comptime _ = @TypeOf(r)._is_QRect;
+        comptime _ = @TypeOf(pixmap)._is_QPixmap;
+        qtc.QStylePainter_DrawItemPixmap(@ptrCast(self.ptr), @ptrCast(r.ptr), @bitCast(flags), @ptrCast(pixmap.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylepainter.html#style)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    pub fn Style(self: ?*anyopaque) QtC.QStyle {
-        return qtc.QStylePainter_Style(@ptrCast(self));
+    pub fn Style(self: QStylePainter) QStyle {
+        return .{ .ptr = qtc.QStylePainter_Style(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylepainter.html#drawItemText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` r: QtC.QRect `
+    /// ` r: QRect `
     ///
     /// ` flags: i32 `
     ///
-    /// ` pal: QtC.QPalette `
+    /// ` pal: QPalette `
     ///
     /// ` enabled: bool `
     ///
@@ -173,12 +225,14 @@ pub const qstylepainter = struct {
     ///
     /// ` textRole: qpalette_enums.ColorRole `
     ///
-    pub fn DrawItemText6(self: ?*anyopaque, r: ?*anyopaque, flags: i32, pal: ?*anyopaque, enabled: bool, text: []const u8, textRole: i32) void {
+    pub fn DrawItemText6(self: QStylePainter, r: anytype, flags: i32, pal: anytype, enabled: bool, text: []const u8, textRole: i32) void {
+        comptime _ = @TypeOf(r)._is_QRect;
+        comptime _ = @TypeOf(pal)._is_QPalette;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QStylePainter_DrawItemText6(@ptrCast(self), @ptrCast(r), @bitCast(flags), @ptrCast(pal), enabled, text_str, @bitCast(textRole));
+        qtc.QStylePainter_DrawItemText6(@ptrCast(self.ptr), @ptrCast(r.ptr), @bitCast(flags), @ptrCast(pal.ptr), enabled, text_str, @bitCast(textRole));
     }
 
     /// Inherited from QPainter
@@ -187,10 +241,10 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    pub fn Device(self: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QPainter_Device(@ptrCast(self));
+    pub fn Device(self: QStylePainter) QPaintDevice {
+        return .{ .ptr = qtc.QPainter_Device(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QPainter
@@ -199,10 +253,10 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    pub fn End(self: ?*anyopaque) bool {
-        return qtc.QPainter_End(@ptrCast(self));
+    pub fn End(self: QStylePainter) bool {
+        return qtc.QPainter_End(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPainter
@@ -211,10 +265,10 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    pub fn IsActive(self: ?*anyopaque) bool {
-        return qtc.QPainter_IsActive(@ptrCast(self));
+    pub fn IsActive(self: QStylePainter) bool {
+        return qtc.QPainter_IsActive(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPainter
@@ -223,12 +277,12 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` mode: qpainter_enums.CompositionMode `
     ///
-    pub fn SetCompositionMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QPainter_SetCompositionMode(@ptrCast(self), @bitCast(mode));
+    pub fn SetCompositionMode(self: QStylePainter, mode: i32) void {
+        qtc.QPainter_SetCompositionMode(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// Inherited from QPainter
@@ -237,14 +291,14 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ## Returns:
     ///
     /// ` qpainter_enums.CompositionMode `
     ///
-    pub fn CompositionMode(self: ?*anyopaque) i32 {
-        return qtc.QPainter_CompositionMode(@ptrCast(self));
+    pub fn CompositionMode(self: QStylePainter) i32 {
+        return qtc.QPainter_CompositionMode(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPainter
@@ -253,10 +307,10 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    pub fn Font(self: ?*anyopaque) QtC.QFont {
-        return qtc.QPainter_Font(@ptrCast(self));
+    pub fn Font(self: QStylePainter) QFont {
+        return .{ .ptr = qtc.QPainter_Font(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QPainter
@@ -265,12 +319,13 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` f: QtC.QFont `
+    /// ` f: QFont `
     ///
-    pub fn SetFont(self: ?*anyopaque, f: ?*anyopaque) void {
-        qtc.QPainter_SetFont(@ptrCast(self), @ptrCast(f));
+    pub fn SetFont(self: QStylePainter, f: anytype) void {
+        comptime _ = @TypeOf(f)._is_QFont;
+        qtc.QPainter_SetFont(@ptrCast(self.ptr), @ptrCast(f.ptr));
     }
 
     /// Inherited from QPainter
@@ -279,10 +334,10 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    pub fn FontMetrics(self: ?*anyopaque) QtC.QFontMetrics {
-        return qtc.QPainter_FontMetrics(@ptrCast(self));
+    pub fn FontMetrics(self: QStylePainter) QFontMetrics {
+        return .{ .ptr = qtc.QPainter_FontMetrics(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QPainter
@@ -291,10 +346,10 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    pub fn FontInfo(self: ?*anyopaque) QtC.QFontInfo {
-        return qtc.QPainter_FontInfo(@ptrCast(self));
+    pub fn FontInfo(self: QStylePainter) QFontInfo {
+        return .{ .ptr = qtc.QPainter_FontInfo(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QPainter
@@ -303,12 +358,13 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` color: QtC.QColor `
+    /// ` color: QColor `
     ///
-    pub fn SetPen(self: ?*anyopaque, color: ?*anyopaque) void {
-        qtc.QPainter_SetPen(@ptrCast(self), @ptrCast(color));
+    pub fn SetPen(self: QStylePainter, color: anytype) void {
+        comptime _ = @TypeOf(color)._is_QColor;
+        qtc.QPainter_SetPen(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
     /// Inherited from QPainter
@@ -317,12 +373,13 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` pen: QtC.QPen `
+    /// ` pen: QPen `
     ///
-    pub fn SetPen2(self: ?*anyopaque, pen: ?*anyopaque) void {
-        qtc.QPainter_SetPen2(@ptrCast(self), @ptrCast(pen));
+    pub fn SetPen2(self: QStylePainter, pen: anytype) void {
+        comptime _ = @TypeOf(pen)._is_QPen;
+        qtc.QPainter_SetPen2(@ptrCast(self.ptr), @ptrCast(pen.ptr));
     }
 
     /// Inherited from QPainter
@@ -331,12 +388,12 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` style: qnamespace_enums.PenStyle `
     ///
-    pub fn SetPen3(self: ?*anyopaque, style: i32) void {
-        qtc.QPainter_SetPen3(@ptrCast(self), @bitCast(style));
+    pub fn SetPen3(self: QStylePainter, style: i32) void {
+        qtc.QPainter_SetPen3(@ptrCast(self.ptr), @bitCast(style));
     }
 
     /// Inherited from QPainter
@@ -345,10 +402,10 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    pub fn Pen(self: ?*anyopaque) QtC.QPen {
-        return qtc.QPainter_Pen(@ptrCast(self));
+    pub fn Pen(self: QStylePainter) QPen {
+        return .{ .ptr = qtc.QPainter_Pen(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QPainter
@@ -357,12 +414,13 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` brush: QtC.QBrush `
+    /// ` brush: QBrush `
     ///
-    pub fn SetBrush(self: ?*anyopaque, brush: ?*anyopaque) void {
-        qtc.QPainter_SetBrush(@ptrCast(self), @ptrCast(brush));
+    pub fn SetBrush(self: QStylePainter, brush: anytype) void {
+        comptime _ = @TypeOf(brush)._is_QBrush;
+        qtc.QPainter_SetBrush(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
 
     /// Inherited from QPainter
@@ -371,12 +429,12 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` style: qnamespace_enums.BrushStyle `
     ///
-    pub fn SetBrush2(self: ?*anyopaque, style: i32) void {
-        qtc.QPainter_SetBrush2(@ptrCast(self), @bitCast(style));
+    pub fn SetBrush2(self: QStylePainter, style: i32) void {
+        qtc.QPainter_SetBrush2(@ptrCast(self.ptr), @bitCast(style));
     }
 
     /// Inherited from QPainter
@@ -385,10 +443,10 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    pub fn Brush(self: ?*anyopaque) QtC.QBrush {
-        return qtc.QPainter_Brush(@ptrCast(self));
+    pub fn Brush(self: QStylePainter) QBrush {
+        return .{ .ptr = qtc.QPainter_Brush(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QPainter
@@ -397,12 +455,12 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` mode: qnamespace_enums.BGMode `
     ///
-    pub fn SetBackgroundMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QPainter_SetBackgroundMode(@ptrCast(self), @bitCast(mode));
+    pub fn SetBackgroundMode(self: QStylePainter, mode: i32) void {
+        qtc.QPainter_SetBackgroundMode(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// Inherited from QPainter
@@ -411,14 +469,14 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.BGMode `
     ///
-    pub fn BackgroundMode(self: ?*anyopaque) i32 {
-        return qtc.QPainter_BackgroundMode(@ptrCast(self));
+    pub fn BackgroundMode(self: QStylePainter) i32 {
+        return qtc.QPainter_BackgroundMode(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPainter
@@ -427,10 +485,10 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    pub fn BrushOrigin(self: ?*anyopaque) QtC.QPoint {
-        return qtc.QPainter_BrushOrigin(@ptrCast(self));
+    pub fn BrushOrigin(self: QStylePainter) QPoint {
+        return .{ .ptr = qtc.QPainter_BrushOrigin(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QPainter
@@ -439,14 +497,14 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn SetBrushOrigin(self: ?*anyopaque, x: i32, y: i32) void {
-        qtc.QPainter_SetBrushOrigin(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn SetBrushOrigin(self: QStylePainter, x: i32, y: i32) void {
+        qtc.QPainter_SetBrushOrigin(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QPainter
@@ -455,12 +513,13 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` brushOrigin: QtC.QPoint `
+    /// ` brushOrigin: QPoint `
     ///
-    pub fn SetBrushOrigin2(self: ?*anyopaque, brushOrigin: ?*anyopaque) void {
-        qtc.QPainter_SetBrushOrigin2(@ptrCast(self), @ptrCast(brushOrigin));
+    pub fn SetBrushOrigin2(self: QStylePainter, brushOrigin: anytype) void {
+        comptime _ = @TypeOf(brushOrigin)._is_QPoint;
+        qtc.QPainter_SetBrushOrigin2(@ptrCast(self.ptr), @ptrCast(brushOrigin.ptr));
     }
 
     /// Inherited from QPainter
@@ -469,12 +528,13 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` brushOrigin: QtC.QPointF `
+    /// ` brushOrigin: QPointF `
     ///
-    pub fn SetBrushOrigin3(self: ?*anyopaque, brushOrigin: ?*anyopaque) void {
-        qtc.QPainter_SetBrushOrigin3(@ptrCast(self), @ptrCast(brushOrigin));
+    pub fn SetBrushOrigin3(self: QStylePainter, brushOrigin: anytype) void {
+        comptime _ = @TypeOf(brushOrigin)._is_QPointF;
+        qtc.QPainter_SetBrushOrigin3(@ptrCast(self.ptr), @ptrCast(brushOrigin.ptr));
     }
 
     /// Inherited from QPainter
@@ -483,12 +543,13 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` bg: QtC.QBrush `
+    /// ` bg: QBrush `
     ///
-    pub fn SetBackground(self: ?*anyopaque, bg: ?*anyopaque) void {
-        qtc.QPainter_SetBackground(@ptrCast(self), @ptrCast(bg));
+    pub fn SetBackground(self: QStylePainter, bg: anytype) void {
+        comptime _ = @TypeOf(bg)._is_QBrush;
+        qtc.QPainter_SetBackground(@ptrCast(self.ptr), @ptrCast(bg.ptr));
     }
 
     /// Inherited from QPainter
@@ -497,10 +558,10 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    pub fn Background(self: ?*anyopaque) QtC.QBrush {
-        return qtc.QPainter_Background(@ptrCast(self));
+    pub fn Background(self: QStylePainter) QBrush {
+        return .{ .ptr = qtc.QPainter_Background(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QPainter
@@ -509,10 +570,10 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    pub fn Opacity(self: ?*anyopaque) f64 {
-        return qtc.QPainter_Opacity(@ptrCast(self));
+    pub fn Opacity(self: QStylePainter) f64 {
+        return qtc.QPainter_Opacity(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPainter
@@ -521,12 +582,12 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` opacity: f64 `
     ///
-    pub fn SetOpacity(self: ?*anyopaque, opacity: f64) void {
-        qtc.QPainter_SetOpacity(@ptrCast(self), @bitCast(opacity));
+    pub fn SetOpacity(self: QStylePainter, opacity: f64) void {
+        qtc.QPainter_SetOpacity(@ptrCast(self.ptr), @bitCast(opacity));
     }
 
     /// Inherited from QPainter
@@ -535,10 +596,10 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    pub fn ClipRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QPainter_ClipRegion(@ptrCast(self));
+    pub fn ClipRegion(self: QStylePainter) QRegion {
+        return .{ .ptr = qtc.QPainter_ClipRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QPainter
@@ -547,10 +608,10 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    pub fn ClipPath(self: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QPainter_ClipPath(@ptrCast(self));
+    pub fn ClipPath(self: QStylePainter) QPainterPath {
+        return .{ .ptr = qtc.QPainter_ClipPath(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QPainter
@@ -559,12 +620,13 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` param1: QtC.QRectF `
+    /// ` param1: QRectF `
     ///
-    pub fn SetClipRect(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QPainter_SetClipRect(@ptrCast(self), @ptrCast(param1));
+    pub fn SetClipRect(self: QStylePainter, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRectF;
+        qtc.QPainter_SetClipRect(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QPainter
@@ -573,12 +635,13 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn SetClipRect2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QPainter_SetClipRect2(@ptrCast(self), @ptrCast(param1));
+    pub fn SetClipRect2(self: QStylePainter, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QPainter_SetClipRect2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QPainter
@@ -587,7 +650,7 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` x: i32 `
     ///
@@ -597,8 +660,8 @@ pub const qstylepainter = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetClipRect3(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QPainter_SetClipRect3(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn SetClipRect3(self: QStylePainter, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QPainter_SetClipRect3(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QPainter
@@ -607,12 +670,13 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn SetClipRegion(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QPainter_SetClipRegion(@ptrCast(self), @ptrCast(param1));
+    pub fn SetClipRegion(self: QStylePainter, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QPainter_SetClipRegion(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QPainter
@@ -621,12 +685,13 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` path: QtC.QPainterPath `
+    /// ` path: QPainterPath `
     ///
-    pub fn SetClipPath(self: ?*anyopaque, path: ?*anyopaque) void {
-        qtc.QPainter_SetClipPath(@ptrCast(self), @ptrCast(path));
+    pub fn SetClipPath(self: QStylePainter, path: anytype) void {
+        comptime _ = @TypeOf(path)._is_QPainterPath;
+        qtc.QPainter_SetClipPath(@ptrCast(self.ptr), @ptrCast(path.ptr));
     }
 
     /// Inherited from QPainter
@@ -635,12 +700,12 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetClipping(self: ?*anyopaque, enable: bool) void {
-        qtc.QPainter_SetClipping(@ptrCast(self), enable);
+    pub fn SetClipping(self: QStylePainter, enable: bool) void {
+        qtc.QPainter_SetClipping(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QPainter
@@ -649,10 +714,10 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    pub fn HasClipping(self: ?*anyopaque) bool {
-        return qtc.QPainter_HasClipping(@ptrCast(self));
+    pub fn HasClipping(self: QStylePainter) bool {
+        return qtc.QPainter_HasClipping(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPainter
@@ -661,10 +726,10 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    pub fn ClipBoundingRect(self: ?*anyopaque) QtC.QRectF {
-        return qtc.QPainter_ClipBoundingRect(@ptrCast(self));
+    pub fn ClipBoundingRect(self: QStylePainter) QRectF {
+        return .{ .ptr = qtc.QPainter_ClipBoundingRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QPainter
@@ -673,10 +738,10 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    pub fn Save(self: ?*anyopaque) void {
-        qtc.QPainter_Save(@ptrCast(self));
+    pub fn Save(self: QStylePainter) void {
+        qtc.QPainter_Save(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPainter
@@ -685,10 +750,10 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    pub fn Restore(self: ?*anyopaque) void {
-        qtc.QPainter_Restore(@ptrCast(self));
+    pub fn Restore(self: QStylePainter) void {
+        qtc.QPainter_Restore(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPainter
@@ -697,12 +762,13 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` transform: QtC.QTransform `
+    /// ` transform: QTransform `
     ///
-    pub fn SetTransform(self: ?*anyopaque, transform: ?*anyopaque) void {
-        qtc.QPainter_SetTransform(@ptrCast(self), @ptrCast(transform));
+    pub fn SetTransform(self: QStylePainter, transform: anytype) void {
+        comptime _ = @TypeOf(transform)._is_QTransform;
+        qtc.QPainter_SetTransform(@ptrCast(self.ptr), @ptrCast(transform.ptr));
     }
 
     /// Inherited from QPainter
@@ -711,10 +777,10 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    pub fn Transform(self: ?*anyopaque) QtC.QTransform {
-        return qtc.QPainter_Transform(@ptrCast(self));
+    pub fn Transform(self: QStylePainter) QTransform {
+        return .{ .ptr = qtc.QPainter_Transform(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QPainter
@@ -723,10 +789,10 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    pub fn DeviceTransform(self: ?*anyopaque) QtC.QTransform {
-        return qtc.QPainter_DeviceTransform(@ptrCast(self));
+    pub fn DeviceTransform(self: QStylePainter) QTransform {
+        return .{ .ptr = qtc.QPainter_DeviceTransform(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QPainter
@@ -735,10 +801,10 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    pub fn ResetTransform(self: ?*anyopaque) void {
-        qtc.QPainter_ResetTransform(@ptrCast(self));
+    pub fn ResetTransform(self: QStylePainter) void {
+        qtc.QPainter_ResetTransform(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPainter
@@ -747,12 +813,13 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` matrix: QtC.QTransform `
+    /// ` matrix: QTransform `
     ///
-    pub fn SetWorldTransform(self: ?*anyopaque, matrix: ?*anyopaque) void {
-        qtc.QPainter_SetWorldTransform(@ptrCast(self), @ptrCast(matrix));
+    pub fn SetWorldTransform(self: QStylePainter, matrix: anytype) void {
+        comptime _ = @TypeOf(matrix)._is_QTransform;
+        qtc.QPainter_SetWorldTransform(@ptrCast(self.ptr), @ptrCast(matrix.ptr));
     }
 
     /// Inherited from QPainter
@@ -761,10 +828,10 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    pub fn WorldTransform(self: ?*anyopaque) QtC.QTransform {
-        return qtc.QPainter_WorldTransform(@ptrCast(self));
+    pub fn WorldTransform(self: QStylePainter) QTransform {
+        return .{ .ptr = qtc.QPainter_WorldTransform(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QPainter
@@ -773,10 +840,10 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    pub fn CombinedTransform(self: ?*anyopaque) QtC.QTransform {
-        return qtc.QPainter_CombinedTransform(@ptrCast(self));
+    pub fn CombinedTransform(self: QStylePainter) QTransform {
+        return .{ .ptr = qtc.QPainter_CombinedTransform(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QPainter
@@ -785,12 +852,12 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetWorldMatrixEnabled(self: ?*anyopaque, enabled: bool) void {
-        qtc.QPainter_SetWorldMatrixEnabled(@ptrCast(self), enabled);
+    pub fn SetWorldMatrixEnabled(self: QStylePainter, enabled: bool) void {
+        qtc.QPainter_SetWorldMatrixEnabled(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QPainter
@@ -799,10 +866,10 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    pub fn WorldMatrixEnabled(self: ?*anyopaque) bool {
-        return qtc.QPainter_WorldMatrixEnabled(@ptrCast(self));
+    pub fn WorldMatrixEnabled(self: QStylePainter) bool {
+        return qtc.QPainter_WorldMatrixEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPainter
@@ -811,14 +878,14 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` sx: f64 `
     ///
     /// ` sy: f64 `
     ///
-    pub fn Scale(self: ?*anyopaque, sx: f64, sy: f64) void {
-        qtc.QPainter_Scale(@ptrCast(self), @bitCast(sx), @bitCast(sy));
+    pub fn Scale(self: QStylePainter, sx: f64, sy: f64) void {
+        qtc.QPainter_Scale(@ptrCast(self.ptr), @bitCast(sx), @bitCast(sy));
     }
 
     /// Inherited from QPainter
@@ -827,14 +894,14 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` sh: f64 `
     ///
     /// ` sv: f64 `
     ///
-    pub fn Shear(self: ?*anyopaque, sh: f64, sv: f64) void {
-        qtc.QPainter_Shear(@ptrCast(self), @bitCast(sh), @bitCast(sv));
+    pub fn Shear(self: QStylePainter, sh: f64, sv: f64) void {
+        qtc.QPainter_Shear(@ptrCast(self.ptr), @bitCast(sh), @bitCast(sv));
     }
 
     /// Inherited from QPainter
@@ -843,12 +910,12 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` a: f64 `
     ///
-    pub fn Rotate(self: ?*anyopaque, a: f64) void {
-        qtc.QPainter_Rotate(@ptrCast(self), @bitCast(a));
+    pub fn Rotate(self: QStylePainter, a: f64) void {
+        qtc.QPainter_Rotate(@ptrCast(self.ptr), @bitCast(a));
     }
 
     /// Inherited from QPainter
@@ -857,12 +924,13 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` offset: QtC.QPointF `
+    /// ` offset: QPointF `
     ///
-    pub fn Translate(self: ?*anyopaque, offset: ?*anyopaque) void {
-        qtc.QPainter_Translate(@ptrCast(self), @ptrCast(offset));
+    pub fn Translate(self: QStylePainter, offset: anytype) void {
+        comptime _ = @TypeOf(offset)._is_QPointF;
+        qtc.QPainter_Translate(@ptrCast(self.ptr), @ptrCast(offset.ptr));
     }
 
     /// Inherited from QPainter
@@ -871,12 +939,13 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn Translate2(self: ?*anyopaque, offset: ?*anyopaque) void {
-        qtc.QPainter_Translate2(@ptrCast(self), @ptrCast(offset));
+    pub fn Translate2(self: QStylePainter, offset: anytype) void {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        qtc.QPainter_Translate2(@ptrCast(self.ptr), @ptrCast(offset.ptr));
     }
 
     /// Inherited from QPainter
@@ -885,14 +954,14 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` dx: f64 `
     ///
     /// ` dy: f64 `
     ///
-    pub fn Translate3(self: ?*anyopaque, dx: f64, dy: f64) void {
-        qtc.QPainter_Translate3(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn Translate3(self: QStylePainter, dx: f64, dy: f64) void {
+        qtc.QPainter_Translate3(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QPainter
@@ -901,10 +970,10 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    pub fn Window(self: ?*anyopaque) QtC.QRect {
-        return qtc.QPainter_Window(@ptrCast(self));
+    pub fn Window(self: QStylePainter) QRect {
+        return .{ .ptr = qtc.QPainter_Window(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QPainter
@@ -913,12 +982,13 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` window: QtC.QRect `
+    /// ` window: QRect `
     ///
-    pub fn SetWindow(self: ?*anyopaque, window: ?*anyopaque) void {
-        qtc.QPainter_SetWindow(@ptrCast(self), @ptrCast(window));
+    pub fn SetWindow(self: QStylePainter, window: anytype) void {
+        comptime _ = @TypeOf(window)._is_QRect;
+        qtc.QPainter_SetWindow(@ptrCast(self.ptr), @ptrCast(window.ptr));
     }
 
     /// Inherited from QPainter
@@ -927,7 +997,7 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` x: i32 `
     ///
@@ -937,8 +1007,8 @@ pub const qstylepainter = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetWindow2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QPainter_SetWindow2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn SetWindow2(self: QStylePainter, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QPainter_SetWindow2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QPainter
@@ -947,10 +1017,10 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    pub fn Viewport(self: ?*anyopaque) QtC.QRect {
-        return qtc.QPainter_Viewport(@ptrCast(self));
+    pub fn Viewport(self: QStylePainter) QRect {
+        return .{ .ptr = qtc.QPainter_Viewport(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QPainter
@@ -959,12 +1029,13 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` viewport: QtC.QRect `
+    /// ` viewport: QRect `
     ///
-    pub fn SetViewport(self: ?*anyopaque, viewport: ?*anyopaque) void {
-        qtc.QPainter_SetViewport(@ptrCast(self), @ptrCast(viewport));
+    pub fn SetViewport(self: QStylePainter, viewport: anytype) void {
+        comptime _ = @TypeOf(viewport)._is_QRect;
+        qtc.QPainter_SetViewport(@ptrCast(self.ptr), @ptrCast(viewport.ptr));
     }
 
     /// Inherited from QPainter
@@ -973,7 +1044,7 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` x: i32 `
     ///
@@ -983,8 +1054,8 @@ pub const qstylepainter = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetViewport2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QPainter_SetViewport2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn SetViewport2(self: QStylePainter, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QPainter_SetViewport2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QPainter
@@ -993,12 +1064,12 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetViewTransformEnabled(self: ?*anyopaque, enable: bool) void {
-        qtc.QPainter_SetViewTransformEnabled(@ptrCast(self), enable);
+    pub fn SetViewTransformEnabled(self: QStylePainter, enable: bool) void {
+        qtc.QPainter_SetViewTransformEnabled(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QPainter
@@ -1007,10 +1078,10 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    pub fn ViewTransformEnabled(self: ?*anyopaque) bool {
-        return qtc.QPainter_ViewTransformEnabled(@ptrCast(self));
+    pub fn ViewTransformEnabled(self: QStylePainter) bool {
+        return qtc.QPainter_ViewTransformEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPainter
@@ -1019,14 +1090,16 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` path: QtC.QPainterPath `
+    /// ` path: QPainterPath `
     ///
-    /// ` pen: QtC.QPen `
+    /// ` pen: QPen `
     ///
-    pub fn StrokePath(self: ?*anyopaque, path: ?*anyopaque, pen: ?*anyopaque) void {
-        qtc.QPainter_StrokePath(@ptrCast(self), @ptrCast(path), @ptrCast(pen));
+    pub fn StrokePath(self: QStylePainter, path: anytype, pen: anytype) void {
+        comptime _ = @TypeOf(path)._is_QPainterPath;
+        comptime _ = @TypeOf(pen)._is_QPen;
+        qtc.QPainter_StrokePath(@ptrCast(self.ptr), @ptrCast(path.ptr), @ptrCast(pen.ptr));
     }
 
     /// Inherited from QPainter
@@ -1035,14 +1108,16 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` path: QtC.QPainterPath `
+    /// ` path: QPainterPath `
     ///
-    /// ` brush: QtC.QBrush `
+    /// ` brush: QBrush `
     ///
-    pub fn FillPath(self: ?*anyopaque, path: ?*anyopaque, brush: ?*anyopaque) void {
-        qtc.QPainter_FillPath(@ptrCast(self), @ptrCast(path), @ptrCast(brush));
+    pub fn FillPath(self: QStylePainter, path: anytype, brush: anytype) void {
+        comptime _ = @TypeOf(path)._is_QPainterPath;
+        comptime _ = @TypeOf(brush)._is_QBrush;
+        qtc.QPainter_FillPath(@ptrCast(self.ptr), @ptrCast(path.ptr), @ptrCast(brush.ptr));
     }
 
     /// Inherited from QPainter
@@ -1051,12 +1126,13 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` path: QtC.QPainterPath `
+    /// ` path: QPainterPath `
     ///
-    pub fn DrawPath(self: ?*anyopaque, path: ?*anyopaque) void {
-        qtc.QPainter_DrawPath(@ptrCast(self), @ptrCast(path));
+    pub fn DrawPath(self: QStylePainter, path: anytype) void {
+        comptime _ = @TypeOf(path)._is_QPainterPath;
+        qtc.QPainter_DrawPath(@ptrCast(self.ptr), @ptrCast(path.ptr));
     }
 
     /// Inherited from QPainter
@@ -1065,12 +1141,13 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` pt: QtC.QPointF `
+    /// ` pt: QPointF `
     ///
-    pub fn DrawPoint(self: ?*anyopaque, pt: ?*anyopaque) void {
-        qtc.QPainter_DrawPoint(@ptrCast(self), @ptrCast(pt));
+    pub fn DrawPoint(self: QStylePainter, pt: anytype) void {
+        comptime _ = @TypeOf(pt)._is_QPointF;
+        qtc.QPainter_DrawPoint(@ptrCast(self.ptr), @ptrCast(pt.ptr));
     }
 
     /// Inherited from QPainter
@@ -1079,12 +1156,13 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` p: QtC.QPoint `
+    /// ` p: QPoint `
     ///
-    pub fn DrawPoint2(self: ?*anyopaque, p: ?*anyopaque) void {
-        qtc.QPainter_DrawPoint2(@ptrCast(self), @ptrCast(p));
+    pub fn DrawPoint2(self: QStylePainter, p: anytype) void {
+        comptime _ = @TypeOf(p)._is_QPoint;
+        qtc.QPainter_DrawPoint2(@ptrCast(self.ptr), @ptrCast(p.ptr));
     }
 
     /// Inherited from QPainter
@@ -1093,14 +1171,14 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn DrawPoint3(self: ?*anyopaque, x: i32, y: i32) void {
-        qtc.QPainter_DrawPoint3(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn DrawPoint3(self: QStylePainter, x: i32, y: i32) void {
+        qtc.QPainter_DrawPoint3(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QPainter
@@ -1109,14 +1187,15 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` points: QtC.QPointF `
+    /// ` points: QPointF `
     ///
     /// ` pointCount: i32 `
     ///
-    pub fn DrawPoints(self: ?*anyopaque, points: ?*anyopaque, pointCount: i32) void {
-        qtc.QPainter_DrawPoints(@ptrCast(self), @ptrCast(points), @bitCast(pointCount));
+    pub fn DrawPoints(self: QStylePainter, points: anytype, pointCount: i32) void {
+        comptime _ = @TypeOf(points)._is_QPointF;
+        qtc.QPainter_DrawPoints(@ptrCast(self.ptr), @ptrCast(points.ptr), @bitCast(pointCount));
     }
 
     /// Inherited from QPainter
@@ -1125,14 +1204,15 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` points: QtC.QPoint `
+    /// ` points: QPoint `
     ///
     /// ` pointCount: i32 `
     ///
-    pub fn DrawPoints3(self: ?*anyopaque, points: ?*anyopaque, pointCount: i32) void {
-        qtc.QPainter_DrawPoints3(@ptrCast(self), @ptrCast(points), @bitCast(pointCount));
+    pub fn DrawPoints3(self: QStylePainter, points: anytype, pointCount: i32) void {
+        comptime _ = @TypeOf(points)._is_QPoint;
+        qtc.QPainter_DrawPoints3(@ptrCast(self.ptr), @ptrCast(points.ptr), @bitCast(pointCount));
     }
 
     /// Inherited from QPainter
@@ -1141,12 +1221,13 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` line: QtC.QLineF `
+    /// ` line: QLineF `
     ///
-    pub fn DrawLine(self: ?*anyopaque, line: ?*anyopaque) void {
-        qtc.QPainter_DrawLine(@ptrCast(self), @ptrCast(line));
+    pub fn DrawLine(self: QStylePainter, line: anytype) void {
+        comptime _ = @TypeOf(line)._is_QLineF;
+        qtc.QPainter_DrawLine(@ptrCast(self.ptr), @ptrCast(line.ptr));
     }
 
     /// Inherited from QPainter
@@ -1155,12 +1236,13 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` line: QtC.QLine `
+    /// ` line: QLine `
     ///
-    pub fn DrawLine2(self: ?*anyopaque, line: ?*anyopaque) void {
-        qtc.QPainter_DrawLine2(@ptrCast(self), @ptrCast(line));
+    pub fn DrawLine2(self: QStylePainter, line: anytype) void {
+        comptime _ = @TypeOf(line)._is_QLine;
+        qtc.QPainter_DrawLine2(@ptrCast(self.ptr), @ptrCast(line.ptr));
     }
 
     /// Inherited from QPainter
@@ -1169,7 +1251,7 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` x1: i32 `
     ///
@@ -1179,8 +1261,8 @@ pub const qstylepainter = struct {
     ///
     /// ` y2: i32 `
     ///
-    pub fn DrawLine3(self: ?*anyopaque, x1: i32, y1: i32, x2: i32, y2: i32) void {
-        qtc.QPainter_DrawLine3(@ptrCast(self), @bitCast(x1), @bitCast(y1), @bitCast(x2), @bitCast(y2));
+    pub fn DrawLine3(self: QStylePainter, x1: i32, y1: i32, x2: i32, y2: i32) void {
+        qtc.QPainter_DrawLine3(@ptrCast(self.ptr), @bitCast(x1), @bitCast(y1), @bitCast(x2), @bitCast(y2));
     }
 
     /// Inherited from QPainter
@@ -1189,14 +1271,16 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` p1: QtC.QPoint `
+    /// ` p1: QPoint `
     ///
-    /// ` p2: QtC.QPoint `
+    /// ` p2: QPoint `
     ///
-    pub fn DrawLine4(self: ?*anyopaque, p1: ?*anyopaque, p2: ?*anyopaque) void {
-        qtc.QPainter_DrawLine4(@ptrCast(self), @ptrCast(p1), @ptrCast(p2));
+    pub fn DrawLine4(self: QStylePainter, p1: anytype, p2: anytype) void {
+        comptime _ = @TypeOf(p1)._is_QPoint;
+        comptime _ = @TypeOf(p2)._is_QPoint;
+        qtc.QPainter_DrawLine4(@ptrCast(self.ptr), @ptrCast(p1.ptr), @ptrCast(p2.ptr));
     }
 
     /// Inherited from QPainter
@@ -1205,14 +1289,16 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` p1: QtC.QPointF `
+    /// ` p1: QPointF `
     ///
-    /// ` p2: QtC.QPointF `
+    /// ` p2: QPointF `
     ///
-    pub fn DrawLine5(self: ?*anyopaque, p1: ?*anyopaque, p2: ?*anyopaque) void {
-        qtc.QPainter_DrawLine5(@ptrCast(self), @ptrCast(p1), @ptrCast(p2));
+    pub fn DrawLine5(self: QStylePainter, p1: anytype, p2: anytype) void {
+        comptime _ = @TypeOf(p1)._is_QPointF;
+        comptime _ = @TypeOf(p2)._is_QPointF;
+        qtc.QPainter_DrawLine5(@ptrCast(self.ptr), @ptrCast(p1.ptr), @ptrCast(p2.ptr));
     }
 
     /// Inherited from QPainter
@@ -1221,14 +1307,15 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` lines: QtC.QLineF `
+    /// ` lines: QLineF `
     ///
     /// ` lineCount: i32 `
     ///
-    pub fn DrawLines(self: ?*anyopaque, lines: ?*anyopaque, lineCount: i32) void {
-        qtc.QPainter_DrawLines(@ptrCast(self), @ptrCast(lines), @bitCast(lineCount));
+    pub fn DrawLines(self: QStylePainter, lines: anytype, lineCount: i32) void {
+        comptime _ = @TypeOf(lines)._is_QLineF;
+        qtc.QPainter_DrawLines(@ptrCast(self.ptr), @ptrCast(lines.ptr), @bitCast(lineCount));
     }
 
     /// Inherited from QPainter
@@ -1237,16 +1324,16 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` lines: []QtC.QLineF `
+    /// ` lines: []QLineF `
     ///
-    pub fn DrawLines2(self: ?*anyopaque, lines: []QtC.QLineF) void {
+    pub fn DrawLines2(self: QStylePainter, lines: []QLineF) void {
         const lines_list = qtc.libqt_list{
             .len = lines.len,
             .data = @ptrCast(lines.ptr),
         };
-        qtc.QPainter_DrawLines2(@ptrCast(self), lines_list);
+        qtc.QPainter_DrawLines2(@ptrCast(self.ptr), lines_list);
     }
 
     /// Inherited from QPainter
@@ -1255,14 +1342,15 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` pointPairs: QtC.QPointF `
+    /// ` pointPairs: QPointF `
     ///
     /// ` lineCount: i32 `
     ///
-    pub fn DrawLines3(self: ?*anyopaque, pointPairs: ?*anyopaque, lineCount: i32) void {
-        qtc.QPainter_DrawLines3(@ptrCast(self), @ptrCast(pointPairs), @bitCast(lineCount));
+    pub fn DrawLines3(self: QStylePainter, pointPairs: anytype, lineCount: i32) void {
+        comptime _ = @TypeOf(pointPairs)._is_QPointF;
+        qtc.QPainter_DrawLines3(@ptrCast(self.ptr), @ptrCast(pointPairs.ptr), @bitCast(lineCount));
     }
 
     /// Inherited from QPainter
@@ -1271,16 +1359,16 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` pointPairs: []QtC.QPointF `
+    /// ` pointPairs: []QPointF `
     ///
-    pub fn DrawLines4(self: ?*anyopaque, pointPairs: []QtC.QPointF) void {
+    pub fn DrawLines4(self: QStylePainter, pointPairs: []QPointF) void {
         const pointPairs_list = qtc.libqt_list{
             .len = pointPairs.len,
             .data = @ptrCast(pointPairs.ptr),
         };
-        qtc.QPainter_DrawLines4(@ptrCast(self), pointPairs_list);
+        qtc.QPainter_DrawLines4(@ptrCast(self.ptr), pointPairs_list);
     }
 
     /// Inherited from QPainter
@@ -1289,14 +1377,15 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` lines: QtC.QLine `
+    /// ` lines: QLine `
     ///
     /// ` lineCount: i32 `
     ///
-    pub fn DrawLines5(self: ?*anyopaque, lines: ?*anyopaque, lineCount: i32) void {
-        qtc.QPainter_DrawLines5(@ptrCast(self), @ptrCast(lines), @bitCast(lineCount));
+    pub fn DrawLines5(self: QStylePainter, lines: anytype, lineCount: i32) void {
+        comptime _ = @TypeOf(lines)._is_QLine;
+        qtc.QPainter_DrawLines5(@ptrCast(self.ptr), @ptrCast(lines.ptr), @bitCast(lineCount));
     }
 
     /// Inherited from QPainter
@@ -1305,16 +1394,16 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` lines: []QtC.QLine `
+    /// ` lines: []QLine `
     ///
-    pub fn DrawLines6(self: ?*anyopaque, lines: []QtC.QLine) void {
+    pub fn DrawLines6(self: QStylePainter, lines: []QLine) void {
         const lines_list = qtc.libqt_list{
             .len = lines.len,
             .data = @ptrCast(lines.ptr),
         };
-        qtc.QPainter_DrawLines6(@ptrCast(self), lines_list);
+        qtc.QPainter_DrawLines6(@ptrCast(self.ptr), lines_list);
     }
 
     /// Inherited from QPainter
@@ -1323,14 +1412,15 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` pointPairs: QtC.QPoint `
+    /// ` pointPairs: QPoint `
     ///
     /// ` lineCount: i32 `
     ///
-    pub fn DrawLines7(self: ?*anyopaque, pointPairs: ?*anyopaque, lineCount: i32) void {
-        qtc.QPainter_DrawLines7(@ptrCast(self), @ptrCast(pointPairs), @bitCast(lineCount));
+    pub fn DrawLines7(self: QStylePainter, pointPairs: anytype, lineCount: i32) void {
+        comptime _ = @TypeOf(pointPairs)._is_QPoint;
+        qtc.QPainter_DrawLines7(@ptrCast(self.ptr), @ptrCast(pointPairs.ptr), @bitCast(lineCount));
     }
 
     /// Inherited from QPainter
@@ -1339,16 +1429,16 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` pointPairs: []QtC.QPoint `
+    /// ` pointPairs: []QPoint `
     ///
-    pub fn DrawLines8(self: ?*anyopaque, pointPairs: []QtC.QPoint) void {
+    pub fn DrawLines8(self: QStylePainter, pointPairs: []QPoint) void {
         const pointPairs_list = qtc.libqt_list{
             .len = pointPairs.len,
             .data = @ptrCast(pointPairs.ptr),
         };
-        qtc.QPainter_DrawLines8(@ptrCast(self), pointPairs_list);
+        qtc.QPainter_DrawLines8(@ptrCast(self.ptr), pointPairs_list);
     }
 
     /// Inherited from QPainter
@@ -1357,12 +1447,13 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` rect: QtC.QRectF `
+    /// ` rect: QRectF `
     ///
-    pub fn DrawRect(self: ?*anyopaque, rect: ?*anyopaque) void {
-        qtc.QPainter_DrawRect(@ptrCast(self), @ptrCast(rect));
+    pub fn DrawRect(self: QStylePainter, rect: anytype) void {
+        comptime _ = @TypeOf(rect)._is_QRectF;
+        qtc.QPainter_DrawRect(@ptrCast(self.ptr), @ptrCast(rect.ptr));
     }
 
     /// Inherited from QPainter
@@ -1371,7 +1462,7 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` x1: i32 `
     ///
@@ -1381,8 +1472,8 @@ pub const qstylepainter = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn DrawRect2(self: ?*anyopaque, x1: i32, y1: i32, w: i32, h: i32) void {
-        qtc.QPainter_DrawRect2(@ptrCast(self), @bitCast(x1), @bitCast(y1), @bitCast(w), @bitCast(h));
+    pub fn DrawRect2(self: QStylePainter, x1: i32, y1: i32, w: i32, h: i32) void {
+        qtc.QPainter_DrawRect2(@ptrCast(self.ptr), @bitCast(x1), @bitCast(y1), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QPainter
@@ -1391,12 +1482,13 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` rect: QtC.QRect `
+    /// ` rect: QRect `
     ///
-    pub fn DrawRect3(self: ?*anyopaque, rect: ?*anyopaque) void {
-        qtc.QPainter_DrawRect3(@ptrCast(self), @ptrCast(rect));
+    pub fn DrawRect3(self: QStylePainter, rect: anytype) void {
+        comptime _ = @TypeOf(rect)._is_QRect;
+        qtc.QPainter_DrawRect3(@ptrCast(self.ptr), @ptrCast(rect.ptr));
     }
 
     /// Inherited from QPainter
@@ -1405,14 +1497,15 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` rects: QtC.QRectF `
+    /// ` rects: QRectF `
     ///
     /// ` rectCount: i32 `
     ///
-    pub fn DrawRects(self: ?*anyopaque, rects: ?*anyopaque, rectCount: i32) void {
-        qtc.QPainter_DrawRects(@ptrCast(self), @ptrCast(rects), @bitCast(rectCount));
+    pub fn DrawRects(self: QStylePainter, rects: anytype, rectCount: i32) void {
+        comptime _ = @TypeOf(rects)._is_QRectF;
+        qtc.QPainter_DrawRects(@ptrCast(self.ptr), @ptrCast(rects.ptr), @bitCast(rectCount));
     }
 
     /// Inherited from QPainter
@@ -1421,16 +1514,16 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` rectangles: []QtC.QRectF `
+    /// ` rectangles: []QRectF `
     ///
-    pub fn DrawRects2(self: ?*anyopaque, rectangles: []QtC.QRectF) void {
+    pub fn DrawRects2(self: QStylePainter, rectangles: []QRectF) void {
         const rectangles_list = qtc.libqt_list{
             .len = rectangles.len,
             .data = @ptrCast(rectangles.ptr),
         };
-        qtc.QPainter_DrawRects2(@ptrCast(self), rectangles_list);
+        qtc.QPainter_DrawRects2(@ptrCast(self.ptr), rectangles_list);
     }
 
     /// Inherited from QPainter
@@ -1439,14 +1532,15 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` rects: QtC.QRect `
+    /// ` rects: QRect `
     ///
     /// ` rectCount: i32 `
     ///
-    pub fn DrawRects3(self: ?*anyopaque, rects: ?*anyopaque, rectCount: i32) void {
-        qtc.QPainter_DrawRects3(@ptrCast(self), @ptrCast(rects), @bitCast(rectCount));
+    pub fn DrawRects3(self: QStylePainter, rects: anytype, rectCount: i32) void {
+        comptime _ = @TypeOf(rects)._is_QRect;
+        qtc.QPainter_DrawRects3(@ptrCast(self.ptr), @ptrCast(rects.ptr), @bitCast(rectCount));
     }
 
     /// Inherited from QPainter
@@ -1455,16 +1549,16 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` rectangles: []QtC.QRect `
+    /// ` rectangles: []QRect `
     ///
-    pub fn DrawRects4(self: ?*anyopaque, rectangles: []QtC.QRect) void {
+    pub fn DrawRects4(self: QStylePainter, rectangles: []QRect) void {
         const rectangles_list = qtc.libqt_list{
             .len = rectangles.len,
             .data = @ptrCast(rectangles.ptr),
         };
-        qtc.QPainter_DrawRects4(@ptrCast(self), rectangles_list);
+        qtc.QPainter_DrawRects4(@ptrCast(self.ptr), rectangles_list);
     }
 
     /// Inherited from QPainter
@@ -1473,12 +1567,13 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` r: QtC.QRectF `
+    /// ` r: QRectF `
     ///
-    pub fn DrawEllipse(self: ?*anyopaque, r: ?*anyopaque) void {
-        qtc.QPainter_DrawEllipse(@ptrCast(self), @ptrCast(r));
+    pub fn DrawEllipse(self: QStylePainter, r: anytype) void {
+        comptime _ = @TypeOf(r)._is_QRectF;
+        qtc.QPainter_DrawEllipse(@ptrCast(self.ptr), @ptrCast(r.ptr));
     }
 
     /// Inherited from QPainter
@@ -1487,12 +1582,13 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` r: QtC.QRect `
+    /// ` r: QRect `
     ///
-    pub fn DrawEllipse2(self: ?*anyopaque, r: ?*anyopaque) void {
-        qtc.QPainter_DrawEllipse2(@ptrCast(self), @ptrCast(r));
+    pub fn DrawEllipse2(self: QStylePainter, r: anytype) void {
+        comptime _ = @TypeOf(r)._is_QRect;
+        qtc.QPainter_DrawEllipse2(@ptrCast(self.ptr), @ptrCast(r.ptr));
     }
 
     /// Inherited from QPainter
@@ -1501,7 +1597,7 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` x: i32 `
     ///
@@ -1511,8 +1607,8 @@ pub const qstylepainter = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn DrawEllipse3(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QPainter_DrawEllipse3(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn DrawEllipse3(self: QStylePainter, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QPainter_DrawEllipse3(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QPainter
@@ -1521,16 +1617,17 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` center: QtC.QPointF `
+    /// ` center: QPointF `
     ///
     /// ` rx: f64 `
     ///
     /// ` ry: f64 `
     ///
-    pub fn DrawEllipse4(self: ?*anyopaque, center: ?*anyopaque, rx: f64, ry: f64) void {
-        qtc.QPainter_DrawEllipse4(@ptrCast(self), @ptrCast(center), @bitCast(rx), @bitCast(ry));
+    pub fn DrawEllipse4(self: QStylePainter, center: anytype, rx: f64, ry: f64) void {
+        comptime _ = @TypeOf(center)._is_QPointF;
+        qtc.QPainter_DrawEllipse4(@ptrCast(self.ptr), @ptrCast(center.ptr), @bitCast(rx), @bitCast(ry));
     }
 
     /// Inherited from QPainter
@@ -1539,16 +1636,17 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` center: QtC.QPoint `
+    /// ` center: QPoint `
     ///
     /// ` rx: i32 `
     ///
     /// ` ry: i32 `
     ///
-    pub fn DrawEllipse5(self: ?*anyopaque, center: ?*anyopaque, rx: i32, ry: i32) void {
-        qtc.QPainter_DrawEllipse5(@ptrCast(self), @ptrCast(center), @bitCast(rx), @bitCast(ry));
+    pub fn DrawEllipse5(self: QStylePainter, center: anytype, rx: i32, ry: i32) void {
+        comptime _ = @TypeOf(center)._is_QPoint;
+        qtc.QPainter_DrawEllipse5(@ptrCast(self.ptr), @ptrCast(center.ptr), @bitCast(rx), @bitCast(ry));
     }
 
     /// Inherited from QPainter
@@ -1557,14 +1655,15 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` points: QtC.QPointF `
+    /// ` points: QPointF `
     ///
     /// ` pointCount: i32 `
     ///
-    pub fn DrawPolyline(self: ?*anyopaque, points: ?*anyopaque, pointCount: i32) void {
-        qtc.QPainter_DrawPolyline(@ptrCast(self), @ptrCast(points), @bitCast(pointCount));
+    pub fn DrawPolyline(self: QStylePainter, points: anytype, pointCount: i32) void {
+        comptime _ = @TypeOf(points)._is_QPointF;
+        qtc.QPainter_DrawPolyline(@ptrCast(self.ptr), @ptrCast(points.ptr), @bitCast(pointCount));
     }
 
     /// Inherited from QPainter
@@ -1573,14 +1672,15 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` points: QtC.QPoint `
+    /// ` points: QPoint `
     ///
     /// ` pointCount: i32 `
     ///
-    pub fn DrawPolyline3(self: ?*anyopaque, points: ?*anyopaque, pointCount: i32) void {
-        qtc.QPainter_DrawPolyline3(@ptrCast(self), @ptrCast(points), @bitCast(pointCount));
+    pub fn DrawPolyline3(self: QStylePainter, points: anytype, pointCount: i32) void {
+        comptime _ = @TypeOf(points)._is_QPoint;
+        qtc.QPainter_DrawPolyline3(@ptrCast(self.ptr), @ptrCast(points.ptr), @bitCast(pointCount));
     }
 
     /// Inherited from QPainter
@@ -1589,14 +1689,15 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` points: QtC.QPointF `
+    /// ` points: QPointF `
     ///
     /// ` pointCount: i32 `
     ///
-    pub fn DrawPolygon(self: ?*anyopaque, points: ?*anyopaque, pointCount: i32) void {
-        qtc.QPainter_DrawPolygon(@ptrCast(self), @ptrCast(points), @bitCast(pointCount));
+    pub fn DrawPolygon(self: QStylePainter, points: anytype, pointCount: i32) void {
+        comptime _ = @TypeOf(points)._is_QPointF;
+        qtc.QPainter_DrawPolygon(@ptrCast(self.ptr), @ptrCast(points.ptr), @bitCast(pointCount));
     }
 
     /// Inherited from QPainter
@@ -1605,14 +1706,15 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` points: QtC.QPoint `
+    /// ` points: QPoint `
     ///
     /// ` pointCount: i32 `
     ///
-    pub fn DrawPolygon3(self: ?*anyopaque, points: ?*anyopaque, pointCount: i32) void {
-        qtc.QPainter_DrawPolygon3(@ptrCast(self), @ptrCast(points), @bitCast(pointCount));
+    pub fn DrawPolygon3(self: QStylePainter, points: anytype, pointCount: i32) void {
+        comptime _ = @TypeOf(points)._is_QPoint;
+        qtc.QPainter_DrawPolygon3(@ptrCast(self.ptr), @ptrCast(points.ptr), @bitCast(pointCount));
     }
 
     /// Inherited from QPainter
@@ -1621,14 +1723,15 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` points: QtC.QPointF `
+    /// ` points: QPointF `
     ///
     /// ` pointCount: i32 `
     ///
-    pub fn DrawConvexPolygon(self: ?*anyopaque, points: ?*anyopaque, pointCount: i32) void {
-        qtc.QPainter_DrawConvexPolygon(@ptrCast(self), @ptrCast(points), @bitCast(pointCount));
+    pub fn DrawConvexPolygon(self: QStylePainter, points: anytype, pointCount: i32) void {
+        comptime _ = @TypeOf(points)._is_QPointF;
+        qtc.QPainter_DrawConvexPolygon(@ptrCast(self.ptr), @ptrCast(points.ptr), @bitCast(pointCount));
     }
 
     /// Inherited from QPainter
@@ -1637,14 +1740,15 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` points: QtC.QPoint `
+    /// ` points: QPoint `
     ///
     /// ` pointCount: i32 `
     ///
-    pub fn DrawConvexPolygon3(self: ?*anyopaque, points: ?*anyopaque, pointCount: i32) void {
-        qtc.QPainter_DrawConvexPolygon3(@ptrCast(self), @ptrCast(points), @bitCast(pointCount));
+    pub fn DrawConvexPolygon3(self: QStylePainter, points: anytype, pointCount: i32) void {
+        comptime _ = @TypeOf(points)._is_QPoint;
+        qtc.QPainter_DrawConvexPolygon3(@ptrCast(self.ptr), @ptrCast(points.ptr), @bitCast(pointCount));
     }
 
     /// Inherited from QPainter
@@ -1653,16 +1757,17 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` rect: QtC.QRectF `
+    /// ` rect: QRectF `
     ///
     /// ` a: i32 `
     ///
     /// ` alen: i32 `
     ///
-    pub fn DrawArc(self: ?*anyopaque, rect: ?*anyopaque, a: i32, alen: i32) void {
-        qtc.QPainter_DrawArc(@ptrCast(self), @ptrCast(rect), @bitCast(a), @bitCast(alen));
+    pub fn DrawArc(self: QStylePainter, rect: anytype, a: i32, alen: i32) void {
+        comptime _ = @TypeOf(rect)._is_QRectF;
+        qtc.QPainter_DrawArc(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(a), @bitCast(alen));
     }
 
     /// Inherited from QPainter
@@ -1671,16 +1776,17 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
     /// ` a: i32 `
     ///
     /// ` alen: i32 `
     ///
-    pub fn DrawArc2(self: ?*anyopaque, param1: ?*anyopaque, a: i32, alen: i32) void {
-        qtc.QPainter_DrawArc2(@ptrCast(self), @ptrCast(param1), @bitCast(a), @bitCast(alen));
+    pub fn DrawArc2(self: QStylePainter, param1: anytype, a: i32, alen: i32) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QPainter_DrawArc2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(a), @bitCast(alen));
     }
 
     /// Inherited from QPainter
@@ -1689,7 +1795,7 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` x: i32 `
     ///
@@ -1703,8 +1809,8 @@ pub const qstylepainter = struct {
     ///
     /// ` alen: i32 `
     ///
-    pub fn DrawArc3(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, a: i32, alen: i32) void {
-        qtc.QPainter_DrawArc3(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(a), @bitCast(alen));
+    pub fn DrawArc3(self: QStylePainter, x: i32, y: i32, w: i32, h: i32, a: i32, alen: i32) void {
+        qtc.QPainter_DrawArc3(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(a), @bitCast(alen));
     }
 
     /// Inherited from QPainter
@@ -1713,16 +1819,17 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` rect: QtC.QRectF `
+    /// ` rect: QRectF `
     ///
     /// ` a: i32 `
     ///
     /// ` alen: i32 `
     ///
-    pub fn DrawPie(self: ?*anyopaque, rect: ?*anyopaque, a: i32, alen: i32) void {
-        qtc.QPainter_DrawPie(@ptrCast(self), @ptrCast(rect), @bitCast(a), @bitCast(alen));
+    pub fn DrawPie(self: QStylePainter, rect: anytype, a: i32, alen: i32) void {
+        comptime _ = @TypeOf(rect)._is_QRectF;
+        qtc.QPainter_DrawPie(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(a), @bitCast(alen));
     }
 
     /// Inherited from QPainter
@@ -1731,7 +1838,7 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` x: i32 `
     ///
@@ -1745,8 +1852,8 @@ pub const qstylepainter = struct {
     ///
     /// ` alen: i32 `
     ///
-    pub fn DrawPie2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, a: i32, alen: i32) void {
-        qtc.QPainter_DrawPie2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(a), @bitCast(alen));
+    pub fn DrawPie2(self: QStylePainter, x: i32, y: i32, w: i32, h: i32, a: i32, alen: i32) void {
+        qtc.QPainter_DrawPie2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(a), @bitCast(alen));
     }
 
     /// Inherited from QPainter
@@ -1755,16 +1862,17 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
     /// ` a: i32 `
     ///
     /// ` alen: i32 `
     ///
-    pub fn DrawPie3(self: ?*anyopaque, param1: ?*anyopaque, a: i32, alen: i32) void {
-        qtc.QPainter_DrawPie3(@ptrCast(self), @ptrCast(param1), @bitCast(a), @bitCast(alen));
+    pub fn DrawPie3(self: QStylePainter, param1: anytype, a: i32, alen: i32) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QPainter_DrawPie3(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(a), @bitCast(alen));
     }
 
     /// Inherited from QPainter
@@ -1773,16 +1881,17 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` rect: QtC.QRectF `
+    /// ` rect: QRectF `
     ///
     /// ` a: i32 `
     ///
     /// ` alen: i32 `
     ///
-    pub fn DrawChord(self: ?*anyopaque, rect: ?*anyopaque, a: i32, alen: i32) void {
-        qtc.QPainter_DrawChord(@ptrCast(self), @ptrCast(rect), @bitCast(a), @bitCast(alen));
+    pub fn DrawChord(self: QStylePainter, rect: anytype, a: i32, alen: i32) void {
+        comptime _ = @TypeOf(rect)._is_QRectF;
+        qtc.QPainter_DrawChord(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(a), @bitCast(alen));
     }
 
     /// Inherited from QPainter
@@ -1791,7 +1900,7 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` x: i32 `
     ///
@@ -1805,8 +1914,8 @@ pub const qstylepainter = struct {
     ///
     /// ` alen: i32 `
     ///
-    pub fn DrawChord2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, a: i32, alen: i32) void {
-        qtc.QPainter_DrawChord2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(a), @bitCast(alen));
+    pub fn DrawChord2(self: QStylePainter, x: i32, y: i32, w: i32, h: i32, a: i32, alen: i32) void {
+        qtc.QPainter_DrawChord2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(a), @bitCast(alen));
     }
 
     /// Inherited from QPainter
@@ -1815,16 +1924,17 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
     /// ` a: i32 `
     ///
     /// ` alen: i32 `
     ///
-    pub fn DrawChord3(self: ?*anyopaque, param1: ?*anyopaque, a: i32, alen: i32) void {
-        qtc.QPainter_DrawChord3(@ptrCast(self), @ptrCast(param1), @bitCast(a), @bitCast(alen));
+    pub fn DrawChord3(self: QStylePainter, param1: anytype, a: i32, alen: i32) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QPainter_DrawChord3(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(a), @bitCast(alen));
     }
 
     /// Inherited from QPainter
@@ -1833,16 +1943,17 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` rect: QtC.QRectF `
+    /// ` rect: QRectF `
     ///
     /// ` xRadius: f64 `
     ///
     /// ` yRadius: f64 `
     ///
-    pub fn DrawRoundedRect(self: ?*anyopaque, rect: ?*anyopaque, xRadius: f64, yRadius: f64) void {
-        qtc.QPainter_DrawRoundedRect(@ptrCast(self), @ptrCast(rect), @bitCast(xRadius), @bitCast(yRadius));
+    pub fn DrawRoundedRect(self: QStylePainter, rect: anytype, xRadius: f64, yRadius: f64) void {
+        comptime _ = @TypeOf(rect)._is_QRectF;
+        qtc.QPainter_DrawRoundedRect(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(xRadius), @bitCast(yRadius));
     }
 
     /// Inherited from QPainter
@@ -1851,7 +1962,7 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` x: i32 `
     ///
@@ -1865,8 +1976,8 @@ pub const qstylepainter = struct {
     ///
     /// ` yRadius: f64 `
     ///
-    pub fn DrawRoundedRect2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, xRadius: f64, yRadius: f64) void {
-        qtc.QPainter_DrawRoundedRect2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(xRadius), @bitCast(yRadius));
+    pub fn DrawRoundedRect2(self: QStylePainter, x: i32, y: i32, w: i32, h: i32, xRadius: f64, yRadius: f64) void {
+        qtc.QPainter_DrawRoundedRect2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(xRadius), @bitCast(yRadius));
     }
 
     /// Inherited from QPainter
@@ -1875,16 +1986,17 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` rect: QtC.QRect `
+    /// ` rect: QRect `
     ///
     /// ` xRadius: f64 `
     ///
     /// ` yRadius: f64 `
     ///
-    pub fn DrawRoundedRect3(self: ?*anyopaque, rect: ?*anyopaque, xRadius: f64, yRadius: f64) void {
-        qtc.QPainter_DrawRoundedRect3(@ptrCast(self), @ptrCast(rect), @bitCast(xRadius), @bitCast(yRadius));
+    pub fn DrawRoundedRect3(self: QStylePainter, rect: anytype, xRadius: f64, yRadius: f64) void {
+        comptime _ = @TypeOf(rect)._is_QRect;
+        qtc.QPainter_DrawRoundedRect3(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(xRadius), @bitCast(yRadius));
     }
 
     /// Inherited from QPainter
@@ -1893,14 +2005,16 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` rect: QtC.QRectF `
+    /// ` rect: QRectF `
     ///
-    /// ` pm: QtC.QPixmap `
+    /// ` pm: QPixmap `
     ///
-    pub fn DrawTiledPixmap(self: ?*anyopaque, rect: ?*anyopaque, pm: ?*anyopaque) void {
-        qtc.QPainter_DrawTiledPixmap(@ptrCast(self), @ptrCast(rect), @ptrCast(pm));
+    pub fn DrawTiledPixmap(self: QStylePainter, rect: anytype, pm: anytype) void {
+        comptime _ = @TypeOf(rect)._is_QRectF;
+        comptime _ = @TypeOf(pm)._is_QPixmap;
+        qtc.QPainter_DrawTiledPixmap(@ptrCast(self.ptr), @ptrCast(rect.ptr), @ptrCast(pm.ptr));
     }
 
     /// Inherited from QPainter
@@ -1909,7 +2023,7 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` x: i32 `
     ///
@@ -1919,10 +2033,11 @@ pub const qstylepainter = struct {
     ///
     /// ` h: i32 `
     ///
-    /// ` param5: QtC.QPixmap `
+    /// ` param5: QPixmap `
     ///
-    pub fn DrawTiledPixmap2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, param5: ?*anyopaque) void {
-        qtc.QPainter_DrawTiledPixmap2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @ptrCast(param5));
+    pub fn DrawTiledPixmap2(self: QStylePainter, x: i32, y: i32, w: i32, h: i32, param5: anytype) void {
+        comptime _ = @TypeOf(param5)._is_QPixmap;
+        qtc.QPainter_DrawTiledPixmap2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @ptrCast(param5.ptr));
     }
 
     /// Inherited from QPainter
@@ -1931,14 +2046,16 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    /// ` param2: QtC.QPixmap `
+    /// ` param2: QPixmap `
     ///
-    pub fn DrawTiledPixmap3(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) void {
-        qtc.QPainter_DrawTiledPixmap3(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn DrawTiledPixmap3(self: QStylePainter, param1: anytype, param2: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        comptime _ = @TypeOf(param2)._is_QPixmap;
+        qtc.QPainter_DrawTiledPixmap3(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
     /// Inherited from QPainter
@@ -1947,14 +2064,16 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` p: QtC.QPointF `
+    /// ` p: QPointF `
     ///
-    /// ` picture: QtC.QPicture `
+    /// ` picture: QPicture `
     ///
-    pub fn DrawPicture(self: ?*anyopaque, p: ?*anyopaque, picture: ?*anyopaque) void {
-        qtc.QPainter_DrawPicture(@ptrCast(self), @ptrCast(p), @ptrCast(picture));
+    pub fn DrawPicture(self: QStylePainter, p: anytype, picture: anytype) void {
+        comptime _ = @TypeOf(p)._is_QPointF;
+        comptime _ = @TypeOf(picture)._is_QPicture;
+        qtc.QPainter_DrawPicture(@ptrCast(self.ptr), @ptrCast(p.ptr), @ptrCast(picture.ptr));
     }
 
     /// Inherited from QPainter
@@ -1963,16 +2082,17 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    /// ` picture: QtC.QPicture `
+    /// ` picture: QPicture `
     ///
-    pub fn DrawPicture2(self: ?*anyopaque, x: i32, y: i32, picture: ?*anyopaque) void {
-        qtc.QPainter_DrawPicture2(@ptrCast(self), @bitCast(x), @bitCast(y), @ptrCast(picture));
+    pub fn DrawPicture2(self: QStylePainter, x: i32, y: i32, picture: anytype) void {
+        comptime _ = @TypeOf(picture)._is_QPicture;
+        qtc.QPainter_DrawPicture2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @ptrCast(picture.ptr));
     }
 
     /// Inherited from QPainter
@@ -1981,14 +2101,16 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` p: QtC.QPoint `
+    /// ` p: QPoint `
     ///
-    /// ` picture: QtC.QPicture `
+    /// ` picture: QPicture `
     ///
-    pub fn DrawPicture3(self: ?*anyopaque, p: ?*anyopaque, picture: ?*anyopaque) void {
-        qtc.QPainter_DrawPicture3(@ptrCast(self), @ptrCast(p), @ptrCast(picture));
+    pub fn DrawPicture3(self: QStylePainter, p: anytype, picture: anytype) void {
+        comptime _ = @TypeOf(p)._is_QPoint;
+        comptime _ = @TypeOf(picture)._is_QPicture;
+        qtc.QPainter_DrawPicture3(@ptrCast(self.ptr), @ptrCast(p.ptr), @ptrCast(picture.ptr));
     }
 
     /// Inherited from QPainter
@@ -1997,16 +2119,19 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` targetRect: QtC.QRectF `
+    /// ` targetRect: QRectF `
     ///
-    /// ` pixmap: QtC.QPixmap `
+    /// ` pixmap: QPixmap `
     ///
-    /// ` sourceRect: QtC.QRectF `
+    /// ` sourceRect: QRectF `
     ///
-    pub fn DrawPixmap(self: ?*anyopaque, targetRect: ?*anyopaque, pixmap: ?*anyopaque, sourceRect: ?*anyopaque) void {
-        qtc.QPainter_DrawPixmap(@ptrCast(self), @ptrCast(targetRect), @ptrCast(pixmap), @ptrCast(sourceRect));
+    pub fn DrawPixmap(self: QStylePainter, targetRect: anytype, pixmap: anytype, sourceRect: anytype) void {
+        comptime _ = @TypeOf(targetRect)._is_QRectF;
+        comptime _ = @TypeOf(pixmap)._is_QPixmap;
+        comptime _ = @TypeOf(sourceRect)._is_QRectF;
+        qtc.QPainter_DrawPixmap(@ptrCast(self.ptr), @ptrCast(targetRect.ptr), @ptrCast(pixmap.ptr), @ptrCast(sourceRect.ptr));
     }
 
     /// Inherited from QPainter
@@ -2015,16 +2140,19 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` targetRect: QtC.QRect `
+    /// ` targetRect: QRect `
     ///
-    /// ` pixmap: QtC.QPixmap `
+    /// ` pixmap: QPixmap `
     ///
-    /// ` sourceRect: QtC.QRect `
+    /// ` sourceRect: QRect `
     ///
-    pub fn DrawPixmap2(self: ?*anyopaque, targetRect: ?*anyopaque, pixmap: ?*anyopaque, sourceRect: ?*anyopaque) void {
-        qtc.QPainter_DrawPixmap2(@ptrCast(self), @ptrCast(targetRect), @ptrCast(pixmap), @ptrCast(sourceRect));
+    pub fn DrawPixmap2(self: QStylePainter, targetRect: anytype, pixmap: anytype, sourceRect: anytype) void {
+        comptime _ = @TypeOf(targetRect)._is_QRect;
+        comptime _ = @TypeOf(pixmap)._is_QPixmap;
+        comptime _ = @TypeOf(sourceRect)._is_QRect;
+        qtc.QPainter_DrawPixmap2(@ptrCast(self.ptr), @ptrCast(targetRect.ptr), @ptrCast(pixmap.ptr), @ptrCast(sourceRect.ptr));
     }
 
     /// Inherited from QPainter
@@ -2033,7 +2161,7 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` x: i32 `
     ///
@@ -2043,7 +2171,7 @@ pub const qstylepainter = struct {
     ///
     /// ` h: i32 `
     ///
-    /// ` pm: QtC.QPixmap `
+    /// ` pm: QPixmap `
     ///
     /// ` sx: i32 `
     ///
@@ -2053,8 +2181,9 @@ pub const qstylepainter = struct {
     ///
     /// ` sh: i32 `
     ///
-    pub fn DrawPixmap3(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, pm: ?*anyopaque, sx: i32, sy: i32, sw: i32, sh: i32) void {
-        qtc.QPainter_DrawPixmap3(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @ptrCast(pm), @bitCast(sx), @bitCast(sy), @bitCast(sw), @bitCast(sh));
+    pub fn DrawPixmap3(self: QStylePainter, x: i32, y: i32, w: i32, h: i32, pm: anytype, sx: i32, sy: i32, sw: i32, sh: i32) void {
+        comptime _ = @TypeOf(pm)._is_QPixmap;
+        qtc.QPainter_DrawPixmap3(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @ptrCast(pm.ptr), @bitCast(sx), @bitCast(sy), @bitCast(sw), @bitCast(sh));
     }
 
     /// Inherited from QPainter
@@ -2063,13 +2192,13 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    /// ` pm: QtC.QPixmap `
+    /// ` pm: QPixmap `
     ///
     /// ` sx: i32 `
     ///
@@ -2079,8 +2208,9 @@ pub const qstylepainter = struct {
     ///
     /// ` sh: i32 `
     ///
-    pub fn DrawPixmap4(self: ?*anyopaque, x: i32, y: i32, pm: ?*anyopaque, sx: i32, sy: i32, sw: i32, sh: i32) void {
-        qtc.QPainter_DrawPixmap4(@ptrCast(self), @bitCast(x), @bitCast(y), @ptrCast(pm), @bitCast(sx), @bitCast(sy), @bitCast(sw), @bitCast(sh));
+    pub fn DrawPixmap4(self: QStylePainter, x: i32, y: i32, pm: anytype, sx: i32, sy: i32, sw: i32, sh: i32) void {
+        comptime _ = @TypeOf(pm)._is_QPixmap;
+        qtc.QPainter_DrawPixmap4(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @ptrCast(pm.ptr), @bitCast(sx), @bitCast(sy), @bitCast(sw), @bitCast(sh));
     }
 
     /// Inherited from QPainter
@@ -2089,16 +2219,19 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` p: QtC.QPointF `
+    /// ` p: QPointF `
     ///
-    /// ` pm: QtC.QPixmap `
+    /// ` pm: QPixmap `
     ///
-    /// ` sr: QtC.QRectF `
+    /// ` sr: QRectF `
     ///
-    pub fn DrawPixmap5(self: ?*anyopaque, p: ?*anyopaque, pm: ?*anyopaque, sr: ?*anyopaque) void {
-        qtc.QPainter_DrawPixmap5(@ptrCast(self), @ptrCast(p), @ptrCast(pm), @ptrCast(sr));
+    pub fn DrawPixmap5(self: QStylePainter, p: anytype, pm: anytype, sr: anytype) void {
+        comptime _ = @TypeOf(p)._is_QPointF;
+        comptime _ = @TypeOf(pm)._is_QPixmap;
+        comptime _ = @TypeOf(sr)._is_QRectF;
+        qtc.QPainter_DrawPixmap5(@ptrCast(self.ptr), @ptrCast(p.ptr), @ptrCast(pm.ptr), @ptrCast(sr.ptr));
     }
 
     /// Inherited from QPainter
@@ -2107,16 +2240,19 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` p: QtC.QPoint `
+    /// ` p: QPoint `
     ///
-    /// ` pm: QtC.QPixmap `
+    /// ` pm: QPixmap `
     ///
-    /// ` sr: QtC.QRect `
+    /// ` sr: QRect `
     ///
-    pub fn DrawPixmap6(self: ?*anyopaque, p: ?*anyopaque, pm: ?*anyopaque, sr: ?*anyopaque) void {
-        qtc.QPainter_DrawPixmap6(@ptrCast(self), @ptrCast(p), @ptrCast(pm), @ptrCast(sr));
+    pub fn DrawPixmap6(self: QStylePainter, p: anytype, pm: anytype, sr: anytype) void {
+        comptime _ = @TypeOf(p)._is_QPoint;
+        comptime _ = @TypeOf(pm)._is_QPixmap;
+        comptime _ = @TypeOf(sr)._is_QRect;
+        qtc.QPainter_DrawPixmap6(@ptrCast(self.ptr), @ptrCast(p.ptr), @ptrCast(pm.ptr), @ptrCast(sr.ptr));
     }
 
     /// Inherited from QPainter
@@ -2125,14 +2261,16 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` p: QtC.QPointF `
+    /// ` p: QPointF `
     ///
-    /// ` pm: QtC.QPixmap `
+    /// ` pm: QPixmap `
     ///
-    pub fn DrawPixmap7(self: ?*anyopaque, p: ?*anyopaque, pm: ?*anyopaque) void {
-        qtc.QPainter_DrawPixmap7(@ptrCast(self), @ptrCast(p), @ptrCast(pm));
+    pub fn DrawPixmap7(self: QStylePainter, p: anytype, pm: anytype) void {
+        comptime _ = @TypeOf(p)._is_QPointF;
+        comptime _ = @TypeOf(pm)._is_QPixmap;
+        qtc.QPainter_DrawPixmap7(@ptrCast(self.ptr), @ptrCast(p.ptr), @ptrCast(pm.ptr));
     }
 
     /// Inherited from QPainter
@@ -2141,14 +2279,16 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` p: QtC.QPoint `
+    /// ` p: QPoint `
     ///
-    /// ` pm: QtC.QPixmap `
+    /// ` pm: QPixmap `
     ///
-    pub fn DrawPixmap8(self: ?*anyopaque, p: ?*anyopaque, pm: ?*anyopaque) void {
-        qtc.QPainter_DrawPixmap8(@ptrCast(self), @ptrCast(p), @ptrCast(pm));
+    pub fn DrawPixmap8(self: QStylePainter, p: anytype, pm: anytype) void {
+        comptime _ = @TypeOf(p)._is_QPoint;
+        comptime _ = @TypeOf(pm)._is_QPixmap;
+        qtc.QPainter_DrawPixmap8(@ptrCast(self.ptr), @ptrCast(p.ptr), @ptrCast(pm.ptr));
     }
 
     /// Inherited from QPainter
@@ -2157,16 +2297,17 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    /// ` pm: QtC.QPixmap `
+    /// ` pm: QPixmap `
     ///
-    pub fn DrawPixmap9(self: ?*anyopaque, x: i32, y: i32, pm: ?*anyopaque) void {
-        qtc.QPainter_DrawPixmap9(@ptrCast(self), @bitCast(x), @bitCast(y), @ptrCast(pm));
+    pub fn DrawPixmap9(self: QStylePainter, x: i32, y: i32, pm: anytype) void {
+        comptime _ = @TypeOf(pm)._is_QPixmap;
+        qtc.QPainter_DrawPixmap9(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @ptrCast(pm.ptr));
     }
 
     /// Inherited from QPainter
@@ -2175,14 +2316,16 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` r: QtC.QRect `
+    /// ` r: QRect `
     ///
-    /// ` pm: QtC.QPixmap `
+    /// ` pm: QPixmap `
     ///
-    pub fn DrawPixmap10(self: ?*anyopaque, r: ?*anyopaque, pm: ?*anyopaque) void {
-        qtc.QPainter_DrawPixmap10(@ptrCast(self), @ptrCast(r), @ptrCast(pm));
+    pub fn DrawPixmap10(self: QStylePainter, r: anytype, pm: anytype) void {
+        comptime _ = @TypeOf(r)._is_QRect;
+        comptime _ = @TypeOf(pm)._is_QPixmap;
+        qtc.QPainter_DrawPixmap10(@ptrCast(self.ptr), @ptrCast(r.ptr), @ptrCast(pm.ptr));
     }
 
     /// Inherited from QPainter
@@ -2191,7 +2334,7 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` x: i32 `
     ///
@@ -2201,10 +2344,11 @@ pub const qstylepainter = struct {
     ///
     /// ` h: i32 `
     ///
-    /// ` pm: QtC.QPixmap `
+    /// ` pm: QPixmap `
     ///
-    pub fn DrawPixmap11(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, pm: ?*anyopaque) void {
-        qtc.QPainter_DrawPixmap11(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @ptrCast(pm));
+    pub fn DrawPixmap11(self: QStylePainter, x: i32, y: i32, w: i32, h: i32, pm: anytype) void {
+        comptime _ = @TypeOf(pm)._is_QPixmap;
+        qtc.QPainter_DrawPixmap11(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @ptrCast(pm.ptr));
     }
 
     /// Inherited from QPainter
@@ -2213,16 +2357,18 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` fragments: QtC.QPainter__PixmapFragment `
+    /// ` fragments: QPainter__PixmapFragment `
     ///
     /// ` fragmentCount: i32 `
     ///
-    /// ` pixmap: QtC.QPixmap `
+    /// ` pixmap: QPixmap `
     ///
-    pub fn DrawPixmapFragments(self: ?*anyopaque, fragments: ?*anyopaque, fragmentCount: i32, pixmap: ?*anyopaque) void {
-        qtc.QPainter_DrawPixmapFragments(@ptrCast(self), @ptrCast(fragments), @bitCast(fragmentCount), @ptrCast(pixmap));
+    pub fn DrawPixmapFragments(self: QStylePainter, fragments: anytype, fragmentCount: i32, pixmap: anytype) void {
+        comptime _ = @TypeOf(fragments)._is_QPainter__PixmapFragment;
+        comptime _ = @TypeOf(pixmap)._is_QPixmap;
+        qtc.QPainter_DrawPixmapFragments(@ptrCast(self.ptr), @ptrCast(fragments.ptr), @bitCast(fragmentCount), @ptrCast(pixmap.ptr));
     }
 
     /// Inherited from QPainter
@@ -2231,16 +2377,19 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` targetRect: QtC.QRectF `
+    /// ` targetRect: QRectF `
     ///
-    /// ` image: QtC.QImage `
+    /// ` image: QImage `
     ///
-    /// ` sourceRect: QtC.QRectF `
+    /// ` sourceRect: QRectF `
     ///
-    pub fn DrawImage(self: ?*anyopaque, targetRect: ?*anyopaque, image: ?*anyopaque, sourceRect: ?*anyopaque) void {
-        qtc.QPainter_DrawImage(@ptrCast(self), @ptrCast(targetRect), @ptrCast(image), @ptrCast(sourceRect));
+    pub fn DrawImage(self: QStylePainter, targetRect: anytype, image: anytype, sourceRect: anytype) void {
+        comptime _ = @TypeOf(targetRect)._is_QRectF;
+        comptime _ = @TypeOf(image)._is_QImage;
+        comptime _ = @TypeOf(sourceRect)._is_QRectF;
+        qtc.QPainter_DrawImage(@ptrCast(self.ptr), @ptrCast(targetRect.ptr), @ptrCast(image.ptr), @ptrCast(sourceRect.ptr));
     }
 
     /// Inherited from QPainter
@@ -2249,16 +2398,19 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` targetRect: QtC.QRect `
+    /// ` targetRect: QRect `
     ///
-    /// ` image: QtC.QImage `
+    /// ` image: QImage `
     ///
-    /// ` sourceRect: QtC.QRect `
+    /// ` sourceRect: QRect `
     ///
-    pub fn DrawImage2(self: ?*anyopaque, targetRect: ?*anyopaque, image: ?*anyopaque, sourceRect: ?*anyopaque) void {
-        qtc.QPainter_DrawImage2(@ptrCast(self), @ptrCast(targetRect), @ptrCast(image), @ptrCast(sourceRect));
+    pub fn DrawImage2(self: QStylePainter, targetRect: anytype, image: anytype, sourceRect: anytype) void {
+        comptime _ = @TypeOf(targetRect)._is_QRect;
+        comptime _ = @TypeOf(image)._is_QImage;
+        comptime _ = @TypeOf(sourceRect)._is_QRect;
+        qtc.QPainter_DrawImage2(@ptrCast(self.ptr), @ptrCast(targetRect.ptr), @ptrCast(image.ptr), @ptrCast(sourceRect.ptr));
     }
 
     /// Inherited from QPainter
@@ -2267,16 +2419,19 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` p: QtC.QPointF `
+    /// ` p: QPointF `
     ///
-    /// ` image: QtC.QImage `
+    /// ` image: QImage `
     ///
-    /// ` sr: QtC.QRectF `
+    /// ` sr: QRectF `
     ///
-    pub fn DrawImage3(self: ?*anyopaque, p: ?*anyopaque, image: ?*anyopaque, sr: ?*anyopaque) void {
-        qtc.QPainter_DrawImage3(@ptrCast(self), @ptrCast(p), @ptrCast(image), @ptrCast(sr));
+    pub fn DrawImage3(self: QStylePainter, p: anytype, image: anytype, sr: anytype) void {
+        comptime _ = @TypeOf(p)._is_QPointF;
+        comptime _ = @TypeOf(image)._is_QImage;
+        comptime _ = @TypeOf(sr)._is_QRectF;
+        qtc.QPainter_DrawImage3(@ptrCast(self.ptr), @ptrCast(p.ptr), @ptrCast(image.ptr), @ptrCast(sr.ptr));
     }
 
     /// Inherited from QPainter
@@ -2285,16 +2440,19 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` p: QtC.QPoint `
+    /// ` p: QPoint `
     ///
-    /// ` image: QtC.QImage `
+    /// ` image: QImage `
     ///
-    /// ` sr: QtC.QRect `
+    /// ` sr: QRect `
     ///
-    pub fn DrawImage4(self: ?*anyopaque, p: ?*anyopaque, image: ?*anyopaque, sr: ?*anyopaque) void {
-        qtc.QPainter_DrawImage4(@ptrCast(self), @ptrCast(p), @ptrCast(image), @ptrCast(sr));
+    pub fn DrawImage4(self: QStylePainter, p: anytype, image: anytype, sr: anytype) void {
+        comptime _ = @TypeOf(p)._is_QPoint;
+        comptime _ = @TypeOf(image)._is_QImage;
+        comptime _ = @TypeOf(sr)._is_QRect;
+        qtc.QPainter_DrawImage4(@ptrCast(self.ptr), @ptrCast(p.ptr), @ptrCast(image.ptr), @ptrCast(sr.ptr));
     }
 
     /// Inherited from QPainter
@@ -2303,14 +2461,16 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` r: QtC.QRectF `
+    /// ` r: QRectF `
     ///
-    /// ` image: QtC.QImage `
+    /// ` image: QImage `
     ///
-    pub fn DrawImage5(self: ?*anyopaque, r: ?*anyopaque, image: ?*anyopaque) void {
-        qtc.QPainter_DrawImage5(@ptrCast(self), @ptrCast(r), @ptrCast(image));
+    pub fn DrawImage5(self: QStylePainter, r: anytype, image: anytype) void {
+        comptime _ = @TypeOf(r)._is_QRectF;
+        comptime _ = @TypeOf(image)._is_QImage;
+        qtc.QPainter_DrawImage5(@ptrCast(self.ptr), @ptrCast(r.ptr), @ptrCast(image.ptr));
     }
 
     /// Inherited from QPainter
@@ -2319,14 +2479,16 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` r: QtC.QRect `
+    /// ` r: QRect `
     ///
-    /// ` image: QtC.QImage `
+    /// ` image: QImage `
     ///
-    pub fn DrawImage6(self: ?*anyopaque, r: ?*anyopaque, image: ?*anyopaque) void {
-        qtc.QPainter_DrawImage6(@ptrCast(self), @ptrCast(r), @ptrCast(image));
+    pub fn DrawImage6(self: QStylePainter, r: anytype, image: anytype) void {
+        comptime _ = @TypeOf(r)._is_QRect;
+        comptime _ = @TypeOf(image)._is_QImage;
+        qtc.QPainter_DrawImage6(@ptrCast(self.ptr), @ptrCast(r.ptr), @ptrCast(image.ptr));
     }
 
     /// Inherited from QPainter
@@ -2335,14 +2497,16 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` p: QtC.QPointF `
+    /// ` p: QPointF `
     ///
-    /// ` image: QtC.QImage `
+    /// ` image: QImage `
     ///
-    pub fn DrawImage7(self: ?*anyopaque, p: ?*anyopaque, image: ?*anyopaque) void {
-        qtc.QPainter_DrawImage7(@ptrCast(self), @ptrCast(p), @ptrCast(image));
+    pub fn DrawImage7(self: QStylePainter, p: anytype, image: anytype) void {
+        comptime _ = @TypeOf(p)._is_QPointF;
+        comptime _ = @TypeOf(image)._is_QImage;
+        qtc.QPainter_DrawImage7(@ptrCast(self.ptr), @ptrCast(p.ptr), @ptrCast(image.ptr));
     }
 
     /// Inherited from QPainter
@@ -2351,14 +2515,16 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` p: QtC.QPoint `
+    /// ` p: QPoint `
     ///
-    /// ` image: QtC.QImage `
+    /// ` image: QImage `
     ///
-    pub fn DrawImage8(self: ?*anyopaque, p: ?*anyopaque, image: ?*anyopaque) void {
-        qtc.QPainter_DrawImage8(@ptrCast(self), @ptrCast(p), @ptrCast(image));
+    pub fn DrawImage8(self: QStylePainter, p: anytype, image: anytype) void {
+        comptime _ = @TypeOf(p)._is_QPoint;
+        comptime _ = @TypeOf(image)._is_QImage;
+        qtc.QPainter_DrawImage8(@ptrCast(self.ptr), @ptrCast(p.ptr), @ptrCast(image.ptr));
     }
 
     /// Inherited from QPainter
@@ -2367,16 +2533,17 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    /// ` image: QtC.QImage `
+    /// ` image: QImage `
     ///
-    pub fn DrawImage9(self: ?*anyopaque, x: i32, y: i32, image: ?*anyopaque) void {
-        qtc.QPainter_DrawImage9(@ptrCast(self), @bitCast(x), @bitCast(y), @ptrCast(image));
+    pub fn DrawImage9(self: QStylePainter, x: i32, y: i32, image: anytype) void {
+        comptime _ = @TypeOf(image)._is_QImage;
+        qtc.QPainter_DrawImage9(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @ptrCast(image.ptr));
     }
 
     /// Inherited from QPainter
@@ -2385,12 +2552,12 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QPainter_SetLayoutDirection(@ptrCast(self), @bitCast(direction));
+    pub fn SetLayoutDirection(self: QStylePainter, direction: i32) void {
+        qtc.QPainter_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
 
     /// Inherited from QPainter
@@ -2399,14 +2566,14 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: ?*anyopaque) i32 {
-        return qtc.QPainter_LayoutDirection(@ptrCast(self));
+    pub fn LayoutDirection(self: QStylePainter) i32 {
+        return qtc.QPainter_LayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPainter
@@ -2415,14 +2582,16 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` position: QtC.QPointF `
+    /// ` position: QPointF `
     ///
-    /// ` glyphRun: QtC.QGlyphRun `
+    /// ` glyphRun: QGlyphRun `
     ///
-    pub fn DrawGlyphRun(self: ?*anyopaque, position: ?*anyopaque, glyphRun: ?*anyopaque) void {
-        qtc.QPainter_DrawGlyphRun(@ptrCast(self), @ptrCast(position), @ptrCast(glyphRun));
+    pub fn DrawGlyphRun(self: QStylePainter, position: anytype, glyphRun: anytype) void {
+        comptime _ = @TypeOf(position)._is_QPointF;
+        comptime _ = @TypeOf(glyphRun)._is_QGlyphRun;
+        qtc.QPainter_DrawGlyphRun(@ptrCast(self.ptr), @ptrCast(position.ptr), @ptrCast(glyphRun.ptr));
     }
 
     /// Inherited from QPainter
@@ -2431,14 +2600,16 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` topLeftPosition: QtC.QPointF `
+    /// ` topLeftPosition: QPointF `
     ///
-    /// ` staticText: QtC.QStaticText `
+    /// ` staticText: QStaticText `
     ///
-    pub fn DrawStaticText(self: ?*anyopaque, topLeftPosition: ?*anyopaque, staticText: ?*anyopaque) void {
-        qtc.QPainter_DrawStaticText(@ptrCast(self), @ptrCast(topLeftPosition), @ptrCast(staticText));
+    pub fn DrawStaticText(self: QStylePainter, topLeftPosition: anytype, staticText: anytype) void {
+        comptime _ = @TypeOf(topLeftPosition)._is_QPointF;
+        comptime _ = @TypeOf(staticText)._is_QStaticText;
+        qtc.QPainter_DrawStaticText(@ptrCast(self.ptr), @ptrCast(topLeftPosition.ptr), @ptrCast(staticText.ptr));
     }
 
     /// Inherited from QPainter
@@ -2447,14 +2618,16 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` topLeftPosition: QtC.QPoint `
+    /// ` topLeftPosition: QPoint `
     ///
-    /// ` staticText: QtC.QStaticText `
+    /// ` staticText: QStaticText `
     ///
-    pub fn DrawStaticText2(self: ?*anyopaque, topLeftPosition: ?*anyopaque, staticText: ?*anyopaque) void {
-        qtc.QPainter_DrawStaticText2(@ptrCast(self), @ptrCast(topLeftPosition), @ptrCast(staticText));
+    pub fn DrawStaticText2(self: QStylePainter, topLeftPosition: anytype, staticText: anytype) void {
+        comptime _ = @TypeOf(topLeftPosition)._is_QPoint;
+        comptime _ = @TypeOf(staticText)._is_QStaticText;
+        qtc.QPainter_DrawStaticText2(@ptrCast(self.ptr), @ptrCast(topLeftPosition.ptr), @ptrCast(staticText.ptr));
     }
 
     /// Inherited from QPainter
@@ -2463,16 +2636,17 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` left: i32 `
     ///
     /// ` top: i32 `
     ///
-    /// ` staticText: QtC.QStaticText `
+    /// ` staticText: QStaticText `
     ///
-    pub fn DrawStaticText3(self: ?*anyopaque, left: i32, top: i32, staticText: ?*anyopaque) void {
-        qtc.QPainter_DrawStaticText3(@ptrCast(self), @bitCast(left), @bitCast(top), @ptrCast(staticText));
+    pub fn DrawStaticText3(self: QStylePainter, left: i32, top: i32, staticText: anytype) void {
+        comptime _ = @TypeOf(staticText)._is_QStaticText;
+        qtc.QPainter_DrawStaticText3(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @ptrCast(staticText.ptr));
     }
 
     /// Inherited from QPainter
@@ -2481,18 +2655,19 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` p: QtC.QPointF `
+    /// ` p: QPointF `
     ///
     /// ` s: []const u8 `
     ///
-    pub fn DrawText(self: ?*anyopaque, p: ?*anyopaque, s: []const u8) void {
+    pub fn DrawText(self: QStylePainter, p: anytype, s: []const u8) void {
+        comptime _ = @TypeOf(p)._is_QPointF;
         const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
         };
-        qtc.QPainter_DrawText(@ptrCast(self), @ptrCast(p), s_str);
+        qtc.QPainter_DrawText(@ptrCast(self.ptr), @ptrCast(p.ptr), s_str);
     }
 
     /// Inherited from QPainter
@@ -2501,18 +2676,19 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` p: QtC.QPoint `
+    /// ` p: QPoint `
     ///
     /// ` s: []const u8 `
     ///
-    pub fn DrawText2(self: ?*anyopaque, p: ?*anyopaque, s: []const u8) void {
+    pub fn DrawText2(self: QStylePainter, p: anytype, s: []const u8) void {
+        comptime _ = @TypeOf(p)._is_QPoint;
         const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
         };
-        qtc.QPainter_DrawText2(@ptrCast(self), @ptrCast(p), s_str);
+        qtc.QPainter_DrawText2(@ptrCast(self.ptr), @ptrCast(p.ptr), s_str);
     }
 
     /// Inherited from QPainter
@@ -2521,7 +2697,7 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` x: i32 `
     ///
@@ -2529,12 +2705,12 @@ pub const qstylepainter = struct {
     ///
     /// ` s: []const u8 `
     ///
-    pub fn DrawText3(self: ?*anyopaque, x: i32, y: i32, s: []const u8) void {
+    pub fn DrawText3(self: QStylePainter, x: i32, y: i32, s: []const u8) void {
         const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
         };
-        qtc.QPainter_DrawText3(@ptrCast(self), @bitCast(x), @bitCast(y), s_str);
+        qtc.QPainter_DrawText3(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), s_str);
     }
 
     /// Inherited from QPainter
@@ -2543,9 +2719,9 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` p: QtC.QPointF `
+    /// ` p: QPointF `
     ///
     /// ` str: []const u8 `
     ///
@@ -2553,12 +2729,13 @@ pub const qstylepainter = struct {
     ///
     /// ` justificationPadding: i32 `
     ///
-    pub fn DrawText4(self: ?*anyopaque, p: ?*anyopaque, str: []const u8, tf: i32, justificationPadding: i32) void {
+    pub fn DrawText4(self: QStylePainter, p: anytype, str: []const u8, tf: i32, justificationPadding: i32) void {
+        comptime _ = @TypeOf(p)._is_QPointF;
         const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
-        qtc.QPainter_DrawText4(@ptrCast(self), @ptrCast(p), str_str, @bitCast(tf), @bitCast(justificationPadding));
+        qtc.QPainter_DrawText4(@ptrCast(self.ptr), @ptrCast(p.ptr), str_str, @bitCast(tf), @bitCast(justificationPadding));
     }
 
     /// Inherited from QPainter
@@ -2567,20 +2744,21 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` r: QtC.QRectF `
+    /// ` r: QRectF `
     ///
     /// ` flags: i32 `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn DrawText5(self: ?*anyopaque, r: ?*anyopaque, flags: i32, text: []const u8) void {
+    pub fn DrawText5(self: QStylePainter, r: anytype, flags: i32, text: []const u8) void {
+        comptime _ = @TypeOf(r)._is_QRectF;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QPainter_DrawText5(@ptrCast(self), @ptrCast(r), @bitCast(flags), text_str);
+        qtc.QPainter_DrawText5(@ptrCast(self.ptr), @ptrCast(r.ptr), @bitCast(flags), text_str);
     }
 
     /// Inherited from QPainter
@@ -2589,20 +2767,21 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` r: QtC.QRect `
+    /// ` r: QRect `
     ///
     /// ` flags: i32 `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn DrawText6(self: ?*anyopaque, r: ?*anyopaque, flags: i32, text: []const u8) void {
+    pub fn DrawText6(self: QStylePainter, r: anytype, flags: i32, text: []const u8) void {
+        comptime _ = @TypeOf(r)._is_QRect;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QPainter_DrawText6(@ptrCast(self), @ptrCast(r), @bitCast(flags), text_str);
+        qtc.QPainter_DrawText6(@ptrCast(self.ptr), @ptrCast(r.ptr), @bitCast(flags), text_str);
     }
 
     /// Inherited from QPainter
@@ -2611,7 +2790,7 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` x: i32 `
     ///
@@ -2625,12 +2804,12 @@ pub const qstylepainter = struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn DrawText7(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, flags: i32, text: []const u8) void {
+    pub fn DrawText7(self: QStylePainter, x: i32, y: i32, w: i32, h: i32, flags: i32, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QPainter_DrawText7(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(flags), text_str);
+        qtc.QPainter_DrawText7(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(flags), text_str);
     }
 
     /// Inherited from QPainter
@@ -2639,18 +2818,19 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` r: QtC.QRectF `
+    /// ` r: QRectF `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn DrawText8(self: ?*anyopaque, r: ?*anyopaque, text: []const u8) void {
+    pub fn DrawText8(self: QStylePainter, r: anytype, text: []const u8) void {
+        comptime _ = @TypeOf(r)._is_QRectF;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QPainter_DrawText8(@ptrCast(self), @ptrCast(r), text_str);
+        qtc.QPainter_DrawText8(@ptrCast(self.ptr), @ptrCast(r.ptr), text_str);
     }
 
     /// Inherited from QPainter
@@ -2659,20 +2839,21 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` rect: QtC.QRectF `
+    /// ` rect: QRectF `
     ///
     /// ` flags: i32 `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn BoundingRect(self: ?*anyopaque, rect: ?*anyopaque, flags: i32, text: []const u8) QtC.QRectF {
+    pub fn BoundingRect(self: QStylePainter, rect: anytype, flags: i32, text: []const u8) QRectF {
+        comptime _ = @TypeOf(rect)._is_QRectF;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QPainter_BoundingRect(@ptrCast(self), @ptrCast(rect), @bitCast(flags), text_str);
+        return .{ .ptr = qtc.QPainter_BoundingRect(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(flags), text_str) };
     }
 
     /// Inherited from QPainter
@@ -2681,20 +2862,21 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` rect: QtC.QRect `
+    /// ` rect: QRect `
     ///
     /// ` flags: i32 `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn BoundingRect2(self: ?*anyopaque, rect: ?*anyopaque, flags: i32, text: []const u8) QtC.QRect {
+    pub fn BoundingRect2(self: QStylePainter, rect: anytype, flags: i32, text: []const u8) QRect {
+        comptime _ = @TypeOf(rect)._is_QRect;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QPainter_BoundingRect2(@ptrCast(self), @ptrCast(rect), @bitCast(flags), text_str);
+        return .{ .ptr = qtc.QPainter_BoundingRect2(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(flags), text_str) };
     }
 
     /// Inherited from QPainter
@@ -2703,7 +2885,7 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` x: i32 `
     ///
@@ -2717,12 +2899,12 @@ pub const qstylepainter = struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn BoundingRect3(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, flags: i32, text: []const u8) QtC.QRect {
+    pub fn BoundingRect3(self: QStylePainter, x: i32, y: i32, w: i32, h: i32, flags: i32, text: []const u8) QRect {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QPainter_BoundingRect3(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(flags), text_str);
+        return .{ .ptr = qtc.QPainter_BoundingRect3(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(flags), text_str) };
     }
 
     /// Inherited from QPainter
@@ -2731,18 +2913,19 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` rect: QtC.QRectF `
+    /// ` rect: QRectF `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn BoundingRect4(self: ?*anyopaque, rect: ?*anyopaque, text: []const u8) QtC.QRectF {
+    pub fn BoundingRect4(self: QStylePainter, rect: anytype, text: []const u8) QRectF {
+        comptime _ = @TypeOf(rect)._is_QRectF;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QPainter_BoundingRect4(@ptrCast(self), @ptrCast(rect), text_str);
+        return .{ .ptr = qtc.QPainter_BoundingRect4(@ptrCast(self.ptr), @ptrCast(rect.ptr), text_str) };
     }
 
     /// Inherited from QPainter
@@ -2751,14 +2934,16 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` p: QtC.QPointF `
+    /// ` p: QPointF `
     ///
-    /// ` ti: QtC.QTextItem `
+    /// ` ti: QTextItem `
     ///
-    pub fn DrawTextItem(self: ?*anyopaque, p: ?*anyopaque, ti: ?*anyopaque) void {
-        qtc.QPainter_DrawTextItem(@ptrCast(self), @ptrCast(p), @ptrCast(ti));
+    pub fn DrawTextItem(self: QStylePainter, p: anytype, ti: anytype) void {
+        comptime _ = @TypeOf(p)._is_QPointF;
+        comptime _ = @TypeOf(ti)._is_QTextItem;
+        qtc.QPainter_DrawTextItem(@ptrCast(self.ptr), @ptrCast(p.ptr), @ptrCast(ti.ptr));
     }
 
     /// Inherited from QPainter
@@ -2767,16 +2952,17 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    /// ` ti: QtC.QTextItem `
+    /// ` ti: QTextItem `
     ///
-    pub fn DrawTextItem2(self: ?*anyopaque, x: i32, y: i32, ti: ?*anyopaque) void {
-        qtc.QPainter_DrawTextItem2(@ptrCast(self), @bitCast(x), @bitCast(y), @ptrCast(ti));
+    pub fn DrawTextItem2(self: QStylePainter, x: i32, y: i32, ti: anytype) void {
+        comptime _ = @TypeOf(ti)._is_QTextItem;
+        qtc.QPainter_DrawTextItem2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @ptrCast(ti.ptr));
     }
 
     /// Inherited from QPainter
@@ -2785,14 +2971,16 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` p: QtC.QPoint `
+    /// ` p: QPoint `
     ///
-    /// ` ti: QtC.QTextItem `
+    /// ` ti: QTextItem `
     ///
-    pub fn DrawTextItem3(self: ?*anyopaque, p: ?*anyopaque, ti: ?*anyopaque) void {
-        qtc.QPainter_DrawTextItem3(@ptrCast(self), @ptrCast(p), @ptrCast(ti));
+    pub fn DrawTextItem3(self: QStylePainter, p: anytype, ti: anytype) void {
+        comptime _ = @TypeOf(p)._is_QPoint;
+        comptime _ = @TypeOf(ti)._is_QTextItem;
+        qtc.QPainter_DrawTextItem3(@ptrCast(self.ptr), @ptrCast(p.ptr), @ptrCast(ti.ptr));
     }
 
     /// Inherited from QPainter
@@ -2801,14 +2989,16 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` param1: QtC.QRectF `
+    /// ` param1: QRectF `
     ///
-    /// ` param2: QtC.QBrush `
+    /// ` param2: QBrush `
     ///
-    pub fn FillRect(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) void {
-        qtc.QPainter_FillRect(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn FillRect(self: QStylePainter, param1: anytype, param2: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRectF;
+        comptime _ = @TypeOf(param2)._is_QBrush;
+        qtc.QPainter_FillRect(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
     /// Inherited from QPainter
@@ -2817,7 +3007,7 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` x: i32 `
     ///
@@ -2827,10 +3017,11 @@ pub const qstylepainter = struct {
     ///
     /// ` h: i32 `
     ///
-    /// ` param5: QtC.QBrush `
+    /// ` param5: QBrush `
     ///
-    pub fn FillRect2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, param5: ?*anyopaque) void {
-        qtc.QPainter_FillRect2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @ptrCast(param5));
+    pub fn FillRect2(self: QStylePainter, x: i32, y: i32, w: i32, h: i32, param5: anytype) void {
+        comptime _ = @TypeOf(param5)._is_QBrush;
+        qtc.QPainter_FillRect2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @ptrCast(param5.ptr));
     }
 
     /// Inherited from QPainter
@@ -2839,14 +3030,16 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    /// ` param2: QtC.QBrush `
+    /// ` param2: QBrush `
     ///
-    pub fn FillRect3(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) void {
-        qtc.QPainter_FillRect3(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn FillRect3(self: QStylePainter, param1: anytype, param2: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        comptime _ = @TypeOf(param2)._is_QBrush;
+        qtc.QPainter_FillRect3(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
     /// Inherited from QPainter
@@ -2855,14 +3048,16 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` param1: QtC.QRectF `
+    /// ` param1: QRectF `
     ///
-    /// ` color: QtC.QColor `
+    /// ` color: QColor `
     ///
-    pub fn FillRect4(self: ?*anyopaque, param1: ?*anyopaque, color: ?*anyopaque) void {
-        qtc.QPainter_FillRect4(@ptrCast(self), @ptrCast(param1), @ptrCast(color));
+    pub fn FillRect4(self: QStylePainter, param1: anytype, color: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRectF;
+        comptime _ = @TypeOf(color)._is_QColor;
+        qtc.QPainter_FillRect4(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(color.ptr));
     }
 
     /// Inherited from QPainter
@@ -2871,7 +3066,7 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` x: i32 `
     ///
@@ -2881,10 +3076,11 @@ pub const qstylepainter = struct {
     ///
     /// ` h: i32 `
     ///
-    /// ` color: QtC.QColor `
+    /// ` color: QColor `
     ///
-    pub fn FillRect5(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, color: ?*anyopaque) void {
-        qtc.QPainter_FillRect5(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @ptrCast(color));
+    pub fn FillRect5(self: QStylePainter, x: i32, y: i32, w: i32, h: i32, color: anytype) void {
+        comptime _ = @TypeOf(color)._is_QColor;
+        qtc.QPainter_FillRect5(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @ptrCast(color.ptr));
     }
 
     /// Inherited from QPainter
@@ -2893,14 +3089,16 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    /// ` color: QtC.QColor `
+    /// ` color: QColor `
     ///
-    pub fn FillRect6(self: ?*anyopaque, param1: ?*anyopaque, color: ?*anyopaque) void {
-        qtc.QPainter_FillRect6(@ptrCast(self), @ptrCast(param1), @ptrCast(color));
+    pub fn FillRect6(self: QStylePainter, param1: anytype, color: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        comptime _ = @TypeOf(color)._is_QColor;
+        qtc.QPainter_FillRect6(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(color.ptr));
     }
 
     /// Inherited from QPainter
@@ -2909,7 +3107,7 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` x: i32 `
     ///
@@ -2921,8 +3119,8 @@ pub const qstylepainter = struct {
     ///
     /// ` c: qnamespace_enums.GlobalColor `
     ///
-    pub fn FillRect7(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, c: i32) void {
-        qtc.QPainter_FillRect7(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(c));
+    pub fn FillRect7(self: QStylePainter, x: i32, y: i32, w: i32, h: i32, c: i32) void {
+        qtc.QPainter_FillRect7(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(c));
     }
 
     /// Inherited from QPainter
@@ -2931,14 +3129,15 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` r: QtC.QRect `
+    /// ` r: QRect `
     ///
     /// ` c: qnamespace_enums.GlobalColor `
     ///
-    pub fn FillRect8(self: ?*anyopaque, r: ?*anyopaque, c: i32) void {
-        qtc.QPainter_FillRect8(@ptrCast(self), @ptrCast(r), @bitCast(c));
+    pub fn FillRect8(self: QStylePainter, r: anytype, c: i32) void {
+        comptime _ = @TypeOf(r)._is_QRect;
+        qtc.QPainter_FillRect8(@ptrCast(self.ptr), @ptrCast(r.ptr), @bitCast(c));
     }
 
     /// Inherited from QPainter
@@ -2947,14 +3146,15 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` r: QtC.QRectF `
+    /// ` r: QRectF `
     ///
     /// ` c: qnamespace_enums.GlobalColor `
     ///
-    pub fn FillRect9(self: ?*anyopaque, r: ?*anyopaque, c: i32) void {
-        qtc.QPainter_FillRect9(@ptrCast(self), @ptrCast(r), @bitCast(c));
+    pub fn FillRect9(self: QStylePainter, r: anytype, c: i32) void {
+        comptime _ = @TypeOf(r)._is_QRectF;
+        qtc.QPainter_FillRect9(@ptrCast(self.ptr), @ptrCast(r.ptr), @bitCast(c));
     }
 
     /// Inherited from QPainter
@@ -2963,7 +3163,7 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` x: i32 `
     ///
@@ -2975,8 +3175,8 @@ pub const qstylepainter = struct {
     ///
     /// ` style: qnamespace_enums.BrushStyle `
     ///
-    pub fn FillRect10(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, style: i32) void {
-        qtc.QPainter_FillRect10(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(style));
+    pub fn FillRect10(self: QStylePainter, x: i32, y: i32, w: i32, h: i32, style: i32) void {
+        qtc.QPainter_FillRect10(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(style));
     }
 
     /// Inherited from QPainter
@@ -2985,14 +3185,15 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` r: QtC.QRect `
+    /// ` r: QRect `
     ///
     /// ` style: qnamespace_enums.BrushStyle `
     ///
-    pub fn FillRect11(self: ?*anyopaque, r: ?*anyopaque, style: i32) void {
-        qtc.QPainter_FillRect11(@ptrCast(self), @ptrCast(r), @bitCast(style));
+    pub fn FillRect11(self: QStylePainter, r: anytype, style: i32) void {
+        comptime _ = @TypeOf(r)._is_QRect;
+        qtc.QPainter_FillRect11(@ptrCast(self.ptr), @ptrCast(r.ptr), @bitCast(style));
     }
 
     /// Inherited from QPainter
@@ -3001,14 +3202,15 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` r: QtC.QRectF `
+    /// ` r: QRectF `
     ///
     /// ` style: qnamespace_enums.BrushStyle `
     ///
-    pub fn FillRect12(self: ?*anyopaque, r: ?*anyopaque, style: i32) void {
-        qtc.QPainter_FillRect12(@ptrCast(self), @ptrCast(r), @bitCast(style));
+    pub fn FillRect12(self: QStylePainter, r: anytype, style: i32) void {
+        comptime _ = @TypeOf(r)._is_QRectF;
+        qtc.QPainter_FillRect12(@ptrCast(self.ptr), @ptrCast(r.ptr), @bitCast(style));
     }
 
     /// Inherited from QPainter
@@ -3017,7 +3219,7 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` x: i32 `
     ///
@@ -3029,8 +3231,8 @@ pub const qstylepainter = struct {
     ///
     /// ` preset: qbrush_enums.Preset `
     ///
-    pub fn FillRect13(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, preset: i32) void {
-        qtc.QPainter_FillRect13(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(preset));
+    pub fn FillRect13(self: QStylePainter, x: i32, y: i32, w: i32, h: i32, preset: i32) void {
+        qtc.QPainter_FillRect13(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(preset));
     }
 
     /// Inherited from QPainter
@@ -3039,14 +3241,15 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` r: QtC.QRect `
+    /// ` r: QRect `
     ///
     /// ` preset: qbrush_enums.Preset `
     ///
-    pub fn FillRect14(self: ?*anyopaque, r: ?*anyopaque, preset: i32) void {
-        qtc.QPainter_FillRect14(@ptrCast(self), @ptrCast(r), @bitCast(preset));
+    pub fn FillRect14(self: QStylePainter, r: anytype, preset: i32) void {
+        comptime _ = @TypeOf(r)._is_QRect;
+        qtc.QPainter_FillRect14(@ptrCast(self.ptr), @ptrCast(r.ptr), @bitCast(preset));
     }
 
     /// Inherited from QPainter
@@ -3055,14 +3258,15 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` r: QtC.QRectF `
+    /// ` r: QRectF `
     ///
     /// ` preset: qbrush_enums.Preset `
     ///
-    pub fn FillRect15(self: ?*anyopaque, r: ?*anyopaque, preset: i32) void {
-        qtc.QPainter_FillRect15(@ptrCast(self), @ptrCast(r), @bitCast(preset));
+    pub fn FillRect15(self: QStylePainter, r: anytype, preset: i32) void {
+        comptime _ = @TypeOf(r)._is_QRectF;
+        qtc.QPainter_FillRect15(@ptrCast(self.ptr), @ptrCast(r.ptr), @bitCast(preset));
     }
 
     /// Inherited from QPainter
@@ -3071,12 +3275,13 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` param1: QtC.QRectF `
+    /// ` param1: QRectF `
     ///
-    pub fn EraseRect(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QPainter_EraseRect(@ptrCast(self), @ptrCast(param1));
+    pub fn EraseRect(self: QStylePainter, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRectF;
+        qtc.QPainter_EraseRect(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QPainter
@@ -3085,7 +3290,7 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` x: i32 `
     ///
@@ -3095,8 +3300,8 @@ pub const qstylepainter = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn EraseRect2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QPainter_EraseRect2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn EraseRect2(self: QStylePainter, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QPainter_EraseRect2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QPainter
@@ -3105,12 +3310,13 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn EraseRect3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QPainter_EraseRect3(@ptrCast(self), @ptrCast(param1));
+    pub fn EraseRect3(self: QStylePainter, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QPainter_EraseRect3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QPainter
@@ -3119,12 +3325,12 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` hint: qpainter_enums.RenderHint `
     ///
-    pub fn SetRenderHint(self: ?*anyopaque, hint: i32) void {
-        qtc.QPainter_SetRenderHint(@ptrCast(self), @bitCast(hint));
+    pub fn SetRenderHint(self: QStylePainter, hint: i32) void {
+        qtc.QPainter_SetRenderHint(@ptrCast(self.ptr), @bitCast(hint));
     }
 
     /// Inherited from QPainter
@@ -3133,12 +3339,12 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` hints: flag of qpainter_enums.RenderHint `
     ///
-    pub fn SetRenderHints(self: ?*anyopaque, hints: i32) void {
-        qtc.QPainter_SetRenderHints(@ptrCast(self), @bitCast(hints));
+    pub fn SetRenderHints(self: QStylePainter, hints: i32) void {
+        qtc.QPainter_SetRenderHints(@ptrCast(self.ptr), @bitCast(hints));
     }
 
     /// Inherited from QPainter
@@ -3147,14 +3353,14 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ## Returns:
     ///
     /// ` flag of qpainter_enums.RenderHint `
     ///
-    pub fn RenderHints(self: ?*anyopaque) i32 {
-        return qtc.QPainter_RenderHints(@ptrCast(self));
+    pub fn RenderHints(self: QStylePainter) i32 {
+        return qtc.QPainter_RenderHints(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPainter
@@ -3163,12 +3369,12 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` hint: qpainter_enums.RenderHint `
     ///
-    pub fn TestRenderHint(self: ?*anyopaque, hint: i32) bool {
-        return qtc.QPainter_TestRenderHint(@ptrCast(self), @bitCast(hint));
+    pub fn TestRenderHint(self: QStylePainter, hint: i32) bool {
+        return qtc.QPainter_TestRenderHint(@ptrCast(self.ptr), @bitCast(hint));
     }
 
     /// Inherited from QPainter
@@ -3177,10 +3383,10 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    pub fn PaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QPainter_PaintEngine(@ptrCast(self));
+    pub fn PaintEngine(self: QStylePainter) QPaintEngine {
+        return .{ .ptr = qtc.QPainter_PaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QPainter
@@ -3189,10 +3395,10 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    pub fn BeginNativePainting(self: ?*anyopaque) void {
-        qtc.QPainter_BeginNativePainting(@ptrCast(self));
+    pub fn BeginNativePainting(self: QStylePainter) void {
+        qtc.QPainter_BeginNativePainting(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPainter
@@ -3201,10 +3407,10 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    pub fn EndNativePainting(self: ?*anyopaque) void {
-        qtc.QPainter_EndNativePainting(@ptrCast(self));
+    pub fn EndNativePainting(self: QStylePainter) void {
+        qtc.QPainter_EndNativePainting(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPainter
@@ -3213,14 +3419,15 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` param1: QtC.QRectF `
+    /// ` param1: QRectF `
     ///
     /// ` op: qnamespace_enums.ClipOperation `
     ///
-    pub fn SetClipRect22(self: ?*anyopaque, param1: ?*anyopaque, op: i32) void {
-        qtc.QPainter_SetClipRect22(@ptrCast(self), @ptrCast(param1), @bitCast(op));
+    pub fn SetClipRect22(self: QStylePainter, param1: anytype, op: i32) void {
+        comptime _ = @TypeOf(param1)._is_QRectF;
+        qtc.QPainter_SetClipRect22(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(op));
     }
 
     /// Inherited from QPainter
@@ -3229,14 +3436,15 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
     /// ` op: qnamespace_enums.ClipOperation `
     ///
-    pub fn SetClipRect23(self: ?*anyopaque, param1: ?*anyopaque, op: i32) void {
-        qtc.QPainter_SetClipRect23(@ptrCast(self), @ptrCast(param1), @bitCast(op));
+    pub fn SetClipRect23(self: QStylePainter, param1: anytype, op: i32) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QPainter_SetClipRect23(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(op));
     }
 
     /// Inherited from QPainter
@@ -3245,7 +3453,7 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` x: i32 `
     ///
@@ -3257,8 +3465,8 @@ pub const qstylepainter = struct {
     ///
     /// ` op: qnamespace_enums.ClipOperation `
     ///
-    pub fn SetClipRect5(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, op: i32) void {
-        qtc.QPainter_SetClipRect5(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(op));
+    pub fn SetClipRect5(self: QStylePainter, x: i32, y: i32, w: i32, h: i32, op: i32) void {
+        qtc.QPainter_SetClipRect5(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(op));
     }
 
     /// Inherited from QPainter
@@ -3267,14 +3475,15 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
     /// ` op: qnamespace_enums.ClipOperation `
     ///
-    pub fn SetClipRegion2(self: ?*anyopaque, param1: ?*anyopaque, op: i32) void {
-        qtc.QPainter_SetClipRegion2(@ptrCast(self), @ptrCast(param1), @bitCast(op));
+    pub fn SetClipRegion2(self: QStylePainter, param1: anytype, op: i32) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QPainter_SetClipRegion2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(op));
     }
 
     /// Inherited from QPainter
@@ -3283,14 +3492,15 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` path: QtC.QPainterPath `
+    /// ` path: QPainterPath `
     ///
     /// ` op: qnamespace_enums.ClipOperation `
     ///
-    pub fn SetClipPath2(self: ?*anyopaque, path: ?*anyopaque, op: i32) void {
-        qtc.QPainter_SetClipPath2(@ptrCast(self), @ptrCast(path), @bitCast(op));
+    pub fn SetClipPath2(self: QStylePainter, path: anytype, op: i32) void {
+        comptime _ = @TypeOf(path)._is_QPainterPath;
+        qtc.QPainter_SetClipPath2(@ptrCast(self.ptr), @ptrCast(path.ptr), @bitCast(op));
     }
 
     /// Inherited from QPainter
@@ -3299,14 +3509,15 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` transform: QtC.QTransform `
+    /// ` transform: QTransform `
     ///
     /// ` combine: bool `
     ///
-    pub fn SetTransform2(self: ?*anyopaque, transform: ?*anyopaque, combine: bool) void {
-        qtc.QPainter_SetTransform2(@ptrCast(self), @ptrCast(transform), combine);
+    pub fn SetTransform2(self: QStylePainter, transform: anytype, combine: bool) void {
+        comptime _ = @TypeOf(transform)._is_QTransform;
+        qtc.QPainter_SetTransform2(@ptrCast(self.ptr), @ptrCast(transform.ptr), combine);
     }
 
     /// Inherited from QPainter
@@ -3315,14 +3526,15 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` matrix: QtC.QTransform `
+    /// ` matrix: QTransform `
     ///
     /// ` combine: bool `
     ///
-    pub fn SetWorldTransform2(self: ?*anyopaque, matrix: ?*anyopaque, combine: bool) void {
-        qtc.QPainter_SetWorldTransform2(@ptrCast(self), @ptrCast(matrix), combine);
+    pub fn SetWorldTransform2(self: QStylePainter, matrix: anytype, combine: bool) void {
+        comptime _ = @TypeOf(matrix)._is_QTransform;
+        qtc.QPainter_SetWorldTransform2(@ptrCast(self.ptr), @ptrCast(matrix.ptr), combine);
     }
 
     /// Inherited from QPainter
@@ -3331,16 +3543,17 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` points: QtC.QPointF `
+    /// ` points: QPointF `
     ///
     /// ` pointCount: i32 `
     ///
     /// ` fillRule: qnamespace_enums.FillRule `
     ///
-    pub fn DrawPolygon32(self: ?*anyopaque, points: ?*anyopaque, pointCount: i32, fillRule: i32) void {
-        qtc.QPainter_DrawPolygon32(@ptrCast(self), @ptrCast(points), @bitCast(pointCount), @bitCast(fillRule));
+    pub fn DrawPolygon32(self: QStylePainter, points: anytype, pointCount: i32, fillRule: i32) void {
+        comptime _ = @TypeOf(points)._is_QPointF;
+        qtc.QPainter_DrawPolygon32(@ptrCast(self.ptr), @ptrCast(points.ptr), @bitCast(pointCount), @bitCast(fillRule));
     }
 
     /// Inherited from QPainter
@@ -3349,16 +3562,17 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` points: QtC.QPoint `
+    /// ` points: QPoint `
     ///
     /// ` pointCount: i32 `
     ///
     /// ` fillRule: qnamespace_enums.FillRule `
     ///
-    pub fn DrawPolygon33(self: ?*anyopaque, points: ?*anyopaque, pointCount: i32, fillRule: i32) void {
-        qtc.QPainter_DrawPolygon33(@ptrCast(self), @ptrCast(points), @bitCast(pointCount), @bitCast(fillRule));
+    pub fn DrawPolygon33(self: QStylePainter, points: anytype, pointCount: i32, fillRule: i32) void {
+        comptime _ = @TypeOf(points)._is_QPoint;
+        qtc.QPainter_DrawPolygon33(@ptrCast(self.ptr), @ptrCast(points.ptr), @bitCast(pointCount), @bitCast(fillRule));
     }
 
     /// Inherited from QPainter
@@ -3367,9 +3581,9 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` rect: QtC.QRectF `
+    /// ` rect: QRectF `
     ///
     /// ` xRadius: f64 `
     ///
@@ -3377,8 +3591,9 @@ pub const qstylepainter = struct {
     ///
     /// ` mode: qnamespace_enums.SizeMode `
     ///
-    pub fn DrawRoundedRect4(self: ?*anyopaque, rect: ?*anyopaque, xRadius: f64, yRadius: f64, mode: i32) void {
-        qtc.QPainter_DrawRoundedRect4(@ptrCast(self), @ptrCast(rect), @bitCast(xRadius), @bitCast(yRadius), @bitCast(mode));
+    pub fn DrawRoundedRect4(self: QStylePainter, rect: anytype, xRadius: f64, yRadius: f64, mode: i32) void {
+        comptime _ = @TypeOf(rect)._is_QRectF;
+        qtc.QPainter_DrawRoundedRect4(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(xRadius), @bitCast(yRadius), @bitCast(mode));
     }
 
     /// Inherited from QPainter
@@ -3387,7 +3602,7 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` x: i32 `
     ///
@@ -3403,8 +3618,8 @@ pub const qstylepainter = struct {
     ///
     /// ` mode: qnamespace_enums.SizeMode `
     ///
-    pub fn DrawRoundedRect7(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, xRadius: f64, yRadius: f64, mode: i32) void {
-        qtc.QPainter_DrawRoundedRect7(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(xRadius), @bitCast(yRadius), @bitCast(mode));
+    pub fn DrawRoundedRect7(self: QStylePainter, x: i32, y: i32, w: i32, h: i32, xRadius: f64, yRadius: f64, mode: i32) void {
+        qtc.QPainter_DrawRoundedRect7(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(xRadius), @bitCast(yRadius), @bitCast(mode));
     }
 
     /// Inherited from QPainter
@@ -3413,9 +3628,9 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` rect: QtC.QRect `
+    /// ` rect: QRect `
     ///
     /// ` xRadius: f64 `
     ///
@@ -3423,8 +3638,9 @@ pub const qstylepainter = struct {
     ///
     /// ` mode: qnamespace_enums.SizeMode `
     ///
-    pub fn DrawRoundedRect42(self: ?*anyopaque, rect: ?*anyopaque, xRadius: f64, yRadius: f64, mode: i32) void {
-        qtc.QPainter_DrawRoundedRect42(@ptrCast(self), @ptrCast(rect), @bitCast(xRadius), @bitCast(yRadius), @bitCast(mode));
+    pub fn DrawRoundedRect42(self: QStylePainter, rect: anytype, xRadius: f64, yRadius: f64, mode: i32) void {
+        comptime _ = @TypeOf(rect)._is_QRect;
+        qtc.QPainter_DrawRoundedRect42(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(xRadius), @bitCast(yRadius), @bitCast(mode));
     }
 
     /// Inherited from QPainter
@@ -3433,16 +3649,19 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` rect: QtC.QRectF `
+    /// ` rect: QRectF `
     ///
-    /// ` pm: QtC.QPixmap `
+    /// ` pm: QPixmap `
     ///
-    /// ` offset: QtC.QPointF `
+    /// ` offset: QPointF `
     ///
-    pub fn DrawTiledPixmap32(self: ?*anyopaque, rect: ?*anyopaque, pm: ?*anyopaque, offset: ?*anyopaque) void {
-        qtc.QPainter_DrawTiledPixmap32(@ptrCast(self), @ptrCast(rect), @ptrCast(pm), @ptrCast(offset));
+    pub fn DrawTiledPixmap32(self: QStylePainter, rect: anytype, pm: anytype, offset: anytype) void {
+        comptime _ = @TypeOf(rect)._is_QRectF;
+        comptime _ = @TypeOf(pm)._is_QPixmap;
+        comptime _ = @TypeOf(offset)._is_QPointF;
+        qtc.QPainter_DrawTiledPixmap32(@ptrCast(self.ptr), @ptrCast(rect.ptr), @ptrCast(pm.ptr), @ptrCast(offset.ptr));
     }
 
     /// Inherited from QPainter
@@ -3451,7 +3670,7 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` x: i32 `
     ///
@@ -3461,12 +3680,13 @@ pub const qstylepainter = struct {
     ///
     /// ` h: i32 `
     ///
-    /// ` param5: QtC.QPixmap `
+    /// ` param5: QPixmap `
     ///
     /// ` sx: i32 `
     ///
-    pub fn DrawTiledPixmap6(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, param5: ?*anyopaque, sx: i32) void {
-        qtc.QPainter_DrawTiledPixmap6(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @ptrCast(param5), @bitCast(sx));
+    pub fn DrawTiledPixmap6(self: QStylePainter, x: i32, y: i32, w: i32, h: i32, param5: anytype, sx: i32) void {
+        comptime _ = @TypeOf(param5)._is_QPixmap;
+        qtc.QPainter_DrawTiledPixmap6(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @ptrCast(param5.ptr), @bitCast(sx));
     }
 
     /// Inherited from QPainter
@@ -3475,7 +3695,7 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` x: i32 `
     ///
@@ -3485,14 +3705,15 @@ pub const qstylepainter = struct {
     ///
     /// ` h: i32 `
     ///
-    /// ` param5: QtC.QPixmap `
+    /// ` param5: QPixmap `
     ///
     /// ` sx: i32 `
     ///
     /// ` sy: i32 `
     ///
-    pub fn DrawTiledPixmap7(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, param5: ?*anyopaque, sx: i32, sy: i32) void {
-        qtc.QPainter_DrawTiledPixmap7(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @ptrCast(param5), @bitCast(sx), @bitCast(sy));
+    pub fn DrawTiledPixmap7(self: QStylePainter, x: i32, y: i32, w: i32, h: i32, param5: anytype, sx: i32, sy: i32) void {
+        comptime _ = @TypeOf(param5)._is_QPixmap;
+        qtc.QPainter_DrawTiledPixmap7(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @ptrCast(param5.ptr), @bitCast(sx), @bitCast(sy));
     }
 
     /// Inherited from QPainter
@@ -3501,16 +3722,19 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    /// ` param2: QtC.QPixmap `
+    /// ` param2: QPixmap `
     ///
-    /// ` param3: QtC.QPoint `
+    /// ` param3: QPoint `
     ///
-    pub fn DrawTiledPixmap33(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque) void {
-        qtc.QPainter_DrawTiledPixmap33(@ptrCast(self), @ptrCast(param1), @ptrCast(param2), @ptrCast(param3));
+    pub fn DrawTiledPixmap33(self: QStylePainter, param1: anytype, param2: anytype, param3: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        comptime _ = @TypeOf(param2)._is_QPixmap;
+        comptime _ = @TypeOf(param3)._is_QPoint;
+        qtc.QPainter_DrawTiledPixmap33(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr), @ptrCast(param3.ptr));
     }
 
     /// Inherited from QPainter
@@ -3519,18 +3743,20 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` fragments: QtC.QPainter__PixmapFragment `
+    /// ` fragments: QPainter__PixmapFragment `
     ///
     /// ` fragmentCount: i32 `
     ///
-    /// ` pixmap: QtC.QPixmap `
+    /// ` pixmap: QPixmap `
     ///
     /// ` hints: flag of qpainter_enums.PixmapFragmentHint `
     ///
-    pub fn DrawPixmapFragments4(self: ?*anyopaque, fragments: ?*anyopaque, fragmentCount: i32, pixmap: ?*anyopaque, hints: i32) void {
-        qtc.QPainter_DrawPixmapFragments4(@ptrCast(self), @ptrCast(fragments), @bitCast(fragmentCount), @ptrCast(pixmap), @bitCast(hints));
+    pub fn DrawPixmapFragments4(self: QStylePainter, fragments: anytype, fragmentCount: i32, pixmap: anytype, hints: i32) void {
+        comptime _ = @TypeOf(fragments)._is_QPainter__PixmapFragment;
+        comptime _ = @TypeOf(pixmap)._is_QPixmap;
+        qtc.QPainter_DrawPixmapFragments4(@ptrCast(self.ptr), @ptrCast(fragments.ptr), @bitCast(fragmentCount), @ptrCast(pixmap.ptr), @bitCast(hints));
     }
 
     /// Inherited from QPainter
@@ -3539,18 +3765,21 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` targetRect: QtC.QRectF `
+    /// ` targetRect: QRectF `
     ///
-    /// ` image: QtC.QImage `
+    /// ` image: QImage `
     ///
-    /// ` sourceRect: QtC.QRectF `
+    /// ` sourceRect: QRectF `
     ///
     /// ` flags: flag of qnamespace_enums.ImageConversionFlag `
     ///
-    pub fn DrawImage42(self: ?*anyopaque, targetRect: ?*anyopaque, image: ?*anyopaque, sourceRect: ?*anyopaque, flags: i32) void {
-        qtc.QPainter_DrawImage42(@ptrCast(self), @ptrCast(targetRect), @ptrCast(image), @ptrCast(sourceRect), @bitCast(flags));
+    pub fn DrawImage42(self: QStylePainter, targetRect: anytype, image: anytype, sourceRect: anytype, flags: i32) void {
+        comptime _ = @TypeOf(targetRect)._is_QRectF;
+        comptime _ = @TypeOf(image)._is_QImage;
+        comptime _ = @TypeOf(sourceRect)._is_QRectF;
+        qtc.QPainter_DrawImage42(@ptrCast(self.ptr), @ptrCast(targetRect.ptr), @ptrCast(image.ptr), @ptrCast(sourceRect.ptr), @bitCast(flags));
     }
 
     /// Inherited from QPainter
@@ -3559,18 +3788,21 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` targetRect: QtC.QRect `
+    /// ` targetRect: QRect `
     ///
-    /// ` image: QtC.QImage `
+    /// ` image: QImage `
     ///
-    /// ` sourceRect: QtC.QRect `
+    /// ` sourceRect: QRect `
     ///
     /// ` flags: flag of qnamespace_enums.ImageConversionFlag `
     ///
-    pub fn DrawImage43(self: ?*anyopaque, targetRect: ?*anyopaque, image: ?*anyopaque, sourceRect: ?*anyopaque, flags: i32) void {
-        qtc.QPainter_DrawImage43(@ptrCast(self), @ptrCast(targetRect), @ptrCast(image), @ptrCast(sourceRect), @bitCast(flags));
+    pub fn DrawImage43(self: QStylePainter, targetRect: anytype, image: anytype, sourceRect: anytype, flags: i32) void {
+        comptime _ = @TypeOf(targetRect)._is_QRect;
+        comptime _ = @TypeOf(image)._is_QImage;
+        comptime _ = @TypeOf(sourceRect)._is_QRect;
+        qtc.QPainter_DrawImage43(@ptrCast(self.ptr), @ptrCast(targetRect.ptr), @ptrCast(image.ptr), @ptrCast(sourceRect.ptr), @bitCast(flags));
     }
 
     /// Inherited from QPainter
@@ -3579,18 +3811,21 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` p: QtC.QPointF `
+    /// ` p: QPointF `
     ///
-    /// ` image: QtC.QImage `
+    /// ` image: QImage `
     ///
-    /// ` sr: QtC.QRectF `
+    /// ` sr: QRectF `
     ///
     /// ` flags: flag of qnamespace_enums.ImageConversionFlag `
     ///
-    pub fn DrawImage44(self: ?*anyopaque, p: ?*anyopaque, image: ?*anyopaque, sr: ?*anyopaque, flags: i32) void {
-        qtc.QPainter_DrawImage44(@ptrCast(self), @ptrCast(p), @ptrCast(image), @ptrCast(sr), @bitCast(flags));
+    pub fn DrawImage44(self: QStylePainter, p: anytype, image: anytype, sr: anytype, flags: i32) void {
+        comptime _ = @TypeOf(p)._is_QPointF;
+        comptime _ = @TypeOf(image)._is_QImage;
+        comptime _ = @TypeOf(sr)._is_QRectF;
+        qtc.QPainter_DrawImage44(@ptrCast(self.ptr), @ptrCast(p.ptr), @ptrCast(image.ptr), @ptrCast(sr.ptr), @bitCast(flags));
     }
 
     /// Inherited from QPainter
@@ -3599,18 +3834,21 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` p: QtC.QPoint `
+    /// ` p: QPoint `
     ///
-    /// ` image: QtC.QImage `
+    /// ` image: QImage `
     ///
-    /// ` sr: QtC.QRect `
+    /// ` sr: QRect `
     ///
     /// ` flags: flag of qnamespace_enums.ImageConversionFlag `
     ///
-    pub fn DrawImage45(self: ?*anyopaque, p: ?*anyopaque, image: ?*anyopaque, sr: ?*anyopaque, flags: i32) void {
-        qtc.QPainter_DrawImage45(@ptrCast(self), @ptrCast(p), @ptrCast(image), @ptrCast(sr), @bitCast(flags));
+    pub fn DrawImage45(self: QStylePainter, p: anytype, image: anytype, sr: anytype, flags: i32) void {
+        comptime _ = @TypeOf(p)._is_QPoint;
+        comptime _ = @TypeOf(image)._is_QImage;
+        comptime _ = @TypeOf(sr)._is_QRect;
+        qtc.QPainter_DrawImage45(@ptrCast(self.ptr), @ptrCast(p.ptr), @ptrCast(image.ptr), @ptrCast(sr.ptr), @bitCast(flags));
     }
 
     /// Inherited from QPainter
@@ -3619,18 +3857,19 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    /// ` image: QtC.QImage `
+    /// ` image: QImage `
     ///
     /// ` sx: i32 `
     ///
-    pub fn DrawImage46(self: ?*anyopaque, x: i32, y: i32, image: ?*anyopaque, sx: i32) void {
-        qtc.QPainter_DrawImage46(@ptrCast(self), @bitCast(x), @bitCast(y), @ptrCast(image), @bitCast(sx));
+    pub fn DrawImage46(self: QStylePainter, x: i32, y: i32, image: anytype, sx: i32) void {
+        comptime _ = @TypeOf(image)._is_QImage;
+        qtc.QPainter_DrawImage46(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @ptrCast(image.ptr), @bitCast(sx));
     }
 
     /// Inherited from QPainter
@@ -3639,44 +3878,21 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    /// ` image: QtC.QImage `
-    ///
-    /// ` sx: i32 `
-    ///
-    /// ` sy: i32 `
-    ///
-    pub fn DrawImage52(self: ?*anyopaque, x: i32, y: i32, image: ?*anyopaque, sx: i32, sy: i32) void {
-        qtc.QPainter_DrawImage52(@ptrCast(self), @bitCast(x), @bitCast(y), @ptrCast(image), @bitCast(sx), @bitCast(sy));
-    }
-
-    /// Inherited from QPainter
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawImage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.QStylePainter `
-    ///
-    /// ` x: i32 `
-    ///
-    /// ` y: i32 `
-    ///
-    /// ` image: QtC.QImage `
+    /// ` image: QImage `
     ///
     /// ` sx: i32 `
     ///
     /// ` sy: i32 `
     ///
-    /// ` sw: i32 `
-    ///
-    pub fn DrawImage62(self: ?*anyopaque, x: i32, y: i32, image: ?*anyopaque, sx: i32, sy: i32, sw: i32) void {
-        qtc.QPainter_DrawImage62(@ptrCast(self), @bitCast(x), @bitCast(y), @ptrCast(image), @bitCast(sx), @bitCast(sy), @bitCast(sw));
+    pub fn DrawImage52(self: QStylePainter, x: i32, y: i32, image: anytype, sx: i32, sy: i32) void {
+        comptime _ = @TypeOf(image)._is_QImage;
+        qtc.QPainter_DrawImage52(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @ptrCast(image.ptr), @bitCast(sx), @bitCast(sy));
     }
 
     /// Inherited from QPainter
@@ -3685,13 +3901,13 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    /// ` image: QtC.QImage `
+    /// ` image: QImage `
     ///
     /// ` sx: i32 `
     ///
@@ -3699,10 +3915,9 @@ pub const qstylepainter = struct {
     ///
     /// ` sw: i32 `
     ///
-    /// ` sh: i32 `
-    ///
-    pub fn DrawImage72(self: ?*anyopaque, x: i32, y: i32, image: ?*anyopaque, sx: i32, sy: i32, sw: i32, sh: i32) void {
-        qtc.QPainter_DrawImage72(@ptrCast(self), @bitCast(x), @bitCast(y), @ptrCast(image), @bitCast(sx), @bitCast(sy), @bitCast(sw), @bitCast(sh));
+    pub fn DrawImage62(self: QStylePainter, x: i32, y: i32, image: anytype, sx: i32, sy: i32, sw: i32) void {
+        comptime _ = @TypeOf(image)._is_QImage;
+        qtc.QPainter_DrawImage62(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @ptrCast(image.ptr), @bitCast(sx), @bitCast(sy), @bitCast(sw));
     }
 
     /// Inherited from QPainter
@@ -3711,13 +3926,13 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    /// ` image: QtC.QImage `
+    /// ` image: QImage `
     ///
     /// ` sx: i32 `
     ///
@@ -3727,10 +3942,38 @@ pub const qstylepainter = struct {
     ///
     /// ` sh: i32 `
     ///
+    pub fn DrawImage72(self: QStylePainter, x: i32, y: i32, image: anytype, sx: i32, sy: i32, sw: i32, sh: i32) void {
+        comptime _ = @TypeOf(image)._is_QImage;
+        qtc.QPainter_DrawImage72(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @ptrCast(image.ptr), @bitCast(sx), @bitCast(sy), @bitCast(sw), @bitCast(sh));
+    }
+
+    /// Inherited from QPainter
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawImage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QStylePainter `
+    ///
+    /// ` x: i32 `
+    ///
+    /// ` y: i32 `
+    ///
+    /// ` image: QImage `
+    ///
+    /// ` sx: i32 `
+    ///
+    /// ` sy: i32 `
+    ///
+    /// ` sw: i32 `
+    ///
+    /// ` sh: i32 `
+    ///
     /// ` flags: flag of qnamespace_enums.ImageConversionFlag `
     ///
-    pub fn DrawImage82(self: ?*anyopaque, x: i32, y: i32, image: ?*anyopaque, sx: i32, sy: i32, sw: i32, sh: i32, flags: i32) void {
-        qtc.QPainter_DrawImage82(@ptrCast(self), @bitCast(x), @bitCast(y), @ptrCast(image), @bitCast(sx), @bitCast(sy), @bitCast(sw), @bitCast(sh), @bitCast(flags));
+    pub fn DrawImage82(self: QStylePainter, x: i32, y: i32, image: anytype, sx: i32, sy: i32, sw: i32, sh: i32, flags: i32) void {
+        comptime _ = @TypeOf(image)._is_QImage;
+        qtc.QPainter_DrawImage82(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @ptrCast(image.ptr), @bitCast(sx), @bitCast(sy), @bitCast(sw), @bitCast(sh), @bitCast(flags));
     }
 
     /// Inherited from QPainter
@@ -3739,22 +3982,24 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` r: QtC.QRectF `
+    /// ` r: QRectF `
     ///
     /// ` flags: i32 `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` br: QtC.QRectF `
+    /// ` br: QRectF `
     ///
-    pub fn DrawText42(self: ?*anyopaque, r: ?*anyopaque, flags: i32, text: []const u8, br: ?*anyopaque) void {
+    pub fn DrawText42(self: QStylePainter, r: anytype, flags: i32, text: []const u8, br: anytype) void {
+        comptime _ = @TypeOf(r)._is_QRectF;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QPainter_DrawText42(@ptrCast(self), @ptrCast(r), @bitCast(flags), text_str, @ptrCast(br));
+        comptime _ = @TypeOf(br)._is_QRectF;
+        qtc.QPainter_DrawText42(@ptrCast(self.ptr), @ptrCast(r.ptr), @bitCast(flags), text_str, @ptrCast(br.ptr));
     }
 
     /// Inherited from QPainter
@@ -3763,22 +4008,24 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` r: QtC.QRect `
+    /// ` r: QRect `
     ///
     /// ` flags: i32 `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` br: QtC.QRect `
+    /// ` br: QRect `
     ///
-    pub fn DrawText43(self: ?*anyopaque, r: ?*anyopaque, flags: i32, text: []const u8, br: ?*anyopaque) void {
+    pub fn DrawText43(self: QStylePainter, r: anytype, flags: i32, text: []const u8, br: anytype) void {
+        comptime _ = @TypeOf(r)._is_QRect;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QPainter_DrawText43(@ptrCast(self), @ptrCast(r), @bitCast(flags), text_str, @ptrCast(br));
+        comptime _ = @TypeOf(br)._is_QRect;
+        qtc.QPainter_DrawText43(@ptrCast(self.ptr), @ptrCast(r.ptr), @bitCast(flags), text_str, @ptrCast(br.ptr));
     }
 
     /// Inherited from QPainter
@@ -3787,7 +4034,7 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` x: i32 `
     ///
@@ -3801,14 +4048,15 @@ pub const qstylepainter = struct {
     ///
     /// ` text: []const u8 `
     ///
-    /// ` br: QtC.QRect `
+    /// ` br: QRect `
     ///
-    pub fn DrawText72(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, flags: i32, text: []const u8, br: ?*anyopaque) void {
+    pub fn DrawText72(self: QStylePainter, x: i32, y: i32, w: i32, h: i32, flags: i32, text: []const u8, br: anytype) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QPainter_DrawText72(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(flags), text_str, @ptrCast(br));
+        comptime _ = @TypeOf(br)._is_QRect;
+        qtc.QPainter_DrawText72(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(flags), text_str, @ptrCast(br.ptr));
     }
 
     /// Inherited from QPainter
@@ -3817,20 +4065,22 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` r: QtC.QRectF `
+    /// ` r: QRectF `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` o: QtC.QTextOption `
+    /// ` o: QTextOption `
     ///
-    pub fn DrawText32(self: ?*anyopaque, r: ?*anyopaque, text: []const u8, o: ?*anyopaque) void {
+    pub fn DrawText32(self: QStylePainter, r: anytype, text: []const u8, o: anytype) void {
+        comptime _ = @TypeOf(r)._is_QRectF;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QPainter_DrawText32(@ptrCast(self), @ptrCast(r), text_str, @ptrCast(o));
+        comptime _ = @TypeOf(o)._is_QTextOption;
+        qtc.QPainter_DrawText32(@ptrCast(self.ptr), @ptrCast(r.ptr), text_str, @ptrCast(o.ptr));
     }
 
     /// Inherited from QPainter
@@ -3839,20 +4089,22 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    /// ` rect: QtC.QRectF `
+    /// ` rect: QRectF `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` o: QtC.QTextOption `
+    /// ` o: QTextOption `
     ///
-    pub fn BoundingRect32(self: ?*anyopaque, rect: ?*anyopaque, text: []const u8, o: ?*anyopaque) QtC.QRectF {
+    pub fn BoundingRect32(self: QStylePainter, rect: anytype, text: []const u8, o: anytype) QRectF {
+        comptime _ = @TypeOf(rect)._is_QRectF;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QPainter_BoundingRect32(@ptrCast(self), @ptrCast(rect), text_str, @ptrCast(o));
+        comptime _ = @TypeOf(o)._is_QTextOption;
+        return .{ .ptr = qtc.QPainter_BoundingRect32(@ptrCast(self.ptr), @ptrCast(rect.ptr), text_str, @ptrCast(o.ptr)) };
     }
 
     /// Inherited from QPainter
@@ -3861,14 +4113,14 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` hint: qpainter_enums.RenderHint `
     ///
     /// ` on: bool `
     ///
-    pub fn SetRenderHint2(self: ?*anyopaque, hint: i32, on: bool) void {
-        qtc.QPainter_SetRenderHint2(@ptrCast(self), @bitCast(hint), on);
+    pub fn SetRenderHint2(self: QStylePainter, hint: i32, on: bool) void {
+        qtc.QPainter_SetRenderHint2(@ptrCast(self.ptr), @bitCast(hint), on);
     }
 
     /// Inherited from QPainter
@@ -3877,14 +4129,14 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
     /// ` hints: flag of qpainter_enums.RenderHint `
     ///
     /// ` on: bool `
     ///
-    pub fn SetRenderHints2(self: ?*anyopaque, hints: i32, on: bool) void {
-        qtc.QPainter_SetRenderHints2(@ptrCast(self), @bitCast(hints), on);
+    pub fn SetRenderHints2(self: QStylePainter, hints: i32, on: bool) void {
+        qtc.QPainter_SetRenderHints2(@ptrCast(self.ptr), @bitCast(hints), on);
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -3897,9 +4149,9 @@ pub const qstylepainter = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QStylePainter `
+    /// ` self: QStylePainter `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QStylePainter_Delete(@ptrCast(self));
+    pub fn Delete(self: QStylePainter) void {
+        qtc.QStylePainter_Delete(@ptrCast(self.ptr));
     }
 };

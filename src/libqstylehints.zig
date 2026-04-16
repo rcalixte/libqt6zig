@@ -1,35 +1,53 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChar = @import("libqt6").QChar;
+const QEvent = @import("libqt6").QEvent;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QThread = @import("libqt6").QThread;
+const QVariant = @import("libqt6").QVariant;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html)
-pub const qstylehints = struct {
+pub const QStyleHints = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QStyleHints,
+
+    pub const _is_QStyleHints = {};
+    pub const _is_QObject = {};
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QStyleHints_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QStyleHints) QMetaObject {
+        return .{ .ptr = qtc.QStyleHints_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QStyleHints, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QStyleHints_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QStyleHints_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -37,19 +55,19 @@ pub const qstylehints = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QStyleHints_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QStyleHints, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QStyleHints_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -62,763 +80,763 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ` mouseDoubleClickInterval: i32 `
     ///
-    pub fn SetMouseDoubleClickInterval(self: ?*anyopaque, mouseDoubleClickInterval: i32) void {
-        qtc.QStyleHints_SetMouseDoubleClickInterval(@ptrCast(self), @bitCast(mouseDoubleClickInterval));
+    pub fn SetMouseDoubleClickInterval(self: QStyleHints, mouseDoubleClickInterval: i32) void {
+        qtc.QStyleHints_SetMouseDoubleClickInterval(@ptrCast(self.ptr), @bitCast(mouseDoubleClickInterval));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#mouseDoubleClickInterval)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    pub fn MouseDoubleClickInterval(self: ?*anyopaque) i32 {
-        return qtc.QStyleHints_MouseDoubleClickInterval(@ptrCast(self));
+    pub fn MouseDoubleClickInterval(self: QStyleHints) i32 {
+        return qtc.QStyleHints_MouseDoubleClickInterval(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#mouseDoubleClickDistance)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    pub fn MouseDoubleClickDistance(self: ?*anyopaque) i32 {
-        return qtc.QStyleHints_MouseDoubleClickDistance(@ptrCast(self));
+    pub fn MouseDoubleClickDistance(self: QStyleHints) i32 {
+        return qtc.QStyleHints_MouseDoubleClickDistance(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#touchDoubleTapDistance)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    pub fn TouchDoubleTapDistance(self: ?*anyopaque) i32 {
-        return qtc.QStyleHints_TouchDoubleTapDistance(@ptrCast(self));
+    pub fn TouchDoubleTapDistance(self: QStyleHints) i32 {
+        return qtc.QStyleHints_TouchDoubleTapDistance(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#setMousePressAndHoldInterval)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ` mousePressAndHoldInterval: i32 `
     ///
-    pub fn SetMousePressAndHoldInterval(self: ?*anyopaque, mousePressAndHoldInterval: i32) void {
-        qtc.QStyleHints_SetMousePressAndHoldInterval(@ptrCast(self), @bitCast(mousePressAndHoldInterval));
+    pub fn SetMousePressAndHoldInterval(self: QStyleHints, mousePressAndHoldInterval: i32) void {
+        qtc.QStyleHints_SetMousePressAndHoldInterval(@ptrCast(self.ptr), @bitCast(mousePressAndHoldInterval));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#mousePressAndHoldInterval)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    pub fn MousePressAndHoldInterval(self: ?*anyopaque) i32 {
-        return qtc.QStyleHints_MousePressAndHoldInterval(@ptrCast(self));
+    pub fn MousePressAndHoldInterval(self: QStyleHints) i32 {
+        return qtc.QStyleHints_MousePressAndHoldInterval(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#setStartDragDistance)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ` startDragDistance: i32 `
     ///
-    pub fn SetStartDragDistance(self: ?*anyopaque, startDragDistance: i32) void {
-        qtc.QStyleHints_SetStartDragDistance(@ptrCast(self), @bitCast(startDragDistance));
+    pub fn SetStartDragDistance(self: QStyleHints, startDragDistance: i32) void {
+        qtc.QStyleHints_SetStartDragDistance(@ptrCast(self.ptr), @bitCast(startDragDistance));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#startDragDistance)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    pub fn StartDragDistance(self: ?*anyopaque) i32 {
-        return qtc.QStyleHints_StartDragDistance(@ptrCast(self));
+    pub fn StartDragDistance(self: QStyleHints) i32 {
+        return qtc.QStyleHints_StartDragDistance(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#setStartDragTime)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ` startDragTime: i32 `
     ///
-    pub fn SetStartDragTime(self: ?*anyopaque, startDragTime: i32) void {
-        qtc.QStyleHints_SetStartDragTime(@ptrCast(self), @bitCast(startDragTime));
+    pub fn SetStartDragTime(self: QStyleHints, startDragTime: i32) void {
+        qtc.QStyleHints_SetStartDragTime(@ptrCast(self.ptr), @bitCast(startDragTime));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#startDragTime)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    pub fn StartDragTime(self: ?*anyopaque) i32 {
-        return qtc.QStyleHints_StartDragTime(@ptrCast(self));
+    pub fn StartDragTime(self: QStyleHints) i32 {
+        return qtc.QStyleHints_StartDragTime(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#startDragVelocity)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    pub fn StartDragVelocity(self: ?*anyopaque) i32 {
-        return qtc.QStyleHints_StartDragVelocity(@ptrCast(self));
+    pub fn StartDragVelocity(self: QStyleHints) i32 {
+        return qtc.QStyleHints_StartDragVelocity(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#setKeyboardInputInterval)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ` keyboardInputInterval: i32 `
     ///
-    pub fn SetKeyboardInputInterval(self: ?*anyopaque, keyboardInputInterval: i32) void {
-        qtc.QStyleHints_SetKeyboardInputInterval(@ptrCast(self), @bitCast(keyboardInputInterval));
+    pub fn SetKeyboardInputInterval(self: QStyleHints, keyboardInputInterval: i32) void {
+        qtc.QStyleHints_SetKeyboardInputInterval(@ptrCast(self.ptr), @bitCast(keyboardInputInterval));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#keyboardInputInterval)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    pub fn KeyboardInputInterval(self: ?*anyopaque) i32 {
-        return qtc.QStyleHints_KeyboardInputInterval(@ptrCast(self));
+    pub fn KeyboardInputInterval(self: QStyleHints) i32 {
+        return qtc.QStyleHints_KeyboardInputInterval(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#keyboardAutoRepeatRate)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    pub fn KeyboardAutoRepeatRate(self: ?*anyopaque) i32 {
-        return qtc.QStyleHints_KeyboardAutoRepeatRate(@ptrCast(self));
+    pub fn KeyboardAutoRepeatRate(self: QStyleHints) i32 {
+        return qtc.QStyleHints_KeyboardAutoRepeatRate(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#keyboardAutoRepeatRateF)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    pub fn KeyboardAutoRepeatRateF(self: ?*anyopaque) f64 {
-        return qtc.QStyleHints_KeyboardAutoRepeatRateF(@ptrCast(self));
+    pub fn KeyboardAutoRepeatRateF(self: QStyleHints) f64 {
+        return qtc.QStyleHints_KeyboardAutoRepeatRateF(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#setCursorFlashTime)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ` cursorFlashTime: i32 `
     ///
-    pub fn SetCursorFlashTime(self: ?*anyopaque, cursorFlashTime: i32) void {
-        qtc.QStyleHints_SetCursorFlashTime(@ptrCast(self), @bitCast(cursorFlashTime));
+    pub fn SetCursorFlashTime(self: QStyleHints, cursorFlashTime: i32) void {
+        qtc.QStyleHints_SetCursorFlashTime(@ptrCast(self.ptr), @bitCast(cursorFlashTime));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#cursorFlashTime)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    pub fn CursorFlashTime(self: ?*anyopaque) i32 {
-        return qtc.QStyleHints_CursorFlashTime(@ptrCast(self));
+    pub fn CursorFlashTime(self: QStyleHints) i32 {
+        return qtc.QStyleHints_CursorFlashTime(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#showIsFullScreen)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    pub fn ShowIsFullScreen(self: ?*anyopaque) bool {
-        return qtc.QStyleHints_ShowIsFullScreen(@ptrCast(self));
+    pub fn ShowIsFullScreen(self: QStyleHints) bool {
+        return qtc.QStyleHints_ShowIsFullScreen(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#showIsMaximized)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    pub fn ShowIsMaximized(self: ?*anyopaque) bool {
-        return qtc.QStyleHints_ShowIsMaximized(@ptrCast(self));
+    pub fn ShowIsMaximized(self: QStyleHints) bool {
+        return qtc.QStyleHints_ShowIsMaximized(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#showShortcutsInContextMenus)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    pub fn ShowShortcutsInContextMenus(self: ?*anyopaque) bool {
-        return qtc.QStyleHints_ShowShortcutsInContextMenus(@ptrCast(self));
+    pub fn ShowShortcutsInContextMenus(self: QStyleHints) bool {
+        return qtc.QStyleHints_ShowShortcutsInContextMenus(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#setShowShortcutsInContextMenus)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ` showShortcutsInContextMenus: bool `
     ///
-    pub fn SetShowShortcutsInContextMenus(self: ?*anyopaque, showShortcutsInContextMenus: bool) void {
-        qtc.QStyleHints_SetShowShortcutsInContextMenus(@ptrCast(self), showShortcutsInContextMenus);
+    pub fn SetShowShortcutsInContextMenus(self: QStyleHints, showShortcutsInContextMenus: bool) void {
+        qtc.QStyleHints_SetShowShortcutsInContextMenus(@ptrCast(self.ptr), showShortcutsInContextMenus);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#contextMenuTrigger)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.ContextMenuTrigger `
     ///
-    pub fn ContextMenuTrigger(self: ?*anyopaque) i32 {
-        return qtc.QStyleHints_ContextMenuTrigger(@ptrCast(self));
+    pub fn ContextMenuTrigger(self: QStyleHints) i32 {
+        return qtc.QStyleHints_ContextMenuTrigger(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#setContextMenuTrigger)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ` contextMenuTrigger: qnamespace_enums.ContextMenuTrigger `
     ///
-    pub fn SetContextMenuTrigger(self: ?*anyopaque, contextMenuTrigger: i32) void {
-        qtc.QStyleHints_SetContextMenuTrigger(@ptrCast(self), @bitCast(contextMenuTrigger));
+    pub fn SetContextMenuTrigger(self: QStyleHints, contextMenuTrigger: i32) void {
+        qtc.QStyleHints_SetContextMenuTrigger(@ptrCast(self.ptr), @bitCast(contextMenuTrigger));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#passwordMaskDelay)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    pub fn PasswordMaskDelay(self: ?*anyopaque) i32 {
-        return qtc.QStyleHints_PasswordMaskDelay(@ptrCast(self));
+    pub fn PasswordMaskDelay(self: QStyleHints) i32 {
+        return qtc.QStyleHints_PasswordMaskDelay(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#passwordMaskCharacter)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    pub fn PasswordMaskCharacter(self: ?*anyopaque) QtC.QChar {
-        return qtc.QStyleHints_PasswordMaskCharacter(@ptrCast(self));
+    pub fn PasswordMaskCharacter(self: QStyleHints) QChar {
+        return .{ .ptr = qtc.QStyleHints_PasswordMaskCharacter(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#fontSmoothingGamma)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    pub fn FontSmoothingGamma(self: ?*anyopaque) f64 {
-        return qtc.QStyleHints_FontSmoothingGamma(@ptrCast(self));
+    pub fn FontSmoothingGamma(self: QStyleHints) f64 {
+        return qtc.QStyleHints_FontSmoothingGamma(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#useRtlExtensions)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    pub fn UseRtlExtensions(self: ?*anyopaque) bool {
-        return qtc.QStyleHints_UseRtlExtensions(@ptrCast(self));
+    pub fn UseRtlExtensions(self: QStyleHints) bool {
+        return qtc.QStyleHints_UseRtlExtensions(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#setFocusOnTouchRelease)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    pub fn SetFocusOnTouchRelease(self: ?*anyopaque) bool {
-        return qtc.QStyleHints_SetFocusOnTouchRelease(@ptrCast(self));
+    pub fn SetFocusOnTouchRelease(self: QStyleHints) bool {
+        return qtc.QStyleHints_SetFocusOnTouchRelease(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#tabFocusBehavior)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.TabFocusBehavior `
     ///
-    pub fn TabFocusBehavior(self: ?*anyopaque) i32 {
-        return qtc.QStyleHints_TabFocusBehavior(@ptrCast(self));
+    pub fn TabFocusBehavior(self: QStyleHints) i32 {
+        return qtc.QStyleHints_TabFocusBehavior(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#setTabFocusBehavior)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ` tabFocusBehavior: qnamespace_enums.TabFocusBehavior `
     ///
-    pub fn SetTabFocusBehavior(self: ?*anyopaque, tabFocusBehavior: i32) void {
-        qtc.QStyleHints_SetTabFocusBehavior(@ptrCast(self), @bitCast(tabFocusBehavior));
+    pub fn SetTabFocusBehavior(self: QStyleHints, tabFocusBehavior: i32) void {
+        qtc.QStyleHints_SetTabFocusBehavior(@ptrCast(self.ptr), @bitCast(tabFocusBehavior));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#singleClickActivation)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    pub fn SingleClickActivation(self: ?*anyopaque) bool {
-        return qtc.QStyleHints_SingleClickActivation(@ptrCast(self));
+    pub fn SingleClickActivation(self: QStyleHints) bool {
+        return qtc.QStyleHints_SingleClickActivation(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#useHoverEffects)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    pub fn UseHoverEffects(self: ?*anyopaque) bool {
-        return qtc.QStyleHints_UseHoverEffects(@ptrCast(self));
+    pub fn UseHoverEffects(self: QStyleHints) bool {
+        return qtc.QStyleHints_UseHoverEffects(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#setUseHoverEffects)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ` useHoverEffects: bool `
     ///
-    pub fn SetUseHoverEffects(self: ?*anyopaque, useHoverEffects: bool) void {
-        qtc.QStyleHints_SetUseHoverEffects(@ptrCast(self), useHoverEffects);
+    pub fn SetUseHoverEffects(self: QStyleHints, useHoverEffects: bool) void {
+        qtc.QStyleHints_SetUseHoverEffects(@ptrCast(self.ptr), useHoverEffects);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#wheelScrollLines)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    pub fn WheelScrollLines(self: ?*anyopaque) i32 {
-        return qtc.QStyleHints_WheelScrollLines(@ptrCast(self));
+    pub fn WheelScrollLines(self: QStyleHints) i32 {
+        return qtc.QStyleHints_WheelScrollLines(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#setWheelScrollLines)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ` scrollLines: i32 `
     ///
-    pub fn SetWheelScrollLines(self: ?*anyopaque, scrollLines: i32) void {
-        qtc.QStyleHints_SetWheelScrollLines(@ptrCast(self), @bitCast(scrollLines));
+    pub fn SetWheelScrollLines(self: QStyleHints, scrollLines: i32) void {
+        qtc.QStyleHints_SetWheelScrollLines(@ptrCast(self.ptr), @bitCast(scrollLines));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#setMouseQuickSelectionThreshold)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ` threshold: i32 `
     ///
-    pub fn SetMouseQuickSelectionThreshold(self: ?*anyopaque, threshold: i32) void {
-        qtc.QStyleHints_SetMouseQuickSelectionThreshold(@ptrCast(self), @bitCast(threshold));
+    pub fn SetMouseQuickSelectionThreshold(self: QStyleHints, threshold: i32) void {
+        qtc.QStyleHints_SetMouseQuickSelectionThreshold(@ptrCast(self.ptr), @bitCast(threshold));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#mouseQuickSelectionThreshold)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    pub fn MouseQuickSelectionThreshold(self: ?*anyopaque) i32 {
-        return qtc.QStyleHints_MouseQuickSelectionThreshold(@ptrCast(self));
+    pub fn MouseQuickSelectionThreshold(self: QStyleHints) i32 {
+        return qtc.QStyleHints_MouseQuickSelectionThreshold(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#colorScheme)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.ColorScheme `
     ///
-    pub fn ColorScheme(self: ?*anyopaque) i32 {
-        return qtc.QStyleHints_ColorScheme(@ptrCast(self));
+    pub fn ColorScheme(self: QStyleHints) i32 {
+        return qtc.QStyleHints_ColorScheme(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#setColorScheme)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ` scheme: qnamespace_enums.ColorScheme `
     ///
-    pub fn SetColorScheme(self: ?*anyopaque, scheme: i32) void {
-        qtc.QStyleHints_SetColorScheme(@ptrCast(self), @bitCast(scheme));
+    pub fn SetColorScheme(self: QStyleHints, scheme: i32) void {
+        qtc.QStyleHints_SetColorScheme(@ptrCast(self.ptr), @bitCast(scheme));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#unsetColorScheme)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    pub fn UnsetColorScheme(self: ?*anyopaque) void {
-        qtc.QStyleHints_UnsetColorScheme(@ptrCast(self));
+    pub fn UnsetColorScheme(self: QStyleHints) void {
+        qtc.QStyleHints_UnsetColorScheme(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#cursorFlashTimeChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ` cursorFlashTime: i32 `
     ///
-    pub fn CursorFlashTimeChanged(self: ?*anyopaque, cursorFlashTime: i32) void {
-        qtc.QStyleHints_CursorFlashTimeChanged(@ptrCast(self), @bitCast(cursorFlashTime));
+    pub fn CursorFlashTimeChanged(self: QStyleHints, cursorFlashTime: i32) void {
+        qtc.QStyleHints_CursorFlashTimeChanged(@ptrCast(self.ptr), @bitCast(cursorFlashTime));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#cursorFlashTimeChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    /// ` callback: *const fn (self: QtC.QStyleHints, cursorFlashTime: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QStyleHints, cursorFlashTime: i32) callconv(.c) void `
     ///
-    pub fn OnCursorFlashTimeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QStyleHints_Connect_CursorFlashTimeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCursorFlashTimeChanged(self: QStyleHints, callback: *const fn (QStyleHints, i32) callconv(.c) void) void {
+        qtc.QStyleHints_Connect_CursorFlashTimeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#keyboardInputIntervalChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ` keyboardInputInterval: i32 `
     ///
-    pub fn KeyboardInputIntervalChanged(self: ?*anyopaque, keyboardInputInterval: i32) void {
-        qtc.QStyleHints_KeyboardInputIntervalChanged(@ptrCast(self), @bitCast(keyboardInputInterval));
+    pub fn KeyboardInputIntervalChanged(self: QStyleHints, keyboardInputInterval: i32) void {
+        qtc.QStyleHints_KeyboardInputIntervalChanged(@ptrCast(self.ptr), @bitCast(keyboardInputInterval));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#keyboardInputIntervalChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    /// ` callback: *const fn (self: QtC.QStyleHints, keyboardInputInterval: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QStyleHints, keyboardInputInterval: i32) callconv(.c) void `
     ///
-    pub fn OnKeyboardInputIntervalChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QStyleHints_Connect_KeyboardInputIntervalChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyboardInputIntervalChanged(self: QStyleHints, callback: *const fn (QStyleHints, i32) callconv(.c) void) void {
+        qtc.QStyleHints_Connect_KeyboardInputIntervalChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#mouseDoubleClickIntervalChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ` mouseDoubleClickInterval: i32 `
     ///
-    pub fn MouseDoubleClickIntervalChanged(self: ?*anyopaque, mouseDoubleClickInterval: i32) void {
-        qtc.QStyleHints_MouseDoubleClickIntervalChanged(@ptrCast(self), @bitCast(mouseDoubleClickInterval));
+    pub fn MouseDoubleClickIntervalChanged(self: QStyleHints, mouseDoubleClickInterval: i32) void {
+        qtc.QStyleHints_MouseDoubleClickIntervalChanged(@ptrCast(self.ptr), @bitCast(mouseDoubleClickInterval));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#mouseDoubleClickIntervalChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    /// ` callback: *const fn (self: QtC.QStyleHints, mouseDoubleClickInterval: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QStyleHints, mouseDoubleClickInterval: i32) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickIntervalChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QStyleHints_Connect_MouseDoubleClickIntervalChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseDoubleClickIntervalChanged(self: QStyleHints, callback: *const fn (QStyleHints, i32) callconv(.c) void) void {
+        qtc.QStyleHints_Connect_MouseDoubleClickIntervalChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#mousePressAndHoldIntervalChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ` mousePressAndHoldInterval: i32 `
     ///
-    pub fn MousePressAndHoldIntervalChanged(self: ?*anyopaque, mousePressAndHoldInterval: i32) void {
-        qtc.QStyleHints_MousePressAndHoldIntervalChanged(@ptrCast(self), @bitCast(mousePressAndHoldInterval));
+    pub fn MousePressAndHoldIntervalChanged(self: QStyleHints, mousePressAndHoldInterval: i32) void {
+        qtc.QStyleHints_MousePressAndHoldIntervalChanged(@ptrCast(self.ptr), @bitCast(mousePressAndHoldInterval));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#mousePressAndHoldIntervalChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    /// ` callback: *const fn (self: QtC.QStyleHints, mousePressAndHoldInterval: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QStyleHints, mousePressAndHoldInterval: i32) callconv(.c) void `
     ///
-    pub fn OnMousePressAndHoldIntervalChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QStyleHints_Connect_MousePressAndHoldIntervalChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMousePressAndHoldIntervalChanged(self: QStyleHints, callback: *const fn (QStyleHints, i32) callconv(.c) void) void {
+        qtc.QStyleHints_Connect_MousePressAndHoldIntervalChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#startDragDistanceChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ` startDragDistance: i32 `
     ///
-    pub fn StartDragDistanceChanged(self: ?*anyopaque, startDragDistance: i32) void {
-        qtc.QStyleHints_StartDragDistanceChanged(@ptrCast(self), @bitCast(startDragDistance));
+    pub fn StartDragDistanceChanged(self: QStyleHints, startDragDistance: i32) void {
+        qtc.QStyleHints_StartDragDistanceChanged(@ptrCast(self.ptr), @bitCast(startDragDistance));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#startDragDistanceChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    /// ` callback: *const fn (self: QtC.QStyleHints, startDragDistance: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QStyleHints, startDragDistance: i32) callconv(.c) void `
     ///
-    pub fn OnStartDragDistanceChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QStyleHints_Connect_StartDragDistanceChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnStartDragDistanceChanged(self: QStyleHints, callback: *const fn (QStyleHints, i32) callconv(.c) void) void {
+        qtc.QStyleHints_Connect_StartDragDistanceChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#startDragTimeChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ` startDragTime: i32 `
     ///
-    pub fn StartDragTimeChanged(self: ?*anyopaque, startDragTime: i32) void {
-        qtc.QStyleHints_StartDragTimeChanged(@ptrCast(self), @bitCast(startDragTime));
+    pub fn StartDragTimeChanged(self: QStyleHints, startDragTime: i32) void {
+        qtc.QStyleHints_StartDragTimeChanged(@ptrCast(self.ptr), @bitCast(startDragTime));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#startDragTimeChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    /// ` callback: *const fn (self: QtC.QStyleHints, startDragTime: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QStyleHints, startDragTime: i32) callconv(.c) void `
     ///
-    pub fn OnStartDragTimeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QStyleHints_Connect_StartDragTimeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnStartDragTimeChanged(self: QStyleHints, callback: *const fn (QStyleHints, i32) callconv(.c) void) void {
+        qtc.QStyleHints_Connect_StartDragTimeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#tabFocusBehaviorChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ` tabFocusBehavior: qnamespace_enums.TabFocusBehavior `
     ///
-    pub fn TabFocusBehaviorChanged(self: ?*anyopaque, tabFocusBehavior: i32) void {
-        qtc.QStyleHints_TabFocusBehaviorChanged(@ptrCast(self), @bitCast(tabFocusBehavior));
+    pub fn TabFocusBehaviorChanged(self: QStyleHints, tabFocusBehavior: i32) void {
+        qtc.QStyleHints_TabFocusBehaviorChanged(@ptrCast(self.ptr), @bitCast(tabFocusBehavior));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#tabFocusBehaviorChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    /// ` callback: *const fn (self: QtC.QStyleHints, tabFocusBehavior: qnamespace_enums.TabFocusBehavior) callconv(.c) void `
+    /// ` callback: *const fn (self: QStyleHints, tabFocusBehavior: qnamespace_enums.TabFocusBehavior) callconv(.c) void `
     ///
-    pub fn OnTabFocusBehaviorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QStyleHints_Connect_TabFocusBehaviorChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTabFocusBehaviorChanged(self: QStyleHints, callback: *const fn (QStyleHints, i32) callconv(.c) void) void {
+        qtc.QStyleHints_Connect_TabFocusBehaviorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#useHoverEffectsChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ` useHoverEffects: bool `
     ///
-    pub fn UseHoverEffectsChanged(self: ?*anyopaque, useHoverEffects: bool) void {
-        qtc.QStyleHints_UseHoverEffectsChanged(@ptrCast(self), useHoverEffects);
+    pub fn UseHoverEffectsChanged(self: QStyleHints, useHoverEffects: bool) void {
+        qtc.QStyleHints_UseHoverEffectsChanged(@ptrCast(self.ptr), useHoverEffects);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#useHoverEffectsChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    /// ` callback: *const fn (self: QtC.QStyleHints, useHoverEffects: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QStyleHints, useHoverEffects: bool) callconv(.c) void `
     ///
-    pub fn OnUseHoverEffectsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QStyleHints_Connect_UseHoverEffectsChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUseHoverEffectsChanged(self: QStyleHints, callback: *const fn (QStyleHints, bool) callconv(.c) void) void {
+        qtc.QStyleHints_Connect_UseHoverEffectsChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#showShortcutsInContextMenusChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ` param1: bool `
     ///
-    pub fn ShowShortcutsInContextMenusChanged(self: ?*anyopaque, param1: bool) void {
-        qtc.QStyleHints_ShowShortcutsInContextMenusChanged(@ptrCast(self), param1);
+    pub fn ShowShortcutsInContextMenusChanged(self: QStyleHints, param1: bool) void {
+        qtc.QStyleHints_ShowShortcutsInContextMenusChanged(@ptrCast(self.ptr), param1);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#showShortcutsInContextMenusChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    /// ` callback: *const fn (self: QtC.QStyleHints, param1: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QStyleHints, param1: bool) callconv(.c) void `
     ///
-    pub fn OnShowShortcutsInContextMenusChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QStyleHints_Connect_ShowShortcutsInContextMenusChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnShowShortcutsInContextMenusChanged(self: QStyleHints, callback: *const fn (QStyleHints, bool) callconv(.c) void) void {
+        qtc.QStyleHints_Connect_ShowShortcutsInContextMenusChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#contextMenuTriggerChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ` contextMenuTrigger: qnamespace_enums.ContextMenuTrigger `
     ///
-    pub fn ContextMenuTriggerChanged(self: ?*anyopaque, contextMenuTrigger: i32) void {
-        qtc.QStyleHints_ContextMenuTriggerChanged(@ptrCast(self), @bitCast(contextMenuTrigger));
+    pub fn ContextMenuTriggerChanged(self: QStyleHints, contextMenuTrigger: i32) void {
+        qtc.QStyleHints_ContextMenuTriggerChanged(@ptrCast(self.ptr), @bitCast(contextMenuTrigger));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#contextMenuTriggerChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    /// ` callback: *const fn (self: QtC.QStyleHints, contextMenuTrigger: qnamespace_enums.ContextMenuTrigger) callconv(.c) void `
+    /// ` callback: *const fn (self: QStyleHints, contextMenuTrigger: qnamespace_enums.ContextMenuTrigger) callconv(.c) void `
     ///
-    pub fn OnContextMenuTriggerChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QStyleHints_Connect_ContextMenuTriggerChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnContextMenuTriggerChanged(self: QStyleHints, callback: *const fn (QStyleHints, i32) callconv(.c) void) void {
+        qtc.QStyleHints_Connect_ContextMenuTriggerChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#wheelScrollLinesChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ` scrollLines: i32 `
     ///
-    pub fn WheelScrollLinesChanged(self: ?*anyopaque, scrollLines: i32) void {
-        qtc.QStyleHints_WheelScrollLinesChanged(@ptrCast(self), @bitCast(scrollLines));
+    pub fn WheelScrollLinesChanged(self: QStyleHints, scrollLines: i32) void {
+        qtc.QStyleHints_WheelScrollLinesChanged(@ptrCast(self.ptr), @bitCast(scrollLines));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#wheelScrollLinesChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    /// ` callback: *const fn (self: QtC.QStyleHints, scrollLines: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QStyleHints, scrollLines: i32) callconv(.c) void `
     ///
-    pub fn OnWheelScrollLinesChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QStyleHints_Connect_WheelScrollLinesChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWheelScrollLinesChanged(self: QStyleHints, callback: *const fn (QStyleHints, i32) callconv(.c) void) void {
+        qtc.QStyleHints_Connect_WheelScrollLinesChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#mouseQuickSelectionThresholdChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ` threshold: i32 `
     ///
-    pub fn MouseQuickSelectionThresholdChanged(self: ?*anyopaque, threshold: i32) void {
-        qtc.QStyleHints_MouseQuickSelectionThresholdChanged(@ptrCast(self), @bitCast(threshold));
+    pub fn MouseQuickSelectionThresholdChanged(self: QStyleHints, threshold: i32) void {
+        qtc.QStyleHints_MouseQuickSelectionThresholdChanged(@ptrCast(self.ptr), @bitCast(threshold));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#mouseQuickSelectionThresholdChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    /// ` callback: *const fn (self: QtC.QStyleHints, threshold: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QStyleHints, threshold: i32) callconv(.c) void `
     ///
-    pub fn OnMouseQuickSelectionThresholdChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QStyleHints_Connect_MouseQuickSelectionThresholdChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseQuickSelectionThresholdChanged(self: QStyleHints, callback: *const fn (QStyleHints, i32) callconv(.c) void) void {
+        qtc.QStyleHints_Connect_MouseQuickSelectionThresholdChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#colorSchemeChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ` colorScheme: qnamespace_enums.ColorScheme `
     ///
-    pub fn ColorSchemeChanged(self: ?*anyopaque, colorScheme: i32) void {
-        qtc.QStyleHints_ColorSchemeChanged(@ptrCast(self), @bitCast(colorScheme));
+    pub fn ColorSchemeChanged(self: QStyleHints, colorScheme: i32) void {
+        qtc.QStyleHints_ColorSchemeChanged(@ptrCast(self.ptr), @bitCast(colorScheme));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehints.html#colorSchemeChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    /// ` callback: *const fn (self: QtC.QStyleHints, colorScheme: qnamespace_enums.ColorScheme) callconv(.c) void `
+    /// ` callback: *const fn (self: QStyleHints, colorScheme: qnamespace_enums.ColorScheme) callconv(.c) void `
     ///
-    pub fn OnColorSchemeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QStyleHints_Connect_ColorSchemeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColorSchemeChanged(self: QStyleHints, callback: *const fn (QStyleHints, i32) callconv(.c) void) void {
+        qtc.QStyleHints_Connect_ColorSchemeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -832,15 +850,15 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -856,12 +874,13 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QObject_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: QStyleHints, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QObject_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -870,14 +889,16 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QObject_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: QStyleHints, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -886,12 +907,12 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QStyleHints, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qstylehints.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -904,12 +925,12 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QStyleHints, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -918,10 +939,10 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QStyleHints) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -930,10 +951,10 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QStyleHints) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -942,10 +963,10 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QStyleHints) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -954,10 +975,10 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QStyleHints) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -966,12 +987,12 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QStyleHints, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -980,10 +1001,10 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QStyleHints) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -992,12 +1013,13 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QStyleHints, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -1006,12 +1028,12 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QStyleHints, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1020,12 +1042,12 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QStyleHints, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1034,12 +1056,12 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QStyleHints, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1048,12 +1070,12 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QStyleHints, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1062,16 +1084,17 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QStyleHints, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qstylehints.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qstylehints.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1081,12 +1104,13 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QStyleHints, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -1095,12 +1119,13 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QStyleHints, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -1109,12 +1134,13 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QStyleHints, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -1123,18 +1149,20 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1143,16 +1171,20 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1161,18 +1193,19 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QStyleHints, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1181,18 +1214,20 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1201,16 +1236,20 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -1219,10 +1258,10 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QStyleHints) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1231,12 +1270,13 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QStyleHints, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1245,10 +1285,11 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1257,10 +1298,10 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QStyleHints) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1269,10 +1310,10 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QStyleHints) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1281,15 +1322,16 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QStyleHints, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -1298,13 +1340,13 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QStyleHints, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1313,17 +1355,16 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QStyleHints, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qstylehints.DynamicPropertyNames: Memory allocation failed");
@@ -1342,10 +1383,10 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QStyleHints) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1354,10 +1395,10 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QStyleHints) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1366,10 +1407,10 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QStyleHints) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1378,12 +1419,12 @@ pub const qstylehints = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    /// ` callback: *const fn (self: QtC.QStyleHints) callconv(.c) void `
+    /// ` callback: *const fn (self: QStyleHints) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QStyleHints, callback: *const fn (QStyleHints) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1392,10 +1433,10 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QStyleHints) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1404,13 +1445,13 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QStyleHints, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -1419,10 +1460,10 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QStyleHints) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1431,14 +1472,14 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QStyleHints, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1447,14 +1488,14 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QStyleHints, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1463,20 +1504,22 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -1485,18 +1528,22 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1505,9 +1552,9 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1515,10 +1562,11 @@ pub const qstylehints = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QStyleHints, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1527,13 +1575,13 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QStyleHints, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1542,15 +1590,16 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QStyleHints, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1559,18 +1608,19 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QStyleHints, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1579,15 +1629,16 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QStyleHints, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1596,12 +1647,13 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QStyleHints, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1610,12 +1662,12 @@ pub const qstylehints = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    /// ` callback: *const fn (self: QtC.QStyleHints, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QStyleHints, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QStyleHints, callback: *const fn (QStyleHints, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1626,12 +1678,12 @@ pub const qstylehints = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    /// ` callback: *const fn (self: QtC.QStyleHints, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QStyleHints, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QStyleHints, callback: *const fn (QStyleHints, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -1644,9 +1696,9 @@ pub const qstylehints = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QStyleHints `
+    /// ` self: QStyleHints `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QStyleHints_Delete(@ptrCast(self));
+    pub fn Delete(self: QStyleHints) void {
+        qtc.QStyleHints_Delete(@ptrCast(self.ptr));
     }
 };

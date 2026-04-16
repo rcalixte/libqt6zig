@@ -1,36 +1,58 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const KIO__CopyJob = @import("libqt6").KIO__CopyJob;
+const KIO__Job = @import("libqt6").KIO__Job;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QDateTime = @import("libqt6").QDateTime;
+const QEvent = @import("libqt6").QEvent;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QThread = @import("libqt6").QThread;
+const QUrl = @import("libqt6").QUrl;
+const QVariant = @import("libqt6").QVariant;
+const QWidget = @import("libqt6").QWidget;
 const fileundomanager_enums = enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/kio-fileundomanager.html)
-pub const kio__fileundomanager = struct {
+pub const KIO__FileUndoManager = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kio-fileundomanager.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KIO__FileUndoManager,
+
+    pub const _is_KIO__FileUndoManager = {};
+    pub const _is_QObject = {};
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KIO__FileUndoManager_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: KIO__FileUndoManager) QMetaObject {
+        return .{ .ptr = qtc.KIO__FileUndoManager_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: KIO__FileUndoManager, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KIO__FileUndoManager_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.KIO__FileUndoManager_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -38,19 +60,19 @@ pub const kio__fileundomanager = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KIO__FileUndoManager_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: KIO__FileUndoManager, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KIO__FileUndoManager_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -61,86 +83,90 @@ pub const kio__fileundomanager = struct {
 
     /// ### [Upstream resources](https://api.kde.org/kio-fileundomanager.html#self)
     ///
-    pub fn Self() QtC.KIO__FileUndoManager {
-        return qtc.KIO__FileUndoManager_Self();
+    pub fn Self() KIO__FileUndoManager {
+        return .{ .ptr = qtc.KIO__FileUndoManager_Self() };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-fileundomanager.html#setUiInterface)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
-    /// ` ui: QtC.KIO__FileUndoManager__UiInterface `
+    /// ` ui: KIO__FileUndoManager__UiInterface `
     ///
-    pub fn SetUiInterface(self: ?*anyopaque, ui: ?*anyopaque) void {
-        qtc.KIO__FileUndoManager_SetUiInterface(@ptrCast(self), @ptrCast(ui));
+    pub fn SetUiInterface(self: KIO__FileUndoManager, ui: anytype) void {
+        comptime _ = @TypeOf(ui)._is_KIO__FileUndoManager__UiInterface;
+        qtc.KIO__FileUndoManager_SetUiInterface(@ptrCast(self.ptr), @ptrCast(ui.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-fileundomanager.html#uiInterface)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
-    pub fn UiInterface(self: ?*anyopaque) QtC.KIO__FileUndoManager__UiInterface {
-        return qtc.KIO__FileUndoManager_UiInterface(@ptrCast(self));
+    pub fn UiInterface(self: KIO__FileUndoManager) KIO__FileUndoManager__UiInterface {
+        return .{ .ptr = qtc.KIO__FileUndoManager_UiInterface(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-fileundomanager.html#recordJob)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
     /// ` op: fileundomanager_enums.CommandType `
     ///
-    /// ` src: []QtC.QUrl `
+    /// ` src: []QUrl `
     ///
-    /// ` dst: QtC.QUrl `
+    /// ` dst: QUrl `
     ///
-    /// ` job: QtC.KIO__Job `
+    /// ` job: KIO__Job `
     ///
-    pub fn RecordJob(self: ?*anyopaque, op: i32, src: []QtC.QUrl, dst: ?*anyopaque, job: ?*anyopaque) void {
+    pub fn RecordJob(self: KIO__FileUndoManager, op: i32, src: []QUrl, dst: anytype, job: anytype) void {
         const src_list = qtc.libqt_list{
             .len = src.len,
             .data = @ptrCast(src.ptr),
         };
-        qtc.KIO__FileUndoManager_RecordJob(@ptrCast(self), @bitCast(op), src_list, @ptrCast(dst), @ptrCast(job));
+        comptime _ = @TypeOf(dst)._is_QUrl;
+        comptime _ = @TypeOf(job)._is_KIO__Job;
+        qtc.KIO__FileUndoManager_RecordJob(@ptrCast(self.ptr), @bitCast(op), src_list, @ptrCast(dst.ptr), @ptrCast(job.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-fileundomanager.html#recordCopyJob)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
-    /// ` copyJob: QtC.KIO__CopyJob `
+    /// ` copyJob: KIO__CopyJob `
     ///
-    pub fn RecordCopyJob(self: ?*anyopaque, copyJob: ?*anyopaque) void {
-        qtc.KIO__FileUndoManager_RecordCopyJob(@ptrCast(self), @ptrCast(copyJob));
+    pub fn RecordCopyJob(self: KIO__FileUndoManager, copyJob: anytype) void {
+        comptime _ = @TypeOf(copyJob)._is_KIO__CopyJob;
+        qtc.KIO__FileUndoManager_RecordCopyJob(@ptrCast(self.ptr), @ptrCast(copyJob.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-fileundomanager.html#isUndoAvailable)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
-    pub fn IsUndoAvailable(self: ?*anyopaque) bool {
-        return qtc.KIO__FileUndoManager_IsUndoAvailable(@ptrCast(self));
+    pub fn IsUndoAvailable(self: KIO__FileUndoManager) bool {
+        return qtc.KIO__FileUndoManager_IsUndoAvailable(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-fileundomanager.html#undoText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UndoText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KIO__FileUndoManager_UndoText(@ptrCast(self));
+    pub fn UndoText(self: KIO__FileUndoManager, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KIO__FileUndoManager_UndoText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__fileundomanager.UndoText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -151,165 +177,165 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
-    pub fn NewCommandSerialNumber(self: ?*anyopaque) u64 {
-        return qtc.KIO__FileUndoManager_NewCommandSerialNumber(@ptrCast(self));
+    pub fn NewCommandSerialNumber(self: KIO__FileUndoManager) u64 {
+        return qtc.KIO__FileUndoManager_NewCommandSerialNumber(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-fileundomanager.html#currentCommandSerialNumber)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
-    pub fn CurrentCommandSerialNumber(self: ?*anyopaque) u64 {
-        return qtc.KIO__FileUndoManager_CurrentCommandSerialNumber(@ptrCast(self));
+    pub fn CurrentCommandSerialNumber(self: KIO__FileUndoManager) u64 {
+        return qtc.KIO__FileUndoManager_CurrentCommandSerialNumber(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-fileundomanager.html#undo)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
-    pub fn Undo(self: ?*anyopaque) void {
-        qtc.KIO__FileUndoManager_Undo(@ptrCast(self));
+    pub fn Undo(self: KIO__FileUndoManager) void {
+        qtc.KIO__FileUndoManager_Undo(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-fileundomanager.html#undoAvailable)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
     /// ` avail: bool `
     ///
-    pub fn UndoAvailable(self: ?*anyopaque, avail: bool) void {
-        qtc.KIO__FileUndoManager_UndoAvailable(@ptrCast(self), avail);
+    pub fn UndoAvailable(self: KIO__FileUndoManager, avail: bool) void {
+        qtc.KIO__FileUndoManager_UndoAvailable(@ptrCast(self.ptr), avail);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-fileundomanager.html#undoAvailable)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__FileUndoManager, avail: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__FileUndoManager, avail: bool) callconv(.c) void `
     ///
-    pub fn OnUndoAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KIO__FileUndoManager_Connect_UndoAvailable(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUndoAvailable(self: KIO__FileUndoManager, callback: *const fn (KIO__FileUndoManager, bool) callconv(.c) void) void {
+        qtc.KIO__FileUndoManager_Connect_UndoAvailable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-fileundomanager.html#undoTextChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn UndoTextChanged(self: ?*anyopaque, text: []const u8) void {
+    pub fn UndoTextChanged(self: KIO__FileUndoManager, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.KIO__FileUndoManager_UndoTextChanged(@ptrCast(self), text_str);
+        qtc.KIO__FileUndoManager_UndoTextChanged(@ptrCast(self.ptr), text_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-fileundomanager.html#undoTextChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__FileUndoManager, text: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__FileUndoManager, text: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnUndoTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KIO__FileUndoManager_Connect_UndoTextChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUndoTextChanged(self: KIO__FileUndoManager, callback: *const fn (KIO__FileUndoManager, [*:0]const u8) callconv(.c) void) void {
+        qtc.KIO__FileUndoManager_Connect_UndoTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-fileundomanager.html#undoJobFinished)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
-    pub fn UndoJobFinished(self: ?*anyopaque) void {
-        qtc.KIO__FileUndoManager_UndoJobFinished(@ptrCast(self));
+    pub fn UndoJobFinished(self: KIO__FileUndoManager) void {
+        qtc.KIO__FileUndoManager_UndoJobFinished(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-fileundomanager.html#undoJobFinished)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__FileUndoManager) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__FileUndoManager) callconv(.c) void `
     ///
-    pub fn OnUndoJobFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__FileUndoManager_Connect_UndoJobFinished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUndoJobFinished(self: KIO__FileUndoManager, callback: *const fn (KIO__FileUndoManager) callconv(.c) void) void {
+        qtc.KIO__FileUndoManager_Connect_UndoJobFinished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-fileundomanager.html#jobRecordingStarted)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
     /// ` op: fileundomanager_enums.CommandType `
     ///
-    pub fn JobRecordingStarted(self: ?*anyopaque, op: i32) void {
-        qtc.KIO__FileUndoManager_JobRecordingStarted(@ptrCast(self), @bitCast(op));
+    pub fn JobRecordingStarted(self: KIO__FileUndoManager, op: i32) void {
+        qtc.KIO__FileUndoManager_JobRecordingStarted(@ptrCast(self.ptr), @bitCast(op));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-fileundomanager.html#jobRecordingStarted)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__FileUndoManager, op: fileundomanager_enums.CommandType) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__FileUndoManager, op: fileundomanager_enums.CommandType) callconv(.c) void `
     ///
-    pub fn OnJobRecordingStarted(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KIO__FileUndoManager_Connect_JobRecordingStarted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnJobRecordingStarted(self: KIO__FileUndoManager, callback: *const fn (KIO__FileUndoManager, i32) callconv(.c) void) void {
+        qtc.KIO__FileUndoManager_Connect_JobRecordingStarted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-fileundomanager.html#jobRecordingFinished)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
     /// ` op: fileundomanager_enums.CommandType `
     ///
-    pub fn JobRecordingFinished(self: ?*anyopaque, op: i32) void {
-        qtc.KIO__FileUndoManager_JobRecordingFinished(@ptrCast(self), @bitCast(op));
+    pub fn JobRecordingFinished(self: KIO__FileUndoManager, op: i32) void {
+        qtc.KIO__FileUndoManager_JobRecordingFinished(@ptrCast(self.ptr), @bitCast(op));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-fileundomanager.html#jobRecordingFinished)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__FileUndoManager, op: fileundomanager_enums.CommandType) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__FileUndoManager, op: fileundomanager_enums.CommandType) callconv(.c) void `
     ///
-    pub fn OnJobRecordingFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KIO__FileUndoManager_Connect_JobRecordingFinished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnJobRecordingFinished(self: KIO__FileUndoManager, callback: *const fn (KIO__FileUndoManager, i32) callconv(.c) void) void {
+        qtc.KIO__FileUndoManager_Connect_JobRecordingFinished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -323,15 +349,15 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -347,12 +373,13 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QObject_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: KIO__FileUndoManager, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QObject_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -361,14 +388,16 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QObject_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: KIO__FileUndoManager, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -377,12 +406,12 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: KIO__FileUndoManager, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__fileundomanager.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -395,12 +424,12 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: KIO__FileUndoManager, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -409,10 +438,10 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: KIO__FileUndoManager) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -421,10 +450,10 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: KIO__FileUndoManager) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -433,10 +462,10 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: KIO__FileUndoManager) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -445,10 +474,10 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: KIO__FileUndoManager) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -457,12 +486,12 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: KIO__FileUndoManager, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -471,10 +500,10 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: KIO__FileUndoManager) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -483,12 +512,13 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: KIO__FileUndoManager, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -497,12 +527,12 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: KIO__FileUndoManager, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -511,12 +541,12 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: KIO__FileUndoManager, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -525,12 +555,12 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: KIO__FileUndoManager, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -539,12 +569,12 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: KIO__FileUndoManager, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -553,16 +583,17 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: KIO__FileUndoManager, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("kio__fileundomanager.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kio__fileundomanager.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -572,12 +603,13 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: KIO__FileUndoManager, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -586,12 +618,13 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: KIO__FileUndoManager, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -600,12 +633,13 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: KIO__FileUndoManager, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -614,18 +648,20 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -634,16 +670,20 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -652,18 +692,19 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: KIO__FileUndoManager, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -672,18 +713,20 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -692,16 +735,20 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -710,10 +757,10 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: KIO__FileUndoManager) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -722,12 +769,13 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: KIO__FileUndoManager, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -736,10 +784,11 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -748,10 +797,10 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: KIO__FileUndoManager) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -760,10 +809,10 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: KIO__FileUndoManager) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -772,15 +821,16 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: KIO__FileUndoManager, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -789,13 +839,13 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: KIO__FileUndoManager, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -804,17 +854,16 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: KIO__FileUndoManager, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kio__fileundomanager.DynamicPropertyNames: Memory allocation failed");
@@ -833,10 +882,10 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: KIO__FileUndoManager) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -845,10 +894,10 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: KIO__FileUndoManager) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -857,10 +906,10 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: KIO__FileUndoManager) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -869,12 +918,12 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__FileUndoManager) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__FileUndoManager) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: KIO__FileUndoManager, callback: *const fn (KIO__FileUndoManager) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -883,10 +932,10 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: KIO__FileUndoManager) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -895,13 +944,13 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: KIO__FileUndoManager, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -910,10 +959,10 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: KIO__FileUndoManager) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -922,14 +971,14 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: KIO__FileUndoManager, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -938,14 +987,14 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: KIO__FileUndoManager, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -954,20 +1003,22 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -976,18 +1027,22 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -996,9 +1051,9 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1006,10 +1061,11 @@ pub const kio__fileundomanager = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: KIO__FileUndoManager, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1018,13 +1074,13 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: KIO__FileUndoManager, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1033,15 +1089,16 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: KIO__FileUndoManager, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1050,18 +1107,19 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: KIO__FileUndoManager, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1070,15 +1128,16 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: KIO__FileUndoManager, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1087,12 +1146,13 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: KIO__FileUndoManager, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1101,12 +1161,12 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__FileUndoManager, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__FileUndoManager, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: KIO__FileUndoManager, callback: *const fn (KIO__FileUndoManager, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1117,77 +1177,87 @@ pub const kio__fileundomanager = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__FileUndoManager `
+    /// ` self: KIO__FileUndoManager `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__FileUndoManager, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__FileUndoManager, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: KIO__FileUndoManager, callback: *const fn (KIO__FileUndoManager, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 };
 
 /// ### [Upstream resources](https://api.kde.org/kio-fileundomanager-uiinterface.html)
-pub const kio__fileundomanager__uiinterface = struct {
+pub const KIO__FileUndoManager__UiInterface = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kio-fileundomanager-uiinterface.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KIO__FileUndoManager__UiInterface,
+
+    pub const _is_KIO__FileUndoManager__UiInterface = {};
+
     /// New constructs a new KIO::FileUndoManager::UiInterface object.
     ///
-    pub fn New() QtC.KIO__FileUndoManager__UiInterface {
-        return qtc.KIO__FileUndoManager__UiInterface_new();
+    pub fn New() KIO__FileUndoManager__UiInterface {
+        return .{ .ptr = qtc.KIO__FileUndoManager__UiInterface_new() };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-fileundomanager-uiinterface.html#setShowProgressInfo)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager__UiInterface `
+    /// ` self: KIO__FileUndoManager__UiInterface `
     ///
     /// ` b: bool `
     ///
-    pub fn SetShowProgressInfo(self: ?*anyopaque, b: bool) void {
-        qtc.KIO__FileUndoManager__UiInterface_SetShowProgressInfo(@ptrCast(self), b);
+    pub fn SetShowProgressInfo(self: KIO__FileUndoManager__UiInterface, b: bool) void {
+        qtc.KIO__FileUndoManager__UiInterface_SetShowProgressInfo(@ptrCast(self.ptr), b);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-fileundomanager-uiinterface.html#showProgressInfo)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager__UiInterface `
+    /// ` self: KIO__FileUndoManager__UiInterface `
     ///
-    pub fn ShowProgressInfo(self: ?*anyopaque) bool {
-        return qtc.KIO__FileUndoManager__UiInterface_ShowProgressInfo(@ptrCast(self));
+    pub fn ShowProgressInfo(self: KIO__FileUndoManager__UiInterface) bool {
+        return qtc.KIO__FileUndoManager__UiInterface_ShowProgressInfo(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-fileundomanager-uiinterface.html#setParentWidget)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager__UiInterface `
+    /// ` self: KIO__FileUndoManager__UiInterface `
     ///
-    /// ` parentWidget: QtC.QWidget `
+    /// ` parentWidget: QWidget `
     ///
-    pub fn SetParentWidget(self: ?*anyopaque, parentWidget: ?*anyopaque) void {
-        qtc.KIO__FileUndoManager__UiInterface_SetParentWidget(@ptrCast(self), @ptrCast(parentWidget));
+    pub fn SetParentWidget(self: KIO__FileUndoManager__UiInterface, parentWidget: anytype) void {
+        comptime _ = @TypeOf(parentWidget)._is_QWidget;
+        qtc.KIO__FileUndoManager__UiInterface_SetParentWidget(@ptrCast(self.ptr), @ptrCast(parentWidget.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-fileundomanager-uiinterface.html#parentWidget)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager__UiInterface `
+    /// ` self: KIO__FileUndoManager__UiInterface `
     ///
-    pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.KIO__FileUndoManager__UiInterface_ParentWidget(@ptrCast(self));
+    pub fn ParentWidget(self: KIO__FileUndoManager__UiInterface) QWidget {
+        return .{ .ptr = qtc.KIO__FileUndoManager__UiInterface_ParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-fileundomanager-uiinterface.html#jobError)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager__UiInterface `
+    /// ` self: KIO__FileUndoManager__UiInterface `
     ///
-    /// ` job: QtC.KIO__Job `
+    /// ` job: KIO__Job `
     ///
-    pub fn JobError(self: ?*anyopaque, job: ?*anyopaque) void {
-        qtc.KIO__FileUndoManager__UiInterface_JobError(@ptrCast(self), @ptrCast(job));
+    pub fn JobError(self: KIO__FileUndoManager__UiInterface, job: anytype) void {
+        comptime _ = @TypeOf(job)._is_KIO__Job;
+        qtc.KIO__FileUndoManager__UiInterface_JobError(@ptrCast(self.ptr), @ptrCast(job.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-fileundomanager-uiinterface.html#jobError)
@@ -1196,12 +1266,12 @@ pub const kio__fileundomanager__uiinterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__FileUndoManager__UiInterface `
+    /// ` self: KIO__FileUndoManager__UiInterface `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__FileUndoManager__UiInterface, job: QtC.KIO__Job) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__FileUndoManager__UiInterface, job: KIO__Job) callconv(.c) void `
     ///
-    pub fn OnJobError(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__FileUndoManager__UiInterface_OnJobError(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnJobError(self: KIO__FileUndoManager__UiInterface, callback: *const fn (KIO__FileUndoManager__UiInterface, KIO__Job) callconv(.c) void) void {
+        qtc.KIO__FileUndoManager__UiInterface_OnJobError(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperJobError` instead
@@ -1214,30 +1284,35 @@ pub const kio__fileundomanager__uiinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager__UiInterface `
+    /// ` self: KIO__FileUndoManager__UiInterface `
     ///
-    /// ` job: QtC.KIO__Job `
+    /// ` job: KIO__Job `
     ///
-    pub fn SuperJobError(self: ?*anyopaque, job: ?*anyopaque) void {
-        qtc.KIO__FileUndoManager__UiInterface_SuperJobError(@ptrCast(self), @ptrCast(job));
+    pub fn SuperJobError(self: KIO__FileUndoManager__UiInterface, job: anytype) void {
+        comptime _ = @TypeOf(job)._is_KIO__Job;
+        qtc.KIO__FileUndoManager__UiInterface_SuperJobError(@ptrCast(self.ptr), @ptrCast(job.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-fileundomanager-uiinterface.html#copiedFileWasModified)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager__UiInterface `
+    /// ` self: KIO__FileUndoManager__UiInterface `
     ///
-    /// ` src: QtC.QUrl `
+    /// ` src: QUrl `
     ///
-    /// ` dest: QtC.QUrl `
+    /// ` dest: QUrl `
     ///
-    /// ` srcTime: QtC.QDateTime `
+    /// ` srcTime: QDateTime `
     ///
-    /// ` destTime: QtC.QDateTime `
+    /// ` destTime: QDateTime `
     ///
-    pub fn CopiedFileWasModified(self: ?*anyopaque, src: ?*anyopaque, dest: ?*anyopaque, srcTime: ?*anyopaque, destTime: ?*anyopaque) bool {
-        return qtc.KIO__FileUndoManager__UiInterface_CopiedFileWasModified(@ptrCast(self), @ptrCast(src), @ptrCast(dest), @ptrCast(srcTime), @ptrCast(destTime));
+    pub fn CopiedFileWasModified(self: KIO__FileUndoManager__UiInterface, src: anytype, dest: anytype, srcTime: anytype, destTime: anytype) bool {
+        comptime _ = @TypeOf(src)._is_QUrl;
+        comptime _ = @TypeOf(dest)._is_QUrl;
+        comptime _ = @TypeOf(srcTime)._is_QDateTime;
+        comptime _ = @TypeOf(destTime)._is_QDateTime;
+        return qtc.KIO__FileUndoManager__UiInterface_CopiedFileWasModified(@ptrCast(self.ptr), @ptrCast(src.ptr), @ptrCast(dest.ptr), @ptrCast(srcTime.ptr), @ptrCast(destTime.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-fileundomanager-uiinterface.html#copiedFileWasModified)
@@ -1246,12 +1321,12 @@ pub const kio__fileundomanager__uiinterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__FileUndoManager__UiInterface `
+    /// ` self: KIO__FileUndoManager__UiInterface `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__FileUndoManager__UiInterface, src: QtC.QUrl, dest: QtC.QUrl, srcTime: QtC.QDateTime, destTime: QtC.QDateTime) callconv(.c) bool `
+    /// ` callback: *const fn (self: KIO__FileUndoManager__UiInterface, src: QUrl, dest: QUrl, srcTime: QDateTime, destTime: QDateTime) callconv(.c) bool `
     ///
-    pub fn OnCopiedFileWasModified(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KIO__FileUndoManager__UiInterface_OnCopiedFileWasModified(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCopiedFileWasModified(self: KIO__FileUndoManager__UiInterface, callback: *const fn (KIO__FileUndoManager__UiInterface, QUrl, QUrl, QDateTime, QDateTime) callconv(.c) bool) void {
+        qtc.KIO__FileUndoManager__UiInterface_OnCopiedFileWasModified(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperCopiedFileWasModified` instead
@@ -1264,32 +1339,36 @@ pub const kio__fileundomanager__uiinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager__UiInterface `
+    /// ` self: KIO__FileUndoManager__UiInterface `
     ///
-    /// ` src: QtC.QUrl `
+    /// ` src: QUrl `
     ///
-    /// ` dest: QtC.QUrl `
+    /// ` dest: QUrl `
     ///
-    /// ` srcTime: QtC.QDateTime `
+    /// ` srcTime: QDateTime `
     ///
-    /// ` destTime: QtC.QDateTime `
+    /// ` destTime: QDateTime `
     ///
-    pub fn SuperCopiedFileWasModified(self: ?*anyopaque, src: ?*anyopaque, dest: ?*anyopaque, srcTime: ?*anyopaque, destTime: ?*anyopaque) bool {
-        return qtc.KIO__FileUndoManager__UiInterface_SuperCopiedFileWasModified(@ptrCast(self), @ptrCast(src), @ptrCast(dest), @ptrCast(srcTime), @ptrCast(destTime));
+    pub fn SuperCopiedFileWasModified(self: KIO__FileUndoManager__UiInterface, src: anytype, dest: anytype, srcTime: anytype, destTime: anytype) bool {
+        comptime _ = @TypeOf(src)._is_QUrl;
+        comptime _ = @TypeOf(dest)._is_QUrl;
+        comptime _ = @TypeOf(srcTime)._is_QDateTime;
+        comptime _ = @TypeOf(destTime)._is_QDateTime;
+        return qtc.KIO__FileUndoManager__UiInterface_SuperCopiedFileWasModified(@ptrCast(self.ptr), @ptrCast(src.ptr), @ptrCast(dest.ptr), @ptrCast(srcTime.ptr), @ptrCast(destTime.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-fileundomanager-uiinterface.html#virtual_hook)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager__UiInterface `
+    /// ` self: KIO__FileUndoManager__UiInterface `
     ///
     /// ` id: i32 `
     ///
     /// ` data: ?*anyopaque `
     ///
-    pub fn VirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KIO__FileUndoManager__UiInterface_VirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
+    pub fn VirtualHook(self: KIO__FileUndoManager__UiInterface, id: i32, data: ?*anyopaque) void {
+        qtc.KIO__FileUndoManager__UiInterface_VirtualHook(@ptrCast(self.ptr), @bitCast(id), @ptrCast(data));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-fileundomanager-uiinterface.html#virtual_hook)
@@ -1298,12 +1377,12 @@ pub const kio__fileundomanager__uiinterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__FileUndoManager__UiInterface `
+    /// ` self: KIO__FileUndoManager__UiInterface `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__FileUndoManager__UiInterface, id: i32, data: ?*anyopaque) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__FileUndoManager__UiInterface, id: i32, data: ?*anyopaque) callconv(.c) void `
     ///
-    pub fn OnVirtualHook(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__FileUndoManager__UiInterface_OnVirtualHook(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnVirtualHook(self: KIO__FileUndoManager__UiInterface, callback: *const fn (KIO__FileUndoManager__UiInterface, i32, ?*anyopaque) callconv(.c) void) void {
+        qtc.KIO__FileUndoManager__UiInterface_OnVirtualHook(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperVirtualHook` instead
@@ -1316,14 +1395,14 @@ pub const kio__fileundomanager__uiinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__FileUndoManager__UiInterface `
+    /// ` self: KIO__FileUndoManager__UiInterface `
     ///
     /// ` id: i32 `
     ///
     /// ` data: ?*anyopaque `
     ///
-    pub fn SuperVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KIO__FileUndoManager__UiInterface_SuperVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
+    pub fn SuperVirtualHook(self: KIO__FileUndoManager__UiInterface, id: i32, data: ?*anyopaque) void {
+        qtc.KIO__FileUndoManager__UiInterface_SuperVirtualHook(@ptrCast(self.ptr), @bitCast(id), @ptrCast(data));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -1334,10 +1413,10 @@ pub const kio__fileundomanager__uiinterface = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KIO__FileUndoManager__UiInterface `
+    /// ` self: KIO__FileUndoManager__UiInterface `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KIO__FileUndoManager__UiInterface_Delete(@ptrCast(self));
+    pub fn Delete(self: KIO__FileUndoManager__UiInterface) void {
+        qtc.KIO__FileUndoManager__UiInterface_Delete(@ptrCast(self.ptr));
     }
 };
 

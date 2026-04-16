@@ -1,5 +1,68 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QAbstractFileIconProvider = @import("libqt6").QAbstractFileIconProvider;
+const QAbstractItemDelegate = @import("libqt6").QAbstractItemDelegate;
+const QAbstractProxyModel = @import("libqt6").QAbstractProxyModel;
+const QAction = @import("libqt6").QAction;
+const QActionEvent = @import("libqt6").QActionEvent;
+const QBackingStore = @import("libqt6").QBackingStore;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QBitmap = @import("libqt6").QBitmap;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QCloseEvent = @import("libqt6").QCloseEvent;
+const QContextMenuEvent = @import("libqt6").QContextMenuEvent;
+const QCursor = @import("libqt6").QCursor;
+const QDir = @import("libqt6").QDir;
+const QDragEnterEvent = @import("libqt6").QDragEnterEvent;
+const QDragLeaveEvent = @import("libqt6").QDragLeaveEvent;
+const QDragMoveEvent = @import("libqt6").QDragMoveEvent;
+const QDropEvent = @import("libqt6").QDropEvent;
+const QEnterEvent = @import("libqt6").QEnterEvent;
+const QEvent = @import("libqt6").QEvent;
+const QFocusEvent = @import("libqt6").QFocusEvent;
+const QFont = @import("libqt6").QFont;
+const QFontInfo = @import("libqt6").QFontInfo;
+const QFontMetrics = @import("libqt6").QFontMetrics;
+const QGraphicsEffect = @import("libqt6").QGraphicsEffect;
+const QGraphicsProxyWidget = @import("libqt6").QGraphicsProxyWidget;
+const QHideEvent = @import("libqt6").QHideEvent;
+const QIcon = @import("libqt6").QIcon;
+const QInputMethodEvent = @import("libqt6").QInputMethodEvent;
+const QKeyEvent = @import("libqt6").QKeyEvent;
+const QKeySequence = @import("libqt6").QKeySequence;
+const QLayout = @import("libqt6").QLayout;
+const QLocale = @import("libqt6").QLocale;
+const QMargins = @import("libqt6").QMargins;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QMouseEvent = @import("libqt6").QMouseEvent;
+const QMoveEvent = @import("libqt6").QMoveEvent;
+const QObject = @import("libqt6").QObject;
+const QPaintDevice = @import("libqt6").QPaintDevice;
+const QPaintEngine = @import("libqt6").QPaintEngine;
+const QPaintEvent = @import("libqt6").QPaintEvent;
+const QPainter = @import("libqt6").QPainter;
+const QPalette = @import("libqt6").QPalette;
+const QPixmap = @import("libqt6").QPixmap;
+const QPoint = @import("libqt6").QPoint;
+const QPointF = @import("libqt6").QPointF;
+const QRect = @import("libqt6").QRect;
+const QRegion = @import("libqt6").QRegion;
+const QResizeEvent = @import("libqt6").QResizeEvent;
+const QScreen = @import("libqt6").QScreen;
+const QShowEvent = @import("libqt6").QShowEvent;
+const QSize = @import("libqt6").QSize;
+const QSizePolicy = @import("libqt6").QSizePolicy;
+const QStyle = @import("libqt6").QStyle;
+const QTabletEvent = @import("libqt6").QTabletEvent;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QUrl = @import("libqt6").QUrl;
+const QVariant = @import("libqt6").QVariant;
+const QWheelEvent = @import("libqt6").QWheelEvent;
+const QWidget = @import("libqt6").QWidget;
+const QWindow = @import("libqt6").QWindow;
 const qdir_enums = @import("libqdir.zig").enums;
 const qfiledialog_enums = enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
@@ -11,63 +74,78 @@ const qwidget_enums = @import("libqwidget.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html)
-pub const qfiledialog = struct {
+pub const QFileDialog = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QFileDialog,
+
+    pub const _is_QFileDialog = {};
+    pub const _is_QDialog = {};
+    pub const _is_QWidget = {};
+    pub const _is_QObject = {};
+    pub const _is_QPaintDevice = {};
+
     /// New constructs a new QFileDialog object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn New(parent: ?*anyopaque) QtC.QFileDialog {
-        return qtc.QFileDialog_new(@ptrCast(parent));
+    pub fn New(parent: anytype) QFileDialog {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QFileDialog_new(@ptrCast(parent.ptr)) };
     }
 
     /// New2 constructs a new QFileDialog object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn New2(parent: ?*anyopaque, f: i32) QtC.QFileDialog {
-        return qtc.QFileDialog_new2(@ptrCast(parent), @bitCast(f));
+    pub fn New2(parent: anytype, f: i32) QFileDialog {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QFileDialog_new2(@ptrCast(parent.ptr), @bitCast(f)) };
     }
 
     /// New3 constructs a new QFileDialog object.
     ///
-    pub fn New3() QtC.QFileDialog {
-        return qtc.QFileDialog_new3();
+    pub fn New3() QFileDialog {
+        return .{ .ptr = qtc.QFileDialog_new3() };
     }
 
     /// New4 constructs a new QFileDialog object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` caption: []const u8 `
     ///
-    pub fn New4(parent: ?*anyopaque, caption: []const u8) QtC.QFileDialog {
+    pub fn New4(parent: anytype, caption: []const u8) QFileDialog {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
-
-        return qtc.QFileDialog_new4(@ptrCast(parent), caption_str);
+        return .{ .ptr = qtc.QFileDialog_new4(@ptrCast(parent.ptr), caption_str) };
     }
 
     /// New5 constructs a new QFileDialog object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` caption: []const u8 `
     ///
     /// ` directory: []const u8 `
     ///
-    pub fn New5(parent: ?*anyopaque, caption: []const u8, directory: []const u8) QtC.QFileDialog {
+    pub fn New5(parent: anytype, caption: []const u8, directory: []const u8) QFileDialog {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
@@ -76,15 +154,14 @@ pub const qfiledialog = struct {
             .len = directory.len,
             .data = directory.ptr,
         };
-
-        return qtc.QFileDialog_new5(@ptrCast(parent), caption_str, directory_str);
+        return .{ .ptr = qtc.QFileDialog_new5(@ptrCast(parent.ptr), caption_str, directory_str) };
     }
 
     /// New6 constructs a new QFileDialog object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` caption: []const u8 `
     ///
@@ -92,7 +169,8 @@ pub const qfiledialog = struct {
     ///
     /// ` filter: []const u8 `
     ///
-    pub fn New6(parent: ?*anyopaque, caption: []const u8, directory: []const u8, filter: []const u8) QtC.QFileDialog {
+    pub fn New6(parent: anytype, caption: []const u8, directory: []const u8, filter: []const u8) QFileDialog {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
@@ -105,18 +183,17 @@ pub const qfiledialog = struct {
             .len = filter.len,
             .data = filter.ptr,
         };
-
-        return qtc.QFileDialog_new6(@ptrCast(parent), caption_str, directory_str, filter_str);
+        return .{ .ptr = qtc.QFileDialog_new6(@ptrCast(parent.ptr), caption_str, directory_str, filter_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QFileDialog_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QFileDialog) QMetaObject {
+        return .{ .ptr = qtc.QFileDialog_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -125,12 +202,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QFileDialog_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QFileDialog, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QFileDialog_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -143,33 +220,33 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QFileDialog_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QFileDialog) QMetaObject {
+        return .{ .ptr = qtc.QFileDialog_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QFileDialog, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QFileDialog_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QFileDialog_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QFileDialog, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QFileDialog_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QFileDialog, callback: *const fn (QFileDialog, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QFileDialog_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -180,18 +257,18 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QFileDialog, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QFileDialog_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QFileDialog_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -199,20 +276,20 @@ pub const qfiledialog = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QFileDialog_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QFileDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QFileDialog_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QFileDialog, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QFileDialog_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QFileDialog, callback: *const fn (QFileDialog, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QFileDialog_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -223,7 +300,7 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -231,19 +308,19 @@ pub const qfiledialog = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QFileDialog_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QFileDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QFileDialog_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -256,93 +333,94 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` directory: []const u8 `
     ///
-    pub fn SetDirectory(self: ?*anyopaque, directory: []const u8) void {
+    pub fn SetDirectory(self: QFileDialog, directory: []const u8) void {
         const directory_str = qtc.libqt_string{
             .len = directory.len,
             .data = directory.ptr,
         };
-        qtc.QFileDialog_SetDirectory(@ptrCast(self), directory_str);
+        qtc.QFileDialog_SetDirectory(@ptrCast(self.ptr), directory_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#setDirectory)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` directory: QtC.QDir `
+    /// ` directory: QDir `
     ///
-    pub fn SetDirectory2(self: ?*anyopaque, directory: ?*anyopaque) void {
-        qtc.QFileDialog_SetDirectory2(@ptrCast(self), @ptrCast(directory));
+    pub fn SetDirectory2(self: QFileDialog, directory: anytype) void {
+        comptime _ = @TypeOf(directory)._is_QDir;
+        qtc.QFileDialog_SetDirectory2(@ptrCast(self.ptr), @ptrCast(directory.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#directory)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn Directory(self: ?*anyopaque) QtC.QDir {
-        return qtc.QFileDialog_Directory(@ptrCast(self));
+    pub fn Directory(self: QFileDialog) QDir {
+        return .{ .ptr = qtc.QFileDialog_Directory(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#setDirectoryUrl)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` directory: QtC.QUrl `
+    /// ` directory: QUrl `
     ///
-    pub fn SetDirectoryUrl(self: ?*anyopaque, directory: ?*anyopaque) void {
-        qtc.QFileDialog_SetDirectoryUrl(@ptrCast(self), @ptrCast(directory));
+    pub fn SetDirectoryUrl(self: QFileDialog, directory: anytype) void {
+        comptime _ = @TypeOf(directory)._is_QUrl;
+        qtc.QFileDialog_SetDirectoryUrl(@ptrCast(self.ptr), @ptrCast(directory.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#directoryUrl)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn DirectoryUrl(self: ?*anyopaque) QtC.QUrl {
-        return qtc.QFileDialog_DirectoryUrl(@ptrCast(self));
+    pub fn DirectoryUrl(self: QFileDialog) QUrl {
+        return .{ .ptr = qtc.QFileDialog_DirectoryUrl(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#selectFile)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` filename: []const u8 `
     ///
-    pub fn SelectFile(self: ?*anyopaque, filename: []const u8) void {
+    pub fn SelectFile(self: QFileDialog, filename: []const u8) void {
         const filename_str = qtc.libqt_string{
             .len = filename.len,
             .data = filename.ptr,
         };
-        qtc.QFileDialog_SelectFile(@ptrCast(self), filename_str);
+        qtc.QFileDialog_SelectFile(@ptrCast(self.ptr), filename_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#selectedFiles)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SelectedFiles(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QFileDialog_SelectedFiles(@ptrCast(self));
+    pub fn SelectedFiles(self: QFileDialog, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.QFileDialog_SelectedFiles(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qfiledialog.SelectedFiles: Memory allocation failed");
@@ -359,28 +437,30 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` url: QtC.QUrl `
+    /// ` url: QUrl `
     ///
-    pub fn SelectUrl(self: ?*anyopaque, url: ?*anyopaque) void {
-        qtc.QFileDialog_SelectUrl(@ptrCast(self), @ptrCast(url));
+    pub fn SelectUrl(self: QFileDialog, url: anytype) void {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        qtc.QFileDialog_SelectUrl(@ptrCast(self.ptr), @ptrCast(url.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#selectedUrls)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SelectedUrls(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QUrl {
-        const _arr: qtc.libqt_list = qtc.QFileDialog_SelectedUrls(@ptrCast(self));
+    pub fn SelectedUrls(self: QFileDialog, allocator: std.mem.Allocator) []QUrl {
+        const _arr: qtc.libqt_list = qtc.QFileDialog_SelectedUrls(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QUrl, _arr.len) catch @panic("qfiledialog.SelectedUrls: Memory allocation failed");
+        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("qfiledialog.SelectedUrls: Memory allocation failed");
         const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -388,59 +468,57 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` filter: []const u8 `
     ///
-    pub fn SetNameFilter(self: ?*anyopaque, filter: []const u8) void {
+    pub fn SetNameFilter(self: QFileDialog, filter: []const u8) void {
         const filter_str = qtc.libqt_string{
             .len = filter.len,
             .data = filter.ptr,
         };
-        qtc.QFileDialog_SetNameFilter(@ptrCast(self), filter_str);
+        qtc.QFileDialog_SetNameFilter(@ptrCast(self.ptr), filter_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#setNameFilters)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
-    ///
-    /// ` filters: []const []const u8 `
+    /// ` self: QFileDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetNameFilters(self: ?*anyopaque, filters: []const []const u8, allocator: std.mem.Allocator) void {
+    /// ` filters: []const []const u8 `
+    ///
+    pub fn SetNameFilters(self: QFileDialog, allocator: std.mem.Allocator, filters: []const []const u8) void {
         const filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("qfiledialog.SetNameFilters: Memory allocation failed");
         defer allocator.free(filters_arr);
-        for (filters, 0..filters.len) |item, i| {
+        for (filters, 0..filters.len) |item, i|
             filters_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const filters_list = qtc.libqt_list{
             .len = filters.len,
             .data = filters_arr.ptr,
         };
-        qtc.QFileDialog_SetNameFilters(@ptrCast(self), filters_list);
+        qtc.QFileDialog_SetNameFilters(@ptrCast(self.ptr), filters_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#nameFilters)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NameFilters(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QFileDialog_NameFilters(@ptrCast(self));
+    pub fn NameFilters(self: QFileDialog, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.QFileDialog_NameFilters(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qfiledialog.NameFilters: Memory allocation failed");
@@ -457,28 +535,28 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` filter: []const u8 `
     ///
-    pub fn SelectNameFilter(self: ?*anyopaque, filter: []const u8) void {
+    pub fn SelectNameFilter(self: QFileDialog, filter: []const u8) void {
         const filter_str = qtc.libqt_string{
             .len = filter.len,
             .data = filter.ptr,
         };
-        qtc.QFileDialog_SelectNameFilter(@ptrCast(self), filter_str);
+        qtc.QFileDialog_SelectNameFilter(@ptrCast(self.ptr), filter_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#selectedMimeTypeFilter)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SelectedMimeTypeFilter(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QFileDialog_SelectedMimeTypeFilter(@ptrCast(self));
+    pub fn SelectedMimeTypeFilter(self: QFileDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QFileDialog_SelectedMimeTypeFilter(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.SelectedMimeTypeFilter: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -489,12 +567,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SelectedNameFilter(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QFileDialog_SelectedNameFilter(@ptrCast(self));
+    pub fn SelectedNameFilter(self: QFileDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QFileDialog_SelectedNameFilter(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.SelectedNameFilter: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -505,43 +583,41 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
-    ///
-    /// ` filters: []const []const u8 `
+    /// ` self: QFileDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetMimeTypeFilters(self: ?*anyopaque, filters: []const []const u8, allocator: std.mem.Allocator) void {
+    /// ` filters: []const []const u8 `
+    ///
+    pub fn SetMimeTypeFilters(self: QFileDialog, allocator: std.mem.Allocator, filters: []const []const u8) void {
         const filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("qfiledialog.SetMimeTypeFilters: Memory allocation failed");
         defer allocator.free(filters_arr);
-        for (filters, 0..filters.len) |item, i| {
+        for (filters, 0..filters.len) |item, i|
             filters_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const filters_list = qtc.libqt_list{
             .len = filters.len,
             .data = filters_arr.ptr,
         };
-        qtc.QFileDialog_SetMimeTypeFilters(@ptrCast(self), filters_list);
+        qtc.QFileDialog_SetMimeTypeFilters(@ptrCast(self.ptr), filters_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#mimeTypeFilters)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeTypeFilters(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QFileDialog_MimeTypeFilters(@ptrCast(self));
+    pub fn MimeTypeFilters(self: QFileDialog, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.QFileDialog_MimeTypeFilters(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qfiledialog.MimeTypeFilters: Memory allocation failed");
@@ -558,152 +634,153 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` filter: []const u8 `
     ///
-    pub fn SelectMimeTypeFilter(self: ?*anyopaque, filter: []const u8) void {
+    pub fn SelectMimeTypeFilter(self: QFileDialog, filter: []const u8) void {
         const filter_str = qtc.libqt_string{
             .len = filter.len,
             .data = filter.ptr,
         };
-        qtc.QFileDialog_SelectMimeTypeFilter(@ptrCast(self), filter_str);
+        qtc.QFileDialog_SelectMimeTypeFilter(@ptrCast(self.ptr), filter_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#filter)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ## Returns:
     ///
     /// ` flag of qdir_enums.Filter `
     ///
-    pub fn Filter(self: ?*anyopaque) i32 {
-        return qtc.QFileDialog_Filter(@ptrCast(self));
+    pub fn Filter(self: QFileDialog) i32 {
+        return qtc.QFileDialog_Filter(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#setFilter)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` filters: flag of qdir_enums.Filter `
     ///
-    pub fn SetFilter(self: ?*anyopaque, filters: i32) void {
-        qtc.QFileDialog_SetFilter(@ptrCast(self), @bitCast(filters));
+    pub fn SetFilter(self: QFileDialog, filters: i32) void {
+        qtc.QFileDialog_SetFilter(@ptrCast(self.ptr), @bitCast(filters));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#setViewMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` mode: qfiledialog_enums.ViewMode `
     ///
-    pub fn SetViewMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QFileDialog_SetViewMode(@ptrCast(self), @bitCast(mode));
+    pub fn SetViewMode(self: QFileDialog, mode: i32) void {
+        qtc.QFileDialog_SetViewMode(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#viewMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ## Returns:
     ///
     /// ` qfiledialog_enums.ViewMode `
     ///
-    pub fn ViewMode(self: ?*anyopaque) i32 {
-        return qtc.QFileDialog_ViewMode(@ptrCast(self));
+    pub fn ViewMode(self: QFileDialog) i32 {
+        return qtc.QFileDialog_ViewMode(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#setFileMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` mode: qfiledialog_enums.FileMode `
     ///
-    pub fn SetFileMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QFileDialog_SetFileMode(@ptrCast(self), @bitCast(mode));
+    pub fn SetFileMode(self: QFileDialog, mode: i32) void {
+        qtc.QFileDialog_SetFileMode(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#fileMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ## Returns:
     ///
     /// ` qfiledialog_enums.FileMode `
     ///
-    pub fn FileMode(self: ?*anyopaque) i32 {
-        return qtc.QFileDialog_FileMode(@ptrCast(self));
+    pub fn FileMode(self: QFileDialog) i32 {
+        return qtc.QFileDialog_FileMode(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#setAcceptMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` mode: qfiledialog_enums.AcceptMode `
     ///
-    pub fn SetAcceptMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QFileDialog_SetAcceptMode(@ptrCast(self), @bitCast(mode));
+    pub fn SetAcceptMode(self: QFileDialog, mode: i32) void {
+        qtc.QFileDialog_SetAcceptMode(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#acceptMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ## Returns:
     ///
     /// ` qfiledialog_enums.AcceptMode `
     ///
-    pub fn AcceptMode(self: ?*anyopaque) i32 {
-        return qtc.QFileDialog_AcceptMode(@ptrCast(self));
+    pub fn AcceptMode(self: QFileDialog) i32 {
+        return qtc.QFileDialog_AcceptMode(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#setSidebarUrls)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` urls: []QtC.QUrl `
+    /// ` urls: []QUrl `
     ///
-    pub fn SetSidebarUrls(self: ?*anyopaque, urls: []QtC.QUrl) void {
+    pub fn SetSidebarUrls(self: QFileDialog, urls: []QUrl) void {
         const urls_list = qtc.libqt_list{
             .len = urls.len,
             .data = @ptrCast(urls.ptr),
         };
-        qtc.QFileDialog_SetSidebarUrls(@ptrCast(self), urls_list);
+        qtc.QFileDialog_SetSidebarUrls(@ptrCast(self.ptr), urls_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#sidebarUrls)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SidebarUrls(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QUrl {
-        const _arr: qtc.libqt_list = qtc.QFileDialog_SidebarUrls(@ptrCast(self));
+    pub fn SidebarUrls(self: QFileDialog, allocator: std.mem.Allocator) []QUrl {
+        const _arr: qtc.libqt_list = qtc.QFileDialog_SidebarUrls(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QUrl, _arr.len) catch @panic("qfiledialog.SidebarUrls: Memory allocation failed");
+        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("qfiledialog.SidebarUrls: Memory allocation failed");
         const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -711,12 +788,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveState(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QFileDialog_SaveState(@ptrCast(self));
+    pub fn SaveState(self: QFileDialog, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QFileDialog_SaveState(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qfiledialog.SaveState: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -727,44 +804,44 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` state: []u8 `
     ///
-    pub fn RestoreState(self: ?*anyopaque, state: []u8) bool {
+    pub fn RestoreState(self: QFileDialog, state: []u8) bool {
         const state_str = qtc.libqt_string{
             .len = state.len,
             .data = state.ptr,
         };
-        return qtc.QFileDialog_RestoreState(@ptrCast(self), state_str);
+        return qtc.QFileDialog_RestoreState(@ptrCast(self.ptr), state_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#setDefaultSuffix)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` suffix: []const u8 `
     ///
-    pub fn SetDefaultSuffix(self: ?*anyopaque, suffix: []const u8) void {
+    pub fn SetDefaultSuffix(self: QFileDialog, suffix: []const u8) void {
         const suffix_str = qtc.libqt_string{
             .len = suffix.len,
             .data = suffix.ptr,
         };
-        qtc.QFileDialog_SetDefaultSuffix(@ptrCast(self), suffix_str);
+        qtc.QFileDialog_SetDefaultSuffix(@ptrCast(self.ptr), suffix_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#defaultSuffix)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DefaultSuffix(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QFileDialog_DefaultSuffix(@ptrCast(self));
+    pub fn DefaultSuffix(self: QFileDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QFileDialog_DefaultSuffix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.DefaultSuffix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -775,43 +852,41 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
-    ///
-    /// ` paths: []const []const u8 `
+    /// ` self: QFileDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetHistory(self: ?*anyopaque, paths: []const []const u8, allocator: std.mem.Allocator) void {
+    /// ` paths: []const []const u8 `
+    ///
+    pub fn SetHistory(self: QFileDialog, allocator: std.mem.Allocator, paths: []const []const u8) void {
         const paths_arr = allocator.alloc(qtc.libqt_string, paths.len) catch @panic("qfiledialog.SetHistory: Memory allocation failed");
         defer allocator.free(paths_arr);
-        for (paths, 0..paths.len) |item, i| {
+        for (paths, 0..paths.len) |item, i|
             paths_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const paths_list = qtc.libqt_list{
             .len = paths.len,
             .data = paths_arr.ptr,
         };
-        qtc.QFileDialog_SetHistory(@ptrCast(self), paths_list);
+        qtc.QFileDialog_SetHistory(@ptrCast(self.ptr), paths_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#history)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn History(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QFileDialog_History(@ptrCast(self));
+    pub fn History(self: QFileDialog, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.QFileDialog_History(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qfiledialog.History: Memory allocation failed");
@@ -828,76 +903,78 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` delegate: QtC.QAbstractItemDelegate `
+    /// ` delegate: QAbstractItemDelegate `
     ///
-    pub fn SetItemDelegate(self: ?*anyopaque, delegate: ?*anyopaque) void {
-        qtc.QFileDialog_SetItemDelegate(@ptrCast(self), @ptrCast(delegate));
+    pub fn SetItemDelegate(self: QFileDialog, delegate: anytype) void {
+        comptime _ = @TypeOf(delegate)._is_QAbstractItemDelegate;
+        qtc.QFileDialog_SetItemDelegate(@ptrCast(self.ptr), @ptrCast(delegate.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#itemDelegate)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn ItemDelegate(self: ?*anyopaque) QtC.QAbstractItemDelegate {
-        return qtc.QFileDialog_ItemDelegate(@ptrCast(self));
+    pub fn ItemDelegate(self: QFileDialog) QAbstractItemDelegate {
+        return .{ .ptr = qtc.QFileDialog_ItemDelegate(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#setIconProvider)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` provider: QtC.QAbstractFileIconProvider `
+    /// ` provider: QAbstractFileIconProvider `
     ///
-    pub fn SetIconProvider(self: ?*anyopaque, provider: ?*anyopaque) void {
-        qtc.QFileDialog_SetIconProvider(@ptrCast(self), @ptrCast(provider));
+    pub fn SetIconProvider(self: QFileDialog, provider: anytype) void {
+        comptime _ = @TypeOf(provider)._is_QAbstractFileIconProvider;
+        qtc.QFileDialog_SetIconProvider(@ptrCast(self.ptr), @ptrCast(provider.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#iconProvider)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn IconProvider(self: ?*anyopaque) QtC.QAbstractFileIconProvider {
-        return qtc.QFileDialog_IconProvider(@ptrCast(self));
+    pub fn IconProvider(self: QFileDialog) QAbstractFileIconProvider {
+        return .{ .ptr = qtc.QFileDialog_IconProvider(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#setLabelText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` label: qfiledialog_enums.DialogLabel `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetLabelText(self: ?*anyopaque, label: i32, text: []const u8) void {
+    pub fn SetLabelText(self: QFileDialog, label: i32, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QFileDialog_SetLabelText(@ptrCast(self), @bitCast(label), text_str);
+        qtc.QFileDialog_SetLabelText(@ptrCast(self.ptr), @bitCast(label), text_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#labelText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
-    ///
-    /// ` label: qfiledialog_enums.DialogLabel `
+    /// ` self: QFileDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LabelText(self: ?*anyopaque, label: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QFileDialog_LabelText(@ptrCast(self), @bitCast(label));
+    /// ` label: qfiledialog_enums.DialogLabel `
+    ///
+    pub fn LabelText(self: QFileDialog, allocator: std.mem.Allocator, label: i32) []const u8 {
+        var _str = qtc.QFileDialog_LabelText(@ptrCast(self.ptr), @bitCast(label));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.LabelText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -908,43 +985,41 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
-    ///
-    /// ` schemes: []const []const u8 `
+    /// ` self: QFileDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetSupportedSchemes(self: ?*anyopaque, schemes: []const []const u8, allocator: std.mem.Allocator) void {
+    /// ` schemes: []const []const u8 `
+    ///
+    pub fn SetSupportedSchemes(self: QFileDialog, allocator: std.mem.Allocator, schemes: []const []const u8) void {
         const schemes_arr = allocator.alloc(qtc.libqt_string, schemes.len) catch @panic("qfiledialog.SetSupportedSchemes: Memory allocation failed");
         defer allocator.free(schemes_arr);
-        for (schemes, 0..schemes.len) |item, i| {
+        for (schemes, 0..schemes.len) |item, i|
             schemes_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const schemes_list = qtc.libqt_list{
             .len = schemes.len,
             .data = schemes_arr.ptr,
         };
-        qtc.QFileDialog_SetSupportedSchemes(@ptrCast(self), schemes_list);
+        qtc.QFileDialog_SetSupportedSchemes(@ptrCast(self.ptr), schemes_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#supportedSchemes)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SupportedSchemes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QFileDialog_SupportedSchemes(@ptrCast(self));
+    pub fn SupportedSchemes(self: QFileDialog, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.QFileDialog_SupportedSchemes(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qfiledialog.SupportedSchemes: Memory allocation failed");
@@ -961,84 +1036,85 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` model: QtC.QAbstractProxyModel `
+    /// ` model: QAbstractProxyModel `
     ///
-    pub fn SetProxyModel(self: ?*anyopaque, model: ?*anyopaque) void {
-        qtc.QFileDialog_SetProxyModel(@ptrCast(self), @ptrCast(model));
+    pub fn SetProxyModel(self: QFileDialog, model: anytype) void {
+        comptime _ = @TypeOf(model)._is_QAbstractProxyModel;
+        qtc.QFileDialog_SetProxyModel(@ptrCast(self.ptr), @ptrCast(model.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#proxyModel)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn ProxyModel(self: ?*anyopaque) QtC.QAbstractProxyModel {
-        return qtc.QFileDialog_ProxyModel(@ptrCast(self));
+    pub fn ProxyModel(self: QFileDialog) QAbstractProxyModel {
+        return .{ .ptr = qtc.QFileDialog_ProxyModel(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#setOption)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` option: qfiledialog_enums.Option `
     ///
-    pub fn SetOption(self: ?*anyopaque, option: i32) void {
-        qtc.QFileDialog_SetOption(@ptrCast(self), @bitCast(option));
+    pub fn SetOption(self: QFileDialog, option: i32) void {
+        qtc.QFileDialog_SetOption(@ptrCast(self.ptr), @bitCast(option));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#testOption)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` option: qfiledialog_enums.Option `
     ///
-    pub fn TestOption(self: ?*anyopaque, option: i32) bool {
-        return qtc.QFileDialog_TestOption(@ptrCast(self), @bitCast(option));
+    pub fn TestOption(self: QFileDialog, option: i32) bool {
+        return qtc.QFileDialog_TestOption(@ptrCast(self.ptr), @bitCast(option));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#setOptions)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` options: flag of qfiledialog_enums.Option `
     ///
-    pub fn SetOptions(self: ?*anyopaque, options: i32) void {
-        qtc.QFileDialog_SetOptions(@ptrCast(self), @bitCast(options));
+    pub fn SetOptions(self: QFileDialog, options: i32) void {
+        qtc.QFileDialog_SetOptions(@ptrCast(self.ptr), @bitCast(options));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#options)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ## Returns:
     ///
     /// ` flag of qfiledialog_enums.Option `
     ///
-    pub fn Options(self: ?*anyopaque) i32 {
-        return qtc.QFileDialog_Options(@ptrCast(self));
+    pub fn Options(self: QFileDialog) i32 {
+        return qtc.QFileDialog_Options(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#setVisible)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.QFileDialog_SetVisible(@ptrCast(self), visible);
+    pub fn SetVisible(self: QFileDialog, visible: bool) void {
+        qtc.QFileDialog_SetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#setVisible)
@@ -1047,12 +1123,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, visible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QFileDialog_OnSetVisible(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetVisible(self: QFileDialog, callback: *const fn (QFileDialog, bool) callconv(.c) void) void {
+        qtc.QFileDialog_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetVisible` instead
@@ -1065,262 +1141,264 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.QFileDialog_SuperSetVisible(@ptrCast(self), visible);
+    pub fn SuperSetVisible(self: QFileDialog, visible: bool) void {
+        qtc.QFileDialog_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#fileSelected)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` file: []const u8 `
     ///
-    pub fn FileSelected(self: ?*anyopaque, file: []const u8) void {
+    pub fn FileSelected(self: QFileDialog, file: []const u8) void {
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
         };
-        qtc.QFileDialog_FileSelected(@ptrCast(self), file_str);
+        qtc.QFileDialog_FileSelected(@ptrCast(self.ptr), file_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#fileSelected)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, file: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, file: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnFileSelected(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QFileDialog_Connect_FileSelected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFileSelected(self: QFileDialog, callback: *const fn (QFileDialog, [*:0]const u8) callconv(.c) void) void {
+        qtc.QFileDialog_Connect_FileSelected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#filesSelected)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
-    ///
-    /// ` files: []const []const u8 `
+    /// ` self: QFileDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FilesSelected(self: ?*anyopaque, files: []const []const u8, allocator: std.mem.Allocator) void {
+    /// ` files: []const []const u8 `
+    ///
+    pub fn FilesSelected(self: QFileDialog, allocator: std.mem.Allocator, files: []const []const u8) void {
         const files_arr = allocator.alloc(qtc.libqt_string, files.len) catch @panic("qfiledialog.FilesSelected: Memory allocation failed");
         defer allocator.free(files_arr);
-        for (files, 0..files.len) |item, i| {
+        for (files, 0..files.len) |item, i|
             files_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const files_list = qtc.libqt_list{
             .len = files.len,
             .data = files_arr.ptr,
         };
-        qtc.QFileDialog_FilesSelected(@ptrCast(self), files_list);
+        qtc.QFileDialog_FilesSelected(@ptrCast(self.ptr), files_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#filesSelected)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, files: ?[*:null]?[*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, files: ?[*:null]?[*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnFilesSelected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
-        qtc.QFileDialog_Connect_FilesSelected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFilesSelected(self: QFileDialog, callback: *const fn (QFileDialog, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
+        qtc.QFileDialog_Connect_FilesSelected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#currentChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` path: []const u8 `
     ///
-    pub fn CurrentChanged(self: ?*anyopaque, path: []const u8) void {
+    pub fn CurrentChanged(self: QFileDialog, path: []const u8) void {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
-        qtc.QFileDialog_CurrentChanged(@ptrCast(self), path_str);
+        qtc.QFileDialog_CurrentChanged(@ptrCast(self.ptr), path_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#currentChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, path: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, path: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnCurrentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QFileDialog_Connect_CurrentChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCurrentChanged(self: QFileDialog, callback: *const fn (QFileDialog, [*:0]const u8) callconv(.c) void) void {
+        qtc.QFileDialog_Connect_CurrentChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#directoryEntered)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` directory: []const u8 `
     ///
-    pub fn DirectoryEntered(self: ?*anyopaque, directory: []const u8) void {
+    pub fn DirectoryEntered(self: QFileDialog, directory: []const u8) void {
         const directory_str = qtc.libqt_string{
             .len = directory.len,
             .data = directory.ptr,
         };
-        qtc.QFileDialog_DirectoryEntered(@ptrCast(self), directory_str);
+        qtc.QFileDialog_DirectoryEntered(@ptrCast(self.ptr), directory_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#directoryEntered)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, directory: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, directory: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnDirectoryEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QFileDialog_Connect_DirectoryEntered(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDirectoryEntered(self: QFileDialog, callback: *const fn (QFileDialog, [*:0]const u8) callconv(.c) void) void {
+        qtc.QFileDialog_Connect_DirectoryEntered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#urlSelected)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` url: QtC.QUrl `
+    /// ` url: QUrl `
     ///
-    pub fn UrlSelected(self: ?*anyopaque, url: ?*anyopaque) void {
-        qtc.QFileDialog_UrlSelected(@ptrCast(self), @ptrCast(url));
+    pub fn UrlSelected(self: QFileDialog, url: anytype) void {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        qtc.QFileDialog_UrlSelected(@ptrCast(self.ptr), @ptrCast(url.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#urlSelected)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, url: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, url: QUrl) callconv(.c) void `
     ///
-    pub fn OnUrlSelected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileDialog_Connect_UrlSelected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUrlSelected(self: QFileDialog, callback: *const fn (QFileDialog, QUrl) callconv(.c) void) void {
+        qtc.QFileDialog_Connect_UrlSelected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#urlsSelected)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` urls: []QtC.QUrl `
+    /// ` urls: []QUrl `
     ///
-    pub fn UrlsSelected(self: ?*anyopaque, urls: []QtC.QUrl) void {
+    pub fn UrlsSelected(self: QFileDialog, urls: []QUrl) void {
         const urls_list = qtc.libqt_list{
             .len = urls.len,
             .data = @ptrCast(urls.ptr),
         };
-        qtc.QFileDialog_UrlsSelected(@ptrCast(self), urls_list);
+        qtc.QFileDialog_UrlsSelected(@ptrCast(self.ptr), urls_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#urlsSelected)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, urls: qtc.libqt_list ([]QtC.QUrl)) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, urls: qtc.libqt_list ([]QUrl)) callconv(.c) void `
     ///
-    pub fn OnUrlsSelected(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QFileDialog_Connect_UrlsSelected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUrlsSelected(self: QFileDialog, callback: *const fn (QFileDialog, qtc.libqt_list) callconv(.c) void) void {
+        qtc.QFileDialog_Connect_UrlsSelected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#currentUrlChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` url: QtC.QUrl `
+    /// ` url: QUrl `
     ///
-    pub fn CurrentUrlChanged(self: ?*anyopaque, url: ?*anyopaque) void {
-        qtc.QFileDialog_CurrentUrlChanged(@ptrCast(self), @ptrCast(url));
+    pub fn CurrentUrlChanged(self: QFileDialog, url: anytype) void {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        qtc.QFileDialog_CurrentUrlChanged(@ptrCast(self.ptr), @ptrCast(url.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#currentUrlChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, url: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, url: QUrl) callconv(.c) void `
     ///
-    pub fn OnCurrentUrlChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileDialog_Connect_CurrentUrlChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCurrentUrlChanged(self: QFileDialog, callback: *const fn (QFileDialog, QUrl) callconv(.c) void) void {
+        qtc.QFileDialog_Connect_CurrentUrlChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#directoryUrlEntered)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` directory: QtC.QUrl `
+    /// ` directory: QUrl `
     ///
-    pub fn DirectoryUrlEntered(self: ?*anyopaque, directory: ?*anyopaque) void {
-        qtc.QFileDialog_DirectoryUrlEntered(@ptrCast(self), @ptrCast(directory));
+    pub fn DirectoryUrlEntered(self: QFileDialog, directory: anytype) void {
+        comptime _ = @TypeOf(directory)._is_QUrl;
+        qtc.QFileDialog_DirectoryUrlEntered(@ptrCast(self.ptr), @ptrCast(directory.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#directoryUrlEntered)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, directory: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, directory: QUrl) callconv(.c) void `
     ///
-    pub fn OnDirectoryUrlEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileDialog_Connect_DirectoryUrlEntered(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDirectoryUrlEntered(self: QFileDialog, callback: *const fn (QFileDialog, QUrl) callconv(.c) void) void {
+        qtc.QFileDialog_Connect_DirectoryUrlEntered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#filterSelected)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` filter: []const u8 `
     ///
-    pub fn FilterSelected(self: ?*anyopaque, filter: []const u8) void {
+    pub fn FilterSelected(self: QFileDialog, filter: []const u8) void {
         const filter_str = qtc.libqt_string{
             .len = filter.len,
             .data = filter.ptr,
         };
-        qtc.QFileDialog_FilterSelected(@ptrCast(self), filter_str);
+        qtc.QFileDialog_FilterSelected(@ptrCast(self.ptr), filter_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#filterSelected)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, filter: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, filter: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnFilterSelected(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QFileDialog_Connect_FilterSelected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFilterSelected(self: QFileDialog, callback: *const fn (QFileDialog, [*:0]const u8) callconv(.c) void) void {
+        qtc.QFileDialog_Connect_FilterSelected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#getOpenFileName)
@@ -1339,8 +1417,8 @@ pub const qfiledialog = struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#getOpenFileUrl)
     ///
-    pub fn GetOpenFileUrl() QtC.QUrl {
-        return qtc.QFileDialog_GetOpenFileUrl();
+    pub fn GetOpenFileUrl() QUrl {
+        return .{ .ptr = qtc.QFileDialog_GetOpenFileUrl() };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#getSaveFileName)
@@ -1359,8 +1437,8 @@ pub const qfiledialog = struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#getSaveFileUrl)
     ///
-    pub fn GetSaveFileUrl() QtC.QUrl {
-        return qtc.QFileDialog_GetSaveFileUrl();
+    pub fn GetSaveFileUrl() QUrl {
+        return .{ .ptr = qtc.QFileDialog_GetSaveFileUrl() };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#getExistingDirectory)
@@ -1379,8 +1457,8 @@ pub const qfiledialog = struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#getExistingDirectoryUrl)
     ///
-    pub fn GetExistingDirectoryUrl() QtC.QUrl {
-        return qtc.QFileDialog_GetExistingDirectoryUrl();
+    pub fn GetExistingDirectoryUrl() QUrl {
+        return .{ .ptr = qtc.QFileDialog_GetExistingDirectoryUrl() };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#getOpenFileNames)
@@ -1393,9 +1471,8 @@ pub const qfiledialog = struct {
         const _arr: qtc.libqt_list = qtc.QFileDialog_GetOpenFileNames();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qfiledialog.GetOpenFileNames: Memory allocation failed");
@@ -1414,12 +1491,13 @@ pub const qfiledialog = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GetOpenFileUrls(allocator: std.mem.Allocator) []QtC.QUrl {
+    pub fn GetOpenFileUrls(allocator: std.mem.Allocator) []QUrl {
         const _arr: qtc.libqt_list = qtc.QFileDialog_GetOpenFileUrls();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QUrl, _arr.len) catch @panic("qfiledialog.GetOpenFileUrls: Memory allocation failed");
+        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("qfiledialog.GetOpenFileUrls: Memory allocation failed");
         const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1463,12 +1541,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` result: i32 `
     ///
-    pub fn Done(self: ?*anyopaque, result: i32) void {
-        qtc.QFileDialog_Done(@ptrCast(self), @bitCast(result));
+    pub fn Done(self: QFileDialog, result: i32) void {
+        qtc.QFileDialog_Done(@ptrCast(self.ptr), @bitCast(result));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#done)
@@ -1477,12 +1555,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, result: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, result: i32) callconv(.c) void `
     ///
-    pub fn OnDone(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QFileDialog_OnDone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDone(self: QFileDialog, callback: *const fn (QFileDialog, i32) callconv(.c) void) void {
+        qtc.QFileDialog_OnDone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperDone` instead
@@ -1495,22 +1573,22 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` result: i32 `
     ///
-    pub fn SuperDone(self: ?*anyopaque, result: i32) void {
-        qtc.QFileDialog_SuperDone(@ptrCast(self), @bitCast(result));
+    pub fn SuperDone(self: QFileDialog, result: i32) void {
+        qtc.QFileDialog_SuperDone(@ptrCast(self.ptr), @bitCast(result));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#accept)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn Accept(self: ?*anyopaque) void {
-        qtc.QFileDialog_Accept(@ptrCast(self));
+    pub fn Accept(self: QFileDialog) void {
+        qtc.QFileDialog_Accept(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#accept)
@@ -1519,12 +1597,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnAccept(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QFileDialog_OnAccept(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAccept(self: QFileDialog, callback: *const fn () callconv(.c) void) void {
+        qtc.QFileDialog_OnAccept(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperAccept` instead
@@ -1537,22 +1615,23 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn SuperAccept(self: ?*anyopaque) void {
-        qtc.QFileDialog_SuperAccept(@ptrCast(self));
+    pub fn SuperAccept(self: QFileDialog) void {
+        qtc.QFileDialog_SuperAccept(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#changeEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` e: QtC.QEvent `
+    /// ` e: QEvent `
     ///
-    pub fn ChangeEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QFileDialog_ChangeEvent(@ptrCast(self), @ptrCast(e));
+    pub fn ChangeEvent(self: QFileDialog, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QEvent;
+        qtc.QFileDialog_ChangeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#changeEvent)
@@ -1561,12 +1640,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, e: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, e: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileDialog_OnChangeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChangeEvent(self: QFileDialog, callback: *const fn (QFileDialog, QEvent) callconv(.c) void) void {
+        qtc.QFileDialog_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperChangeEvent` instead
@@ -1579,25 +1658,26 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` e: QtC.QEvent `
+    /// ` e: QEvent `
     ///
-    pub fn SuperChangeEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QFileDialog_SuperChangeEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperChangeEvent(self: QFileDialog, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QEvent;
+        qtc.QFileDialog_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -1611,15 +1691,15 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -1633,26 +1713,27 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` option: qfiledialog_enums.Option `
     ///
     /// ` on: bool `
     ///
-    pub fn SetOption2(self: ?*anyopaque, option: i32, on: bool) void {
-        qtc.QFileDialog_SetOption2(@ptrCast(self), @bitCast(option), on);
+    pub fn SetOption2(self: QFileDialog, option: i32, on: bool) void {
+        qtc.QFileDialog_SetOption2(@ptrCast(self.ptr), @bitCast(option), on);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#getOpenFileName)
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GetOpenFileName1(parent: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QFileDialog_GetOpenFileName1(@ptrCast(parent));
+    /// ` parent: QWidget `
+    ///
+    pub fn GetOpenFileName1(allocator: std.mem.Allocator, parent: anytype) []const u8 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        var _str = qtc.QFileDialog_GetOpenFileName1(@ptrCast(parent.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.GetOpenFileName1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1663,18 +1744,19 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` parent: QWidget `
     ///
     /// ` caption: []const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn GetOpenFileName2(parent: ?*anyopaque, caption: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetOpenFileName2(allocator: std.mem.Allocator, parent: anytype, caption: []const u8) []const u8 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
-        var _str = qtc.QFileDialog_GetOpenFileName2(@ptrCast(parent), caption_str);
+        var _str = qtc.QFileDialog_GetOpenFileName2(@ptrCast(parent.ptr), caption_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.GetOpenFileName2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1685,15 +1767,16 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` parent: QWidget `
     ///
     /// ` caption: []const u8 `
     ///
     /// ` dir: []const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn GetOpenFileName3(parent: ?*anyopaque, caption: []const u8, dir: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetOpenFileName3(allocator: std.mem.Allocator, parent: anytype, caption: []const u8, dir: []const u8) []const u8 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
@@ -1702,7 +1785,7 @@ pub const qfiledialog = struct {
             .len = dir.len,
             .data = dir.ptr,
         };
-        var _str = qtc.QFileDialog_GetOpenFileName3(@ptrCast(parent), caption_str, dir_str);
+        var _str = qtc.QFileDialog_GetOpenFileName3(@ptrCast(parent.ptr), caption_str, dir_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.GetOpenFileName3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1713,7 +1796,9 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` parent: QWidget `
     ///
     /// ` caption: []const u8 `
     ///
@@ -1721,9 +1806,8 @@ pub const qfiledialog = struct {
     ///
     /// ` filter: []const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn GetOpenFileName4(parent: ?*anyopaque, caption: []const u8, dir: []const u8, filter: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetOpenFileName4(allocator: std.mem.Allocator, parent: anytype, caption: []const u8, dir: []const u8, filter: []const u8) []const u8 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
@@ -1736,7 +1820,7 @@ pub const qfiledialog = struct {
             .len = filter.len,
             .data = filter.ptr,
         };
-        var _str = qtc.QFileDialog_GetOpenFileName4(@ptrCast(parent), caption_str, dir_str, filter_str);
+        var _str = qtc.QFileDialog_GetOpenFileName4(@ptrCast(parent.ptr), caption_str, dir_str, filter_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.GetOpenFileName4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1747,80 +1831,87 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn GetOpenFileUrl1(parent: ?*anyopaque) QtC.QUrl {
-        return qtc.QFileDialog_GetOpenFileUrl1(@ptrCast(parent));
+    pub fn GetOpenFileUrl1(parent: anytype) QUrl {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QFileDialog_GetOpenFileUrl1(@ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#getOpenFileUrl)
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` caption: []const u8 `
     ///
-    pub fn GetOpenFileUrl2(parent: ?*anyopaque, caption: []const u8) QtC.QUrl {
+    pub fn GetOpenFileUrl2(parent: anytype, caption: []const u8) QUrl {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
-        return qtc.QFileDialog_GetOpenFileUrl2(@ptrCast(parent), caption_str);
+        return .{ .ptr = qtc.QFileDialog_GetOpenFileUrl2(@ptrCast(parent.ptr), caption_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#getOpenFileUrl)
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` caption: []const u8 `
     ///
-    /// ` dir: QtC.QUrl `
+    /// ` dir: QUrl `
     ///
-    pub fn GetOpenFileUrl3(parent: ?*anyopaque, caption: []const u8, dir: ?*anyopaque) QtC.QUrl {
+    pub fn GetOpenFileUrl3(parent: anytype, caption: []const u8, dir: anytype) QUrl {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
-        return qtc.QFileDialog_GetOpenFileUrl3(@ptrCast(parent), caption_str, @ptrCast(dir));
+        comptime _ = @TypeOf(dir)._is_QUrl;
+        return .{ .ptr = qtc.QFileDialog_GetOpenFileUrl3(@ptrCast(parent.ptr), caption_str, @ptrCast(dir.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#getOpenFileUrl)
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` caption: []const u8 `
     ///
-    /// ` dir: QtC.QUrl `
+    /// ` dir: QUrl `
     ///
     /// ` filter: []const u8 `
     ///
-    pub fn GetOpenFileUrl4(parent: ?*anyopaque, caption: []const u8, dir: ?*anyopaque, filter: []const u8) QtC.QUrl {
+    pub fn GetOpenFileUrl4(parent: anytype, caption: []const u8, dir: anytype, filter: []const u8) QUrl {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
+        comptime _ = @TypeOf(dir)._is_QUrl;
         const filter_str = qtc.libqt_string{
             .len = filter.len,
             .data = filter.ptr,
         };
-        return qtc.QFileDialog_GetOpenFileUrl4(@ptrCast(parent), caption_str, @ptrCast(dir), filter_str);
+        return .{ .ptr = qtc.QFileDialog_GetOpenFileUrl4(@ptrCast(parent.ptr), caption_str, @ptrCast(dir.ptr), filter_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#getSaveFileName)
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GetSaveFileName1(parent: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QFileDialog_GetSaveFileName1(@ptrCast(parent));
+    /// ` parent: QWidget `
+    ///
+    pub fn GetSaveFileName1(allocator: std.mem.Allocator, parent: anytype) []const u8 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        var _str = qtc.QFileDialog_GetSaveFileName1(@ptrCast(parent.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.GetSaveFileName1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1831,18 +1922,19 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` parent: QWidget `
     ///
     /// ` caption: []const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn GetSaveFileName2(parent: ?*anyopaque, caption: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetSaveFileName2(allocator: std.mem.Allocator, parent: anytype, caption: []const u8) []const u8 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
-        var _str = qtc.QFileDialog_GetSaveFileName2(@ptrCast(parent), caption_str);
+        var _str = qtc.QFileDialog_GetSaveFileName2(@ptrCast(parent.ptr), caption_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.GetSaveFileName2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1853,15 +1945,16 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` parent: QWidget `
     ///
     /// ` caption: []const u8 `
     ///
     /// ` dir: []const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn GetSaveFileName3(parent: ?*anyopaque, caption: []const u8, dir: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetSaveFileName3(allocator: std.mem.Allocator, parent: anytype, caption: []const u8, dir: []const u8) []const u8 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
@@ -1870,7 +1963,7 @@ pub const qfiledialog = struct {
             .len = dir.len,
             .data = dir.ptr,
         };
-        var _str = qtc.QFileDialog_GetSaveFileName3(@ptrCast(parent), caption_str, dir_str);
+        var _str = qtc.QFileDialog_GetSaveFileName3(@ptrCast(parent.ptr), caption_str, dir_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.GetSaveFileName3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1881,7 +1974,9 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` parent: QWidget `
     ///
     /// ` caption: []const u8 `
     ///
@@ -1889,9 +1984,8 @@ pub const qfiledialog = struct {
     ///
     /// ` filter: []const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn GetSaveFileName4(parent: ?*anyopaque, caption: []const u8, dir: []const u8, filter: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetSaveFileName4(allocator: std.mem.Allocator, parent: anytype, caption: []const u8, dir: []const u8, filter: []const u8) []const u8 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
@@ -1904,7 +1998,7 @@ pub const qfiledialog = struct {
             .len = filter.len,
             .data = filter.ptr,
         };
-        var _str = qtc.QFileDialog_GetSaveFileName4(@ptrCast(parent), caption_str, dir_str, filter_str);
+        var _str = qtc.QFileDialog_GetSaveFileName4(@ptrCast(parent.ptr), caption_str, dir_str, filter_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.GetSaveFileName4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1915,80 +2009,87 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn GetSaveFileUrl1(parent: ?*anyopaque) QtC.QUrl {
-        return qtc.QFileDialog_GetSaveFileUrl1(@ptrCast(parent));
+    pub fn GetSaveFileUrl1(parent: anytype) QUrl {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QFileDialog_GetSaveFileUrl1(@ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#getSaveFileUrl)
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` caption: []const u8 `
     ///
-    pub fn GetSaveFileUrl2(parent: ?*anyopaque, caption: []const u8) QtC.QUrl {
+    pub fn GetSaveFileUrl2(parent: anytype, caption: []const u8) QUrl {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
-        return qtc.QFileDialog_GetSaveFileUrl2(@ptrCast(parent), caption_str);
+        return .{ .ptr = qtc.QFileDialog_GetSaveFileUrl2(@ptrCast(parent.ptr), caption_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#getSaveFileUrl)
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` caption: []const u8 `
     ///
-    /// ` dir: QtC.QUrl `
+    /// ` dir: QUrl `
     ///
-    pub fn GetSaveFileUrl3(parent: ?*anyopaque, caption: []const u8, dir: ?*anyopaque) QtC.QUrl {
+    pub fn GetSaveFileUrl3(parent: anytype, caption: []const u8, dir: anytype) QUrl {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
-        return qtc.QFileDialog_GetSaveFileUrl3(@ptrCast(parent), caption_str, @ptrCast(dir));
+        comptime _ = @TypeOf(dir)._is_QUrl;
+        return .{ .ptr = qtc.QFileDialog_GetSaveFileUrl3(@ptrCast(parent.ptr), caption_str, @ptrCast(dir.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#getSaveFileUrl)
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` caption: []const u8 `
     ///
-    /// ` dir: QtC.QUrl `
+    /// ` dir: QUrl `
     ///
     /// ` filter: []const u8 `
     ///
-    pub fn GetSaveFileUrl4(parent: ?*anyopaque, caption: []const u8, dir: ?*anyopaque, filter: []const u8) QtC.QUrl {
+    pub fn GetSaveFileUrl4(parent: anytype, caption: []const u8, dir: anytype, filter: []const u8) QUrl {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
+        comptime _ = @TypeOf(dir)._is_QUrl;
         const filter_str = qtc.libqt_string{
             .len = filter.len,
             .data = filter.ptr,
         };
-        return qtc.QFileDialog_GetSaveFileUrl4(@ptrCast(parent), caption_str, @ptrCast(dir), filter_str);
+        return .{ .ptr = qtc.QFileDialog_GetSaveFileUrl4(@ptrCast(parent.ptr), caption_str, @ptrCast(dir.ptr), filter_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#getExistingDirectory)
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GetExistingDirectory1(parent: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QFileDialog_GetExistingDirectory1(@ptrCast(parent));
+    /// ` parent: QWidget `
+    ///
+    pub fn GetExistingDirectory1(allocator: std.mem.Allocator, parent: anytype) []const u8 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        var _str = qtc.QFileDialog_GetExistingDirectory1(@ptrCast(parent.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.GetExistingDirectory1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1999,18 +2100,19 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` parent: QWidget `
     ///
     /// ` caption: []const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn GetExistingDirectory2(parent: ?*anyopaque, caption: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetExistingDirectory2(allocator: std.mem.Allocator, parent: anytype, caption: []const u8) []const u8 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
-        var _str = qtc.QFileDialog_GetExistingDirectory2(@ptrCast(parent), caption_str);
+        var _str = qtc.QFileDialog_GetExistingDirectory2(@ptrCast(parent.ptr), caption_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.GetExistingDirectory2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2021,15 +2123,16 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` parent: QWidget `
     ///
     /// ` caption: []const u8 `
     ///
     /// ` dir: []const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn GetExistingDirectory3(parent: ?*anyopaque, caption: []const u8, dir: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetExistingDirectory3(allocator: std.mem.Allocator, parent: anytype, caption: []const u8, dir: []const u8) []const u8 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
@@ -2038,7 +2141,7 @@ pub const qfiledialog = struct {
             .len = dir.len,
             .data = dir.ptr,
         };
-        var _str = qtc.QFileDialog_GetExistingDirectory3(@ptrCast(parent), caption_str, dir_str);
+        var _str = qtc.QFileDialog_GetExistingDirectory3(@ptrCast(parent.ptr), caption_str, dir_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.GetExistingDirectory3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2049,7 +2152,9 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` parent: QWidget `
     ///
     /// ` caption: []const u8 `
     ///
@@ -2057,9 +2162,8 @@ pub const qfiledialog = struct {
     ///
     /// ` options: flag of qfiledialog_enums.Option `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn GetExistingDirectory4(parent: ?*anyopaque, caption: []const u8, dir: []const u8, options: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetExistingDirectory4(allocator: std.mem.Allocator, parent: anytype, caption: []const u8, dir: []const u8, options: i32) []const u8 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
@@ -2068,7 +2172,7 @@ pub const qfiledialog = struct {
             .len = dir.len,
             .data = dir.ptr,
         };
-        var _str = qtc.QFileDialog_GetExistingDirectory4(@ptrCast(parent), caption_str, dir_str, @bitCast(options));
+        var _str = qtc.QFileDialog_GetExistingDirectory4(@ptrCast(parent.ptr), caption_str, dir_str, @bitCast(options));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.GetExistingDirectory4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2079,117 +2183,124 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn GetExistingDirectoryUrl1(parent: ?*anyopaque) QtC.QUrl {
-        return qtc.QFileDialog_GetExistingDirectoryUrl1(@ptrCast(parent));
+    pub fn GetExistingDirectoryUrl1(parent: anytype) QUrl {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QFileDialog_GetExistingDirectoryUrl1(@ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#getExistingDirectoryUrl)
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` caption: []const u8 `
     ///
-    pub fn GetExistingDirectoryUrl2(parent: ?*anyopaque, caption: []const u8) QtC.QUrl {
+    pub fn GetExistingDirectoryUrl2(parent: anytype, caption: []const u8) QUrl {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
-        return qtc.QFileDialog_GetExistingDirectoryUrl2(@ptrCast(parent), caption_str);
+        return .{ .ptr = qtc.QFileDialog_GetExistingDirectoryUrl2(@ptrCast(parent.ptr), caption_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#getExistingDirectoryUrl)
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` caption: []const u8 `
     ///
-    /// ` dir: QtC.QUrl `
+    /// ` dir: QUrl `
     ///
-    pub fn GetExistingDirectoryUrl3(parent: ?*anyopaque, caption: []const u8, dir: ?*anyopaque) QtC.QUrl {
+    pub fn GetExistingDirectoryUrl3(parent: anytype, caption: []const u8, dir: anytype) QUrl {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
-        return qtc.QFileDialog_GetExistingDirectoryUrl3(@ptrCast(parent), caption_str, @ptrCast(dir));
+        comptime _ = @TypeOf(dir)._is_QUrl;
+        return .{ .ptr = qtc.QFileDialog_GetExistingDirectoryUrl3(@ptrCast(parent.ptr), caption_str, @ptrCast(dir.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#getExistingDirectoryUrl)
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` caption: []const u8 `
     ///
-    /// ` dir: QtC.QUrl `
+    /// ` dir: QUrl `
     ///
     /// ` options: flag of qfiledialog_enums.Option `
     ///
-    pub fn GetExistingDirectoryUrl4(parent: ?*anyopaque, caption: []const u8, dir: ?*anyopaque, options: i32) QtC.QUrl {
+    pub fn GetExistingDirectoryUrl4(parent: anytype, caption: []const u8, dir: anytype, options: i32) QUrl {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
-        return qtc.QFileDialog_GetExistingDirectoryUrl4(@ptrCast(parent), caption_str, @ptrCast(dir), @bitCast(options));
+        comptime _ = @TypeOf(dir)._is_QUrl;
+        return .{ .ptr = qtc.QFileDialog_GetExistingDirectoryUrl4(@ptrCast(parent.ptr), caption_str, @ptrCast(dir.ptr), @bitCast(options)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#getExistingDirectoryUrl)
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` parent: QWidget `
     ///
     /// ` caption: []const u8 `
     ///
-    /// ` dir: QtC.QUrl `
+    /// ` dir: QUrl `
     ///
     /// ` options: flag of qfiledialog_enums.Option `
     ///
     /// ` supportedSchemes: []const []const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn GetExistingDirectoryUrl5(parent: ?*anyopaque, caption: []const u8, dir: ?*anyopaque, options: i32, supportedSchemes: []const []const u8, allocator: std.mem.Allocator) QtC.QUrl {
+    pub fn GetExistingDirectoryUrl5(allocator: std.mem.Allocator, parent: anytype, caption: []const u8, dir: anytype, options: i32, supportedSchemes: []const []const u8) QUrl {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
+        comptime _ = @TypeOf(dir)._is_QUrl;
         const supportedSchemes_arr = allocator.alloc(qtc.libqt_string, supportedSchemes.len) catch @panic("qfiledialog.GetExistingDirectoryUrl5: Memory allocation failed");
         defer allocator.free(supportedSchemes_arr);
-        for (supportedSchemes, 0..supportedSchemes.len) |item, i| {
+        for (supportedSchemes, 0..supportedSchemes.len) |item, i|
             supportedSchemes_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const supportedSchemes_list = qtc.libqt_list{
             .len = supportedSchemes.len,
             .data = supportedSchemes_arr.ptr,
         };
-        return qtc.QFileDialog_GetExistingDirectoryUrl5(@ptrCast(parent), caption_str, @ptrCast(dir), @bitCast(options), supportedSchemes_list);
+        return .{ .ptr = qtc.QFileDialog_GetExistingDirectoryUrl5(@ptrCast(parent.ptr), caption_str, @ptrCast(dir.ptr), @bitCast(options), supportedSchemes_list) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#getOpenFileNames)
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GetOpenFileNames1(parent: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QFileDialog_GetOpenFileNames1(@ptrCast(parent));
+    /// ` parent: QWidget `
+    ///
+    pub fn GetOpenFileNames1(allocator: std.mem.Allocator, parent: anytype) []const []const u8 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        const _arr: qtc.libqt_list = qtc.QFileDialog_GetOpenFileNames1(@ptrCast(parent.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qfiledialog.GetOpenFileNames1: Memory allocation failed");
@@ -2206,23 +2317,23 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` parent: QWidget `
     ///
     /// ` caption: []const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn GetOpenFileNames2(parent: ?*anyopaque, caption: []const u8, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn GetOpenFileNames2(allocator: std.mem.Allocator, parent: anytype, caption: []const u8) []const []const u8 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.QFileDialog_GetOpenFileNames2(@ptrCast(parent), caption_str);
+        const _arr: qtc.libqt_list = qtc.QFileDialog_GetOpenFileNames2(@ptrCast(parent.ptr), caption_str);
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qfiledialog.GetOpenFileNames2: Memory allocation failed");
@@ -2239,15 +2350,16 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` parent: QWidget `
     ///
     /// ` caption: []const u8 `
     ///
     /// ` dir: []const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn GetOpenFileNames3(parent: ?*anyopaque, caption: []const u8, dir: []const u8, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn GetOpenFileNames3(allocator: std.mem.Allocator, parent: anytype, caption: []const u8, dir: []const u8) []const []const u8 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
@@ -2256,12 +2368,11 @@ pub const qfiledialog = struct {
             .len = dir.len,
             .data = dir.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.QFileDialog_GetOpenFileNames3(@ptrCast(parent), caption_str, dir_str);
+        const _arr: qtc.libqt_list = qtc.QFileDialog_GetOpenFileNames3(@ptrCast(parent.ptr), caption_str, dir_str);
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qfiledialog.GetOpenFileNames3: Memory allocation failed");
@@ -2278,7 +2389,9 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` parent: QWidget `
     ///
     /// ` caption: []const u8 `
     ///
@@ -2286,9 +2399,8 @@ pub const qfiledialog = struct {
     ///
     /// ` filter: []const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn GetOpenFileNames4(parent: ?*anyopaque, caption: []const u8, dir: []const u8, filter: []const u8, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn GetOpenFileNames4(allocator: std.mem.Allocator, parent: anytype, caption: []const u8, dir: []const u8, filter: []const u8) []const []const u8 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
@@ -2301,12 +2413,11 @@ pub const qfiledialog = struct {
             .len = filter.len,
             .data = filter.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.QFileDialog_GetOpenFileNames4(@ptrCast(parent), caption_str, dir_str, filter_str);
+        const _arr: qtc.libqt_list = qtc.QFileDialog_GetOpenFileNames4(@ptrCast(parent.ptr), caption_str, dir_str, filter_str);
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qfiledialog.GetOpenFileNames4: Memory allocation failed");
@@ -2323,16 +2434,18 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GetOpenFileUrls1(parent: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QUrl {
-        const _arr: qtc.libqt_list = qtc.QFileDialog_GetOpenFileUrls1(@ptrCast(parent));
+    /// ` parent: QWidget `
+    ///
+    pub fn GetOpenFileUrls1(allocator: std.mem.Allocator, parent: anytype) []QUrl {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        const _arr: qtc.libqt_list = qtc.QFileDialog_GetOpenFileUrls1(@ptrCast(parent.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QUrl, _arr.len) catch @panic("qfiledialog.GetOpenFileUrls1: Memory allocation failed");
+        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("qfiledialog.GetOpenFileUrls1: Memory allocation failed");
         const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -2340,22 +2453,24 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` parent: QWidget `
     ///
     /// ` caption: []const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn GetOpenFileUrls2(parent: ?*anyopaque, caption: []const u8, allocator: std.mem.Allocator) []QtC.QUrl {
+    pub fn GetOpenFileUrls2(allocator: std.mem.Allocator, parent: anytype, caption: []const u8) []QUrl {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.QFileDialog_GetOpenFileUrls2(@ptrCast(parent), caption_str);
+        const _arr: qtc.libqt_list = qtc.QFileDialog_GetOpenFileUrls2(@ptrCast(parent.ptr), caption_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QUrl, _arr.len) catch @panic("qfiledialog.GetOpenFileUrls2: Memory allocation failed");
+        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("qfiledialog.GetOpenFileUrls2: Memory allocation failed");
         const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -2363,24 +2478,27 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` parent: QWidget `
     ///
     /// ` caption: []const u8 `
     ///
-    /// ` dir: QtC.QUrl `
+    /// ` dir: QUrl `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn GetOpenFileUrls3(parent: ?*anyopaque, caption: []const u8, dir: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QUrl {
+    pub fn GetOpenFileUrls3(allocator: std.mem.Allocator, parent: anytype, caption: []const u8, dir: anytype) []QUrl {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.QFileDialog_GetOpenFileUrls3(@ptrCast(parent), caption_str, @ptrCast(dir));
+        comptime _ = @TypeOf(dir)._is_QUrl;
+        const _arr: qtc.libqt_list = qtc.QFileDialog_GetOpenFileUrls3(@ptrCast(parent.ptr), caption_str, @ptrCast(dir.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QUrl, _arr.len) catch @panic("qfiledialog.GetOpenFileUrls3: Memory allocation failed");
+        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("qfiledialog.GetOpenFileUrls3: Memory allocation failed");
         const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -2388,30 +2506,33 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` parent: QWidget `
     ///
     /// ` caption: []const u8 `
     ///
-    /// ` dir: QtC.QUrl `
+    /// ` dir: QUrl `
     ///
     /// ` filter: []const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn GetOpenFileUrls4(parent: ?*anyopaque, caption: []const u8, dir: ?*anyopaque, filter: []const u8, allocator: std.mem.Allocator) []QtC.QUrl {
+    pub fn GetOpenFileUrls4(allocator: std.mem.Allocator, parent: anytype, caption: []const u8, dir: anytype, filter: []const u8) []QUrl {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
+        comptime _ = @TypeOf(dir)._is_QUrl;
         const filter_str = qtc.libqt_string{
             .len = filter.len,
             .data = filter.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.QFileDialog_GetOpenFileUrls4(@ptrCast(parent), caption_str, @ptrCast(dir), filter_str);
+        const _arr: qtc.libqt_list = qtc.QFileDialog_GetOpenFileUrls4(@ptrCast(parent.ptr), caption_str, @ptrCast(dir.ptr), filter_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QUrl, _arr.len) catch @panic("qfiledialog.GetOpenFileUrls4: Memory allocation failed");
+        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("qfiledialog.GetOpenFileUrls4: Memory allocation failed");
         const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -2423,14 +2544,15 @@ pub const qfiledialog = struct {
     ///
     /// ` fileContentsReady: *const fn (funcparam1: [*:0]const u8, funcparam2: qtc.libqt_string) callconv(.c) void `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn GetOpenFileContent3(nameFilter: []const u8, fileContentsReady: *const fn ([*:0]const u8, qtc.libqt_string) callconv(.c) void, parent: ?*anyopaque) void {
+    pub fn GetOpenFileContent3(nameFilter: []const u8, fileContentsReady: *const fn ([*:0]const u8, qtc.libqt_string) callconv(.c) void, parent: anytype) void {
         const nameFilter_str = qtc.libqt_string{
             .len = nameFilter.len,
             .data = nameFilter.ptr,
         };
-        qtc.QFileDialog_GetOpenFileContent3(nameFilter_str, @bitCast(@intFromPtr(fileContentsReady)), @ptrCast(parent));
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QFileDialog_GetOpenFileContent3(nameFilter_str, @bitCast(@intFromPtr(fileContentsReady)), @ptrCast(parent.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledialog.html#saveFileContent)
@@ -2441,9 +2563,9 @@ pub const qfiledialog = struct {
     ///
     /// ` fileNameHint: []const u8 `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn SaveFileContent3(fileContent: []u8, fileNameHint: []const u8, parent: ?*anyopaque) void {
+    pub fn SaveFileContent3(fileContent: []u8, fileNameHint: []const u8, parent: anytype) void {
         const fileContent_str = qtc.libqt_string{
             .len = fileContent.len,
             .data = fileContent.ptr,
@@ -2452,7 +2574,8 @@ pub const qfiledialog = struct {
             .len = fileNameHint.len,
             .data = fileNameHint.ptr,
         };
-        qtc.QFileDialog_SaveFileContent3(fileContent_str, fileNameHint_str, @ptrCast(parent));
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QFileDialog_SaveFileContent3(fileContent_str, fileNameHint_str, @ptrCast(parent.ptr));
     }
 
     /// Inherited from QDialog
@@ -2461,10 +2584,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn Result(self: ?*anyopaque) i32 {
-        return qtc.QDialog_Result(@ptrCast(self));
+    pub fn Result(self: QFileDialog) i32 {
+        return qtc.QDialog_Result(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -2473,12 +2596,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` sizeGripEnabled: bool `
     ///
-    pub fn SetSizeGripEnabled(self: ?*anyopaque, sizeGripEnabled: bool) void {
-        qtc.QDialog_SetSizeGripEnabled(@ptrCast(self), sizeGripEnabled);
+    pub fn SetSizeGripEnabled(self: QFileDialog, sizeGripEnabled: bool) void {
+        qtc.QDialog_SetSizeGripEnabled(@ptrCast(self.ptr), sizeGripEnabled);
     }
 
     /// Inherited from QDialog
@@ -2487,10 +2610,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn IsSizeGripEnabled(self: ?*anyopaque) bool {
-        return qtc.QDialog_IsSizeGripEnabled(@ptrCast(self));
+    pub fn IsSizeGripEnabled(self: QFileDialog) bool {
+        return qtc.QDialog_IsSizeGripEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -2499,12 +2622,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` modal: bool `
     ///
-    pub fn SetModal(self: ?*anyopaque, modal: bool) void {
-        qtc.QDialog_SetModal(@ptrCast(self), modal);
+    pub fn SetModal(self: QFileDialog, modal: bool) void {
+        qtc.QDialog_SetModal(@ptrCast(self.ptr), modal);
     }
 
     /// Inherited from QDialog
@@ -2513,12 +2636,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` r: i32 `
     ///
-    pub fn SetResult(self: ?*anyopaque, r: i32) void {
-        qtc.QDialog_SetResult(@ptrCast(self), @bitCast(r));
+    pub fn SetResult(self: QFileDialog, r: i32) void {
+        qtc.QDialog_SetResult(@ptrCast(self.ptr), @bitCast(r));
     }
 
     /// Inherited from QDialog
@@ -2527,12 +2650,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` result: i32 `
     ///
-    pub fn Finished(self: ?*anyopaque, result: i32) void {
-        qtc.QDialog_Finished(@ptrCast(self), @bitCast(result));
+    pub fn Finished(self: QFileDialog, result: i32) void {
+        qtc.QDialog_Finished(@ptrCast(self.ptr), @bitCast(result));
     }
 
     /// Inherited from QDialog
@@ -2541,12 +2664,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, result: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, result: i32) callconv(.c) void `
     ///
-    pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QDialog_Connect_Finished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFinished(self: QFileDialog, callback: *const fn (QFileDialog, i32) callconv(.c) void) void {
+        qtc.QDialog_Connect_Finished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -2555,10 +2678,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn Accepted(self: ?*anyopaque) void {
-        qtc.QDialog_Accepted(@ptrCast(self));
+    pub fn Accepted(self: QFileDialog) void {
+        qtc.QDialog_Accepted(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -2567,12 +2690,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog) callconv(.c) void `
     ///
-    pub fn OnAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QDialog_Connect_Accepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAccepted(self: QFileDialog, callback: *const fn (QFileDialog) callconv(.c) void) void {
+        qtc.QDialog_Connect_Accepted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -2581,10 +2704,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn Rejected(self: ?*anyopaque) void {
-        qtc.QDialog_Rejected(@ptrCast(self));
+    pub fn Rejected(self: QFileDialog) void {
+        qtc.QDialog_Rejected(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -2593,12 +2716,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog) callconv(.c) void `
     ///
-    pub fn OnRejected(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QDialog_Connect_Rejected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRejected(self: QFileDialog, callback: *const fn (QFileDialog) callconv(.c) void) void {
+        qtc.QDialog_Connect_Rejected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -2607,10 +2730,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn WinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_WinId(@ptrCast(self));
+    pub fn WinId(self: QFileDialog) usize {
+        return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2619,10 +2742,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn CreateWinId(self: ?*anyopaque) void {
-        qtc.QWidget_CreateWinId(@ptrCast(self));
+    pub fn CreateWinId(self: QFileDialog) void {
+        qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2631,10 +2754,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn InternalWinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_InternalWinId(@ptrCast(self));
+    pub fn InternalWinId(self: QFileDialog) usize {
+        return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2643,10 +2766,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn EffectiveWinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_EffectiveWinId(@ptrCast(self));
+    pub fn EffectiveWinId(self: QFileDialog) usize {
+        return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2655,10 +2778,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn Style(self: ?*anyopaque) QtC.QStyle {
-        return qtc.QWidget_Style(@ptrCast(self));
+    pub fn Style(self: QFileDialog) QStyle {
+        return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2667,12 +2790,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` style: QtC.QStyle `
+    /// ` style: QStyle `
     ///
-    pub fn SetStyle(self: ?*anyopaque, style: ?*anyopaque) void {
-        qtc.QWidget_SetStyle(@ptrCast(self), @ptrCast(style));
+    pub fn SetStyle(self: QFileDialog, style: anytype) void {
+        comptime _ = @TypeOf(style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
     }
 
     /// Inherited from QWidget
@@ -2681,10 +2805,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn IsTopLevel(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsTopLevel(@ptrCast(self));
+    pub fn IsTopLevel(self: QFileDialog) bool {
+        return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2693,10 +2817,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn IsWindow(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsWindow(@ptrCast(self));
+    pub fn IsWindow(self: QFileDialog) bool {
+        return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2705,10 +2829,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn IsModal(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsModal(@ptrCast(self));
+    pub fn IsModal(self: QFileDialog) bool {
+        return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2717,14 +2841,14 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowModality(@ptrCast(self));
+    pub fn WindowModality(self: QFileDialog) i32 {
+        return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2733,12 +2857,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self), @bitCast(windowModality));
+    pub fn SetWindowModality(self: QFileDialog, windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
     }
 
     /// Inherited from QWidget
@@ -2747,10 +2871,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn IsEnabled(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsEnabled(@ptrCast(self));
+    pub fn IsEnabled(self: QFileDialog) bool {
+        return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2759,12 +2883,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidget_IsEnabledTo(@ptrCast(self), @ptrCast(param1));
+    pub fn IsEnabledTo(self: QFileDialog, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -2773,12 +2898,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
-        qtc.QWidget_SetEnabled(@ptrCast(self), enabled);
+    pub fn SetEnabled(self: QFileDialog, enabled: bool) void {
+        qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QWidget
@@ -2787,12 +2912,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: ?*anyopaque, disabled: bool) void {
-        qtc.QWidget_SetDisabled(@ptrCast(self), disabled);
+    pub fn SetDisabled(self: QFileDialog, disabled: bool) void {
+        qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
 
     /// Inherited from QWidget
@@ -2801,12 +2926,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: ?*anyopaque, windowModified: bool) void {
-        qtc.QWidget_SetWindowModified(@ptrCast(self), windowModified);
+    pub fn SetWindowModified(self: QFileDialog, windowModified: bool) void {
+        qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
 
     /// Inherited from QWidget
@@ -2815,10 +2940,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn FrameGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_FrameGeometry(@ptrCast(self));
+    pub fn FrameGeometry(self: QFileDialog) QRect {
+        return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2827,10 +2952,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn Geometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_Geometry(@ptrCast(self));
+    pub fn Geometry(self: QFileDialog) QRect {
+        return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2839,10 +2964,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn NormalGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_NormalGeometry(@ptrCast(self));
+    pub fn NormalGeometry(self: QFileDialog) QRect {
+        return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2851,10 +2976,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn X(self: ?*anyopaque) i32 {
-        return qtc.QWidget_X(@ptrCast(self));
+    pub fn X(self: QFileDialog) i32 {
+        return qtc.QWidget_X(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2863,10 +2988,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn Y(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Y(@ptrCast(self));
+    pub fn Y(self: QFileDialog) i32 {
+        return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2875,10 +3000,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn Pos(self: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_Pos(@ptrCast(self));
+    pub fn Pos(self: QFileDialog) QPoint {
+        return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2887,10 +3012,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_FrameSize(@ptrCast(self));
+    pub fn FrameSize(self: QFileDialog) QSize {
+        return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2899,10 +3024,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn Size(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_Size(@ptrCast(self));
+    pub fn Size(self: QFileDialog) QSize {
+        return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2911,10 +3036,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn Width(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Width(@ptrCast(self));
+    pub fn Width(self: QFileDialog) i32 {
+        return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2923,10 +3048,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn Height(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Height(@ptrCast(self));
+    pub fn Height(self: QFileDialog) i32 {
+        return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2935,10 +3060,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn Rect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_Rect(@ptrCast(self));
+    pub fn Rect(self: QFileDialog) QRect {
+        return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2947,10 +3072,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn ChildrenRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_ChildrenRect(@ptrCast(self));
+    pub fn ChildrenRect(self: QFileDialog) QRect {
+        return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2959,10 +3084,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn ChildrenRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_ChildrenRegion(@ptrCast(self));
+    pub fn ChildrenRegion(self: QFileDialog) QRegion {
+        return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2971,10 +3096,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MinimumSize(@ptrCast(self));
+    pub fn MinimumSize(self: QFileDialog) QSize {
+        return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2983,10 +3108,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MaximumSize(@ptrCast(self));
+    pub fn MaximumSize(self: QFileDialog) QSize {
+        return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2995,10 +3120,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn MinimumWidth(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MinimumWidth(@ptrCast(self));
+    pub fn MinimumWidth(self: QFileDialog) i32 {
+        return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3007,10 +3132,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn MinimumHeight(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MinimumHeight(@ptrCast(self));
+    pub fn MinimumHeight(self: QFileDialog) i32 {
+        return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3019,10 +3144,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn MaximumWidth(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MaximumWidth(@ptrCast(self));
+    pub fn MaximumWidth(self: QFileDialog) i32 {
+        return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3031,10 +3156,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn MaximumHeight(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MaximumHeight(@ptrCast(self));
+    pub fn MaximumHeight(self: QFileDialog) i32 {
+        return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3043,12 +3168,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` minimumSize: QtC.QSize `
+    /// ` minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: ?*anyopaque, minimumSize: ?*anyopaque) void {
-        qtc.QWidget_SetMinimumSize(@ptrCast(self), @ptrCast(minimumSize));
+    pub fn SetMinimumSize(self: QFileDialog, minimumSize: anytype) void {
+        comptime _ = @TypeOf(minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -3057,14 +3183,14 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` minw: i32 `
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
-        qtc.QWidget_SetMinimumSize2(@ptrCast(self), @bitCast(minw), @bitCast(minh));
+    pub fn SetMinimumSize2(self: QFileDialog, minw: i32, minh: i32) void {
+        qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -3073,12 +3199,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` maximumSize: QtC.QSize `
+    /// ` maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: ?*anyopaque, maximumSize: ?*anyopaque) void {
-        qtc.QWidget_SetMaximumSize(@ptrCast(self), @ptrCast(maximumSize));
+    pub fn SetMaximumSize(self: QFileDialog, maximumSize: anytype) void {
+        comptime _ = @TypeOf(maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -3087,14 +3214,14 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` maxw: i32 `
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
-        qtc.QWidget_SetMaximumSize2(@ptrCast(self), @bitCast(maxw), @bitCast(maxh));
+    pub fn SetMaximumSize2(self: QFileDialog, maxw: i32, maxh: i32) void {
+        qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -3103,12 +3230,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
-        qtc.QWidget_SetMinimumWidth(@ptrCast(self), @bitCast(minw));
+    pub fn SetMinimumWidth(self: QFileDialog, minw: i32) void {
+        qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
 
     /// Inherited from QWidget
@@ -3117,12 +3244,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
-        qtc.QWidget_SetMinimumHeight(@ptrCast(self), @bitCast(minh));
+    pub fn SetMinimumHeight(self: QFileDialog, minh: i32) void {
+        qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -3131,12 +3258,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
-        qtc.QWidget_SetMaximumWidth(@ptrCast(self), @bitCast(maxw));
+    pub fn SetMaximumWidth(self: QFileDialog, maxw: i32) void {
+        qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
 
     /// Inherited from QWidget
@@ -3145,12 +3272,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
-        qtc.QWidget_SetMaximumHeight(@ptrCast(self), @bitCast(maxh));
+    pub fn SetMaximumHeight(self: QFileDialog, maxh: i32) void {
+        qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -3159,10 +3286,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn SizeIncrement(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_SizeIncrement(@ptrCast(self));
+    pub fn SizeIncrement(self: QFileDialog) QSize {
+        return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3171,12 +3298,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` sizeIncrement: QtC.QSize `
+    /// ` sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: ?*anyopaque, sizeIncrement: ?*anyopaque) void {
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self), @ptrCast(sizeIncrement));
+    pub fn SetSizeIncrement(self: QFileDialog, sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
     }
 
     /// Inherited from QWidget
@@ -3185,14 +3313,14 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetSizeIncrement2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetSizeIncrement2(self: QFileDialog, w: i32, h: i32) void {
+        qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3201,10 +3329,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn BaseSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_BaseSize(@ptrCast(self));
+    pub fn BaseSize(self: QFileDialog) QSize {
+        return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3213,12 +3341,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` baseSize: QtC.QSize `
+    /// ` baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: ?*anyopaque, baseSize: ?*anyopaque) void {
-        qtc.QWidget_SetBaseSize(@ptrCast(self), @ptrCast(baseSize));
+    pub fn SetBaseSize(self: QFileDialog, baseSize: anytype) void {
+        comptime _ = @TypeOf(baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -3227,14 +3356,14 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` basew: i32 `
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
-        qtc.QWidget_SetBaseSize2(@ptrCast(self), @bitCast(basew), @bitCast(baseh));
+    pub fn SetBaseSize2(self: QFileDialog, basew: i32, baseh: i32) void {
+        qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
 
     /// Inherited from QWidget
@@ -3243,12 +3372,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` fixedSize: QtC.QSize `
+    /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: ?*anyopaque, fixedSize: ?*anyopaque) void {
-        qtc.QWidget_SetFixedSize(@ptrCast(self), @ptrCast(fixedSize));
+    pub fn SetFixedSize(self: QFileDialog, fixedSize: anytype) void {
+        comptime _ = @TypeOf(fixedSize)._is_QSize;
+        qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -3257,14 +3387,14 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetFixedSize2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetFixedSize2(self: QFileDialog, w: i32, h: i32) void {
+        qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3273,12 +3403,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
-        qtc.QWidget_SetFixedWidth(@ptrCast(self), @bitCast(w));
+    pub fn SetFixedWidth(self: QFileDialog, w: i32) void {
+        qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
 
     /// Inherited from QWidget
@@ -3287,12 +3417,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
-        qtc.QWidget_SetFixedHeight(@ptrCast(self), @bitCast(h));
+    pub fn SetFixedHeight(self: QFileDialog, h: i32) void {
+        qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3301,12 +3431,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapToGlobal(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal(self: QFileDialog, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3315,12 +3446,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToGlobal2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal2(self: QFileDialog, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3329,12 +3461,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFromGlobal(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal(self: QFileDialog, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3343,12 +3476,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromGlobal2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal2(self: QFileDialog, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3357,12 +3491,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapToParent(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent(self: QFileDialog, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3371,12 +3506,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToParent2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent2(self: QFileDialog, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3385,12 +3521,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFromParent(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent(self: QFileDialog, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3399,12 +3536,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromParent2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent2(self: QFileDialog, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3413,14 +3551,16 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPointF `
+    /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapTo(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapTo(self: QFileDialog, param1: anytype, param2: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3429,14 +3569,16 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPoint `
+    /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapTo2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapTo2(self: QFileDialog, param1: anytype, param2: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3445,14 +3587,16 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPointF `
+    /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFrom(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapFrom(self: QFileDialog, param1: anytype, param2: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3461,14 +3605,16 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPoint `
+    /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFrom2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapFrom2(self: QFileDialog, param1: anytype, param2: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3477,10 +3623,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn Window(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_Window(@ptrCast(self));
+    pub fn Window(self: QFileDialog) QWidget {
+        return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3489,10 +3635,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn NativeParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_NativeParentWidget(@ptrCast(self));
+    pub fn NativeParentWidget(self: QFileDialog) QWidget {
+        return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3501,10 +3647,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn TopLevelWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_TopLevelWidget(@ptrCast(self));
+    pub fn TopLevelWidget(self: QFileDialog) QWidget {
+        return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3513,10 +3659,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn Palette(self: ?*anyopaque) QtC.QPalette {
-        return qtc.QWidget_Palette(@ptrCast(self));
+    pub fn Palette(self: QFileDialog) QPalette {
+        return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3525,12 +3671,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` palette: QtC.QPalette `
+    /// ` palette: QPalette `
     ///
-    pub fn SetPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
-        qtc.QWidget_SetPalette(@ptrCast(self), @ptrCast(palette));
+    pub fn SetPalette(self: QFileDialog, palette: anytype) void {
+        comptime _ = @TypeOf(palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
     }
 
     /// Inherited from QWidget
@@ -3539,12 +3686,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self), @bitCast(backgroundRole));
+    pub fn SetBackgroundRole(self: QFileDialog, backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
     }
 
     /// Inherited from QWidget
@@ -3553,14 +3700,14 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: ?*anyopaque) i32 {
-        return qtc.QWidget_BackgroundRole(@ptrCast(self));
+    pub fn BackgroundRole(self: QFileDialog) i32 {
+        return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3569,12 +3716,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self), @bitCast(foregroundRole));
+    pub fn SetForegroundRole(self: QFileDialog, foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
     }
 
     /// Inherited from QWidget
@@ -3583,14 +3730,14 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ForegroundRole(@ptrCast(self));
+    pub fn ForegroundRole(self: QFileDialog) i32 {
+        return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3599,10 +3746,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn Font(self: ?*anyopaque) QtC.QFont {
-        return qtc.QWidget_Font(@ptrCast(self));
+    pub fn Font(self: QFileDialog) QFont {
+        return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3611,12 +3758,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` font: QtC.QFont `
+    /// ` font: QFont `
     ///
-    pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
-        qtc.QWidget_SetFont(@ptrCast(self), @ptrCast(font));
+    pub fn SetFont(self: QFileDialog, font: anytype) void {
+        comptime _ = @TypeOf(font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
     }
 
     /// Inherited from QWidget
@@ -3625,10 +3773,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn FontMetrics(self: ?*anyopaque) QtC.QFontMetrics {
-        return qtc.QWidget_FontMetrics(@ptrCast(self));
+    pub fn FontMetrics(self: QFileDialog) QFontMetrics {
+        return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3637,10 +3785,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn FontInfo(self: ?*anyopaque) QtC.QFontInfo {
-        return qtc.QWidget_FontInfo(@ptrCast(self));
+    pub fn FontInfo(self: QFileDialog) QFontInfo {
+        return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3649,10 +3797,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
-        return qtc.QWidget_Cursor(@ptrCast(self));
+    pub fn Cursor(self: QFileDialog) QCursor {
+        return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3661,12 +3809,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` cursor: QtC.QCursor `
+    /// ` cursor: QCursor `
     ///
-    pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
-        qtc.QWidget_SetCursor(@ptrCast(self), @ptrCast(cursor));
+    pub fn SetCursor(self: QFileDialog, cursor: anytype) void {
+        comptime _ = @TypeOf(cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
     }
 
     /// Inherited from QWidget
@@ -3675,10 +3824,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn UnsetCursor(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetCursor(@ptrCast(self));
+    pub fn UnsetCursor(self: QFileDialog) void {
+        qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3687,12 +3836,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetMouseTracking(@ptrCast(self), enable);
+    pub fn SetMouseTracking(self: QFileDialog, enable: bool) void {
+        qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -3701,10 +3850,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn HasMouseTracking(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasMouseTracking(@ptrCast(self));
+    pub fn HasMouseTracking(self: QFileDialog) bool {
+        return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3713,10 +3862,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn UnderMouse(self: ?*anyopaque) bool {
-        return qtc.QWidget_UnderMouse(@ptrCast(self));
+    pub fn UnderMouse(self: QFileDialog) bool {
+        return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3725,12 +3874,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetTabletTracking(@ptrCast(self), enable);
+    pub fn SetTabletTracking(self: QFileDialog, enable: bool) void {
+        qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -3739,10 +3888,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn HasTabletTracking(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasTabletTracking(@ptrCast(self));
+    pub fn HasTabletTracking(self: QFileDialog) bool {
+        return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3751,12 +3900,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` mask: QtC.QBitmap `
+    /// ` mask: QBitmap `
     ///
-    pub fn SetMask(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMask(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask(self: QFileDialog, mask: anytype) void {
+        comptime _ = @TypeOf(mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
 
     /// Inherited from QWidget
@@ -3765,12 +3915,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` mask: QtC.QRegion `
+    /// ` mask: QRegion `
     ///
-    pub fn SetMask2(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMask2(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask2(self: QFileDialog, mask: anytype) void {
+        comptime _ = @TypeOf(mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
 
     /// Inherited from QWidget
@@ -3779,10 +3930,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn Mask(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_Mask(@ptrCast(self));
+    pub fn Mask(self: QFileDialog) QRegion {
+        return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3791,10 +3942,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn ClearMask(self: ?*anyopaque) void {
-        qtc.QWidget_ClearMask(@ptrCast(self));
+    pub fn ClearMask(self: QFileDialog) void {
+        qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3803,12 +3954,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: ?*anyopaque, target: ?*anyopaque) void {
-        qtc.QWidget_Render(@ptrCast(self), @ptrCast(target));
+    pub fn Render(self: QFileDialog, target: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
 
     /// Inherited from QWidget
@@ -3817,12 +3969,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn Render2(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QWidget_Render2(@ptrCast(self), @ptrCast(painter));
+    pub fn Render2(self: QFileDialog, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// Inherited from QWidget
@@ -3831,10 +3984,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn Grab(self: ?*anyopaque) QtC.QPixmap {
-        return qtc.QWidget_Grab(@ptrCast(self));
+    pub fn Grab(self: QFileDialog) QPixmap {
+        return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3843,10 +3996,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
-        return qtc.QWidget_GraphicsEffect(@ptrCast(self));
+    pub fn GraphicsEffect(self: QFileDialog) QGraphicsEffect {
+        return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3855,12 +4008,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` effect: QtC.QGraphicsEffect `
+    /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
-        qtc.QWidget_SetGraphicsEffect(@ptrCast(self), @ptrCast(effect));
+    pub fn SetGraphicsEffect(self: QFileDialog, effect: anytype) void {
+        comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
+        qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
 
     /// Inherited from QWidget
@@ -3869,12 +4023,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_GrabGesture(@ptrCast(self), @bitCast(typeVal));
+    pub fn GrabGesture(self: QFileDialog, typeVal: i32) void {
+        qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -3883,12 +4037,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_UngrabGesture(@ptrCast(self), @bitCast(typeVal));
+    pub fn UngrabGesture(self: QFileDialog, typeVal: i32) void {
+        qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -3897,16 +4051,16 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
+    pub fn SetWindowTitle(self: QFileDialog, windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
             .len = windowTitle.len,
             .data = windowTitle.ptr,
         };
-        qtc.QWidget_SetWindowTitle(@ptrCast(self), windowTitle_str);
+        qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
 
     /// Inherited from QWidget
@@ -3915,16 +4069,16 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
+    pub fn SetStyleSheet(self: QFileDialog, styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
             .len = styleSheet.len,
             .data = styleSheet.ptr,
         };
-        qtc.QWidget_SetStyleSheet(@ptrCast(self), styleSheet_str);
+        qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
 
     /// Inherited from QWidget
@@ -3933,12 +4087,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_StyleSheet(@ptrCast(self));
+    pub fn StyleSheet(self: QFileDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3951,12 +4105,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowTitle(@ptrCast(self));
+    pub fn WindowTitle(self: QFileDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3969,12 +4123,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QWidget_SetWindowIcon(@ptrCast(self), @ptrCast(icon));
+    pub fn SetWindowIcon(self: QFileDialog, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QWidget
@@ -3983,10 +4138,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn WindowIcon(self: ?*anyopaque) QtC.QIcon {
-        return qtc.QWidget_WindowIcon(@ptrCast(self));
+    pub fn WindowIcon(self: QFileDialog) QIcon {
+        return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3995,16 +4150,16 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
+    pub fn SetWindowIconText(self: QFileDialog, windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
             .len = windowIconText.len,
             .data = windowIconText.ptr,
         };
-        qtc.QWidget_SetWindowIconText(@ptrCast(self), windowIconText_str);
+        qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
 
     /// Inherited from QWidget
@@ -4013,12 +4168,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowIconText(@ptrCast(self));
+    pub fn WindowIconText(self: QFileDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4031,16 +4186,16 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
+    pub fn SetWindowRole(self: QFileDialog, windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
             .len = windowRole.len,
             .data = windowRole.ptr,
         };
-        qtc.QWidget_SetWindowRole(@ptrCast(self), windowRole_str);
+        qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
 
     /// Inherited from QWidget
@@ -4049,12 +4204,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowRole(@ptrCast(self));
+    pub fn WindowRole(self: QFileDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4067,16 +4222,16 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
+    pub fn SetWindowFilePath(self: QFileDialog, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
-        qtc.QWidget_SetWindowFilePath(@ptrCast(self), filePath_str);
+        qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
 
     /// Inherited from QWidget
@@ -4085,12 +4240,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
+    pub fn WindowFilePath(self: QFileDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4103,12 +4258,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
-        qtc.QWidget_SetWindowOpacity(@ptrCast(self), @bitCast(level));
+    pub fn SetWindowOpacity(self: QFileDialog, level: f64) void {
+        qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
 
     /// Inherited from QWidget
@@ -4117,10 +4272,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn WindowOpacity(self: ?*anyopaque) f64 {
-        return qtc.QWidget_WindowOpacity(@ptrCast(self));
+    pub fn WindowOpacity(self: QFileDialog) f64 {
+        return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4129,10 +4284,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn IsWindowModified(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsWindowModified(@ptrCast(self));
+    pub fn IsWindowModified(self: QFileDialog) bool {
+        return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4141,16 +4296,16 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
+    pub fn SetToolTip(self: QFileDialog, toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
             .len = toolTip.len,
             .data = toolTip.ptr,
         };
-        qtc.QWidget_SetToolTip(@ptrCast(self), toolTip_str);
+        qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
 
     /// Inherited from QWidget
@@ -4159,12 +4314,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_ToolTip(@ptrCast(self));
+    pub fn ToolTip(self: QFileDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4177,12 +4332,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
-        qtc.QWidget_SetToolTipDuration(@ptrCast(self), @bitCast(msec));
+    pub fn SetToolTipDuration(self: QFileDialog, msec: i32) void {
+        qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
 
     /// Inherited from QWidget
@@ -4191,10 +4346,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn ToolTipDuration(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ToolTipDuration(@ptrCast(self));
+    pub fn ToolTipDuration(self: QFileDialog) i32 {
+        return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4203,16 +4358,16 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
+    pub fn SetStatusTip(self: QFileDialog, statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
             .len = statusTip.len,
             .data = statusTip.ptr,
         };
-        qtc.QWidget_SetStatusTip(@ptrCast(self), statusTip_str);
+        qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
 
     /// Inherited from QWidget
@@ -4221,12 +4376,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_StatusTip(@ptrCast(self));
+    pub fn StatusTip(self: QFileDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4239,16 +4394,16 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
+    pub fn SetWhatsThis(self: QFileDialog, whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
             .len = whatsThis.len,
             .data = whatsThis.ptr,
         };
-        qtc.QWidget_SetWhatsThis(@ptrCast(self), whatsThis_str);
+        qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
 
     /// Inherited from QWidget
@@ -4257,12 +4412,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WhatsThis(@ptrCast(self));
+    pub fn WhatsThis(self: QFileDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4275,12 +4430,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_AccessibleName(@ptrCast(self));
+    pub fn AccessibleName(self: QFileDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4293,16 +4448,16 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
+    pub fn SetAccessibleName(self: QFileDialog, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QWidget_SetAccessibleName(@ptrCast(self), name_str);
+        qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QWidget
@@ -4311,12 +4466,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
+    pub fn AccessibleDescription(self: QFileDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4329,16 +4484,16 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
+    pub fn SetAccessibleDescription(self: QFileDialog, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
-        qtc.QWidget_SetAccessibleDescription(@ptrCast(self), description_str);
+        qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
 
     /// Inherited from QWidget
@@ -4347,12 +4502,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QWidget_SetLayoutDirection(@ptrCast(self), @bitCast(direction));
+    pub fn SetLayoutDirection(self: QFileDialog, direction: i32) void {
+        qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
 
     /// Inherited from QWidget
@@ -4361,14 +4516,14 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: ?*anyopaque) i32 {
-        return qtc.QWidget_LayoutDirection(@ptrCast(self));
+    pub fn LayoutDirection(self: QFileDialog) i32 {
+        return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4377,10 +4532,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn UnsetLayoutDirection(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self));
+    pub fn UnsetLayoutDirection(self: QFileDialog) void {
+        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4389,12 +4544,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` locale: QtC.QLocale `
+    /// ` locale: QLocale `
     ///
-    pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
-        qtc.QWidget_SetLocale(@ptrCast(self), @ptrCast(locale));
+    pub fn SetLocale(self: QFileDialog, locale: anytype) void {
+        comptime _ = @TypeOf(locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
     }
 
     /// Inherited from QWidget
@@ -4403,10 +4559,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn Locale(self: ?*anyopaque) QtC.QLocale {
-        return qtc.QWidget_Locale(@ptrCast(self));
+    pub fn Locale(self: QFileDialog) QLocale {
+        return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4415,10 +4571,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn UnsetLocale(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetLocale(@ptrCast(self));
+    pub fn UnsetLocale(self: QFileDialog) void {
+        qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4427,10 +4583,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn IsRightToLeft(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsRightToLeft(@ptrCast(self));
+    pub fn IsRightToLeft(self: QFileDialog) bool {
+        return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4439,10 +4595,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn IsLeftToRight(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsLeftToRight(@ptrCast(self));
+    pub fn IsLeftToRight(self: QFileDialog) bool {
+        return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4451,10 +4607,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn SetFocus(self: ?*anyopaque) void {
-        qtc.QWidget_SetFocus(@ptrCast(self));
+    pub fn SetFocus(self: QFileDialog) void {
+        qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4463,10 +4619,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn IsActiveWindow(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsActiveWindow(@ptrCast(self));
+    pub fn IsActiveWindow(self: QFileDialog) bool {
+        return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4475,10 +4631,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn ActivateWindow(self: ?*anyopaque) void {
-        qtc.QWidget_ActivateWindow(@ptrCast(self));
+    pub fn ActivateWindow(self: QFileDialog) void {
+        qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4487,10 +4643,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn ClearFocus(self: ?*anyopaque) void {
-        qtc.QWidget_ClearFocus(@ptrCast(self));
+    pub fn ClearFocus(self: QFileDialog) void {
+        qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4499,12 +4655,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
-        qtc.QWidget_SetFocus2(@ptrCast(self), @bitCast(reason));
+    pub fn SetFocus2(self: QFileDialog, reason: i32) void {
+        qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
 
     /// Inherited from QWidget
@@ -4513,14 +4669,14 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: ?*anyopaque) i32 {
-        return qtc.QWidget_FocusPolicy(@ptrCast(self));
+    pub fn FocusPolicy(self: QFileDialog) i32 {
+        return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4529,12 +4685,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetFocusPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetFocusPolicy(self: QFileDialog, policy: i32) void {
+        qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -4543,10 +4699,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn HasFocus(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasFocus(@ptrCast(self));
+    pub fn HasFocus(self: QFileDialog) bool {
+        return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4555,12 +4711,14 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QWidget `
+    /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: ?*anyopaque, param2: ?*anyopaque) void {
-        qtc.QWidget_SetTabOrder(@ptrCast(param1), @ptrCast(param2));
+    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QWidget;
+        qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
     /// Inherited from QWidget
@@ -4569,12 +4727,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` focusProxy: QtC.QWidget `
+    /// ` focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: ?*anyopaque, focusProxy: ?*anyopaque) void {
-        qtc.QWidget_SetFocusProxy(@ptrCast(self), @ptrCast(focusProxy));
+    pub fn SetFocusProxy(self: QFileDialog, focusProxy: anytype) void {
+        comptime _ = @TypeOf(focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
     }
 
     /// Inherited from QWidget
@@ -4583,10 +4742,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn FocusProxy(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_FocusProxy(@ptrCast(self));
+    pub fn FocusProxy(self: QFileDialog) QWidget {
+        return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4595,14 +4754,14 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
+    pub fn ContextMenuPolicy(self: QFileDialog) i32 {
+        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4611,12 +4770,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetContextMenuPolicy(self: QFileDialog, policy: i32) void {
+        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -4625,10 +4784,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn GrabMouse(self: ?*anyopaque) void {
-        qtc.QWidget_GrabMouse(@ptrCast(self));
+    pub fn GrabMouse(self: QFileDialog) void {
+        qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4637,12 +4796,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` param1: QtC.QCursor `
+    /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_GrabMouse2(@ptrCast(self), @ptrCast(param1));
+    pub fn GrabMouse2(self: QFileDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QCursor;
+        qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -4651,10 +4811,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn ReleaseMouse(self: ?*anyopaque) void {
-        qtc.QWidget_ReleaseMouse(@ptrCast(self));
+    pub fn ReleaseMouse(self: QFileDialog) void {
+        qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4663,10 +4823,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn GrabKeyboard(self: ?*anyopaque) void {
-        qtc.QWidget_GrabKeyboard(@ptrCast(self));
+    pub fn GrabKeyboard(self: QFileDialog) void {
+        qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4675,10 +4835,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn ReleaseKeyboard(self: ?*anyopaque) void {
-        qtc.QWidget_ReleaseKeyboard(@ptrCast(self));
+    pub fn ReleaseKeyboard(self: QFileDialog) void {
+        qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4687,12 +4847,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` key: QtC.QKeySequence `
+    /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: ?*anyopaque, key: ?*anyopaque) i32 {
-        return qtc.QWidget_GrabShortcut(@ptrCast(self), @ptrCast(key));
+    pub fn GrabShortcut(self: QFileDialog, key: anytype) i32 {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
 
     /// Inherited from QWidget
@@ -4701,12 +4862,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_ReleaseShortcut(@ptrCast(self), @bitCast(id));
+    pub fn ReleaseShortcut(self: QFileDialog, id: i32) void {
+        qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -4715,12 +4876,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutEnabled(@ptrCast(self), @bitCast(id));
+    pub fn SetShortcutEnabled(self: QFileDialog, id: i32) void {
+        qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -4729,28 +4890,28 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self), @bitCast(id));
+    pub fn SetShortcutAutoRepeat(self: QFileDialog, id: i32) void {
+        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QtC.QWidget {
-        return qtc.QWidget_MouseGrabber();
+    pub fn MouseGrabber() QWidget {
+        return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QtC.QWidget {
-        return qtc.QWidget_KeyboardGrabber();
+    pub fn KeyboardGrabber() QWidget {
+        return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
 
     /// Inherited from QWidget
@@ -4759,10 +4920,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn UpdatesEnabled(self: ?*anyopaque) bool {
-        return qtc.QWidget_UpdatesEnabled(@ptrCast(self));
+    pub fn UpdatesEnabled(self: QFileDialog) bool {
+        return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4771,12 +4932,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self), enable);
+    pub fn SetUpdatesEnabled(self: QFileDialog, enable: bool) void {
+        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -4785,10 +4946,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn GraphicsProxyWidget(self: ?*anyopaque) QtC.QGraphicsProxyWidget {
-        return qtc.QWidget_GraphicsProxyWidget(@ptrCast(self));
+    pub fn GraphicsProxyWidget(self: QFileDialog) QGraphicsProxyWidget {
+        return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4797,10 +4958,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn Update(self: ?*anyopaque) void {
-        qtc.QWidget_Update(@ptrCast(self));
+    pub fn Update(self: QFileDialog) void {
+        qtc.QWidget_Update(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4809,10 +4970,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn Repaint(self: ?*anyopaque) void {
-        qtc.QWidget_Repaint(@ptrCast(self));
+    pub fn Repaint(self: QFileDialog) void {
+        qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4821,7 +4982,7 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` x: i32 `
     ///
@@ -4831,8 +4992,8 @@ pub const qfiledialog = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn Update2(self: QFileDialog, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -4841,12 +5002,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn Update3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Update3(@ptrCast(self), @ptrCast(param1));
+    pub fn Update3(self: QFileDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -4855,12 +5017,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn Update4(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Update4(@ptrCast(self), @ptrCast(param1));
+    pub fn Update4(self: QFileDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -4869,7 +5032,7 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` x: i32 `
     ///
@@ -4879,8 +5042,8 @@ pub const qfiledialog = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn Repaint2(self: QFileDialog, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -4889,12 +5052,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Repaint3(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint3(self: QFileDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -4903,12 +5067,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Repaint4(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint4(self: QFileDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -4917,12 +5082,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: ?*anyopaque, hidden: bool) void {
-        qtc.QWidget_SetHidden(@ptrCast(self), hidden);
+    pub fn SetHidden(self: QFileDialog, hidden: bool) void {
+        qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
 
     /// Inherited from QWidget
@@ -4931,10 +5096,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn Show(self: ?*anyopaque) void {
-        qtc.QWidget_Show(@ptrCast(self));
+    pub fn Show(self: QFileDialog) void {
+        qtc.QWidget_Show(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4943,10 +5108,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn Hide(self: ?*anyopaque) void {
-        qtc.QWidget_Hide(@ptrCast(self));
+    pub fn Hide(self: QFileDialog) void {
+        qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4955,10 +5120,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn ShowMinimized(self: ?*anyopaque) void {
-        qtc.QWidget_ShowMinimized(@ptrCast(self));
+    pub fn ShowMinimized(self: QFileDialog) void {
+        qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4967,10 +5132,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn ShowMaximized(self: ?*anyopaque) void {
-        qtc.QWidget_ShowMaximized(@ptrCast(self));
+    pub fn ShowMaximized(self: QFileDialog) void {
+        qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4979,10 +5144,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn ShowFullScreen(self: ?*anyopaque) void {
-        qtc.QWidget_ShowFullScreen(@ptrCast(self));
+    pub fn ShowFullScreen(self: QFileDialog) void {
+        qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4991,10 +5156,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn ShowNormal(self: ?*anyopaque) void {
-        qtc.QWidget_ShowNormal(@ptrCast(self));
+    pub fn ShowNormal(self: QFileDialog) void {
+        qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5003,10 +5168,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn Close(self: ?*anyopaque) bool {
-        return qtc.QWidget_Close(@ptrCast(self));
+    pub fn Close(self: QFileDialog) bool {
+        return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5015,10 +5180,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn Raise(self: ?*anyopaque) void {
-        qtc.QWidget_Raise(@ptrCast(self));
+    pub fn Raise(self: QFileDialog) void {
+        qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5027,10 +5192,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn Lower(self: ?*anyopaque) void {
-        qtc.QWidget_Lower(@ptrCast(self));
+    pub fn Lower(self: QFileDialog) void {
+        qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5039,12 +5204,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_StackUnder(@ptrCast(self), @ptrCast(param1));
+    pub fn StackUnder(self: QFileDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -5053,14 +5219,14 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn Move(self: QFileDialog, x: i32, y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QWidget
@@ -5069,12 +5235,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn Move2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Move2(@ptrCast(self), @ptrCast(param1));
+    pub fn Move2(self: QFileDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -5083,14 +5250,14 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_Resize(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn Resize(self: QFileDialog, w: i32, h: i32) void {
+        qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -5099,12 +5266,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` param1: QtC.QSize `
+    /// ` param1: QSize `
     ///
-    pub fn Resize2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Resize2(@ptrCast(self), @ptrCast(param1));
+    pub fn Resize2(self: QFileDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QSize;
+        qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -5113,7 +5281,7 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` x: i32 `
     ///
@@ -5123,8 +5291,8 @@ pub const qfiledialog = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn SetGeometry(self: QFileDialog, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -5133,12 +5301,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` geometry: QtC.QRect `
+    /// ` geometry: QRect `
     ///
-    pub fn SetGeometry2(self: ?*anyopaque, geometry: ?*anyopaque) void {
-        qtc.QWidget_SetGeometry2(@ptrCast(self), @ptrCast(geometry));
+    pub fn SetGeometry2(self: QFileDialog, geometry: anytype) void {
+        comptime _ = @TypeOf(geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
     }
 
     /// Inherited from QWidget
@@ -5147,12 +5316,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
+    pub fn SaveGeometry(self: QFileDialog, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qfiledialog.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -5165,16 +5334,16 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
+    pub fn RestoreGeometry(self: QFileDialog, geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
             .len = geometry.len,
             .data = geometry.ptr,
         };
-        return qtc.QWidget_RestoreGeometry(@ptrCast(self), geometry_str);
+        return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
 
     /// Inherited from QWidget
@@ -5183,10 +5352,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn AdjustSize(self: ?*anyopaque) void {
-        qtc.QWidget_AdjustSize(@ptrCast(self));
+    pub fn AdjustSize(self: QFileDialog) void {
+        qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5195,10 +5364,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn IsVisible(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsVisible(@ptrCast(self));
+    pub fn IsVisible(self: QFileDialog) bool {
+        return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5207,12 +5376,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidget_IsVisibleTo(@ptrCast(self), @ptrCast(param1));
+    pub fn IsVisibleTo(self: QFileDialog, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -5221,10 +5391,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn IsHidden(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsHidden(@ptrCast(self));
+    pub fn IsHidden(self: QFileDialog) bool {
+        return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5233,10 +5403,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn IsMinimized(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsMinimized(@ptrCast(self));
+    pub fn IsMinimized(self: QFileDialog) bool {
+        return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5245,10 +5415,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn IsMaximized(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsMaximized(@ptrCast(self));
+    pub fn IsMaximized(self: QFileDialog) bool {
+        return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5257,10 +5427,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn IsFullScreen(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsFullScreen(@ptrCast(self));
+    pub fn IsFullScreen(self: QFileDialog) bool {
+        return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5269,14 +5439,14 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowState(@ptrCast(self));
+    pub fn WindowState(self: QFileDialog) i32 {
+        return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5285,12 +5455,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_SetWindowState(@ptrCast(self), @bitCast(state));
+    pub fn SetWindowState(self: QFileDialog, state: i32) void {
+        qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -5299,12 +5469,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_OverrideWindowState(@ptrCast(self), @bitCast(state));
+    pub fn OverrideWindowState(self: QFileDialog, state: i32) void {
+        qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -5313,10 +5483,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
-        return qtc.QWidget_SizePolicy(@ptrCast(self));
+    pub fn SizePolicy(self: QFileDialog) QSizePolicy {
+        return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5325,12 +5495,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` sizePolicy: QtC.QSizePolicy `
+    /// ` sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: QtC.QSizePolicy) void {
-        qtc.QWidget_SetSizePolicy(@ptrCast(self), @ptrCast(sizePolicy));
+    pub fn SetSizePolicy(self: QFileDialog, sizePolicy: anytype) void {
+        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
     }
 
     /// Inherited from QWidget
@@ -5339,14 +5510,14 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` horizontal: qsizepolicy_enums.Policy `
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
-        qtc.QWidget_SetSizePolicy2(@ptrCast(self), @bitCast(horizontal), @bitCast(vertical));
+    pub fn SetSizePolicy2(self: QFileDialog, horizontal: i32, vertical: i32) void {
+        qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
 
     /// Inherited from QWidget
@@ -5355,10 +5526,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn VisibleRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_VisibleRegion(@ptrCast(self));
+    pub fn VisibleRegion(self: QFileDialog) QRegion {
+        return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5367,7 +5538,7 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` left: i32 `
     ///
@@ -5377,8 +5548,8 @@ pub const qfiledialog = struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QWidget_SetContentsMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
+    pub fn SetContentsMargins(self: QFileDialog, left: i32, top: i32, right: i32, bottom: i32) void {
+        qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QWidget
@@ -5387,12 +5558,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` margins: QtC.QMargins `
+    /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
-        qtc.QWidget_SetContentsMargins2(@ptrCast(self), @ptrCast(margins));
+    pub fn SetContentsMargins2(self: QFileDialog, margins: anytype) void {
+        comptime _ = @TypeOf(margins)._is_QMargins;
+        qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
 
     /// Inherited from QWidget
@@ -5401,10 +5573,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
-        return qtc.QWidget_ContentsMargins(@ptrCast(self));
+    pub fn ContentsMargins(self: QFileDialog) QMargins {
+        return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5413,10 +5585,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_ContentsRect(@ptrCast(self));
+    pub fn ContentsRect(self: QFileDialog) QRect {
+        return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5425,10 +5597,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn Layout(self: ?*anyopaque) QtC.QLayout {
-        return qtc.QWidget_Layout(@ptrCast(self));
+    pub fn Layout(self: QFileDialog) QLayout {
+        return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5437,12 +5609,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` layout: QtC.QLayout `
+    /// ` layout: QLayout `
     ///
-    pub fn SetLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
-        qtc.QWidget_SetLayout(@ptrCast(self), @ptrCast(layout));
+    pub fn SetLayout(self: QFileDialog, layout: anytype) void {
+        comptime _ = @TypeOf(layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
     }
 
     /// Inherited from QWidget
@@ -5451,10 +5624,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn UpdateGeometry(self: ?*anyopaque) void {
-        qtc.QWidget_UpdateGeometry(@ptrCast(self));
+    pub fn UpdateGeometry(self: QFileDialog) void {
+        qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5463,12 +5636,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QWidget_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QFileDialog, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QWidget
@@ -5477,14 +5651,15 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i32) void {
-        qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @bitCast(f));
+    pub fn SetParent2(self: QFileDialog, parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
     }
 
     /// Inherited from QWidget
@@ -5493,14 +5668,14 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QWidget_Scroll(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn Scroll(self: QFileDialog, dx: i32, dy: i32) void {
+        qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QWidget
@@ -5509,16 +5684,17 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    /// ` param3: QtC.QRect `
+    /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
-        qtc.QWidget_Scroll2(@ptrCast(self), @bitCast(dx), @bitCast(dy), @ptrCast(param3));
+    pub fn Scroll2(self: QFileDialog, dx: i32, dy: i32, param3: anytype) void {
+        comptime _ = @TypeOf(param3)._is_QRect;
+        qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
 
     /// Inherited from QWidget
@@ -5527,10 +5703,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn FocusWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_FocusWidget(@ptrCast(self));
+    pub fn FocusWidget(self: QFileDialog) QWidget {
+        return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5539,10 +5715,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn NextInFocusChain(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_NextInFocusChain(@ptrCast(self));
+    pub fn NextInFocusChain(self: QFileDialog) QWidget {
+        return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5551,10 +5727,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn PreviousInFocusChain(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_PreviousInFocusChain(@ptrCast(self));
+    pub fn PreviousInFocusChain(self: QFileDialog) QWidget {
+        return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5563,10 +5739,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn AcceptDrops(self: ?*anyopaque) bool {
-        return qtc.QWidget_AcceptDrops(@ptrCast(self));
+    pub fn AcceptDrops(self: QFileDialog) bool {
+        return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5575,12 +5751,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
-        qtc.QWidget_SetAcceptDrops(@ptrCast(self), on);
+    pub fn SetAcceptDrops(self: QFileDialog, on: bool) void {
+        qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
 
     /// Inherited from QWidget
@@ -5589,12 +5765,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_AddAction(@ptrCast(self), @ptrCast(action));
+    pub fn AddAction(self: QFileDialog, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -5603,16 +5780,16 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn AddActions(self: QFileDialog, actions: []QAction) void {
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.QWidget_AddActions(@ptrCast(self), actions_list);
+        qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
 
     /// Inherited from QWidget
@@ -5621,18 +5798,19 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` before: QtC.QAction `
+    /// ` before: QAction `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn InsertActions(self: QFileDialog, before: anytype, actions: []QAction) void {
+        comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.QWidget_InsertActions(@ptrCast(self), @ptrCast(before), actions_list);
+        qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
 
     /// Inherited from QWidget
@@ -5641,14 +5819,16 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` before: QtC.QAction `
+    /// ` before: QAction `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_InsertAction(@ptrCast(self), @ptrCast(before), @ptrCast(action));
+    pub fn InsertAction(self: QFileDialog, before: anytype, action: anytype) void {
+        comptime _ = @TypeOf(before)._is_QAction;
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -5657,12 +5837,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_RemoveAction(@ptrCast(self), @ptrCast(action));
+    pub fn RemoveAction(self: QFileDialog, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -5671,16 +5852,17 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
-        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self));
+    pub fn Actions(self: QFileDialog, allocator: std.mem.Allocator) []QAction {
+        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("qfiledialog.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("qfiledialog.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -5690,16 +5872,16 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction2(self: QFileDialog, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction2(@ptrCast(self), text_str);
+        return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
 
     /// Inherited from QWidget
@@ -5708,18 +5890,19 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction3(self: QFileDialog, icon: anytype, text: []const u8) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction3(@ptrCast(self), @ptrCast(icon), text_str);
+        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
     /// Inherited from QWidget
@@ -5728,18 +5911,19 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction4(self: QFileDialog, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction4(@ptrCast(self), text_str, @ptrCast(shortcut));
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5748,20 +5932,22 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction5(self: QFileDialog, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction5(@ptrCast(self), @ptrCast(icon), text_str, @ptrCast(shortcut));
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5770,10 +5956,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ParentWidget(@ptrCast(self));
+    pub fn ParentWidget(self: QFileDialog) QWidget {
+        return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5782,12 +5968,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_SetWindowFlags(@ptrCast(self), @bitCast(typeVal));
+    pub fn SetWindowFlags(self: QFileDialog, typeVal: i32) void {
+        qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -5796,14 +5982,14 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowFlags(@ptrCast(self));
+    pub fn WindowFlags(self: QFileDialog) i32 {
+        return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5812,12 +5998,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetWindowFlag(@ptrCast(self), @bitCast(param1));
+    pub fn SetWindowFlag(self: QFileDialog, param1: i32) void {
+        qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -5826,12 +6012,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @bitCast(typeVal));
+    pub fn OverrideWindowFlags(self: QFileDialog, typeVal: i32) void {
+        qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -5840,14 +6026,14 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowType(@ptrCast(self));
+    pub fn WindowType(self: QFileDialog) i32 {
+        return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5858,8 +6044,8 @@ pub const qfiledialog = struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QtC.QWidget {
-        return qtc.QWidget_Find(@bitCast(param1));
+    pub fn Find(param1: usize) QWidget {
+        return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
 
     /// Inherited from QWidget
@@ -5868,14 +6054,14 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
-        return qtc.QWidget_ChildAt(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn ChildAt(self: QFileDialog, x: i32, y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
     }
 
     /// Inherited from QWidget
@@ -5884,12 +6070,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` p: QtC.QPoint `
+    /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAt2(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt2(self: QFileDialog, p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5898,12 +6085,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` p: QtC.QPointF `
+    /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAt3(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt3(self: QFileDialog, p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5912,12 +6100,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetAttribute(@ptrCast(self), @bitCast(param1));
+    pub fn SetAttribute(self: QFileDialog, param1: i32) void {
+        qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -5926,12 +6114,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
-        return qtc.QWidget_TestAttribute(@ptrCast(self), @bitCast(param1));
+    pub fn TestAttribute(self: QFileDialog, param1: i32) bool {
+        return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -5940,10 +6128,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn EnsurePolished(self: ?*anyopaque) void {
-        qtc.QWidget_EnsurePolished(@ptrCast(self));
+    pub fn EnsurePolished(self: QFileDialog) void {
+        qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5952,12 +6140,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` child: QtC.QWidget `
+    /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
-        return qtc.QWidget_IsAncestorOf(@ptrCast(self), @ptrCast(child));
+    pub fn IsAncestorOf(self: QFileDialog, child: anytype) bool {
+        comptime _ = @TypeOf(child)._is_QWidget;
+        return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
 
     /// Inherited from QWidget
@@ -5966,10 +6155,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn AutoFillBackground(self: ?*anyopaque) bool {
-        return qtc.QWidget_AutoFillBackground(@ptrCast(self));
+    pub fn AutoFillBackground(self: QFileDialog) bool {
+        return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5978,12 +6167,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: ?*anyopaque, enabled: bool) void {
-        qtc.QWidget_SetAutoFillBackground(@ptrCast(self), enabled);
+    pub fn SetAutoFillBackground(self: QFileDialog, enabled: bool) void {
+        qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QWidget
@@ -5992,10 +6181,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn BackingStore(self: ?*anyopaque) QtC.QBackingStore {
-        return qtc.QWidget_BackingStore(@ptrCast(self));
+    pub fn BackingStore(self: QFileDialog) QBackingStore {
+        return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -6004,10 +6193,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn WindowHandle(self: ?*anyopaque) QtC.QWindow {
-        return qtc.QWidget_WindowHandle(@ptrCast(self));
+    pub fn WindowHandle(self: QFileDialog) QWindow {
+        return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -6016,10 +6205,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn Screen(self: ?*anyopaque) QtC.QScreen {
-        return qtc.QWidget_Screen(@ptrCast(self));
+    pub fn Screen(self: QFileDialog) QScreen {
+        return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -6028,12 +6217,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` screen: QtC.QScreen `
+    /// ` screen: QScreen `
     ///
-    pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
-        qtc.QWidget_SetScreen(@ptrCast(self), @ptrCast(screen));
+    pub fn SetScreen(self: QFileDialog, screen: anytype) void {
+        comptime _ = @TypeOf(screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
     }
 
     /// Inherited from QWidget
@@ -6042,10 +6232,11 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer(@ptrCast(window));
+    pub fn CreateWindowContainer(window: anytype) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -6054,16 +6245,16 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
+    pub fn WindowTitleChanged(self: QFileDialog, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        qtc.QWidget_WindowTitleChanged(@ptrCast(self), title_str);
+        qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
 
     /// Inherited from QWidget
@@ -6072,12 +6263,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, title: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowTitleChanged(self: QFileDialog, callback: *const fn (QFileDialog, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6086,12 +6277,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QWidget_WindowIconChanged(@ptrCast(self), @ptrCast(icon));
+    pub fn WindowIconChanged(self: QFileDialog, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QWidget
@@ -6100,12 +6292,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, icon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowIconChanged(self: QFileDialog, callback: *const fn (QFileDialog, QIcon) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6114,16 +6306,16 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
+    pub fn WindowIconTextChanged(self: QFileDialog, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
-        qtc.QWidget_WindowIconTextChanged(@ptrCast(self), iconText_str);
+        qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
 
     /// Inherited from QWidget
@@ -6132,12 +6324,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, iconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowIconTextChanged(self: QFileDialog, callback: *const fn (QFileDialog, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6146,12 +6338,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` pos: QtC.QPoint `
+    /// ` pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: ?*anyopaque, pos: ?*anyopaque) void {
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self), @ptrCast(pos));
+    pub fn CustomContextMenuRequested(self: QFileDialog, pos: anytype) void {
+        comptime _ = @TypeOf(pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
     }
 
     /// Inherited from QWidget
@@ -6160,12 +6353,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, pos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomContextMenuRequested(self: QFileDialog, callback: *const fn (QFileDialog, QPoint) callconv(.c) void) void {
+        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6174,14 +6367,14 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: ?*anyopaque) i32 {
-        return qtc.QWidget_InputMethodHints(@ptrCast(self));
+    pub fn InputMethodHints(self: QFileDialog) i32 {
+        return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6190,12 +6383,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
-        qtc.QWidget_SetInputMethodHints(@ptrCast(self), @bitCast(hints));
+    pub fn SetInputMethodHints(self: QFileDialog, hints: i32) void {
+        qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
 
     /// Inherited from QWidget
@@ -6204,14 +6397,16 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render22(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset));
+    pub fn Render22(self: QFileDialog, target: anytype, targetOffset: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// Inherited from QWidget
@@ -6220,16 +6415,19 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        qtc.QWidget_Render3(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+    pub fn Render3(self: QFileDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// Inherited from QWidget
@@ -6238,18 +6436,21 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
+    pub fn Render4(self: QFileDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -6258,14 +6459,16 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render23(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset));
+    pub fn Render23(self: QFileDialog, painter: anytype, targetOffset: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// Inherited from QWidget
@@ -6274,16 +6477,19 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        qtc.QWidget_Render32(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+    pub fn Render32(self: QFileDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// Inherited from QWidget
@@ -6292,18 +6498,21 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
+    pub fn Render42(self: QFileDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -6312,12 +6521,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` rectangle: QtC.QRect `
+    /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) QtC.QPixmap {
-        return qtc.QWidget_Grab1(@ptrCast(self), @ptrCast(rectangle));
+    pub fn Grab1(self: QFileDialog, rectangle: anytype) QPixmap {
+        comptime _ = @TypeOf(rectangle)._is_QRect;
+        return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -6326,14 +6536,14 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i32, flags: i32) void {
-        qtc.QWidget_GrabGesture2(@ptrCast(self), @bitCast(typeVal), @bitCast(flags));
+    pub fn GrabGesture2(self: QFileDialog, typeVal: i32, flags: i32) void {
+        qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
 
     /// Inherited from QWidget
@@ -6342,14 +6552,15 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` key: QtC.QKeySequence `
+    /// ` key: QKeySequence `
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
-        return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @bitCast(context));
+    pub fn GrabShortcut2(self: QFileDialog, key: anytype, context: i32) i32 {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
 
     /// Inherited from QWidget
@@ -6358,14 +6569,14 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self), @bitCast(id), enable);
+    pub fn SetShortcutEnabled2(self: QFileDialog, id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -6374,14 +6585,14 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self), @bitCast(id), enable);
+    pub fn SetShortcutAutoRepeat2(self: QFileDialog, id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -6390,14 +6601,14 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetWindowFlag2(@ptrCast(self), @bitCast(param1), on);
+    pub fn SetWindowFlag2(self: QFileDialog, param1: i32, on: bool) void {
+        qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -6406,14 +6617,14 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetAttribute2(@ptrCast(self), @bitCast(param1), on);
+    pub fn SetAttribute2(self: QFileDialog, param1: i32, on: bool) void {
+        qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -6422,12 +6633,14 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer2(@ptrCast(window), @ptrCast(parent));
+    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -6436,14 +6649,16 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i32) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @bitCast(flags));
+    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
     }
 
     /// Inherited from QObject
@@ -6452,12 +6667,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QFileDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6470,12 +6685,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QFileDialog, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -6484,10 +6699,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QFileDialog) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -6496,10 +6711,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QFileDialog) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -6508,10 +6723,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QFileDialog) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -6520,10 +6735,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QFileDialog) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -6532,12 +6747,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QFileDialog, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -6546,10 +6761,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QFileDialog) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -6558,12 +6773,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QFileDialog, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -6572,12 +6788,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QFileDialog, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -6586,12 +6802,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QFileDialog, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -6600,12 +6816,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QFileDialog, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -6614,12 +6830,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QFileDialog, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -6628,16 +6844,17 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QFileDialog, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qfiledialog.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qfiledialog.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -6647,12 +6864,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QFileDialog, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -6661,12 +6879,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QFileDialog, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -6675,18 +6894,20 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -6695,16 +6916,20 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -6713,18 +6938,19 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QFileDialog, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -6733,18 +6959,20 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -6753,16 +6981,20 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -6771,10 +7003,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QFileDialog) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -6783,12 +7015,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QFileDialog, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -6797,10 +7030,11 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -6809,10 +7043,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QFileDialog) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -6821,10 +7055,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QFileDialog) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -6833,15 +7067,16 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QFileDialog, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -6850,13 +7085,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QFileDialog, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -6865,17 +7100,16 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QFileDialog, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qfiledialog.DynamicPropertyNames: Memory allocation failed");
@@ -6894,10 +7128,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QFileDialog) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -6906,10 +7140,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QFileDialog) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -6918,10 +7152,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QFileDialog) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -6930,12 +7164,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QFileDialog, callback: *const fn (QFileDialog) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6944,10 +7178,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QFileDialog) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -6956,13 +7190,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QFileDialog, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -6971,10 +7205,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QFileDialog) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -6983,14 +7217,14 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QFileDialog, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -6999,14 +7233,14 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QFileDialog, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -7015,20 +7249,22 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -7037,18 +7273,22 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -7057,9 +7297,9 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -7067,10 +7307,11 @@ pub const qfiledialog = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QFileDialog, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -7079,13 +7320,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QFileDialog, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -7094,15 +7335,16 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QFileDialog, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -7111,18 +7353,19 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QFileDialog, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -7131,15 +7374,16 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QFileDialog, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -7148,12 +7392,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QFileDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -7162,12 +7407,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QFileDialog, callback: *const fn (QFileDialog, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -7176,10 +7421,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn PaintingActive(self: ?*anyopaque) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self));
+    pub fn PaintingActive(self: QFileDialog) bool {
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -7188,10 +7433,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn WidthMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self));
+    pub fn WidthMM(self: QFileDialog) i32 {
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -7200,10 +7445,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn HeightMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self));
+    pub fn HeightMM(self: QFileDialog) i32 {
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -7212,10 +7457,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn LogicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self));
+    pub fn LogicalDpiX(self: QFileDialog) i32 {
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -7224,10 +7469,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn LogicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self));
+    pub fn LogicalDpiY(self: QFileDialog) i32 {
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -7236,10 +7481,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self));
+    pub fn PhysicalDpiX(self: QFileDialog) i32 {
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -7248,10 +7493,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self));
+    pub fn PhysicalDpiY(self: QFileDialog) i32 {
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -7260,10 +7505,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self));
+    pub fn DevicePixelRatio(self: QFileDialog) f64 {
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -7272,10 +7517,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self));
+    pub fn DevicePixelRatioF(self: QFileDialog) f64 {
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -7284,10 +7529,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn ColorCount(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self));
+    pub fn ColorCount(self: QFileDialog) i32 {
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -7296,10 +7541,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn Depth(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self));
+    pub fn Depth(self: QFileDialog) i32 {
+        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -7332,10 +7577,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QFileDialog_SizeHint(@ptrCast(self));
+    pub fn SizeHint(self: QFileDialog) QSize {
+        return .{ .ptr = qtc.QFileDialog_SizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSizeHint` instead
@@ -7350,10 +7595,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QFileDialog_SuperSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: QFileDialog) QSize {
+        return .{ .ptr = qtc.QFileDialog_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QDialog
@@ -7364,12 +7609,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QFileDialog_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSizeHint(self: QFileDialog, callback: *const fn () callconv(.c) QSize) void {
+        qtc.QFileDialog_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -7380,10 +7625,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn MinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QFileDialog_MinimumSizeHint(@ptrCast(self));
+    pub fn MinimumSizeHint(self: QFileDialog) QSize {
+        return .{ .ptr = qtc.QFileDialog_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
@@ -7398,10 +7643,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn SuperMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QFileDialog_SuperMinimumSizeHint(@ptrCast(self));
+    pub fn SuperMinimumSizeHint(self: QFileDialog) QSize {
+        return .{ .ptr = qtc.QFileDialog_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QDialog
@@ -7412,12 +7657,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnMinimumSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QFileDialog_OnMinimumSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMinimumSizeHint(self: QFileDialog, callback: *const fn () callconv(.c) QSize) void {
+        qtc.QFileDialog_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -7428,10 +7673,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn Open(self: ?*anyopaque) void {
-        qtc.QFileDialog_Open(@ptrCast(self));
+    pub fn Open(self: QFileDialog) void {
+        qtc.QFileDialog_Open(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperOpen` instead
@@ -7446,10 +7691,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn SuperOpen(self: ?*anyopaque) void {
-        qtc.QFileDialog_SuperOpen(@ptrCast(self));
+    pub fn SuperOpen(self: QFileDialog) void {
+        qtc.QFileDialog_SuperOpen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -7460,12 +7705,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnOpen(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QFileDialog_OnOpen(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnOpen(self: QFileDialog, callback: *const fn () callconv(.c) void) void {
+        qtc.QFileDialog_OnOpen(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -7476,10 +7721,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn Exec(self: ?*anyopaque) i32 {
-        return qtc.QFileDialog_Exec(@ptrCast(self));
+    pub fn Exec(self: QFileDialog) i32 {
+        return qtc.QFileDialog_Exec(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperExec` instead
@@ -7494,10 +7739,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn SuperExec(self: ?*anyopaque) i32 {
-        return qtc.QFileDialog_SuperExec(@ptrCast(self));
+    pub fn SuperExec(self: QFileDialog) i32 {
+        return qtc.QFileDialog_SuperExec(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -7508,12 +7753,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnExec(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QFileDialog_OnExec(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnExec(self: QFileDialog, callback: *const fn () callconv(.c) i32) void {
+        qtc.QFileDialog_OnExec(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -7524,10 +7769,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn Reject(self: ?*anyopaque) void {
-        qtc.QFileDialog_Reject(@ptrCast(self));
+    pub fn Reject(self: QFileDialog) void {
+        qtc.QFileDialog_Reject(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperReject` instead
@@ -7542,10 +7787,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn SuperReject(self: ?*anyopaque) void {
-        qtc.QFileDialog_SuperReject(@ptrCast(self));
+    pub fn SuperReject(self: QFileDialog) void {
+        qtc.QFileDialog_SuperReject(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -7556,12 +7801,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnReject(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QFileDialog_OnReject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReject(self: QFileDialog, callback: *const fn () callconv(.c) void) void {
+        qtc.QFileDialog_OnReject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -7572,12 +7817,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` param1: QtC.QKeyEvent `
+    /// ` param1: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QFileDialog_KeyPressEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn KeyPressEvent(self: QFileDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QKeyEvent;
+        qtc.QFileDialog_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
@@ -7592,12 +7838,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` param1: QtC.QKeyEvent `
+    /// ` param1: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QFileDialog_SuperKeyPressEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperKeyPressEvent(self: QFileDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QKeyEvent;
+        qtc.QFileDialog_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QDialog
@@ -7608,12 +7855,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, param1: QtC.QKeyEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, param1: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileDialog_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyPressEvent(self: QFileDialog, callback: *const fn (QFileDialog, QKeyEvent) callconv(.c) void) void {
+        qtc.QFileDialog_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -7624,12 +7871,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` param1: QtC.QCloseEvent `
+    /// ` param1: QCloseEvent `
     ///
-    pub fn CloseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QFileDialog_CloseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn CloseEvent(self: QFileDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QCloseEvent;
+        qtc.QFileDialog_CloseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCloseEvent` instead
@@ -7644,12 +7892,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` param1: QtC.QCloseEvent `
+    /// ` param1: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QFileDialog_SuperCloseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperCloseEvent(self: QFileDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QCloseEvent;
+        qtc.QFileDialog_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QDialog
@@ -7660,12 +7909,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, param1: QtC.QCloseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, param1: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileDialog_OnCloseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCloseEvent(self: QFileDialog, callback: *const fn (QFileDialog, QCloseEvent) callconv(.c) void) void {
+        qtc.QFileDialog_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -7676,12 +7925,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` param1: QtC.QShowEvent `
+    /// ` param1: QShowEvent `
     ///
-    pub fn ShowEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QFileDialog_ShowEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn ShowEvent(self: QFileDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QShowEvent;
+        qtc.QFileDialog_ShowEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperShowEvent` instead
@@ -7696,12 +7946,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` param1: QtC.QShowEvent `
+    /// ` param1: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QFileDialog_SuperShowEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperShowEvent(self: QFileDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QShowEvent;
+        qtc.QFileDialog_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QDialog
@@ -7712,12 +7963,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, param1: QtC.QShowEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, param1: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileDialog_OnShowEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnShowEvent(self: QFileDialog, callback: *const fn (QFileDialog, QShowEvent) callconv(.c) void) void {
+        qtc.QFileDialog_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -7728,12 +7979,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` param1: QtC.QResizeEvent `
+    /// ` param1: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QFileDialog_ResizeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn ResizeEvent(self: QFileDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QResizeEvent;
+        qtc.QFileDialog_ResizeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperResizeEvent` instead
@@ -7748,12 +8000,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` param1: QtC.QResizeEvent `
+    /// ` param1: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QFileDialog_SuperResizeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperResizeEvent(self: QFileDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QResizeEvent;
+        qtc.QFileDialog_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QDialog
@@ -7764,12 +8017,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, param1: QtC.QResizeEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, param1: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileDialog_OnResizeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResizeEvent(self: QFileDialog, callback: *const fn (QFileDialog, QResizeEvent) callconv(.c) void) void {
+        qtc.QFileDialog_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -7780,12 +8033,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` param1: QtC.QContextMenuEvent `
+    /// ` param1: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QFileDialog_ContextMenuEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn ContextMenuEvent(self: QFileDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
+        qtc.QFileDialog_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
@@ -7800,12 +8054,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` param1: QtC.QContextMenuEvent `
+    /// ` param1: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QFileDialog_SuperContextMenuEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperContextMenuEvent(self: QFileDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
+        qtc.QFileDialog_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QDialog
@@ -7816,12 +8071,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, param1: QtC.QContextMenuEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, param1: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileDialog_OnContextMenuEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnContextMenuEvent(self: QFileDialog, callback: *const fn (QFileDialog, QContextMenuEvent) callconv(.c) void) void {
+        qtc.QFileDialog_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -7832,14 +8087,16 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    /// ` param2: QtC.QEvent `
+    /// ` param2: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) bool {
-        return qtc.QFileDialog_EventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn EventFilter(self: QFileDialog, param1: anytype, param2: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        comptime _ = @TypeOf(param2)._is_QEvent;
+        return qtc.QFileDialog_EventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -7854,14 +8111,16 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    /// ` param2: QtC.QEvent `
+    /// ` param2: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) bool {
-        return qtc.QFileDialog_SuperEventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn SuperEventFilter(self: QFileDialog, param1: anytype, param2: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        comptime _ = @TypeOf(param2)._is_QEvent;
+        return qtc.QFileDialog_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
     /// Inherited from QDialog
@@ -7872,12 +8131,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, param1: QtC.QObject, param2: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QFileDialog, param1: QObject, param2: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QFileDialog_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QFileDialog, callback: *const fn (QFileDialog, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QFileDialog_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7888,10 +8147,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn DevType(self: ?*anyopaque) i32 {
-        return qtc.QFileDialog_DevType(@ptrCast(self));
+    pub fn DevType(self: QFileDialog) i32 {
+        return qtc.QFileDialog_DevType(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDevType` instead
@@ -7906,10 +8165,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn SuperDevType(self: ?*anyopaque) i32 {
-        return qtc.QFileDialog_SuperDevType(@ptrCast(self));
+    pub fn SuperDevType(self: QFileDialog) i32 {
+        return qtc.QFileDialog_SuperDevType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7920,12 +8179,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QFileDialog_OnDevType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDevType(self: QFileDialog, callback: *const fn () callconv(.c) i32) void {
+        qtc.QFileDialog_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7936,12 +8195,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QFileDialog_HeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn HeightForWidth(self: QFileDialog, param1: i32) i32 {
+        return qtc.QFileDialog_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### DEPRECATED: Use `SuperHeightForWidth` instead
@@ -7956,12 +8215,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QFileDialog_SuperHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperHeightForWidth(self: QFileDialog, param1: i32) i32 {
+        return qtc.QFileDialog_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7972,12 +8231,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, param1: i32) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QFileDialog, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QFileDialog_OnHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHeightForWidth(self: QFileDialog, callback: *const fn (QFileDialog, i32) callconv(.c) i32) void {
+        qtc.QFileDialog_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7988,10 +8247,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn HasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QFileDialog_HasHeightForWidth(@ptrCast(self));
+    pub fn HasHeightForWidth(self: QFileDialog) bool {
+        return qtc.QFileDialog_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
@@ -8006,10 +8265,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QFileDialog_SuperHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: QFileDialog) bool {
+        return qtc.QFileDialog_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8020,12 +8279,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QFileDialog_OnHasHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHasHeightForWidth(self: QFileDialog, callback: *const fn () callconv(.c) bool) void {
+        qtc.QFileDialog_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8036,10 +8295,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn PaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QFileDialog_PaintEngine(@ptrCast(self));
+    pub fn PaintEngine(self: QFileDialog) QPaintEngine {
+        return .{ .ptr = qtc.QFileDialog_PaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperPaintEngine` instead
@@ -8054,10 +8313,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn SuperPaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QFileDialog_SuperPaintEngine(@ptrCast(self));
+    pub fn SuperPaintEngine(self: QFileDialog) QPaintEngine {
+        return .{ .ptr = qtc.QFileDialog_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -8068,12 +8327,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPaintEngine `
+    /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.QFileDialog_OnPaintEngine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaintEngine(self: QFileDialog, callback: *const fn () callconv(.c) QPaintEngine) void {
+        qtc.QFileDialog_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8084,12 +8343,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QFileDialog_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: QFileDialog, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QFileDialog_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -8104,12 +8364,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QFileDialog_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: QFileDialog, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QFileDialog_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8120,12 +8381,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QFileDialog, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QFileDialog_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QFileDialog, callback: *const fn (QFileDialog, QEvent) callconv(.c) bool) void {
+        qtc.QFileDialog_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8136,12 +8397,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileDialog_MousePressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MousePressEvent(self: QFileDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QFileDialog_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMousePressEvent` instead
@@ -8156,12 +8418,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileDialog_SuperMousePressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMousePressEvent(self: QFileDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QFileDialog_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8172,12 +8435,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileDialog_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMousePressEvent(self: QFileDialog, callback: *const fn (QFileDialog, QMouseEvent) callconv(.c) void) void {
+        qtc.QFileDialog_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8188,12 +8451,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileDialog_MouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseReleaseEvent(self: QFileDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QFileDialog_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
@@ -8208,12 +8472,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileDialog_SuperMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseReleaseEvent(self: QFileDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QFileDialog_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8224,12 +8489,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileDialog_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseReleaseEvent(self: QFileDialog, callback: *const fn (QFileDialog, QMouseEvent) callconv(.c) void) void {
+        qtc.QFileDialog_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8240,12 +8505,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileDialog_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseDoubleClickEvent(self: QFileDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QFileDialog_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
@@ -8260,12 +8526,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileDialog_SuperMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseDoubleClickEvent(self: QFileDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QFileDialog_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8276,12 +8543,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileDialog_OnMouseDoubleClickEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseDoubleClickEvent(self: QFileDialog, callback: *const fn (QFileDialog, QMouseEvent) callconv(.c) void) void {
+        qtc.QFileDialog_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8292,12 +8559,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileDialog_MouseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseMoveEvent(self: QFileDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QFileDialog_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
@@ -8312,12 +8580,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileDialog_SuperMouseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseMoveEvent(self: QFileDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QFileDialog_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8328,12 +8597,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileDialog_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseMoveEvent(self: QFileDialog, callback: *const fn (QFileDialog, QMouseEvent) callconv(.c) void) void {
+        qtc.QFileDialog_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8344,12 +8613,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` event: QtC.QWheelEvent `
+    /// ` event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileDialog_WheelEvent(@ptrCast(self), @ptrCast(event));
+    pub fn WheelEvent(self: QFileDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QWheelEvent;
+        qtc.QFileDialog_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperWheelEvent` instead
@@ -8364,12 +8634,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` event: QtC.QWheelEvent `
+    /// ` event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileDialog_SuperWheelEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperWheelEvent(self: QFileDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QWheelEvent;
+        qtc.QFileDialog_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8380,12 +8651,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, event: QtC.QWheelEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileDialog_OnWheelEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWheelEvent(self: QFileDialog, callback: *const fn (QFileDialog, QWheelEvent) callconv(.c) void) void {
+        qtc.QFileDialog_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8396,12 +8667,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileDialog_KeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn KeyReleaseEvent(self: QFileDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QFileDialog_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
@@ -8416,12 +8688,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileDialog_SuperKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyReleaseEvent(self: QFileDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QFileDialog_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8432,12 +8705,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, event: QtC.QKeyEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileDialog_OnKeyReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyReleaseEvent(self: QFileDialog, callback: *const fn (QFileDialog, QKeyEvent) callconv(.c) void) void {
+        qtc.QFileDialog_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8448,12 +8721,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileDialog_FocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn FocusInEvent(self: QFileDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QFileDialog_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusInEvent` instead
@@ -8468,12 +8742,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileDialog_SuperFocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusInEvent(self: QFileDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QFileDialog_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8484,12 +8759,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, event: QtC.QFocusEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileDialog_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusInEvent(self: QFileDialog, callback: *const fn (QFileDialog, QFocusEvent) callconv(.c) void) void {
+        qtc.QFileDialog_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8500,12 +8775,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileDialog_FocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn FocusOutEvent(self: QFileDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QFileDialog_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
@@ -8520,12 +8796,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileDialog_SuperFocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusOutEvent(self: QFileDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QFileDialog_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8536,12 +8813,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, event: QtC.QFocusEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileDialog_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusOutEvent(self: QFileDialog, callback: *const fn (QFileDialog, QFocusEvent) callconv(.c) void) void {
+        qtc.QFileDialog_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8552,12 +8829,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` event: QtC.QEnterEvent `
+    /// ` event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileDialog_EnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn EnterEvent(self: QFileDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEnterEvent;
+        qtc.QFileDialog_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEnterEvent` instead
@@ -8572,12 +8850,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` event: QtC.QEnterEvent `
+    /// ` event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileDialog_SuperEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEnterEvent(self: QFileDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEnterEvent;
+        qtc.QFileDialog_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8588,12 +8867,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, event: QtC.QEnterEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileDialog_OnEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEnterEvent(self: QFileDialog, callback: *const fn (QFileDialog, QEnterEvent) callconv(.c) void) void {
+        qtc.QFileDialog_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8604,12 +8883,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn LeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileDialog_LeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn LeaveEvent(self: QFileDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QFileDialog_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperLeaveEvent` instead
@@ -8624,12 +8904,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileDialog_SuperLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperLeaveEvent(self: QFileDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QFileDialog_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8640,12 +8921,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileDialog_OnLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLeaveEvent(self: QFileDialog, callback: *const fn (QFileDialog, QEvent) callconv(.c) void) void {
+        qtc.QFileDialog_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8656,12 +8937,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` event: QtC.QPaintEvent `
+    /// ` event: QPaintEvent `
     ///
-    pub fn PaintEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileDialog_PaintEvent(@ptrCast(self), @ptrCast(event));
+    pub fn PaintEvent(self: QFileDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QPaintEvent;
+        qtc.QFileDialog_PaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperPaintEvent` instead
@@ -8676,12 +8958,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` event: QtC.QPaintEvent `
+    /// ` event: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileDialog_SuperPaintEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperPaintEvent(self: QFileDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QPaintEvent;
+        qtc.QFileDialog_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8692,12 +8975,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, event: QtC.QPaintEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, event: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileDialog_OnPaintEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaintEvent(self: QFileDialog, callback: *const fn (QFileDialog, QPaintEvent) callconv(.c) void) void {
+        qtc.QFileDialog_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8708,12 +8991,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` event: QtC.QMoveEvent `
+    /// ` event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileDialog_MoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MoveEvent(self: QFileDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMoveEvent;
+        qtc.QFileDialog_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMoveEvent` instead
@@ -8728,12 +9012,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` event: QtC.QMoveEvent `
+    /// ` event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileDialog_SuperMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMoveEvent(self: QFileDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMoveEvent;
+        qtc.QFileDialog_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8744,12 +9029,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, event: QtC.QMoveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileDialog_OnMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMoveEvent(self: QFileDialog, callback: *const fn (QFileDialog, QMoveEvent) callconv(.c) void) void {
+        qtc.QFileDialog_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8760,12 +9045,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` event: QtC.QTabletEvent `
+    /// ` event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileDialog_TabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TabletEvent(self: QFileDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTabletEvent;
+        qtc.QFileDialog_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTabletEvent` instead
@@ -8780,12 +9066,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` event: QtC.QTabletEvent `
+    /// ` event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileDialog_SuperTabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTabletEvent(self: QFileDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTabletEvent;
+        qtc.QFileDialog_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8796,12 +9083,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, event: QtC.QTabletEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileDialog_OnTabletEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTabletEvent(self: QFileDialog, callback: *const fn (QFileDialog, QTabletEvent) callconv(.c) void) void {
+        qtc.QFileDialog_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8812,12 +9099,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` event: QtC.QActionEvent `
+    /// ` event: QActionEvent `
     ///
-    pub fn ActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileDialog_ActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ActionEvent(self: QFileDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QActionEvent;
+        qtc.QFileDialog_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperActionEvent` instead
@@ -8832,12 +9120,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` event: QtC.QActionEvent `
+    /// ` event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileDialog_SuperActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperActionEvent(self: QFileDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QActionEvent;
+        qtc.QFileDialog_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8848,12 +9137,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, event: QtC.QActionEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileDialog_OnActionEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnActionEvent(self: QFileDialog, callback: *const fn (QFileDialog, QActionEvent) callconv(.c) void) void {
+        qtc.QFileDialog_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8864,12 +9153,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` event: QtC.QDragEnterEvent `
+    /// ` event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileDialog_DragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragEnterEvent(self: QFileDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
+        qtc.QFileDialog_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
@@ -8884,12 +9174,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` event: QtC.QDragEnterEvent `
+    /// ` event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileDialog_SuperDragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragEnterEvent(self: QFileDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
+        qtc.QFileDialog_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8900,12 +9191,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, event: QtC.QDragEnterEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileDialog_OnDragEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragEnterEvent(self: QFileDialog, callback: *const fn (QFileDialog, QDragEnterEvent) callconv(.c) void) void {
+        qtc.QFileDialog_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8916,12 +9207,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` event: QtC.QDragMoveEvent `
+    /// ` event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileDialog_DragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragMoveEvent(self: QFileDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
+        qtc.QFileDialog_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
@@ -8936,12 +9228,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` event: QtC.QDragMoveEvent `
+    /// ` event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileDialog_SuperDragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragMoveEvent(self: QFileDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
+        qtc.QFileDialog_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8952,12 +9245,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, event: QtC.QDragMoveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileDialog_OnDragMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragMoveEvent(self: QFileDialog, callback: *const fn (QFileDialog, QDragMoveEvent) callconv(.c) void) void {
+        qtc.QFileDialog_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8968,12 +9261,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` event: QtC.QDragLeaveEvent `
+    /// ` event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileDialog_DragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragLeaveEvent(self: QFileDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
+        qtc.QFileDialog_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
@@ -8988,12 +9282,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` event: QtC.QDragLeaveEvent `
+    /// ` event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileDialog_SuperDragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragLeaveEvent(self: QFileDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
+        qtc.QFileDialog_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -9004,12 +9299,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, event: QtC.QDragLeaveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileDialog_OnDragLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragLeaveEvent(self: QFileDialog, callback: *const fn (QFileDialog, QDragLeaveEvent) callconv(.c) void) void {
+        qtc.QFileDialog_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9020,12 +9315,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` event: QtC.QDropEvent `
+    /// ` event: QDropEvent `
     ///
-    pub fn DropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileDialog_DropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DropEvent(self: QFileDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDropEvent;
+        qtc.QFileDialog_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDropEvent` instead
@@ -9040,12 +9336,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` event: QtC.QDropEvent `
+    /// ` event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileDialog_SuperDropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDropEvent(self: QFileDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDropEvent;
+        qtc.QFileDialog_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -9056,12 +9353,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, event: QtC.QDropEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileDialog_OnDropEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDropEvent(self: QFileDialog, callback: *const fn (QFileDialog, QDropEvent) callconv(.c) void) void {
+        qtc.QFileDialog_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9072,12 +9369,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` event: QtC.QHideEvent `
+    /// ` event: QHideEvent `
     ///
-    pub fn HideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileDialog_HideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn HideEvent(self: QFileDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QHideEvent;
+        qtc.QFileDialog_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHideEvent` instead
@@ -9092,12 +9390,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` event: QtC.QHideEvent `
+    /// ` event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileDialog_SuperHideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHideEvent(self: QFileDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QHideEvent;
+        qtc.QFileDialog_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -9108,12 +9407,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, event: QtC.QHideEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileDialog_OnHideEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHideEvent(self: QFileDialog, callback: *const fn (QFileDialog, QHideEvent) callconv(.c) void) void {
+        qtc.QFileDialog_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9124,7 +9423,7 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` eventType: []u8 `
     ///
@@ -9132,12 +9431,12 @@ pub const qfiledialog = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn NativeEvent(self: QFileDialog, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QFileDialog_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QFileDialog_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// ### DEPRECATED: Use `SuperNativeEvent` instead
@@ -9152,7 +9451,7 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` eventType: []u8 `
     ///
@@ -9160,12 +9459,12 @@ pub const qfiledialog = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn SuperNativeEvent(self: QFileDialog, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QFileDialog_SuperNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QFileDialog_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -9176,12 +9475,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QFileDialog, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
-        qtc.QFileDialog_OnNativeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnNativeEvent(self: QFileDialog, callback: *const fn (QFileDialog, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+        qtc.QFileDialog_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9192,12 +9491,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QFileDialog_Metric(@ptrCast(self), @bitCast(param1));
+    pub fn Metric(self: QFileDialog, param1: i32) i32 {
+        return qtc.QFileDialog_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### DEPRECATED: Use `SuperMetric` instead
@@ -9212,12 +9511,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QFileDialog_SuperMetric(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMetric(self: QFileDialog, param1: i32) i32 {
+        return qtc.QFileDialog_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -9228,12 +9527,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QFileDialog, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QFileDialog_OnMetric(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetric(self: QFileDialog, callback: *const fn (QFileDialog, i32) callconv(.c) i32) void {
+        qtc.QFileDialog_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9244,12 +9543,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QFileDialog_InitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn InitPainter(self: QFileDialog, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QFileDialog_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInitPainter` instead
@@ -9264,12 +9564,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QFileDialog_SuperInitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperInitPainter(self: QFileDialog, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QFileDialog_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// Inherited from QWidget
@@ -9280,12 +9581,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, painter: QtC.QPainter) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileDialog_OnInitPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInitPainter(self: QFileDialog, callback: *const fn (QFileDialog, QPainter) callconv(.c) void) void {
+        qtc.QFileDialog_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9296,12 +9597,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QFileDialog_Redirected(@ptrCast(self), @ptrCast(offset));
+    pub fn Redirected(self: QFileDialog, offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        return .{ .ptr = qtc.QFileDialog_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperRedirected` instead
@@ -9316,12 +9618,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QFileDialog_SuperRedirected(@ptrCast(self), @ptrCast(offset));
+    pub fn SuperRedirected(self: QFileDialog, offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        return .{ .ptr = qtc.QFileDialog_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -9332,12 +9635,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice `
+    /// ` callback: *const fn (self: QFileDialog, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.QFileDialog_OnRedirected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRedirected(self: QFileDialog, callback: *const fn (QFileDialog, QPoint) callconv(.c) QPaintDevice) void {
+        qtc.QFileDialog_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9348,10 +9651,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn SharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QFileDialog_SharedPainter(@ptrCast(self));
+    pub fn SharedPainter(self: QFileDialog) QPainter {
+        return .{ .ptr = qtc.QFileDialog_SharedPainter(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSharedPainter` instead
@@ -9366,10 +9669,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn SuperSharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QFileDialog_SuperSharedPainter(@ptrCast(self));
+    pub fn SuperSharedPainter(self: QFileDialog) QPainter {
+        return .{ .ptr = qtc.QFileDialog_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -9380,12 +9683,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPainter `
+    /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
-        qtc.QFileDialog_OnSharedPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSharedPainter(self: QFileDialog, callback: *const fn () callconv(.c) QPainter) void {
+        qtc.QFileDialog_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9396,12 +9699,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` param1: QtC.QInputMethodEvent `
+    /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QFileDialog_InputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn InputMethodEvent(self: QFileDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
+        qtc.QFileDialog_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
@@ -9416,12 +9720,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` param1: QtC.QInputMethodEvent `
+    /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QFileDialog_SuperInputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperInputMethodEvent(self: QFileDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
+        qtc.QFileDialog_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -9432,12 +9737,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, param1: QtC.QInputMethodEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileDialog_OnInputMethodEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInputMethodEvent(self: QFileDialog, callback: *const fn (QFileDialog, QInputMethodEvent) callconv(.c) void) void {
+        qtc.QFileDialog_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9448,12 +9753,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.QFileDialog_InputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn InputMethodQuery(self: QFileDialog, param1: i32) QVariant {
+        return .{ .ptr = qtc.QFileDialog_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
     /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
@@ -9468,12 +9773,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.QFileDialog_SuperInputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn SuperInputMethodQuery(self: QFileDialog, param1: i32) QVariant {
+        return .{ .ptr = qtc.QFileDialog_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
     /// Inherited from QWidget
@@ -9484,12 +9789,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
+    /// ` callback: *const fn (self: QFileDialog, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
-    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QFileDialog_OnInputMethodQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInputMethodQuery(self: QFileDialog, callback: *const fn (QFileDialog, i32) callconv(.c) QVariant) void {
+        qtc.QFileDialog_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9500,12 +9805,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.QFileDialog_FocusNextPrevChild(@ptrCast(self), next);
+    pub fn FocusNextPrevChild(self: QFileDialog, next: bool) bool {
+        return qtc.QFileDialog_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
     /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
@@ -9520,12 +9825,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.QFileDialog_SuperFocusNextPrevChild(@ptrCast(self), next);
+    pub fn SuperFocusNextPrevChild(self: QFileDialog, next: bool) bool {
+        return qtc.QFileDialog_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
     /// Inherited from QWidget
@@ -9536,12 +9841,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, next: bool) callconv(.c) bool `
+    /// ` callback: *const fn (self: QFileDialog, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
-        qtc.QFileDialog_OnFocusNextPrevChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusNextPrevChild(self: QFileDialog, callback: *const fn (QFileDialog, bool) callconv(.c) bool) void {
+        qtc.QFileDialog_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9552,12 +9857,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileDialog_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: QFileDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QFileDialog_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -9572,12 +9878,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileDialog_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: QFileDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QFileDialog_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -9588,12 +9895,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileDialog_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QFileDialog, callback: *const fn (QFileDialog, QTimerEvent) callconv(.c) void) void {
+        qtc.QFileDialog_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9604,12 +9911,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileDialog_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: QFileDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QFileDialog_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -9624,12 +9932,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileDialog_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: QFileDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QFileDialog_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -9640,12 +9949,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileDialog_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QFileDialog, callback: *const fn (QFileDialog, QChildEvent) callconv(.c) void) void {
+        qtc.QFileDialog_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9656,12 +9965,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileDialog_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QFileDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QFileDialog_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -9676,12 +9986,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileDialog_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QFileDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QFileDialog_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -9692,12 +10003,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileDialog_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QFileDialog, callback: *const fn (QFileDialog, QEvent) callconv(.c) void) void {
+        qtc.QFileDialog_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9708,12 +10019,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QFileDialog_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QFileDialog, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QFileDialog_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -9728,12 +10040,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QFileDialog_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QFileDialog, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QFileDialog_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -9744,12 +10057,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileDialog_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QFileDialog, callback: *const fn (QFileDialog, QMetaMethod) callconv(.c) void) void {
+        qtc.QFileDialog_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9760,12 +10073,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QFileDialog_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QFileDialog, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QFileDialog_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -9780,12 +10094,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QFileDialog_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QFileDialog, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QFileDialog_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -9796,12 +10111,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileDialog_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QFileDialog, callback: *const fn (QFileDialog, QMetaMethod) callconv(.c) void) void {
+        qtc.QFileDialog_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -9812,12 +10127,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn AdjustPosition(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QFileDialog_AdjustPosition(@ptrCast(self), @ptrCast(param1));
+    pub fn AdjustPosition(self: QFileDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        qtc.QFileDialog_AdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperAdjustPosition` instead
@@ -9832,12 +10148,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn SuperAdjustPosition(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QFileDialog_SuperAdjustPosition(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperAdjustPosition(self: QFileDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        qtc.QFileDialog_SuperAdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QDialog
@@ -9848,12 +10165,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, param1: QtC.QWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, param1: QWidget) callconv(.c) void `
     ///
-    pub fn OnAdjustPosition(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileDialog_OnAdjustPosition(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAdjustPosition(self: QFileDialog, callback: *const fn (QFileDialog, QWidget) callconv(.c) void) void {
+        qtc.QFileDialog_OnAdjustPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9864,10 +10181,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn UpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.QFileDialog_UpdateMicroFocus(@ptrCast(self));
+    pub fn UpdateMicroFocus(self: QFileDialog) void {
+        qtc.QFileDialog_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
@@ -9882,10 +10199,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn SuperUpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.QFileDialog_SuperUpdateMicroFocus(@ptrCast(self));
+    pub fn SuperUpdateMicroFocus(self: QFileDialog) void {
+        qtc.QFileDialog_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -9896,12 +10213,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QFileDialog_OnUpdateMicroFocus(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUpdateMicroFocus(self: QFileDialog, callback: *const fn () callconv(.c) void) void {
+        qtc.QFileDialog_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9912,10 +10229,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn Create(self: ?*anyopaque) void {
-        qtc.QFileDialog_Create(@ptrCast(self));
+    pub fn Create(self: QFileDialog) void {
+        qtc.QFileDialog_Create(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCreate` instead
@@ -9930,10 +10247,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn SuperCreate(self: ?*anyopaque) void {
-        qtc.QFileDialog_SuperCreate(@ptrCast(self));
+    pub fn SuperCreate(self: QFileDialog) void {
+        qtc.QFileDialog_SuperCreate(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -9944,12 +10261,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QFileDialog_OnCreate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreate(self: QFileDialog, callback: *const fn () callconv(.c) void) void {
+        qtc.QFileDialog_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9960,10 +10277,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn Destroy(self: ?*anyopaque) void {
-        qtc.QFileDialog_Destroy(@ptrCast(self));
+    pub fn Destroy(self: QFileDialog) void {
+        qtc.QFileDialog_Destroy(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDestroy` instead
@@ -9978,10 +10295,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn SuperDestroy(self: ?*anyopaque) void {
-        qtc.QFileDialog_SuperDestroy(@ptrCast(self));
+    pub fn SuperDestroy(self: QFileDialog) void {
+        qtc.QFileDialog_SuperDestroy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -9992,12 +10309,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QFileDialog_OnDestroy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroy(self: QFileDialog, callback: *const fn () callconv(.c) void) void {
+        qtc.QFileDialog_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10008,10 +10325,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn FocusNextChild(self: ?*anyopaque) bool {
-        return qtc.QFileDialog_FocusNextChild(@ptrCast(self));
+    pub fn FocusNextChild(self: QFileDialog) bool {
+        return qtc.QFileDialog_FocusNextChild(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusNextChild` instead
@@ -10026,10 +10343,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn SuperFocusNextChild(self: ?*anyopaque) bool {
-        return qtc.QFileDialog_SuperFocusNextChild(@ptrCast(self));
+    pub fn SuperFocusNextChild(self: QFileDialog) bool {
+        return qtc.QFileDialog_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10040,12 +10357,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QFileDialog_OnFocusNextChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusNextChild(self: QFileDialog, callback: *const fn () callconv(.c) bool) void {
+        qtc.QFileDialog_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10056,10 +10373,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn FocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.QFileDialog_FocusPreviousChild(@ptrCast(self));
+    pub fn FocusPreviousChild(self: QFileDialog) bool {
+        return qtc.QFileDialog_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
@@ -10074,10 +10391,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn SuperFocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.QFileDialog_SuperFocusPreviousChild(@ptrCast(self));
+    pub fn SuperFocusPreviousChild(self: QFileDialog) bool {
+        return qtc.QFileDialog_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10088,12 +10405,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QFileDialog_OnFocusPreviousChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusPreviousChild(self: QFileDialog, callback: *const fn () callconv(.c) bool) void {
+        qtc.QFileDialog_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -10104,10 +10421,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QFileDialog_Sender(@ptrCast(self));
+    pub fn Sender(self: QFileDialog) QObject {
+        return .{ .ptr = qtc.QFileDialog_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -10122,10 +10439,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QFileDialog_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QFileDialog) QObject {
+        return .{ .ptr = qtc.QFileDialog_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -10136,12 +10453,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QFileDialog_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QFileDialog, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QFileDialog_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -10152,10 +10469,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QFileDialog_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QFileDialog) i32 {
+        return qtc.QFileDialog_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -10170,10 +10487,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QFileDialog_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QFileDialog) i32 {
+        return qtc.QFileDialog_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -10184,12 +10501,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QFileDialog_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QFileDialog, callback: *const fn () callconv(.c) i32) void {
+        qtc.QFileDialog_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -10200,13 +10517,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QFileDialog, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QFileDialog_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QFileDialog_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -10221,13 +10538,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QFileDialog, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QFileDialog_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QFileDialog_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -10238,12 +10555,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QFileDialog, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QFileDialog_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QFileDialog, callback: *const fn (QFileDialog, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QFileDialog_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -10254,12 +10571,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QFileDialog_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QFileDialog, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QFileDialog_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -10274,12 +10592,13 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QFileDialog_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QFileDialog, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QFileDialog_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -10290,12 +10609,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QFileDialog, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QFileDialog_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QFileDialog, callback: *const fn (QFileDialog, QMetaMethod) callconv(.c) bool) void {
+        qtc.QFileDialog_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -10306,14 +10625,14 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QFileDialog_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn GetDecodedMetricF(self: QFileDialog, metricA: i32, metricB: i32) f64 {
+        return qtc.QFileDialog_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
@@ -10328,14 +10647,14 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
     /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QFileDialog_SuperGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn SuperGetDecodedMetricF(self: QFileDialog, metricA: i32, metricB: i32) f64 {
+        return qtc.QFileDialog_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -10346,12 +10665,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog`
+    /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
+    /// ` callback: *const fn (self: QFileDialog, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.QFileDialog_OnGetDecodedMetricF(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnGetDecodedMetricF(self: QFileDialog, callback: *const fn (QFileDialog, i32, i32) callconv(.c) f64) void {
+        qtc.QFileDialog_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -10362,12 +10681,12 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDialog, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QFileDialog, callback: *const fn (QFileDialog, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -10380,10 +10699,10 @@ pub const qfiledialog = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QFileDialog `
+    /// ` self: QFileDialog `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QFileDialog_Delete(@ptrCast(self));
+    pub fn Delete(self: QFileDialog) void {
+        qtc.QFileDialog_Delete(@ptrCast(self.ptr));
     }
 };
 

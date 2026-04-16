@@ -3,11 +3,19 @@ const qtc = @import("qt6c");
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qtemporarydir.html)
-pub const qtemporarydir = struct {
+pub const QTemporaryDir = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtemporarydir.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QTemporaryDir,
+
+    pub const _is_QTemporaryDir = {};
+
     /// New constructs a new QTemporaryDir object.
     ///
-    pub fn New() QtC.QTemporaryDir {
-        return qtc.QTemporaryDir_new();
+    pub fn New() QTemporaryDir {
+        return .{ .ptr = qtc.QTemporaryDir_new() };
     }
 
     /// New2 constructs a new QTemporaryDir object.
@@ -16,47 +24,47 @@ pub const qtemporarydir = struct {
     ///
     /// ` templateName: []const u8 `
     ///
-    pub fn New2(templateName: []const u8) QtC.QTemporaryDir {
+    pub fn New2(templateName: []const u8) QTemporaryDir {
         const templateName_str = qtc.libqt_string{
             .len = templateName.len,
             .data = templateName.ptr,
         };
-
-        return qtc.QTemporaryDir_new2(templateName_str);
+        return .{ .ptr = qtc.QTemporaryDir_new2(templateName_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtemporarydir.html#swap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTemporaryDir `
+    /// ` self: QTemporaryDir `
     ///
-    /// ` other: QtC.QTemporaryDir `
+    /// ` other: QTemporaryDir `
     ///
-    pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QTemporaryDir_Swap(@ptrCast(self), @ptrCast(other));
+    pub fn Swap(self: QTemporaryDir, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QTemporaryDir;
+        qtc.QTemporaryDir_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtemporarydir.html#isValid)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTemporaryDir `
+    /// ` self: QTemporaryDir `
     ///
-    pub fn IsValid(self: ?*anyopaque) bool {
-        return qtc.QTemporaryDir_IsValid(@ptrCast(self));
+    pub fn IsValid(self: QTemporaryDir) bool {
+        return qtc.QTemporaryDir_IsValid(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtemporarydir.html#errorString)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTemporaryDir `
+    /// ` self: QTemporaryDir `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTemporaryDir_ErrorString(@ptrCast(self));
+    pub fn ErrorString(self: QTemporaryDir, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QTemporaryDir_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtemporarydir.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -67,44 +75,44 @@ pub const qtemporarydir = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTemporaryDir `
+    /// ` self: QTemporaryDir `
     ///
-    pub fn AutoRemove(self: ?*anyopaque) bool {
-        return qtc.QTemporaryDir_AutoRemove(@ptrCast(self));
+    pub fn AutoRemove(self: QTemporaryDir) bool {
+        return qtc.QTemporaryDir_AutoRemove(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtemporarydir.html#setAutoRemove)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTemporaryDir `
+    /// ` self: QTemporaryDir `
     ///
     /// ` b: bool `
     ///
-    pub fn SetAutoRemove(self: ?*anyopaque, b: bool) void {
-        qtc.QTemporaryDir_SetAutoRemove(@ptrCast(self), b);
+    pub fn SetAutoRemove(self: QTemporaryDir, b: bool) void {
+        qtc.QTemporaryDir_SetAutoRemove(@ptrCast(self.ptr), b);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtemporarydir.html#remove)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTemporaryDir `
+    /// ` self: QTemporaryDir `
     ///
-    pub fn Remove(self: ?*anyopaque) bool {
-        return qtc.QTemporaryDir_Remove(@ptrCast(self));
+    pub fn Remove(self: QTemporaryDir) bool {
+        return qtc.QTemporaryDir_Remove(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtemporarydir.html#path)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTemporaryDir `
+    /// ` self: QTemporaryDir `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Path(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTemporaryDir_Path(@ptrCast(self));
+    pub fn Path(self: QTemporaryDir, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QTemporaryDir_Path(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtemporarydir.Path: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -115,18 +123,18 @@ pub const qtemporarydir = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTemporaryDir `
-    ///
-    /// ` fileName: []const u8 `
+    /// ` self: QTemporaryDir `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FilePath(self: ?*anyopaque, fileName: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` fileName: []const u8 `
+    ///
+    pub fn FilePath(self: QTemporaryDir, allocator: std.mem.Allocator, fileName: []const u8) []const u8 {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        var _str = qtc.QTemporaryDir_FilePath(@ptrCast(self), fileName_str);
+        var _str = qtc.QTemporaryDir_FilePath(@ptrCast(self.ptr), fileName_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtemporarydir.FilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -143,9 +151,9 @@ pub const qtemporarydir = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QTemporaryDir `
+    /// ` self: QTemporaryDir `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QTemporaryDir_Delete(@ptrCast(self));
+    pub fn Delete(self: QTemporaryDir) void {
+        qtc.QTemporaryDir_Delete(@ptrCast(self.ptr));
     }
 };

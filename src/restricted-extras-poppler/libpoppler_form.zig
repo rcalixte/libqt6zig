@@ -1,34 +1,58 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const Poppler__Link = @import("libqt6").Poppler__Link;
+const Poppler__PDFConverter__NewSignatureData = @import("libqt6").Poppler__PDFConverter__NewSignatureData;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QDateTime = @import("libqt6").QDateTime;
+const QEvent = @import("libqt6").QEvent;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QRectF = @import("libqt6").QRectF;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
 const poppler_annotation_enums = @import("libpoppler_annotation.zig").enums;
 const poppler_form_enums = enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-const struct_constu8_constu8 = struct { first: []const u8, second: []const u8 };
+const Struct_constu8_constu8 = struct { first: []const u8, second: []const u8 };
 
 /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormFieldIcon.html)
-pub const poppler__formfieldicon = struct {
+pub const Poppler__FormFieldIcon = extern struct {
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormFieldIcon.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.Poppler__FormFieldIcon,
+
+    pub const _is_Poppler__FormFieldIcon = {};
+
     /// New constructs a new Poppler::FormFieldIcon object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` ffIcon: QtC.Poppler__FormFieldIcon `
+    /// ` ffIcon: Poppler__FormFieldIcon `
     ///
-    pub fn New(ffIcon: ?*anyopaque) QtC.Poppler__FormFieldIcon {
-        return qtc.Poppler__FormFieldIcon_new(@ptrCast(ffIcon));
+    pub fn New(ffIcon: anytype) Poppler__FormFieldIcon {
+        comptime _ = @TypeOf(ffIcon)._is_Poppler__FormFieldIcon;
+        return .{ .ptr = qtc.Poppler__FormFieldIcon_new(@ptrCast(ffIcon.ptr)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormFieldIcon.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldIcon `
+    /// ` self: Poppler__FormFieldIcon `
     ///
-    /// ` ffIcon: QtC.Poppler__FormFieldIcon `
+    /// ` ffIcon: Poppler__FormFieldIcon `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, ffIcon: ?*anyopaque) void {
-        qtc.Poppler__FormFieldIcon_OperatorAssign(@ptrCast(self), @ptrCast(ffIcon));
+    pub fn OperatorAssign(self: Poppler__FormFieldIcon, ffIcon: anytype) void {
+        comptime _ = @TypeOf(ffIcon)._is_Poppler__FormFieldIcon;
+        qtc.Poppler__FormFieldIcon_OperatorAssign(@ptrCast(self.ptr), @ptrCast(ffIcon.ptr));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -41,59 +65,67 @@ pub const poppler__formfieldicon = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.Poppler__FormFieldIcon `
+    /// ` self: Poppler__FormFieldIcon `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.Poppler__FormFieldIcon_Delete(@ptrCast(self));
+    pub fn Delete(self: Poppler__FormFieldIcon) void {
+        qtc.Poppler__FormFieldIcon_Delete(@ptrCast(self.ptr));
     }
 };
 
 /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormField.html)
-pub const poppler__formfield = struct {
+pub const Poppler__FormField = extern struct {
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormField.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.Poppler__FormField,
+
+    pub const _is_Poppler__FormField = {};
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormField.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormField `
+    /// ` self: Poppler__FormField `
     ///
     /// ## Returns:
     ///
     /// ` poppler_form_enums.FormType `
     ///
-    pub fn Type(self: ?*anyopaque) i32 {
-        return qtc.Poppler__FormField_Type(@ptrCast(self));
+    pub fn Type(self: Poppler__FormField) i32 {
+        return qtc.Poppler__FormField_Type(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormField.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormField `
+    /// ` self: Poppler__FormField `
     ///
-    pub fn Rect(self: ?*anyopaque) QtC.QRectF {
-        return qtc.Poppler__FormField_Rect(@ptrCast(self));
+    pub fn Rect(self: Poppler__FormField) QRectF {
+        return .{ .ptr = qtc.Poppler__FormField_Rect(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormField.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormField `
+    /// ` self: Poppler__FormField `
     ///
-    pub fn Id(self: ?*anyopaque) i32 {
-        return qtc.Poppler__FormField_Id(@ptrCast(self));
+    pub fn Id(self: Poppler__FormField) i32 {
+        return qtc.Poppler__FormField_Id(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormField.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormField `
+    /// ` self: Poppler__FormField `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__FormField_Name(@ptrCast(self));
+    pub fn Name(self: Poppler__FormField, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__FormField_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__formfield.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -104,28 +136,28 @@ pub const poppler__formfield = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormField `
+    /// ` self: Poppler__FormField `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetName(self: ?*anyopaque, name: []const u8) void {
+    pub fn SetName(self: Poppler__FormField, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.Poppler__FormField_SetName(@ptrCast(self), name_str);
+        qtc.Poppler__FormField_SetName(@ptrCast(self.ptr), name_str);
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormField.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormField `
+    /// ` self: Poppler__FormField `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FullyQualifiedName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__FormField_FullyQualifiedName(@ptrCast(self));
+    pub fn FullyQualifiedName(self: Poppler__FormField, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__FormField_FullyQualifiedName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__formfield.FullyQualifiedName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -136,12 +168,12 @@ pub const poppler__formfield = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormField `
+    /// ` self: Poppler__FormField `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UiName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__FormField_UiName(@ptrCast(self));
+    pub fn UiName(self: Poppler__FormField, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__FormField_UiName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__formfield.UiName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -152,100 +184,100 @@ pub const poppler__formfield = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormField `
+    /// ` self: Poppler__FormField `
     ///
-    pub fn IsReadOnly(self: ?*anyopaque) bool {
-        return qtc.Poppler__FormField_IsReadOnly(@ptrCast(self));
+    pub fn IsReadOnly(self: Poppler__FormField) bool {
+        return qtc.Poppler__FormField_IsReadOnly(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormField.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormField `
+    /// ` self: Poppler__FormField `
     ///
     /// ` value: bool `
     ///
-    pub fn SetReadOnly(self: ?*anyopaque, value: bool) void {
-        qtc.Poppler__FormField_SetReadOnly(@ptrCast(self), value);
+    pub fn SetReadOnly(self: Poppler__FormField, value: bool) void {
+        qtc.Poppler__FormField_SetReadOnly(@ptrCast(self.ptr), value);
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormField.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormField `
+    /// ` self: Poppler__FormField `
     ///
-    pub fn IsVisible(self: ?*anyopaque) bool {
-        return qtc.Poppler__FormField_IsVisible(@ptrCast(self));
+    pub fn IsVisible(self: Poppler__FormField) bool {
+        return qtc.Poppler__FormField_IsVisible(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormField.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormField `
+    /// ` self: Poppler__FormField `
     ///
     /// ` value: bool `
     ///
-    pub fn SetVisible(self: ?*anyopaque, value: bool) void {
-        qtc.Poppler__FormField_SetVisible(@ptrCast(self), value);
+    pub fn SetVisible(self: Poppler__FormField, value: bool) void {
+        qtc.Poppler__FormField_SetVisible(@ptrCast(self.ptr), value);
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormField.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormField `
+    /// ` self: Poppler__FormField `
     ///
-    pub fn IsPrintable(self: ?*anyopaque) bool {
-        return qtc.Poppler__FormField_IsPrintable(@ptrCast(self));
+    pub fn IsPrintable(self: Poppler__FormField) bool {
+        return qtc.Poppler__FormField_IsPrintable(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormField.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormField `
+    /// ` self: Poppler__FormField `
     ///
     /// ` value: bool `
     ///
-    pub fn SetPrintable(self: ?*anyopaque, value: bool) void {
-        qtc.Poppler__FormField_SetPrintable(@ptrCast(self), value);
+    pub fn SetPrintable(self: Poppler__FormField, value: bool) void {
+        qtc.Poppler__FormField_SetPrintable(@ptrCast(self.ptr), value);
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormField.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormField `
+    /// ` self: Poppler__FormField `
     ///
-    pub fn ActivationAction(self: ?*anyopaque) QtC.Poppler__Link {
-        return qtc.Poppler__FormField_ActivationAction(@ptrCast(self));
+    pub fn ActivationAction(self: Poppler__FormField) Poppler__Link {
+        return .{ .ptr = qtc.Poppler__FormField_ActivationAction(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormField.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormField `
+    /// ` self: Poppler__FormField `
     ///
     /// ` typeVal: poppler_form_enums.AdditionalActionType `
     ///
-    pub fn AdditionalAction(self: ?*anyopaque, typeVal: i32) QtC.Poppler__Link {
-        return qtc.Poppler__FormField_AdditionalAction(@ptrCast(self), @bitCast(typeVal));
+    pub fn AdditionalAction(self: Poppler__FormField, typeVal: i32) Poppler__Link {
+        return .{ .ptr = qtc.Poppler__FormField_AdditionalAction(@ptrCast(self.ptr), @bitCast(typeVal)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormField.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormField `
+    /// ` self: Poppler__FormField `
     ///
     /// ` typeVal: poppler_annotation_enums.AdditionalActionType `
     ///
-    pub fn AdditionalAction2(self: ?*anyopaque, typeVal: i32) QtC.Poppler__Link {
-        return qtc.Poppler__FormField_AdditionalAction2(@ptrCast(self), @bitCast(typeVal));
+    pub fn AdditionalAction2(self: Poppler__FormField, typeVal: i32) Poppler__Link {
+        return .{ .ptr = qtc.Poppler__FormField_AdditionalAction2(@ptrCast(self.ptr), @bitCast(typeVal)) };
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -258,53 +290,62 @@ pub const poppler__formfield = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.Poppler__FormField `
+    /// ` self: Poppler__FormField `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.Poppler__FormField_Delete(@ptrCast(self));
+    pub fn Delete(self: Poppler__FormField) void {
+        qtc.Poppler__FormField_Delete(@ptrCast(self.ptr));
     }
 };
 
 /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormFieldButton.html)
-pub const poppler__formfieldbutton = struct {
+pub const Poppler__FormFieldButton = extern struct {
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormFieldButton.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.Poppler__FormFieldButton,
+
+    pub const _is_Poppler__FormFieldButton = {};
+    pub const _is_Poppler__FormField = {};
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormFieldButton.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldButton `
+    /// ` self: Poppler__FormFieldButton `
     ///
     /// ## Returns:
     ///
     /// ` poppler_form_enums.FormType `
     ///
-    pub fn Type(self: ?*anyopaque) i32 {
-        return qtc.Poppler__FormFieldButton_Type(@ptrCast(self));
+    pub fn Type(self: Poppler__FormFieldButton) i32 {
+        return qtc.Poppler__FormFieldButton_Type(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormFieldButton.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldButton `
+    /// ` self: Poppler__FormFieldButton `
     ///
     /// ## Returns:
     ///
     /// ` poppler_form_enums.ButtonType `
     ///
-    pub fn ButtonType(self: ?*anyopaque) i32 {
-        return qtc.Poppler__FormFieldButton_ButtonType(@ptrCast(self));
+    pub fn ButtonType(self: Poppler__FormFieldButton) i32 {
+        return qtc.Poppler__FormFieldButton_ButtonType(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormFieldButton.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldButton `
+    /// ` self: Poppler__FormFieldButton `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Caption(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__FormFieldButton_Caption(@ptrCast(self));
+    pub fn Caption(self: Poppler__FormFieldButton, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__FormFieldButton_Caption(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__formfieldbutton.Caption: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -315,56 +356,57 @@ pub const poppler__formfieldbutton = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldButton `
+    /// ` self: Poppler__FormFieldButton `
     ///
-    pub fn Icon(self: ?*anyopaque) QtC.Poppler__FormFieldIcon {
-        return qtc.Poppler__FormFieldButton_Icon(@ptrCast(self));
+    pub fn Icon(self: Poppler__FormFieldButton) Poppler__FormFieldIcon {
+        return .{ .ptr = qtc.Poppler__FormFieldButton_Icon(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormFieldButton.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldButton `
+    /// ` self: Poppler__FormFieldButton `
     ///
-    /// ` icon: QtC.Poppler__FormFieldIcon `
+    /// ` icon: Poppler__FormFieldIcon `
     ///
-    pub fn SetIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.Poppler__FormFieldButton_SetIcon(@ptrCast(self), @ptrCast(icon));
+    pub fn SetIcon(self: Poppler__FormFieldButton, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_Poppler__FormFieldIcon;
+        qtc.Poppler__FormFieldButton_SetIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormFieldButton.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldButton `
+    /// ` self: Poppler__FormFieldButton `
     ///
-    pub fn State(self: ?*anyopaque) bool {
-        return qtc.Poppler__FormFieldButton_State(@ptrCast(self));
+    pub fn State(self: Poppler__FormFieldButton) bool {
+        return qtc.Poppler__FormFieldButton_State(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormFieldButton.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldButton `
+    /// ` self: Poppler__FormFieldButton `
     ///
     /// ` state: bool `
     ///
-    pub fn SetState(self: ?*anyopaque, state: bool) void {
-        qtc.Poppler__FormFieldButton_SetState(@ptrCast(self), state);
+    pub fn SetState(self: Poppler__FormFieldButton, state: bool) void {
+        qtc.Poppler__FormFieldButton_SetState(@ptrCast(self.ptr), state);
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormFieldButton.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldButton `
+    /// ` self: Poppler__FormFieldButton `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Siblings(self: ?*anyopaque, allocator: std.mem.Allocator) []i32 {
-        const _arr: qtc.libqt_list = qtc.Poppler__FormFieldButton_Siblings(@ptrCast(self));
+    pub fn Siblings(self: Poppler__FormFieldButton, allocator: std.mem.Allocator) []i32 {
+        const _arr: qtc.libqt_list = qtc.Poppler__FormFieldButton_Siblings(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(i32, _arr.len) catch @panic("poppler__formfieldbutton.Siblings: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
@@ -378,10 +420,10 @@ pub const poppler__formfieldbutton = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldButton `
+    /// ` self: Poppler__FormFieldButton `
     ///
-    pub fn Rect(self: ?*anyopaque) QtC.QRectF {
-        return qtc.Poppler__FormField_Rect(@ptrCast(self));
+    pub fn Rect(self: Poppler__FormFieldButton) QRectF {
+        return .{ .ptr = qtc.Poppler__FormField_Rect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from Poppler::FormField
@@ -390,10 +432,10 @@ pub const poppler__formfieldbutton = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldButton `
+    /// ` self: Poppler__FormFieldButton `
     ///
-    pub fn Id(self: ?*anyopaque) i32 {
-        return qtc.Poppler__FormField_Id(@ptrCast(self));
+    pub fn Id(self: Poppler__FormFieldButton) i32 {
+        return qtc.Poppler__FormField_Id(@ptrCast(self.ptr));
     }
 
     /// Inherited from Poppler::FormField
@@ -402,12 +444,12 @@ pub const poppler__formfieldbutton = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldButton `
+    /// ` self: Poppler__FormFieldButton `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__FormField_Name(@ptrCast(self));
+    pub fn Name(self: Poppler__FormFieldButton, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__FormField_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__formfieldbutton.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -420,16 +462,16 @@ pub const poppler__formfieldbutton = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldButton `
+    /// ` self: Poppler__FormFieldButton `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetName(self: ?*anyopaque, name: []const u8) void {
+    pub fn SetName(self: Poppler__FormFieldButton, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.Poppler__FormField_SetName(@ptrCast(self), name_str);
+        qtc.Poppler__FormField_SetName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from Poppler::FormField
@@ -438,12 +480,12 @@ pub const poppler__formfieldbutton = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldButton `
+    /// ` self: Poppler__FormFieldButton `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FullyQualifiedName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__FormField_FullyQualifiedName(@ptrCast(self));
+    pub fn FullyQualifiedName(self: Poppler__FormFieldButton, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__FormField_FullyQualifiedName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__formfieldbutton.FullyQualifiedName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -456,12 +498,12 @@ pub const poppler__formfieldbutton = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldButton `
+    /// ` self: Poppler__FormFieldButton `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UiName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__FormField_UiName(@ptrCast(self));
+    pub fn UiName(self: Poppler__FormFieldButton, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__FormField_UiName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__formfieldbutton.UiName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -474,10 +516,10 @@ pub const poppler__formfieldbutton = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldButton `
+    /// ` self: Poppler__FormFieldButton `
     ///
-    pub fn IsReadOnly(self: ?*anyopaque) bool {
-        return qtc.Poppler__FormField_IsReadOnly(@ptrCast(self));
+    pub fn IsReadOnly(self: Poppler__FormFieldButton) bool {
+        return qtc.Poppler__FormField_IsReadOnly(@ptrCast(self.ptr));
     }
 
     /// Inherited from Poppler::FormField
@@ -486,12 +528,12 @@ pub const poppler__formfieldbutton = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldButton `
+    /// ` self: Poppler__FormFieldButton `
     ///
     /// ` value: bool `
     ///
-    pub fn SetReadOnly(self: ?*anyopaque, value: bool) void {
-        qtc.Poppler__FormField_SetReadOnly(@ptrCast(self), value);
+    pub fn SetReadOnly(self: Poppler__FormFieldButton, value: bool) void {
+        qtc.Poppler__FormField_SetReadOnly(@ptrCast(self.ptr), value);
     }
 
     /// Inherited from Poppler::FormField
@@ -500,10 +542,10 @@ pub const poppler__formfieldbutton = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldButton `
+    /// ` self: Poppler__FormFieldButton `
     ///
-    pub fn IsVisible(self: ?*anyopaque) bool {
-        return qtc.Poppler__FormField_IsVisible(@ptrCast(self));
+    pub fn IsVisible(self: Poppler__FormFieldButton) bool {
+        return qtc.Poppler__FormField_IsVisible(@ptrCast(self.ptr));
     }
 
     /// Inherited from Poppler::FormField
@@ -512,12 +554,12 @@ pub const poppler__formfieldbutton = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldButton `
+    /// ` self: Poppler__FormFieldButton `
     ///
     /// ` value: bool `
     ///
-    pub fn SetVisible(self: ?*anyopaque, value: bool) void {
-        qtc.Poppler__FormField_SetVisible(@ptrCast(self), value);
+    pub fn SetVisible(self: Poppler__FormFieldButton, value: bool) void {
+        qtc.Poppler__FormField_SetVisible(@ptrCast(self.ptr), value);
     }
 
     /// Inherited from Poppler::FormField
@@ -526,10 +568,10 @@ pub const poppler__formfieldbutton = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldButton `
+    /// ` self: Poppler__FormFieldButton `
     ///
-    pub fn IsPrintable(self: ?*anyopaque) bool {
-        return qtc.Poppler__FormField_IsPrintable(@ptrCast(self));
+    pub fn IsPrintable(self: Poppler__FormFieldButton) bool {
+        return qtc.Poppler__FormField_IsPrintable(@ptrCast(self.ptr));
     }
 
     /// Inherited from Poppler::FormField
@@ -538,12 +580,12 @@ pub const poppler__formfieldbutton = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldButton `
+    /// ` self: Poppler__FormFieldButton `
     ///
     /// ` value: bool `
     ///
-    pub fn SetPrintable(self: ?*anyopaque, value: bool) void {
-        qtc.Poppler__FormField_SetPrintable(@ptrCast(self), value);
+    pub fn SetPrintable(self: Poppler__FormFieldButton, value: bool) void {
+        qtc.Poppler__FormField_SetPrintable(@ptrCast(self.ptr), value);
     }
 
     /// Inherited from Poppler::FormField
@@ -552,10 +594,10 @@ pub const poppler__formfieldbutton = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldButton `
+    /// ` self: Poppler__FormFieldButton `
     ///
-    pub fn ActivationAction(self: ?*anyopaque) QtC.Poppler__Link {
-        return qtc.Poppler__FormField_ActivationAction(@ptrCast(self));
+    pub fn ActivationAction(self: Poppler__FormFieldButton) Poppler__Link {
+        return .{ .ptr = qtc.Poppler__FormField_ActivationAction(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from Poppler::FormField
@@ -564,12 +606,12 @@ pub const poppler__formfieldbutton = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldButton `
+    /// ` self: Poppler__FormFieldButton `
     ///
     /// ` typeVal: poppler_form_enums.AdditionalActionType `
     ///
-    pub fn AdditionalAction(self: ?*anyopaque, typeVal: i32) QtC.Poppler__Link {
-        return qtc.Poppler__FormField_AdditionalAction(@ptrCast(self), @bitCast(typeVal));
+    pub fn AdditionalAction(self: Poppler__FormFieldButton, typeVal: i32) Poppler__Link {
+        return .{ .ptr = qtc.Poppler__FormField_AdditionalAction(@ptrCast(self.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from Poppler::FormField
@@ -578,12 +620,12 @@ pub const poppler__formfieldbutton = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldButton `
+    /// ` self: Poppler__FormFieldButton `
     ///
     /// ` typeVal: poppler_annotation_enums.AdditionalActionType `
     ///
-    pub fn AdditionalAction2(self: ?*anyopaque, typeVal: i32) QtC.Poppler__Link {
-        return qtc.Poppler__FormField_AdditionalAction2(@ptrCast(self), @bitCast(typeVal));
+    pub fn AdditionalAction2(self: Poppler__FormFieldButton, typeVal: i32) Poppler__Link {
+        return .{ .ptr = qtc.Poppler__FormField_AdditionalAction2(@ptrCast(self.ptr), @bitCast(typeVal)) };
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -596,53 +638,62 @@ pub const poppler__formfieldbutton = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.Poppler__FormFieldButton `
+    /// ` self: Poppler__FormFieldButton `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.Poppler__FormFieldButton_Delete(@ptrCast(self));
+    pub fn Delete(self: Poppler__FormFieldButton) void {
+        qtc.Poppler__FormFieldButton_Delete(@ptrCast(self.ptr));
     }
 };
 
 /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormFieldText.html)
-pub const poppler__formfieldtext = struct {
+pub const Poppler__FormFieldText = extern struct {
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormFieldText.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.Poppler__FormFieldText,
+
+    pub const _is_Poppler__FormFieldText = {};
+    pub const _is_Poppler__FormField = {};
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormFieldText.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldText `
+    /// ` self: Poppler__FormFieldText `
     ///
     /// ## Returns:
     ///
     /// ` poppler_form_enums.FormType `
     ///
-    pub fn Type(self: ?*anyopaque) i32 {
-        return qtc.Poppler__FormFieldText_Type(@ptrCast(self));
+    pub fn Type(self: Poppler__FormFieldText) i32 {
+        return qtc.Poppler__FormFieldText_Type(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormFieldText.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldText `
+    /// ` self: Poppler__FormFieldText `
     ///
     /// ## Returns:
     ///
     /// ` poppler_form_enums.TextType `
     ///
-    pub fn TextType(self: ?*anyopaque) i32 {
-        return qtc.Poppler__FormFieldText_TextType(@ptrCast(self));
+    pub fn TextType(self: Poppler__FormFieldText) i32 {
+        return qtc.Poppler__FormFieldText_TextType(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormFieldText.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldText `
+    /// ` self: Poppler__FormFieldText `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__FormFieldText_Text(@ptrCast(self));
+    pub fn Text(self: Poppler__FormFieldText, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__FormFieldText_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__formfieldtext.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -653,108 +704,108 @@ pub const poppler__formfieldtext = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldText `
+    /// ` self: Poppler__FormFieldText `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetText(self: ?*anyopaque, text: []const u8) void {
+    pub fn SetText(self: Poppler__FormFieldText, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.Poppler__FormFieldText_SetText(@ptrCast(self), text_str);
+        qtc.Poppler__FormFieldText_SetText(@ptrCast(self.ptr), text_str);
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormFieldText.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldText `
+    /// ` self: Poppler__FormFieldText `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetAppearanceText(self: ?*anyopaque, text: []const u8) void {
+    pub fn SetAppearanceText(self: Poppler__FormFieldText, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.Poppler__FormFieldText_SetAppearanceText(@ptrCast(self), text_str);
+        qtc.Poppler__FormFieldText_SetAppearanceText(@ptrCast(self.ptr), text_str);
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormFieldText.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldText `
+    /// ` self: Poppler__FormFieldText `
     ///
-    pub fn IsPassword(self: ?*anyopaque) bool {
-        return qtc.Poppler__FormFieldText_IsPassword(@ptrCast(self));
+    pub fn IsPassword(self: Poppler__FormFieldText) bool {
+        return qtc.Poppler__FormFieldText_IsPassword(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormFieldText.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldText `
+    /// ` self: Poppler__FormFieldText `
     ///
-    pub fn IsRichText(self: ?*anyopaque) bool {
-        return qtc.Poppler__FormFieldText_IsRichText(@ptrCast(self));
+    pub fn IsRichText(self: Poppler__FormFieldText) bool {
+        return qtc.Poppler__FormFieldText_IsRichText(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormFieldText.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldText `
+    /// ` self: Poppler__FormFieldText `
     ///
-    pub fn MaximumLength(self: ?*anyopaque) i32 {
-        return qtc.Poppler__FormFieldText_MaximumLength(@ptrCast(self));
+    pub fn MaximumLength(self: Poppler__FormFieldText) i32 {
+        return qtc.Poppler__FormFieldText_MaximumLength(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormFieldText.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldText `
+    /// ` self: Poppler__FormFieldText `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn TextAlignment(self: ?*anyopaque) i32 {
-        return qtc.Poppler__FormFieldText_TextAlignment(@ptrCast(self));
+    pub fn TextAlignment(self: Poppler__FormFieldText) i32 {
+        return qtc.Poppler__FormFieldText_TextAlignment(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormFieldText.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldText `
+    /// ` self: Poppler__FormFieldText `
     ///
-    pub fn CanBeSpellChecked(self: ?*anyopaque) bool {
-        return qtc.Poppler__FormFieldText_CanBeSpellChecked(@ptrCast(self));
+    pub fn CanBeSpellChecked(self: Poppler__FormFieldText) bool {
+        return qtc.Poppler__FormFieldText_CanBeSpellChecked(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormFieldText.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldText `
+    /// ` self: Poppler__FormFieldText `
     ///
-    pub fn GetFontSize(self: ?*anyopaque) f64 {
-        return qtc.Poppler__FormFieldText_GetFontSize(@ptrCast(self));
+    pub fn GetFontSize(self: Poppler__FormFieldText) f64 {
+        return qtc.Poppler__FormFieldText_GetFontSize(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormFieldText.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldText `
+    /// ` self: Poppler__FormFieldText `
     ///
     /// ` fontSize: i32 `
     ///
-    pub fn SetFontSize(self: ?*anyopaque, fontSize: i32) void {
-        qtc.Poppler__FormFieldText_SetFontSize(@ptrCast(self), @bitCast(fontSize));
+    pub fn SetFontSize(self: Poppler__FormFieldText, fontSize: i32) void {
+        qtc.Poppler__FormFieldText_SetFontSize(@ptrCast(self.ptr), @bitCast(fontSize));
     }
 
     /// Inherited from Poppler::FormField
@@ -763,10 +814,10 @@ pub const poppler__formfieldtext = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldText `
+    /// ` self: Poppler__FormFieldText `
     ///
-    pub fn Rect(self: ?*anyopaque) QtC.QRectF {
-        return qtc.Poppler__FormField_Rect(@ptrCast(self));
+    pub fn Rect(self: Poppler__FormFieldText) QRectF {
+        return .{ .ptr = qtc.Poppler__FormField_Rect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from Poppler::FormField
@@ -775,10 +826,10 @@ pub const poppler__formfieldtext = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldText `
+    /// ` self: Poppler__FormFieldText `
     ///
-    pub fn Id(self: ?*anyopaque) i32 {
-        return qtc.Poppler__FormField_Id(@ptrCast(self));
+    pub fn Id(self: Poppler__FormFieldText) i32 {
+        return qtc.Poppler__FormField_Id(@ptrCast(self.ptr));
     }
 
     /// Inherited from Poppler::FormField
@@ -787,12 +838,12 @@ pub const poppler__formfieldtext = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldText `
+    /// ` self: Poppler__FormFieldText `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__FormField_Name(@ptrCast(self));
+    pub fn Name(self: Poppler__FormFieldText, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__FormField_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__formfieldtext.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -805,16 +856,16 @@ pub const poppler__formfieldtext = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldText `
+    /// ` self: Poppler__FormFieldText `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetName(self: ?*anyopaque, name: []const u8) void {
+    pub fn SetName(self: Poppler__FormFieldText, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.Poppler__FormField_SetName(@ptrCast(self), name_str);
+        qtc.Poppler__FormField_SetName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from Poppler::FormField
@@ -823,12 +874,12 @@ pub const poppler__formfieldtext = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldText `
+    /// ` self: Poppler__FormFieldText `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FullyQualifiedName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__FormField_FullyQualifiedName(@ptrCast(self));
+    pub fn FullyQualifiedName(self: Poppler__FormFieldText, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__FormField_FullyQualifiedName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__formfieldtext.FullyQualifiedName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -841,12 +892,12 @@ pub const poppler__formfieldtext = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldText `
+    /// ` self: Poppler__FormFieldText `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UiName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__FormField_UiName(@ptrCast(self));
+    pub fn UiName(self: Poppler__FormFieldText, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__FormField_UiName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__formfieldtext.UiName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -859,10 +910,10 @@ pub const poppler__formfieldtext = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldText `
+    /// ` self: Poppler__FormFieldText `
     ///
-    pub fn IsReadOnly(self: ?*anyopaque) bool {
-        return qtc.Poppler__FormField_IsReadOnly(@ptrCast(self));
+    pub fn IsReadOnly(self: Poppler__FormFieldText) bool {
+        return qtc.Poppler__FormField_IsReadOnly(@ptrCast(self.ptr));
     }
 
     /// Inherited from Poppler::FormField
@@ -871,12 +922,12 @@ pub const poppler__formfieldtext = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldText `
+    /// ` self: Poppler__FormFieldText `
     ///
     /// ` value: bool `
     ///
-    pub fn SetReadOnly(self: ?*anyopaque, value: bool) void {
-        qtc.Poppler__FormField_SetReadOnly(@ptrCast(self), value);
+    pub fn SetReadOnly(self: Poppler__FormFieldText, value: bool) void {
+        qtc.Poppler__FormField_SetReadOnly(@ptrCast(self.ptr), value);
     }
 
     /// Inherited from Poppler::FormField
@@ -885,10 +936,10 @@ pub const poppler__formfieldtext = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldText `
+    /// ` self: Poppler__FormFieldText `
     ///
-    pub fn IsVisible(self: ?*anyopaque) bool {
-        return qtc.Poppler__FormField_IsVisible(@ptrCast(self));
+    pub fn IsVisible(self: Poppler__FormFieldText) bool {
+        return qtc.Poppler__FormField_IsVisible(@ptrCast(self.ptr));
     }
 
     /// Inherited from Poppler::FormField
@@ -897,12 +948,12 @@ pub const poppler__formfieldtext = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldText `
+    /// ` self: Poppler__FormFieldText `
     ///
     /// ` value: bool `
     ///
-    pub fn SetVisible(self: ?*anyopaque, value: bool) void {
-        qtc.Poppler__FormField_SetVisible(@ptrCast(self), value);
+    pub fn SetVisible(self: Poppler__FormFieldText, value: bool) void {
+        qtc.Poppler__FormField_SetVisible(@ptrCast(self.ptr), value);
     }
 
     /// Inherited from Poppler::FormField
@@ -911,10 +962,10 @@ pub const poppler__formfieldtext = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldText `
+    /// ` self: Poppler__FormFieldText `
     ///
-    pub fn IsPrintable(self: ?*anyopaque) bool {
-        return qtc.Poppler__FormField_IsPrintable(@ptrCast(self));
+    pub fn IsPrintable(self: Poppler__FormFieldText) bool {
+        return qtc.Poppler__FormField_IsPrintable(@ptrCast(self.ptr));
     }
 
     /// Inherited from Poppler::FormField
@@ -923,12 +974,12 @@ pub const poppler__formfieldtext = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldText `
+    /// ` self: Poppler__FormFieldText `
     ///
     /// ` value: bool `
     ///
-    pub fn SetPrintable(self: ?*anyopaque, value: bool) void {
-        qtc.Poppler__FormField_SetPrintable(@ptrCast(self), value);
+    pub fn SetPrintable(self: Poppler__FormFieldText, value: bool) void {
+        qtc.Poppler__FormField_SetPrintable(@ptrCast(self.ptr), value);
     }
 
     /// Inherited from Poppler::FormField
@@ -937,10 +988,10 @@ pub const poppler__formfieldtext = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldText `
+    /// ` self: Poppler__FormFieldText `
     ///
-    pub fn ActivationAction(self: ?*anyopaque) QtC.Poppler__Link {
-        return qtc.Poppler__FormField_ActivationAction(@ptrCast(self));
+    pub fn ActivationAction(self: Poppler__FormFieldText) Poppler__Link {
+        return .{ .ptr = qtc.Poppler__FormField_ActivationAction(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from Poppler::FormField
@@ -949,12 +1000,12 @@ pub const poppler__formfieldtext = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldText `
+    /// ` self: Poppler__FormFieldText `
     ///
     /// ` typeVal: poppler_form_enums.AdditionalActionType `
     ///
-    pub fn AdditionalAction(self: ?*anyopaque, typeVal: i32) QtC.Poppler__Link {
-        return qtc.Poppler__FormField_AdditionalAction(@ptrCast(self), @bitCast(typeVal));
+    pub fn AdditionalAction(self: Poppler__FormFieldText, typeVal: i32) Poppler__Link {
+        return .{ .ptr = qtc.Poppler__FormField_AdditionalAction(@ptrCast(self.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from Poppler::FormField
@@ -963,12 +1014,12 @@ pub const poppler__formfieldtext = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldText `
+    /// ` self: Poppler__FormFieldText `
     ///
     /// ` typeVal: poppler_annotation_enums.AdditionalActionType `
     ///
-    pub fn AdditionalAction2(self: ?*anyopaque, typeVal: i32) QtC.Poppler__Link {
-        return qtc.Poppler__FormField_AdditionalAction2(@ptrCast(self), @bitCast(typeVal));
+    pub fn AdditionalAction2(self: Poppler__FormFieldText, typeVal: i32) Poppler__Link {
+        return .{ .ptr = qtc.Poppler__FormField_AdditionalAction2(@ptrCast(self.ptr), @bitCast(typeVal)) };
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -981,58 +1032,66 @@ pub const poppler__formfieldtext = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.Poppler__FormFieldText `
+    /// ` self: Poppler__FormFieldText `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.Poppler__FormFieldText_Delete(@ptrCast(self));
+    pub fn Delete(self: Poppler__FormFieldText) void {
+        qtc.Poppler__FormFieldText_Delete(@ptrCast(self.ptr));
     }
 };
 
 /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormFieldChoice.html)
-pub const poppler__formfieldchoice = struct {
+pub const Poppler__FormFieldChoice = extern struct {
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormFieldChoice.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.Poppler__FormFieldChoice,
+
+    pub const _is_Poppler__FormFieldChoice = {};
+    pub const _is_Poppler__FormField = {};
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormFieldChoice.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldChoice `
+    /// ` self: Poppler__FormFieldChoice `
     ///
     /// ## Returns:
     ///
     /// ` poppler_form_enums.FormType `
     ///
-    pub fn Type(self: ?*anyopaque) i32 {
-        return qtc.Poppler__FormFieldChoice_Type(@ptrCast(self));
+    pub fn Type(self: Poppler__FormFieldChoice) i32 {
+        return qtc.Poppler__FormFieldChoice_Type(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormFieldChoice.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldChoice `
+    /// ` self: Poppler__FormFieldChoice `
     ///
     /// ## Returns:
     ///
     /// ` poppler_form_enums.ChoiceType `
     ///
-    pub fn ChoiceType(self: ?*anyopaque) i32 {
-        return qtc.Poppler__FormFieldChoice_ChoiceType(@ptrCast(self));
+    pub fn ChoiceType(self: Poppler__FormFieldChoice) i32 {
+        return qtc.Poppler__FormFieldChoice_ChoiceType(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormFieldChoice.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldChoice `
+    /// ` self: Poppler__FormFieldChoice `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Choices(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.Poppler__FormFieldChoice_Choices(@ptrCast(self));
+    pub fn Choices(self: Poppler__FormFieldChoice, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.Poppler__FormFieldChoice_Choices(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("poppler__formfieldchoice.Choices: Memory allocation failed");
@@ -1049,12 +1108,12 @@ pub const poppler__formfieldchoice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldChoice `
+    /// ` self: Poppler__FormFieldChoice `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ChoicesWithExportValues(self: ?*anyopaque, allocator: std.mem.Allocator) []struct_constu8_constu8 {
-        const _arr: qtc.libqt_list = qtc.Poppler__FormFieldChoice_ChoicesWithExportValues(@ptrCast(self));
+    pub fn ChoicesWithExportValues(self: Poppler__FormFieldChoice, allocator: std.mem.Allocator) []Struct_constu8_constu8 {
+        const _arr: qtc.libqt_list = qtc.Poppler__FormFieldChoice_ChoicesWithExportValues(@ptrCast(self.ptr));
         const _data: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
@@ -1063,7 +1122,7 @@ pub const poppler__formfieldchoice = struct {
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc(struct_constu8_constu8, _arr.len) catch @panic("poppler__formfieldchoice.ChoicesWithExportValues: Memory allocation failed");
+        const _ret = allocator.alloc(Struct_constu8_constu8, _arr.len) catch @panic("poppler__formfieldchoice.ChoicesWithExportValues: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _first_str: *qtc.libqt_string = @ptrCast(@alignCast(_data[i].first));
             const _first_slice = allocator.alloc(u8, _first_str.len) catch @panic("poppler__formfieldchoice.ChoicesWithExportValues: Memory allocation failed");
@@ -1071,7 +1130,7 @@ pub const poppler__formfieldchoice = struct {
             const _second_str: *qtc.libqt_string = @ptrCast(@alignCast(_data[i].second));
             const _second_slice = allocator.alloc(u8, _second_str.len) catch @panic("poppler__formfieldchoice.ChoicesWithExportValues: Memory allocation failed");
             @memcpy(_second_slice, _second_str.data[0.._second_str.len]);
-            _ret[i] = struct_constu8_constu8{
+            _ret[i] = Struct_constu8_constu8{
                 .first = _first_slice,
                 .second = _second_slice,
             };
@@ -1083,32 +1142,32 @@ pub const poppler__formfieldchoice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldChoice `
+    /// ` self: Poppler__FormFieldChoice `
     ///
-    pub fn IsEditable(self: ?*anyopaque) bool {
-        return qtc.Poppler__FormFieldChoice_IsEditable(@ptrCast(self));
+    pub fn IsEditable(self: Poppler__FormFieldChoice) bool {
+        return qtc.Poppler__FormFieldChoice_IsEditable(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormFieldChoice.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldChoice `
+    /// ` self: Poppler__FormFieldChoice `
     ///
-    pub fn MultiSelect(self: ?*anyopaque) bool {
-        return qtc.Poppler__FormFieldChoice_MultiSelect(@ptrCast(self));
+    pub fn MultiSelect(self: Poppler__FormFieldChoice) bool {
+        return qtc.Poppler__FormFieldChoice_MultiSelect(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormFieldChoice.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldChoice `
+    /// ` self: Poppler__FormFieldChoice `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CurrentChoices(self: ?*anyopaque, allocator: std.mem.Allocator) []i32 {
-        const _arr: qtc.libqt_list = qtc.Poppler__FormFieldChoice_CurrentChoices(@ptrCast(self));
+    pub fn CurrentChoices(self: Poppler__FormFieldChoice, allocator: std.mem.Allocator) []i32 {
+        const _arr: qtc.libqt_list = qtc.Poppler__FormFieldChoice_CurrentChoices(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(i32, _arr.len) catch @panic("poppler__formfieldchoice.CurrentChoices: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
@@ -1120,28 +1179,28 @@ pub const poppler__formfieldchoice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldChoice `
+    /// ` self: Poppler__FormFieldChoice `
     ///
     /// ` choice: []i32 `
     ///
-    pub fn SetCurrentChoices(self: ?*anyopaque, choice: []i32) void {
+    pub fn SetCurrentChoices(self: Poppler__FormFieldChoice, choice: []i32) void {
         const choice_list = qtc.libqt_list{
             .len = choice.len,
             .data = choice.ptr,
         };
-        qtc.Poppler__FormFieldChoice_SetCurrentChoices(@ptrCast(self), choice_list);
+        qtc.Poppler__FormFieldChoice_SetCurrentChoices(@ptrCast(self.ptr), choice_list);
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormFieldChoice.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldChoice `
+    /// ` self: Poppler__FormFieldChoice `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn EditChoice(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__FormFieldChoice_EditChoice(@ptrCast(self));
+    pub fn EditChoice(self: Poppler__FormFieldChoice, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__FormFieldChoice_EditChoice(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__formfieldchoice.EditChoice: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1152,56 +1211,56 @@ pub const poppler__formfieldchoice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldChoice `
+    /// ` self: Poppler__FormFieldChoice `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetEditChoice(self: ?*anyopaque, text: []const u8) void {
+    pub fn SetEditChoice(self: Poppler__FormFieldChoice, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.Poppler__FormFieldChoice_SetEditChoice(@ptrCast(self), text_str);
+        qtc.Poppler__FormFieldChoice_SetEditChoice(@ptrCast(self.ptr), text_str);
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormFieldChoice.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldChoice `
+    /// ` self: Poppler__FormFieldChoice `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn TextAlignment(self: ?*anyopaque) i32 {
-        return qtc.Poppler__FormFieldChoice_TextAlignment(@ptrCast(self));
+    pub fn TextAlignment(self: Poppler__FormFieldChoice) i32 {
+        return qtc.Poppler__FormFieldChoice_TextAlignment(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormFieldChoice.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldChoice `
+    /// ` self: Poppler__FormFieldChoice `
     ///
-    pub fn CanBeSpellChecked(self: ?*anyopaque) bool {
-        return qtc.Poppler__FormFieldChoice_CanBeSpellChecked(@ptrCast(self));
+    pub fn CanBeSpellChecked(self: Poppler__FormFieldChoice) bool {
+        return qtc.Poppler__FormFieldChoice_CanBeSpellChecked(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormFieldChoice.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldChoice `
+    /// ` self: Poppler__FormFieldChoice `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetAppearanceChoiceText(self: ?*anyopaque, text: []const u8) void {
+    pub fn SetAppearanceChoiceText(self: Poppler__FormFieldChoice, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.Poppler__FormFieldChoice_SetAppearanceChoiceText(@ptrCast(self), text_str);
+        qtc.Poppler__FormFieldChoice_SetAppearanceChoiceText(@ptrCast(self.ptr), text_str);
     }
 
     /// Inherited from Poppler::FormField
@@ -1210,10 +1269,10 @@ pub const poppler__formfieldchoice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldChoice `
+    /// ` self: Poppler__FormFieldChoice `
     ///
-    pub fn Rect(self: ?*anyopaque) QtC.QRectF {
-        return qtc.Poppler__FormField_Rect(@ptrCast(self));
+    pub fn Rect(self: Poppler__FormFieldChoice) QRectF {
+        return .{ .ptr = qtc.Poppler__FormField_Rect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from Poppler::FormField
@@ -1222,10 +1281,10 @@ pub const poppler__formfieldchoice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldChoice `
+    /// ` self: Poppler__FormFieldChoice `
     ///
-    pub fn Id(self: ?*anyopaque) i32 {
-        return qtc.Poppler__FormField_Id(@ptrCast(self));
+    pub fn Id(self: Poppler__FormFieldChoice) i32 {
+        return qtc.Poppler__FormField_Id(@ptrCast(self.ptr));
     }
 
     /// Inherited from Poppler::FormField
@@ -1234,12 +1293,12 @@ pub const poppler__formfieldchoice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldChoice `
+    /// ` self: Poppler__FormFieldChoice `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__FormField_Name(@ptrCast(self));
+    pub fn Name(self: Poppler__FormFieldChoice, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__FormField_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__formfieldchoice.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1252,16 +1311,16 @@ pub const poppler__formfieldchoice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldChoice `
+    /// ` self: Poppler__FormFieldChoice `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetName(self: ?*anyopaque, name: []const u8) void {
+    pub fn SetName(self: Poppler__FormFieldChoice, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.Poppler__FormField_SetName(@ptrCast(self), name_str);
+        qtc.Poppler__FormField_SetName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from Poppler::FormField
@@ -1270,12 +1329,12 @@ pub const poppler__formfieldchoice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldChoice `
+    /// ` self: Poppler__FormFieldChoice `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FullyQualifiedName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__FormField_FullyQualifiedName(@ptrCast(self));
+    pub fn FullyQualifiedName(self: Poppler__FormFieldChoice, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__FormField_FullyQualifiedName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__formfieldchoice.FullyQualifiedName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1288,12 +1347,12 @@ pub const poppler__formfieldchoice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldChoice `
+    /// ` self: Poppler__FormFieldChoice `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UiName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__FormField_UiName(@ptrCast(self));
+    pub fn UiName(self: Poppler__FormFieldChoice, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__FormField_UiName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__formfieldchoice.UiName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1306,10 +1365,10 @@ pub const poppler__formfieldchoice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldChoice `
+    /// ` self: Poppler__FormFieldChoice `
     ///
-    pub fn IsReadOnly(self: ?*anyopaque) bool {
-        return qtc.Poppler__FormField_IsReadOnly(@ptrCast(self));
+    pub fn IsReadOnly(self: Poppler__FormFieldChoice) bool {
+        return qtc.Poppler__FormField_IsReadOnly(@ptrCast(self.ptr));
     }
 
     /// Inherited from Poppler::FormField
@@ -1318,12 +1377,12 @@ pub const poppler__formfieldchoice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldChoice `
+    /// ` self: Poppler__FormFieldChoice `
     ///
     /// ` value: bool `
     ///
-    pub fn SetReadOnly(self: ?*anyopaque, value: bool) void {
-        qtc.Poppler__FormField_SetReadOnly(@ptrCast(self), value);
+    pub fn SetReadOnly(self: Poppler__FormFieldChoice, value: bool) void {
+        qtc.Poppler__FormField_SetReadOnly(@ptrCast(self.ptr), value);
     }
 
     /// Inherited from Poppler::FormField
@@ -1332,10 +1391,10 @@ pub const poppler__formfieldchoice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldChoice `
+    /// ` self: Poppler__FormFieldChoice `
     ///
-    pub fn IsVisible(self: ?*anyopaque) bool {
-        return qtc.Poppler__FormField_IsVisible(@ptrCast(self));
+    pub fn IsVisible(self: Poppler__FormFieldChoice) bool {
+        return qtc.Poppler__FormField_IsVisible(@ptrCast(self.ptr));
     }
 
     /// Inherited from Poppler::FormField
@@ -1344,12 +1403,12 @@ pub const poppler__formfieldchoice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldChoice `
+    /// ` self: Poppler__FormFieldChoice `
     ///
     /// ` value: bool `
     ///
-    pub fn SetVisible(self: ?*anyopaque, value: bool) void {
-        qtc.Poppler__FormField_SetVisible(@ptrCast(self), value);
+    pub fn SetVisible(self: Poppler__FormFieldChoice, value: bool) void {
+        qtc.Poppler__FormField_SetVisible(@ptrCast(self.ptr), value);
     }
 
     /// Inherited from Poppler::FormField
@@ -1358,10 +1417,10 @@ pub const poppler__formfieldchoice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldChoice `
+    /// ` self: Poppler__FormFieldChoice `
     ///
-    pub fn IsPrintable(self: ?*anyopaque) bool {
-        return qtc.Poppler__FormField_IsPrintable(@ptrCast(self));
+    pub fn IsPrintable(self: Poppler__FormFieldChoice) bool {
+        return qtc.Poppler__FormField_IsPrintable(@ptrCast(self.ptr));
     }
 
     /// Inherited from Poppler::FormField
@@ -1370,12 +1429,12 @@ pub const poppler__formfieldchoice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldChoice `
+    /// ` self: Poppler__FormFieldChoice `
     ///
     /// ` value: bool `
     ///
-    pub fn SetPrintable(self: ?*anyopaque, value: bool) void {
-        qtc.Poppler__FormField_SetPrintable(@ptrCast(self), value);
+    pub fn SetPrintable(self: Poppler__FormFieldChoice, value: bool) void {
+        qtc.Poppler__FormField_SetPrintable(@ptrCast(self.ptr), value);
     }
 
     /// Inherited from Poppler::FormField
@@ -1384,10 +1443,10 @@ pub const poppler__formfieldchoice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldChoice `
+    /// ` self: Poppler__FormFieldChoice `
     ///
-    pub fn ActivationAction(self: ?*anyopaque) QtC.Poppler__Link {
-        return qtc.Poppler__FormField_ActivationAction(@ptrCast(self));
+    pub fn ActivationAction(self: Poppler__FormFieldChoice) Poppler__Link {
+        return .{ .ptr = qtc.Poppler__FormField_ActivationAction(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from Poppler::FormField
@@ -1396,12 +1455,12 @@ pub const poppler__formfieldchoice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldChoice `
+    /// ` self: Poppler__FormFieldChoice `
     ///
     /// ` typeVal: poppler_form_enums.AdditionalActionType `
     ///
-    pub fn AdditionalAction(self: ?*anyopaque, typeVal: i32) QtC.Poppler__Link {
-        return qtc.Poppler__FormField_AdditionalAction(@ptrCast(self), @bitCast(typeVal));
+    pub fn AdditionalAction(self: Poppler__FormFieldChoice, typeVal: i32) Poppler__Link {
+        return .{ .ptr = qtc.Poppler__FormField_AdditionalAction(@ptrCast(self.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from Poppler::FormField
@@ -1410,12 +1469,12 @@ pub const poppler__formfieldchoice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldChoice `
+    /// ` self: Poppler__FormFieldChoice `
     ///
     /// ` typeVal: poppler_annotation_enums.AdditionalActionType `
     ///
-    pub fn AdditionalAction2(self: ?*anyopaque, typeVal: i32) QtC.Poppler__Link {
-        return qtc.Poppler__FormField_AdditionalAction2(@ptrCast(self), @bitCast(typeVal));
+    pub fn AdditionalAction2(self: Poppler__FormFieldChoice, typeVal: i32) Poppler__Link {
+        return .{ .ptr = qtc.Poppler__FormField_AdditionalAction2(@ptrCast(self.ptr), @bitCast(typeVal)) };
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -1428,61 +1487,70 @@ pub const poppler__formfieldchoice = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.Poppler__FormFieldChoice `
+    /// ` self: Poppler__FormFieldChoice `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.Poppler__FormFieldChoice_Delete(@ptrCast(self));
+    pub fn Delete(self: Poppler__FormFieldChoice) void {
+        qtc.Poppler__FormFieldChoice_Delete(@ptrCast(self.ptr));
     }
 };
 
 /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1CertificateInfo.html)
-pub const poppler__certificateinfo = struct {
+pub const Poppler__CertificateInfo = extern struct {
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1CertificateInfo.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.Poppler__CertificateInfo,
+
+    pub const _is_Poppler__CertificateInfo = {};
+
     /// New constructs a new Poppler::CertificateInfo object.
     ///
-    pub fn New() QtC.Poppler__CertificateInfo {
-        return qtc.Poppler__CertificateInfo_new();
+    pub fn New() Poppler__CertificateInfo {
+        return .{ .ptr = qtc.Poppler__CertificateInfo_new() };
     }
 
     /// New2 constructs a new Poppler::CertificateInfo object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.Poppler__CertificateInfo `
+    /// ` other: Poppler__CertificateInfo `
     ///
-    pub fn New2(other: ?*anyopaque) QtC.Poppler__CertificateInfo {
-        return qtc.Poppler__CertificateInfo_new2(@ptrCast(other));
+    pub fn New2(other: anytype) Poppler__CertificateInfo {
+        comptime _ = @TypeOf(other)._is_Poppler__CertificateInfo;
+        return .{ .ptr = qtc.Poppler__CertificateInfo_new2(@ptrCast(other.ptr)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1CertificateInfo.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__CertificateInfo `
+    /// ` self: Poppler__CertificateInfo `
     ///
-    pub fn IsNull(self: ?*anyopaque) bool {
-        return qtc.Poppler__CertificateInfo_IsNull(@ptrCast(self));
+    pub fn IsNull(self: Poppler__CertificateInfo) bool {
+        return qtc.Poppler__CertificateInfo_IsNull(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1CertificateInfo.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__CertificateInfo `
+    /// ` self: Poppler__CertificateInfo `
     ///
-    pub fn Version(self: ?*anyopaque) i32 {
-        return qtc.Poppler__CertificateInfo_Version(@ptrCast(self));
+    pub fn Version(self: Poppler__CertificateInfo) i32 {
+        return qtc.Poppler__CertificateInfo_Version(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1CertificateInfo.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__CertificateInfo `
+    /// ` self: Poppler__CertificateInfo `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SerialNumber(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.Poppler__CertificateInfo_SerialNumber(@ptrCast(self));
+    pub fn SerialNumber(self: Poppler__CertificateInfo, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.Poppler__CertificateInfo_SerialNumber(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("poppler__certificateinfo.SerialNumber: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1493,14 +1561,14 @@ pub const poppler__certificateinfo = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__CertificateInfo `
-    ///
-    /// ` key: poppler_form_enums.EntityInfoKey `
+    /// ` self: Poppler__CertificateInfo `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn IssuerInfo(self: ?*anyopaque, key: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__CertificateInfo_IssuerInfo(@ptrCast(self), @bitCast(key));
+    /// ` key: poppler_form_enums.EntityInfoKey `
+    ///
+    pub fn IssuerInfo(self: Poppler__CertificateInfo, allocator: std.mem.Allocator, key: i32) []const u8 {
+        var _str = qtc.Poppler__CertificateInfo_IssuerInfo(@ptrCast(self.ptr), @bitCast(key));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__certificateinfo.IssuerInfo: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1511,14 +1579,14 @@ pub const poppler__certificateinfo = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__CertificateInfo `
-    ///
-    /// ` key: poppler_form_enums.EntityInfoKey `
+    /// ` self: Poppler__CertificateInfo `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SubjectInfo(self: ?*anyopaque, key: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__CertificateInfo_SubjectInfo(@ptrCast(self), @bitCast(key));
+    /// ` key: poppler_form_enums.EntityInfoKey `
+    ///
+    pub fn SubjectInfo(self: Poppler__CertificateInfo, allocator: std.mem.Allocator, key: i32) []const u8 {
+        var _str = qtc.Poppler__CertificateInfo_SubjectInfo(@ptrCast(self.ptr), @bitCast(key));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__certificateinfo.SubjectInfo: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1529,12 +1597,12 @@ pub const poppler__certificateinfo = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__CertificateInfo `
+    /// ` self: Poppler__CertificateInfo `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NickName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__CertificateInfo_NickName(@ptrCast(self));
+    pub fn NickName(self: Poppler__CertificateInfo, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__CertificateInfo_NickName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__certificateinfo.NickName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1545,46 +1613,46 @@ pub const poppler__certificateinfo = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__CertificateInfo `
+    /// ` self: Poppler__CertificateInfo `
     ///
-    pub fn ValidityStart(self: ?*anyopaque) QtC.QDateTime {
-        return qtc.Poppler__CertificateInfo_ValidityStart(@ptrCast(self));
+    pub fn ValidityStart(self: Poppler__CertificateInfo) QDateTime {
+        return .{ .ptr = qtc.Poppler__CertificateInfo_ValidityStart(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1CertificateInfo.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__CertificateInfo `
+    /// ` self: Poppler__CertificateInfo `
     ///
-    pub fn ValidityEnd(self: ?*anyopaque) QtC.QDateTime {
-        return qtc.Poppler__CertificateInfo_ValidityEnd(@ptrCast(self));
+    pub fn ValidityEnd(self: Poppler__CertificateInfo) QDateTime {
+        return .{ .ptr = qtc.Poppler__CertificateInfo_ValidityEnd(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1CertificateInfo.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__CertificateInfo `
+    /// ` self: Poppler__CertificateInfo `
     ///
     /// ## Returns:
     ///
     /// ` flag of poppler_form_enums.KeyUsageExtension `
     ///
-    pub fn KeyUsageExtensions(self: ?*anyopaque) i32 {
-        return qtc.Poppler__CertificateInfo_KeyUsageExtensions(@ptrCast(self));
+    pub fn KeyUsageExtensions(self: Poppler__CertificateInfo) i32 {
+        return qtc.Poppler__CertificateInfo_KeyUsageExtensions(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1CertificateInfo.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__CertificateInfo `
+    /// ` self: Poppler__CertificateInfo `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PublicKey(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.Poppler__CertificateInfo_PublicKey(@ptrCast(self));
+    pub fn PublicKey(self: Poppler__CertificateInfo, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.Poppler__CertificateInfo_PublicKey(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("poppler__certificateinfo.PublicKey: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1595,70 +1663,70 @@ pub const poppler__certificateinfo = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__CertificateInfo `
+    /// ` self: Poppler__CertificateInfo `
     ///
     /// ## Returns:
     ///
     /// ` poppler_form_enums.PublicKeyType `
     ///
-    pub fn PublicKeyType(self: ?*anyopaque) i32 {
-        return qtc.Poppler__CertificateInfo_PublicKeyType(@ptrCast(self));
+    pub fn PublicKeyType(self: Poppler__CertificateInfo) i32 {
+        return qtc.Poppler__CertificateInfo_PublicKeyType(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1CertificateInfo.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__CertificateInfo `
+    /// ` self: Poppler__CertificateInfo `
     ///
-    pub fn PublicKeyStrength(self: ?*anyopaque) i32 {
-        return qtc.Poppler__CertificateInfo_PublicKeyStrength(@ptrCast(self));
+    pub fn PublicKeyStrength(self: Poppler__CertificateInfo) i32 {
+        return qtc.Poppler__CertificateInfo_PublicKeyStrength(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1CertificateInfo.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__CertificateInfo `
+    /// ` self: Poppler__CertificateInfo `
     ///
-    pub fn IsSelfSigned(self: ?*anyopaque) bool {
-        return qtc.Poppler__CertificateInfo_IsSelfSigned(@ptrCast(self));
+    pub fn IsSelfSigned(self: Poppler__CertificateInfo) bool {
+        return qtc.Poppler__CertificateInfo_IsSelfSigned(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1CertificateInfo.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__CertificateInfo `
+    /// ` self: Poppler__CertificateInfo `
     ///
-    pub fn IsQualified(self: ?*anyopaque) bool {
-        return qtc.Poppler__CertificateInfo_IsQualified(@ptrCast(self));
+    pub fn IsQualified(self: Poppler__CertificateInfo) bool {
+        return qtc.Poppler__CertificateInfo_IsQualified(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1CertificateInfo.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__CertificateInfo `
+    /// ` self: Poppler__CertificateInfo `
     ///
     /// ## Returns:
     ///
     /// ` poppler_form_enums.CertificateType `
     ///
-    pub fn CertificateType(self: ?*anyopaque) i32 {
-        return qtc.Poppler__CertificateInfo_CertificateType(@ptrCast(self));
+    pub fn CertificateType(self: Poppler__CertificateInfo) i32 {
+        return qtc.Poppler__CertificateInfo_CertificateType(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1CertificateInfo.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__CertificateInfo `
+    /// ` self: Poppler__CertificateInfo `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CertificateData(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.Poppler__CertificateInfo_CertificateData(@ptrCast(self));
+    pub fn CertificateData(self: Poppler__CertificateInfo, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.Poppler__CertificateInfo_CertificateData(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("poppler__certificateinfo.CertificateData: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1669,42 +1737,43 @@ pub const poppler__certificateinfo = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__CertificateInfo `
+    /// ` self: Poppler__CertificateInfo `
     ///
     /// ` password: []const u8 `
     ///
-    pub fn CheckPassword(self: ?*anyopaque, password: []const u8) bool {
+    pub fn CheckPassword(self: Poppler__CertificateInfo, password: []const u8) bool {
         const password_str = qtc.libqt_string{
             .len = password.len,
             .data = password.ptr,
         };
-        return qtc.Poppler__CertificateInfo_CheckPassword(@ptrCast(self), password_str);
+        return qtc.Poppler__CertificateInfo_CheckPassword(@ptrCast(self.ptr), password_str);
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1CertificateInfo.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__CertificateInfo `
+    /// ` self: Poppler__CertificateInfo `
     ///
     /// ## Returns:
     ///
     /// ` poppler_form_enums.KeyLocation `
     ///
-    pub fn KeyLocation(self: ?*anyopaque) i32 {
-        return qtc.Poppler__CertificateInfo_KeyLocation(@ptrCast(self));
+    pub fn KeyLocation(self: Poppler__CertificateInfo) i32 {
+        return qtc.Poppler__CertificateInfo_KeyLocation(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1CertificateInfo.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__CertificateInfo `
+    /// ` self: Poppler__CertificateInfo `
     ///
-    /// ` other: QtC.Poppler__CertificateInfo `
+    /// ` other: Poppler__CertificateInfo `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.Poppler__CertificateInfo_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorAssign(self: Poppler__CertificateInfo, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_Poppler__CertificateInfo;
+        qtc.Poppler__CertificateInfo_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -1717,63 +1786,72 @@ pub const poppler__certificateinfo = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.Poppler__CertificateInfo `
+    /// ` self: Poppler__CertificateInfo `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.Poppler__CertificateInfo_Delete(@ptrCast(self));
+    pub fn Delete(self: Poppler__CertificateInfo) void {
+        qtc.Poppler__CertificateInfo_Delete(@ptrCast(self.ptr));
     }
 };
 
 /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureValidationInfo.html)
-pub const poppler__signaturevalidationinfo = struct {
+pub const Poppler__SignatureValidationInfo = extern struct {
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureValidationInfo.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.Poppler__SignatureValidationInfo,
+
+    pub const _is_Poppler__SignatureValidationInfo = {};
+
     /// New constructs a new Poppler::SignatureValidationInfo object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.Poppler__SignatureValidationInfo `
+    /// ` other: Poppler__SignatureValidationInfo `
     ///
-    pub fn New(other: ?*anyopaque) QtC.Poppler__SignatureValidationInfo {
-        return qtc.Poppler__SignatureValidationInfo_new(@ptrCast(other));
+    pub fn New(other: anytype) Poppler__SignatureValidationInfo {
+        comptime _ = @TypeOf(other)._is_Poppler__SignatureValidationInfo;
+        return .{ .ptr = qtc.Poppler__SignatureValidationInfo_new(@ptrCast(other.ptr)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureValidationInfo.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__SignatureValidationInfo `
+    /// ` self: Poppler__SignatureValidationInfo `
     ///
     /// ## Returns:
     ///
     /// ` poppler_form_enums.SignatureStatus `
     ///
-    pub fn SignatureStatus(self: ?*anyopaque) i32 {
-        return qtc.Poppler__SignatureValidationInfo_SignatureStatus(@ptrCast(self));
+    pub fn SignatureStatus(self: Poppler__SignatureValidationInfo) i32 {
+        return qtc.Poppler__SignatureValidationInfo_SignatureStatus(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureValidationInfo.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__SignatureValidationInfo `
+    /// ` self: Poppler__SignatureValidationInfo `
     ///
     /// ## Returns:
     ///
     /// ` poppler_form_enums.CertificateStatus `
     ///
-    pub fn CertificateStatus(self: ?*anyopaque) i32 {
-        return qtc.Poppler__SignatureValidationInfo_CertificateStatus(@ptrCast(self));
+    pub fn CertificateStatus(self: Poppler__SignatureValidationInfo) i32 {
+        return qtc.Poppler__SignatureValidationInfo_CertificateStatus(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureValidationInfo.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__SignatureValidationInfo `
+    /// ` self: Poppler__SignatureValidationInfo `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SignerName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__SignatureValidationInfo_SignerName(@ptrCast(self));
+    pub fn SignerName(self: Poppler__SignatureValidationInfo, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__SignatureValidationInfo_SignerName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__signaturevalidationinfo.SignerName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1784,12 +1862,12 @@ pub const poppler__signaturevalidationinfo = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__SignatureValidationInfo `
+    /// ` self: Poppler__SignatureValidationInfo `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SignerSubjectDN(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__SignatureValidationInfo_SignerSubjectDN(@ptrCast(self));
+    pub fn SignerSubjectDN(self: Poppler__SignatureValidationInfo, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__SignatureValidationInfo_SignerSubjectDN(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__signaturevalidationinfo.SignerSubjectDN: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1800,12 +1878,12 @@ pub const poppler__signaturevalidationinfo = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__SignatureValidationInfo `
+    /// ` self: Poppler__SignatureValidationInfo `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Location(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__SignatureValidationInfo_Location(@ptrCast(self));
+    pub fn Location(self: Poppler__SignatureValidationInfo, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__SignatureValidationInfo_Location(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__signaturevalidationinfo.Location: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1816,12 +1894,12 @@ pub const poppler__signaturevalidationinfo = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__SignatureValidationInfo `
+    /// ` self: Poppler__SignatureValidationInfo `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Reason(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__SignatureValidationInfo_Reason(@ptrCast(self));
+    pub fn Reason(self: Poppler__SignatureValidationInfo, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__SignatureValidationInfo_Reason(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__signaturevalidationinfo.Reason: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1832,36 +1910,36 @@ pub const poppler__signaturevalidationinfo = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__SignatureValidationInfo `
+    /// ` self: Poppler__SignatureValidationInfo `
     ///
     /// ## Returns:
     ///
     /// ` poppler_form_enums.HashAlgorithm `
     ///
-    pub fn HashAlgorithm(self: ?*anyopaque) i32 {
-        return qtc.Poppler__SignatureValidationInfo_HashAlgorithm(@ptrCast(self));
+    pub fn HashAlgorithm(self: Poppler__SignatureValidationInfo) i32 {
+        return qtc.Poppler__SignatureValidationInfo_HashAlgorithm(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureValidationInfo.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__SignatureValidationInfo `
+    /// ` self: Poppler__SignatureValidationInfo `
     ///
-    pub fn SigningTime(self: ?*anyopaque) i64 {
-        return @bitCast(qtc.Poppler__SignatureValidationInfo_SigningTime(@ptrCast(self)));
+    pub fn SigningTime(self: Poppler__SignatureValidationInfo) i64 {
+        return @bitCast(qtc.Poppler__SignatureValidationInfo_SigningTime(@ptrCast(self.ptr)));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureValidationInfo.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__SignatureValidationInfo `
+    /// ` self: Poppler__SignatureValidationInfo `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Signature(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.Poppler__SignatureValidationInfo_Signature(@ptrCast(self));
+    pub fn Signature(self: Poppler__SignatureValidationInfo, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.Poppler__SignatureValidationInfo_Signature(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("poppler__signaturevalidationinfo.Signature: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1872,12 +1950,12 @@ pub const poppler__signaturevalidationinfo = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__SignatureValidationInfo `
+    /// ` self: Poppler__SignatureValidationInfo `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SignedRangeBounds(self: ?*anyopaque, allocator: std.mem.Allocator) []isize {
-        const _arr: qtc.libqt_list = qtc.Poppler__SignatureValidationInfo_SignedRangeBounds(@ptrCast(self));
+    pub fn SignedRangeBounds(self: Poppler__SignatureValidationInfo, allocator: std.mem.Allocator) []isize {
+        const _arr: qtc.libqt_list = qtc.Poppler__SignatureValidationInfo_SignedRangeBounds(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(isize, _arr.len) catch @panic("poppler__signaturevalidationinfo.SignedRangeBounds: Memory allocation failed");
         const _data: [*]isize = @ptrCast(@alignCast(_arr.data));
@@ -1889,32 +1967,33 @@ pub const poppler__signaturevalidationinfo = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__SignatureValidationInfo `
+    /// ` self: Poppler__SignatureValidationInfo `
     ///
-    pub fn SignsTotalDocument(self: ?*anyopaque) bool {
-        return qtc.Poppler__SignatureValidationInfo_SignsTotalDocument(@ptrCast(self));
+    pub fn SignsTotalDocument(self: Poppler__SignatureValidationInfo) bool {
+        return qtc.Poppler__SignatureValidationInfo_SignsTotalDocument(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureValidationInfo.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__SignatureValidationInfo `
+    /// ` self: Poppler__SignatureValidationInfo `
     ///
-    pub fn CertificateInfo(self: ?*anyopaque) QtC.Poppler__CertificateInfo {
-        return qtc.Poppler__SignatureValidationInfo_CertificateInfo(@ptrCast(self));
+    pub fn CertificateInfo(self: Poppler__SignatureValidationInfo) Poppler__CertificateInfo {
+        return .{ .ptr = qtc.Poppler__SignatureValidationInfo_CertificateInfo(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SignatureValidationInfo.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__SignatureValidationInfo `
+    /// ` self: Poppler__SignatureValidationInfo `
     ///
-    /// ` other: QtC.Poppler__SignatureValidationInfo `
+    /// ` other: Poppler__SignatureValidationInfo `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.Poppler__SignatureValidationInfo_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorAssign(self: Poppler__SignatureValidationInfo, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_Poppler__SignatureValidationInfo;
+        qtc.Poppler__SignatureValidationInfo_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -1927,29 +2006,38 @@ pub const poppler__signaturevalidationinfo = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.Poppler__SignatureValidationInfo `
+    /// ` self: Poppler__SignatureValidationInfo `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.Poppler__SignatureValidationInfo_Delete(@ptrCast(self));
+    pub fn Delete(self: Poppler__SignatureValidationInfo) void {
+        qtc.Poppler__SignatureValidationInfo_Delete(@ptrCast(self.ptr));
     }
 };
 
 /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1AsyncObject.html)
-pub const poppler__asyncobject = struct {
+pub const Poppler__AsyncObject = extern struct {
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1AsyncObject.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.Poppler__AsyncObject,
+
+    pub const _is_Poppler__AsyncObject = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new Poppler::AsyncObject object.
     ///
-    pub fn New() QtC.Poppler__AsyncObject {
-        return qtc.Poppler__AsyncObject_new();
+    pub fn New() Poppler__AsyncObject {
+        return .{ .ptr = qtc.Poppler__AsyncObject_new() };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.Poppler__AsyncObject_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: Poppler__AsyncObject) QMetaObject {
+        return .{ .ptr = qtc.Poppler__AsyncObject_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -1958,12 +2046,12 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.Poppler__AsyncObject_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: Poppler__AsyncObject, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.Poppler__AsyncObject_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -1976,33 +2064,33 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.Poppler__AsyncObject_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: Poppler__AsyncObject) QMetaObject {
+        return .{ .ptr = qtc.Poppler__AsyncObject_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: Poppler__AsyncObject, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.Poppler__AsyncObject_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.Poppler__AsyncObject_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    /// ` callback: *const fn (self: QtC.Poppler__AsyncObject, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: Poppler__AsyncObject, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.Poppler__AsyncObject_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: Poppler__AsyncObject, callback: *const fn (Poppler__AsyncObject, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.Poppler__AsyncObject_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -2013,18 +2101,18 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: Poppler__AsyncObject, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.Poppler__AsyncObject_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.Poppler__AsyncObject_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -2032,20 +2120,20 @@ pub const poppler__asyncobject = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.Poppler__AsyncObject_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: Poppler__AsyncObject, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.Poppler__AsyncObject_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    /// ` callback: *const fn (self: QtC.Poppler__AsyncObject, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: Poppler__AsyncObject, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.Poppler__AsyncObject_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: Poppler__AsyncObject, callback: *const fn (Poppler__AsyncObject, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.Poppler__AsyncObject_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -2056,7 +2144,7 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -2064,19 +2152,19 @@ pub const poppler__asyncobject = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.Poppler__AsyncObject_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: Poppler__AsyncObject, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.Poppler__AsyncObject_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -2089,35 +2177,35 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    pub fn Done(self: ?*anyopaque) void {
-        qtc.Poppler__AsyncObject_Done(@ptrCast(self));
+    pub fn Done(self: Poppler__AsyncObject) void {
+        qtc.Poppler__AsyncObject_Done(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1AsyncObject.html)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    /// ` callback: *const fn (self: QtC.Poppler__AsyncObject) callconv(.c) void `
+    /// ` callback: *const fn (self: Poppler__AsyncObject) callconv(.c) void `
     ///
-    pub fn OnDone(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.Poppler__AsyncObject_Connect_Done(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDone(self: Poppler__AsyncObject, callback: *const fn (Poppler__AsyncObject) callconv(.c) void) void {
+        qtc.Poppler__AsyncObject_Connect_Done(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -2131,15 +2219,15 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -2155,12 +2243,12 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: Poppler__AsyncObject, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__asyncobject.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2173,12 +2261,12 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: Poppler__AsyncObject, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -2187,10 +2275,10 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: Poppler__AsyncObject) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2199,10 +2287,10 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: Poppler__AsyncObject) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2211,10 +2299,10 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: Poppler__AsyncObject) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2223,10 +2311,10 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: Poppler__AsyncObject) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2235,12 +2323,12 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: Poppler__AsyncObject, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -2249,10 +2337,10 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: Poppler__AsyncObject) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2261,12 +2349,13 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: Poppler__AsyncObject, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -2275,12 +2364,12 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: Poppler__AsyncObject, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -2289,12 +2378,12 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: Poppler__AsyncObject, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -2303,12 +2392,12 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: Poppler__AsyncObject, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -2317,12 +2406,12 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: Poppler__AsyncObject, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -2331,16 +2420,17 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: Poppler__AsyncObject, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("poppler__asyncobject.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("poppler__asyncobject.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -2350,12 +2440,13 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: Poppler__AsyncObject, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -2364,12 +2455,13 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: Poppler__AsyncObject, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -2378,12 +2470,13 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: Poppler__AsyncObject, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -2392,18 +2485,20 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -2412,16 +2507,20 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2430,18 +2529,19 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: Poppler__AsyncObject, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -2450,18 +2550,20 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -2470,16 +2572,20 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -2488,10 +2594,10 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: Poppler__AsyncObject) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2500,12 +2606,13 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: Poppler__AsyncObject, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -2514,10 +2621,11 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -2526,10 +2634,10 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: Poppler__AsyncObject) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2538,10 +2646,10 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: Poppler__AsyncObject) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2550,15 +2658,16 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: Poppler__AsyncObject, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -2567,13 +2676,13 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: Poppler__AsyncObject, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -2582,17 +2691,16 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: Poppler__AsyncObject, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("poppler__asyncobject.DynamicPropertyNames: Memory allocation failed");
@@ -2611,10 +2719,10 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: Poppler__AsyncObject) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2623,10 +2731,10 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: Poppler__AsyncObject) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2635,10 +2743,10 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: Poppler__AsyncObject) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2647,12 +2755,12 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    /// ` callback: *const fn (self: QtC.Poppler__AsyncObject) callconv(.c) void `
+    /// ` callback: *const fn (self: Poppler__AsyncObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: Poppler__AsyncObject, callback: *const fn (Poppler__AsyncObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2661,10 +2769,10 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: Poppler__AsyncObject) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2673,13 +2781,13 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: Poppler__AsyncObject, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -2688,10 +2796,10 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: Poppler__AsyncObject) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2700,14 +2808,14 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: Poppler__AsyncObject, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2716,14 +2824,14 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: Poppler__AsyncObject, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2732,20 +2840,22 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -2754,18 +2864,22 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -2774,9 +2888,9 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2784,10 +2898,11 @@ pub const poppler__asyncobject = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: Poppler__AsyncObject, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -2796,13 +2911,13 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: Poppler__AsyncObject, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2811,15 +2926,16 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: Poppler__AsyncObject, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -2828,18 +2944,19 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: Poppler__AsyncObject, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -2848,15 +2965,16 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: Poppler__AsyncObject, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -2865,12 +2983,13 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: Poppler__AsyncObject, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -2879,12 +2998,12 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    /// ` callback: *const fn (self: QtC.Poppler__AsyncObject, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: Poppler__AsyncObject, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: Poppler__AsyncObject, callback: *const fn (Poppler__AsyncObject, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2895,12 +3014,13 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.Poppler__AsyncObject_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: Poppler__AsyncObject, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.Poppler__AsyncObject_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -2915,12 +3035,13 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.Poppler__AsyncObject_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: Poppler__AsyncObject, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.Poppler__AsyncObject_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2931,12 +3052,12 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Poppler__AsyncObject`
+    /// ` self: Poppler__AsyncObject`
     ///
-    /// ` callback: *const fn (self: QtC.Poppler__AsyncObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: Poppler__AsyncObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.Poppler__AsyncObject_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: Poppler__AsyncObject, callback: *const fn (Poppler__AsyncObject, QEvent) callconv(.c) bool) void {
+        qtc.Poppler__AsyncObject_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2947,14 +3068,16 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.Poppler__AsyncObject_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: Poppler__AsyncObject, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.Poppler__AsyncObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -2969,14 +3092,16 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.Poppler__AsyncObject_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: Poppler__AsyncObject, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.Poppler__AsyncObject_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2987,12 +3112,12 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Poppler__AsyncObject`
+    /// ` self: Poppler__AsyncObject`
     ///
-    /// ` callback: *const fn (self: QtC.Poppler__AsyncObject, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: Poppler__AsyncObject, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.Poppler__AsyncObject_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: Poppler__AsyncObject, callback: *const fn (Poppler__AsyncObject, QObject, QEvent) callconv(.c) bool) void {
+        qtc.Poppler__AsyncObject_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3003,12 +3128,13 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Poppler__AsyncObject_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: Poppler__AsyncObject, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.Poppler__AsyncObject_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -3023,12 +3149,13 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Poppler__AsyncObject_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: Poppler__AsyncObject, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.Poppler__AsyncObject_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3039,12 +3166,12 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Poppler__AsyncObject`
+    /// ` self: Poppler__AsyncObject`
     ///
-    /// ` callback: *const fn (self: QtC.Poppler__AsyncObject, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: Poppler__AsyncObject, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Poppler__AsyncObject_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: Poppler__AsyncObject, callback: *const fn (Poppler__AsyncObject, QTimerEvent) callconv(.c) void) void {
+        qtc.Poppler__AsyncObject_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3055,12 +3182,13 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Poppler__AsyncObject_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: Poppler__AsyncObject, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.Poppler__AsyncObject_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -3075,12 +3203,13 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Poppler__AsyncObject_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: Poppler__AsyncObject, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.Poppler__AsyncObject_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3091,12 +3220,12 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Poppler__AsyncObject`
+    /// ` self: Poppler__AsyncObject`
     ///
-    /// ` callback: *const fn (self: QtC.Poppler__AsyncObject, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: Poppler__AsyncObject, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Poppler__AsyncObject_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: Poppler__AsyncObject, callback: *const fn (Poppler__AsyncObject, QChildEvent) callconv(.c) void) void {
+        qtc.Poppler__AsyncObject_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3107,12 +3236,13 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Poppler__AsyncObject_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: Poppler__AsyncObject, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.Poppler__AsyncObject_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -3127,12 +3257,13 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Poppler__AsyncObject_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: Poppler__AsyncObject, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.Poppler__AsyncObject_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3143,12 +3274,12 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Poppler__AsyncObject`
+    /// ` self: Poppler__AsyncObject`
     ///
-    /// ` callback: *const fn (self: QtC.Poppler__AsyncObject, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: Poppler__AsyncObject, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Poppler__AsyncObject_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: Poppler__AsyncObject, callback: *const fn (Poppler__AsyncObject, QEvent) callconv(.c) void) void {
+        qtc.Poppler__AsyncObject_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3159,12 +3290,13 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.Poppler__AsyncObject_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: Poppler__AsyncObject, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.Poppler__AsyncObject_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -3179,12 +3311,13 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.Poppler__AsyncObject_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: Poppler__AsyncObject, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.Poppler__AsyncObject_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -3195,12 +3328,12 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Poppler__AsyncObject`
+    /// ` self: Poppler__AsyncObject`
     ///
-    /// ` callback: *const fn (self: QtC.Poppler__AsyncObject, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: Poppler__AsyncObject, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Poppler__AsyncObject_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: Poppler__AsyncObject, callback: *const fn (Poppler__AsyncObject, QMetaMethod) callconv(.c) void) void {
+        qtc.Poppler__AsyncObject_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3211,12 +3344,13 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.Poppler__AsyncObject_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: Poppler__AsyncObject, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.Poppler__AsyncObject_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -3231,12 +3365,13 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.Poppler__AsyncObject_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: Poppler__AsyncObject, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.Poppler__AsyncObject_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -3247,12 +3382,12 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Poppler__AsyncObject`
+    /// ` self: Poppler__AsyncObject`
     ///
-    /// ` callback: *const fn (self: QtC.Poppler__AsyncObject, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: Poppler__AsyncObject, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Poppler__AsyncObject_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: Poppler__AsyncObject, callback: *const fn (Poppler__AsyncObject, QMetaMethod) callconv(.c) void) void {
+        qtc.Poppler__AsyncObject_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3263,10 +3398,10 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.Poppler__AsyncObject_Sender(@ptrCast(self));
+    pub fn Sender(self: Poppler__AsyncObject) QObject {
+        return .{ .ptr = qtc.Poppler__AsyncObject_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -3281,10 +3416,10 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.Poppler__AsyncObject_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: Poppler__AsyncObject) QObject {
+        return .{ .ptr = qtc.Poppler__AsyncObject_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -3295,12 +3430,12 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Poppler__AsyncObject`
+    /// ` self: Poppler__AsyncObject`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.Poppler__AsyncObject_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: Poppler__AsyncObject, callback: *const fn () callconv(.c) QObject) void {
+        qtc.Poppler__AsyncObject_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3311,10 +3446,10 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.Poppler__AsyncObject_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: Poppler__AsyncObject) i32 {
+        return qtc.Poppler__AsyncObject_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -3329,10 +3464,10 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.Poppler__AsyncObject_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: Poppler__AsyncObject) i32 {
+        return qtc.Poppler__AsyncObject_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -3343,12 +3478,12 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Poppler__AsyncObject`
+    /// ` self: Poppler__AsyncObject`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.Poppler__AsyncObject_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: Poppler__AsyncObject, callback: *const fn () callconv(.c) i32) void {
+        qtc.Poppler__AsyncObject_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3359,13 +3494,13 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: Poppler__AsyncObject, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.Poppler__AsyncObject_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.Poppler__AsyncObject_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -3380,13 +3515,13 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: Poppler__AsyncObject, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.Poppler__AsyncObject_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.Poppler__AsyncObject_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -3397,12 +3532,12 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Poppler__AsyncObject`
+    /// ` self: Poppler__AsyncObject`
     ///
-    /// ` callback: *const fn (self: QtC.Poppler__AsyncObject, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: Poppler__AsyncObject, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.Poppler__AsyncObject_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: Poppler__AsyncObject, callback: *const fn (Poppler__AsyncObject, [*:0]const u8) callconv(.c) i32) void {
+        qtc.Poppler__AsyncObject_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3413,12 +3548,13 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.Poppler__AsyncObject_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: Poppler__AsyncObject, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.Poppler__AsyncObject_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -3433,12 +3569,13 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.Poppler__AsyncObject_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: Poppler__AsyncObject, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.Poppler__AsyncObject_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -3449,12 +3586,12 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Poppler__AsyncObject`
+    /// ` self: Poppler__AsyncObject`
     ///
-    /// ` callback: *const fn (self: QtC.Poppler__AsyncObject, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: Poppler__AsyncObject, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.Poppler__AsyncObject_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: Poppler__AsyncObject, callback: *const fn (Poppler__AsyncObject, QMetaMethod) callconv(.c) bool) void {
+        qtc.Poppler__AsyncObject_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3465,12 +3602,12 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    /// ` callback: *const fn (self: QtC.Poppler__AsyncObject, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: Poppler__AsyncObject, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: Poppler__AsyncObject, callback: *const fn (Poppler__AsyncObject, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -3483,103 +3620,114 @@ pub const poppler__asyncobject = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.Poppler__AsyncObject `
+    /// ` self: Poppler__AsyncObject `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.Poppler__AsyncObject_Delete(@ptrCast(self));
+    pub fn Delete(self: Poppler__AsyncObject) void {
+        qtc.Poppler__AsyncObject_Delete(@ptrCast(self.ptr));
     }
 };
 
 /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormFieldSignature.html)
-pub const poppler__formfieldsignature = struct {
+pub const Poppler__FormFieldSignature = extern struct {
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormFieldSignature.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.Poppler__FormFieldSignature,
+
+    pub const _is_Poppler__FormFieldSignature = {};
+    pub const _is_Poppler__FormField = {};
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormFieldSignature.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldSignature `
+    /// ` self: Poppler__FormFieldSignature `
     ///
     /// ## Returns:
     ///
     /// ` poppler_form_enums.FormType `
     ///
-    pub fn Type(self: ?*anyopaque) i32 {
-        return qtc.Poppler__FormFieldSignature_Type(@ptrCast(self));
+    pub fn Type(self: Poppler__FormFieldSignature) i32 {
+        return qtc.Poppler__FormFieldSignature_Type(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormFieldSignature.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldSignature `
+    /// ` self: Poppler__FormFieldSignature `
     ///
     /// ## Returns:
     ///
     /// ` poppler_form_enums.SignatureType `
     ///
-    pub fn SignatureType(self: ?*anyopaque) i32 {
-        return qtc.Poppler__FormFieldSignature_SignatureType(@ptrCast(self));
+    pub fn SignatureType(self: Poppler__FormFieldSignature) i32 {
+        return qtc.Poppler__FormFieldSignature_SignatureType(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormFieldSignature.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldSignature `
+    /// ` self: Poppler__FormFieldSignature `
     ///
     /// ` opt: poppler_form_enums.ValidateOptions `
     ///
-    pub fn Validate(self: ?*anyopaque, opt: i32) QtC.Poppler__SignatureValidationInfo {
-        return qtc.Poppler__FormFieldSignature_Validate(@ptrCast(self), @bitCast(opt));
+    pub fn Validate(self: Poppler__FormFieldSignature, opt: i32) Poppler__SignatureValidationInfo {
+        return .{ .ptr = qtc.Poppler__FormFieldSignature_Validate(@ptrCast(self.ptr), @bitCast(opt)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormFieldSignature.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldSignature `
+    /// ` self: Poppler__FormFieldSignature `
     ///
     /// ` opt: i32 `
     ///
-    /// ` validationTime: QtC.QDateTime `
+    /// ` validationTime: QDateTime `
     ///
-    pub fn Validate2(self: ?*anyopaque, opt: i32, validationTime: ?*anyopaque) QtC.Poppler__SignatureValidationInfo {
-        return qtc.Poppler__FormFieldSignature_Validate2(@ptrCast(self), @bitCast(opt), @ptrCast(validationTime));
+    pub fn Validate2(self: Poppler__FormFieldSignature, opt: i32, validationTime: anytype) Poppler__SignatureValidationInfo {
+        comptime _ = @TypeOf(validationTime)._is_QDateTime;
+        return .{ .ptr = qtc.Poppler__FormFieldSignature_Validate2(@ptrCast(self.ptr), @bitCast(opt), @ptrCast(validationTime.ptr)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormFieldSignature.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldSignature `
+    /// ` self: Poppler__FormFieldSignature `
     ///
     /// ## Returns:
     ///
     /// ` poppler_form_enums.CertificateStatus `
     ///
-    pub fn ValidateResult(self: ?*anyopaque) i32 {
-        return qtc.Poppler__FormFieldSignature_ValidateResult(@ptrCast(self));
+    pub fn ValidateResult(self: Poppler__FormFieldSignature) i32 {
+        return qtc.Poppler__FormFieldSignature_ValidateResult(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormFieldSignature.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldSignature `
+    /// ` self: Poppler__FormFieldSignature `
     ///
     /// ` outputFileName: []const u8 `
     ///
-    /// ` data: QtC.Poppler__PDFConverter__NewSignatureData `
+    /// ` data: Poppler__PDFConverter__NewSignatureData `
     ///
     /// ## Returns:
     ///
     /// ` poppler_form_enums.SigningResult `
     ///
-    pub fn Sign(self: ?*anyopaque, outputFileName: []const u8, data: ?*anyopaque) i32 {
+    pub fn Sign(self: Poppler__FormFieldSignature, outputFileName: []const u8, data: anytype) i32 {
         const outputFileName_str = qtc.libqt_string{
             .len = outputFileName.len,
             .data = outputFileName.ptr,
         };
-        return qtc.Poppler__FormFieldSignature_Sign(@ptrCast(self), outputFileName_str, @ptrCast(data));
+        comptime _ = @TypeOf(data)._is_Poppler__PDFConverter__NewSignatureData;
+        return qtc.Poppler__FormFieldSignature_Sign(@ptrCast(self.ptr), outputFileName_str, @ptrCast(data.ptr));
     }
 
     /// Inherited from Poppler::FormField
@@ -3588,10 +3736,10 @@ pub const poppler__formfieldsignature = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldSignature `
+    /// ` self: Poppler__FormFieldSignature `
     ///
-    pub fn Rect(self: ?*anyopaque) QtC.QRectF {
-        return qtc.Poppler__FormField_Rect(@ptrCast(self));
+    pub fn Rect(self: Poppler__FormFieldSignature) QRectF {
+        return .{ .ptr = qtc.Poppler__FormField_Rect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from Poppler::FormField
@@ -3600,10 +3748,10 @@ pub const poppler__formfieldsignature = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldSignature `
+    /// ` self: Poppler__FormFieldSignature `
     ///
-    pub fn Id(self: ?*anyopaque) i32 {
-        return qtc.Poppler__FormField_Id(@ptrCast(self));
+    pub fn Id(self: Poppler__FormFieldSignature) i32 {
+        return qtc.Poppler__FormField_Id(@ptrCast(self.ptr));
     }
 
     /// Inherited from Poppler::FormField
@@ -3612,12 +3760,12 @@ pub const poppler__formfieldsignature = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldSignature `
+    /// ` self: Poppler__FormFieldSignature `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__FormField_Name(@ptrCast(self));
+    pub fn Name(self: Poppler__FormFieldSignature, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__FormField_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__formfieldsignature.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3630,16 +3778,16 @@ pub const poppler__formfieldsignature = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldSignature `
+    /// ` self: Poppler__FormFieldSignature `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetName(self: ?*anyopaque, name: []const u8) void {
+    pub fn SetName(self: Poppler__FormFieldSignature, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.Poppler__FormField_SetName(@ptrCast(self), name_str);
+        qtc.Poppler__FormField_SetName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from Poppler::FormField
@@ -3648,12 +3796,12 @@ pub const poppler__formfieldsignature = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldSignature `
+    /// ` self: Poppler__FormFieldSignature `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FullyQualifiedName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__FormField_FullyQualifiedName(@ptrCast(self));
+    pub fn FullyQualifiedName(self: Poppler__FormFieldSignature, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__FormField_FullyQualifiedName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__formfieldsignature.FullyQualifiedName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3666,12 +3814,12 @@ pub const poppler__formfieldsignature = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldSignature `
+    /// ` self: Poppler__FormFieldSignature `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UiName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__FormField_UiName(@ptrCast(self));
+    pub fn UiName(self: Poppler__FormFieldSignature, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__FormField_UiName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__formfieldsignature.UiName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3684,10 +3832,10 @@ pub const poppler__formfieldsignature = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldSignature `
+    /// ` self: Poppler__FormFieldSignature `
     ///
-    pub fn IsReadOnly(self: ?*anyopaque) bool {
-        return qtc.Poppler__FormField_IsReadOnly(@ptrCast(self));
+    pub fn IsReadOnly(self: Poppler__FormFieldSignature) bool {
+        return qtc.Poppler__FormField_IsReadOnly(@ptrCast(self.ptr));
     }
 
     /// Inherited from Poppler::FormField
@@ -3696,12 +3844,12 @@ pub const poppler__formfieldsignature = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldSignature `
+    /// ` self: Poppler__FormFieldSignature `
     ///
     /// ` value: bool `
     ///
-    pub fn SetReadOnly(self: ?*anyopaque, value: bool) void {
-        qtc.Poppler__FormField_SetReadOnly(@ptrCast(self), value);
+    pub fn SetReadOnly(self: Poppler__FormFieldSignature, value: bool) void {
+        qtc.Poppler__FormField_SetReadOnly(@ptrCast(self.ptr), value);
     }
 
     /// Inherited from Poppler::FormField
@@ -3710,10 +3858,10 @@ pub const poppler__formfieldsignature = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldSignature `
+    /// ` self: Poppler__FormFieldSignature `
     ///
-    pub fn IsVisible(self: ?*anyopaque) bool {
-        return qtc.Poppler__FormField_IsVisible(@ptrCast(self));
+    pub fn IsVisible(self: Poppler__FormFieldSignature) bool {
+        return qtc.Poppler__FormField_IsVisible(@ptrCast(self.ptr));
     }
 
     /// Inherited from Poppler::FormField
@@ -3722,12 +3870,12 @@ pub const poppler__formfieldsignature = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldSignature `
+    /// ` self: Poppler__FormFieldSignature `
     ///
     /// ` value: bool `
     ///
-    pub fn SetVisible(self: ?*anyopaque, value: bool) void {
-        qtc.Poppler__FormField_SetVisible(@ptrCast(self), value);
+    pub fn SetVisible(self: Poppler__FormFieldSignature, value: bool) void {
+        qtc.Poppler__FormField_SetVisible(@ptrCast(self.ptr), value);
     }
 
     /// Inherited from Poppler::FormField
@@ -3736,10 +3884,10 @@ pub const poppler__formfieldsignature = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldSignature `
+    /// ` self: Poppler__FormFieldSignature `
     ///
-    pub fn IsPrintable(self: ?*anyopaque) bool {
-        return qtc.Poppler__FormField_IsPrintable(@ptrCast(self));
+    pub fn IsPrintable(self: Poppler__FormFieldSignature) bool {
+        return qtc.Poppler__FormField_IsPrintable(@ptrCast(self.ptr));
     }
 
     /// Inherited from Poppler::FormField
@@ -3748,12 +3896,12 @@ pub const poppler__formfieldsignature = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldSignature `
+    /// ` self: Poppler__FormFieldSignature `
     ///
     /// ` value: bool `
     ///
-    pub fn SetPrintable(self: ?*anyopaque, value: bool) void {
-        qtc.Poppler__FormField_SetPrintable(@ptrCast(self), value);
+    pub fn SetPrintable(self: Poppler__FormFieldSignature, value: bool) void {
+        qtc.Poppler__FormField_SetPrintable(@ptrCast(self.ptr), value);
     }
 
     /// Inherited from Poppler::FormField
@@ -3762,10 +3910,10 @@ pub const poppler__formfieldsignature = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldSignature `
+    /// ` self: Poppler__FormFieldSignature `
     ///
-    pub fn ActivationAction(self: ?*anyopaque) QtC.Poppler__Link {
-        return qtc.Poppler__FormField_ActivationAction(@ptrCast(self));
+    pub fn ActivationAction(self: Poppler__FormFieldSignature) Poppler__Link {
+        return .{ .ptr = qtc.Poppler__FormField_ActivationAction(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from Poppler::FormField
@@ -3774,12 +3922,12 @@ pub const poppler__formfieldsignature = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldSignature `
+    /// ` self: Poppler__FormFieldSignature `
     ///
     /// ` typeVal: poppler_form_enums.AdditionalActionType `
     ///
-    pub fn AdditionalAction(self: ?*anyopaque, typeVal: i32) QtC.Poppler__Link {
-        return qtc.Poppler__FormField_AdditionalAction(@ptrCast(self), @bitCast(typeVal));
+    pub fn AdditionalAction(self: Poppler__FormFieldSignature, typeVal: i32) Poppler__Link {
+        return .{ .ptr = qtc.Poppler__FormField_AdditionalAction(@ptrCast(self.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from Poppler::FormField
@@ -3788,12 +3936,12 @@ pub const poppler__formfieldsignature = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FormFieldSignature `
+    /// ` self: Poppler__FormFieldSignature `
     ///
     /// ` typeVal: poppler_annotation_enums.AdditionalActionType `
     ///
-    pub fn AdditionalAction2(self: ?*anyopaque, typeVal: i32) QtC.Poppler__Link {
-        return qtc.Poppler__FormField_AdditionalAction2(@ptrCast(self), @bitCast(typeVal));
+    pub fn AdditionalAction2(self: Poppler__FormFieldSignature, typeVal: i32) Poppler__Link {
+        return .{ .ptr = qtc.Poppler__FormField_AdditionalAction2(@ptrCast(self.ptr), @bitCast(typeVal)) };
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -3806,15 +3954,23 @@ pub const poppler__formfieldsignature = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.Poppler__FormFieldSignature `
+    /// ` self: Poppler__FormFieldSignature `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.Poppler__FormFieldSignature_Delete(@ptrCast(self));
+    pub fn Delete(self: Poppler__FormFieldSignature) void {
+        qtc.Poppler__FormFieldSignature_Delete(@ptrCast(self.ptr));
     }
 };
 
 /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/namespacePoppler.html)
-pub const poppler = struct {
+pub const Poppler = extern struct {
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/namespacePoppler.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.Poppler,
+
+    pub const _is_Poppler = {};
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/namespacePoppler.html)
     ///
     /// ## Parameter(s):
@@ -3868,12 +4024,13 @@ pub const poppler = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GetAvailableSigningCertificates(allocator: std.mem.Allocator) []QtC.Poppler__CertificateInfo {
+    pub fn GetAvailableSigningCertificates(allocator: std.mem.Allocator) []Poppler__CertificateInfo {
         const _arr: qtc.libqt_list = qtc.Poppler_GetAvailableSigningCertificates();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.Poppler__CertificateInfo, _arr.len) catch @panic("poppler.GetAvailableSigningCertificates: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__CertificateInfo, _arr.len) catch @panic("poppler.GetAvailableSigningCertificates: Memory allocation failed");
         const _data: [*]QtC.Poppler__CertificateInfo = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 

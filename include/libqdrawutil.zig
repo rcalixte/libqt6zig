@@ -3,25 +3,35 @@ const qtc = @import("qt6c");
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qtilerules.html)
-pub const qtilerules = struct {
+pub const QTileRules = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtilerules.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QTileRules,
+
+    pub const _is_QTileRules = {};
+
     /// New constructs a new QTileRules object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QTileRules `
+    /// ` other: QTileRules `
     ///
-    pub fn New(other: ?*anyopaque) QtC.QTileRules {
-        return qtc.QTileRules_new(@ptrCast(other));
+    pub fn New(other: anytype) QTileRules {
+        comptime _ = @TypeOf(other)._is_QTileRules;
+        return .{ .ptr = qtc.QTileRules_new(@ptrCast(other.ptr)) };
     }
 
     /// New2 constructs a new QTileRules object and invalidates the source QTileRules object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QTileRules `
+    /// ` other: QTileRules `
     ///
-    pub fn New2(other: ?*anyopaque) QtC.QTileRules {
-        return qtc.QTileRules_new2(@ptrCast(other));
+    pub fn New2(other: anytype) QTileRules {
+        comptime _ = @TypeOf(other)._is_QTileRules;
+        return .{ .ptr = qtc.QTileRules_new2(@ptrCast(other.ptr)) };
     }
 
     /// New3 constructs a new QTileRules object.
@@ -32,24 +42,25 @@ pub const qtilerules = struct {
     ///
     /// ` verticalRule: qnamespace_enums.TileRule `
     ///
-    pub fn New3(horizontalRule: i32, verticalRule: i32) QtC.QTileRules {
-        return qtc.QTileRules_new3(@bitCast(horizontalRule), @bitCast(verticalRule));
+    pub fn New3(horizontalRule: i32, verticalRule: i32) QTileRules {
+        return .{ .ptr = qtc.QTileRules_new3(@bitCast(horizontalRule), @bitCast(verticalRule)) };
     }
 
     /// New4 constructs a new QTileRules object.
     ///
-    pub fn New4() QtC.QTileRules {
-        return qtc.QTileRules_new4();
+    pub fn New4() QTileRules {
+        return .{ .ptr = qtc.QTileRules_new4() };
     }
 
     /// New5 constructs a new QTileRules object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QTileRules `
+    /// ` param1: QTileRules `
     ///
-    pub fn New5(param1: ?*anyopaque) QtC.QTileRules {
-        return qtc.QTileRules_new5(@ptrCast(param1));
+    pub fn New5(param1: anytype) QTileRules {
+        comptime _ = @TypeOf(param1)._is_QTileRules;
+        return .{ .ptr = qtc.QTileRules_new5(@ptrCast(param1.ptr)) };
     }
 
     /// New6 constructs a new QTileRules object.
@@ -58,84 +69,84 @@ pub const qtilerules = struct {
     ///
     /// ` rule: qnamespace_enums.TileRule `
     ///
-    pub fn New6(rule: i32) QtC.QTileRules {
-        return qtc.QTileRules_new6(@bitCast(rule));
+    pub fn New6(rule: i32) QTileRules {
+        return .{ .ptr = qtc.QTileRules_new6(@bitCast(rule)) };
     }
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTileRules `
+    /// ` self: QTileRules `
     ///
-    /// ` other: QtC.QTileRules `
+    /// ` other: QTileRules `
     ///
-    pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QTileRules_CopyAssign(@ptrCast(self), @ptrCast(other));
+    pub fn CopyAssign(self: QTileRules, other: QTileRules) void {
+        qtc.QTileRules_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTileRules `
+    /// ` self: QTileRules `
     ///
-    /// ` other: QtC.QTileRules `
+    /// ` other: QTileRules `
     ///
-    pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QTileRules_MoveAssign(@ptrCast(self), @ptrCast(other));
+    pub fn MoveAssign(self: QTileRules, other: QTileRules) void {
+        qtc.QTileRules_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtilerules.html#horizontal-var)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTileRules `
+    /// ` self: QTileRules `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.TileRule `
     ///
-    pub fn Horizontal(self: ?*anyopaque) i32 {
-        return qtc.QTileRules_Horizontal(@ptrCast(self));
+    pub fn Horizontal(self: QTileRules) i32 {
+        return qtc.QTileRules_Horizontal(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtilerules.html#horizontal-var)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTileRules `
+    /// ` self: QTileRules `
     ///
     /// ` horizontal: qnamespace_enums.TileRule `
     ///
-    pub fn SetHorizontal(self: ?*anyopaque, horizontal: i32) void {
-        qtc.QTileRules_SetHorizontal(@ptrCast(self), @bitCast(horizontal));
+    pub fn SetHorizontal(self: QTileRules, horizontal: i32) void {
+        qtc.QTileRules_SetHorizontal(@ptrCast(self.ptr), @bitCast(horizontal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtilerules.html#vertical-var)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTileRules `
+    /// ` self: QTileRules `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.TileRule `
     ///
-    pub fn Vertical(self: ?*anyopaque) i32 {
-        return qtc.QTileRules_Vertical(@ptrCast(self));
+    pub fn Vertical(self: QTileRules) i32 {
+        return qtc.QTileRules_Vertical(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtilerules.html#vertical-var)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTileRules `
+    /// ` self: QTileRules `
     ///
     /// ` vertical: qnamespace_enums.TileRule `
     ///
-    pub fn SetVertical(self: ?*anyopaque, vertical: i32) void {
-        qtc.QTileRules_SetVertical(@ptrCast(self), @bitCast(vertical));
+    pub fn SetVertical(self: QTileRules, vertical: i32) void {
+        qtc.QTileRules_SetVertical(@ptrCast(self.ptr), @bitCast(vertical));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -148,10 +159,10 @@ pub const qtilerules = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QTileRules `
+    /// ` self: QTileRules `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QTileRules_Delete(@ptrCast(self));
+    pub fn Delete(self: QTileRules) void {
+        qtc.QTileRules_Delete(@ptrCast(self.ptr));
     }
 };
 

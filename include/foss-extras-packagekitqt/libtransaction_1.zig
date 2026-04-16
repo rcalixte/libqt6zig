@@ -1,30 +1,53 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const PackageKit__Details = @import("libqt6").PackageKit__Details;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QDBusObjectPath = @import("libqt6").QDBusObjectPath;
+const QDateTime = @import("libqt6").QDateTime;
+const QEvent = @import("libqt6").QEvent;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 const transaction_enums = enums;
 
 /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
-pub const packagekit__transaction = struct {
+pub const PackageKit__Transaction = extern struct {
+    /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.PackageKit__Transaction,
+
+    pub const _is_PackageKit__Transaction = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new PackageKit::Transaction object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` tid: QtC.QDBusObjectPath `
+    /// ` tid: QDBusObjectPath `
     ///
-    pub fn New(tid: ?*anyopaque) QtC.PackageKit__Transaction {
-        return qtc.PackageKit__Transaction_new(@ptrCast(tid));
+    pub fn New(tid: anytype) PackageKit__Transaction {
+        comptime _ = @TypeOf(tid)._is_QDBusObjectPath;
+        return .{ .ptr = qtc.PackageKit__Transaction_new(@ptrCast(tid.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.PackageKit__Transaction_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: PackageKit__Transaction) QMetaObject {
+        return .{ .ptr = qtc.PackageKit__Transaction_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -33,12 +56,12 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.PackageKit__Transaction_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: PackageKit__Transaction, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.PackageKit__Transaction_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -51,33 +74,33 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.PackageKit__Transaction_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: PackageKit__Transaction) QMetaObject {
+        return .{ .ptr = qtc.PackageKit__Transaction_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: PackageKit__Transaction, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.PackageKit__Transaction_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.PackageKit__Transaction_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: PackageKit__Transaction, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.PackageKit__Transaction_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.PackageKit__Transaction_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -88,18 +111,18 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: PackageKit__Transaction, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.PackageKit__Transaction_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.PackageKit__Transaction_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -107,20 +130,20 @@ pub const packagekit__transaction = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.PackageKit__Transaction_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: PackageKit__Transaction, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.PackageKit__Transaction_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: PackageKit__Transaction, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.PackageKit__Transaction_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.PackageKit__Transaction_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -131,7 +154,7 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -139,19 +162,19 @@ pub const packagekit__transaction = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.PackageKit__Transaction_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: PackageKit__Transaction, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.PackageKit__Transaction_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -164,42 +187,42 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    pub fn Tid(self: ?*anyopaque) QtC.QDBusObjectPath {
-        return qtc.PackageKit__Transaction_Tid(@ptrCast(self));
+    pub fn Tid(self: PackageKit__Transaction) QDBusObjectPath {
+        return .{ .ptr = qtc.PackageKit__Transaction_Tid(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    pub fn AllowCancel(self: ?*anyopaque) bool {
-        return qtc.PackageKit__Transaction_AllowCancel(@ptrCast(self));
+    pub fn AllowCancel(self: PackageKit__Transaction) bool {
+        return qtc.PackageKit__Transaction_AllowCancel(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    pub fn IsCallerActive(self: ?*anyopaque) bool {
-        return qtc.PackageKit__Transaction_IsCallerActive(@ptrCast(self));
+    pub fn IsCallerActive(self: PackageKit__Transaction) bool {
+        return qtc.PackageKit__Transaction_IsCallerActive(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LastPackage(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.PackageKit__Transaction_LastPackage(@ptrCast(self));
+    pub fn LastPackage(self: PackageKit__Transaction, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.PackageKit__Transaction_LastPackage(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit__transaction.LastPackage: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -210,134 +233,134 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    pub fn Percentage(self: ?*anyopaque) u32 {
-        return qtc.PackageKit__Transaction_Percentage(@ptrCast(self));
+    pub fn Percentage(self: PackageKit__Transaction) u32 {
+        return qtc.PackageKit__Transaction_Percentage(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    pub fn ElapsedTime(self: ?*anyopaque) u32 {
-        return qtc.PackageKit__Transaction_ElapsedTime(@ptrCast(self));
+    pub fn ElapsedTime(self: PackageKit__Transaction) u32 {
+        return qtc.PackageKit__Transaction_ElapsedTime(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    pub fn RemainingTime(self: ?*anyopaque) u32 {
-        return qtc.PackageKit__Transaction_RemainingTime(@ptrCast(self));
+    pub fn RemainingTime(self: PackageKit__Transaction) u32 {
+        return qtc.PackageKit__Transaction_RemainingTime(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    pub fn Speed(self: ?*anyopaque) u32 {
-        return qtc.PackageKit__Transaction_Speed(@ptrCast(self));
+    pub fn Speed(self: PackageKit__Transaction) u32 {
+        return qtc.PackageKit__Transaction_Speed(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    pub fn DownloadSizeRemaining(self: ?*anyopaque) usize {
-        return qtc.PackageKit__Transaction_DownloadSizeRemaining(@ptrCast(self));
+    pub fn DownloadSizeRemaining(self: PackageKit__Transaction) usize {
+        return qtc.PackageKit__Transaction_DownloadSizeRemaining(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
     /// ## Returns:
     ///
     /// ` transaction_enums.Role `
     ///
-    pub fn Role(self: ?*anyopaque) i32 {
-        return qtc.PackageKit__Transaction_Role(@ptrCast(self));
+    pub fn Role(self: PackageKit__Transaction) i32 {
+        return qtc.PackageKit__Transaction_Role(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
     /// ## Returns:
     ///
     /// ` transaction_enums.Status `
     ///
-    pub fn Status(self: ?*anyopaque) i32 {
-        return qtc.PackageKit__Transaction_Status(@ptrCast(self));
+    pub fn Status(self: PackageKit__Transaction) i32 {
+        return qtc.PackageKit__Transaction_Status(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
     /// ## Returns:
     ///
     /// ` flag of transaction_enums.TransactionFlag `
     ///
-    pub fn TransactionFlags(self: ?*anyopaque) i32 {
-        return qtc.PackageKit__Transaction_TransactionFlags(@ptrCast(self));
+    pub fn TransactionFlags(self: PackageKit__Transaction) i32 {
+        return qtc.PackageKit__Transaction_TransactionFlags(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    pub fn Timespec(self: ?*anyopaque) QtC.QDateTime {
-        return qtc.PackageKit__Transaction_Timespec(@ptrCast(self));
+    pub fn Timespec(self: PackageKit__Transaction) QDateTime {
+        return .{ .ptr = qtc.PackageKit__Transaction_Timespec(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    pub fn Succeeded(self: ?*anyopaque) bool {
-        return qtc.PackageKit__Transaction_Succeeded(@ptrCast(self));
+    pub fn Succeeded(self: PackageKit__Transaction) bool {
+        return qtc.PackageKit__Transaction_Succeeded(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    pub fn Duration(self: ?*anyopaque) u32 {
-        return qtc.PackageKit__Transaction_Duration(@ptrCast(self));
+    pub fn Duration(self: PackageKit__Transaction) u32 {
+        return qtc.PackageKit__Transaction_Duration(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Data(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.PackageKit__Transaction_Data(@ptrCast(self));
+    pub fn Data(self: PackageKit__Transaction, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.PackageKit__Transaction_Data(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit__transaction.Data: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -348,22 +371,22 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    pub fn Uid(self: ?*anyopaque) u32 {
-        return qtc.PackageKit__Transaction_Uid(@ptrCast(self));
+    pub fn Uid(self: PackageKit__Transaction) u32 {
+        return qtc.PackageKit__Transaction_Uid(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SenderName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.PackageKit__Transaction_SenderName(@ptrCast(self));
+    pub fn SenderName(self: PackageKit__Transaction, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.PackageKit__Transaction_SenderName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit__transaction.SenderName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -374,12 +397,12 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Cmdline(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.PackageKit__Transaction_Cmdline(@ptrCast(self));
+    pub fn Cmdline(self: PackageKit__Transaction, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.PackageKit__Transaction_Cmdline(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit__transaction.Cmdline: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -390,11 +413,11 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` packageID: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PackageName(packageID: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` packageID: []const u8 `
+    ///
+    pub fn PackageName(allocator: std.mem.Allocator, packageID: []const u8) []const u8 {
         const packageID_str = qtc.libqt_string{
             .len = packageID.len,
             .data = packageID.ptr,
@@ -410,11 +433,11 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` packageID: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PackageVersion(packageID: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` packageID: []const u8 `
+    ///
+    pub fn PackageVersion(allocator: std.mem.Allocator, packageID: []const u8) []const u8 {
         const packageID_str = qtc.libqt_string{
             .len = packageID.len,
             .data = packageID.ptr,
@@ -430,11 +453,11 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` packageID: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PackageArch(packageID: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` packageID: []const u8 `
+    ///
+    pub fn PackageArch(allocator: std.mem.Allocator, packageID: []const u8) []const u8 {
         const packageID_str = qtc.libqt_string{
             .len = packageID.len,
             .data = packageID.ptr,
@@ -450,11 +473,11 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` packageID: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PackageData(packageID: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` packageID: []const u8 `
+    ///
+    pub fn PackageData(allocator: std.mem.Allocator, packageID: []const u8) []const u8 {
         const packageID_str = qtc.libqt_string{
             .len = packageID.len,
             .data = packageID.ptr,
@@ -470,293 +493,293 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    pub fn AllowCancelChanged(self: ?*anyopaque) void {
-        qtc.PackageKit__Transaction_AllowCancelChanged(@ptrCast(self));
+    pub fn AllowCancelChanged(self: PackageKit__Transaction) void {
+        qtc.PackageKit__Transaction_AllowCancelChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transaction) callconv(.c) void `
+    /// ` callback: *const fn (self: PackageKit__Transaction) callconv(.c) void `
     ///
-    pub fn OnAllowCancelChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.PackageKit__Transaction_Connect_AllowCancelChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAllowCancelChanged(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction) callconv(.c) void) void {
+        qtc.PackageKit__Transaction_Connect_AllowCancelChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    pub fn IsCallerActiveChanged(self: ?*anyopaque) void {
-        qtc.PackageKit__Transaction_IsCallerActiveChanged(@ptrCast(self));
+    pub fn IsCallerActiveChanged(self: PackageKit__Transaction) void {
+        qtc.PackageKit__Transaction_IsCallerActiveChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transaction) callconv(.c) void `
+    /// ` callback: *const fn (self: PackageKit__Transaction) callconv(.c) void `
     ///
-    pub fn OnIsCallerActiveChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.PackageKit__Transaction_Connect_IsCallerActiveChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsCallerActiveChanged(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction) callconv(.c) void) void {
+        qtc.PackageKit__Transaction_Connect_IsCallerActiveChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    pub fn DownloadSizeRemainingChanged(self: ?*anyopaque) void {
-        qtc.PackageKit__Transaction_DownloadSizeRemainingChanged(@ptrCast(self));
+    pub fn DownloadSizeRemainingChanged(self: PackageKit__Transaction) void {
+        qtc.PackageKit__Transaction_DownloadSizeRemainingChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transaction) callconv(.c) void `
+    /// ` callback: *const fn (self: PackageKit__Transaction) callconv(.c) void `
     ///
-    pub fn OnDownloadSizeRemainingChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.PackageKit__Transaction_Connect_DownloadSizeRemainingChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDownloadSizeRemainingChanged(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction) callconv(.c) void) void {
+        qtc.PackageKit__Transaction_Connect_DownloadSizeRemainingChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    pub fn ElapsedTimeChanged(self: ?*anyopaque) void {
-        qtc.PackageKit__Transaction_ElapsedTimeChanged(@ptrCast(self));
+    pub fn ElapsedTimeChanged(self: PackageKit__Transaction) void {
+        qtc.PackageKit__Transaction_ElapsedTimeChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transaction) callconv(.c) void `
+    /// ` callback: *const fn (self: PackageKit__Transaction) callconv(.c) void `
     ///
-    pub fn OnElapsedTimeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.PackageKit__Transaction_Connect_ElapsedTimeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnElapsedTimeChanged(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction) callconv(.c) void) void {
+        qtc.PackageKit__Transaction_Connect_ElapsedTimeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    pub fn LastPackageChanged(self: ?*anyopaque) void {
-        qtc.PackageKit__Transaction_LastPackageChanged(@ptrCast(self));
+    pub fn LastPackageChanged(self: PackageKit__Transaction) void {
+        qtc.PackageKit__Transaction_LastPackageChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transaction) callconv(.c) void `
+    /// ` callback: *const fn (self: PackageKit__Transaction) callconv(.c) void `
     ///
-    pub fn OnLastPackageChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.PackageKit__Transaction_Connect_LastPackageChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLastPackageChanged(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction) callconv(.c) void) void {
+        qtc.PackageKit__Transaction_Connect_LastPackageChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    pub fn PercentageChanged(self: ?*anyopaque) void {
-        qtc.PackageKit__Transaction_PercentageChanged(@ptrCast(self));
+    pub fn PercentageChanged(self: PackageKit__Transaction) void {
+        qtc.PackageKit__Transaction_PercentageChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transaction) callconv(.c) void `
+    /// ` callback: *const fn (self: PackageKit__Transaction) callconv(.c) void `
     ///
-    pub fn OnPercentageChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.PackageKit__Transaction_Connect_PercentageChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPercentageChanged(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction) callconv(.c) void) void {
+        qtc.PackageKit__Transaction_Connect_PercentageChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    pub fn RemainingTimeChanged(self: ?*anyopaque) void {
-        qtc.PackageKit__Transaction_RemainingTimeChanged(@ptrCast(self));
+    pub fn RemainingTimeChanged(self: PackageKit__Transaction) void {
+        qtc.PackageKit__Transaction_RemainingTimeChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transaction) callconv(.c) void `
+    /// ` callback: *const fn (self: PackageKit__Transaction) callconv(.c) void `
     ///
-    pub fn OnRemainingTimeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.PackageKit__Transaction_Connect_RemainingTimeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRemainingTimeChanged(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction) callconv(.c) void) void {
+        qtc.PackageKit__Transaction_Connect_RemainingTimeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    pub fn RoleChanged(self: ?*anyopaque) void {
-        qtc.PackageKit__Transaction_RoleChanged(@ptrCast(self));
+    pub fn RoleChanged(self: PackageKit__Transaction) void {
+        qtc.PackageKit__Transaction_RoleChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transaction) callconv(.c) void `
+    /// ` callback: *const fn (self: PackageKit__Transaction) callconv(.c) void `
     ///
-    pub fn OnRoleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.PackageKit__Transaction_Connect_RoleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRoleChanged(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction) callconv(.c) void) void {
+        qtc.PackageKit__Transaction_Connect_RoleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    pub fn SpeedChanged(self: ?*anyopaque) void {
-        qtc.PackageKit__Transaction_SpeedChanged(@ptrCast(self));
+    pub fn SpeedChanged(self: PackageKit__Transaction) void {
+        qtc.PackageKit__Transaction_SpeedChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transaction) callconv(.c) void `
+    /// ` callback: *const fn (self: PackageKit__Transaction) callconv(.c) void `
     ///
-    pub fn OnSpeedChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.PackageKit__Transaction_Connect_SpeedChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSpeedChanged(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction) callconv(.c) void) void {
+        qtc.PackageKit__Transaction_Connect_SpeedChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    pub fn StatusChanged(self: ?*anyopaque) void {
-        qtc.PackageKit__Transaction_StatusChanged(@ptrCast(self));
+    pub fn StatusChanged(self: PackageKit__Transaction) void {
+        qtc.PackageKit__Transaction_StatusChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transaction) callconv(.c) void `
+    /// ` callback: *const fn (self: PackageKit__Transaction) callconv(.c) void `
     ///
-    pub fn OnStatusChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.PackageKit__Transaction_Connect_StatusChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnStatusChanged(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction) callconv(.c) void) void {
+        qtc.PackageKit__Transaction_Connect_StatusChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    pub fn TransactionFlagsChanged(self: ?*anyopaque) void {
-        qtc.PackageKit__Transaction_TransactionFlagsChanged(@ptrCast(self));
+    pub fn TransactionFlagsChanged(self: PackageKit__Transaction) void {
+        qtc.PackageKit__Transaction_TransactionFlagsChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transaction) callconv(.c) void `
+    /// ` callback: *const fn (self: PackageKit__Transaction) callconv(.c) void `
     ///
-    pub fn OnTransactionFlagsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.PackageKit__Transaction_Connect_TransactionFlagsChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTransactionFlagsChanged(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction) callconv(.c) void) void {
+        qtc.PackageKit__Transaction_Connect_TransactionFlagsChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    pub fn UidChanged(self: ?*anyopaque) void {
-        qtc.PackageKit__Transaction_UidChanged(@ptrCast(self));
+    pub fn UidChanged(self: PackageKit__Transaction) void {
+        qtc.PackageKit__Transaction_UidChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transaction) callconv(.c) void `
+    /// ` callback: *const fn (self: PackageKit__Transaction) callconv(.c) void `
     ///
-    pub fn OnUidChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.PackageKit__Transaction_Connect_UidChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUidChanged(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction) callconv(.c) void) void {
+        qtc.PackageKit__Transaction_Connect_UidChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    pub fn SenderNameChanged(self: ?*anyopaque) void {
-        qtc.PackageKit__Transaction_SenderNameChanged(@ptrCast(self));
+    pub fn SenderNameChanged(self: PackageKit__Transaction) void {
+        qtc.PackageKit__Transaction_SenderNameChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transaction) callconv(.c) void `
+    /// ` callback: *const fn (self: PackageKit__Transaction) callconv(.c) void `
     ///
-    pub fn OnSenderNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.PackageKit__Transaction_Connect_SenderNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderNameChanged(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction) callconv(.c) void) void {
+        qtc.PackageKit__Transaction_Connect_SenderNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
     /// ` parentId: []const u8 `
     ///
@@ -768,7 +791,7 @@ pub const packagekit__transaction = struct {
     ///
     /// ` icon: []const u8 `
     ///
-    pub fn Category(self: ?*anyopaque, parentId: []const u8, categoryId: []const u8, name: []const u8, summary: []const u8, icon: []const u8) void {
+    pub fn Category(self: PackageKit__Transaction, parentId: []const u8, categoryId: []const u8, name: []const u8, summary: []const u8, icon: []const u8) void {
         const parentId_str = qtc.libqt_string{
             .len = parentId.len,
             .data = parentId.ptr,
@@ -789,26 +812,26 @@ pub const packagekit__transaction = struct {
             .len = icon.len,
             .data = icon.ptr,
         };
-        qtc.PackageKit__Transaction_Category(@ptrCast(self), parentId_str, categoryId_str, name_str, summary_str, icon_str);
+        qtc.PackageKit__Transaction_Category(@ptrCast(self.ptr), parentId_str, categoryId_str, name_str, summary_str, icon_str);
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, parentId: [*:0]const u8, categoryId: [*:0]const u8, name: [*:0]const u8, summary: [*:0]const u8, icon: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: PackageKit__Transaction, parentId: [*:0]const u8, categoryId: [*:0]const u8, name: [*:0]const u8, summary: [*:0]const u8, icon: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnCategory(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8, [*:0]const u8, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
-        qtc.PackageKit__Transaction_Connect_Category(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCategory(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction, [*:0]const u8, [*:0]const u8, [*:0]const u8, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
+        qtc.PackageKit__Transaction_Connect_Category(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
     /// ` typeVal: transaction_enums.DistroUpgrade `
     ///
@@ -816,7 +839,7 @@ pub const packagekit__transaction = struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn DistroUpgrade(self: ?*anyopaque, typeVal: i32, name: []const u8, description: []const u8) void {
+    pub fn DistroUpgrade(self: PackageKit__Transaction, typeVal: i32, name: []const u8, description: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -825,56 +848,56 @@ pub const packagekit__transaction = struct {
             .len = description.len,
             .data = description.ptr,
         };
-        qtc.PackageKit__Transaction_DistroUpgrade(@ptrCast(self), @bitCast(typeVal), name_str, description_str);
+        qtc.PackageKit__Transaction_DistroUpgrade(@ptrCast(self.ptr), @bitCast(typeVal), name_str, description_str);
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, typeVal: transaction_enums.DistroUpgrade, name: [*:0]const u8, description: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: PackageKit__Transaction, typeVal: transaction_enums.DistroUpgrade, name: [*:0]const u8, description: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnDistroUpgrade(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
-        qtc.PackageKit__Transaction_Connect_DistroUpgrade(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDistroUpgrade(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction, i32, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
+        qtc.PackageKit__Transaction_Connect_DistroUpgrade(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
     /// ` errorVal: transaction_enums.Error `
     ///
     /// ` details: []const u8 `
     ///
-    pub fn ErrorCode(self: ?*anyopaque, errorVal: i32, details: []const u8) void {
+    pub fn ErrorCode(self: PackageKit__Transaction, errorVal: i32, details: []const u8) void {
         const details_str = qtc.libqt_string{
             .len = details.len,
             .data = details.ptr,
         };
-        qtc.PackageKit__Transaction_ErrorCode(@ptrCast(self), @bitCast(errorVal), details_str);
+        qtc.PackageKit__Transaction_ErrorCode(@ptrCast(self.ptr), @bitCast(errorVal), details_str);
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, errorVal: transaction_enums.Error, details: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: PackageKit__Transaction, errorVal: transaction_enums.Error, details: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnErrorCode(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
-        qtc.PackageKit__Transaction_Connect_ErrorCode(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnErrorCode(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction, i32, [*:0]const u8) callconv(.c) void) void {
+        qtc.PackageKit__Transaction_Connect_ErrorCode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
     /// ` eulaID: []const u8 `
     ///
@@ -884,7 +907,7 @@ pub const packagekit__transaction = struct {
     ///
     /// ` licenseAgreement: []const u8 `
     ///
-    pub fn EulaRequired(self: ?*anyopaque, eulaID: []const u8, packageID: []const u8, vendor: []const u8, licenseAgreement: []const u8) void {
+    pub fn EulaRequired(self: PackageKit__Transaction, eulaID: []const u8, packageID: []const u8, vendor: []const u8, licenseAgreement: []const u8) void {
         const eulaID_str = qtc.libqt_string{
             .len = eulaID.len,
             .data = eulaID.ptr,
@@ -901,26 +924,26 @@ pub const packagekit__transaction = struct {
             .len = licenseAgreement.len,
             .data = licenseAgreement.ptr,
         };
-        qtc.PackageKit__Transaction_EulaRequired(@ptrCast(self), eulaID_str, packageID_str, vendor_str, licenseAgreement_str);
+        qtc.PackageKit__Transaction_EulaRequired(@ptrCast(self.ptr), eulaID_str, packageID_str, vendor_str, licenseAgreement_str);
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, eulaID: [*:0]const u8, packageID: [*:0]const u8, vendor: [*:0]const u8, licenseAgreement: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: PackageKit__Transaction, eulaID: [*:0]const u8, packageID: [*:0]const u8, vendor: [*:0]const u8, licenseAgreement: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnEulaRequired(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
-        qtc.PackageKit__Transaction_Connect_EulaRequired(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEulaRequired(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction, [*:0]const u8, [*:0]const u8, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
+        qtc.PackageKit__Transaction_Connect_EulaRequired(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
     /// ` typeVal: transaction_enums.MediaType `
     ///
@@ -928,7 +951,7 @@ pub const packagekit__transaction = struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn MediaChangeRequired(self: ?*anyopaque, typeVal: i32, id: []const u8, text: []const u8) void {
+    pub fn MediaChangeRequired(self: PackageKit__Transaction, typeVal: i32, id: []const u8, text: []const u8) void {
         const id_str = qtc.libqt_string{
             .len = id.len,
             .data = id.ptr,
@@ -937,26 +960,26 @@ pub const packagekit__transaction = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.PackageKit__Transaction_MediaChangeRequired(@ptrCast(self), @bitCast(typeVal), id_str, text_str);
+        qtc.PackageKit__Transaction_MediaChangeRequired(@ptrCast(self.ptr), @bitCast(typeVal), id_str, text_str);
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, typeVal: transaction_enums.MediaType, id: [*:0]const u8, text: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: PackageKit__Transaction, typeVal: transaction_enums.MediaType, id: [*:0]const u8, text: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnMediaChangeRequired(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
-        qtc.PackageKit__Transaction_Connect_MediaChangeRequired(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMediaChangeRequired(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction, i32, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
+        qtc.PackageKit__Transaction_Connect_MediaChangeRequired(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
     /// ` itemID: []const u8 `
     ///
@@ -964,101 +987,100 @@ pub const packagekit__transaction = struct {
     ///
     /// ` percentage: u32 `
     ///
-    pub fn ItemProgress(self: ?*anyopaque, itemID: []const u8, status: i32, percentage: u32) void {
+    pub fn ItemProgress(self: PackageKit__Transaction, itemID: []const u8, status: i32, percentage: u32) void {
         const itemID_str = qtc.libqt_string{
             .len = itemID.len,
             .data = itemID.ptr,
         };
-        qtc.PackageKit__Transaction_ItemProgress(@ptrCast(self), itemID_str, @bitCast(status), @bitCast(percentage));
+        qtc.PackageKit__Transaction_ItemProgress(@ptrCast(self.ptr), itemID_str, @bitCast(status), @bitCast(percentage));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, itemID: [*:0]const u8, status: transaction_enums.Status, percentage: u32) callconv(.c) void `
+    /// ` callback: *const fn (self: PackageKit__Transaction, itemID: [*:0]const u8, status: transaction_enums.Status, percentage: u32) callconv(.c) void `
     ///
-    pub fn OnItemProgress(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, u32) callconv(.c) void) void {
-        qtc.PackageKit__Transaction_Connect_ItemProgress(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnItemProgress(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction, [*:0]const u8, i32, u32) callconv(.c) void) void {
+        qtc.PackageKit__Transaction_Connect_ItemProgress(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` packageID: []const u8 `
     ///
     /// ` filenames: []const []const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Files(self: ?*anyopaque, packageID: []const u8, filenames: []const []const u8, allocator: std.mem.Allocator) void {
+    pub fn Files(self: PackageKit__Transaction, allocator: std.mem.Allocator, packageID: []const u8, filenames: []const []const u8) void {
         const packageID_str = qtc.libqt_string{
             .len = packageID.len,
             .data = packageID.ptr,
         };
         const filenames_arr = allocator.alloc(qtc.libqt_string, filenames.len) catch @panic("packagekit__transaction.Files: Memory allocation failed");
         defer allocator.free(filenames_arr);
-        for (filenames, 0..filenames.len) |item, i| {
+        for (filenames, 0..filenames.len) |item, i|
             filenames_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const filenames_list = qtc.libqt_list{
             .len = filenames.len,
             .data = filenames_arr.ptr,
         };
-        qtc.PackageKit__Transaction_Files(@ptrCast(self), packageID_str, filenames_list);
+        qtc.PackageKit__Transaction_Files(@ptrCast(self.ptr), packageID_str, filenames_list);
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, packageID: [*:0]const u8, filenames: ?[*:null]?[*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: PackageKit__Transaction, packageID: [*:0]const u8, filenames: ?[*:null]?[*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnFiles(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
-        qtc.PackageKit__Transaction_Connect_Files(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFiles(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction, [*:0]const u8, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
+        qtc.PackageKit__Transaction_Connect_Files(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
     /// ` status: transaction_enums.Exit `
     ///
     /// ` runtime: u32 `
     ///
-    pub fn Finished(self: ?*anyopaque, status: i32, runtime: u32) void {
-        qtc.PackageKit__Transaction_Finished(@ptrCast(self), @bitCast(status), @bitCast(runtime));
+    pub fn Finished(self: PackageKit__Transaction, status: i32, runtime: u32) void {
+        qtc.PackageKit__Transaction_Finished(@ptrCast(self.ptr), @bitCast(status), @bitCast(runtime));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, status: transaction_enums.Exit, runtime: u32) callconv(.c) void `
+    /// ` callback: *const fn (self: PackageKit__Transaction, status: transaction_enums.Exit, runtime: u32) callconv(.c) void `
     ///
-    pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, u32) callconv(.c) void) void {
-        qtc.PackageKit__Transaction_Connect_Finished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFinished(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction, i32, u32) callconv(.c) void) void {
+        qtc.PackageKit__Transaction_Connect_Finished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
     /// ` info: transaction_enums.Info `
     ///
@@ -1066,7 +1088,7 @@ pub const packagekit__transaction = struct {
     ///
     /// ` summary: []const u8 `
     ///
-    pub fn Package(self: ?*anyopaque, info: i32, packageID: []const u8, summary: []const u8) void {
+    pub fn Package(self: PackageKit__Transaction, info: i32, packageID: []const u8, summary: []const u8) void {
         const packageID_str = qtc.libqt_string{
             .len = packageID.len,
             .data = packageID.ptr,
@@ -1075,50 +1097,53 @@ pub const packagekit__transaction = struct {
             .len = summary.len,
             .data = summary.ptr,
         };
-        qtc.PackageKit__Transaction_Package(@ptrCast(self), @bitCast(info), packageID_str, summary_str);
+        qtc.PackageKit__Transaction_Package(@ptrCast(self.ptr), @bitCast(info), packageID_str, summary_str);
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, info: transaction_enums.Info, packageID: [*:0]const u8, summary: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: PackageKit__Transaction, info: transaction_enums.Info, packageID: [*:0]const u8, summary: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnPackage(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
-        qtc.PackageKit__Transaction_Connect_Package(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPackage(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction, i32, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
+        qtc.PackageKit__Transaction_Connect_Package(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` values: QtC.PackageKit__Details `
+    /// ` values: PackageKit__Details `
     ///
-    pub fn Details(self: ?*anyopaque, values: ?*anyopaque) void {
-        qtc.PackageKit__Transaction_Details(@ptrCast(self), @ptrCast(values));
+    pub fn Details(self: PackageKit__Transaction, values: anytype) void {
+        comptime _ = @TypeOf(values)._is_PackageKit__Details;
+        qtc.PackageKit__Transaction_Details(@ptrCast(self.ptr), @ptrCast(values.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, values: QtC.PackageKit__Details) callconv(.c) void `
+    /// ` callback: *const fn (self: PackageKit__Transaction, values: PackageKit__Details) callconv(.c) void `
     ///
-    pub fn OnDetails(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.PackageKit__Transaction_Connect_Details(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDetails(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction, PackageKit__Details) callconv(.c) void) void {
+        qtc.PackageKit__Transaction_Connect_Details(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` packageID: []const u8 `
     ///
@@ -1140,73 +1165,66 @@ pub const packagekit__transaction = struct {
     ///
     /// ` state: transaction_enums.UpdateState `
     ///
-    /// ` issued: QtC.QDateTime `
+    /// ` issued: QDateTime `
     ///
-    /// ` updated: QtC.QDateTime `
+    /// ` updated: QDateTime `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn UpdateDetail(self: ?*anyopaque, packageID: []const u8, updates: []const []const u8, obsoletes: []const []const u8, vendorUrls: []const []const u8, bugzillaUrls: []const []const u8, cveUrls: []const []const u8, restart: i32, updateText: []const u8, changelog: []const u8, state: i32, issued: ?*anyopaque, updated: ?*anyopaque, allocator: std.mem.Allocator) void {
+    pub fn UpdateDetail(self: PackageKit__Transaction, allocator: std.mem.Allocator, packageID: []const u8, updates: []const []const u8, obsoletes: []const []const u8, vendorUrls: []const []const u8, bugzillaUrls: []const []const u8, cveUrls: []const []const u8, restart: i32, updateText: []const u8, changelog: []const u8, state: i32, issued: anytype, updated: anytype) void {
         const packageID_str = qtc.libqt_string{
             .len = packageID.len,
             .data = packageID.ptr,
         };
         const updates_arr = allocator.alloc(qtc.libqt_string, updates.len) catch @panic("packagekit__transaction.UpdateDetail: Memory allocation failed");
         defer allocator.free(updates_arr);
-        for (updates, 0..updates.len) |item, i| {
+        for (updates, 0..updates.len) |item, i|
             updates_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const updates_list = qtc.libqt_list{
             .len = updates.len,
             .data = updates_arr.ptr,
         };
         const obsoletes_arr = allocator.alloc(qtc.libqt_string, obsoletes.len) catch @panic("packagekit__transaction.UpdateDetail: Memory allocation failed");
         defer allocator.free(obsoletes_arr);
-        for (obsoletes, 0..obsoletes.len) |item, i| {
+        for (obsoletes, 0..obsoletes.len) |item, i|
             obsoletes_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const obsoletes_list = qtc.libqt_list{
             .len = obsoletes.len,
             .data = obsoletes_arr.ptr,
         };
         const vendorUrls_arr = allocator.alloc(qtc.libqt_string, vendorUrls.len) catch @panic("packagekit__transaction.UpdateDetail: Memory allocation failed");
         defer allocator.free(vendorUrls_arr);
-        for (vendorUrls, 0..vendorUrls.len) |item, i| {
+        for (vendorUrls, 0..vendorUrls.len) |item, i|
             vendorUrls_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const vendorUrls_list = qtc.libqt_list{
             .len = vendorUrls.len,
             .data = vendorUrls_arr.ptr,
         };
         const bugzillaUrls_arr = allocator.alloc(qtc.libqt_string, bugzillaUrls.len) catch @panic("packagekit__transaction.UpdateDetail: Memory allocation failed");
         defer allocator.free(bugzillaUrls_arr);
-        for (bugzillaUrls, 0..bugzillaUrls.len) |item, i| {
+        for (bugzillaUrls, 0..bugzillaUrls.len) |item, i|
             bugzillaUrls_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const bugzillaUrls_list = qtc.libqt_list{
             .len = bugzillaUrls.len,
             .data = bugzillaUrls_arr.ptr,
         };
         const cveUrls_arr = allocator.alloc(qtc.libqt_string, cveUrls.len) catch @panic("packagekit__transaction.UpdateDetail: Memory allocation failed");
         defer allocator.free(cveUrls_arr);
-        for (cveUrls, 0..cveUrls.len) |item, i| {
+        for (cveUrls, 0..cveUrls.len) |item, i|
             cveUrls_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const cveUrls_list = qtc.libqt_list{
             .len = cveUrls.len,
             .data = cveUrls_arr.ptr,
@@ -1219,26 +1237,28 @@ pub const packagekit__transaction = struct {
             .len = changelog.len,
             .data = changelog.ptr,
         };
-        qtc.PackageKit__Transaction_UpdateDetail(@ptrCast(self), packageID_str, updates_list, obsoletes_list, vendorUrls_list, bugzillaUrls_list, cveUrls_list, @bitCast(restart), updateText_str, changelog_str, @bitCast(state), @ptrCast(issued), @ptrCast(updated));
+        comptime _ = @TypeOf(issued)._is_QDateTime;
+        comptime _ = @TypeOf(updated)._is_QDateTime;
+        qtc.PackageKit__Transaction_UpdateDetail(@ptrCast(self.ptr), packageID_str, updates_list, obsoletes_list, vendorUrls_list, bugzillaUrls_list, cveUrls_list, @bitCast(restart), updateText_str, changelog_str, @bitCast(state), @ptrCast(issued.ptr), @ptrCast(updated.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, packageID: [*:0]const u8, updates: ?[*:null]?[*:0]const u8, obsoletes: ?[*:null]?[*:0]const u8, vendorUrls: ?[*:null]?[*:0]const u8, bugzillaUrls: ?[*:null]?[*:0]const u8, cveUrls: ?[*:null]?[*:0]const u8, restart: transaction_enums.Restart, updateText: [*:0]const u8, changelog: [*:0]const u8, state: transaction_enums.UpdateState, issued: QtC.QDateTime, updated: QtC.QDateTime) callconv(.c) void `
+    /// ` callback: *const fn (self: PackageKit__Transaction, packageID: [*:0]const u8, updates: ?[*:null]?[*:0]const u8, obsoletes: ?[*:null]?[*:0]const u8, vendorUrls: ?[*:null]?[*:0]const u8, bugzillaUrls: ?[*:null]?[*:0]const u8, cveUrls: ?[*:null]?[*:0]const u8, restart: transaction_enums.Restart, updateText: [*:0]const u8, changelog: [*:0]const u8, state: transaction_enums.UpdateState, issued: QDateTime, updated: QDateTime) callconv(.c) void `
     ///
-    pub fn OnUpdateDetail(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?[*:null]?[*:0]const u8, ?[*:null]?[*:0]const u8, ?[*:null]?[*:0]const u8, ?[*:null]?[*:0]const u8, ?[*:null]?[*:0]const u8, i32, [*:0]const u8, [*:0]const u8, i32, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.PackageKit__Transaction_Connect_UpdateDetail(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUpdateDetail(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction, [*:0]const u8, ?[*:null]?[*:0]const u8, ?[*:null]?[*:0]const u8, ?[*:null]?[*:0]const u8, ?[*:null]?[*:0]const u8, ?[*:null]?[*:0]const u8, i32, [*:0]const u8, [*:0]const u8, i32, QDateTime, QDateTime) callconv(.c) void) void {
+        qtc.PackageKit__Transaction_Connect_UpdateDetail(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
     /// ` repoId: []const u8 `
     ///
@@ -1246,7 +1266,7 @@ pub const packagekit__transaction = struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn RepoDetail(self: ?*anyopaque, repoId: []const u8, description: []const u8, enabled: bool) void {
+    pub fn RepoDetail(self: PackageKit__Transaction, repoId: []const u8, description: []const u8, enabled: bool) void {
         const repoId_str = qtc.libqt_string{
             .len = repoId.len,
             .data = repoId.ptr,
@@ -1255,26 +1275,26 @@ pub const packagekit__transaction = struct {
             .len = description.len,
             .data = description.ptr,
         };
-        qtc.PackageKit__Transaction_RepoDetail(@ptrCast(self), repoId_str, description_str, enabled);
+        qtc.PackageKit__Transaction_RepoDetail(@ptrCast(self.ptr), repoId_str, description_str, enabled);
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, repoId: [*:0]const u8, description: [*:0]const u8, enabled: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: PackageKit__Transaction, repoId: [*:0]const u8, description: [*:0]const u8, enabled: bool) callconv(.c) void `
     ///
-    pub fn OnRepoDetail(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8, bool) callconv(.c) void) void {
-        qtc.PackageKit__Transaction_Connect_RepoDetail(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRepoDetail(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction, [*:0]const u8, [*:0]const u8, bool) callconv(.c) void) void {
+        qtc.PackageKit__Transaction_Connect_RepoDetail(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
     /// ` packageID: []const u8 `
     ///
@@ -1292,7 +1312,7 @@ pub const packagekit__transaction = struct {
     ///
     /// ` typeVal: transaction_enums.SigType `
     ///
-    pub fn RepoSignatureRequired(self: ?*anyopaque, packageID: []const u8, repoName: []const u8, keyUrl: []const u8, keyUserid: []const u8, keyId: []const u8, keyFingerprint: []const u8, keyTimestamp: []const u8, typeVal: i32) void {
+    pub fn RepoSignatureRequired(self: PackageKit__Transaction, packageID: []const u8, repoName: []const u8, keyUrl: []const u8, keyUserid: []const u8, keyId: []const u8, keyFingerprint: []const u8, keyTimestamp: []const u8, typeVal: i32) void {
         const packageID_str = qtc.libqt_string{
             .len = packageID.len,
             .data = packageID.ptr,
@@ -1321,80 +1341,81 @@ pub const packagekit__transaction = struct {
             .len = keyTimestamp.len,
             .data = keyTimestamp.ptr,
         };
-        qtc.PackageKit__Transaction_RepoSignatureRequired(@ptrCast(self), packageID_str, repoName_str, keyUrl_str, keyUserid_str, keyId_str, keyFingerprint_str, keyTimestamp_str, @bitCast(typeVal));
+        qtc.PackageKit__Transaction_RepoSignatureRequired(@ptrCast(self.ptr), packageID_str, repoName_str, keyUrl_str, keyUserid_str, keyId_str, keyFingerprint_str, keyTimestamp_str, @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, packageID: [*:0]const u8, repoName: [*:0]const u8, keyUrl: [*:0]const u8, keyUserid: [*:0]const u8, keyId: [*:0]const u8, keyFingerprint: [*:0]const u8, keyTimestamp: [*:0]const u8, typeVal: transaction_enums.SigType) callconv(.c) void `
+    /// ` callback: *const fn (self: PackageKit__Transaction, packageID: [*:0]const u8, repoName: [*:0]const u8, keyUrl: [*:0]const u8, keyUserid: [*:0]const u8, keyId: [*:0]const u8, keyFingerprint: [*:0]const u8, keyTimestamp: [*:0]const u8, typeVal: transaction_enums.SigType) callconv(.c) void `
     ///
-    pub fn OnRepoSignatureRequired(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8, [*:0]const u8, [*:0]const u8, [*:0]const u8, [*:0]const u8, [*:0]const u8, i32) callconv(.c) void) void {
-        qtc.PackageKit__Transaction_Connect_RepoSignatureRequired(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRepoSignatureRequired(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction, [*:0]const u8, [*:0]const u8, [*:0]const u8, [*:0]const u8, [*:0]const u8, [*:0]const u8, [*:0]const u8, i32) callconv(.c) void) void {
+        qtc.PackageKit__Transaction_Connect_RepoSignatureRequired(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
     /// ` typeVal: transaction_enums.Restart `
     ///
     /// ` packageID: []const u8 `
     ///
-    pub fn RequireRestart(self: ?*anyopaque, typeVal: i32, packageID: []const u8) void {
+    pub fn RequireRestart(self: PackageKit__Transaction, typeVal: i32, packageID: []const u8) void {
         const packageID_str = qtc.libqt_string{
             .len = packageID.len,
             .data = packageID.ptr,
         };
-        qtc.PackageKit__Transaction_RequireRestart(@ptrCast(self), @bitCast(typeVal), packageID_str);
+        qtc.PackageKit__Transaction_RequireRestart(@ptrCast(self.ptr), @bitCast(typeVal), packageID_str);
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, typeVal: transaction_enums.Restart, packageID: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: PackageKit__Transaction, typeVal: transaction_enums.Restart, packageID: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnRequireRestart(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
-        qtc.PackageKit__Transaction_Connect_RequireRestart(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRequireRestart(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction, i32, [*:0]const u8) callconv(.c) void) void {
+        qtc.PackageKit__Transaction_Connect_RequireRestart(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` transaction: QtC.PackageKit__Transaction `
+    /// ` transaction: PackageKit__Transaction `
     ///
-    pub fn Transaction(self: ?*anyopaque, transaction: ?*anyopaque) void {
-        qtc.PackageKit__Transaction_Transaction(@ptrCast(self), @ptrCast(transaction));
+    pub fn Transaction(self: PackageKit__Transaction, transaction: anytype) void {
+        comptime _ = @TypeOf(transaction)._is_PackageKit__Transaction;
+        qtc.PackageKit__Transaction_Transaction(@ptrCast(self.ptr), @ptrCast(transaction.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, transaction: QtC.PackageKit__Transaction) callconv(.c) void `
+    /// ` callback: *const fn (self: PackageKit__Transaction, transaction: PackageKit__Transaction) callconv(.c) void `
     ///
-    pub fn OnTransaction(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.PackageKit__Transaction_Connect_Transaction(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTransaction(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction, PackageKit__Transaction) callconv(.c) void) void {
+        qtc.PackageKit__Transaction_Connect_Transaction(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
     /// ` errorName: []const u8 `
     ///
@@ -1402,12 +1423,12 @@ pub const packagekit__transaction = struct {
     ///
     /// ` transaction_enums.InternalError `
     ///
-    pub fn ParseError(self: ?*anyopaque, errorName: []const u8) i32 {
+    pub fn ParseError(self: PackageKit__Transaction, errorName: []const u8) i32 {
         const errorName_str = qtc.libqt_string{
             .len = errorName.len,
             .data = errorName.ptr,
         };
-        return qtc.PackageKit__Transaction_ParseError(@ptrCast(self), errorName_str);
+        return qtc.PackageKit__Transaction_ParseError(@ptrCast(self.ptr), errorName_str);
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -1416,12 +1437,12 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, errorName: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: PackageKit__Transaction, errorName: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnParseError(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.PackageKit__Transaction_OnParseError(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnParseError(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction, [*:0]const u8) callconv(.c) i32) void {
+        qtc.PackageKit__Transaction_OnParseError(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperParseError` instead
@@ -1434,7 +1455,7 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
     /// ` errorName: []const u8 `
     ///
@@ -1442,24 +1463,25 @@ pub const packagekit__transaction = struct {
     ///
     /// ` transaction_enums.InternalError `
     ///
-    pub fn SuperParseError(self: ?*anyopaque, errorName: []const u8) i32 {
+    pub fn SuperParseError(self: PackageKit__Transaction, errorName: []const u8) i32 {
         const errorName_str = qtc.libqt_string{
             .len = errorName.len,
             .data = errorName.ptr,
         };
-        return qtc.PackageKit__Transaction_SuperParseError(@ptrCast(self), errorName_str);
+        return qtc.PackageKit__Transaction_SuperParseError(@ptrCast(self.ptr), errorName_str);
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.PackageKit__Transaction_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: PackageKit__Transaction, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.PackageKit__Transaction_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -1468,12 +1490,12 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: PackageKit__Transaction, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.PackageKit__Transaction_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction, QMetaMethod) callconv(.c) void) void {
+        qtc.PackageKit__Transaction_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -1486,24 +1508,26 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.PackageKit__Transaction_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: PackageKit__Transaction, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.PackageKit__Transaction_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.PackageKit__Transaction_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: PackageKit__Transaction, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.PackageKit__Transaction_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
@@ -1512,12 +1536,12 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: PackageKit__Transaction, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.PackageKit__Transaction_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction, QMetaMethod) callconv(.c) void) void {
+        qtc.PackageKit__Transaction_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -1530,25 +1554,26 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.PackageKit__Transaction_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: PackageKit__Transaction, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.PackageKit__Transaction_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -1562,15 +1587,15 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -1586,12 +1611,12 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: PackageKit__Transaction, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit__transaction.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1604,12 +1629,12 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: PackageKit__Transaction, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -1618,10 +1643,10 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: PackageKit__Transaction) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1630,10 +1655,10 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: PackageKit__Transaction) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1642,10 +1667,10 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: PackageKit__Transaction) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1654,10 +1679,10 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: PackageKit__Transaction) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1666,12 +1691,12 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: PackageKit__Transaction, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -1680,10 +1705,10 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: PackageKit__Transaction) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1692,12 +1717,13 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: PackageKit__Transaction, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -1706,12 +1732,12 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: PackageKit__Transaction, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1720,12 +1746,12 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: PackageKit__Transaction, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1734,12 +1760,12 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: PackageKit__Transaction, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1748,12 +1774,12 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: PackageKit__Transaction, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1762,16 +1788,17 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: PackageKit__Transaction, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("packagekit__transaction.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("packagekit__transaction.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1781,12 +1808,13 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: PackageKit__Transaction, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -1795,12 +1823,13 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: PackageKit__Transaction, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -1809,12 +1838,13 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: PackageKit__Transaction, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -1823,18 +1853,20 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1843,16 +1875,20 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1861,18 +1897,19 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: PackageKit__Transaction, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1881,18 +1918,20 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1901,16 +1940,20 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -1919,10 +1962,10 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: PackageKit__Transaction) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1931,12 +1974,13 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: PackageKit__Transaction, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1945,10 +1989,11 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1957,10 +2002,10 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: PackageKit__Transaction) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1969,10 +2014,10 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: PackageKit__Transaction) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1981,15 +2026,16 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: PackageKit__Transaction, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -1998,13 +2044,13 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: PackageKit__Transaction, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -2013,17 +2059,16 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: PackageKit__Transaction, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("packagekit__transaction.DynamicPropertyNames: Memory allocation failed");
@@ -2042,10 +2087,10 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: PackageKit__Transaction) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2054,10 +2099,10 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: PackageKit__Transaction) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2066,10 +2111,10 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: PackageKit__Transaction) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2078,12 +2123,12 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transaction) callconv(.c) void `
+    /// ` callback: *const fn (self: PackageKit__Transaction) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2092,10 +2137,10 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: PackageKit__Transaction) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2104,13 +2149,13 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: PackageKit__Transaction, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -2119,10 +2164,10 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: PackageKit__Transaction) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2131,14 +2176,14 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: PackageKit__Transaction, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2147,14 +2192,14 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: PackageKit__Transaction, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2163,20 +2208,22 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -2185,18 +2232,22 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -2205,9 +2256,9 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2215,10 +2266,11 @@ pub const packagekit__transaction = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: PackageKit__Transaction, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -2227,13 +2279,13 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: PackageKit__Transaction, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2242,15 +2294,16 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: PackageKit__Transaction, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -2259,18 +2312,19 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: PackageKit__Transaction, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -2279,15 +2333,16 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: PackageKit__Transaction, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -2296,12 +2351,13 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: PackageKit__Transaction, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -2310,12 +2366,12 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: PackageKit__Transaction, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2326,12 +2382,13 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.PackageKit__Transaction_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: PackageKit__Transaction, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.PackageKit__Transaction_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -2346,12 +2403,13 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.PackageKit__Transaction_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: PackageKit__Transaction, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.PackageKit__Transaction_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2362,12 +2420,12 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.PackageKit__Transaction`
+    /// ` self: PackageKit__Transaction`
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: PackageKit__Transaction, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.PackageKit__Transaction_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction, QEvent) callconv(.c) bool) void {
+        qtc.PackageKit__Transaction_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2378,14 +2436,16 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.PackageKit__Transaction_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: PackageKit__Transaction, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.PackageKit__Transaction_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -2400,14 +2460,16 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.PackageKit__Transaction_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: PackageKit__Transaction, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.PackageKit__Transaction_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2418,12 +2480,12 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.PackageKit__Transaction`
+    /// ` self: PackageKit__Transaction`
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: PackageKit__Transaction, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.PackageKit__Transaction_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction, QObject, QEvent) callconv(.c) bool) void {
+        qtc.PackageKit__Transaction_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2434,12 +2496,13 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.PackageKit__Transaction_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: PackageKit__Transaction, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.PackageKit__Transaction_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -2454,12 +2517,13 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.PackageKit__Transaction_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: PackageKit__Transaction, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.PackageKit__Transaction_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2470,12 +2534,12 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.PackageKit__Transaction`
+    /// ` self: PackageKit__Transaction`
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: PackageKit__Transaction, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.PackageKit__Transaction_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction, QTimerEvent) callconv(.c) void) void {
+        qtc.PackageKit__Transaction_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2486,12 +2550,13 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.PackageKit__Transaction_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: PackageKit__Transaction, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.PackageKit__Transaction_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -2506,12 +2571,13 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.PackageKit__Transaction_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: PackageKit__Transaction, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.PackageKit__Transaction_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2522,12 +2588,12 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.PackageKit__Transaction`
+    /// ` self: PackageKit__Transaction`
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: PackageKit__Transaction, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.PackageKit__Transaction_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction, QChildEvent) callconv(.c) void) void {
+        qtc.PackageKit__Transaction_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2538,12 +2604,13 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.PackageKit__Transaction_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: PackageKit__Transaction, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.PackageKit__Transaction_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -2558,12 +2625,13 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.PackageKit__Transaction_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: PackageKit__Transaction, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.PackageKit__Transaction_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2574,12 +2642,12 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.PackageKit__Transaction`
+    /// ` self: PackageKit__Transaction`
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: PackageKit__Transaction, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.PackageKit__Transaction_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction, QEvent) callconv(.c) void) void {
+        qtc.PackageKit__Transaction_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2590,10 +2658,10 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.PackageKit__Transaction_Sender(@ptrCast(self));
+    pub fn Sender(self: PackageKit__Transaction) QObject {
+        return .{ .ptr = qtc.PackageKit__Transaction_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -2608,10 +2676,10 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.PackageKit__Transaction_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: PackageKit__Transaction) QObject {
+        return .{ .ptr = qtc.PackageKit__Transaction_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2622,12 +2690,12 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.PackageKit__Transaction`
+    /// ` self: PackageKit__Transaction`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.PackageKit__Transaction_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: PackageKit__Transaction, callback: *const fn () callconv(.c) QObject) void {
+        qtc.PackageKit__Transaction_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2638,10 +2706,10 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.PackageKit__Transaction_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: PackageKit__Transaction) i32 {
+        return qtc.PackageKit__Transaction_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -2656,10 +2724,10 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.PackageKit__Transaction_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: PackageKit__Transaction) i32 {
+        return qtc.PackageKit__Transaction_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2670,12 +2738,12 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.PackageKit__Transaction`
+    /// ` self: PackageKit__Transaction`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.PackageKit__Transaction_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: PackageKit__Transaction, callback: *const fn () callconv(.c) i32) void {
+        qtc.PackageKit__Transaction_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2686,13 +2754,13 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: PackageKit__Transaction, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.PackageKit__Transaction_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.PackageKit__Transaction_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -2707,13 +2775,13 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: PackageKit__Transaction, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.PackageKit__Transaction_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.PackageKit__Transaction_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2724,12 +2792,12 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.PackageKit__Transaction`
+    /// ` self: PackageKit__Transaction`
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: PackageKit__Transaction, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.PackageKit__Transaction_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction, [*:0]const u8) callconv(.c) i32) void {
+        qtc.PackageKit__Transaction_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2740,12 +2808,13 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.PackageKit__Transaction_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: PackageKit__Transaction, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.PackageKit__Transaction_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -2760,12 +2829,13 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.PackageKit__Transaction_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: PackageKit__Transaction, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.PackageKit__Transaction_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -2776,12 +2846,12 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.PackageKit__Transaction`
+    /// ` self: PackageKit__Transaction`
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: PackageKit__Transaction, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.PackageKit__Transaction_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction, QMetaMethod) callconv(.c) bool) void {
+        qtc.PackageKit__Transaction_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2792,12 +2862,12 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: PackageKit__Transaction, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: PackageKit__Transaction, callback: *const fn (PackageKit__Transaction, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -2810,10 +2880,10 @@ pub const packagekit__transaction = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.PackageKit__Transaction `
+    /// ` self: PackageKit__Transaction `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.PackageKit__Transaction_Delete(@ptrCast(self));
+    pub fn Delete(self: PackageKit__Transaction) void {
+        qtc.PackageKit__Transaction_Delete(@ptrCast(self.ptr));
     }
 };
 

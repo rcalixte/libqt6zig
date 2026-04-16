@@ -1,26 +1,43 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const KHamburgerMenu = @import("libqt6").KHamburgerMenu;
+const KRecentFilesAction = @import("libqt6").KRecentFilesAction;
+const KToggleAction = @import("libqt6").KToggleAction;
+const KToggleFullScreenAction = @import("libqt6").KToggleFullScreenAction;
+const QAction = @import("libqt6").QAction;
+const QObject = @import("libqt6").QObject;
+const QWidget = @import("libqt6").QWidget;
 const kstandardaction_enums = enums;
 const kstandardshortcut_enums = @import("../extras-kconfig/libkstandardshortcut.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/kstandardaction.html)
-pub const kstandardaction = struct {
+pub const KStandardAction = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kstandardaction.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KStandardAction,
+
+    pub const _is_KStandardAction = {};
+
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#create)
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: kstandardaction_enums.StandardAction `
     ///
-    /// ` param2: QtC.QObject `
+    /// ` param2: QObject `
     ///
     /// ` param3: [:0]const u8 `
     ///
-    /// ` param4: QtC.QObject `
+    /// ` param4: QObject `
     ///
-    pub fn Create(param1: i32, param2: ?*anyopaque, param3: [:0]const u8, param4: ?*anyopaque) QtC.QAction {
+    pub fn Create(param1: i32, param2: anytype, param3: [:0]const u8, param4: anytype) QAction {
+        comptime _ = @TypeOf(param2)._is_QObject;
         const param3_Cstring = param3.ptr;
-        return qtc.KStandardAction_Create(@bitCast(param1), @ptrCast(param2), param3_Cstring, @ptrCast(param4));
+        comptime _ = @TypeOf(param4)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_Create(@bitCast(param1), @ptrCast(param2.ptr), param3_Cstring, @ptrCast(param4.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#_k_createInternal)
@@ -29,21 +46,22 @@ pub const kstandardaction = struct {
     ///
     /// ` param1: kstandardaction_enums.StandardAction `
     ///
-    /// ` param2: QtC.QObject `
+    /// ` param2: QObject `
     ///
-    pub fn KCreateInternal(param1: i32, param2: ?*anyopaque) QtC.QAction {
-        return qtc.KStandardAction_KCreateInternal(@bitCast(param1), @ptrCast(param2));
+    pub fn KCreateInternal(param1: i32, param2: anytype) QAction {
+        comptime _ = @TypeOf(param2)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_KCreateInternal(@bitCast(param1), @ptrCast(param2.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#name)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: kstandardaction_enums.StandardAction `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(param1: i32, allocator: std.mem.Allocator) []const u8 {
+    /// ` param1: kstandardaction_enums.StandardAction `
+    ///
+    pub fn Name(allocator: std.mem.Allocator, param1: i32) []const u8 {
         var _str = qtc.KStandardAction_Name(@bitCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kstandardaction.Name: Memory allocation failed");
@@ -61,9 +79,8 @@ pub const kstandardaction = struct {
         const _arr: qtc.libqt_list = qtc.KStandardAction_StdNames();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kstandardaction.StdNames: Memory allocation failed");
@@ -113,1027 +130,1163 @@ pub const kstandardaction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn OpenNew(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn OpenNew(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_OpenNew(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_OpenNew(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#open)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn Open(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Open(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_Open(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_Open(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#openRecent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn OpenRecent(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.KRecentFilesAction {
+    pub fn OpenRecent(param1: anytype, param2: [:0]const u8, param3: anytype) KRecentFilesAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_OpenRecent(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_OpenRecent(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#save)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn Save(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Save(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_Save(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_Save(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#saveAs)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn SaveAs(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn SaveAs(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_SaveAs(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_SaveAs(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#revert)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn Revert(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Revert(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_Revert(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_Revert(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#close)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn Close(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Close(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_Close(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_Close(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#print)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn Print(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Print(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_Print(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_Print(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#printPreview)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn PrintPreview(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn PrintPreview(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_PrintPreview(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_PrintPreview(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#mail)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn Mail(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Mail(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_Mail(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_Mail(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#quit)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn Quit(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Quit(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_Quit(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_Quit(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#undo)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn Undo(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Undo(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_Undo(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_Undo(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#redo)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn Redo(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Redo(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_Redo(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_Redo(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#cut)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Cut(param1: ?*anyopaque) QtC.QAction {
-        return qtc.KStandardAction_Cut(@ptrCast(param1));
+    pub fn Cut(param1: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_Cut(@ptrCast(param1.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#copy)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Copy(param1: ?*anyopaque) QtC.QAction {
-        return qtc.KStandardAction_Copy(@ptrCast(param1));
+    pub fn Copy(param1: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_Copy(@ptrCast(param1.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#paste)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Paste(param1: ?*anyopaque) QtC.QAction {
-        return qtc.KStandardAction_Paste(@ptrCast(param1));
+    pub fn Paste(param1: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_Paste(@ptrCast(param1.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#clear)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Clear(param1: ?*anyopaque) QtC.QAction {
-        return qtc.KStandardAction_Clear(@ptrCast(param1));
+    pub fn Clear(param1: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_Clear(@ptrCast(param1.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#selectAll)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn SelectAll(param1: ?*anyopaque) QtC.QAction {
-        return qtc.KStandardAction_SelectAll(@ptrCast(param1));
+    pub fn SelectAll(param1: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_SelectAll(@ptrCast(param1.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#cut)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn Cut2(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Cut2(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_Cut2(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_Cut2(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#copy)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn Copy2(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Copy2(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_Copy2(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_Copy2(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#paste)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn Paste2(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Paste2(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_Paste2(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_Paste2(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#clear)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn Clear2(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Clear2(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_Clear2(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_Clear2(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#selectAll)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn SelectAll2(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn SelectAll2(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_SelectAll2(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_SelectAll2(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#deselect)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn Deselect(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Deselect(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_Deselect(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_Deselect(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#find)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn Find(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Find(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_Find(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_Find(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#findNext)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn FindNext(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn FindNext(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_FindNext(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_FindNext(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#findPrev)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn FindPrev(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn FindPrev(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_FindPrev(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_FindPrev(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#replace)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn Replace(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Replace(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_Replace(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_Replace(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#actualSize)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn ActualSize(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn ActualSize(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_ActualSize(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_ActualSize(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#fitToPage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn FitToPage(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn FitToPage(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_FitToPage(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_FitToPage(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#fitToWidth)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn FitToWidth(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn FitToWidth(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_FitToWidth(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_FitToWidth(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#fitToHeight)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn FitToHeight(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn FitToHeight(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_FitToHeight(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_FitToHeight(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#zoomIn)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn ZoomIn(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn ZoomIn(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_ZoomIn(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_ZoomIn(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#zoomOut)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn ZoomOut(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn ZoomOut(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_ZoomOut(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_ZoomOut(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#zoom)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn Zoom(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Zoom(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_Zoom(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_Zoom(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#redisplay)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn Redisplay(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Redisplay(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_Redisplay(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_Redisplay(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#up)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn Up(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Up(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_Up(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_Up(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#back)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn Back(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Back(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_Back(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_Back(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#forward)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn Forward(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Forward(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_Forward(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_Forward(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#home)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn Home(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Home(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_Home(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_Home(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#prior)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn Prior(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Prior(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_Prior(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_Prior(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#next)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn Next(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Next(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_Next(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_Next(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#goTo)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn GoTo(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn GoTo(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_GoTo(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_GoTo(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#gotoPage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn GotoPage(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn GotoPage(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_GotoPage(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_GotoPage(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#gotoLine)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn GotoLine(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn GotoLine(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_GotoLine(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_GotoLine(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#firstPage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn FirstPage(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn FirstPage(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_FirstPage(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_FirstPage(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#lastPage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn LastPage(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn LastPage(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_LastPage(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_LastPage(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#documentBack)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn DocumentBack(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn DocumentBack(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_DocumentBack(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_DocumentBack(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#documentForward)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn DocumentForward(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn DocumentForward(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_DocumentForward(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_DocumentForward(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#addBookmark)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn AddBookmark(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn AddBookmark(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_AddBookmark(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_AddBookmark(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#editBookmarks)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn EditBookmarks(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn EditBookmarks(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_EditBookmarks(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_EditBookmarks(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#spelling)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn Spelling(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Spelling(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_Spelling(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_Spelling(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#showMenubar)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn ShowMenubar(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.KToggleAction {
+    pub fn ShowMenubar(param1: anytype, param2: [:0]const u8, param3: anytype) KToggleAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_ShowMenubar(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_ShowMenubar(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#showStatusbar)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn ShowStatusbar(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.KToggleAction {
+    pub fn ShowStatusbar(param1: anytype, param2: [:0]const u8, param3: anytype) KToggleAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_ShowStatusbar(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_ShowStatusbar(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#fullScreen)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QWidget `
+    /// ` param3: QWidget `
     ///
-    /// ` param4: QtC.QObject `
+    /// ` param4: QObject `
     ///
-    pub fn FullScreen(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque, param4: ?*anyopaque) QtC.KToggleFullScreenAction {
+    pub fn FullScreen(param1: anytype, param2: [:0]const u8, param3: anytype, param4: anytype) KToggleFullScreenAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_FullScreen(@ptrCast(param1), param2_Cstring, @ptrCast(param3), @ptrCast(param4));
+        comptime _ = @TypeOf(param3)._is_QWidget;
+        comptime _ = @TypeOf(param4)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_FullScreen(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr), @ptrCast(param4.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#keyBindings)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn KeyBindings(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn KeyBindings(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_KeyBindings(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_KeyBindings(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#preferences)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn Preferences(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Preferences(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_Preferences(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_Preferences(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#configureToolbars)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn ConfigureToolbars(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn ConfigureToolbars(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_ConfigureToolbars(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_ConfigureToolbars(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#configureNotifications)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn ConfigureNotifications(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn ConfigureNotifications(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_ConfigureNotifications(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_ConfigureNotifications(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#switchApplicationLanguage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn SwitchApplicationLanguage(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn SwitchApplicationLanguage(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_SwitchApplicationLanguage(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_SwitchApplicationLanguage(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#helpContents)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn HelpContents(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn HelpContents(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_HelpContents(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_HelpContents(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#whatsThis)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn WhatsThis(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn WhatsThis(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_WhatsThis(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_WhatsThis(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#reportBug)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn ReportBug(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn ReportBug(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_ReportBug(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_ReportBug(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#aboutApp)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn AboutApp(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn AboutApp(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_AboutApp(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_AboutApp(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#aboutKDE)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn AboutKDE(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn AboutKDE(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_AboutKDE(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_AboutKDE(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#deleteFile)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn DeleteFile(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn DeleteFile(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_DeleteFile(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_DeleteFile(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#renameFile)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn RenameFile(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn RenameFile(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_RenameFile(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_RenameFile(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#moveToTrash)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn MoveToTrash(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn MoveToTrash(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_MoveToTrash(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_MoveToTrash(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#donate)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn Donate(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.QAction {
+    pub fn Donate(param1: anytype, param2: [:0]const u8, param3: anytype) QAction {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_Donate(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_Donate(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardaction.html#hamburgerMenu)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
     /// ` param2: [:0]const u8 `
     ///
-    /// ` param3: QtC.QObject `
+    /// ` param3: QObject `
     ///
-    pub fn HamburgerMenu(param1: ?*anyopaque, param2: [:0]const u8, param3: ?*anyopaque) QtC.KHamburgerMenu {
+    pub fn HamburgerMenu(param1: anytype, param2: [:0]const u8, param3: anytype) KHamburgerMenu {
+        comptime _ = @TypeOf(param1)._is_QObject;
         const param2_Cstring = param2.ptr;
-        return qtc.KStandardAction_HamburgerMenu(@ptrCast(param1), param2_Cstring, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QObject;
+        return .{ .ptr = qtc.KStandardAction_HamburgerMenu(@ptrCast(param1.ptr), param2_Cstring, @ptrCast(param3.ptr)) };
     }
 };
 

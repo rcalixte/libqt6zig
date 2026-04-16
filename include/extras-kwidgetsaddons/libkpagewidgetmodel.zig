@@ -1,49 +1,78 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QAction = @import("libqt6").QAction;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QDataStream = @import("libqt6").QDataStream;
+const QEvent = @import("libqt6").QEvent;
+const QIcon = @import("libqt6").QIcon;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QMimeData = @import("libqt6").QMimeData;
+const QModelIndex = @import("libqt6").QModelIndex;
+const QModelRoleDataSpan = @import("libqt6").QModelRoleDataSpan;
+const QObject = @import("libqt6").QObject;
+const QPersistentModelIndex = @import("libqt6").QPersistentModelIndex;
+const QSize = @import("libqt6").QSize;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
+const QWidget = @import("libqt6").QWidget;
 const qabstractitemmodel_enums = @import("../libqabstractitemmodel.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-const arraymap_i32_qtcqvariant = std.array_hash_map.Auto(i32, QtC.QVariant);
-const map_i32_u8 = std.AutoHashMapUnmanaged(i32, []u8);
+const ArrayMap_i32_QVariant = std.array_hash_map.Auto(i32, QVariant);
+const Map_i32_u8 = std.AutoHashMapUnmanaged(i32, []u8);
 
 /// ### [Upstream resources](https://api.kde.org/kpagewidgetitem.html)
-pub const kpagewidgetitem = struct {
+pub const KPageWidgetItem = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kpagewidgetitem.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KPageWidgetItem,
+
+    pub const _is_KPageWidgetItem = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new KPageWidgetItem object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn New(widget: ?*anyopaque) QtC.KPageWidgetItem {
-        return qtc.KPageWidgetItem_new(@ptrCast(widget));
+    pub fn New(widget: anytype) KPageWidgetItem {
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        return .{ .ptr = qtc.KPageWidgetItem_new(@ptrCast(widget.ptr)) };
     }
 
     /// New2 constructs a new KPageWidgetItem object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn New2(widget: ?*anyopaque, name: []const u8) QtC.KPageWidgetItem {
+    pub fn New2(widget: anytype, name: []const u8) KPageWidgetItem {
+        comptime _ = @TypeOf(widget)._is_QWidget;
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-
-        return qtc.KPageWidgetItem_new2(@ptrCast(widget), name_str);
+        return .{ .ptr = qtc.KPageWidgetItem_new2(@ptrCast(widget.ptr), name_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KPageWidgetItem_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: KPageWidgetItem) QMetaObject {
+        return .{ .ptr = qtc.KPageWidgetItem_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -52,12 +81,12 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.KPageWidgetItem_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: KPageWidgetItem, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.KPageWidgetItem_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -70,33 +99,33 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KPageWidgetItem_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: KPageWidgetItem) QMetaObject {
+        return .{ .ptr = qtc.KPageWidgetItem_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: KPageWidgetItem, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KPageWidgetItem_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.KPageWidgetItem_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetItem, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: KPageWidgetItem, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.KPageWidgetItem_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: KPageWidgetItem, callback: *const fn (KPageWidgetItem, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.KPageWidgetItem_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -107,18 +136,18 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: KPageWidgetItem, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KPageWidgetItem_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KPageWidgetItem_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -126,20 +155,20 @@ pub const kpagewidgetitem = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KPageWidgetItem_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: KPageWidgetItem, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KPageWidgetItem_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetItem, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KPageWidgetItem, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.KPageWidgetItem_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: KPageWidgetItem, callback: *const fn (KPageWidgetItem, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.KPageWidgetItem_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -150,7 +179,7 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -158,19 +187,19 @@ pub const kpagewidgetitem = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KPageWidgetItem_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: KPageWidgetItem, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KPageWidgetItem_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -183,38 +212,38 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    pub fn Widget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.KPageWidgetItem_Widget(@ptrCast(self));
+    pub fn Widget(self: KPageWidgetItem) QWidget {
+        return .{ .ptr = qtc.KPageWidgetItem_Widget(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpagewidgetitem.html#setName)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetName(self: ?*anyopaque, name: []const u8) void {
+    pub fn SetName(self: KPageWidgetItem, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.KPageWidgetItem_SetName(@ptrCast(self), name_str);
+        qtc.KPageWidgetItem_SetName(@ptrCast(self.ptr), name_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpagewidgetitem.html#name)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KPageWidgetItem_Name(@ptrCast(self));
+    pub fn Name(self: KPageWidgetItem, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KPageWidgetItem_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kpagewidgetitem.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -225,28 +254,28 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
     /// ` header: []const u8 `
     ///
-    pub fn SetHeader(self: ?*anyopaque, header: []const u8) void {
+    pub fn SetHeader(self: KPageWidgetItem, header: []const u8) void {
         const header_str = qtc.libqt_string{
             .len = header.len,
             .data = header.ptr,
         };
-        qtc.KPageWidgetItem_SetHeader(@ptrCast(self), header_str);
+        qtc.KPageWidgetItem_SetHeader(@ptrCast(self.ptr), header_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpagewidgetitem.html#header)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Header(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KPageWidgetItem_Header(@ptrCast(self));
+    pub fn Header(self: KPageWidgetItem, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KPageWidgetItem_Header(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kpagewidgetitem.Header: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -257,102 +286,104 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn SetIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.KPageWidgetItem_SetIcon(@ptrCast(self), @ptrCast(icon));
+    pub fn SetIcon(self: KPageWidgetItem, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.KPageWidgetItem_SetIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpagewidgetitem.html#icon)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    pub fn Icon(self: ?*anyopaque) QtC.QIcon {
-        return qtc.KPageWidgetItem_Icon(@ptrCast(self));
+    pub fn Icon(self: KPageWidgetItem) QIcon {
+        return .{ .ptr = qtc.KPageWidgetItem_Icon(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpagewidgetitem.html#setCheckable)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
     /// ` checkable: bool `
     ///
-    pub fn SetCheckable(self: ?*anyopaque, checkable: bool) void {
-        qtc.KPageWidgetItem_SetCheckable(@ptrCast(self), checkable);
+    pub fn SetCheckable(self: KPageWidgetItem, checkable: bool) void {
+        qtc.KPageWidgetItem_SetCheckable(@ptrCast(self.ptr), checkable);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpagewidgetitem.html#isCheckable)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    pub fn IsCheckable(self: ?*anyopaque) bool {
-        return qtc.KPageWidgetItem_IsCheckable(@ptrCast(self));
+    pub fn IsCheckable(self: KPageWidgetItem) bool {
+        return qtc.KPageWidgetItem_IsCheckable(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpagewidgetitem.html#isChecked)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    pub fn IsChecked(self: ?*anyopaque) bool {
-        return qtc.KPageWidgetItem_IsChecked(@ptrCast(self));
+    pub fn IsChecked(self: KPageWidgetItem) bool {
+        return qtc.KPageWidgetItem_IsChecked(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpagewidgetitem.html#isEnabled)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    pub fn IsEnabled(self: ?*anyopaque) bool {
-        return qtc.KPageWidgetItem_IsEnabled(@ptrCast(self));
+    pub fn IsEnabled(self: KPageWidgetItem) bool {
+        return qtc.KPageWidgetItem_IsEnabled(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpagewidgetitem.html#isHeaderVisible)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    pub fn IsHeaderVisible(self: ?*anyopaque) bool {
-        return qtc.KPageWidgetItem_IsHeaderVisible(@ptrCast(self));
+    pub fn IsHeaderVisible(self: KPageWidgetItem) bool {
+        return qtc.KPageWidgetItem_IsHeaderVisible(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpagewidgetitem.html#setHeaderVisible)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
     /// ` visible: bool `
     ///
-    pub fn SetHeaderVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.KPageWidgetItem_SetHeaderVisible(@ptrCast(self), visible);
+    pub fn SetHeaderVisible(self: KPageWidgetItem, visible: bool) void {
+        qtc.KPageWidgetItem_SetHeaderVisible(@ptrCast(self.ptr), visible);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpagewidgetitem.html#actions)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
-        const _arr: qtc.libqt_list = qtc.KPageWidgetItem_Actions(@ptrCast(self));
+    pub fn Actions(self: KPageWidgetItem, allocator: std.mem.Allocator) []QAction {
+        const _arr: qtc.libqt_list = qtc.KPageWidgetItem_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("kpagewidgetitem.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("kpagewidgetitem.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -360,121 +391,121 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn SetActions(self: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn SetActions(self: KPageWidgetItem, actions: []QAction) void {
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.KPageWidgetItem_SetActions(@ptrCast(self), actions_list);
+        qtc.KPageWidgetItem_SetActions(@ptrCast(self.ptr), actions_list);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpagewidgetitem.html#setEnabled)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
-        qtc.KPageWidgetItem_SetEnabled(@ptrCast(self), enabled);
+    pub fn SetEnabled(self: KPageWidgetItem, enabled: bool) void {
+        qtc.KPageWidgetItem_SetEnabled(@ptrCast(self.ptr), enabled);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpagewidgetitem.html#setChecked)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
     /// ` checked: bool `
     ///
-    pub fn SetChecked(self: ?*anyopaque, checked: bool) void {
-        qtc.KPageWidgetItem_SetChecked(@ptrCast(self), checked);
+    pub fn SetChecked(self: KPageWidgetItem, checked: bool) void {
+        qtc.KPageWidgetItem_SetChecked(@ptrCast(self.ptr), checked);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpagewidgetitem.html#changed)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    pub fn Changed(self: ?*anyopaque) void {
-        qtc.KPageWidgetItem_Changed(@ptrCast(self));
+    pub fn Changed(self: KPageWidgetItem) void {
+        qtc.KPageWidgetItem_Changed(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpagewidgetitem.html#changed)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetItem) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetItem) callconv(.c) void `
     ///
-    pub fn OnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KPageWidgetItem_Connect_Changed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChanged(self: KPageWidgetItem, callback: *const fn (KPageWidgetItem) callconv(.c) void) void {
+        qtc.KPageWidgetItem_Connect_Changed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpagewidgetitem.html#toggled)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
     /// ` checked: bool `
     ///
-    pub fn Toggled(self: ?*anyopaque, checked: bool) void {
-        qtc.KPageWidgetItem_Toggled(@ptrCast(self), checked);
+    pub fn Toggled(self: KPageWidgetItem, checked: bool) void {
+        qtc.KPageWidgetItem_Toggled(@ptrCast(self.ptr), checked);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpagewidgetitem.html#toggled)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetItem, checked: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetItem, checked: bool) callconv(.c) void `
     ///
-    pub fn OnToggled(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KPageWidgetItem_Connect_Toggled(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnToggled(self: KPageWidgetItem, callback: *const fn (KPageWidgetItem, bool) callconv(.c) void) void {
+        qtc.KPageWidgetItem_Connect_Toggled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpagewidgetitem.html#actionsChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    pub fn ActionsChanged(self: ?*anyopaque) void {
-        qtc.KPageWidgetItem_ActionsChanged(@ptrCast(self));
+    pub fn ActionsChanged(self: KPageWidgetItem) void {
+        qtc.KPageWidgetItem_ActionsChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpagewidgetitem.html#actionsChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetItem) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetItem) callconv(.c) void `
     ///
-    pub fn OnActionsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KPageWidgetItem_Connect_ActionsChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnActionsChanged(self: KPageWidgetItem, callback: *const fn (KPageWidgetItem) callconv(.c) void) void {
+        qtc.KPageWidgetItem_Connect_ActionsChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -488,15 +519,15 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -512,12 +543,12 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: KPageWidgetItem, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kpagewidgetitem.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -530,12 +561,12 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: KPageWidgetItem, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -544,10 +575,10 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: KPageWidgetItem) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -556,10 +587,10 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: KPageWidgetItem) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -568,10 +599,10 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: KPageWidgetItem) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -580,10 +611,10 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: KPageWidgetItem) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -592,12 +623,12 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: KPageWidgetItem, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -606,10 +637,10 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: KPageWidgetItem) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -618,12 +649,13 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: KPageWidgetItem, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -632,12 +664,12 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: KPageWidgetItem, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -646,12 +678,12 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: KPageWidgetItem, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -660,12 +692,12 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: KPageWidgetItem, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -674,12 +706,12 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: KPageWidgetItem, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -688,16 +720,17 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: KPageWidgetItem, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("kpagewidgetitem.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kpagewidgetitem.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -707,12 +740,13 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: KPageWidgetItem, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -721,12 +755,13 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: KPageWidgetItem, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -735,12 +770,13 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: KPageWidgetItem, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -749,18 +785,20 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -769,16 +807,20 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -787,18 +829,19 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: KPageWidgetItem, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -807,18 +850,20 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -827,16 +872,20 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -845,10 +894,10 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: KPageWidgetItem) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -857,12 +906,13 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: KPageWidgetItem, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -871,10 +921,11 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -883,10 +934,10 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: KPageWidgetItem) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -895,10 +946,10 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: KPageWidgetItem) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -907,15 +958,16 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: KPageWidgetItem, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -924,13 +976,13 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: KPageWidgetItem, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -939,17 +991,16 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: KPageWidgetItem, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kpagewidgetitem.DynamicPropertyNames: Memory allocation failed");
@@ -968,10 +1019,10 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: KPageWidgetItem) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -980,10 +1031,10 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: KPageWidgetItem) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -992,10 +1043,10 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: KPageWidgetItem) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1004,12 +1055,12 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetItem) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetItem) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: KPageWidgetItem, callback: *const fn (KPageWidgetItem) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1018,10 +1069,10 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: KPageWidgetItem) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1030,13 +1081,13 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: KPageWidgetItem, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -1045,10 +1096,10 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: KPageWidgetItem) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1057,14 +1108,14 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: KPageWidgetItem, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1073,14 +1124,14 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: KPageWidgetItem, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1089,20 +1140,22 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -1111,18 +1164,22 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1131,9 +1188,9 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1141,10 +1198,11 @@ pub const kpagewidgetitem = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: KPageWidgetItem, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1153,13 +1211,13 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: KPageWidgetItem, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1168,15 +1226,16 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: KPageWidgetItem, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1185,18 +1244,19 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: KPageWidgetItem, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1205,15 +1265,16 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: KPageWidgetItem, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1222,12 +1283,13 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: KPageWidgetItem, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1236,12 +1298,12 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetItem, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetItem, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: KPageWidgetItem, callback: *const fn (KPageWidgetItem, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1252,12 +1314,13 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KPageWidgetItem_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: KPageWidgetItem, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KPageWidgetItem_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -1272,12 +1335,13 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KPageWidgetItem_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: KPageWidgetItem, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KPageWidgetItem_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1288,12 +1352,12 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetItem`
+    /// ` self: KPageWidgetItem`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetItem, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KPageWidgetItem, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KPageWidgetItem_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: KPageWidgetItem, callback: *const fn (KPageWidgetItem, QEvent) callconv(.c) bool) void {
+        qtc.KPageWidgetItem_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1304,14 +1368,16 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KPageWidgetItem_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: KPageWidgetItem, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KPageWidgetItem_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -1326,14 +1392,16 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KPageWidgetItem_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: KPageWidgetItem, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KPageWidgetItem_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1344,12 +1412,12 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetItem`
+    /// ` self: KPageWidgetItem`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetItem, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KPageWidgetItem, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KPageWidgetItem_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: KPageWidgetItem, callback: *const fn (KPageWidgetItem, QObject, QEvent) callconv(.c) bool) void {
+        qtc.KPageWidgetItem_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1360,12 +1428,13 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KPageWidgetItem_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: KPageWidgetItem, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KPageWidgetItem_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -1380,12 +1449,13 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KPageWidgetItem_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: KPageWidgetItem, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KPageWidgetItem_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1396,12 +1466,12 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetItem`
+    /// ` self: KPageWidgetItem`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetItem, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetItem, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KPageWidgetItem_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: KPageWidgetItem, callback: *const fn (KPageWidgetItem, QTimerEvent) callconv(.c) void) void {
+        qtc.KPageWidgetItem_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1412,12 +1482,13 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KPageWidgetItem_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: KPageWidgetItem, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KPageWidgetItem_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -1432,12 +1503,13 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KPageWidgetItem_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: KPageWidgetItem, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KPageWidgetItem_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1448,12 +1520,12 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetItem`
+    /// ` self: KPageWidgetItem`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetItem, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetItem, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KPageWidgetItem_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: KPageWidgetItem, callback: *const fn (KPageWidgetItem, QChildEvent) callconv(.c) void) void {
+        qtc.KPageWidgetItem_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1464,12 +1536,13 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KPageWidgetItem_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: KPageWidgetItem, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KPageWidgetItem_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -1484,12 +1557,13 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KPageWidgetItem_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: KPageWidgetItem, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KPageWidgetItem_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1500,12 +1574,12 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetItem`
+    /// ` self: KPageWidgetItem`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetItem, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetItem, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KPageWidgetItem_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: KPageWidgetItem, callback: *const fn (KPageWidgetItem, QEvent) callconv(.c) void) void {
+        qtc.KPageWidgetItem_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1516,12 +1590,13 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KPageWidgetItem_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: KPageWidgetItem, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KPageWidgetItem_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -1536,12 +1611,13 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KPageWidgetItem_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: KPageWidgetItem, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KPageWidgetItem_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1552,12 +1628,12 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetItem`
+    /// ` self: KPageWidgetItem`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetItem, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetItem, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KPageWidgetItem_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: KPageWidgetItem, callback: *const fn (KPageWidgetItem, QMetaMethod) callconv(.c) void) void {
+        qtc.KPageWidgetItem_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1568,12 +1644,13 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KPageWidgetItem_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: KPageWidgetItem, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KPageWidgetItem_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -1588,12 +1665,13 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KPageWidgetItem_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: KPageWidgetItem, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KPageWidgetItem_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1604,12 +1682,12 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetItem`
+    /// ` self: KPageWidgetItem`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetItem, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetItem, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KPageWidgetItem_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: KPageWidgetItem, callback: *const fn (KPageWidgetItem, QMetaMethod) callconv(.c) void) void {
+        qtc.KPageWidgetItem_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1620,10 +1698,10 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KPageWidgetItem_Sender(@ptrCast(self));
+    pub fn Sender(self: KPageWidgetItem) QObject {
+        return .{ .ptr = qtc.KPageWidgetItem_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -1638,10 +1716,10 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KPageWidgetItem_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: KPageWidgetItem) QObject {
+        return .{ .ptr = qtc.KPageWidgetItem_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1652,12 +1730,12 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetItem`
+    /// ` self: KPageWidgetItem`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.KPageWidgetItem_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: KPageWidgetItem, callback: *const fn () callconv(.c) QObject) void {
+        qtc.KPageWidgetItem_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1668,10 +1746,10 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KPageWidgetItem_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: KPageWidgetItem) i32 {
+        return qtc.KPageWidgetItem_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -1686,10 +1764,10 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KPageWidgetItem_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: KPageWidgetItem) i32 {
+        return qtc.KPageWidgetItem_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1700,12 +1778,12 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetItem`
+    /// ` self: KPageWidgetItem`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KPageWidgetItem_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: KPageWidgetItem, callback: *const fn () callconv(.c) i32) void {
+        qtc.KPageWidgetItem_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1716,13 +1794,13 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: KPageWidgetItem, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KPageWidgetItem_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.KPageWidgetItem_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -1737,13 +1815,13 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: KPageWidgetItem, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KPageWidgetItem_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KPageWidgetItem_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1754,12 +1832,12 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetItem`
+    /// ` self: KPageWidgetItem`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetItem, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KPageWidgetItem, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KPageWidgetItem_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: KPageWidgetItem, callback: *const fn (KPageWidgetItem, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KPageWidgetItem_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1770,12 +1848,13 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KPageWidgetItem_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: KPageWidgetItem, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KPageWidgetItem_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -1790,12 +1869,13 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KPageWidgetItem_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: KPageWidgetItem, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KPageWidgetItem_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1806,12 +1886,12 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetItem`
+    /// ` self: KPageWidgetItem`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetItem, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: KPageWidgetItem, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KPageWidgetItem_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: KPageWidgetItem, callback: *const fn (KPageWidgetItem, QMetaMethod) callconv(.c) bool) void {
+        qtc.KPageWidgetItem_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1822,12 +1902,12 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetItem, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetItem, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: KPageWidgetItem, callback: *const fn (KPageWidgetItem, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -1840,39 +1920,51 @@ pub const kpagewidgetitem = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KPageWidgetItem `
+    /// ` self: KPageWidgetItem `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KPageWidgetItem_Delete(@ptrCast(self));
+    pub fn Delete(self: KPageWidgetItem) void {
+        qtc.KPageWidgetItem_Delete(@ptrCast(self.ptr));
     }
 };
 
 /// ### [Upstream resources](https://api.kde.org/kpagewidgetmodel.html)
-pub const kpagewidgetmodel = struct {
+pub const KPageWidgetModel = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kpagewidgetmodel.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KPageWidgetModel,
+
+    pub const _is_KPageWidgetModel = {};
+    pub const _is_KPageModel = {};
+    pub const _is_QAbstractItemModel = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new KPageWidgetModel object.
     ///
-    pub fn New() QtC.KPageWidgetModel {
-        return qtc.KPageWidgetModel_new();
+    pub fn New() KPageWidgetModel {
+        return .{ .ptr = qtc.KPageWidgetModel_new() };
     }
 
     /// New2 constructs a new KPageWidgetModel object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New2(parent: ?*anyopaque) QtC.KPageWidgetModel {
-        return qtc.KPageWidgetModel_new2(@ptrCast(parent));
+    pub fn New2(parent: anytype) KPageWidgetModel {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.KPageWidgetModel_new2(@ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KPageWidgetModel_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: KPageWidgetModel) QMetaObject {
+        return .{ .ptr = qtc.KPageWidgetModel_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -1881,12 +1973,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.KPageWidgetModel_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: KPageWidgetModel, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.KPageWidgetModel_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -1899,33 +1991,33 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KPageWidgetModel_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: KPageWidgetModel) QMetaObject {
+        return .{ .ptr = qtc.KPageWidgetModel_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: KPageWidgetModel, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KPageWidgetModel_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.KPageWidgetModel_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: KPageWidgetModel, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.KPageWidgetModel_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.KPageWidgetModel_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -1936,18 +2028,18 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: KPageWidgetModel, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KPageWidgetModel_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KPageWidgetModel_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -1955,20 +2047,20 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KPageWidgetModel_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: KPageWidgetModel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KPageWidgetModel_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KPageWidgetModel, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.KPageWidgetModel_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.KPageWidgetModel_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -1979,7 +2071,7 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -1987,19 +2079,19 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KPageWidgetModel_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: KPageWidgetModel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KPageWidgetModel_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -2012,122 +2104,134 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn AddPage(self: ?*anyopaque, widget: ?*anyopaque, name: []const u8) QtC.KPageWidgetItem {
+    pub fn AddPage(self: KPageWidgetModel, widget: anytype, name: []const u8) KPageWidgetItem {
+        comptime _ = @TypeOf(widget)._is_QWidget;
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.KPageWidgetModel_AddPage(@ptrCast(self), @ptrCast(widget), name_str);
+        return .{ .ptr = qtc.KPageWidgetModel_AddPage(@ptrCast(self.ptr), @ptrCast(widget.ptr), name_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpagewidgetmodel.html#addPage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` item: QtC.KPageWidgetItem `
+    /// ` item: KPageWidgetItem `
     ///
-    pub fn AddPage2(self: ?*anyopaque, item: ?*anyopaque) void {
-        qtc.KPageWidgetModel_AddPage2(@ptrCast(self), @ptrCast(item));
+    pub fn AddPage2(self: KPageWidgetModel, item: anytype) void {
+        comptime _ = @TypeOf(item)._is_KPageWidgetItem;
+        qtc.KPageWidgetModel_AddPage2(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpagewidgetmodel.html#insertPage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` before: QtC.KPageWidgetItem `
+    /// ` before: KPageWidgetItem `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn InsertPage(self: ?*anyopaque, before: ?*anyopaque, widget: ?*anyopaque, name: []const u8) QtC.KPageWidgetItem {
+    pub fn InsertPage(self: KPageWidgetModel, before: anytype, widget: anytype, name: []const u8) KPageWidgetItem {
+        comptime _ = @TypeOf(before)._is_KPageWidgetItem;
+        comptime _ = @TypeOf(widget)._is_QWidget;
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.KPageWidgetModel_InsertPage(@ptrCast(self), @ptrCast(before), @ptrCast(widget), name_str);
+        return .{ .ptr = qtc.KPageWidgetModel_InsertPage(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(widget.ptr), name_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpagewidgetmodel.html#insertPage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` before: QtC.KPageWidgetItem `
+    /// ` before: KPageWidgetItem `
     ///
-    /// ` item: QtC.KPageWidgetItem `
+    /// ` item: KPageWidgetItem `
     ///
-    pub fn InsertPage2(self: ?*anyopaque, before: ?*anyopaque, item: ?*anyopaque) void {
-        qtc.KPageWidgetModel_InsertPage2(@ptrCast(self), @ptrCast(before), @ptrCast(item));
+    pub fn InsertPage2(self: KPageWidgetModel, before: anytype, item: anytype) void {
+        comptime _ = @TypeOf(before)._is_KPageWidgetItem;
+        comptime _ = @TypeOf(item)._is_KPageWidgetItem;
+        qtc.KPageWidgetModel_InsertPage2(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(item.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpagewidgetmodel.html#addSubPage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` parent: QtC.KPageWidgetItem `
+    /// ` parent: KPageWidgetItem `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn AddSubPage(self: ?*anyopaque, parent: ?*anyopaque, widget: ?*anyopaque, name: []const u8) QtC.KPageWidgetItem {
+    pub fn AddSubPage(self: KPageWidgetModel, parent: anytype, widget: anytype, name: []const u8) KPageWidgetItem {
+        comptime _ = @TypeOf(parent)._is_KPageWidgetItem;
+        comptime _ = @TypeOf(widget)._is_QWidget;
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.KPageWidgetModel_AddSubPage(@ptrCast(self), @ptrCast(parent), @ptrCast(widget), name_str);
+        return .{ .ptr = qtc.KPageWidgetModel_AddSubPage(@ptrCast(self.ptr), @ptrCast(parent.ptr), @ptrCast(widget.ptr), name_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpagewidgetmodel.html#addSubPage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` parent: QtC.KPageWidgetItem `
+    /// ` parent: KPageWidgetItem `
     ///
-    /// ` item: QtC.KPageWidgetItem `
+    /// ` item: KPageWidgetItem `
     ///
-    pub fn AddSubPage2(self: ?*anyopaque, parent: ?*anyopaque, item: ?*anyopaque) void {
-        qtc.KPageWidgetModel_AddSubPage2(@ptrCast(self), @ptrCast(parent), @ptrCast(item));
+    pub fn AddSubPage2(self: KPageWidgetModel, parent: anytype, item: anytype) void {
+        comptime _ = @TypeOf(parent)._is_KPageWidgetItem;
+        comptime _ = @TypeOf(item)._is_KPageWidgetItem;
+        qtc.KPageWidgetModel_AddSubPage2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @ptrCast(item.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpagewidgetmodel.html#removePage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` item: QtC.KPageWidgetItem `
+    /// ` item: KPageWidgetItem `
     ///
-    pub fn RemovePage(self: ?*anyopaque, item: ?*anyopaque) void {
-        qtc.KPageWidgetModel_RemovePage(@ptrCast(self), @ptrCast(item));
+    pub fn RemovePage(self: KPageWidgetModel, item: anytype) void {
+        comptime _ = @TypeOf(item)._is_KPageWidgetItem;
+        qtc.KPageWidgetModel_RemovePage(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpagewidgetmodel.html#columnCount)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn ColumnCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
-        return qtc.KPageWidgetModel_ColumnCount(@ptrCast(self), @ptrCast(parent));
+    pub fn ColumnCount(self: KPageWidgetModel, parent: anytype) i32 {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KPageWidgetModel_ColumnCount(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpagewidgetmodel.html#columnCount)
@@ -2136,12 +2240,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, parent: QtC.QModelIndex) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KPageWidgetModel, parent: QModelIndex) callconv(.c) i32 `
     ///
-    pub fn OnColumnCount(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KPageWidgetModel_OnColumnCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnCount(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QModelIndex) callconv(.c) i32) void {
+        qtc.KPageWidgetModel_OnColumnCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperColumnCount` instead
@@ -2154,26 +2258,28 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperColumnCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
-        return qtc.KPageWidgetModel_SuperColumnCount(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperColumnCount(self: KPageWidgetModel, parent: anytype) i32 {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KPageWidgetModel_SuperColumnCount(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpagewidgetmodel.html#data)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
     /// ` role: i32 `
     ///
-    pub fn Data(self: ?*anyopaque, index: ?*anyopaque, role: i32) QtC.QVariant {
-        return qtc.KPageWidgetModel_Data(@ptrCast(self), @ptrCast(index), @bitCast(role));
+    pub fn Data(self: KPageWidgetModel, index: anytype, role: i32) QVariant {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.KPageWidgetModel_Data(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(role)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpagewidgetmodel.html#data)
@@ -2182,12 +2288,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, index: QtC.QModelIndex, role: i32) callconv(.c) QtC.QVariant `
+    /// ` callback: *const fn (self: KPageWidgetModel, index: QModelIndex, role: i32) callconv(.c) QVariant `
     ///
-    pub fn OnData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.KPageWidgetModel_OnData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnData(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QModelIndex, i32) callconv(.c) QVariant) void {
+        qtc.KPageWidgetModel_OnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperData` instead
@@ -2200,30 +2306,33 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
     /// ` role: i32 `
     ///
-    pub fn SuperData(self: ?*anyopaque, index: ?*anyopaque, role: i32) QtC.QVariant {
-        return qtc.KPageWidgetModel_SuperData(@ptrCast(self), @ptrCast(index), @bitCast(role));
+    pub fn SuperData(self: KPageWidgetModel, index: anytype, role: i32) QVariant {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.KPageWidgetModel_SuperData(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(role)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpagewidgetmodel.html#setData)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
     /// ` role: i32 `
     ///
-    pub fn SetData(self: ?*anyopaque, index: ?*anyopaque, value: ?*anyopaque, role: i32) bool {
-        return qtc.KPageWidgetModel_SetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @bitCast(role));
+    pub fn SetData(self: KPageWidgetModel, index: anytype, value: anytype, role: i32) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.KPageWidgetModel_SetData(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(value.ptr), @bitCast(role));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpagewidgetmodel.html#setData)
@@ -2232,12 +2341,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, index: QtC.QModelIndex, value: QtC.QVariant, role: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: KPageWidgetModel, index: QModelIndex, value: QVariant, role: i32) callconv(.c) bool `
     ///
-    pub fn OnSetData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KPageWidgetModel_OnSetData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetData(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QModelIndex, QVariant, i32) callconv(.c) bool) void {
+        qtc.KPageWidgetModel_OnSetData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetData` instead
@@ -2250,32 +2359,35 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
     /// ` role: i32 `
     ///
-    pub fn SuperSetData(self: ?*anyopaque, index: ?*anyopaque, value: ?*anyopaque, role: i32) bool {
-        return qtc.KPageWidgetModel_SuperSetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @bitCast(role));
+    pub fn SuperSetData(self: KPageWidgetModel, index: anytype, value: anytype, role: i32) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.KPageWidgetModel_SuperSetData(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(value.ptr), @bitCast(role));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpagewidgetmodel.html#flags)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.ItemFlag `
     ///
-    pub fn Flags(self: ?*anyopaque, index: ?*anyopaque) i32 {
-        return qtc.KPageWidgetModel_Flags(@ptrCast(self), @ptrCast(index));
+    pub fn Flags(self: KPageWidgetModel, index: anytype) i32 {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.KPageWidgetModel_Flags(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpagewidgetmodel.html#flags)
@@ -2284,12 +2396,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, index: QtC.QModelIndex) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KPageWidgetModel, index: QModelIndex) callconv(.c) i32 `
     ///
-    pub fn OnFlags(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KPageWidgetModel_OnFlags(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFlags(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QModelIndex) callconv(.c) i32) void {
+        qtc.KPageWidgetModel_OnFlags(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperFlags` instead
@@ -2302,32 +2414,34 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.ItemFlag `
     ///
-    pub fn SuperFlags(self: ?*anyopaque, index: ?*anyopaque) i32 {
-        return qtc.KPageWidgetModel_SuperFlags(@ptrCast(self), @ptrCast(index));
+    pub fn SuperFlags(self: KPageWidgetModel, index: anytype) i32 {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.KPageWidgetModel_SuperFlags(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpagewidgetmodel.html#index)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn Index(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KPageWidgetModel_Index(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn Index(self: KPageWidgetModel, row: i32, column: i32, parent: anytype) QModelIndex {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return .{ .ptr = qtc.KPageWidgetModel_Index(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpagewidgetmodel.html#index)
@@ -2336,12 +2450,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, row: i32, column: i32, parent: QtC.QModelIndex) callconv(.c) QtC.QModelIndex `
+    /// ` callback: *const fn (self: KPageWidgetModel, row: i32, column: i32, parent: QModelIndex) callconv(.c) QModelIndex `
     ///
-    pub fn OnIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.KPageWidgetModel_OnIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIndex(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
+        qtc.KPageWidgetModel_OnIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperIndex` instead
@@ -2354,28 +2468,30 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperIndex(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KPageWidgetModel_SuperIndex(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn SuperIndex(self: KPageWidgetModel, row: i32, column: i32, parent: anytype) QModelIndex {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return .{ .ptr = qtc.KPageWidgetModel_SuperIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpagewidgetmodel.html#parent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn Parent(self: ?*anyopaque, index: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KPageWidgetModel_Parent(@ptrCast(self), @ptrCast(index));
+    pub fn Parent(self: KPageWidgetModel, index: anytype) QModelIndex {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.KPageWidgetModel_Parent(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpagewidgetmodel.html#parent)
@@ -2384,12 +2500,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, index: QtC.QModelIndex) callconv(.c) QtC.QModelIndex `
+    /// ` callback: *const fn (self: KPageWidgetModel, index: QModelIndex) callconv(.c) QModelIndex `
     ///
-    pub fn OnParent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.KPageWidgetModel_OnParent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnParent(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QModelIndex) callconv(.c) QModelIndex) void {
+        qtc.KPageWidgetModel_OnParent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperParent` instead
@@ -2402,24 +2518,26 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SuperParent(self: ?*anyopaque, index: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KPageWidgetModel_SuperParent(@ptrCast(self), @ptrCast(index));
+    pub fn SuperParent(self: KPageWidgetModel, index: anytype) QModelIndex {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.KPageWidgetModel_SuperParent(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpagewidgetmodel.html#rowCount)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn RowCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
-        return qtc.KPageWidgetModel_RowCount(@ptrCast(self), @ptrCast(parent));
+    pub fn RowCount(self: KPageWidgetModel, parent: anytype) i32 {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KPageWidgetModel_RowCount(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpagewidgetmodel.html#rowCount)
@@ -2428,12 +2546,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, parent: QtC.QModelIndex) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KPageWidgetModel, parent: QModelIndex) callconv(.c) i32 `
     ///
-    pub fn OnRowCount(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KPageWidgetModel_OnRowCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowCount(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QModelIndex) callconv(.c) i32) void {
+        qtc.KPageWidgetModel_OnRowCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperRowCount` instead
@@ -2446,75 +2564,79 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperRowCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
-        return qtc.KPageWidgetModel_SuperRowCount(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperRowCount(self: KPageWidgetModel, parent: anytype) i32 {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KPageWidgetModel_SuperRowCount(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpagewidgetmodel.html#item)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn Item(self: ?*anyopaque, index: ?*anyopaque) QtC.KPageWidgetItem {
-        return qtc.KPageWidgetModel_Item(@ptrCast(self), @ptrCast(index));
+    pub fn Item(self: KPageWidgetModel, index: anytype) KPageWidgetItem {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.KPageWidgetModel_Item(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpagewidgetmodel.html#index)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` item: QtC.KPageWidgetItem `
+    /// ` item: KPageWidgetItem `
     ///
-    pub fn Index2(self: ?*anyopaque, item: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KPageWidgetModel_Index2(@ptrCast(self), @ptrCast(item));
+    pub fn Index2(self: KPageWidgetModel, item: anytype) QModelIndex {
+        comptime _ = @TypeOf(item)._is_KPageWidgetItem;
+        return .{ .ptr = qtc.KPageWidgetModel_Index2(@ptrCast(self.ptr), @ptrCast(item.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpagewidgetmodel.html#toggled)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` page: QtC.KPageWidgetItem `
+    /// ` page: KPageWidgetItem `
     ///
     /// ` checked: bool `
     ///
-    pub fn Toggled(self: ?*anyopaque, page: ?*anyopaque, checked: bool) void {
-        qtc.KPageWidgetModel_Toggled(@ptrCast(self), @ptrCast(page), checked);
+    pub fn Toggled(self: KPageWidgetModel, page: anytype, checked: bool) void {
+        comptime _ = @TypeOf(page)._is_KPageWidgetItem;
+        qtc.KPageWidgetModel_Toggled(@ptrCast(self.ptr), @ptrCast(page.ptr), checked);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpagewidgetmodel.html#toggled)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, page: QtC.KPageWidgetItem, checked: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetModel, page: KPageWidgetItem, checked: bool) callconv(.c) void `
     ///
-    pub fn OnToggled(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KPageWidgetModel_Connect_Toggled(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnToggled(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, KPageWidgetItem, bool) callconv(.c) void) void {
+        qtc.KPageWidgetModel_Connect_Toggled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -2528,15 +2650,15 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -2552,14 +2674,14 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    pub fn HasIndex(self: ?*anyopaque, row: i32, column: i32) bool {
-        return qtc.QAbstractItemModel_HasIndex(@ptrCast(self), @bitCast(row), @bitCast(column));
+    pub fn HasIndex(self: KPageWidgetModel, row: i32, column: i32) bool {
+        return qtc.QAbstractItemModel_HasIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2568,12 +2690,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` row: i32 `
     ///
-    pub fn InsertRow(self: ?*anyopaque, row: i32) bool {
-        return qtc.QAbstractItemModel_InsertRow(@ptrCast(self), @bitCast(row));
+    pub fn InsertRow(self: KPageWidgetModel, row: i32) bool {
+        return qtc.QAbstractItemModel_InsertRow(@ptrCast(self.ptr), @bitCast(row));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2582,12 +2704,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` column: i32 `
     ///
-    pub fn InsertColumn(self: ?*anyopaque, column: i32) bool {
-        return qtc.QAbstractItemModel_InsertColumn(@ptrCast(self), @bitCast(column));
+    pub fn InsertColumn(self: KPageWidgetModel, column: i32) bool {
+        return qtc.QAbstractItemModel_InsertColumn(@ptrCast(self.ptr), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2596,12 +2718,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` row: i32 `
     ///
-    pub fn RemoveRow(self: ?*anyopaque, row: i32) bool {
-        return qtc.QAbstractItemModel_RemoveRow(@ptrCast(self), @bitCast(row));
+    pub fn RemoveRow(self: KPageWidgetModel, row: i32) bool {
+        return qtc.QAbstractItemModel_RemoveRow(@ptrCast(self.ptr), @bitCast(row));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2610,12 +2732,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` column: i32 `
     ///
-    pub fn RemoveColumn(self: ?*anyopaque, column: i32) bool {
-        return qtc.QAbstractItemModel_RemoveColumn(@ptrCast(self), @bitCast(column));
+    pub fn RemoveColumn(self: KPageWidgetModel, column: i32) bool {
+        return qtc.QAbstractItemModel_RemoveColumn(@ptrCast(self.ptr), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2624,18 +2746,20 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceRow: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn MoveRow(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.QAbstractItemModel_MoveRow(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceRow), @ptrCast(destinationParent), @bitCast(destinationChild));
+    pub fn MoveRow(self: KPageWidgetModel, sourceParent: anytype, sourceRow: i32, destinationParent: anytype, destinationChild: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_MoveRow(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceRow), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2644,18 +2768,20 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceColumn: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn MoveColumn(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.QAbstractItemModel_MoveColumn(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @ptrCast(destinationParent), @bitCast(destinationChild));
+    pub fn MoveColumn(self: KPageWidgetModel, sourceParent: anytype, sourceColumn: i32, destinationParent: anytype, destinationChild: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_MoveColumn(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceColumn), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2664,12 +2790,13 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn CheckIndex(self: ?*anyopaque, index: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_CheckIndex(@ptrCast(self), @ptrCast(index));
+    pub fn CheckIndex(self: KPageWidgetModel, index: anytype) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.QAbstractItemModel_CheckIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2678,14 +2805,16 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` topLeft: QtC.QModelIndex `
+    /// ` topLeft: QModelIndex `
     ///
-    /// ` bottomRight: QtC.QModelIndex `
+    /// ` bottomRight: QModelIndex `
     ///
-    pub fn DataChanged(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque) void {
-        qtc.QAbstractItemModel_DataChanged(@ptrCast(self), @ptrCast(topLeft), @ptrCast(bottomRight));
+    pub fn DataChanged(self: KPageWidgetModel, topLeft: anytype, bottomRight: anytype) void {
+        comptime _ = @TypeOf(topLeft)._is_QModelIndex;
+        comptime _ = @TypeOf(bottomRight)._is_QModelIndex;
+        qtc.QAbstractItemModel_DataChanged(@ptrCast(self.ptr), @ptrCast(topLeft.ptr), @ptrCast(bottomRight.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2694,12 +2823,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetModel, topLeft: QModelIndex, bottomRight: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_DataChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDataChanged(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QModelIndex, QModelIndex) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_DataChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2708,7 +2837,7 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` orientation: qnamespace_enums.Orientation `
     ///
@@ -2716,8 +2845,8 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ` last: i32 `
     ///
-    pub fn HeaderDataChanged(self: ?*anyopaque, orientation: i32, first: i32, last: i32) void {
-        qtc.QAbstractItemModel_HeaderDataChanged(@ptrCast(self), @bitCast(orientation), @bitCast(first), @bitCast(last));
+    pub fn HeaderDataChanged(self: KPageWidgetModel, orientation: i32, first: i32, last: i32) void {
+        qtc.QAbstractItemModel_HeaderDataChanged(@ptrCast(self.ptr), @bitCast(orientation), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2726,12 +2855,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, orientation: qnamespace_enums.Orientation, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetModel, orientation: qnamespace_enums.Orientation, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnHeaderDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_HeaderDataChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHeaderDataChanged(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, i32, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_HeaderDataChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2740,10 +2869,10 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    pub fn LayoutChanged(self: ?*anyopaque) void {
-        qtc.QAbstractItemModel_LayoutChanged(@ptrCast(self));
+    pub fn LayoutChanged(self: KPageWidgetModel) void {
+        qtc.QAbstractItemModel_LayoutChanged(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2752,12 +2881,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetModel) callconv(.c) void `
     ///
-    pub fn OnLayoutChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLayoutChanged(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_LayoutChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2766,10 +2895,10 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    pub fn LayoutAboutToBeChanged(self: ?*anyopaque) void {
-        qtc.QAbstractItemModel_LayoutAboutToBeChanged(@ptrCast(self));
+    pub fn LayoutAboutToBeChanged(self: KPageWidgetModel) void {
+        qtc.QAbstractItemModel_LayoutAboutToBeChanged(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2778,12 +2907,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetModel) callconv(.c) void `
     ///
-    pub fn OnLayoutAboutToBeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLayoutAboutToBeChanged(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2792,16 +2921,17 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn HasIndex3(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_HasIndex3(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn HasIndex3(self: KPageWidgetModel, row: i32, column: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_HasIndex3(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2810,14 +2940,15 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` row: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn InsertRow2(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_InsertRow2(@ptrCast(self), @bitCast(row), @ptrCast(parent));
+    pub fn InsertRow2(self: KPageWidgetModel, row: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_InsertRow2(@ptrCast(self.ptr), @bitCast(row), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2826,14 +2957,15 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn InsertColumn2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_InsertColumn2(@ptrCast(self), @bitCast(column), @ptrCast(parent));
+    pub fn InsertColumn2(self: KPageWidgetModel, column: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_InsertColumn2(@ptrCast(self.ptr), @bitCast(column), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2842,14 +2974,15 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` row: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn RemoveRow2(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_RemoveRow2(@ptrCast(self), @bitCast(row), @ptrCast(parent));
+    pub fn RemoveRow2(self: KPageWidgetModel, row: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_RemoveRow2(@ptrCast(self.ptr), @bitCast(row), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2858,14 +2991,15 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn RemoveColumn2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_RemoveColumn2(@ptrCast(self), @bitCast(column), @ptrCast(parent));
+    pub fn RemoveColumn2(self: KPageWidgetModel, column: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_RemoveColumn2(@ptrCast(self.ptr), @bitCast(column), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2874,14 +3008,15 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
     /// ` options: flag of qabstractitemmodel_enums.CheckIndexOption `
     ///
-    pub fn CheckIndex2(self: ?*anyopaque, index: ?*anyopaque, options: i32) bool {
-        return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self), @ptrCast(index), @bitCast(options));
+    pub fn CheckIndex2(self: KPageWidgetModel, index: anytype, options: i32) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(options));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2890,20 +3025,22 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` topLeft: QtC.QModelIndex `
+    /// ` topLeft: QModelIndex `
     ///
-    /// ` bottomRight: QtC.QModelIndex `
+    /// ` bottomRight: QModelIndex `
     ///
     /// ` roles: []i32 `
     ///
-    pub fn DataChanged3(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque, roles: []i32) void {
+    pub fn DataChanged3(self: KPageWidgetModel, topLeft: anytype, bottomRight: anytype, roles: []i32) void {
+        comptime _ = @TypeOf(topLeft)._is_QModelIndex;
+        comptime _ = @TypeOf(bottomRight)._is_QModelIndex;
         const roles_list = qtc.libqt_list{
             .len = roles.len,
             .data = roles.ptr,
         };
-        qtc.QAbstractItemModel_DataChanged3(@ptrCast(self), @ptrCast(topLeft), @ptrCast(bottomRight), roles_list);
+        qtc.QAbstractItemModel_DataChanged3(@ptrCast(self.ptr), @ptrCast(topLeft.ptr), @ptrCast(bottomRight.ptr), roles_list);
     }
 
     /// Inherited from QAbstractItemModel
@@ -2912,12 +3049,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: qtc.libqt_list ([]i32)) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetModel, topLeft: QModelIndex, bottomRight: QModelIndex, roles: qtc.libqt_list ([]i32)) callconv(.c) void `
     ///
-    pub fn OnDataChanged3(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_DataChanged3(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDataChanged3(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QModelIndex, QModelIndex, qtc.libqt_list) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_DataChanged3(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2926,16 +3063,16 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` parents: []QtC.QPersistentModelIndex `
+    /// ` parents: []QPersistentModelIndex `
     ///
-    pub fn LayoutChanged1(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex) void {
+    pub fn LayoutChanged1(self: KPageWidgetModel, parents: []QPersistentModelIndex) void {
         const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
-        qtc.QAbstractItemModel_LayoutChanged1(@ptrCast(self), parents_list);
+        qtc.QAbstractItemModel_LayoutChanged1(@ptrCast(self.ptr), parents_list);
     }
 
     /// Inherited from QAbstractItemModel
@@ -2944,12 +3081,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex)) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetModel, parents: qtc.libqt_list ([]QPersistentModelIndex)) callconv(.c) void `
     ///
-    pub fn OnLayoutChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutChanged1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLayoutChanged1(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, qtc.libqt_list) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_LayoutChanged1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2958,18 +3095,18 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` parents: []QtC.QPersistentModelIndex `
+    /// ` parents: []QPersistentModelIndex `
     ///
     /// ` hint: qabstractitemmodel_enums.LayoutChangeHint `
     ///
-    pub fn LayoutChanged2(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex, hint: i32) void {
+    pub fn LayoutChanged2(self: KPageWidgetModel, parents: []QPersistentModelIndex, hint: i32) void {
         const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
-        qtc.QAbstractItemModel_LayoutChanged2(@ptrCast(self), parents_list, @bitCast(hint));
+        qtc.QAbstractItemModel_LayoutChanged2(@ptrCast(self.ptr), parents_list, @bitCast(hint));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2978,12 +3115,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetModel, parents: qtc.libqt_list ([]QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
     ///
-    pub fn OnLayoutChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutChanged2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLayoutChanged2(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, qtc.libqt_list, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_LayoutChanged2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2992,16 +3129,16 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` parents: []QtC.QPersistentModelIndex `
+    /// ` parents: []QPersistentModelIndex `
     ///
-    pub fn LayoutAboutToBeChanged1(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex) void {
+    pub fn LayoutAboutToBeChanged1(self: KPageWidgetModel, parents: []QPersistentModelIndex) void {
         const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
-        qtc.QAbstractItemModel_LayoutAboutToBeChanged1(@ptrCast(self), parents_list);
+        qtc.QAbstractItemModel_LayoutAboutToBeChanged1(@ptrCast(self.ptr), parents_list);
     }
 
     /// Inherited from QAbstractItemModel
@@ -3010,12 +3147,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex)) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetModel, parents: qtc.libqt_list ([]QPersistentModelIndex)) callconv(.c) void `
     ///
-    pub fn OnLayoutAboutToBeChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLayoutAboutToBeChanged1(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, qtc.libqt_list) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3024,18 +3161,18 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` parents: []QtC.QPersistentModelIndex `
+    /// ` parents: []QPersistentModelIndex `
     ///
     /// ` hint: qabstractitemmodel_enums.LayoutChangeHint `
     ///
-    pub fn LayoutAboutToBeChanged2(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex, hint: i32) void {
+    pub fn LayoutAboutToBeChanged2(self: KPageWidgetModel, parents: []QPersistentModelIndex, hint: i32) void {
         const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
-        qtc.QAbstractItemModel_LayoutAboutToBeChanged2(@ptrCast(self), parents_list, @bitCast(hint));
+        qtc.QAbstractItemModel_LayoutAboutToBeChanged2(@ptrCast(self.ptr), parents_list, @bitCast(hint));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3044,12 +3181,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetModel, parents: qtc.libqt_list ([]QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
     ///
-    pub fn OnLayoutAboutToBeChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLayoutAboutToBeChanged2(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, qtc.libqt_list, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3058,12 +3195,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: KPageWidgetModel, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kpagewidgetmodel.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3076,12 +3213,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: KPageWidgetModel, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -3090,10 +3227,10 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: KPageWidgetModel) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -3102,10 +3239,10 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: KPageWidgetModel) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -3114,10 +3251,10 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: KPageWidgetModel) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -3126,10 +3263,10 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: KPageWidgetModel) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -3138,12 +3275,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: KPageWidgetModel, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -3152,10 +3289,10 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: KPageWidgetModel) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -3164,12 +3301,13 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: KPageWidgetModel, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -3178,12 +3316,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: KPageWidgetModel, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -3192,12 +3330,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: KPageWidgetModel, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -3206,12 +3344,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: KPageWidgetModel, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -3220,12 +3358,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: KPageWidgetModel, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -3234,16 +3372,17 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: KPageWidgetModel, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("kpagewidgetmodel.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kpagewidgetmodel.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -3253,12 +3392,13 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: KPageWidgetModel, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -3267,12 +3407,13 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: KPageWidgetModel, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -3281,12 +3422,13 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: KPageWidgetModel, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -3295,18 +3437,20 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -3315,16 +3459,20 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -3333,18 +3481,19 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: KPageWidgetModel, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -3353,18 +3502,20 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -3373,16 +3524,20 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -3391,10 +3546,10 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: KPageWidgetModel) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -3403,12 +3558,13 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: KPageWidgetModel, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -3417,10 +3573,11 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -3429,10 +3586,10 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: KPageWidgetModel) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -3441,10 +3598,10 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: KPageWidgetModel) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -3453,15 +3610,16 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: KPageWidgetModel, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -3470,13 +3628,13 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: KPageWidgetModel, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -3485,17 +3643,16 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: KPageWidgetModel, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kpagewidgetmodel.DynamicPropertyNames: Memory allocation failed");
@@ -3514,10 +3671,10 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: KPageWidgetModel) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -3526,10 +3683,10 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: KPageWidgetModel) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -3538,10 +3695,10 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: KPageWidgetModel) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -3550,12 +3707,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetModel) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3564,13 +3721,13 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: KPageWidgetModel, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -3579,10 +3736,10 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: KPageWidgetModel) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -3591,14 +3748,14 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: KPageWidgetModel, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -3607,14 +3764,14 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: KPageWidgetModel, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -3623,20 +3780,22 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -3645,18 +3804,22 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -3665,9 +3828,9 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -3675,10 +3838,11 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: KPageWidgetModel, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -3687,13 +3851,13 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: KPageWidgetModel, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -3702,15 +3866,16 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: KPageWidgetModel, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -3719,18 +3884,19 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: KPageWidgetModel, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -3739,15 +3905,16 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: KPageWidgetModel, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -3756,12 +3923,13 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: KPageWidgetModel, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -3770,12 +3938,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetModel, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3786,16 +3954,17 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    /// ` idx: QtC.QModelIndex `
+    /// ` idx: QModelIndex `
     ///
-    pub fn Sibling(self: ?*anyopaque, row: i32, column: i32, idx: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KPageWidgetModel_Sibling(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(idx));
+    pub fn Sibling(self: KPageWidgetModel, row: i32, column: i32, idx: anytype) QModelIndex {
+        comptime _ = @TypeOf(idx)._is_QModelIndex;
+        return .{ .ptr = qtc.KPageWidgetModel_Sibling(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(idx.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSibling` instead
@@ -3810,16 +3979,17 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    /// ` idx: QtC.QModelIndex `
+    /// ` idx: QModelIndex `
     ///
-    pub fn SuperSibling(self: ?*anyopaque, row: i32, column: i32, idx: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KPageWidgetModel_SuperSibling(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(idx));
+    pub fn SuperSibling(self: KPageWidgetModel, row: i32, column: i32, idx: anytype) QModelIndex {
+        comptime _ = @TypeOf(idx)._is_QModelIndex;
+        return .{ .ptr = qtc.KPageWidgetModel_SuperSibling(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(idx.ptr)) };
     }
 
     /// Inherited from QAbstractItemModel
@@ -3830,12 +4000,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, row: i32, column: i32, idx: QtC.QModelIndex) callconv(.c) QtC.QModelIndex `
+    /// ` callback: *const fn (self: KPageWidgetModel, row: i32, column: i32, idx: QModelIndex) callconv(.c) QModelIndex `
     ///
-    pub fn OnSibling(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.KPageWidgetModel_OnSibling(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSibling(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
+        qtc.KPageWidgetModel_OnSibling(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3846,12 +4016,13 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn HasChildren(self: ?*anyopaque, parent: ?*anyopaque) bool {
-        return qtc.KPageWidgetModel_HasChildren(@ptrCast(self), @ptrCast(parent));
+    pub fn HasChildren(self: KPageWidgetModel, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KPageWidgetModel_HasChildren(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHasChildren` instead
@@ -3866,12 +4037,13 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperHasChildren(self: ?*anyopaque, parent: ?*anyopaque) bool {
-        return qtc.KPageWidgetModel_SuperHasChildren(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperHasChildren(self: KPageWidgetModel, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KPageWidgetModel_SuperHasChildren(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3882,12 +4054,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KPageWidgetModel, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnHasChildren(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KPageWidgetModel_OnHasChildren(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHasChildren(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QModelIndex) callconv(.c) bool) void {
+        qtc.KPageWidgetModel_OnHasChildren(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3898,7 +4070,7 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` section: i32 `
     ///
@@ -3906,8 +4078,8 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn HeaderData(self: ?*anyopaque, section: i32, orientation: i32, role: i32) QtC.QVariant {
-        return qtc.KPageWidgetModel_HeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @bitCast(role));
+    pub fn HeaderData(self: KPageWidgetModel, section: i32, orientation: i32, role: i32) QVariant {
+        return .{ .ptr = qtc.KPageWidgetModel_HeaderData(@ptrCast(self.ptr), @bitCast(section), @bitCast(orientation), @bitCast(role)) };
     }
 
     /// ### DEPRECATED: Use `SuperHeaderData` instead
@@ -3922,7 +4094,7 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` section: i32 `
     ///
@@ -3930,8 +4102,8 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn SuperHeaderData(self: ?*anyopaque, section: i32, orientation: i32, role: i32) QtC.QVariant {
-        return qtc.KPageWidgetModel_SuperHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @bitCast(role));
+    pub fn SuperHeaderData(self: KPageWidgetModel, section: i32, orientation: i32, role: i32) QVariant {
+        return .{ .ptr = qtc.KPageWidgetModel_SuperHeaderData(@ptrCast(self.ptr), @bitCast(section), @bitCast(orientation), @bitCast(role)) };
     }
 
     /// Inherited from QAbstractItemModel
@@ -3942,12 +4114,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32) callconv(.c) QtC.QVariant `
+    /// ` callback: *const fn (self: KPageWidgetModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32) callconv(.c) QVariant `
     ///
-    pub fn OnHeaderData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) QtC.QVariant) void {
-        qtc.KPageWidgetModel_OnHeaderData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHeaderData(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, i32, i32, i32) callconv(.c) QVariant) void {
+        qtc.KPageWidgetModel_OnHeaderData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3958,18 +4130,19 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` section: i32 `
     ///
     /// ` orientation: qnamespace_enums.Orientation `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
     /// ` role: i32 `
     ///
-    pub fn SetHeaderData(self: ?*anyopaque, section: i32, orientation: i32, value: ?*anyopaque, role: i32) bool {
-        return qtc.KPageWidgetModel_SetHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @ptrCast(value), @bitCast(role));
+    pub fn SetHeaderData(self: KPageWidgetModel, section: i32, orientation: i32, value: anytype, role: i32) bool {
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.KPageWidgetModel_SetHeaderData(@ptrCast(self.ptr), @bitCast(section), @bitCast(orientation), @ptrCast(value.ptr), @bitCast(role));
     }
 
     /// ### DEPRECATED: Use `SuperSetHeaderData` instead
@@ -3984,18 +4157,19 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` section: i32 `
     ///
     /// ` orientation: qnamespace_enums.Orientation `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
     /// ` role: i32 `
     ///
-    pub fn SuperSetHeaderData(self: ?*anyopaque, section: i32, orientation: i32, value: ?*anyopaque, role: i32) bool {
-        return qtc.KPageWidgetModel_SuperSetHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @ptrCast(value), @bitCast(role));
+    pub fn SuperSetHeaderData(self: KPageWidgetModel, section: i32, orientation: i32, value: anytype, role: i32) bool {
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.KPageWidgetModel_SuperSetHeaderData(@ptrCast(self.ptr), @bitCast(section), @bitCast(orientation), @ptrCast(value.ptr), @bitCast(role));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4006,12 +4180,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, section: i32, orientation: qnamespace_enums.Orientation, value: QtC.QVariant, role: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: KPageWidgetModel, section: i32, orientation: qnamespace_enums.Orientation, value: QVariant, role: i32) callconv(.c) bool `
     ///
-    pub fn OnSetHeaderData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KPageWidgetModel_OnSetHeaderData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetHeaderData(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, i32, i32, QVariant, i32) callconv(.c) bool) void {
+        qtc.KPageWidgetModel_OnSetHeaderData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4022,15 +4196,16 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
-    ///
-    /// ` index: QtC.QModelIndex `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_qtcqvariant {
-        const _map: qtc.libqt_map = qtc.KPageWidgetModel_ItemData(@ptrCast(self), @ptrCast(index));
-        var _ret: arraymap_i32_qtcqvariant = .empty;
+    /// ` index: QModelIndex `
+    ///
+    pub fn ItemData(self: KPageWidgetModel, allocator: std.mem.Allocator, index: anytype) ArrayMap_i32_QVariant {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        const _map: qtc.libqt_map = qtc.KPageWidgetModel_ItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
+        var _ret: ArrayMap_i32_QVariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -4041,7 +4216,7 @@ pub const kpagewidgetmodel = struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            _ret.put(allocator, _key, @ptrCast(_value)) catch @panic("kpagewidgetmodel.ItemData: Memory allocation failed");
+            _ret.put(allocator, _key, .{ .ptr = @ptrCast(_value) }) catch @panic("kpagewidgetmodel.ItemData: Memory allocation failed");
         }
         return _ret;
     }
@@ -4058,15 +4233,16 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
-    ///
-    /// ` index: QtC.QModelIndex `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_qtcqvariant {
-        const _map: qtc.libqt_map = qtc.KPageWidgetModel_SuperItemData(@ptrCast(self), @ptrCast(index));
-        var _ret: arraymap_i32_qtcqvariant = .empty;
+    /// ` index: QModelIndex `
+    ///
+    pub fn SuperItemData(self: KPageWidgetModel, allocator: std.mem.Allocator, index: anytype) ArrayMap_i32_QVariant {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        const _map: qtc.libqt_map = qtc.KPageWidgetModel_SuperItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
+        var _ret: ArrayMap_i32_QVariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -4077,7 +4253,7 @@ pub const kpagewidgetmodel = struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            _ret.put(allocator, _key, @ptrCast(_value)) catch @panic("kpagewidgetmodel.ItemData: Memory allocation failed");
+            _ret.put(allocator, _key, .{ .ptr = @ptrCast(_value) }) catch @panic("kpagewidgetmodel.ItemData: Memory allocation failed");
         }
         return _ret;
     }
@@ -4090,16 +4266,16 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, index: QtC.QModelIndex) callconv(.c) qtc.libqt_map `
+    /// ` callback: *const fn (self: KPageWidgetModel, index: QModelIndex) callconv(.c) qtc.libqt_map `
     ///
     /// ## Callback Returns:
     ///
-    /// ` C ABI representation of arraymap_i32_qtcqvariant `
+    /// ` C ABI representation of ArrayMap_i32_QVariant `
     ///
-    pub fn OnItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) qtc.libqt_map) void {
-        qtc.KPageWidgetModel_OnItemData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnItemData(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QModelIndex) callconv(.c) qtc.libqt_map) void {
+        qtc.KPageWidgetModel_OnItemData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4110,15 +4286,16 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
-    ///
-    /// ` index: QtC.QModelIndex `
-    ///
-    /// ` roles: arraymap_i32_qtcqvariant `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetItemData(self: ?*anyopaque, index: ?*anyopaque, roles: arraymap_i32_qtcqvariant, allocator: std.mem.Allocator) bool {
+    /// ` index: QModelIndex `
+    ///
+    /// ` roles: ArrayMap_i32_QVariant `
+    ///
+    pub fn SetItemData(self: KPageWidgetModel, allocator: std.mem.Allocator, index: anytype, roles: ArrayMap_i32_QVariant) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
         const roles_count = roles.count();
         const roles_keys = allocator.alloc(i32, roles_count) catch @panic("kpagewidgetmodel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_keys);
@@ -4129,14 +4306,14 @@ pub const kpagewidgetmodel = struct {
         while (roles_it.next()) |it_entry| : (i += 1) {
             const roles_key = it_entry.key_ptr.*;
             roles_keys[i] = @bitCast(roles_key);
-            roles_values[i] = @ptrCast(it_entry.value_ptr.*);
+            roles_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const roles_map = qtc.libqt_map{
             .len = roles_count,
             .keys = @ptrCast(roles_keys.ptr),
             .values = @ptrCast(roles_values.ptr),
         };
-        return qtc.KPageWidgetModel_SetItemData(@ptrCast(self), @ptrCast(index), roles_map);
+        return qtc.KPageWidgetModel_SetItemData(@ptrCast(self.ptr), @ptrCast(index.ptr), roles_map);
     }
 
     /// ### DEPRECATED: Use `SuperSetItemData` instead
@@ -4151,15 +4328,16 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
-    ///
-    /// ` index: QtC.QModelIndex `
-    ///
-    /// ` roles: arraymap_i32_qtcqvariant `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperSetItemData(self: ?*anyopaque, index: ?*anyopaque, roles: arraymap_i32_qtcqvariant, allocator: std.mem.Allocator) bool {
+    /// ` index: QModelIndex `
+    ///
+    /// ` roles: ArrayMap_i32_QVariant `
+    ///
+    pub fn SuperSetItemData(self: KPageWidgetModel, allocator: std.mem.Allocator, index: anytype, roles: ArrayMap_i32_QVariant) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
         const roles_count = roles.count();
         const roles_keys = allocator.alloc(i32, roles_count) catch @panic("kpagewidgetmodel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_keys);
@@ -4170,14 +4348,14 @@ pub const kpagewidgetmodel = struct {
         while (roles_it.next()) |it_entry| : (i += 1) {
             const roles_key = it_entry.key_ptr.*;
             roles_keys[i] = @bitCast(roles_key);
-            roles_values[i] = @ptrCast(it_entry.value_ptr.*);
+            roles_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const roles_map = qtc.libqt_map{
             .len = roles_count,
             .keys = @ptrCast(roles_keys.ptr),
             .values = @ptrCast(roles_values.ptr),
         };
-        return qtc.KPageWidgetModel_SuperSetItemData(@ptrCast(self), @ptrCast(index), roles_map);
+        return qtc.KPageWidgetModel_SuperSetItemData(@ptrCast(self.ptr), @ptrCast(index.ptr), roles_map);
     }
 
     /// Inherited from QAbstractItemModel
@@ -4188,12 +4366,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, index: QtC.QModelIndex, roles: qtc.libqt_map (arraymap_i32_qtcqvariant)) callconv(.c) bool `
+    /// ` callback: *const fn (self: KPageWidgetModel, index: QModelIndex, roles: qtc.libqt_map (ArrayMap_i32_QVariant)) callconv(.c) bool `
     ///
-    pub fn OnSetItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, qtc.libqt_map) callconv(.c) bool) void {
-        qtc.KPageWidgetModel_OnSetItemData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetItemData(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QModelIndex, qtc.libqt_map) callconv(.c) bool) void {
+        qtc.KPageWidgetModel_OnSetItemData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4204,12 +4382,13 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn ClearItemData(self: ?*anyopaque, index: ?*anyopaque) bool {
-        return qtc.KPageWidgetModel_ClearItemData(@ptrCast(self), @ptrCast(index));
+    pub fn ClearItemData(self: KPageWidgetModel, index: anytype) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.KPageWidgetModel_ClearItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperClearItemData` instead
@@ -4224,12 +4403,13 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SuperClearItemData(self: ?*anyopaque, index: ?*anyopaque) bool {
-        return qtc.KPageWidgetModel_SuperClearItemData(@ptrCast(self), @ptrCast(index));
+    pub fn SuperClearItemData(self: KPageWidgetModel, index: anytype) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.KPageWidgetModel_SuperClearItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4240,12 +4420,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, index: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KPageWidgetModel, index: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnClearItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KPageWidgetModel_OnClearItemData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnClearItemData(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QModelIndex) callconv(.c) bool) void {
+        qtc.KPageWidgetModel_OnClearItemData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4256,17 +4436,16 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KPageWidgetModel_MimeTypes(@ptrCast(self));
+    pub fn MimeTypes(self: KPageWidgetModel, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.KPageWidgetModel_MimeTypes(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kpagewidgetmodel.MimeTypes: Memory allocation failed");
@@ -4291,17 +4470,16 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KPageWidgetModel_SuperMimeTypes(@ptrCast(self));
+    pub fn SuperMimeTypes(self: KPageWidgetModel, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.KPageWidgetModel_SuperMimeTypes(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kpagewidgetmodel.MimeTypes: Memory allocation failed");
@@ -4320,16 +4498,16 @@ pub const kpagewidgetmodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
     /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnMimeTypes(self: ?*anyopaque, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
-        qtc.KPageWidgetModel_OnMimeTypes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMimeTypes(self: KPageWidgetModel, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
+        qtc.KPageWidgetModel_OnMimeTypes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4340,16 +4518,16 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` indexes: []QtC.QModelIndex `
+    /// ` indexes: []QModelIndex `
     ///
-    pub fn MimeData(self: ?*anyopaque, indexes: []QtC.QModelIndex) QtC.QMimeData {
+    pub fn MimeData(self: KPageWidgetModel, indexes: []QModelIndex) QMimeData {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
-        return qtc.KPageWidgetModel_MimeData(@ptrCast(self), indexes_list);
+        return .{ .ptr = qtc.KPageWidgetModel_MimeData(@ptrCast(self.ptr), indexes_list) };
     }
 
     /// ### DEPRECATED: Use `SuperMimeData` instead
@@ -4364,16 +4542,16 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` indexes: []QtC.QModelIndex `
+    /// ` indexes: []QModelIndex `
     ///
-    pub fn SuperMimeData(self: ?*anyopaque, indexes: []QtC.QModelIndex) QtC.QMimeData {
+    pub fn SuperMimeData(self: KPageWidgetModel, indexes: []QModelIndex) QMimeData {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
-        return qtc.KPageWidgetModel_SuperMimeData(@ptrCast(self), indexes_list);
+        return .{ .ptr = qtc.KPageWidgetModel_SuperMimeData(@ptrCast(self.ptr), indexes_list) };
     }
 
     /// Inherited from QAbstractItemModel
@@ -4384,12 +4562,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, indexes: qtc.libqt_list ([]QtC.QModelIndex)) callconv(.c) QtC.QMimeData `
+    /// ` callback: *const fn (self: KPageWidgetModel, indexes: qtc.libqt_list ([]QModelIndex)) callconv(.c) QMimeData `
     ///
-    pub fn OnMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) QtC.QMimeData) void {
-        qtc.KPageWidgetModel_OnMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMimeData(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, qtc.libqt_list) callconv(.c) QMimeData) void {
+        qtc.KPageWidgetModel_OnMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4400,9 +4578,9 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` data: QtC.QMimeData `
+    /// ` data: QMimeData `
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
@@ -4410,10 +4588,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn CanDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.KPageWidgetModel_CanDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn CanDropMimeData(self: KPageWidgetModel, data: anytype, action: i32, row: i32, column: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(data)._is_QMimeData;
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KPageWidgetModel_CanDropMimeData(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCanDropMimeData` instead
@@ -4428,9 +4608,9 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` data: QtC.QMimeData `
+    /// ` data: QMimeData `
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
@@ -4438,10 +4618,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperCanDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.KPageWidgetModel_SuperCanDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn SuperCanDropMimeData(self: KPageWidgetModel, data: anytype, action: i32, row: i32, column: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(data)._is_QMimeData;
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KPageWidgetModel_SuperCanDropMimeData(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4452,12 +4634,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, data: QtC.QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KPageWidgetModel, data: QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnCanDropMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KPageWidgetModel_OnCanDropMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCanDropMimeData(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QMimeData, i32, i32, i32, QModelIndex) callconv(.c) bool) void {
+        qtc.KPageWidgetModel_OnCanDropMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4468,9 +4650,9 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` data: QtC.QMimeData `
+    /// ` data: QMimeData `
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
@@ -4478,10 +4660,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn DropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.KPageWidgetModel_DropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn DropMimeData(self: KPageWidgetModel, data: anytype, action: i32, row: i32, column: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(data)._is_QMimeData;
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KPageWidgetModel_DropMimeData(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDropMimeData` instead
@@ -4496,9 +4680,9 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` data: QtC.QMimeData `
+    /// ` data: QMimeData `
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
@@ -4506,10 +4690,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.KPageWidgetModel_SuperDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn SuperDropMimeData(self: KPageWidgetModel, data: anytype, action: i32, row: i32, column: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(data)._is_QMimeData;
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KPageWidgetModel_SuperDropMimeData(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4520,12 +4706,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, data: QtC.QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KPageWidgetModel, data: QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnDropMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KPageWidgetModel_OnDropMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDropMimeData(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QMimeData, i32, i32, i32, QModelIndex) callconv(.c) bool) void {
+        qtc.KPageWidgetModel_OnDropMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4536,14 +4722,14 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SupportedDropActions(self: ?*anyopaque) i32 {
-        return qtc.KPageWidgetModel_SupportedDropActions(@ptrCast(self));
+    pub fn SupportedDropActions(self: KPageWidgetModel) i32 {
+        return qtc.KPageWidgetModel_SupportedDropActions(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSupportedDropActions` instead
@@ -4558,14 +4744,14 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SuperSupportedDropActions(self: ?*anyopaque) i32 {
-        return qtc.KPageWidgetModel_SuperSupportedDropActions(@ptrCast(self));
+    pub fn SuperSupportedDropActions(self: KPageWidgetModel) i32 {
+        return qtc.KPageWidgetModel_SuperSupportedDropActions(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4576,12 +4762,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSupportedDropActions(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KPageWidgetModel_OnSupportedDropActions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSupportedDropActions(self: KPageWidgetModel, callback: *const fn () callconv(.c) i32) void {
+        qtc.KPageWidgetModel_OnSupportedDropActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4592,14 +4778,14 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SupportedDragActions(self: ?*anyopaque) i32 {
-        return qtc.KPageWidgetModel_SupportedDragActions(@ptrCast(self));
+    pub fn SupportedDragActions(self: KPageWidgetModel) i32 {
+        return qtc.KPageWidgetModel_SupportedDragActions(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSupportedDragActions` instead
@@ -4614,14 +4800,14 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SuperSupportedDragActions(self: ?*anyopaque) i32 {
-        return qtc.KPageWidgetModel_SuperSupportedDragActions(@ptrCast(self));
+    pub fn SuperSupportedDragActions(self: KPageWidgetModel) i32 {
+        return qtc.KPageWidgetModel_SuperSupportedDragActions(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4632,12 +4818,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSupportedDragActions(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KPageWidgetModel_OnSupportedDragActions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSupportedDragActions(self: KPageWidgetModel, callback: *const fn () callconv(.c) i32) void {
+        qtc.KPageWidgetModel_OnSupportedDragActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4648,16 +4834,17 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` row: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn InsertRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KPageWidgetModel_InsertRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
+    pub fn InsertRows(self: KPageWidgetModel, row: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KPageWidgetModel_InsertRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInsertRows` instead
@@ -4672,16 +4859,17 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` row: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperInsertRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KPageWidgetModel_SuperInsertRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
+    pub fn SuperInsertRows(self: KPageWidgetModel, row: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KPageWidgetModel_SuperInsertRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4692,12 +4880,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, row: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KPageWidgetModel, row: i32, count: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnInsertRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KPageWidgetModel_OnInsertRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInsertRows(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, i32, i32, QModelIndex) callconv(.c) bool) void {
+        qtc.KPageWidgetModel_OnInsertRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4708,16 +4896,17 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` column: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn InsertColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KPageWidgetModel_InsertColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
+    pub fn InsertColumns(self: KPageWidgetModel, column: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KPageWidgetModel_InsertColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInsertColumns` instead
@@ -4732,16 +4921,17 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` column: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperInsertColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KPageWidgetModel_SuperInsertColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
+    pub fn SuperInsertColumns(self: KPageWidgetModel, column: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KPageWidgetModel_SuperInsertColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4752,12 +4942,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, column: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KPageWidgetModel, column: i32, count: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnInsertColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KPageWidgetModel_OnInsertColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInsertColumns(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, i32, i32, QModelIndex) callconv(.c) bool) void {
+        qtc.KPageWidgetModel_OnInsertColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4768,16 +4958,17 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` row: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn RemoveRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KPageWidgetModel_RemoveRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
+    pub fn RemoveRows(self: KPageWidgetModel, row: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KPageWidgetModel_RemoveRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperRemoveRows` instead
@@ -4792,16 +4983,17 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` row: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperRemoveRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KPageWidgetModel_SuperRemoveRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
+    pub fn SuperRemoveRows(self: KPageWidgetModel, row: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KPageWidgetModel_SuperRemoveRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4812,12 +5004,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, row: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KPageWidgetModel, row: i32, count: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnRemoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KPageWidgetModel_OnRemoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRemoveRows(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, i32, i32, QModelIndex) callconv(.c) bool) void {
+        qtc.KPageWidgetModel_OnRemoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4828,16 +5020,17 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` column: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn RemoveColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KPageWidgetModel_RemoveColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
+    pub fn RemoveColumns(self: KPageWidgetModel, column: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KPageWidgetModel_RemoveColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperRemoveColumns` instead
@@ -4852,16 +5045,17 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` column: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperRemoveColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KPageWidgetModel_SuperRemoveColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
+    pub fn SuperRemoveColumns(self: KPageWidgetModel, column: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KPageWidgetModel_SuperRemoveColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4872,12 +5066,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, column: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KPageWidgetModel, column: i32, count: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnRemoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KPageWidgetModel_OnRemoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRemoveColumns(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, i32, i32, QModelIndex) callconv(.c) bool) void {
+        qtc.KPageWidgetModel_OnRemoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4888,20 +5082,22 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceRow: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn MoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.KPageWidgetModel_MoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
+    pub fn MoveRows(self: KPageWidgetModel, sourceParent: anytype, sourceRow: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KPageWidgetModel_MoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
 
     /// ### DEPRECATED: Use `SuperMoveRows` instead
@@ -4916,20 +5112,22 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceRow: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn SuperMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.KPageWidgetModel_SuperMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
+    pub fn SuperMoveRows(self: KPageWidgetModel, sourceParent: anytype, sourceRow: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KPageWidgetModel_SuperMoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4940,12 +5138,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, sourceParent: QtC.QModelIndex, sourceRow: i32, count: i32, destinationParent: QtC.QModelIndex, destinationChild: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: KPageWidgetModel, sourceParent: QModelIndex, sourceRow: i32, count: i32, destinationParent: QModelIndex, destinationChild: i32) callconv(.c) bool `
     ///
-    pub fn OnMoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KPageWidgetModel_OnMoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMoveRows(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
+        qtc.KPageWidgetModel_OnMoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4956,20 +5154,22 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceColumn: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn MoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.KPageWidgetModel_MoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
+    pub fn MoveColumns(self: KPageWidgetModel, sourceParent: anytype, sourceColumn: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KPageWidgetModel_MoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
 
     /// ### DEPRECATED: Use `SuperMoveColumns` instead
@@ -4984,20 +5184,22 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceColumn: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn SuperMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.KPageWidgetModel_SuperMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
+    pub fn SuperMoveColumns(self: KPageWidgetModel, sourceParent: anytype, sourceColumn: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KPageWidgetModel_SuperMoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5008,12 +5210,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, sourceParent: QtC.QModelIndex, sourceColumn: i32, count: i32, destinationParent: QtC.QModelIndex, destinationChild: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: KPageWidgetModel, sourceParent: QModelIndex, sourceColumn: i32, count: i32, destinationParent: QModelIndex, destinationChild: i32) callconv(.c) bool `
     ///
-    pub fn OnMoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KPageWidgetModel_OnMoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMoveColumns(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
+        qtc.KPageWidgetModel_OnMoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5024,12 +5226,13 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn FetchMore(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.KPageWidgetModel_FetchMore(@ptrCast(self), @ptrCast(parent));
+    pub fn FetchMore(self: KPageWidgetModel, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KPageWidgetModel_FetchMore(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFetchMore` instead
@@ -5044,12 +5247,13 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperFetchMore(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.KPageWidgetModel_SuperFetchMore(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperFetchMore(self: KPageWidgetModel, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KPageWidgetModel_SuperFetchMore(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5060,12 +5264,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, parent: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetModel, parent: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnFetchMore(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KPageWidgetModel_OnFetchMore(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFetchMore(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QModelIndex) callconv(.c) void) void {
+        qtc.KPageWidgetModel_OnFetchMore(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5076,12 +5280,13 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn CanFetchMore(self: ?*anyopaque, parent: ?*anyopaque) bool {
-        return qtc.KPageWidgetModel_CanFetchMore(@ptrCast(self), @ptrCast(parent));
+    pub fn CanFetchMore(self: KPageWidgetModel, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KPageWidgetModel_CanFetchMore(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCanFetchMore` instead
@@ -5096,12 +5301,13 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperCanFetchMore(self: ?*anyopaque, parent: ?*anyopaque) bool {
-        return qtc.KPageWidgetModel_SuperCanFetchMore(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperCanFetchMore(self: KPageWidgetModel, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KPageWidgetModel_SuperCanFetchMore(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5112,12 +5318,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KPageWidgetModel, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnCanFetchMore(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KPageWidgetModel_OnCanFetchMore(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCanFetchMore(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QModelIndex) callconv(.c) bool) void {
+        qtc.KPageWidgetModel_OnCanFetchMore(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5128,14 +5334,14 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` column: i32 `
     ///
     /// ` order: qnamespace_enums.SortOrder `
     ///
-    pub fn Sort(self: ?*anyopaque, column: i32, order: i32) void {
-        qtc.KPageWidgetModel_Sort(@ptrCast(self), @bitCast(column), @bitCast(order));
+    pub fn Sort(self: KPageWidgetModel, column: i32, order: i32) void {
+        qtc.KPageWidgetModel_Sort(@ptrCast(self.ptr), @bitCast(column), @bitCast(order));
     }
 
     /// ### DEPRECATED: Use `SuperSort` instead
@@ -5150,14 +5356,14 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` column: i32 `
     ///
     /// ` order: qnamespace_enums.SortOrder `
     ///
-    pub fn SuperSort(self: ?*anyopaque, column: i32, order: i32) void {
-        qtc.KPageWidgetModel_SuperSort(@ptrCast(self), @bitCast(column), @bitCast(order));
+    pub fn SuperSort(self: KPageWidgetModel, column: i32, order: i32) void {
+        qtc.KPageWidgetModel_SuperSort(@ptrCast(self.ptr), @bitCast(column), @bitCast(order));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5168,12 +5374,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, column: i32, order: qnamespace_enums.SortOrder) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetModel, column: i32, order: qnamespace_enums.SortOrder) callconv(.c) void `
     ///
-    pub fn OnSort(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KPageWidgetModel_OnSort(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSort(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, i32, i32) callconv(.c) void) void {
+        qtc.KPageWidgetModel_OnSort(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5184,12 +5390,13 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn Buddy(self: ?*anyopaque, index: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KPageWidgetModel_Buddy(@ptrCast(self), @ptrCast(index));
+    pub fn Buddy(self: KPageWidgetModel, index: anytype) QModelIndex {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.KPageWidgetModel_Buddy(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperBuddy` instead
@@ -5204,12 +5411,13 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SuperBuddy(self: ?*anyopaque, index: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KPageWidgetModel_SuperBuddy(@ptrCast(self), @ptrCast(index));
+    pub fn SuperBuddy(self: KPageWidgetModel, index: anytype) QModelIndex {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.KPageWidgetModel_SuperBuddy(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// Inherited from QAbstractItemModel
@@ -5220,12 +5428,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, index: QtC.QModelIndex) callconv(.c) QtC.QModelIndex `
+    /// ` callback: *const fn (self: KPageWidgetModel, index: QModelIndex) callconv(.c) QModelIndex `
     ///
-    pub fn OnBuddy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.KPageWidgetModel_OnBuddy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBuddy(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QModelIndex) callconv(.c) QModelIndex) void {
+        qtc.KPageWidgetModel_OnBuddy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5236,26 +5444,29 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` start: QtC.QModelIndex `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` start: QModelIndex `
     ///
     /// ` role: i32 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
     /// ` hits: i32 `
     ///
     /// ` flags: flag of qnamespace_enums.MatchFlag `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Match(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.KPageWidgetModel_Match(@ptrCast(self), @ptrCast(start), @bitCast(role), @ptrCast(value), @bitCast(hits), @bitCast(flags));
+    pub fn Match(self: KPageWidgetModel, allocator: std.mem.Allocator, start: anytype, role: i32, value: anytype, hits: i32, flags: i32) []QModelIndex {
+        comptime _ = @TypeOf(start)._is_QModelIndex;
+        comptime _ = @TypeOf(value)._is_QVariant;
+        const _arr: qtc.libqt_list = qtc.KPageWidgetModel_Match(@ptrCast(self.ptr), @ptrCast(start.ptr), @bitCast(role), @ptrCast(value.ptr), @bitCast(hits), @bitCast(flags));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("kpagewidgetmodel.Match: Memory allocation failed");
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("kpagewidgetmodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -5271,26 +5482,29 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` start: QtC.QModelIndex `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` start: QModelIndex `
     ///
     /// ` role: i32 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
     /// ` hits: i32 `
     ///
     /// ` flags: flag of qnamespace_enums.MatchFlag `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn SuperMatch(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.KPageWidgetModel_SuperMatch(@ptrCast(self), @ptrCast(start), @bitCast(role), @ptrCast(value), @bitCast(hits), @bitCast(flags));
+    pub fn SuperMatch(self: KPageWidgetModel, allocator: std.mem.Allocator, start: anytype, role: i32, value: anytype, hits: i32, flags: i32) []QModelIndex {
+        comptime _ = @TypeOf(start)._is_QModelIndex;
+        comptime _ = @TypeOf(value)._is_QVariant;
+        const _arr: qtc.libqt_list = qtc.KPageWidgetModel_SuperMatch(@ptrCast(self.ptr), @ptrCast(start.ptr), @bitCast(role), @ptrCast(value.ptr), @bitCast(hits), @bitCast(flags));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("kpagewidgetmodel.Match: Memory allocation failed");
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("kpagewidgetmodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -5300,20 +5514,20 @@ pub const kpagewidgetmodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag) callconv(.c) qtc.libqt_list `
+    /// ` callback: *const fn (self: KPageWidgetModel, start: QModelIndex, role: i32, value: QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag) callconv(.c) qtc.libqt_list `
     ///
     /// ## Callback Returns:
     ///
-    /// ` C ABI representation of []QtC.QModelIndex `
+    /// ` C ABI representation of []QModelIndex `
     ///
-    pub fn OnMatch(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, i32, i32) callconv(.c) qtc.libqt_list) void {
-        qtc.KPageWidgetModel_OnMatch(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMatch(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QModelIndex, i32, QVariant, i32, i32) callconv(.c) qtc.libqt_list) void {
+        qtc.KPageWidgetModel_OnMatch(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5324,12 +5538,13 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn Span(self: ?*anyopaque, index: ?*anyopaque) QtC.QSize {
-        return qtc.KPageWidgetModel_Span(@ptrCast(self), @ptrCast(index));
+    pub fn Span(self: KPageWidgetModel, index: anytype) QSize {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.KPageWidgetModel_Span(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSpan` instead
@@ -5344,12 +5559,13 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SuperSpan(self: ?*anyopaque, index: ?*anyopaque) QtC.QSize {
-        return qtc.KPageWidgetModel_SuperSpan(@ptrCast(self), @ptrCast(index));
+    pub fn SuperSpan(self: KPageWidgetModel, index: anytype) QSize {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.KPageWidgetModel_SuperSpan(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// Inherited from QAbstractItemModel
@@ -5360,12 +5576,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, index: QtC.QModelIndex) callconv(.c) QtC.QSize `
+    /// ` callback: *const fn (self: KPageWidgetModel, index: QModelIndex) callconv(.c) QSize `
     ///
-    pub fn OnSpan(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QSize) void {
-        qtc.KPageWidgetModel_OnSpan(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSpan(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QModelIndex) callconv(.c) QSize) void {
+        qtc.KPageWidgetModel_OnSpan(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5376,13 +5592,13 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn RoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
-        const _map: qtc.libqt_map = qtc.KPageWidgetModel_RoleNames(@ptrCast(self));
-        var _ret: map_i32_u8 = .empty;
+    pub fn RoleNames(self: KPageWidgetModel, allocator: std.mem.Allocator) Map_i32_u8 {
+        const _map: qtc.libqt_map = qtc.KPageWidgetModel_RoleNames(@ptrCast(self.ptr));
+        var _ret: Map_i32_u8 = .empty;
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -5416,13 +5632,13 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperRoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
-        const _map: qtc.libqt_map = qtc.KPageWidgetModel_SuperRoleNames(@ptrCast(self));
-        var _ret: map_i32_u8 = .empty;
+    pub fn SuperRoleNames(self: KPageWidgetModel, allocator: std.mem.Allocator) Map_i32_u8 {
+        const _map: qtc.libqt_map = qtc.KPageWidgetModel_SuperRoleNames(@ptrCast(self.ptr));
+        var _ret: Map_i32_u8 = .empty;
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -5452,16 +5668,16 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
     /// ` callback: *const fn () callconv(.c) qtc.libqt_map `
     ///
     /// ## Callback Returns:
     ///
-    /// ` C ABI representation of map_i32_u8 `
+    /// ` C ABI representation of Map_i32_u8 `
     ///
-    pub fn OnRoleNames(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_map) void {
-        qtc.KPageWidgetModel_OnRoleNames(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRoleNames(self: KPageWidgetModel, callback: *const fn () callconv(.c) qtc.libqt_map) void {
+        qtc.KPageWidgetModel_OnRoleNames(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5472,14 +5688,16 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    /// ` roleDataSpan: QtC.QModelRoleDataSpan `
+    /// ` roleDataSpan: QModelRoleDataSpan `
     ///
-    pub fn MultiData(self: ?*anyopaque, index: ?*anyopaque, roleDataSpan: QtC.QModelRoleDataSpan) void {
-        qtc.KPageWidgetModel_MultiData(@ptrCast(self), @ptrCast(index), @ptrCast(roleDataSpan));
+    pub fn MultiData(self: KPageWidgetModel, index: anytype, roleDataSpan: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        comptime _ = @TypeOf(roleDataSpan)._is_QModelRoleDataSpan;
+        qtc.KPageWidgetModel_MultiData(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(roleDataSpan.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMultiData` instead
@@ -5494,14 +5712,16 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    /// ` roleDataSpan: QtC.QModelRoleDataSpan `
+    /// ` roleDataSpan: QModelRoleDataSpan `
     ///
-    pub fn SuperMultiData(self: ?*anyopaque, index: ?*anyopaque, roleDataSpan: QtC.QModelRoleDataSpan) void {
-        qtc.KPageWidgetModel_SuperMultiData(@ptrCast(self), @ptrCast(index), @ptrCast(roleDataSpan));
+    pub fn SuperMultiData(self: KPageWidgetModel, index: anytype, roleDataSpan: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        comptime _ = @TypeOf(roleDataSpan)._is_QModelRoleDataSpan;
+        qtc.KPageWidgetModel_SuperMultiData(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(roleDataSpan.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5512,12 +5732,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, index: QtC.QModelIndex, roleDataSpan: QtC.QModelRoleDataSpan) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetModel, index: QModelIndex, roleDataSpan: QModelRoleDataSpan) callconv(.c) void `
     ///
-    pub fn OnMultiData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, QtC.QModelRoleDataSpan) callconv(.c) void) void {
-        qtc.KPageWidgetModel_OnMultiData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMultiData(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QModelIndex, QModelRoleDataSpan) callconv(.c) void) void {
+        qtc.KPageWidgetModel_OnMultiData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5528,10 +5748,10 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    pub fn Submit(self: ?*anyopaque) bool {
-        return qtc.KPageWidgetModel_Submit(@ptrCast(self));
+    pub fn Submit(self: KPageWidgetModel) bool {
+        return qtc.KPageWidgetModel_Submit(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSubmit` instead
@@ -5546,10 +5766,10 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    pub fn SuperSubmit(self: ?*anyopaque) bool {
-        return qtc.KPageWidgetModel_SuperSubmit(@ptrCast(self));
+    pub fn SuperSubmit(self: KPageWidgetModel) bool {
+        return qtc.KPageWidgetModel_SuperSubmit(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5560,12 +5780,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnSubmit(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KPageWidgetModel_OnSubmit(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSubmit(self: KPageWidgetModel, callback: *const fn () callconv(.c) bool) void {
+        qtc.KPageWidgetModel_OnSubmit(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5576,10 +5796,10 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    pub fn Revert(self: ?*anyopaque) void {
-        qtc.KPageWidgetModel_Revert(@ptrCast(self));
+    pub fn Revert(self: KPageWidgetModel) void {
+        qtc.KPageWidgetModel_Revert(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperRevert` instead
@@ -5594,10 +5814,10 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    pub fn SuperRevert(self: ?*anyopaque) void {
-        qtc.KPageWidgetModel_SuperRevert(@ptrCast(self));
+    pub fn SuperRevert(self: KPageWidgetModel) void {
+        qtc.KPageWidgetModel_SuperRevert(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5608,12 +5828,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnRevert(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KPageWidgetModel_OnRevert(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRevert(self: KPageWidgetModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KPageWidgetModel_OnRevert(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5624,10 +5844,10 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    pub fn ResetInternalData(self: ?*anyopaque) void {
-        qtc.KPageWidgetModel_ResetInternalData(@ptrCast(self));
+    pub fn ResetInternalData(self: KPageWidgetModel) void {
+        qtc.KPageWidgetModel_ResetInternalData(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperResetInternalData` instead
@@ -5642,10 +5862,10 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    pub fn SuperResetInternalData(self: ?*anyopaque) void {
-        qtc.KPageWidgetModel_SuperResetInternalData(@ptrCast(self));
+    pub fn SuperResetInternalData(self: KPageWidgetModel) void {
+        qtc.KPageWidgetModel_SuperResetInternalData(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5656,12 +5876,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnResetInternalData(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KPageWidgetModel_OnResetInternalData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResetInternalData(self: KPageWidgetModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KPageWidgetModel_OnResetInternalData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5672,12 +5892,13 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KPageWidgetModel_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: KPageWidgetModel, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KPageWidgetModel_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -5692,12 +5913,13 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KPageWidgetModel_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: KPageWidgetModel, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KPageWidgetModel_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -5708,12 +5930,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KPageWidgetModel, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KPageWidgetModel_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QEvent) callconv(.c) bool) void {
+        qtc.KPageWidgetModel_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5724,14 +5946,16 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KPageWidgetModel_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: KPageWidgetModel, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KPageWidgetModel_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -5746,14 +5970,16 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KPageWidgetModel_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: KPageWidgetModel, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KPageWidgetModel_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -5764,12 +5990,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KPageWidgetModel, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KPageWidgetModel_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QObject, QEvent) callconv(.c) bool) void {
+        qtc.KPageWidgetModel_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5780,12 +6006,13 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KPageWidgetModel_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: KPageWidgetModel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KPageWidgetModel_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -5800,12 +6027,13 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KPageWidgetModel_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: KPageWidgetModel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KPageWidgetModel_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -5816,12 +6044,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetModel, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KPageWidgetModel_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QTimerEvent) callconv(.c) void) void {
+        qtc.KPageWidgetModel_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5832,12 +6060,13 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KPageWidgetModel_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: KPageWidgetModel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KPageWidgetModel_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -5852,12 +6081,13 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KPageWidgetModel_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: KPageWidgetModel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KPageWidgetModel_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -5868,12 +6098,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetModel, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KPageWidgetModel_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QChildEvent) callconv(.c) void) void {
+        qtc.KPageWidgetModel_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5884,12 +6114,13 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KPageWidgetModel_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: KPageWidgetModel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KPageWidgetModel_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -5904,12 +6135,13 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KPageWidgetModel_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: KPageWidgetModel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KPageWidgetModel_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -5920,12 +6152,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetModel, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KPageWidgetModel_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QEvent) callconv(.c) void) void {
+        qtc.KPageWidgetModel_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5936,12 +6168,13 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KPageWidgetModel_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: KPageWidgetModel, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KPageWidgetModel_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -5956,12 +6189,13 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KPageWidgetModel_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: KPageWidgetModel, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KPageWidgetModel_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -5972,12 +6206,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetModel, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KPageWidgetModel_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QMetaMethod) callconv(.c) void) void {
+        qtc.KPageWidgetModel_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5988,12 +6222,13 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KPageWidgetModel_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: KPageWidgetModel, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KPageWidgetModel_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -6008,12 +6243,13 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KPageWidgetModel_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: KPageWidgetModel, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KPageWidgetModel_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -6024,12 +6260,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetModel, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KPageWidgetModel_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QMetaMethod) callconv(.c) void) void {
+        qtc.KPageWidgetModel_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6040,14 +6276,14 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    pub fn CreateIndex(self: ?*anyopaque, row: i32, column: i32) QtC.QModelIndex {
-        return qtc.KPageWidgetModel_CreateIndex(@ptrCast(self), @bitCast(row), @bitCast(column));
+    pub fn CreateIndex(self: KPageWidgetModel, row: i32, column: i32) QModelIndex {
+        return .{ .ptr = qtc.KPageWidgetModel_CreateIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column)) };
     }
 
     /// ### DEPRECATED: Use `SuperCreateIndex` instead
@@ -6062,14 +6298,14 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    pub fn SuperCreateIndex(self: ?*anyopaque, row: i32, column: i32) QtC.QModelIndex {
-        return qtc.KPageWidgetModel_SuperCreateIndex(@ptrCast(self), @bitCast(row), @bitCast(column));
+    pub fn SuperCreateIndex(self: KPageWidgetModel, row: i32, column: i32) QModelIndex {
+        return .{ .ptr = qtc.KPageWidgetModel_SuperCreateIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column)) };
     }
 
     /// Inherited from QAbstractItemModel
@@ -6080,12 +6316,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, row: i32, column: i32) callconv(.c) QtC.QModelIndex `
+    /// ` callback: *const fn (self: KPageWidgetModel, row: i32, column: i32) callconv(.c) QModelIndex `
     ///
-    pub fn OnCreateIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) QtC.QModelIndex) void {
-        qtc.KPageWidgetModel_OnCreateIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreateIndex(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, i32, i32) callconv(.c) QModelIndex) void {
+        qtc.KPageWidgetModel_OnCreateIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6096,18 +6332,19 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` indexes: []QtC.QModelIndex `
+    /// ` indexes: []QModelIndex `
     ///
-    /// ` stream: QtC.QDataStream `
+    /// ` stream: QDataStream `
     ///
-    pub fn EncodeData(self: ?*anyopaque, indexes: []QtC.QModelIndex, stream: ?*anyopaque) void {
+    pub fn EncodeData(self: KPageWidgetModel, indexes: []QModelIndex, stream: anytype) void {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
-        qtc.KPageWidgetModel_EncodeData(@ptrCast(self), indexes_list, @ptrCast(stream));
+        comptime _ = @TypeOf(stream)._is_QDataStream;
+        qtc.KPageWidgetModel_EncodeData(@ptrCast(self.ptr), indexes_list, @ptrCast(stream.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEncodeData` instead
@@ -6122,18 +6359,19 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` indexes: []QtC.QModelIndex `
+    /// ` indexes: []QModelIndex `
     ///
-    /// ` stream: QtC.QDataStream `
+    /// ` stream: QDataStream `
     ///
-    pub fn SuperEncodeData(self: ?*anyopaque, indexes: []QtC.QModelIndex, stream: ?*anyopaque) void {
+    pub fn SuperEncodeData(self: KPageWidgetModel, indexes: []QModelIndex, stream: anytype) void {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
-        qtc.KPageWidgetModel_SuperEncodeData(@ptrCast(self), indexes_list, @ptrCast(stream));
+        comptime _ = @TypeOf(stream)._is_QDataStream;
+        qtc.KPageWidgetModel_SuperEncodeData(@ptrCast(self.ptr), indexes_list, @ptrCast(stream.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6144,12 +6382,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, indexes: qtc.libqt_list ([]QtC.QModelIndex), stream: QtC.QDataStream) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetModel, indexes: qtc.libqt_list ([]QModelIndex), stream: QDataStream) callconv(.c) void `
     ///
-    pub fn OnEncodeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, ?*anyopaque) callconv(.c) void) void {
-        qtc.KPageWidgetModel_OnEncodeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEncodeData(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, qtc.libqt_list, QDataStream) callconv(.c) void) void {
+        qtc.KPageWidgetModel_OnEncodeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6160,18 +6398,20 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    /// ` stream: QtC.QDataStream `
+    /// ` stream: QDataStream `
     ///
-    pub fn DecodeData(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque, stream: ?*anyopaque) bool {
-        return qtc.KPageWidgetModel_DecodeData(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent), @ptrCast(stream));
+    pub fn DecodeData(self: KPageWidgetModel, row: i32, column: i32, parent: anytype, stream: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        comptime _ = @TypeOf(stream)._is_QDataStream;
+        return qtc.KPageWidgetModel_DecodeData(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr), @ptrCast(stream.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDecodeData` instead
@@ -6186,18 +6426,20 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    /// ` stream: QtC.QDataStream `
+    /// ` stream: QDataStream `
     ///
-    pub fn SuperDecodeData(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque, stream: ?*anyopaque) bool {
-        return qtc.KPageWidgetModel_SuperDecodeData(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent), @ptrCast(stream));
+    pub fn SuperDecodeData(self: KPageWidgetModel, row: i32, column: i32, parent: anytype, stream: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        comptime _ = @TypeOf(stream)._is_QDataStream;
+        return qtc.KPageWidgetModel_SuperDecodeData(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr), @ptrCast(stream.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6208,12 +6450,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, row: i32, column: i32, parent: QtC.QModelIndex, stream: QtC.QDataStream) callconv(.c) bool `
+    /// ` callback: *const fn (self: KPageWidgetModel, row: i32, column: i32, parent: QModelIndex, stream: QDataStream) callconv(.c) bool `
     ///
-    pub fn OnDecodeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KPageWidgetModel_OnDecodeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDecodeData(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, i32, i32, QModelIndex, QDataStream) callconv(.c) bool) void {
+        qtc.KPageWidgetModel_OnDecodeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6224,16 +6466,17 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn BeginInsertRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KPageWidgetModel_BeginInsertRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn BeginInsertRows(self: KPageWidgetModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KPageWidgetModel_BeginInsertRows(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// ### DEPRECATED: Use `SuperBeginInsertRows` instead
@@ -6248,16 +6491,17 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn SuperBeginInsertRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KPageWidgetModel_SuperBeginInsertRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn SuperBeginInsertRows(self: KPageWidgetModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KPageWidgetModel_SuperBeginInsertRows(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6268,12 +6512,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnBeginInsertRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KPageWidgetModel_OnBeginInsertRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBeginInsertRows(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.KPageWidgetModel_OnBeginInsertRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6284,10 +6528,10 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    pub fn EndInsertRows(self: ?*anyopaque) void {
-        qtc.KPageWidgetModel_EndInsertRows(@ptrCast(self));
+    pub fn EndInsertRows(self: KPageWidgetModel) void {
+        qtc.KPageWidgetModel_EndInsertRows(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEndInsertRows` instead
@@ -6302,10 +6546,10 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    pub fn SuperEndInsertRows(self: ?*anyopaque) void {
-        qtc.KPageWidgetModel_SuperEndInsertRows(@ptrCast(self));
+    pub fn SuperEndInsertRows(self: KPageWidgetModel) void {
+        qtc.KPageWidgetModel_SuperEndInsertRows(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6316,12 +6560,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndInsertRows(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KPageWidgetModel_OnEndInsertRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEndInsertRows(self: KPageWidgetModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KPageWidgetModel_OnEndInsertRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6332,16 +6576,17 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn BeginRemoveRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KPageWidgetModel_BeginRemoveRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn BeginRemoveRows(self: KPageWidgetModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KPageWidgetModel_BeginRemoveRows(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// ### DEPRECATED: Use `SuperBeginRemoveRows` instead
@@ -6356,16 +6601,17 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn SuperBeginRemoveRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KPageWidgetModel_SuperBeginRemoveRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn SuperBeginRemoveRows(self: KPageWidgetModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KPageWidgetModel_SuperBeginRemoveRows(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6376,12 +6622,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnBeginRemoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KPageWidgetModel_OnBeginRemoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBeginRemoveRows(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.KPageWidgetModel_OnBeginRemoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6392,10 +6638,10 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    pub fn EndRemoveRows(self: ?*anyopaque) void {
-        qtc.KPageWidgetModel_EndRemoveRows(@ptrCast(self));
+    pub fn EndRemoveRows(self: KPageWidgetModel) void {
+        qtc.KPageWidgetModel_EndRemoveRows(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEndRemoveRows` instead
@@ -6410,10 +6656,10 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    pub fn SuperEndRemoveRows(self: ?*anyopaque) void {
-        qtc.KPageWidgetModel_SuperEndRemoveRows(@ptrCast(self));
+    pub fn SuperEndRemoveRows(self: KPageWidgetModel) void {
+        qtc.KPageWidgetModel_SuperEndRemoveRows(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6424,12 +6670,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndRemoveRows(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KPageWidgetModel_OnEndRemoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEndRemoveRows(self: KPageWidgetModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KPageWidgetModel_OnEndRemoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6440,20 +6686,22 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceFirst: i32 `
     ///
     /// ` sourceLast: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationRow: i32 `
     ///
-    pub fn BeginMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationRow: i32) bool {
-        return qtc.KPageWidgetModel_BeginMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationRow));
+    pub fn BeginMoveRows(self: KPageWidgetModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationRow: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KPageWidgetModel_BeginMoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationRow));
     }
 
     /// ### DEPRECATED: Use `SuperBeginMoveRows` instead
@@ -6468,20 +6716,22 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceFirst: i32 `
     ///
     /// ` sourceLast: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationRow: i32 `
     ///
-    pub fn SuperBeginMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationRow: i32) bool {
-        return qtc.KPageWidgetModel_SuperBeginMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationRow));
+    pub fn SuperBeginMoveRows(self: KPageWidgetModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationRow: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KPageWidgetModel_SuperBeginMoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationRow));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6492,12 +6742,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, sourceParent: QtC.QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: KPageWidgetModel, sourceParent: QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QModelIndex, destinationRow: i32) callconv(.c) bool `
     ///
-    pub fn OnBeginMoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KPageWidgetModel_OnBeginMoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBeginMoveRows(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
+        qtc.KPageWidgetModel_OnBeginMoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6508,10 +6758,10 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    pub fn EndMoveRows(self: ?*anyopaque) void {
-        qtc.KPageWidgetModel_EndMoveRows(@ptrCast(self));
+    pub fn EndMoveRows(self: KPageWidgetModel) void {
+        qtc.KPageWidgetModel_EndMoveRows(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEndMoveRows` instead
@@ -6526,10 +6776,10 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    pub fn SuperEndMoveRows(self: ?*anyopaque) void {
-        qtc.KPageWidgetModel_SuperEndMoveRows(@ptrCast(self));
+    pub fn SuperEndMoveRows(self: KPageWidgetModel) void {
+        qtc.KPageWidgetModel_SuperEndMoveRows(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6540,12 +6790,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndMoveRows(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KPageWidgetModel_OnEndMoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEndMoveRows(self: KPageWidgetModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KPageWidgetModel_OnEndMoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6556,16 +6806,17 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn BeginInsertColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KPageWidgetModel_BeginInsertColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn BeginInsertColumns(self: KPageWidgetModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KPageWidgetModel_BeginInsertColumns(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// ### DEPRECATED: Use `SuperBeginInsertColumns` instead
@@ -6580,16 +6831,17 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn SuperBeginInsertColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KPageWidgetModel_SuperBeginInsertColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn SuperBeginInsertColumns(self: KPageWidgetModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KPageWidgetModel_SuperBeginInsertColumns(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6600,12 +6852,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnBeginInsertColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KPageWidgetModel_OnBeginInsertColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBeginInsertColumns(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.KPageWidgetModel_OnBeginInsertColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6616,10 +6868,10 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    pub fn EndInsertColumns(self: ?*anyopaque) void {
-        qtc.KPageWidgetModel_EndInsertColumns(@ptrCast(self));
+    pub fn EndInsertColumns(self: KPageWidgetModel) void {
+        qtc.KPageWidgetModel_EndInsertColumns(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEndInsertColumns` instead
@@ -6634,10 +6886,10 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    pub fn SuperEndInsertColumns(self: ?*anyopaque) void {
-        qtc.KPageWidgetModel_SuperEndInsertColumns(@ptrCast(self));
+    pub fn SuperEndInsertColumns(self: KPageWidgetModel) void {
+        qtc.KPageWidgetModel_SuperEndInsertColumns(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6648,12 +6900,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndInsertColumns(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KPageWidgetModel_OnEndInsertColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEndInsertColumns(self: KPageWidgetModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KPageWidgetModel_OnEndInsertColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6664,16 +6916,17 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn BeginRemoveColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KPageWidgetModel_BeginRemoveColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn BeginRemoveColumns(self: KPageWidgetModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KPageWidgetModel_BeginRemoveColumns(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// ### DEPRECATED: Use `SuperBeginRemoveColumns` instead
@@ -6688,16 +6941,17 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn SuperBeginRemoveColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KPageWidgetModel_SuperBeginRemoveColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn SuperBeginRemoveColumns(self: KPageWidgetModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KPageWidgetModel_SuperBeginRemoveColumns(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6708,12 +6962,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnBeginRemoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KPageWidgetModel_OnBeginRemoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBeginRemoveColumns(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.KPageWidgetModel_OnBeginRemoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6724,10 +6978,10 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    pub fn EndRemoveColumns(self: ?*anyopaque) void {
-        qtc.KPageWidgetModel_EndRemoveColumns(@ptrCast(self));
+    pub fn EndRemoveColumns(self: KPageWidgetModel) void {
+        qtc.KPageWidgetModel_EndRemoveColumns(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEndRemoveColumns` instead
@@ -6742,10 +6996,10 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    pub fn SuperEndRemoveColumns(self: ?*anyopaque) void {
-        qtc.KPageWidgetModel_SuperEndRemoveColumns(@ptrCast(self));
+    pub fn SuperEndRemoveColumns(self: KPageWidgetModel) void {
+        qtc.KPageWidgetModel_SuperEndRemoveColumns(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6756,12 +7010,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndRemoveColumns(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KPageWidgetModel_OnEndRemoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEndRemoveColumns(self: KPageWidgetModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KPageWidgetModel_OnEndRemoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6772,20 +7026,22 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceFirst: i32 `
     ///
     /// ` sourceLast: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationColumn: i32 `
     ///
-    pub fn BeginMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationColumn: i32) bool {
-        return qtc.KPageWidgetModel_BeginMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationColumn));
+    pub fn BeginMoveColumns(self: KPageWidgetModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationColumn: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KPageWidgetModel_BeginMoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationColumn));
     }
 
     /// ### DEPRECATED: Use `SuperBeginMoveColumns` instead
@@ -6800,20 +7056,22 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceFirst: i32 `
     ///
     /// ` sourceLast: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationColumn: i32 `
     ///
-    pub fn SuperBeginMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationColumn: i32) bool {
-        return qtc.KPageWidgetModel_SuperBeginMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationColumn));
+    pub fn SuperBeginMoveColumns(self: KPageWidgetModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationColumn: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KPageWidgetModel_SuperBeginMoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationColumn));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6824,12 +7082,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, sourceParent: QtC.QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: KPageWidgetModel, sourceParent: QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QModelIndex, destinationColumn: i32) callconv(.c) bool `
     ///
-    pub fn OnBeginMoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KPageWidgetModel_OnBeginMoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBeginMoveColumns(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
+        qtc.KPageWidgetModel_OnBeginMoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6840,10 +7098,10 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    pub fn EndMoveColumns(self: ?*anyopaque) void {
-        qtc.KPageWidgetModel_EndMoveColumns(@ptrCast(self));
+    pub fn EndMoveColumns(self: KPageWidgetModel) void {
+        qtc.KPageWidgetModel_EndMoveColumns(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEndMoveColumns` instead
@@ -6858,10 +7116,10 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    pub fn SuperEndMoveColumns(self: ?*anyopaque) void {
-        qtc.KPageWidgetModel_SuperEndMoveColumns(@ptrCast(self));
+    pub fn SuperEndMoveColumns(self: KPageWidgetModel) void {
+        qtc.KPageWidgetModel_SuperEndMoveColumns(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6872,12 +7130,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndMoveColumns(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KPageWidgetModel_OnEndMoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEndMoveColumns(self: KPageWidgetModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KPageWidgetModel_OnEndMoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6888,10 +7146,10 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    pub fn BeginResetModel(self: ?*anyopaque) void {
-        qtc.KPageWidgetModel_BeginResetModel(@ptrCast(self));
+    pub fn BeginResetModel(self: KPageWidgetModel) void {
+        qtc.KPageWidgetModel_BeginResetModel(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperBeginResetModel` instead
@@ -6906,10 +7164,10 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    pub fn SuperBeginResetModel(self: ?*anyopaque) void {
-        qtc.KPageWidgetModel_SuperBeginResetModel(@ptrCast(self));
+    pub fn SuperBeginResetModel(self: KPageWidgetModel) void {
+        qtc.KPageWidgetModel_SuperBeginResetModel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6920,12 +7178,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnBeginResetModel(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KPageWidgetModel_OnBeginResetModel(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBeginResetModel(self: KPageWidgetModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KPageWidgetModel_OnBeginResetModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6936,10 +7194,10 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    pub fn EndResetModel(self: ?*anyopaque) void {
-        qtc.KPageWidgetModel_EndResetModel(@ptrCast(self));
+    pub fn EndResetModel(self: KPageWidgetModel) void {
+        qtc.KPageWidgetModel_EndResetModel(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEndResetModel` instead
@@ -6954,10 +7212,10 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    pub fn SuperEndResetModel(self: ?*anyopaque) void {
-        qtc.KPageWidgetModel_SuperEndResetModel(@ptrCast(self));
+    pub fn SuperEndResetModel(self: KPageWidgetModel) void {
+        qtc.KPageWidgetModel_SuperEndResetModel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6968,12 +7226,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndResetModel(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KPageWidgetModel_OnEndResetModel(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEndResetModel(self: KPageWidgetModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KPageWidgetModel_OnEndResetModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6984,14 +7242,16 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` from: QtC.QModelIndex `
+    /// ` from: QModelIndex `
     ///
-    /// ` to: QtC.QModelIndex `
+    /// ` to: QModelIndex `
     ///
-    pub fn ChangePersistentIndex(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque) void {
-        qtc.KPageWidgetModel_ChangePersistentIndex(@ptrCast(self), @ptrCast(from), @ptrCast(to));
+    pub fn ChangePersistentIndex(self: KPageWidgetModel, from: anytype, to: anytype) void {
+        comptime _ = @TypeOf(from)._is_QModelIndex;
+        comptime _ = @TypeOf(to)._is_QModelIndex;
+        qtc.KPageWidgetModel_ChangePersistentIndex(@ptrCast(self.ptr), @ptrCast(from.ptr), @ptrCast(to.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChangePersistentIndex` instead
@@ -7006,14 +7266,16 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` from: QtC.QModelIndex `
+    /// ` from: QModelIndex `
     ///
-    /// ` to: QtC.QModelIndex `
+    /// ` to: QModelIndex `
     ///
-    pub fn SuperChangePersistentIndex(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque) void {
-        qtc.KPageWidgetModel_SuperChangePersistentIndex(@ptrCast(self), @ptrCast(from), @ptrCast(to));
+    pub fn SuperChangePersistentIndex(self: KPageWidgetModel, from: anytype, to: anytype) void {
+        comptime _ = @TypeOf(from)._is_QModelIndex;
+        comptime _ = @TypeOf(to)._is_QModelIndex;
+        qtc.KPageWidgetModel_SuperChangePersistentIndex(@ptrCast(self.ptr), @ptrCast(from.ptr), @ptrCast(to.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -7024,12 +7286,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, from: QtC.QModelIndex, to: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetModel, from: QModelIndex, to: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnChangePersistentIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KPageWidgetModel_OnChangePersistentIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChangePersistentIndex(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QModelIndex, QModelIndex) callconv(.c) void) void {
+        qtc.KPageWidgetModel_OnChangePersistentIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -7040,13 +7302,13 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` from: []QtC.QModelIndex `
+    /// ` from: []QModelIndex `
     ///
-    /// ` to: []QtC.QModelIndex `
+    /// ` to: []QModelIndex `
     ///
-    pub fn ChangePersistentIndexList(self: ?*anyopaque, from: []QtC.QModelIndex, to: []QtC.QModelIndex) void {
+    pub fn ChangePersistentIndexList(self: KPageWidgetModel, from: []QModelIndex, to: []QModelIndex) void {
         const from_list = qtc.libqt_list{
             .len = from.len,
             .data = @ptrCast(from.ptr),
@@ -7055,7 +7317,7 @@ pub const kpagewidgetmodel = struct {
             .len = to.len,
             .data = @ptrCast(to.ptr),
         };
-        qtc.KPageWidgetModel_ChangePersistentIndexList(@ptrCast(self), from_list, to_list);
+        qtc.KPageWidgetModel_ChangePersistentIndexList(@ptrCast(self.ptr), from_list, to_list);
     }
 
     /// ### DEPRECATED: Use `SuperChangePersistentIndexList` instead
@@ -7070,13 +7332,13 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` from: []QtC.QModelIndex `
+    /// ` from: []QModelIndex `
     ///
-    /// ` to: []QtC.QModelIndex `
+    /// ` to: []QModelIndex `
     ///
-    pub fn SuperChangePersistentIndexList(self: ?*anyopaque, from: []QtC.QModelIndex, to: []QtC.QModelIndex) void {
+    pub fn SuperChangePersistentIndexList(self: KPageWidgetModel, from: []QModelIndex, to: []QModelIndex) void {
         const from_list = qtc.libqt_list{
             .len = from.len,
             .data = @ptrCast(from.ptr),
@@ -7085,7 +7347,7 @@ pub const kpagewidgetmodel = struct {
             .len = to.len,
             .data = @ptrCast(to.ptr),
         };
-        qtc.KPageWidgetModel_SuperChangePersistentIndexList(@ptrCast(self), from_list, to_list);
+        qtc.KPageWidgetModel_SuperChangePersistentIndexList(@ptrCast(self.ptr), from_list, to_list);
     }
 
     /// Inherited from QAbstractItemModel
@@ -7096,12 +7358,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, from: qtc.libqt_list ([]QtC.QModelIndex), to: qtc.libqt_list ([]QtC.QModelIndex)) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetModel, from: qtc.libqt_list ([]QModelIndex), to: qtc.libqt_list ([]QModelIndex)) callconv(.c) void `
     ///
-    pub fn OnChangePersistentIndexList(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, qtc.libqt_list) callconv(.c) void) void {
-        qtc.KPageWidgetModel_OnChangePersistentIndexList(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChangePersistentIndexList(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, qtc.libqt_list, qtc.libqt_list) callconv(.c) void) void {
+        qtc.KPageWidgetModel_OnChangePersistentIndexList(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -7112,16 +7374,17 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PersistentIndexList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.KPageWidgetModel_PersistentIndexList(@ptrCast(self));
+    pub fn PersistentIndexList(self: KPageWidgetModel, allocator: std.mem.Allocator) []QModelIndex {
+        const _arr: qtc.libqt_list = qtc.KPageWidgetModel_PersistentIndexList(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("kpagewidgetmodel.PersistentIndexList: Memory allocation failed");
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("kpagewidgetmodel.PersistentIndexList: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -7137,16 +7400,17 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperPersistentIndexList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.KPageWidgetModel_SuperPersistentIndexList(@ptrCast(self));
+    pub fn SuperPersistentIndexList(self: KPageWidgetModel, allocator: std.mem.Allocator) []QModelIndex {
+        const _arr: qtc.libqt_list = qtc.KPageWidgetModel_SuperPersistentIndexList(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("kpagewidgetmodel.PersistentIndexList: Memory allocation failed");
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("kpagewidgetmodel.PersistentIndexList: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -7156,20 +7420,20 @@ pub const kpagewidgetmodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
     /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
     ///
     /// ## Callback Returns:
     ///
-    /// ` C ABI representation of []QtC.QModelIndex `
+    /// ` C ABI representation of []QModelIndex `
     ///
-    pub fn OnPersistentIndexList(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
-        qtc.KPageWidgetModel_OnPersistentIndexList(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPersistentIndexList(self: KPageWidgetModel, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+        qtc.KPageWidgetModel_OnPersistentIndexList(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7180,10 +7444,10 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KPageWidgetModel_Sender(@ptrCast(self));
+    pub fn Sender(self: KPageWidgetModel) QObject {
+        return .{ .ptr = qtc.KPageWidgetModel_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -7198,10 +7462,10 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KPageWidgetModel_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: KPageWidgetModel) QObject {
+        return .{ .ptr = qtc.KPageWidgetModel_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -7212,12 +7476,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.KPageWidgetModel_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: KPageWidgetModel, callback: *const fn () callconv(.c) QObject) void {
+        qtc.KPageWidgetModel_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7228,10 +7492,10 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KPageWidgetModel_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: KPageWidgetModel) i32 {
+        return qtc.KPageWidgetModel_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -7246,10 +7510,10 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KPageWidgetModel_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: KPageWidgetModel) i32 {
+        return qtc.KPageWidgetModel_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -7260,12 +7524,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KPageWidgetModel_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: KPageWidgetModel, callback: *const fn () callconv(.c) i32) void {
+        qtc.KPageWidgetModel_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7276,13 +7540,13 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: KPageWidgetModel, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KPageWidgetModel_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.KPageWidgetModel_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -7297,13 +7561,13 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: KPageWidgetModel, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KPageWidgetModel_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KPageWidgetModel_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -7314,12 +7578,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KPageWidgetModel, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KPageWidgetModel_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KPageWidgetModel_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7330,12 +7594,13 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KPageWidgetModel_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: KPageWidgetModel, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KPageWidgetModel_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -7350,12 +7615,13 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KPageWidgetModel_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: KPageWidgetModel, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KPageWidgetModel_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -7366,12 +7632,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel`
+    /// ` self: KPageWidgetModel`
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: KPageWidgetModel, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KPageWidgetModel_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QMetaMethod) callconv(.c) bool) void {
+        qtc.KPageWidgetModel_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -7382,12 +7648,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnRowsAboutToBeInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsAboutToBeInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowsAboutToBeInserted(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_RowsAboutToBeInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -7398,12 +7664,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnRowsInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowsInserted(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_RowsInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -7414,12 +7680,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnRowsAboutToBeRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsAboutToBeRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowsAboutToBeRemoved(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_RowsAboutToBeRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -7430,12 +7696,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnRowsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowsRemoved(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_RowsRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -7446,12 +7712,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsAboutToBeInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnsAboutToBeInserted(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -7462,12 +7728,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnsInserted(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ColumnsInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -7478,12 +7744,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsAboutToBeRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnsAboutToBeRemoved(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -7494,12 +7760,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnsRemoved(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ColumnsRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -7510,12 +7776,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetModel) callconv(.c) void `
     ///
-    pub fn OnModelAboutToBeReset(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ModelAboutToBeReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnModelAboutToBeReset(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ModelAboutToBeReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -7526,12 +7792,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetModel) callconv(.c) void `
     ///
-    pub fn OnModelReset(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ModelReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnModelReset(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ModelReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -7542,12 +7808,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetModel, sourceParent: QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QModelIndex, destinationRow: i32) callconv(.c) void `
     ///
-    pub fn OnRowsAboutToBeMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsAboutToBeMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowsAboutToBeMoved(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_RowsAboutToBeMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -7558,12 +7824,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetModel, sourceParent: QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QModelIndex, destinationRow: i32) callconv(.c) void `
     ///
-    pub fn OnRowsMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowsMoved(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_RowsMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -7574,12 +7840,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetModel, sourceParent: QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QModelIndex, destinationColumn: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsAboutToBeMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnsAboutToBeMoved(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -7590,12 +7856,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetModel, sourceParent: QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QModelIndex, destinationColumn: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnsMoved(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ColumnsMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7606,12 +7872,12 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    /// ` callback: *const fn (self: QtC.KPageWidgetModel, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KPageWidgetModel, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -7624,9 +7890,9 @@ pub const kpagewidgetmodel = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KPageWidgetModel `
+    /// ` self: KPageWidgetModel `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KPageWidgetModel_Delete(@ptrCast(self));
+    pub fn Delete(self: KPageWidgetModel) void {
+        qtc.KPageWidgetModel_Delete(@ptrCast(self.ptr));
     }
 };

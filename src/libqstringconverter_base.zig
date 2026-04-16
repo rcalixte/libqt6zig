@@ -4,45 +4,54 @@ const qstringconverter_base_enums = enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringconverter.html)
-pub const qstringconverter = struct {
+pub const QStringConverter = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringconverter.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QStringConverter,
+
+    pub const _is_QStringConverter = {};
+    pub const _is_QStringConverterBase = {};
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringconverter.html#isValid)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStringConverter `
+    /// ` self: QStringConverter `
     ///
-    pub fn IsValid(self: ?*anyopaque) bool {
-        return qtc.QStringConverter_IsValid(@ptrCast(self));
+    pub fn IsValid(self: QStringConverter) bool {
+        return qtc.QStringConverter_IsValid(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringconverter.html#resetState)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStringConverter `
+    /// ` self: QStringConverter `
     ///
-    pub fn ResetState(self: ?*anyopaque) void {
-        qtc.QStringConverter_ResetState(@ptrCast(self));
+    pub fn ResetState(self: QStringConverter) void {
+        qtc.QStringConverter_ResetState(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringconverter.html#hasError)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStringConverter `
+    /// ` self: QStringConverter `
     ///
-    pub fn HasError(self: ?*anyopaque) bool {
-        return qtc.QStringConverter_HasError(@ptrCast(self));
+    pub fn HasError(self: QStringConverter) bool {
+        return qtc.QStringConverter_HasError(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringconverter.html#name)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QStringConverter `
+    /// ` self: QStringConverter `
     ///
-    pub fn Name(self: ?*anyopaque) [:0]const u8 {
-        const _ret = qtc.QStringConverter_Name(@ptrCast(self));
+    pub fn Name(self: QStringConverter) [:0]const u8 {
+        const _ret = qtc.QStringConverter_Name(@ptrCast(self.ptr));
         return std.mem.span(_ret);
     }
 
@@ -67,9 +76,8 @@ pub const qstringconverter = struct {
         const _arr: qtc.libqt_list = qtc.QStringConverter_AvailableCodecs();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qstringconverter.AvailableCodecs: Memory allocation failed");

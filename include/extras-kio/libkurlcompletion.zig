@@ -1,5 +1,17 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const KCompletionMatches = @import("libqt6").KCompletionMatches;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QEvent = @import("libqt6").QEvent;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QUrl = @import("libqt6").QUrl;
+const QVariant = @import("libqt6").QVariant;
 const kcompletion_enums = @import("../extras-kcompletion/libkcompletion.zig").enums;
 const kurlcompletion_enums = enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
@@ -7,11 +19,21 @@ const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html)
-pub const kurlcompletion = struct {
+pub const KUrlCompletion = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KUrlCompletion,
+
+    pub const _is_KUrlCompletion = {};
+    pub const _is_KCompletion = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new KUrlCompletion object.
     ///
-    pub fn New() QtC.KUrlCompletion {
-        return qtc.KUrlCompletion_new();
+    pub fn New() KUrlCompletion {
+        return .{ .ptr = qtc.KUrlCompletion_new() };
     }
 
     /// New2 constructs a new KUrlCompletion object.
@@ -20,18 +42,18 @@ pub const kurlcompletion = struct {
     ///
     /// ` param1: kurlcompletion_enums.Mode `
     ///
-    pub fn New2(param1: i32) QtC.KUrlCompletion {
-        return qtc.KUrlCompletion_new2(@bitCast(param1));
+    pub fn New2(param1: i32) KUrlCompletion {
+        return .{ .ptr = qtc.KUrlCompletion_new2(@bitCast(param1)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KUrlCompletion_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: KUrlCompletion) QMetaObject {
+        return .{ .ptr = qtc.KUrlCompletion_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -40,12 +62,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.KUrlCompletion_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: KUrlCompletion, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.KUrlCompletion_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -58,33 +80,33 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KUrlCompletion_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: KUrlCompletion) QMetaObject {
+        return .{ .ptr = qtc.KUrlCompletion_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: KUrlCompletion, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KUrlCompletion_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.KUrlCompletion_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlCompletion, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: KUrlCompletion, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.KUrlCompletion_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: KUrlCompletion, callback: *const fn (KUrlCompletion, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.KUrlCompletion_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -95,18 +117,18 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: KUrlCompletion, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KUrlCompletion_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KUrlCompletion_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -114,20 +136,20 @@ pub const kurlcompletion = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KUrlCompletion_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: KUrlCompletion, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KUrlCompletion_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlCompletion, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KUrlCompletion, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.KUrlCompletion_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: KUrlCompletion, callback: *const fn (KUrlCompletion, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.KUrlCompletion_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -138,7 +160,7 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -146,19 +168,19 @@ pub const kurlcompletion = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KUrlCompletion_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: KUrlCompletion, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KUrlCompletion_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -171,18 +193,18 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
-    ///
-    /// ` text: []const u8 `
+    /// ` self: KUrlCompletion `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MakeCompletion(self: ?*anyopaque, text: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` text: []const u8 `
+    ///
+    pub fn MakeCompletion(self: KUrlCompletion, allocator: std.mem.Allocator, text: []const u8) []const u8 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        var _str = qtc.KUrlCompletion_MakeCompletion(@ptrCast(self), text_str);
+        var _str = qtc.KUrlCompletion_MakeCompletion(@ptrCast(self.ptr), text_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcompletion.MakeCompletion: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -193,16 +215,16 @@ pub const kurlcompletion = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlCompletion, text: [*:0]const u8) callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: KUrlCompletion, text: [*:0]const u8) callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnMakeCompletion(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) [*:0]const u8) void {
-        qtc.KUrlCompletion_OnMakeCompletion(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMakeCompletion(self: KUrlCompletion, callback: *const fn (KUrlCompletion, [*:0]const u8) callconv(.c) [*:0]const u8) void {
+        qtc.KUrlCompletion_OnMakeCompletion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMakeCompletion` instead
@@ -215,18 +237,18 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
-    ///
-    /// ` text: []const u8 `
+    /// ` self: KUrlCompletion `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperMakeCompletion(self: ?*anyopaque, text: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` text: []const u8 `
+    ///
+    pub fn SuperMakeCompletion(self: KUrlCompletion, allocator: std.mem.Allocator, text: []const u8) []const u8 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        var _str = qtc.KUrlCompletion_SuperMakeCompletion(@ptrCast(self), text_str);
+        var _str = qtc.KUrlCompletion_SuperMakeCompletion(@ptrCast(self.ptr), text_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcompletion.MakeCompletion: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -237,12 +259,13 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    /// ` dir: QtC.QUrl `
+    /// ` dir: QUrl `
     ///
-    pub fn SetDir(self: ?*anyopaque, dir: ?*anyopaque) void {
-        qtc.KUrlCompletion_SetDir(@ptrCast(self), @ptrCast(dir));
+    pub fn SetDir(self: KUrlCompletion, dir: anytype) void {
+        comptime _ = @TypeOf(dir)._is_QUrl;
+        qtc.KUrlCompletion_SetDir(@ptrCast(self.ptr), @ptrCast(dir.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#setDir)
@@ -251,12 +274,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlCompletion, dir: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlCompletion, dir: QUrl) callconv(.c) void `
     ///
-    pub fn OnSetDir(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlCompletion_OnSetDir(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetDir(self: KUrlCompletion, callback: *const fn (KUrlCompletion, QUrl) callconv(.c) void) void {
+        qtc.KUrlCompletion_OnSetDir(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetDir` instead
@@ -269,22 +292,23 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    /// ` dir: QtC.QUrl `
+    /// ` dir: QUrl `
     ///
-    pub fn SuperSetDir(self: ?*anyopaque, dir: ?*anyopaque) void {
-        qtc.KUrlCompletion_SuperSetDir(@ptrCast(self), @ptrCast(dir));
+    pub fn SuperSetDir(self: KUrlCompletion, dir: anytype) void {
+        comptime _ = @TypeOf(dir)._is_QUrl;
+        qtc.KUrlCompletion_SuperSetDir(@ptrCast(self.ptr), @ptrCast(dir.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#dir)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    pub fn Dir(self: ?*anyopaque) QtC.QUrl {
-        return qtc.KUrlCompletion_Dir(@ptrCast(self));
+    pub fn Dir(self: KUrlCompletion) QUrl {
+        return .{ .ptr = qtc.KUrlCompletion_Dir(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#dir)
@@ -293,12 +317,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QUrl `
+    /// ` callback: *const fn () callconv(.c) QUrl `
     ///
-    pub fn OnDir(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QUrl) void {
-        qtc.KUrlCompletion_OnDir(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDir(self: KUrlCompletion, callback: *const fn () callconv(.c) QUrl) void {
+        qtc.KUrlCompletion_OnDir(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperDir` instead
@@ -311,20 +335,20 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    pub fn SuperDir(self: ?*anyopaque) QtC.QUrl {
-        return qtc.KUrlCompletion_SuperDir(@ptrCast(self));
+    pub fn SuperDir(self: KUrlCompletion) QUrl {
+        return .{ .ptr = qtc.KUrlCompletion_SuperDir(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#isRunning)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    pub fn IsRunning(self: ?*anyopaque) bool {
-        return qtc.KUrlCompletion_IsRunning(@ptrCast(self));
+    pub fn IsRunning(self: KUrlCompletion) bool {
+        return qtc.KUrlCompletion_IsRunning(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#isRunning)
@@ -333,12 +357,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnIsRunning(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KUrlCompletion_OnIsRunning(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsRunning(self: KUrlCompletion, callback: *const fn () callconv(.c) bool) void {
+        qtc.KUrlCompletion_OnIsRunning(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperIsRunning` instead
@@ -351,20 +375,20 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    pub fn SuperIsRunning(self: ?*anyopaque) bool {
-        return qtc.KUrlCompletion_SuperIsRunning(@ptrCast(self));
+    pub fn SuperIsRunning(self: KUrlCompletion) bool {
+        return qtc.KUrlCompletion_SuperIsRunning(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#stop)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    pub fn Stop(self: ?*anyopaque) void {
-        qtc.KUrlCompletion_Stop(@ptrCast(self));
+    pub fn Stop(self: KUrlCompletion) void {
+        qtc.KUrlCompletion_Stop(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#stop)
@@ -373,12 +397,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnStop(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KUrlCompletion_OnStop(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnStop(self: KUrlCompletion, callback: *const fn () callconv(.c) void) void {
+        qtc.KUrlCompletion_OnStop(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperStop` instead
@@ -391,24 +415,24 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    pub fn SuperStop(self: ?*anyopaque) void {
-        qtc.KUrlCompletion_SuperStop(@ptrCast(self));
+    pub fn SuperStop(self: KUrlCompletion) void {
+        qtc.KUrlCompletion_SuperStop(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#mode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ## Returns:
     ///
     /// ` kurlcompletion_enums.Mode `
     ///
-    pub fn Mode(self: ?*anyopaque) i32 {
-        return qtc.KUrlCompletion_Mode(@ptrCast(self));
+    pub fn Mode(self: KUrlCompletion) i32 {
+        return qtc.KUrlCompletion_Mode(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#mode)
@@ -417,12 +441,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnMode(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KUrlCompletion_OnMode(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMode(self: KUrlCompletion, callback: *const fn () callconv(.c) i32) void {
+        qtc.KUrlCompletion_OnMode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMode` instead
@@ -435,26 +459,26 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ## Returns:
     ///
     /// ` kurlcompletion_enums.Mode `
     ///
-    pub fn SuperMode(self: ?*anyopaque) i32 {
-        return qtc.KUrlCompletion_SuperMode(@ptrCast(self));
+    pub fn SuperMode(self: KUrlCompletion) i32 {
+        return qtc.KUrlCompletion_SuperMode(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#setMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` mode: kurlcompletion_enums.Mode `
     ///
-    pub fn SetMode(self: ?*anyopaque, mode: i32) void {
-        qtc.KUrlCompletion_SetMode(@ptrCast(self), @bitCast(mode));
+    pub fn SetMode(self: KUrlCompletion, mode: i32) void {
+        qtc.KUrlCompletion_SetMode(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#setMode)
@@ -463,12 +487,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlCompletion, mode: kurlcompletion_enums.Mode) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlCompletion, mode: kurlcompletion_enums.Mode) callconv(.c) void `
     ///
-    pub fn OnSetMode(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KUrlCompletion_OnSetMode(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetMode(self: KUrlCompletion, callback: *const fn (KUrlCompletion, i32) callconv(.c) void) void {
+        qtc.KUrlCompletion_OnSetMode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetMode` instead
@@ -481,22 +505,22 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` mode: kurlcompletion_enums.Mode `
     ///
-    pub fn SuperSetMode(self: ?*anyopaque, mode: i32) void {
-        qtc.KUrlCompletion_SuperSetMode(@ptrCast(self), @bitCast(mode));
+    pub fn SuperSetMode(self: KUrlCompletion, mode: i32) void {
+        qtc.KUrlCompletion_SuperSetMode(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#replaceEnv)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    pub fn ReplaceEnv(self: ?*anyopaque) bool {
-        return qtc.KUrlCompletion_ReplaceEnv(@ptrCast(self));
+    pub fn ReplaceEnv(self: KUrlCompletion) bool {
+        return qtc.KUrlCompletion_ReplaceEnv(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#replaceEnv)
@@ -505,12 +529,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnReplaceEnv(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KUrlCompletion_OnReplaceEnv(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReplaceEnv(self: KUrlCompletion, callback: *const fn () callconv(.c) bool) void {
+        qtc.KUrlCompletion_OnReplaceEnv(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperReplaceEnv` instead
@@ -523,22 +547,22 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    pub fn SuperReplaceEnv(self: ?*anyopaque) bool {
-        return qtc.KUrlCompletion_SuperReplaceEnv(@ptrCast(self));
+    pub fn SuperReplaceEnv(self: KUrlCompletion) bool {
+        return qtc.KUrlCompletion_SuperReplaceEnv(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#setReplaceEnv)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` replace: bool `
     ///
-    pub fn SetReplaceEnv(self: ?*anyopaque, replace: bool) void {
-        qtc.KUrlCompletion_SetReplaceEnv(@ptrCast(self), replace);
+    pub fn SetReplaceEnv(self: KUrlCompletion, replace: bool) void {
+        qtc.KUrlCompletion_SetReplaceEnv(@ptrCast(self.ptr), replace);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#setReplaceEnv)
@@ -547,12 +571,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlCompletion, replace: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlCompletion, replace: bool) callconv(.c) void `
     ///
-    pub fn OnSetReplaceEnv(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KUrlCompletion_OnSetReplaceEnv(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetReplaceEnv(self: KUrlCompletion, callback: *const fn (KUrlCompletion, bool) callconv(.c) void) void {
+        qtc.KUrlCompletion_OnSetReplaceEnv(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetReplaceEnv` instead
@@ -565,22 +589,22 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` replace: bool `
     ///
-    pub fn SuperSetReplaceEnv(self: ?*anyopaque, replace: bool) void {
-        qtc.KUrlCompletion_SuperSetReplaceEnv(@ptrCast(self), replace);
+    pub fn SuperSetReplaceEnv(self: KUrlCompletion, replace: bool) void {
+        qtc.KUrlCompletion_SuperSetReplaceEnv(@ptrCast(self.ptr), replace);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#replaceHome)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    pub fn ReplaceHome(self: ?*anyopaque) bool {
-        return qtc.KUrlCompletion_ReplaceHome(@ptrCast(self));
+    pub fn ReplaceHome(self: KUrlCompletion) bool {
+        return qtc.KUrlCompletion_ReplaceHome(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#replaceHome)
@@ -589,12 +613,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnReplaceHome(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KUrlCompletion_OnReplaceHome(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReplaceHome(self: KUrlCompletion, callback: *const fn () callconv(.c) bool) void {
+        qtc.KUrlCompletion_OnReplaceHome(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperReplaceHome` instead
@@ -607,22 +631,22 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    pub fn SuperReplaceHome(self: ?*anyopaque) bool {
-        return qtc.KUrlCompletion_SuperReplaceHome(@ptrCast(self));
+    pub fn SuperReplaceHome(self: KUrlCompletion) bool {
+        return qtc.KUrlCompletion_SuperReplaceHome(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#setReplaceHome)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` replace: bool `
     ///
-    pub fn SetReplaceHome(self: ?*anyopaque, replace: bool) void {
-        qtc.KUrlCompletion_SetReplaceHome(@ptrCast(self), replace);
+    pub fn SetReplaceHome(self: KUrlCompletion, replace: bool) void {
+        qtc.KUrlCompletion_SetReplaceHome(@ptrCast(self.ptr), replace);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#setReplaceHome)
@@ -631,12 +655,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlCompletion, replace: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlCompletion, replace: bool) callconv(.c) void `
     ///
-    pub fn OnSetReplaceHome(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KUrlCompletion_OnSetReplaceHome(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetReplaceHome(self: KUrlCompletion, callback: *const fn (KUrlCompletion, bool) callconv(.c) void) void {
+        qtc.KUrlCompletion_OnSetReplaceHome(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetReplaceHome` instead
@@ -649,30 +673,30 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` replace: bool `
     ///
-    pub fn SuperSetReplaceHome(self: ?*anyopaque, replace: bool) void {
-        qtc.KUrlCompletion_SuperSetReplaceHome(@ptrCast(self), replace);
+    pub fn SuperSetReplaceHome(self: KUrlCompletion, replace: bool) void {
+        qtc.KUrlCompletion_SuperSetReplaceHome(@ptrCast(self.ptr), replace);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#replacedPath)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
-    ///
-    /// ` text: []const u8 `
+    /// ` self: KUrlCompletion `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReplacedPath(self: ?*anyopaque, text: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` text: []const u8 `
+    ///
+    pub fn ReplacedPath(self: KUrlCompletion, allocator: std.mem.Allocator, text: []const u8) []const u8 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        var _str = qtc.KUrlCompletion_ReplacedPath(@ptrCast(self), text_str);
+        var _str = qtc.KUrlCompletion_ReplacedPath(@ptrCast(self.ptr), text_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcompletion.ReplacedPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -683,13 +707,13 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` text: []const u8 `
     ///
     /// ` replaceHome: bool `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn ReplacedPath2(text: []const u8, replaceHome: bool, allocator: std.mem.Allocator) []const u8 {
+    pub fn ReplacedPath2(allocator: std.mem.Allocator, text: []const u8, replaceHome: bool) []const u8 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -705,43 +729,41 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
-    ///
-    /// ` mimeTypes: []const []const u8 `
+    /// ` self: KUrlCompletion `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetMimeTypeFilters(self: ?*anyopaque, mimeTypes: []const []const u8, allocator: std.mem.Allocator) void {
+    /// ` mimeTypes: []const []const u8 `
+    ///
+    pub fn SetMimeTypeFilters(self: KUrlCompletion, allocator: std.mem.Allocator, mimeTypes: []const []const u8) void {
         const mimeTypes_arr = allocator.alloc(qtc.libqt_string, mimeTypes.len) catch @panic("kurlcompletion.SetMimeTypeFilters: Memory allocation failed");
         defer allocator.free(mimeTypes_arr);
-        for (mimeTypes, 0..mimeTypes.len) |item, i| {
+        for (mimeTypes, 0..mimeTypes.len) |item, i|
             mimeTypes_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const mimeTypes_list = qtc.libqt_list{
             .len = mimeTypes.len,
             .data = mimeTypes_arr.ptr,
         };
-        qtc.KUrlCompletion_SetMimeTypeFilters(@ptrCast(self), mimeTypes_list);
+        qtc.KUrlCompletion_SetMimeTypeFilters(@ptrCast(self.ptr), mimeTypes_list);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#mimeTypeFilters)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeTypeFilters(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KUrlCompletion_MimeTypeFilters(@ptrCast(self));
+    pub fn MimeTypeFilters(self: KUrlCompletion, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.KUrlCompletion_MimeTypeFilters(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kurlcompletion.MimeTypeFilters: Memory allocation failed");
@@ -758,26 +780,25 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
-    ///
-    /// ` matches: []const []const u8 `
+    /// ` self: KUrlCompletion `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PostProcessMatches(self: ?*anyopaque, matches: []const []const u8, allocator: std.mem.Allocator) void {
+    /// ` matches: []const []const u8 `
+    ///
+    pub fn PostProcessMatches(self: KUrlCompletion, allocator: std.mem.Allocator, matches: []const []const u8) void {
         const matches_arr = allocator.alloc(qtc.libqt_string, matches.len) catch @panic("kurlcompletion.PostProcessMatches: Memory allocation failed");
         defer allocator.free(matches_arr);
-        for (matches, 0..matches.len) |item, i| {
+        for (matches, 0..matches.len) |item, i|
             matches_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const matches_list = qtc.libqt_list{
             .len = matches.len,
             .data = matches_arr.ptr,
         };
-        qtc.KUrlCompletion_PostProcessMatches(@ptrCast(self), matches_list);
+        qtc.KUrlCompletion_PostProcessMatches(@ptrCast(self.ptr), matches_list);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#postProcessMatches)
@@ -786,12 +807,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlCompletion, matches: ?[*:null]?[*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlCompletion, matches: ?[*:null]?[*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnPostProcessMatches(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
-        qtc.KUrlCompletion_OnPostProcessMatches(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPostProcessMatches(self: KUrlCompletion, callback: *const fn (KUrlCompletion, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
+        qtc.KUrlCompletion_OnPostProcessMatches(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperPostProcessMatches` instead
@@ -804,38 +825,38 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
-    ///
-    /// ` matches: []const []const u8 `
+    /// ` self: KUrlCompletion `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperPostProcessMatches(self: ?*anyopaque, matches: []const []const u8, allocator: std.mem.Allocator) void {
+    /// ` matches: []const []const u8 `
+    ///
+    pub fn SuperPostProcessMatches(self: KUrlCompletion, allocator: std.mem.Allocator, matches: []const []const u8) void {
         const matches_arr = allocator.alloc(qtc.libqt_string, matches.len) catch @panic("kurlcompletion.PostProcessMatches: Memory allocation failed");
         defer allocator.free(matches_arr);
-        for (matches, 0..matches.len) |item, i| {
+        for (matches, 0..matches.len) |item, i|
             matches_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const matches_list = qtc.libqt_list{
             .len = matches.len,
             .data = matches_arr.ptr,
         };
-        qtc.KUrlCompletion_SuperPostProcessMatches(@ptrCast(self), matches_list);
+        qtc.KUrlCompletion_SuperPostProcessMatches(@ptrCast(self.ptr), matches_list);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#postProcessMatches)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    /// ` matches: QtC.KCompletionMatches `
+    /// ` matches: KCompletionMatches `
     ///
-    pub fn PostProcessMatches2(self: ?*anyopaque, matches: ?*anyopaque) void {
-        qtc.KUrlCompletion_PostProcessMatches2(@ptrCast(self), @ptrCast(matches));
+    pub fn PostProcessMatches2(self: KUrlCompletion, matches: anytype) void {
+        comptime _ = @TypeOf(matches)._is_KCompletionMatches;
+        qtc.KUrlCompletion_PostProcessMatches2(@ptrCast(self.ptr), @ptrCast(matches.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurlcompletion.html#postProcessMatches)
@@ -844,12 +865,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlCompletion, matches: QtC.KCompletionMatches) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlCompletion, matches: KCompletionMatches) callconv(.c) void `
     ///
-    pub fn OnPostProcessMatches2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlCompletion_OnPostProcessMatches2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPostProcessMatches2(self: KUrlCompletion, callback: *const fn (KUrlCompletion, KCompletionMatches) callconv(.c) void) void {
+        qtc.KUrlCompletion_OnPostProcessMatches2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperPostProcessMatches2` instead
@@ -862,25 +883,26 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    /// ` matches: QtC.KCompletionMatches `
+    /// ` matches: KCompletionMatches `
     ///
-    pub fn SuperPostProcessMatches2(self: ?*anyopaque, matches: ?*anyopaque) void {
-        qtc.KUrlCompletion_SuperPostProcessMatches2(@ptrCast(self), @ptrCast(matches));
+    pub fn SuperPostProcessMatches2(self: KUrlCompletion, matches: anytype) void {
+        comptime _ = @TypeOf(matches)._is_KCompletionMatches;
+        qtc.KUrlCompletion_SuperPostProcessMatches2(@ptrCast(self.ptr), @ptrCast(matches.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -894,15 +916,15 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -916,15 +938,15 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` text: []const u8 `
     ///
     /// ` replaceHome: bool `
     ///
     /// ` replaceEnv: bool `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn ReplacedPath3(text: []const u8, replaceHome: bool, replaceEnv: bool, allocator: std.mem.Allocator) []const u8 {
+    pub fn ReplacedPath3(allocator: std.mem.Allocator, text: []const u8, replaceHome: bool, replaceEnv: bool) []const u8 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -942,23 +964,22 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
-    ///
-    /// ` stringVal: []const u8 `
+    /// ` self: KUrlCompletion `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SubstringCompletion(self: ?*anyopaque, stringVal: []const u8, allocator: std.mem.Allocator) []const []const u8 {
+    /// ` stringVal: []const u8 `
+    ///
+    pub fn SubstringCompletion(self: KUrlCompletion, allocator: std.mem.Allocator, stringVal: []const u8) []const []const u8 {
         const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.KCompletion_SubstringCompletion(@ptrCast(self), stringVal_str);
+        const _arr: qtc.libqt_list = qtc.KCompletion_SubstringCompletion(@ptrCast(self.ptr), stringVal_str);
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kurlcompletion.SubstringCompletion: Memory allocation failed");
@@ -977,17 +998,16 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Items(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KCompletion_Items(@ptrCast(self));
+    pub fn Items(self: KUrlCompletion, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.KCompletion_Items(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kurlcompletion.Items: Memory allocation failed");
@@ -1006,10 +1026,10 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    pub fn IsEmpty(self: ?*anyopaque) bool {
-        return qtc.KCompletion_IsEmpty(@ptrCast(self));
+    pub fn IsEmpty(self: KUrlCompletion) bool {
+        return qtc.KCompletion_IsEmpty(@ptrCast(self.ptr));
     }
 
     /// Inherited from KCompletion
@@ -1018,14 +1038,14 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ## Returns:
     ///
     /// ` kcompletion_enums.CompletionMode `
     ///
-    pub fn CompletionMode(self: ?*anyopaque) i32 {
-        return qtc.KCompletion_CompletionMode(@ptrCast(self));
+    pub fn CompletionMode(self: KUrlCompletion) i32 {
+        return qtc.KCompletion_CompletionMode(@ptrCast(self.ptr));
     }
 
     /// Inherited from KCompletion
@@ -1034,14 +1054,14 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ## Returns:
     ///
     /// ` kcompletion_enums.CompOrder `
     ///
-    pub fn Order(self: ?*anyopaque) i32 {
-        return qtc.KCompletion_Order(@ptrCast(self));
+    pub fn Order(self: KUrlCompletion) i32 {
+        return qtc.KCompletion_Order(@ptrCast(self.ptr));
     }
 
     /// Inherited from KCompletion
@@ -1050,10 +1070,10 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    pub fn IgnoreCase(self: ?*anyopaque) bool {
-        return qtc.KCompletion_IgnoreCase(@ptrCast(self));
+    pub fn IgnoreCase(self: KUrlCompletion) bool {
+        return qtc.KCompletion_IgnoreCase(@ptrCast(self.ptr));
     }
 
     /// Inherited from KCompletion
@@ -1062,10 +1082,10 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    pub fn ShouldAutoSuggest(self: ?*anyopaque) bool {
-        return qtc.KCompletion_ShouldAutoSuggest(@ptrCast(self));
+    pub fn ShouldAutoSuggest(self: KUrlCompletion) bool {
+        return qtc.KCompletion_ShouldAutoSuggest(@ptrCast(self.ptr));
     }
 
     /// Inherited from KCompletion
@@ -1074,17 +1094,16 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AllMatches(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KCompletion_AllMatches(@ptrCast(self));
+    pub fn AllMatches(self: KUrlCompletion, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.KCompletion_AllMatches(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kurlcompletion.AllMatches: Memory allocation failed");
@@ -1103,23 +1122,22 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
-    ///
-    /// ` stringVal: []const u8 `
+    /// ` self: KUrlCompletion `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AllMatches2(self: ?*anyopaque, stringVal: []const u8, allocator: std.mem.Allocator) []const []const u8 {
+    /// ` stringVal: []const u8 `
+    ///
+    pub fn AllMatches2(self: KUrlCompletion, allocator: std.mem.Allocator, stringVal: []const u8) []const []const u8 {
         const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.KCompletion_AllMatches2(@ptrCast(self), stringVal_str);
+        const _arr: qtc.libqt_list = qtc.KCompletion_AllMatches2(@ptrCast(self.ptr), stringVal_str);
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kurlcompletion.AllMatches2: Memory allocation failed");
@@ -1138,10 +1156,10 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    pub fn AllWeightedMatches(self: ?*anyopaque) QtC.KCompletionMatches {
-        return qtc.KCompletion_AllWeightedMatches(@ptrCast(self));
+    pub fn AllWeightedMatches(self: KUrlCompletion) KCompletionMatches {
+        return .{ .ptr = qtc.KCompletion_AllWeightedMatches(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from KCompletion
@@ -1150,16 +1168,16 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` stringVal: []const u8 `
     ///
-    pub fn AllWeightedMatches2(self: ?*anyopaque, stringVal: []const u8) QtC.KCompletionMatches {
+    pub fn AllWeightedMatches2(self: KUrlCompletion, stringVal: []const u8) KCompletionMatches {
         const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
-        return qtc.KCompletion_AllWeightedMatches2(@ptrCast(self), stringVal_str);
+        return .{ .ptr = qtc.KCompletion_AllWeightedMatches2(@ptrCast(self.ptr), stringVal_str) };
     }
 
     /// Inherited from KCompletion
@@ -1168,10 +1186,10 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    pub fn SoundsEnabled(self: ?*anyopaque) bool {
-        return qtc.KCompletion_SoundsEnabled(@ptrCast(self));
+    pub fn SoundsEnabled(self: KUrlCompletion) bool {
+        return qtc.KCompletion_SoundsEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from KCompletion
@@ -1180,10 +1198,10 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    pub fn HasMultipleMatches(self: ?*anyopaque) bool {
-        return qtc.KCompletion_HasMultipleMatches(@ptrCast(self));
+    pub fn HasMultipleMatches(self: KUrlCompletion) bool {
+        return qtc.KCompletion_HasMultipleMatches(@ptrCast(self.ptr));
     }
 
     /// Inherited from KCompletion
@@ -1192,12 +1210,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PreviousMatch(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KCompletion_PreviousMatch(@ptrCast(self));
+    pub fn PreviousMatch(self: KUrlCompletion, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KCompletion_PreviousMatch(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcompletion.PreviousMatch: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1210,12 +1228,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NextMatch(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KCompletion_NextMatch(@ptrCast(self));
+    pub fn NextMatch(self: KUrlCompletion, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KCompletion_NextMatch(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcompletion.NextMatch: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1228,26 +1246,25 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
-    ///
-    /// ` items: []const []const u8 `
+    /// ` self: KUrlCompletion `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn InsertItems(self: ?*anyopaque, items: []const []const u8, allocator: std.mem.Allocator) void {
+    /// ` items: []const []const u8 `
+    ///
+    pub fn InsertItems(self: KUrlCompletion, allocator: std.mem.Allocator, items: []const []const u8) void {
         const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("kurlcompletion.InsertItems: Memory allocation failed");
         defer allocator.free(items_arr);
-        for (items, 0..items.len) |item, i| {
+        for (items, 0..items.len) |item, i|
             items_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const items_list = qtc.libqt_list{
             .len = items.len,
             .data = items_arr.ptr,
         };
-        qtc.KCompletion_InsertItems(@ptrCast(self), items_list);
+        qtc.KCompletion_InsertItems(@ptrCast(self.ptr), items_list);
     }
 
     /// Inherited from KCompletion
@@ -1256,16 +1273,16 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` item: []const u8 `
     ///
-    pub fn AddItem(self: ?*anyopaque, item: []const u8) void {
+    pub fn AddItem(self: KUrlCompletion, item: []const u8) void {
         const item_str = qtc.libqt_string{
             .len = item.len,
             .data = item.ptr,
         };
-        qtc.KCompletion_AddItem(@ptrCast(self), item_str);
+        qtc.KCompletion_AddItem(@ptrCast(self.ptr), item_str);
     }
 
     /// Inherited from KCompletion
@@ -1274,18 +1291,18 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` item: []const u8 `
     ///
     /// ` weight: u32 `
     ///
-    pub fn AddItem2(self: ?*anyopaque, item: []const u8, weight: u32) void {
+    pub fn AddItem2(self: KUrlCompletion, item: []const u8, weight: u32) void {
         const item_str = qtc.libqt_string{
             .len = item.len,
             .data = item.ptr,
         };
-        qtc.KCompletion_AddItem2(@ptrCast(self), item_str, @bitCast(weight));
+        qtc.KCompletion_AddItem2(@ptrCast(self.ptr), item_str, @bitCast(weight));
     }
 
     /// Inherited from KCompletion
@@ -1294,16 +1311,16 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` item: []const u8 `
     ///
-    pub fn RemoveItem(self: ?*anyopaque, item: []const u8) void {
+    pub fn RemoveItem(self: KUrlCompletion, item: []const u8) void {
         const item_str = qtc.libqt_string{
             .len = item.len,
             .data = item.ptr,
         };
-        qtc.KCompletion_RemoveItem(@ptrCast(self), item_str);
+        qtc.KCompletion_RemoveItem(@ptrCast(self.ptr), item_str);
     }
 
     /// Inherited from KCompletion
@@ -1312,16 +1329,16 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` item: []const u8 `
     ///
-    pub fn Match(self: ?*anyopaque, item: []const u8) void {
+    pub fn Match(self: KUrlCompletion, item: []const u8) void {
         const item_str = qtc.libqt_string{
             .len = item.len,
             .data = item.ptr,
         };
-        qtc.KCompletion_Match(@ptrCast(self), item_str);
+        qtc.KCompletion_Match(@ptrCast(self.ptr), item_str);
     }
 
     /// Inherited from KCompletion
@@ -1330,12 +1347,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlCompletion, item: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlCompletion, item: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnMatch(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KCompletion_Connect_Match(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMatch(self: KUrlCompletion, callback: *const fn (KUrlCompletion, [*:0]const u8) callconv(.c) void) void {
+        qtc.KCompletion_Connect_Match(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompletion
@@ -1344,26 +1361,25 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
-    ///
-    /// ` matchlist: []const []const u8 `
+    /// ` self: KUrlCompletion `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Matches(self: ?*anyopaque, matchlist: []const []const u8, allocator: std.mem.Allocator) void {
+    /// ` matchlist: []const []const u8 `
+    ///
+    pub fn Matches(self: KUrlCompletion, allocator: std.mem.Allocator, matchlist: []const []const u8) void {
         const matchlist_arr = allocator.alloc(qtc.libqt_string, matchlist.len) catch @panic("kurlcompletion.Matches: Memory allocation failed");
         defer allocator.free(matchlist_arr);
-        for (matchlist, 0..matchlist.len) |item, i| {
+        for (matchlist, 0..matchlist.len) |item, i|
             matchlist_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const matchlist_list = qtc.libqt_list{
             .len = matchlist.len,
             .data = matchlist_arr.ptr,
         };
-        qtc.KCompletion_Matches(@ptrCast(self), matchlist_list);
+        qtc.KCompletion_Matches(@ptrCast(self.ptr), matchlist_list);
     }
 
     /// Inherited from KCompletion
@@ -1372,12 +1388,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlCompletion, matchlist: ?[*:null]?[*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlCompletion, matchlist: ?[*:null]?[*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnMatches(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
-        qtc.KCompletion_Connect_Matches(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMatches(self: KUrlCompletion, callback: *const fn (KUrlCompletion, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
+        qtc.KCompletion_Connect_Matches(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompletion
@@ -1386,10 +1402,10 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    pub fn MultipleMatches(self: ?*anyopaque) void {
-        qtc.KCompletion_MultipleMatches(@ptrCast(self));
+    pub fn MultipleMatches(self: KUrlCompletion) void {
+        qtc.KCompletion_MultipleMatches(@ptrCast(self.ptr));
     }
 
     /// Inherited from KCompletion
@@ -1398,12 +1414,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlCompletion) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlCompletion) callconv(.c) void `
     ///
-    pub fn OnMultipleMatches(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletion_Connect_MultipleMatches(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMultipleMatches(self: KUrlCompletion, callback: *const fn (KUrlCompletion) callconv(.c) void) void {
+        qtc.KCompletion_Connect_MultipleMatches(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1412,12 +1428,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: KUrlCompletion, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcompletion.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1430,12 +1446,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: KUrlCompletion, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -1444,10 +1460,10 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: KUrlCompletion) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1456,10 +1472,10 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: KUrlCompletion) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1468,10 +1484,10 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: KUrlCompletion) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1480,10 +1496,10 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: KUrlCompletion) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1492,12 +1508,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: KUrlCompletion, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -1506,10 +1522,10 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: KUrlCompletion) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1518,12 +1534,13 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: KUrlCompletion, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -1532,12 +1549,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: KUrlCompletion, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1546,12 +1563,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: KUrlCompletion, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1560,12 +1577,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: KUrlCompletion, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1574,12 +1591,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: KUrlCompletion, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1588,16 +1605,17 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: KUrlCompletion, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("kurlcompletion.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kurlcompletion.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1607,12 +1625,13 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: KUrlCompletion, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -1621,12 +1640,13 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: KUrlCompletion, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -1635,12 +1655,13 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: KUrlCompletion, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -1649,18 +1670,20 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1669,16 +1692,20 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1687,18 +1714,19 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: KUrlCompletion, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1707,18 +1735,20 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1727,16 +1757,20 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -1745,10 +1779,10 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: KUrlCompletion) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1757,12 +1791,13 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: KUrlCompletion, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1771,10 +1806,11 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1783,10 +1819,10 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: KUrlCompletion) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1795,10 +1831,10 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: KUrlCompletion) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1807,15 +1843,16 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: KUrlCompletion, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -1824,13 +1861,13 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: KUrlCompletion, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1839,17 +1876,16 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: KUrlCompletion, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kurlcompletion.DynamicPropertyNames: Memory allocation failed");
@@ -1868,10 +1904,10 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: KUrlCompletion) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1880,10 +1916,10 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: KUrlCompletion) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1892,10 +1928,10 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: KUrlCompletion) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1904,12 +1940,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlCompletion) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlCompletion) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: KUrlCompletion, callback: *const fn (KUrlCompletion) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1918,10 +1954,10 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: KUrlCompletion) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1930,13 +1966,13 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: KUrlCompletion, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -1945,10 +1981,10 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: KUrlCompletion) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1957,14 +1993,14 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: KUrlCompletion, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1973,14 +2009,14 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: KUrlCompletion, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1989,20 +2025,22 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -2011,18 +2049,22 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -2031,9 +2073,9 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2041,10 +2083,11 @@ pub const kurlcompletion = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: KUrlCompletion, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -2053,13 +2096,13 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: KUrlCompletion, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2068,15 +2111,16 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: KUrlCompletion, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -2085,18 +2129,19 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: KUrlCompletion, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -2105,15 +2150,16 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: KUrlCompletion, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -2122,12 +2168,13 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: KUrlCompletion, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -2136,12 +2183,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlCompletion, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlCompletion, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: KUrlCompletion, callback: *const fn (KUrlCompletion, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompletion
@@ -2152,12 +2199,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LastMatch(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KUrlCompletion_LastMatch(@ptrCast(self));
+    pub fn LastMatch(self: KUrlCompletion, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KUrlCompletion_LastMatch(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcompletion.LastMatch: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2176,12 +2223,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperLastMatch(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KUrlCompletion_SuperLastMatch(@ptrCast(self));
+    pub fn SuperLastMatch(self: KUrlCompletion, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KUrlCompletion_SuperLastMatch(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcompletion.LastMatch: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2194,16 +2241,16 @@ pub const kurlcompletion = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlCompletion`
+    /// ` self: KUrlCompletion`
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnLastMatch(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.KUrlCompletion_OnLastMatch(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLastMatch(self: KUrlCompletion, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.KUrlCompletion_OnLastMatch(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompletion
@@ -2214,12 +2261,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` mode: kcompletion_enums.CompletionMode `
     ///
-    pub fn SetCompletionMode(self: ?*anyopaque, mode: i32) void {
-        qtc.KUrlCompletion_SetCompletionMode(@ptrCast(self), @bitCast(mode));
+    pub fn SetCompletionMode(self: KUrlCompletion, mode: i32) void {
+        qtc.KUrlCompletion_SetCompletionMode(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// ### DEPRECATED: Use `SuperSetCompletionMode` instead
@@ -2234,12 +2281,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` mode: kcompletion_enums.CompletionMode `
     ///
-    pub fn SuperSetCompletionMode(self: ?*anyopaque, mode: i32) void {
-        qtc.KUrlCompletion_SuperSetCompletionMode(@ptrCast(self), @bitCast(mode));
+    pub fn SuperSetCompletionMode(self: KUrlCompletion, mode: i32) void {
+        qtc.KUrlCompletion_SuperSetCompletionMode(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// Inherited from KCompletion
@@ -2250,12 +2297,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlCompletion`
+    /// ` self: KUrlCompletion`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlCompletion, mode: kcompletion_enums.CompletionMode) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlCompletion, mode: kcompletion_enums.CompletionMode) callconv(.c) void `
     ///
-    pub fn OnSetCompletionMode(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KUrlCompletion_OnSetCompletionMode(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetCompletionMode(self: KUrlCompletion, callback: *const fn (KUrlCompletion, i32) callconv(.c) void) void {
+        qtc.KUrlCompletion_OnSetCompletionMode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompletion
@@ -2266,12 +2313,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` order: kcompletion_enums.CompOrder `
     ///
-    pub fn SetOrder(self: ?*anyopaque, order: i32) void {
-        qtc.KUrlCompletion_SetOrder(@ptrCast(self), @bitCast(order));
+    pub fn SetOrder(self: KUrlCompletion, order: i32) void {
+        qtc.KUrlCompletion_SetOrder(@ptrCast(self.ptr), @bitCast(order));
     }
 
     /// ### DEPRECATED: Use `SuperSetOrder` instead
@@ -2286,12 +2333,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` order: kcompletion_enums.CompOrder `
     ///
-    pub fn SuperSetOrder(self: ?*anyopaque, order: i32) void {
-        qtc.KUrlCompletion_SuperSetOrder(@ptrCast(self), @bitCast(order));
+    pub fn SuperSetOrder(self: KUrlCompletion, order: i32) void {
+        qtc.KUrlCompletion_SuperSetOrder(@ptrCast(self.ptr), @bitCast(order));
     }
 
     /// Inherited from KCompletion
@@ -2302,12 +2349,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlCompletion`
+    /// ` self: KUrlCompletion`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlCompletion, order: kcompletion_enums.CompOrder) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlCompletion, order: kcompletion_enums.CompOrder) callconv(.c) void `
     ///
-    pub fn OnSetOrder(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KUrlCompletion_OnSetOrder(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetOrder(self: KUrlCompletion, callback: *const fn (KUrlCompletion, i32) callconv(.c) void) void {
+        qtc.KUrlCompletion_OnSetOrder(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompletion
@@ -2318,12 +2365,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` ignoreCase: bool `
     ///
-    pub fn SetIgnoreCase(self: ?*anyopaque, ignoreCase: bool) void {
-        qtc.KUrlCompletion_SetIgnoreCase(@ptrCast(self), ignoreCase);
+    pub fn SetIgnoreCase(self: KUrlCompletion, ignoreCase: bool) void {
+        qtc.KUrlCompletion_SetIgnoreCase(@ptrCast(self.ptr), ignoreCase);
     }
 
     /// ### DEPRECATED: Use `SuperSetIgnoreCase` instead
@@ -2338,12 +2385,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` ignoreCase: bool `
     ///
-    pub fn SuperSetIgnoreCase(self: ?*anyopaque, ignoreCase: bool) void {
-        qtc.KUrlCompletion_SuperSetIgnoreCase(@ptrCast(self), ignoreCase);
+    pub fn SuperSetIgnoreCase(self: KUrlCompletion, ignoreCase: bool) void {
+        qtc.KUrlCompletion_SuperSetIgnoreCase(@ptrCast(self.ptr), ignoreCase);
     }
 
     /// Inherited from KCompletion
@@ -2354,12 +2401,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlCompletion`
+    /// ` self: KUrlCompletion`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlCompletion, ignoreCase: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlCompletion, ignoreCase: bool) callconv(.c) void `
     ///
-    pub fn OnSetIgnoreCase(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KUrlCompletion_OnSetIgnoreCase(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetIgnoreCase(self: KUrlCompletion, callback: *const fn (KUrlCompletion, bool) callconv(.c) void) void {
+        qtc.KUrlCompletion_OnSetIgnoreCase(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompletion
@@ -2370,12 +2417,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetSoundsEnabled(self: ?*anyopaque, enable: bool) void {
-        qtc.KUrlCompletion_SetSoundsEnabled(@ptrCast(self), enable);
+    pub fn SetSoundsEnabled(self: KUrlCompletion, enable: bool) void {
+        qtc.KUrlCompletion_SetSoundsEnabled(@ptrCast(self.ptr), enable);
     }
 
     /// ### DEPRECATED: Use `SuperSetSoundsEnabled` instead
@@ -2390,12 +2437,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` enable: bool `
     ///
-    pub fn SuperSetSoundsEnabled(self: ?*anyopaque, enable: bool) void {
-        qtc.KUrlCompletion_SuperSetSoundsEnabled(@ptrCast(self), enable);
+    pub fn SuperSetSoundsEnabled(self: KUrlCompletion, enable: bool) void {
+        qtc.KUrlCompletion_SuperSetSoundsEnabled(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from KCompletion
@@ -2406,12 +2453,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlCompletion`
+    /// ` self: KUrlCompletion`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlCompletion, enable: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlCompletion, enable: bool) callconv(.c) void `
     ///
-    pub fn OnSetSoundsEnabled(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KUrlCompletion_OnSetSoundsEnabled(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetSoundsEnabled(self: KUrlCompletion, callback: *const fn (KUrlCompletion, bool) callconv(.c) void) void {
+        qtc.KUrlCompletion_OnSetSoundsEnabled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompletion
@@ -2422,26 +2469,25 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
-    ///
-    /// ` itemList: []const []const u8 `
+    /// ` self: KUrlCompletion `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetItems(self: ?*anyopaque, itemList: []const []const u8, allocator: std.mem.Allocator) void {
+    /// ` itemList: []const []const u8 `
+    ///
+    pub fn SetItems(self: KUrlCompletion, allocator: std.mem.Allocator, itemList: []const []const u8) void {
         const itemList_arr = allocator.alloc(qtc.libqt_string, itemList.len) catch @panic("kurlcompletion.SetItems: Memory allocation failed");
         defer allocator.free(itemList_arr);
-        for (itemList, 0..itemList.len) |item, i| {
+        for (itemList, 0..itemList.len) |item, i|
             itemList_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const itemList_list = qtc.libqt_list{
             .len = itemList.len,
             .data = itemList_arr.ptr,
         };
-        qtc.KUrlCompletion_SetItems(@ptrCast(self), itemList_list);
+        qtc.KUrlCompletion_SetItems(@ptrCast(self.ptr), itemList_list);
     }
 
     /// ### DEPRECATED: Use `SuperSetItems` instead
@@ -2456,26 +2502,25 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
-    ///
-    /// ` itemList: []const []const u8 `
+    /// ` self: KUrlCompletion `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperSetItems(self: ?*anyopaque, itemList: []const []const u8, allocator: std.mem.Allocator) void {
+    /// ` itemList: []const []const u8 `
+    ///
+    pub fn SuperSetItems(self: KUrlCompletion, allocator: std.mem.Allocator, itemList: []const []const u8) void {
         const itemList_arr = allocator.alloc(qtc.libqt_string, itemList.len) catch @panic("kurlcompletion.SetItems: Memory allocation failed");
         defer allocator.free(itemList_arr);
-        for (itemList, 0..itemList.len) |item, i| {
+        for (itemList, 0..itemList.len) |item, i|
             itemList_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const itemList_list = qtc.libqt_list{
             .len = itemList.len,
             .data = itemList_arr.ptr,
         };
-        qtc.KUrlCompletion_SuperSetItems(@ptrCast(self), itemList_list);
+        qtc.KUrlCompletion_SuperSetItems(@ptrCast(self.ptr), itemList_list);
     }
 
     /// Inherited from KCompletion
@@ -2486,12 +2531,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlCompletion`
+    /// ` self: KUrlCompletion`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlCompletion, itemList: ?[*:null]?[*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlCompletion, itemList: ?[*:null]?[*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetItems(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
-        qtc.KUrlCompletion_OnSetItems(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetItems(self: KUrlCompletion, callback: *const fn (KUrlCompletion, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
+        qtc.KUrlCompletion_OnSetItems(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompletion
@@ -2502,10 +2547,10 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    pub fn Clear(self: ?*anyopaque) void {
-        qtc.KUrlCompletion_Clear(@ptrCast(self));
+    pub fn Clear(self: KUrlCompletion) void {
+        qtc.KUrlCompletion_Clear(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperClear` instead
@@ -2520,10 +2565,10 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    pub fn SuperClear(self: ?*anyopaque) void {
-        qtc.KUrlCompletion_SuperClear(@ptrCast(self));
+    pub fn SuperClear(self: KUrlCompletion) void {
+        qtc.KUrlCompletion_SuperClear(@ptrCast(self.ptr));
     }
 
     /// Inherited from KCompletion
@@ -2534,12 +2579,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlCompletion`
+    /// ` self: KUrlCompletion`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnClear(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KUrlCompletion_OnClear(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnClear(self: KUrlCompletion, callback: *const fn () callconv(.c) void) void {
+        qtc.KUrlCompletion_OnClear(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2550,12 +2595,13 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KUrlCompletion_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: KUrlCompletion, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KUrlCompletion_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -2570,12 +2616,13 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KUrlCompletion_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: KUrlCompletion, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KUrlCompletion_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2586,12 +2633,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlCompletion`
+    /// ` self: KUrlCompletion`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlCompletion, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KUrlCompletion, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KUrlCompletion_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: KUrlCompletion, callback: *const fn (KUrlCompletion, QEvent) callconv(.c) bool) void {
+        qtc.KUrlCompletion_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2602,14 +2649,16 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KUrlCompletion_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: KUrlCompletion, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KUrlCompletion_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -2624,14 +2673,16 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KUrlCompletion_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: KUrlCompletion, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KUrlCompletion_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2642,12 +2693,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlCompletion`
+    /// ` self: KUrlCompletion`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlCompletion, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KUrlCompletion, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KUrlCompletion_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: KUrlCompletion, callback: *const fn (KUrlCompletion, QObject, QEvent) callconv(.c) bool) void {
+        qtc.KUrlCompletion_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2658,12 +2709,13 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlCompletion_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: KUrlCompletion, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KUrlCompletion_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -2678,12 +2730,13 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlCompletion_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: KUrlCompletion, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KUrlCompletion_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2694,12 +2747,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlCompletion`
+    /// ` self: KUrlCompletion`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlCompletion, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlCompletion, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlCompletion_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: KUrlCompletion, callback: *const fn (KUrlCompletion, QTimerEvent) callconv(.c) void) void {
+        qtc.KUrlCompletion_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2710,12 +2763,13 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlCompletion_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: KUrlCompletion, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KUrlCompletion_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -2730,12 +2784,13 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlCompletion_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: KUrlCompletion, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KUrlCompletion_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2746,12 +2801,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlCompletion`
+    /// ` self: KUrlCompletion`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlCompletion, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlCompletion, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlCompletion_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: KUrlCompletion, callback: *const fn (KUrlCompletion, QChildEvent) callconv(.c) void) void {
+        qtc.KUrlCompletion_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2762,12 +2817,13 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlCompletion_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: KUrlCompletion, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KUrlCompletion_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -2782,12 +2838,13 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlCompletion_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: KUrlCompletion, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KUrlCompletion_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2798,12 +2855,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlCompletion`
+    /// ` self: KUrlCompletion`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlCompletion, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlCompletion, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlCompletion_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: KUrlCompletion, callback: *const fn (KUrlCompletion, QEvent) callconv(.c) void) void {
+        qtc.KUrlCompletion_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2814,12 +2871,13 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KUrlCompletion_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: KUrlCompletion, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KUrlCompletion_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -2834,12 +2892,13 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KUrlCompletion_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: KUrlCompletion, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KUrlCompletion_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -2850,12 +2909,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlCompletion`
+    /// ` self: KUrlCompletion`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlCompletion, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlCompletion, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlCompletion_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: KUrlCompletion, callback: *const fn (KUrlCompletion, QMetaMethod) callconv(.c) void) void {
+        qtc.KUrlCompletion_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2866,12 +2925,13 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KUrlCompletion_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: KUrlCompletion, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KUrlCompletion_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -2886,12 +2946,13 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KUrlCompletion_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: KUrlCompletion, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KUrlCompletion_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -2902,12 +2963,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlCompletion`
+    /// ` self: KUrlCompletion`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlCompletion, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlCompletion, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlCompletion_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: KUrlCompletion, callback: *const fn (KUrlCompletion, QMetaMethod) callconv(.c) void) void {
+        qtc.KUrlCompletion_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompletion
@@ -2918,12 +2979,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` shouldAutosuggest: bool `
     ///
-    pub fn SetShouldAutoSuggest(self: ?*anyopaque, shouldAutosuggest: bool) void {
-        qtc.KUrlCompletion_SetShouldAutoSuggest(@ptrCast(self), shouldAutosuggest);
+    pub fn SetShouldAutoSuggest(self: KUrlCompletion, shouldAutosuggest: bool) void {
+        qtc.KUrlCompletion_SetShouldAutoSuggest(@ptrCast(self.ptr), shouldAutosuggest);
     }
 
     /// ### DEPRECATED: Use `SuperSetShouldAutoSuggest` instead
@@ -2938,12 +2999,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` shouldAutosuggest: bool `
     ///
-    pub fn SuperSetShouldAutoSuggest(self: ?*anyopaque, shouldAutosuggest: bool) void {
-        qtc.KUrlCompletion_SuperSetShouldAutoSuggest(@ptrCast(self), shouldAutosuggest);
+    pub fn SuperSetShouldAutoSuggest(self: KUrlCompletion, shouldAutosuggest: bool) void {
+        qtc.KUrlCompletion_SuperSetShouldAutoSuggest(@ptrCast(self.ptr), shouldAutosuggest);
     }
 
     /// Inherited from KCompletion
@@ -2954,12 +3015,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlCompletion`
+    /// ` self: KUrlCompletion`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlCompletion, shouldAutosuggest: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlCompletion, shouldAutosuggest: bool) callconv(.c) void `
     ///
-    pub fn OnSetShouldAutoSuggest(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KUrlCompletion_OnSetShouldAutoSuggest(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetShouldAutoSuggest(self: KUrlCompletion, callback: *const fn (KUrlCompletion, bool) callconv(.c) void) void {
+        qtc.KUrlCompletion_OnSetShouldAutoSuggest(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2970,10 +3031,10 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KUrlCompletion_Sender(@ptrCast(self));
+    pub fn Sender(self: KUrlCompletion) QObject {
+        return .{ .ptr = qtc.KUrlCompletion_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -2988,10 +3049,10 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KUrlCompletion_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: KUrlCompletion) QObject {
+        return .{ .ptr = qtc.KUrlCompletion_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -3002,12 +3063,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlCompletion`
+    /// ` self: KUrlCompletion`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.KUrlCompletion_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: KUrlCompletion, callback: *const fn () callconv(.c) QObject) void {
+        qtc.KUrlCompletion_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3018,10 +3079,10 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KUrlCompletion_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: KUrlCompletion) i32 {
+        return qtc.KUrlCompletion_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -3036,10 +3097,10 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KUrlCompletion_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: KUrlCompletion) i32 {
+        return qtc.KUrlCompletion_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -3050,12 +3111,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlCompletion`
+    /// ` self: KUrlCompletion`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KUrlCompletion_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: KUrlCompletion, callback: *const fn () callconv(.c) i32) void {
+        qtc.KUrlCompletion_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3066,13 +3127,13 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: KUrlCompletion, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KUrlCompletion_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.KUrlCompletion_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -3087,13 +3148,13 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: KUrlCompletion, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KUrlCompletion_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KUrlCompletion_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -3104,12 +3165,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlCompletion`
+    /// ` self: KUrlCompletion`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlCompletion, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KUrlCompletion, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KUrlCompletion_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: KUrlCompletion, callback: *const fn (KUrlCompletion, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KUrlCompletion_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3120,12 +3181,13 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KUrlCompletion_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: KUrlCompletion, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KUrlCompletion_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -3140,12 +3202,13 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KUrlCompletion_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: KUrlCompletion, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KUrlCompletion_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -3156,12 +3219,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlCompletion`
+    /// ` self: KUrlCompletion`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlCompletion, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: KUrlCompletion, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KUrlCompletion_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: KUrlCompletion, callback: *const fn (KUrlCompletion, QMetaMethod) callconv(.c) bool) void {
+        qtc.KUrlCompletion_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3172,12 +3235,12 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlCompletion, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlCompletion, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: KUrlCompletion, callback: *const fn (KUrlCompletion, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -3190,10 +3253,10 @@ pub const kurlcompletion = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KUrlCompletion `
+    /// ` self: KUrlCompletion `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KUrlCompletion_Delete(@ptrCast(self));
+    pub fn Delete(self: KUrlCompletion) void {
+        qtc.KUrlCompletion_Delete(@ptrCast(self.ptr));
     }
 };
 

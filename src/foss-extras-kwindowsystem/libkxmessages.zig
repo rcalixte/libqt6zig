@@ -1,15 +1,34 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QEvent = @import("libqt6").QEvent;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/kxmessages.html)
-pub const kxmessages = struct {
+pub const KXMessages = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kxmessages.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KXMessages,
+
+    pub const _is_KXMessages = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new KXMessages object.
     ///
-    pub fn New() QtC.KXMessages {
-        return qtc.KXMessages_new();
+    pub fn New() KXMessages {
+        return .{ .ptr = qtc.KXMessages_new() };
     }
 
     /// New2 constructs a new KXMessages object.
@@ -18,10 +37,9 @@ pub const kxmessages = struct {
     ///
     /// ` accept_broadcast: [:0]const u8 `
     ///
-    pub fn New2(accept_broadcast: [:0]const u8) QtC.KXMessages {
+    pub fn New2(accept_broadcast: [:0]const u8) KXMessages {
         const accept_broadcast_Cstring = accept_broadcast.ptr;
-
-        return qtc.KXMessages_new2(accept_broadcast_Cstring);
+        return .{ .ptr = qtc.KXMessages_new2(accept_broadcast_Cstring) };
     }
 
     /// New3 constructs a new KXMessages object.
@@ -30,22 +48,22 @@ pub const kxmessages = struct {
     ///
     /// ` accept_broadcast: [:0]const u8 `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New3(accept_broadcast: [:0]const u8, parent: ?*anyopaque) QtC.KXMessages {
+    pub fn New3(accept_broadcast: [:0]const u8, parent: anytype) KXMessages {
         const accept_broadcast_Cstring = accept_broadcast.ptr;
-
-        return qtc.KXMessages_new3(accept_broadcast_Cstring, @ptrCast(parent));
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.KXMessages_new3(accept_broadcast_Cstring, @ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KXMessages_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: KXMessages) QMetaObject {
+        return .{ .ptr = qtc.KXMessages_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -54,12 +72,12 @@ pub const kxmessages = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.KXMessages_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: KXMessages, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.KXMessages_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -72,33 +90,33 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KXMessages_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: KXMessages) QMetaObject {
+        return .{ .ptr = qtc.KXMessages_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: KXMessages, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KXMessages_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.KXMessages_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    /// ` callback: *const fn (self: QtC.KXMessages, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: KXMessages, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.KXMessages_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: KXMessages, callback: *const fn (KXMessages, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.KXMessages_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -109,18 +127,18 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: KXMessages, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KXMessages_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KXMessages_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -128,20 +146,20 @@ pub const kxmessages = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KXMessages_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: KXMessages, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KXMessages_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    /// ` callback: *const fn (self: QtC.KXMessages, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KXMessages, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.KXMessages_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: KXMessages, callback: *const fn (KXMessages, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.KXMessages_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -152,7 +170,7 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -160,19 +178,19 @@ pub const kxmessages = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KXMessages_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: KXMessages, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KXMessages_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -185,60 +203,60 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
     /// ` msg_type: [:0]const u8 `
     ///
     /// ` message: []const u8 `
     ///
-    pub fn BroadcastMessage(self: ?*anyopaque, msg_type: [:0]const u8, message: []const u8) void {
+    pub fn BroadcastMessage(self: KXMessages, msg_type: [:0]const u8, message: []const u8) void {
         const msg_type_Cstring = msg_type.ptr;
         const message_str = qtc.libqt_string{
             .len = message.len,
             .data = message.ptr,
         };
-        qtc.KXMessages_BroadcastMessage(@ptrCast(self), msg_type_Cstring, message_str);
+        qtc.KXMessages_BroadcastMessage(@ptrCast(self.ptr), msg_type_Cstring, message_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxmessages.html#gotMessage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
     /// ` message: []const u8 `
     ///
-    pub fn GotMessage(self: ?*anyopaque, message: []const u8) void {
+    pub fn GotMessage(self: KXMessages, message: []const u8) void {
         const message_str = qtc.libqt_string{
             .len = message.len,
             .data = message.ptr,
         };
-        qtc.KXMessages_GotMessage(@ptrCast(self), message_str);
+        qtc.KXMessages_GotMessage(@ptrCast(self.ptr), message_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxmessages.html#gotMessage)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    /// ` callback: *const fn (self: QtC.KXMessages, message: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KXMessages, message: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnGotMessage(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KXMessages_Connect_GotMessage(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnGotMessage(self: KXMessages, callback: *const fn (KXMessages, [*:0]const u8) callconv(.c) void) void {
+        qtc.KXMessages_Connect_GotMessage(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -252,15 +270,15 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -274,7 +292,7 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
     /// ` msg_type: [:0]const u8 `
     ///
@@ -282,13 +300,13 @@ pub const kxmessages = struct {
     ///
     /// ` screen: i32 `
     ///
-    pub fn BroadcastMessage3(self: ?*anyopaque, msg_type: [:0]const u8, message: []const u8, screen: i32) void {
+    pub fn BroadcastMessage3(self: KXMessages, msg_type: [:0]const u8, message: []const u8, screen: i32) void {
         const msg_type_Cstring = msg_type.ptr;
         const message_str = qtc.libqt_string{
             .len = message.len,
             .data = message.ptr,
         };
-        qtc.KXMessages_BroadcastMessage3(@ptrCast(self), msg_type_Cstring, message_str, @bitCast(screen));
+        qtc.KXMessages_BroadcastMessage3(@ptrCast(self.ptr), msg_type_Cstring, message_str, @bitCast(screen));
     }
 
     /// Inherited from QObject
@@ -297,12 +315,12 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: KXMessages, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kxmessages.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -315,12 +333,12 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: KXMessages, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -329,10 +347,10 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: KXMessages) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -341,10 +359,10 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: KXMessages) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -353,10 +371,10 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: KXMessages) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -365,10 +383,10 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: KXMessages) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -377,12 +395,12 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: KXMessages, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -391,10 +409,10 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: KXMessages) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -403,12 +421,13 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: KXMessages, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -417,12 +436,12 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: KXMessages, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -431,12 +450,12 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: KXMessages, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -445,12 +464,12 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: KXMessages, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -459,12 +478,12 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: KXMessages, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -473,16 +492,17 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: KXMessages, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("kxmessages.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kxmessages.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -492,12 +512,13 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: KXMessages, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -506,12 +527,13 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: KXMessages, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -520,12 +542,13 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: KXMessages, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -534,18 +557,20 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -554,16 +579,20 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -572,18 +601,19 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: KXMessages, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -592,18 +622,20 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -612,16 +644,20 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -630,10 +666,10 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: KXMessages) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -642,12 +678,13 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: KXMessages, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -656,10 +693,11 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -668,10 +706,10 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: KXMessages) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -680,10 +718,10 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: KXMessages) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -692,15 +730,16 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: KXMessages, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -709,13 +748,13 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: KXMessages, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -724,17 +763,16 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: KXMessages, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kxmessages.DynamicPropertyNames: Memory allocation failed");
@@ -753,10 +791,10 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: KXMessages) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -765,10 +803,10 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: KXMessages) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -777,10 +815,10 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: KXMessages) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -789,12 +827,12 @@ pub const kxmessages = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    /// ` callback: *const fn (self: QtC.KXMessages) callconv(.c) void `
+    /// ` callback: *const fn (self: KXMessages) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: KXMessages, callback: *const fn (KXMessages) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -803,10 +841,10 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: KXMessages) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -815,13 +853,13 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: KXMessages, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -830,10 +868,10 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: KXMessages) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -842,14 +880,14 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: KXMessages, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -858,14 +896,14 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: KXMessages, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -874,20 +912,22 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -896,18 +936,22 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -916,9 +960,9 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -926,10 +970,11 @@ pub const kxmessages = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: KXMessages, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -938,13 +983,13 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: KXMessages, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -953,15 +998,16 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: KXMessages, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -970,18 +1016,19 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: KXMessages, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -990,15 +1037,16 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: KXMessages, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1007,12 +1055,13 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: KXMessages, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1021,12 +1070,12 @@ pub const kxmessages = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    /// ` callback: *const fn (self: QtC.KXMessages, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: KXMessages, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: KXMessages, callback: *const fn (KXMessages, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1037,12 +1086,13 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KXMessages_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: KXMessages, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KXMessages_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -1057,12 +1107,13 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KXMessages_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: KXMessages, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KXMessages_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1073,12 +1124,12 @@ pub const kxmessages = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXMessages`
+    /// ` self: KXMessages`
     ///
-    /// ` callback: *const fn (self: QtC.KXMessages, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KXMessages, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KXMessages_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: KXMessages, callback: *const fn (KXMessages, QEvent) callconv(.c) bool) void {
+        qtc.KXMessages_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1089,14 +1140,16 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KXMessages_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: KXMessages, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KXMessages_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -1111,14 +1164,16 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KXMessages_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: KXMessages, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KXMessages_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1129,12 +1184,12 @@ pub const kxmessages = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXMessages`
+    /// ` self: KXMessages`
     ///
-    /// ` callback: *const fn (self: QtC.KXMessages, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KXMessages, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KXMessages_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: KXMessages, callback: *const fn (KXMessages, QObject, QEvent) callconv(.c) bool) void {
+        qtc.KXMessages_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1145,12 +1200,13 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXMessages_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: KXMessages, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KXMessages_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -1165,12 +1221,13 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXMessages_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: KXMessages, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KXMessages_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1181,12 +1238,12 @@ pub const kxmessages = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXMessages`
+    /// ` self: KXMessages`
     ///
-    /// ` callback: *const fn (self: QtC.KXMessages, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KXMessages, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXMessages_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: KXMessages, callback: *const fn (KXMessages, QTimerEvent) callconv(.c) void) void {
+        qtc.KXMessages_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1197,12 +1254,13 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXMessages_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: KXMessages, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KXMessages_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -1217,12 +1275,13 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXMessages_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: KXMessages, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KXMessages_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1233,12 +1292,12 @@ pub const kxmessages = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXMessages`
+    /// ` self: KXMessages`
     ///
-    /// ` callback: *const fn (self: QtC.KXMessages, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KXMessages, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXMessages_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: KXMessages, callback: *const fn (KXMessages, QChildEvent) callconv(.c) void) void {
+        qtc.KXMessages_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1249,12 +1308,13 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXMessages_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: KXMessages, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KXMessages_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -1269,12 +1329,13 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXMessages_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: KXMessages, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KXMessages_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1285,12 +1346,12 @@ pub const kxmessages = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXMessages`
+    /// ` self: KXMessages`
     ///
-    /// ` callback: *const fn (self: QtC.KXMessages, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KXMessages, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXMessages_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: KXMessages, callback: *const fn (KXMessages, QEvent) callconv(.c) void) void {
+        qtc.KXMessages_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1301,12 +1362,13 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KXMessages_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: KXMessages, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KXMessages_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -1321,12 +1383,13 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KXMessages_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: KXMessages, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KXMessages_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1337,12 +1400,12 @@ pub const kxmessages = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXMessages`
+    /// ` self: KXMessages`
     ///
-    /// ` callback: *const fn (self: QtC.KXMessages, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KXMessages, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXMessages_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: KXMessages, callback: *const fn (KXMessages, QMetaMethod) callconv(.c) void) void {
+        qtc.KXMessages_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1353,12 +1416,13 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KXMessages_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: KXMessages, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KXMessages_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -1373,12 +1437,13 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KXMessages_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: KXMessages, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KXMessages_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1389,12 +1454,12 @@ pub const kxmessages = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXMessages`
+    /// ` self: KXMessages`
     ///
-    /// ` callback: *const fn (self: QtC.KXMessages, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KXMessages, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXMessages_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: KXMessages, callback: *const fn (KXMessages, QMetaMethod) callconv(.c) void) void {
+        qtc.KXMessages_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1405,10 +1470,10 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KXMessages_Sender(@ptrCast(self));
+    pub fn Sender(self: KXMessages) QObject {
+        return .{ .ptr = qtc.KXMessages_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -1423,10 +1488,10 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KXMessages_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: KXMessages) QObject {
+        return .{ .ptr = qtc.KXMessages_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1437,12 +1502,12 @@ pub const kxmessages = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXMessages`
+    /// ` self: KXMessages`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.KXMessages_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: KXMessages, callback: *const fn () callconv(.c) QObject) void {
+        qtc.KXMessages_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1453,10 +1518,10 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KXMessages_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: KXMessages) i32 {
+        return qtc.KXMessages_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -1471,10 +1536,10 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KXMessages_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: KXMessages) i32 {
+        return qtc.KXMessages_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1485,12 +1550,12 @@ pub const kxmessages = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXMessages`
+    /// ` self: KXMessages`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KXMessages_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: KXMessages, callback: *const fn () callconv(.c) i32) void {
+        qtc.KXMessages_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1501,13 +1566,13 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: KXMessages, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KXMessages_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.KXMessages_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -1522,13 +1587,13 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: KXMessages, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KXMessages_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KXMessages_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1539,12 +1604,12 @@ pub const kxmessages = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXMessages`
+    /// ` self: KXMessages`
     ///
-    /// ` callback: *const fn (self: QtC.KXMessages, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KXMessages, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KXMessages_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: KXMessages, callback: *const fn (KXMessages, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KXMessages_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1555,12 +1620,13 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KXMessages_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: KXMessages, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KXMessages_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -1575,12 +1641,13 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KXMessages_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: KXMessages, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KXMessages_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1591,12 +1658,12 @@ pub const kxmessages = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXMessages`
+    /// ` self: KXMessages`
     ///
-    /// ` callback: *const fn (self: QtC.KXMessages, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: KXMessages, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KXMessages_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: KXMessages, callback: *const fn (KXMessages, QMetaMethod) callconv(.c) bool) void {
+        qtc.KXMessages_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1607,12 +1674,12 @@ pub const kxmessages = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    /// ` callback: *const fn (self: QtC.KXMessages, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KXMessages, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: KXMessages, callback: *const fn (KXMessages, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -1625,9 +1692,9 @@ pub const kxmessages = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KXMessages `
+    /// ` self: KXMessages `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KXMessages_Delete(@ptrCast(self));
+    pub fn Delete(self: KXMessages) void {
+        qtc.KXMessages_Delete(@ptrCast(self.ptr));
     }
 };

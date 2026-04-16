@@ -3,7 +3,15 @@ const qtc = @import("qt6c");
 const kshareddatacache_enums = enums;
 
 /// ### [Upstream resources](https://api.kde.org/kshareddatacache.html)
-pub const kshareddatacache = struct {
+pub const KSharedDataCache = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kshareddatacache.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KSharedDataCache,
+
+    pub const _is_KSharedDataCache = {};
+
     /// New constructs a new KSharedDataCache object.
     ///
     /// ## Parameter(s):
@@ -12,13 +20,12 @@ pub const kshareddatacache = struct {
     ///
     /// ` defaultCacheSize: u32 `
     ///
-    pub fn New(cacheName: []const u8, defaultCacheSize: u32) QtC.KSharedDataCache {
+    pub fn New(cacheName: []const u8, defaultCacheSize: u32) KSharedDataCache {
         const cacheName_str = qtc.libqt_string{
             .len = cacheName.len,
             .data = cacheName.ptr,
         };
-
-        return qtc.KSharedDataCache_new(cacheName_str, @bitCast(defaultCacheSize));
+        return .{ .ptr = qtc.KSharedDataCache_new(cacheName_str, @bitCast(defaultCacheSize)) };
     }
 
     /// New2 constructs a new KSharedDataCache object.
@@ -31,52 +38,51 @@ pub const kshareddatacache = struct {
     ///
     /// ` expectedItemSize: u32 `
     ///
-    pub fn New2(cacheName: []const u8, defaultCacheSize: u32, expectedItemSize: u32) QtC.KSharedDataCache {
+    pub fn New2(cacheName: []const u8, defaultCacheSize: u32, expectedItemSize: u32) KSharedDataCache {
         const cacheName_str = qtc.libqt_string{
             .len = cacheName.len,
             .data = cacheName.ptr,
         };
-
-        return qtc.KSharedDataCache_new2(cacheName_str, @bitCast(defaultCacheSize), @bitCast(expectedItemSize));
+        return .{ .ptr = qtc.KSharedDataCache_new2(cacheName_str, @bitCast(defaultCacheSize), @bitCast(expectedItemSize)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kshareddatacache.html#evictionPolicy)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSharedDataCache `
+    /// ` self: KSharedDataCache `
     ///
     /// ## Returns:
     ///
     /// ` kshareddatacache_enums.EvictionPolicy `
     ///
-    pub fn EvictionPolicy(self: ?*anyopaque) i32 {
-        return qtc.KSharedDataCache_EvictionPolicy(@ptrCast(self));
+    pub fn EvictionPolicy(self: KSharedDataCache) i32 {
+        return qtc.KSharedDataCache_EvictionPolicy(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kshareddatacache.html#setEvictionPolicy)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSharedDataCache `
+    /// ` self: KSharedDataCache `
     ///
     /// ` newPolicy: kshareddatacache_enums.EvictionPolicy `
     ///
-    pub fn SetEvictionPolicy(self: ?*anyopaque, newPolicy: i32) void {
-        qtc.KSharedDataCache_SetEvictionPolicy(@ptrCast(self), @bitCast(newPolicy));
+    pub fn SetEvictionPolicy(self: KSharedDataCache, newPolicy: i32) void {
+        qtc.KSharedDataCache_SetEvictionPolicy(@ptrCast(self.ptr), @bitCast(newPolicy));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kshareddatacache.html#insert)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSharedDataCache `
+    /// ` self: KSharedDataCache `
     ///
     /// ` key: []const u8 `
     ///
     /// ` data: []u8 `
     ///
-    pub fn Insert(self: ?*anyopaque, key: []const u8, data: []u8) bool {
+    pub fn Insert(self: KSharedDataCache, key: []const u8, data: []u8) bool {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -85,17 +91,17 @@ pub const kshareddatacache = struct {
             .len = data.len,
             .data = data.ptr,
         };
-        return qtc.KSharedDataCache_Insert(@ptrCast(self), key_str, data_str);
+        return qtc.KSharedDataCache_Insert(@ptrCast(self.ptr), key_str, data_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kshareddatacache.html#clear)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSharedDataCache `
+    /// ` self: KSharedDataCache `
     ///
-    pub fn Clear(self: ?*anyopaque) void {
-        qtc.KSharedDataCache_Clear(@ptrCast(self));
+    pub fn Clear(self: KSharedDataCache) void {
+        qtc.KSharedDataCache_Clear(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kshareddatacache.html#deleteCache)
@@ -116,58 +122,58 @@ pub const kshareddatacache = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSharedDataCache `
+    /// ` self: KSharedDataCache `
     ///
     /// ` key: []const u8 `
     ///
-    pub fn Contains(self: ?*anyopaque, key: []const u8) bool {
+    pub fn Contains(self: KSharedDataCache, key: []const u8) bool {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
-        return qtc.KSharedDataCache_Contains(@ptrCast(self), key_str);
+        return qtc.KSharedDataCache_Contains(@ptrCast(self.ptr), key_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kshareddatacache.html#totalSize)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSharedDataCache `
+    /// ` self: KSharedDataCache `
     ///
-    pub fn TotalSize(self: ?*anyopaque) u32 {
-        return qtc.KSharedDataCache_TotalSize(@ptrCast(self));
+    pub fn TotalSize(self: KSharedDataCache) u32 {
+        return qtc.KSharedDataCache_TotalSize(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kshareddatacache.html#freeSize)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSharedDataCache `
+    /// ` self: KSharedDataCache `
     ///
-    pub fn FreeSize(self: ?*anyopaque) u32 {
-        return qtc.KSharedDataCache_FreeSize(@ptrCast(self));
+    pub fn FreeSize(self: KSharedDataCache) u32 {
+        return qtc.KSharedDataCache_FreeSize(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kshareddatacache.html#timestamp)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSharedDataCache `
+    /// ` self: KSharedDataCache `
     ///
-    pub fn Timestamp(self: ?*anyopaque) u32 {
-        return qtc.KSharedDataCache_Timestamp(@ptrCast(self));
+    pub fn Timestamp(self: KSharedDataCache) u32 {
+        return qtc.KSharedDataCache_Timestamp(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kshareddatacache.html#setTimestamp)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSharedDataCache `
+    /// ` self: KSharedDataCache `
     ///
     /// ` newTimestamp: u32 `
     ///
-    pub fn SetTimestamp(self: ?*anyopaque, newTimestamp: u32) void {
-        qtc.KSharedDataCache_SetTimestamp(@ptrCast(self), @bitCast(newTimestamp));
+    pub fn SetTimestamp(self: KSharedDataCache, newTimestamp: u32) void {
+        qtc.KSharedDataCache_SetTimestamp(@ptrCast(self.ptr), @bitCast(newTimestamp));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -180,10 +186,10 @@ pub const kshareddatacache = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KSharedDataCache `
+    /// ` self: KSharedDataCache `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KSharedDataCache_Delete(@ptrCast(self));
+    pub fn Delete(self: KSharedDataCache) void {
+        qtc.KSharedDataCache_Delete(@ptrCast(self.ptr));
     }
 };
 

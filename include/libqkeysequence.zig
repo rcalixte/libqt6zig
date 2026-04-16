@@ -1,14 +1,24 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QKeyCombination = @import("libqt6").QKeyCombination;
+const QVariant = @import("libqt6").QVariant;
 const qkeysequence_enums = enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeysequence.html)
-pub const qkeysequence = struct {
+pub const QKeySequence = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeysequence.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QKeySequence,
+
+    pub const _is_QKeySequence = {};
+
     /// New constructs a new QKeySequence object.
     ///
-    pub fn New() QtC.QKeySequence {
-        return qtc.QKeySequence_new();
+    pub fn New() QKeySequence {
+        return .{ .ptr = qtc.QKeySequence_new() };
     }
 
     /// New2 constructs a new QKeySequence object.
@@ -17,13 +27,12 @@ pub const qkeysequence = struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn New2(key: []const u8) QtC.QKeySequence {
+    pub fn New2(key: []const u8) QKeySequence {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
-
-        return qtc.QKeySequence_new2(key_str);
+        return .{ .ptr = qtc.QKeySequence_new2(key_str) };
     }
 
     /// New3 constructs a new QKeySequence object.
@@ -32,28 +41,30 @@ pub const qkeysequence = struct {
     ///
     /// ` k1: i32 `
     ///
-    pub fn New3(k1: i32) QtC.QKeySequence {
-        return qtc.QKeySequence_new3(@bitCast(k1));
+    pub fn New3(k1: i32) QKeySequence {
+        return .{ .ptr = qtc.QKeySequence_new3(@bitCast(k1)) };
     }
 
     /// New4 constructs a new QKeySequence object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` k1: QtC.QKeyCombination `
+    /// ` k1: QKeyCombination `
     ///
-    pub fn New4(k1: QtC.QKeyCombination) QtC.QKeySequence {
-        return qtc.QKeySequence_new4(@ptrCast(k1));
+    pub fn New4(k1: anytype) QKeySequence {
+        comptime _ = @TypeOf(k1)._is_QKeyCombination;
+        return .{ .ptr = qtc.QKeySequence_new4(@ptrCast(k1.ptr)) };
     }
 
     /// New5 constructs a new QKeySequence object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` ks: QtC.QKeySequence `
+    /// ` ks: QKeySequence `
     ///
-    pub fn New5(ks: ?*anyopaque) QtC.QKeySequence {
-        return qtc.QKeySequence_new5(@ptrCast(ks));
+    pub fn New5(ks: anytype) QKeySequence {
+        comptime _ = @TypeOf(ks)._is_QKeySequence;
+        return .{ .ptr = qtc.QKeySequence_new5(@ptrCast(ks.ptr)) };
     }
 
     /// New6 constructs a new QKeySequence object.
@@ -62,8 +73,8 @@ pub const qkeysequence = struct {
     ///
     /// ` key: qkeysequence_enums.StandardKey `
     ///
-    pub fn New6(key: i32) QtC.QKeySequence {
-        return qtc.QKeySequence_new6(@bitCast(key));
+    pub fn New6(key: i32) QKeySequence {
+        return .{ .ptr = qtc.QKeySequence_new6(@bitCast(key)) };
     }
 
     /// New7 constructs a new QKeySequence object.
@@ -74,13 +85,12 @@ pub const qkeysequence = struct {
     ///
     /// ` format: qkeysequence_enums.SequenceFormat `
     ///
-    pub fn New7(key: []const u8, format: i32) QtC.QKeySequence {
+    pub fn New7(key: []const u8, format: i32) QKeySequence {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
-
-        return qtc.QKeySequence_new7(key_str, @bitCast(format));
+        return .{ .ptr = qtc.QKeySequence_new7(key_str, @bitCast(format)) };
     }
 
     /// New8 constructs a new QKeySequence object.
@@ -91,8 +101,8 @@ pub const qkeysequence = struct {
     ///
     /// ` k2: i32 `
     ///
-    pub fn New8(k1: i32, k2: i32) QtC.QKeySequence {
-        return qtc.QKeySequence_new8(@bitCast(k1), @bitCast(k2));
+    pub fn New8(k1: i32, k2: i32) QKeySequence {
+        return .{ .ptr = qtc.QKeySequence_new8(@bitCast(k1), @bitCast(k2)) };
     }
 
     /// New9 constructs a new QKeySequence object.
@@ -105,8 +115,8 @@ pub const qkeysequence = struct {
     ///
     /// ` k3: i32 `
     ///
-    pub fn New9(k1: i32, k2: i32, k3: i32) QtC.QKeySequence {
-        return qtc.QKeySequence_new9(@bitCast(k1), @bitCast(k2), @bitCast(k3));
+    pub fn New9(k1: i32, k2: i32, k3: i32) QKeySequence {
+        return .{ .ptr = qtc.QKeySequence_new9(@bitCast(k1), @bitCast(k2), @bitCast(k3)) };
     }
 
     /// New10 constructs a new QKeySequence object.
@@ -121,82 +131,91 @@ pub const qkeysequence = struct {
     ///
     /// ` k4: i32 `
     ///
-    pub fn New10(k1: i32, k2: i32, k3: i32, k4: i32) QtC.QKeySequence {
-        return qtc.QKeySequence_new10(@bitCast(k1), @bitCast(k2), @bitCast(k3), @bitCast(k4));
+    pub fn New10(k1: i32, k2: i32, k3: i32, k4: i32) QKeySequence {
+        return .{ .ptr = qtc.QKeySequence_new10(@bitCast(k1), @bitCast(k2), @bitCast(k3), @bitCast(k4)) };
     }
 
     /// New11 constructs a new QKeySequence object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` k1: QtC.QKeyCombination `
+    /// ` k1: QKeyCombination `
     ///
-    /// ` k2: QtC.QKeyCombination `
+    /// ` k2: QKeyCombination `
     ///
-    pub fn New11(k1: QtC.QKeyCombination, k2: QtC.QKeyCombination) QtC.QKeySequence {
-        return qtc.QKeySequence_new11(@ptrCast(k1), @ptrCast(k2));
+    pub fn New11(k1: anytype, k2: anytype) QKeySequence {
+        comptime _ = @TypeOf(k1)._is_QKeyCombination;
+        comptime _ = @TypeOf(k2)._is_QKeyCombination;
+        return .{ .ptr = qtc.QKeySequence_new11(@ptrCast(k1.ptr), @ptrCast(k2.ptr)) };
     }
 
     /// New12 constructs a new QKeySequence object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` k1: QtC.QKeyCombination `
+    /// ` k1: QKeyCombination `
     ///
-    /// ` k2: QtC.QKeyCombination `
+    /// ` k2: QKeyCombination `
     ///
-    /// ` k3: QtC.QKeyCombination `
+    /// ` k3: QKeyCombination `
     ///
-    pub fn New12(k1: QtC.QKeyCombination, k2: QtC.QKeyCombination, k3: QtC.QKeyCombination) QtC.QKeySequence {
-        return qtc.QKeySequence_new12(@ptrCast(k1), @ptrCast(k2), @ptrCast(k3));
+    pub fn New12(k1: anytype, k2: anytype, k3: anytype) QKeySequence {
+        comptime _ = @TypeOf(k1)._is_QKeyCombination;
+        comptime _ = @TypeOf(k2)._is_QKeyCombination;
+        comptime _ = @TypeOf(k3)._is_QKeyCombination;
+        return .{ .ptr = qtc.QKeySequence_new12(@ptrCast(k1.ptr), @ptrCast(k2.ptr), @ptrCast(k3.ptr)) };
     }
 
     /// New13 constructs a new QKeySequence object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` k1: QtC.QKeyCombination `
+    /// ` k1: QKeyCombination `
     ///
-    /// ` k2: QtC.QKeyCombination `
+    /// ` k2: QKeyCombination `
     ///
-    /// ` k3: QtC.QKeyCombination `
+    /// ` k3: QKeyCombination `
     ///
-    /// ` k4: QtC.QKeyCombination `
+    /// ` k4: QKeyCombination `
     ///
-    pub fn New13(k1: QtC.QKeyCombination, k2: QtC.QKeyCombination, k3: QtC.QKeyCombination, k4: QtC.QKeyCombination) QtC.QKeySequence {
-        return qtc.QKeySequence_new13(@ptrCast(k1), @ptrCast(k2), @ptrCast(k3), @ptrCast(k4));
+    pub fn New13(k1: anytype, k2: anytype, k3: anytype, k4: anytype) QKeySequence {
+        comptime _ = @TypeOf(k1)._is_QKeyCombination;
+        comptime _ = @TypeOf(k2)._is_QKeyCombination;
+        comptime _ = @TypeOf(k3)._is_QKeyCombination;
+        comptime _ = @TypeOf(k4)._is_QKeyCombination;
+        return .{ .ptr = qtc.QKeySequence_new13(@ptrCast(k1.ptr), @ptrCast(k2.ptr), @ptrCast(k3.ptr), @ptrCast(k4.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeysequence.html#count)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QKeySequence `
+    /// ` self: QKeySequence `
     ///
-    pub fn Count(self: ?*anyopaque) i32 {
-        return qtc.QKeySequence_Count(@ptrCast(self));
+    pub fn Count(self: QKeySequence) i32 {
+        return qtc.QKeySequence_Count(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeysequence.html#isEmpty)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QKeySequence `
+    /// ` self: QKeySequence `
     ///
-    pub fn IsEmpty(self: ?*anyopaque) bool {
-        return qtc.QKeySequence_IsEmpty(@ptrCast(self));
+    pub fn IsEmpty(self: QKeySequence) bool {
+        return qtc.QKeySequence_IsEmpty(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeysequence.html#toString)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QKeySequence `
+    /// ` self: QKeySequence `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QKeySequence_ToString(@ptrCast(self));
+    pub fn ToString(self: QKeySequence, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QKeySequence_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeysequence.ToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -209,32 +228,33 @@ pub const qkeysequence = struct {
     ///
     /// ` str: []const u8 `
     ///
-    pub fn FromString(str: []const u8) QtC.QKeySequence {
+    pub fn FromString(str: []const u8) QKeySequence {
         const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
-        return qtc.QKeySequence_FromString(str_str);
+        return .{ .ptr = qtc.QKeySequence_FromString(str_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeysequence.html#listFromString)
     ///
     /// ## Parameter(s):
     ///
-    /// ` str: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ListFromString(str: []const u8, allocator: std.mem.Allocator) []QtC.QKeySequence {
+    /// ` str: []const u8 `
+    ///
+    pub fn ListFromString(allocator: std.mem.Allocator, str: []const u8) []QKeySequence {
         const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
         const _arr: qtc.libqt_list = qtc.QKeySequence_ListFromString(str_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QKeySequence, _arr.len) catch @panic("qkeysequence.ListFromString: Memory allocation failed");
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("qkeysequence.ListFromString: Memory allocation failed");
         const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -242,11 +262,11 @@ pub const qkeysequence = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` list: []QtC.QKeySequence `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ListToString(list: []QtC.QKeySequence, allocator: std.mem.Allocator) []const u8 {
+    /// ` list: []QKeySequence `
+    ///
+    pub fn ListToString(allocator: std.mem.Allocator, list: []QKeySequence) []const u8 {
         const list_list = qtc.libqt_list{
             .len = list.len,
             .data = @ptrCast(list.ptr),
@@ -262,16 +282,17 @@ pub const qkeysequence = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QKeySequence `
+    /// ` self: QKeySequence `
     ///
-    /// ` seq: QtC.QKeySequence `
+    /// ` seq: QKeySequence `
     ///
     /// ## Returns:
     ///
     /// ` qkeysequence_enums.SequenceMatch `
     ///
-    pub fn Matches(self: ?*anyopaque, seq: ?*anyopaque) i32 {
-        return qtc.QKeySequence_Matches(@ptrCast(self), @ptrCast(seq));
+    pub fn Matches(self: QKeySequence, seq: anytype) i32 {
+        comptime _ = @TypeOf(seq)._is_QKeySequence;
+        return qtc.QKeySequence_Matches(@ptrCast(self.ptr), @ptrCast(seq.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeysequence.html#mnemonic)
@@ -280,28 +301,29 @@ pub const qkeysequence = struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn Mnemonic(text: []const u8) QtC.QKeySequence {
+    pub fn Mnemonic(text: []const u8) QKeySequence {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QKeySequence_Mnemonic(text_str);
+        return .{ .ptr = qtc.QKeySequence_Mnemonic(text_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeysequence.html#keyBindings)
     ///
     /// ## Parameter(s):
     ///
-    /// ` key: qkeysequence_enums.StandardKey `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn KeyBindings(key: i32, allocator: std.mem.Allocator) []QtC.QKeySequence {
+    /// ` key: qkeysequence_enums.StandardKey `
+    ///
+    pub fn KeyBindings(allocator: std.mem.Allocator, key: i32) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.QKeySequence_KeyBindings(@bitCast(key));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QKeySequence, _arr.len) catch @panic("qkeysequence.KeyBindings: Memory allocation failed");
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("qkeysequence.KeyBindings: Memory allocation failed");
         const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -309,142 +331,150 @@ pub const qkeysequence = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QKeySequence `
+    /// ` self: QKeySequence `
     ///
-    pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {
-        return qtc.QKeySequence_ToQVariant(@ptrCast(self));
+    pub fn ToQVariant(self: QKeySequence) QVariant {
+        return .{ .ptr = qtc.QKeySequence_ToQVariant(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeysequence.html#operator-5b-5d)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QKeySequence `
+    /// ` self: QKeySequence `
     ///
     /// ` i: u32 `
     ///
-    pub fn OperatorSubscript(self: ?*anyopaque, i: u32) QtC.QKeyCombination {
-        return qtc.QKeySequence_OperatorSubscript(@ptrCast(self), @bitCast(i));
+    pub fn OperatorSubscript(self: QKeySequence, i: u32) QKeyCombination {
+        return .{ .ptr = qtc.QKeySequence_OperatorSubscript(@ptrCast(self.ptr), @bitCast(i)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeysequence.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QKeySequence `
+    /// ` self: QKeySequence `
     ///
-    /// ` other: QtC.QKeySequence `
+    /// ` other: QKeySequence `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QKeySequence_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorAssign(self: QKeySequence, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QKeySequence;
+        qtc.QKeySequence_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeysequence.html#swap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QKeySequence `
+    /// ` self: QKeySequence `
     ///
-    /// ` other: QtC.QKeySequence `
+    /// ` other: QKeySequence `
     ///
-    pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QKeySequence_Swap(@ptrCast(self), @ptrCast(other));
+    pub fn Swap(self: QKeySequence, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QKeySequence;
+        qtc.QKeySequence_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeysequence.html#operator-eq-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QKeySequence `
+    /// ` self: QKeySequence `
     ///
-    /// ` other: QtC.QKeySequence `
+    /// ` other: QKeySequence `
     ///
-    pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QKeySequence_OperatorEqual(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorEqual(self: QKeySequence, other: anytype) bool {
+        comptime _ = @TypeOf(other)._is_QKeySequence;
+        return qtc.QKeySequence_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeysequence.html#operator-not-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QKeySequence `
+    /// ` self: QKeySequence `
     ///
-    /// ` other: QtC.QKeySequence `
+    /// ` other: QKeySequence `
     ///
-    pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QKeySequence_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorNotEqual(self: QKeySequence, other: anytype) bool {
+        comptime _ = @TypeOf(other)._is_QKeySequence;
+        return qtc.QKeySequence_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeysequence.html#operator-lt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QKeySequence `
+    /// ` self: QKeySequence `
     ///
-    /// ` ks: QtC.QKeySequence `
+    /// ` ks: QKeySequence `
     ///
-    pub fn OperatorLesser(self: ?*anyopaque, ks: ?*anyopaque) bool {
-        return qtc.QKeySequence_OperatorLesser(@ptrCast(self), @ptrCast(ks));
+    pub fn OperatorLesser(self: QKeySequence, ks: anytype) bool {
+        comptime _ = @TypeOf(ks)._is_QKeySequence;
+        return qtc.QKeySequence_OperatorLesser(@ptrCast(self.ptr), @ptrCast(ks.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeysequence.html#operator-gt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QKeySequence `
+    /// ` self: QKeySequence `
     ///
-    /// ` other: QtC.QKeySequence `
+    /// ` other: QKeySequence `
     ///
-    pub fn OperatorGreater(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QKeySequence_OperatorGreater(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorGreater(self: QKeySequence, other: anytype) bool {
+        comptime _ = @TypeOf(other)._is_QKeySequence;
+        return qtc.QKeySequence_OperatorGreater(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeysequence.html#operator-lt-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QKeySequence `
+    /// ` self: QKeySequence `
     ///
-    /// ` other: QtC.QKeySequence `
+    /// ` other: QKeySequence `
     ///
-    pub fn OperatorLesserOrEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QKeySequence_OperatorLesserOrEqual(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorLesserOrEqual(self: QKeySequence, other: anytype) bool {
+        comptime _ = @TypeOf(other)._is_QKeySequence;
+        return qtc.QKeySequence_OperatorLesserOrEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeysequence.html#operator-gt-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QKeySequence `
+    /// ` self: QKeySequence `
     ///
-    /// ` other: QtC.QKeySequence `
+    /// ` other: QKeySequence `
     ///
-    pub fn OperatorGreaterOrEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QKeySequence_OperatorGreaterOrEqual(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorGreaterOrEqual(self: QKeySequence, other: anytype) bool {
+        comptime _ = @TypeOf(other)._is_QKeySequence;
+        return qtc.QKeySequence_OperatorGreaterOrEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeysequence.html#isDetached)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QKeySequence `
+    /// ` self: QKeySequence `
     ///
-    pub fn IsDetached(self: ?*anyopaque) bool {
-        return qtc.QKeySequence_IsDetached(@ptrCast(self));
+    pub fn IsDetached(self: QKeySequence) bool {
+        return qtc.QKeySequence_IsDetached(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeysequence.html#toString)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QKeySequence `
-    ///
-    /// ` format: qkeysequence_enums.SequenceFormat `
+    /// ` self: QKeySequence `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToString1(self: ?*anyopaque, format: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QKeySequence_ToString1(@ptrCast(self), @bitCast(format));
+    /// ` format: qkeysequence_enums.SequenceFormat `
+    ///
+    pub fn ToString1(self: QKeySequence, allocator: std.mem.Allocator, format: i32) []const u8 {
+        var _str = qtc.QKeySequence_ToString1(@ptrCast(self.ptr), @bitCast(format));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeysequence.ToString1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -459,34 +489,35 @@ pub const qkeysequence = struct {
     ///
     /// ` format: qkeysequence_enums.SequenceFormat `
     ///
-    pub fn FromString2(str: []const u8, format: i32) QtC.QKeySequence {
+    pub fn FromString2(str: []const u8, format: i32) QKeySequence {
         const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
-        return qtc.QKeySequence_FromString2(str_str, @bitCast(format));
+        return .{ .ptr = qtc.QKeySequence_FromString2(str_str, @bitCast(format)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeysequence.html#listFromString)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` str: []const u8 `
     ///
     /// ` format: qkeysequence_enums.SequenceFormat `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn ListFromString2(str: []const u8, format: i32, allocator: std.mem.Allocator) []QtC.QKeySequence {
+    pub fn ListFromString2(allocator: std.mem.Allocator, str: []const u8, format: i32) []QKeySequence {
         const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
         const _arr: qtc.libqt_list = qtc.QKeySequence_ListFromString2(str_str, @bitCast(format));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QKeySequence, _arr.len) catch @panic("qkeysequence.ListFromString2: Memory allocation failed");
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("qkeysequence.ListFromString2: Memory allocation failed");
         const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -494,13 +525,13 @@ pub const qkeysequence = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` list: []QtC.QKeySequence `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` list: []QKeySequence `
     ///
     /// ` format: qkeysequence_enums.SequenceFormat `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn ListToString2(list: []QtC.QKeySequence, format: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn ListToString2(allocator: std.mem.Allocator, list: []QKeySequence, format: i32) []const u8 {
         const list_list = qtc.libqt_list{
             .len = list.len,
             .data = @ptrCast(list.ptr),
@@ -522,10 +553,10 @@ pub const qkeysequence = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QKeySequence `
+    /// ` self: QKeySequence `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QKeySequence_Delete(@ptrCast(self));
+    pub fn Delete(self: QKeySequence) void {
+        qtc.QKeySequence_Delete(@ptrCast(self.ptr));
     }
 };
 

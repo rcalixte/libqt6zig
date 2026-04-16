@@ -1,5 +1,47 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QAction = @import("libqt6").QAction;
+const QBackingStore = @import("libqt6").QBackingStore;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QBitmap = @import("libqt6").QBitmap;
+const QCursor = @import("libqt6").QCursor;
+const QDesignerFormEditorInterface = @import("libqt6").QDesignerFormEditorInterface;
+const QDesignerFormWindowCursorInterface = @import("libqt6").QDesignerFormWindowCursorInterface;
+const QDesignerFormWindowToolInterface = @import("libqt6").QDesignerFormWindowToolInterface;
+const QDir = @import("libqt6").QDir;
+const QEvent = @import("libqt6").QEvent;
+const QFont = @import("libqt6").QFont;
+const QFontInfo = @import("libqt6").QFontInfo;
+const QFontMetrics = @import("libqt6").QFontMetrics;
+const QGraphicsEffect = @import("libqt6").QGraphicsEffect;
+const QGraphicsProxyWidget = @import("libqt6").QGraphicsProxyWidget;
+const QIcon = @import("libqt6").QIcon;
+const QKeySequence = @import("libqt6").QKeySequence;
+const QLayout = @import("libqt6").QLayout;
+const QLocale = @import("libqt6").QLocale;
+const QMargins = @import("libqt6").QMargins;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QPaintDevice = @import("libqt6").QPaintDevice;
+const QPaintEngine = @import("libqt6").QPaintEngine;
+const QPainter = @import("libqt6").QPainter;
+const QPalette = @import("libqt6").QPalette;
+const QPixmap = @import("libqt6").QPixmap;
+const QPoint = @import("libqt6").QPoint;
+const QPointF = @import("libqt6").QPointF;
+const QRect = @import("libqt6").QRect;
+const QRegion = @import("libqt6").QRegion;
+const QScreen = @import("libqt6").QScreen;
+const QSize = @import("libqt6").QSize;
+const QSizePolicy = @import("libqt6").QSizePolicy;
+const QStyle = @import("libqt6").QStyle;
+const QThread = @import("libqt6").QThread;
+const QUndoStack = @import("libqt6").QUndoStack;
+const QVariant = @import("libqt6").QVariant;
+const QWidget = @import("libqt6").QWidget;
+const QWindow = @import("libqt6").QWindow;
 const abstractformwindow_enums = enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
@@ -10,31 +52,42 @@ const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html)
-pub const qdesignerformwindowinterface = struct {
+pub const QDesignerFormWindowInterface = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QDesignerFormWindowInterface,
+
+    pub const _is_QDesignerFormWindowInterface = {};
+    pub const _is_QWidget = {};
+    pub const _is_QObject = {};
+    pub const _is_QPaintDevice = {};
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QDesignerFormWindowInterface_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QDesignerFormWindowInterface) QMetaObject {
+        return .{ .ptr = qtc.QDesignerFormWindowInterface_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QDesignerFormWindowInterface, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QDesignerFormWindowInterface_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QDesignerFormWindowInterface_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -42,19 +95,19 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QDesignerFormWindowInterface_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QDesignerFormWindowInterface, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QDesignerFormWindowInterface_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -67,12 +120,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDesignerFormWindowInterface_FileName(@ptrCast(self));
+    pub fn FileName(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDesignerFormWindowInterface_FileName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerformwindowinterface.FileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -83,22 +136,22 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn AbsoluteDir(self: ?*anyopaque) QtC.QDir {
-        return qtc.QDesignerFormWindowInterface_AbsoluteDir(@ptrCast(self));
+    pub fn AbsoluteDir(self: QDesignerFormWindowInterface) QDir {
+        return .{ .ptr = qtc.QDesignerFormWindowInterface_AbsoluteDir(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#contents)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Contents(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDesignerFormWindowInterface_Contents(@ptrCast(self));
+    pub fn Contents(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDesignerFormWindowInterface_Contents(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerformwindowinterface.Contents: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -109,17 +162,16 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CheckContents(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QDesignerFormWindowInterface_CheckContents(@ptrCast(self));
+    pub fn CheckContents(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.QDesignerFormWindowInterface_CheckContents(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qdesignerformwindowinterface.CheckContents: Memory allocation failed");
@@ -136,38 +188,38 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ## Returns:
     ///
     /// ` flag of abstractformwindow_enums.FeatureFlag `
     ///
-    pub fn Features(self: ?*anyopaque) i32 {
-        return qtc.QDesignerFormWindowInterface_Features(@ptrCast(self));
+    pub fn Features(self: QDesignerFormWindowInterface) i32 {
+        return qtc.QDesignerFormWindowInterface_Features(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#hasFeature)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` f: flag of abstractformwindow_enums.FeatureFlag `
     ///
-    pub fn HasFeature(self: ?*anyopaque, f: i32) bool {
-        return qtc.QDesignerFormWindowInterface_HasFeature(@ptrCast(self), @bitCast(f));
+    pub fn HasFeature(self: QDesignerFormWindowInterface, f: i32) bool {
+        return qtc.QDesignerFormWindowInterface_HasFeature(@ptrCast(self.ptr), @bitCast(f));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#author)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Author(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDesignerFormWindowInterface_Author(@ptrCast(self));
+    pub fn Author(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDesignerFormWindowInterface_Author(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerformwindowinterface.Author: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -178,28 +230,28 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` author: []const u8 `
     ///
-    pub fn SetAuthor(self: ?*anyopaque, author: []const u8) void {
+    pub fn SetAuthor(self: QDesignerFormWindowInterface, author: []const u8) void {
         const author_str = qtc.libqt_string{
             .len = author.len,
             .data = author.ptr,
         };
-        qtc.QDesignerFormWindowInterface_SetAuthor(@ptrCast(self), author_str);
+        qtc.QDesignerFormWindowInterface_SetAuthor(@ptrCast(self.ptr), author_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#comment)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Comment(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDesignerFormWindowInterface_Comment(@ptrCast(self));
+    pub fn Comment(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDesignerFormWindowInterface_Comment(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerformwindowinterface.Comment: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -210,57 +262,57 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` comment: []const u8 `
     ///
-    pub fn SetComment(self: ?*anyopaque, comment: []const u8) void {
+    pub fn SetComment(self: QDesignerFormWindowInterface, comment: []const u8) void {
         const comment_str = qtc.libqt_string{
             .len = comment.len,
             .data = comment.ptr,
         };
-        qtc.QDesignerFormWindowInterface_SetComment(@ptrCast(self), comment_str);
+        qtc.QDesignerFormWindowInterface_SetComment(@ptrCast(self.ptr), comment_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#layoutDefault)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` margin: *i32 `
     ///
     /// ` spacing: *i32 `
     ///
-    pub fn LayoutDefault(self: ?*anyopaque, margin: *i32, spacing: *i32) void {
-        qtc.QDesignerFormWindowInterface_LayoutDefault(@ptrCast(self), @ptrCast(margin), @ptrCast(spacing));
+    pub fn LayoutDefault(self: QDesignerFormWindowInterface, margin: *i32, spacing: *i32) void {
+        qtc.QDesignerFormWindowInterface_LayoutDefault(@ptrCast(self.ptr), @ptrCast(margin), @ptrCast(spacing));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#setLayoutDefault)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` margin: i32 `
     ///
     /// ` spacing: i32 `
     ///
-    pub fn SetLayoutDefault(self: ?*anyopaque, margin: i32, spacing: i32) void {
-        qtc.QDesignerFormWindowInterface_SetLayoutDefault(@ptrCast(self), @bitCast(margin), @bitCast(spacing));
+    pub fn SetLayoutDefault(self: QDesignerFormWindowInterface, margin: i32, spacing: i32) void {
+        qtc.QDesignerFormWindowInterface_SetLayoutDefault(@ptrCast(self.ptr), @bitCast(margin), @bitCast(spacing));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#setLayoutFunction)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` margin: []const u8 `
     ///
     /// ` spacing: []const u8 `
     ///
-    pub fn SetLayoutFunction(self: ?*anyopaque, margin: []const u8, spacing: []const u8) void {
+    pub fn SetLayoutFunction(self: QDesignerFormWindowInterface, margin: []const u8, spacing: []const u8) void {
         const margin_str = qtc.libqt_string{
             .len = margin.len,
             .data = margin.ptr,
@@ -269,19 +321,19 @@ pub const qdesignerformwindowinterface = struct {
             .len = spacing.len,
             .data = spacing.ptr,
         };
-        qtc.QDesignerFormWindowInterface_SetLayoutFunction(@ptrCast(self), margin_str, spacing_str);
+        qtc.QDesignerFormWindowInterface_SetLayoutFunction(@ptrCast(self.ptr), margin_str, spacing_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#pixmapFunction)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PixmapFunction(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDesignerFormWindowInterface_PixmapFunction(@ptrCast(self));
+    pub fn PixmapFunction(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDesignerFormWindowInterface_PixmapFunction(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerformwindowinterface.PixmapFunction: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -292,28 +344,28 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` pixmapFunction: []const u8 `
     ///
-    pub fn SetPixmapFunction(self: ?*anyopaque, pixmapFunction: []const u8) void {
+    pub fn SetPixmapFunction(self: QDesignerFormWindowInterface, pixmapFunction: []const u8) void {
         const pixmapFunction_str = qtc.libqt_string{
             .len = pixmapFunction.len,
             .data = pixmapFunction.ptr,
         };
-        qtc.QDesignerFormWindowInterface_SetPixmapFunction(@ptrCast(self), pixmapFunction_str);
+        qtc.QDesignerFormWindowInterface_SetPixmapFunction(@ptrCast(self.ptr), pixmapFunction_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#exportMacro)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ExportMacro(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDesignerFormWindowInterface_ExportMacro(@ptrCast(self));
+    pub fn ExportMacro(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDesignerFormWindowInterface_ExportMacro(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerformwindowinterface.ExportMacro: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -324,33 +376,32 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` exportMacro: []const u8 `
     ///
-    pub fn SetExportMacro(self: ?*anyopaque, exportMacro: []const u8) void {
+    pub fn SetExportMacro(self: QDesignerFormWindowInterface, exportMacro: []const u8) void {
         const exportMacro_str = qtc.libqt_string{
             .len = exportMacro.len,
             .data = exportMacro.ptr,
         };
-        qtc.QDesignerFormWindowInterface_SetExportMacro(@ptrCast(self), exportMacro_str);
+        qtc.QDesignerFormWindowInterface_SetExportMacro(@ptrCast(self.ptr), exportMacro_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#includeHints)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn IncludeHints(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QDesignerFormWindowInterface_IncludeHints(@ptrCast(self));
+    pub fn IncludeHints(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.QDesignerFormWindowInterface_IncludeHints(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qdesignerformwindowinterface.IncludeHints: Memory allocation failed");
@@ -367,69 +418,67 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
-    ///
-    /// ` includeHints: []const []const u8 `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetIncludeHints(self: ?*anyopaque, includeHints: []const []const u8, allocator: std.mem.Allocator) void {
+    /// ` includeHints: []const []const u8 `
+    ///
+    pub fn SetIncludeHints(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator, includeHints: []const []const u8) void {
         const includeHints_arr = allocator.alloc(qtc.libqt_string, includeHints.len) catch @panic("qdesignerformwindowinterface.SetIncludeHints: Memory allocation failed");
         defer allocator.free(includeHints_arr);
-        for (includeHints, 0..includeHints.len) |item, i| {
+        for (includeHints, 0..includeHints.len) |item, i|
             includeHints_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const includeHints_list = qtc.libqt_list{
             .len = includeHints.len,
             .data = includeHints_arr.ptr,
         };
-        qtc.QDesignerFormWindowInterface_SetIncludeHints(@ptrCast(self), includeHints_list);
+        qtc.QDesignerFormWindowInterface_SetIncludeHints(@ptrCast(self.ptr), includeHints_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#resourceFileSaveMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ## Returns:
     ///
     /// ` abstractformwindow_enums.ResourceFileSaveMode `
     ///
-    pub fn ResourceFileSaveMode(self: ?*anyopaque) i32 {
-        return qtc.QDesignerFormWindowInterface_ResourceFileSaveMode(@ptrCast(self));
+    pub fn ResourceFileSaveMode(self: QDesignerFormWindowInterface) i32 {
+        return qtc.QDesignerFormWindowInterface_ResourceFileSaveMode(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#setResourceFileSaveMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` behaviour: abstractformwindow_enums.ResourceFileSaveMode `
     ///
-    pub fn SetResourceFileSaveMode(self: ?*anyopaque, behaviour: i32) void {
-        qtc.QDesignerFormWindowInterface_SetResourceFileSaveMode(@ptrCast(self), @bitCast(behaviour));
+    pub fn SetResourceFileSaveMode(self: QDesignerFormWindowInterface, behaviour: i32) void {
+        qtc.QDesignerFormWindowInterface_SetResourceFileSaveMode(@ptrCast(self.ptr), @bitCast(behaviour));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#activeResourceFilePaths)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ActiveResourceFilePaths(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QDesignerFormWindowInterface_ActiveResourceFilePaths(@ptrCast(self));
+    pub fn ActiveResourceFilePaths(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.QDesignerFormWindowInterface_ActiveResourceFilePaths(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qdesignerformwindowinterface.ActiveResourceFilePaths: Memory allocation failed");
@@ -446,239 +495,243 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Core(self: ?*anyopaque) QtC.QDesignerFormEditorInterface {
-        return qtc.QDesignerFormWindowInterface_Core(@ptrCast(self));
+    pub fn Core(self: QDesignerFormWindowInterface) QDesignerFormEditorInterface {
+        return .{ .ptr = qtc.QDesignerFormWindowInterface_Core(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#cursor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Cursor(self: ?*anyopaque) QtC.QDesignerFormWindowCursorInterface {
-        return qtc.QDesignerFormWindowInterface_Cursor(@ptrCast(self));
+    pub fn Cursor(self: QDesignerFormWindowInterface) QDesignerFormWindowCursorInterface {
+        return .{ .ptr = qtc.QDesignerFormWindowInterface_Cursor(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#toolCount)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn ToolCount(self: ?*anyopaque) i32 {
-        return qtc.QDesignerFormWindowInterface_ToolCount(@ptrCast(self));
+    pub fn ToolCount(self: QDesignerFormWindowInterface) i32 {
+        return qtc.QDesignerFormWindowInterface_ToolCount(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#currentTool)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn CurrentTool(self: ?*anyopaque) i32 {
-        return qtc.QDesignerFormWindowInterface_CurrentTool(@ptrCast(self));
+    pub fn CurrentTool(self: QDesignerFormWindowInterface) i32 {
+        return qtc.QDesignerFormWindowInterface_CurrentTool(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#setCurrentTool)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` index: i32 `
     ///
-    pub fn SetCurrentTool(self: ?*anyopaque, index: i32) void {
-        qtc.QDesignerFormWindowInterface_SetCurrentTool(@ptrCast(self), @bitCast(index));
+    pub fn SetCurrentTool(self: QDesignerFormWindowInterface, index: i32) void {
+        qtc.QDesignerFormWindowInterface_SetCurrentTool(@ptrCast(self.ptr), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#tool)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` index: i32 `
     ///
-    pub fn Tool(self: ?*anyopaque, index: i32) QtC.QDesignerFormWindowToolInterface {
-        return qtc.QDesignerFormWindowInterface_Tool(@ptrCast(self), @bitCast(index));
+    pub fn Tool(self: QDesignerFormWindowInterface, index: i32) QDesignerFormWindowToolInterface {
+        return .{ .ptr = qtc.QDesignerFormWindowInterface_Tool(@ptrCast(self.ptr), @bitCast(index)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#registerTool)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` tool: QtC.QDesignerFormWindowToolInterface `
+    /// ` tool: QDesignerFormWindowToolInterface `
     ///
-    pub fn RegisterTool(self: ?*anyopaque, tool: ?*anyopaque) void {
-        qtc.QDesignerFormWindowInterface_RegisterTool(@ptrCast(self), @ptrCast(tool));
+    pub fn RegisterTool(self: QDesignerFormWindowInterface, tool: anytype) void {
+        comptime _ = @TypeOf(tool)._is_QDesignerFormWindowToolInterface;
+        qtc.QDesignerFormWindowInterface_RegisterTool(@ptrCast(self.ptr), @ptrCast(tool.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#grid)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Grid(self: ?*anyopaque) QtC.QPoint {
-        return qtc.QDesignerFormWindowInterface_Grid(@ptrCast(self));
+    pub fn Grid(self: QDesignerFormWindowInterface) QPoint {
+        return .{ .ptr = qtc.QDesignerFormWindowInterface_Grid(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#mainContainer)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn MainContainer(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QDesignerFormWindowInterface_MainContainer(@ptrCast(self));
+    pub fn MainContainer(self: QDesignerFormWindowInterface) QWidget {
+        return .{ .ptr = qtc.QDesignerFormWindowInterface_MainContainer(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#setMainContainer)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` mainContainer: QtC.QWidget `
+    /// ` mainContainer: QWidget `
     ///
-    pub fn SetMainContainer(self: ?*anyopaque, mainContainer: ?*anyopaque) void {
-        qtc.QDesignerFormWindowInterface_SetMainContainer(@ptrCast(self), @ptrCast(mainContainer));
+    pub fn SetMainContainer(self: QDesignerFormWindowInterface, mainContainer: anytype) void {
+        comptime _ = @TypeOf(mainContainer)._is_QWidget;
+        qtc.QDesignerFormWindowInterface_SetMainContainer(@ptrCast(self.ptr), @ptrCast(mainContainer.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#formContainer)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn FormContainer(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QDesignerFormWindowInterface_FormContainer(@ptrCast(self));
+    pub fn FormContainer(self: QDesignerFormWindowInterface) QWidget {
+        return .{ .ptr = qtc.QDesignerFormWindowInterface_FormContainer(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#isManaged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn IsManaged(self: ?*anyopaque, widget: ?*anyopaque) bool {
-        return qtc.QDesignerFormWindowInterface_IsManaged(@ptrCast(self), @ptrCast(widget));
+    pub fn IsManaged(self: QDesignerFormWindowInterface, widget: anytype) bool {
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        return qtc.QDesignerFormWindowInterface_IsManaged(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#isDirty)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn IsDirty(self: ?*anyopaque) bool {
-        return qtc.QDesignerFormWindowInterface_IsDirty(@ptrCast(self));
+    pub fn IsDirty(self: QDesignerFormWindowInterface) bool {
+        return qtc.QDesignerFormWindowInterface_IsDirty(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#findFormWindow)
     ///
     /// ## Parameter(s):
     ///
-    /// ` w: QtC.QWidget `
+    /// ` w: QWidget `
     ///
-    pub fn FindFormWindow(w: ?*anyopaque) QtC.QDesignerFormWindowInterface {
-        return qtc.QDesignerFormWindowInterface_FindFormWindow(@ptrCast(w));
+    pub fn FindFormWindow(w: anytype) QDesignerFormWindowInterface {
+        comptime _ = @TypeOf(w)._is_QWidget;
+        return .{ .ptr = qtc.QDesignerFormWindowInterface_FindFormWindow(@ptrCast(w.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#findFormWindow)
     ///
     /// ## Parameter(s):
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn FindFormWindow2(obj: ?*anyopaque) QtC.QDesignerFormWindowInterface {
-        return qtc.QDesignerFormWindowInterface_FindFormWindow2(@ptrCast(obj));
+    pub fn FindFormWindow2(obj: anytype) QDesignerFormWindowInterface {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        return .{ .ptr = qtc.QDesignerFormWindowInterface_FindFormWindow2(@ptrCast(obj.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#commandHistory)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn CommandHistory(self: ?*anyopaque) QtC.QUndoStack {
-        return qtc.QDesignerFormWindowInterface_CommandHistory(@ptrCast(self));
+    pub fn CommandHistory(self: QDesignerFormWindowInterface) QUndoStack {
+        return .{ .ptr = qtc.QDesignerFormWindowInterface_CommandHistory(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#beginCommand)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` description: []const u8 `
     ///
-    pub fn BeginCommand(self: ?*anyopaque, description: []const u8) void {
+    pub fn BeginCommand(self: QDesignerFormWindowInterface, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
-        qtc.QDesignerFormWindowInterface_BeginCommand(@ptrCast(self), description_str);
+        qtc.QDesignerFormWindowInterface_BeginCommand(@ptrCast(self.ptr), description_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#endCommand)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn EndCommand(self: ?*anyopaque) void {
-        qtc.QDesignerFormWindowInterface_EndCommand(@ptrCast(self));
+    pub fn EndCommand(self: QDesignerFormWindowInterface) void {
+        qtc.QDesignerFormWindowInterface_EndCommand(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#simplifySelection)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` widgets: []QtC.QWidget `
+    /// ` widgets: []QWidget `
     ///
-    pub fn SimplifySelection(self: ?*anyopaque, widgets: []?*anyopaque) void {
+    pub fn SimplifySelection(self: QDesignerFormWindowInterface, widgets: []QWidget) void {
         const widgets_list = qtc.libqt_list{
             .len = widgets.len,
             .data = @ptrCast(widgets.ptr),
         };
-        qtc.QDesignerFormWindowInterface_SimplifySelection(@ptrCast(self), widgets_list);
+        qtc.QDesignerFormWindowInterface_SimplifySelection(@ptrCast(self.ptr), widgets_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#emitSelectionChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn EmitSelectionChanged(self: ?*anyopaque) void {
-        qtc.QDesignerFormWindowInterface_EmitSelectionChanged(@ptrCast(self));
+    pub fn EmitSelectionChanged(self: QDesignerFormWindowInterface) void {
+        qtc.QDesignerFormWindowInterface_EmitSelectionChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#resourceFiles)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ResourceFiles(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QDesignerFormWindowInterface_ResourceFiles(@ptrCast(self));
+    pub fn ResourceFiles(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.QDesignerFormWindowInterface_ResourceFiles(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qdesignerformwindowinterface.ResourceFiles: Memory allocation failed");
@@ -695,543 +748,554 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` path: []const u8 `
     ///
-    pub fn AddResourceFile(self: ?*anyopaque, path: []const u8) void {
+    pub fn AddResourceFile(self: QDesignerFormWindowInterface, path: []const u8) void {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
-        qtc.QDesignerFormWindowInterface_AddResourceFile(@ptrCast(self), path_str);
+        qtc.QDesignerFormWindowInterface_AddResourceFile(@ptrCast(self.ptr), path_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#removeResourceFile)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` path: []const u8 `
     ///
-    pub fn RemoveResourceFile(self: ?*anyopaque, path: []const u8) void {
+    pub fn RemoveResourceFile(self: QDesignerFormWindowInterface, path: []const u8) void {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
-        qtc.QDesignerFormWindowInterface_RemoveResourceFile(@ptrCast(self), path_str);
+        qtc.QDesignerFormWindowInterface_RemoveResourceFile(@ptrCast(self.ptr), path_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#ensureUniqueObjectName)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` object: QtC.QObject `
+    /// ` object: QObject `
     ///
-    pub fn EnsureUniqueObjectName(self: ?*anyopaque, object: ?*anyopaque) void {
-        qtc.QDesignerFormWindowInterface_EnsureUniqueObjectName(@ptrCast(self), @ptrCast(object));
+    pub fn EnsureUniqueObjectName(self: QDesignerFormWindowInterface, object: anytype) void {
+        comptime _ = @TypeOf(object)._is_QObject;
+        qtc.QDesignerFormWindowInterface_EnsureUniqueObjectName(@ptrCast(self.ptr), @ptrCast(object.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#manageWidget)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn ManageWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.QDesignerFormWindowInterface_ManageWidget(@ptrCast(self), @ptrCast(widget));
+    pub fn ManageWidget(self: QDesignerFormWindowInterface, widget: anytype) void {
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.QDesignerFormWindowInterface_ManageWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#unmanageWidget)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn UnmanageWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.QDesignerFormWindowInterface_UnmanageWidget(@ptrCast(self), @ptrCast(widget));
+    pub fn UnmanageWidget(self: QDesignerFormWindowInterface, widget: anytype) void {
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.QDesignerFormWindowInterface_UnmanageWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#setFeatures)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` f: flag of abstractformwindow_enums.FeatureFlag `
     ///
-    pub fn SetFeatures(self: ?*anyopaque, f: i32) void {
-        qtc.QDesignerFormWindowInterface_SetFeatures(@ptrCast(self), @bitCast(f));
+    pub fn SetFeatures(self: QDesignerFormWindowInterface, f: i32) void {
+        qtc.QDesignerFormWindowInterface_SetFeatures(@ptrCast(self.ptr), @bitCast(f));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#setDirty)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` dirty: bool `
     ///
-    pub fn SetDirty(self: ?*anyopaque, dirty: bool) void {
-        qtc.QDesignerFormWindowInterface_SetDirty(@ptrCast(self), dirty);
+    pub fn SetDirty(self: QDesignerFormWindowInterface, dirty: bool) void {
+        qtc.QDesignerFormWindowInterface_SetDirty(@ptrCast(self.ptr), dirty);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#clearSelection)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` changePropertyDisplay: bool `
     ///
-    pub fn ClearSelection(self: ?*anyopaque, changePropertyDisplay: bool) void {
-        qtc.QDesignerFormWindowInterface_ClearSelection(@ptrCast(self), changePropertyDisplay);
+    pub fn ClearSelection(self: QDesignerFormWindowInterface, changePropertyDisplay: bool) void {
+        qtc.QDesignerFormWindowInterface_ClearSelection(@ptrCast(self.ptr), changePropertyDisplay);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#selectWidget)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` w: QtC.QWidget `
+    /// ` w: QWidget `
     ///
     /// ` selectVal: bool `
     ///
-    pub fn SelectWidget(self: ?*anyopaque, w: ?*anyopaque, selectVal: bool) void {
-        qtc.QDesignerFormWindowInterface_SelectWidget(@ptrCast(self), @ptrCast(w), selectVal);
+    pub fn SelectWidget(self: QDesignerFormWindowInterface, w: anytype, selectVal: bool) void {
+        comptime _ = @TypeOf(w)._is_QWidget;
+        qtc.QDesignerFormWindowInterface_SelectWidget(@ptrCast(self.ptr), @ptrCast(w.ptr), selectVal);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#setGrid)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` grid: QtC.QPoint `
+    /// ` grid: QPoint `
     ///
-    pub fn SetGrid(self: ?*anyopaque, grid: ?*anyopaque) void {
-        qtc.QDesignerFormWindowInterface_SetGrid(@ptrCast(self), @ptrCast(grid));
+    pub fn SetGrid(self: QDesignerFormWindowInterface, grid: anytype) void {
+        comptime _ = @TypeOf(grid)._is_QPoint;
+        qtc.QDesignerFormWindowInterface_SetGrid(@ptrCast(self.ptr), @ptrCast(grid.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#setFileName)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` fileName: []const u8 `
     ///
-    pub fn SetFileName(self: ?*anyopaque, fileName: []const u8) void {
+    pub fn SetFileName(self: QDesignerFormWindowInterface, fileName: []const u8) void {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        qtc.QDesignerFormWindowInterface_SetFileName(@ptrCast(self), fileName_str);
+        qtc.QDesignerFormWindowInterface_SetFileName(@ptrCast(self.ptr), fileName_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#setContents)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` contents: []const u8 `
     ///
-    pub fn SetContents2(self: ?*anyopaque, contents: []const u8) bool {
+    pub fn SetContents2(self: QDesignerFormWindowInterface, contents: []const u8) bool {
         const contents_str = qtc.libqt_string{
             .len = contents.len,
             .data = contents.ptr,
         };
-        return qtc.QDesignerFormWindowInterface_SetContents2(@ptrCast(self), contents_str);
+        return qtc.QDesignerFormWindowInterface_SetContents2(@ptrCast(self.ptr), contents_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#editWidgets)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn EditWidgets(self: ?*anyopaque) void {
-        qtc.QDesignerFormWindowInterface_EditWidgets(@ptrCast(self));
+    pub fn EditWidgets(self: QDesignerFormWindowInterface) void {
+        qtc.QDesignerFormWindowInterface_EditWidgets(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#activateResourceFilePaths)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
-    ///
-    /// ` paths: []const []const u8 `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ActivateResourceFilePaths(self: ?*anyopaque, paths: []const []const u8, allocator: std.mem.Allocator) void {
+    /// ` paths: []const []const u8 `
+    ///
+    pub fn ActivateResourceFilePaths(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator, paths: []const []const u8) void {
         const paths_arr = allocator.alloc(qtc.libqt_string, paths.len) catch @panic("qdesignerformwindowinterface.ActivateResourceFilePaths: Memory allocation failed");
         defer allocator.free(paths_arr);
-        for (paths, 0..paths.len) |item, i| {
+        for (paths, 0..paths.len) |item, i|
             paths_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const paths_list = qtc.libqt_list{
             .len = paths.len,
             .data = paths_arr.ptr,
         };
-        qtc.QDesignerFormWindowInterface_ActivateResourceFilePaths(@ptrCast(self), paths_list);
+        qtc.QDesignerFormWindowInterface_ActivateResourceFilePaths(@ptrCast(self.ptr), paths_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#mainContainerChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` mainContainer: QtC.QWidget `
+    /// ` mainContainer: QWidget `
     ///
-    pub fn MainContainerChanged(self: ?*anyopaque, mainContainer: ?*anyopaque) void {
-        qtc.QDesignerFormWindowInterface_MainContainerChanged(@ptrCast(self), @ptrCast(mainContainer));
+    pub fn MainContainerChanged(self: QDesignerFormWindowInterface, mainContainer: anytype) void {
+        comptime _ = @TypeOf(mainContainer)._is_QWidget;
+        qtc.QDesignerFormWindowInterface_MainContainerChanged(@ptrCast(self.ptr), @ptrCast(mainContainer.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#mainContainerChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerFormWindowInterface, mainContainer: QtC.QWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerFormWindowInterface, mainContainer: QWidget) callconv(.c) void `
     ///
-    pub fn OnMainContainerChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerFormWindowInterface_Connect_MainContainerChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMainContainerChanged(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, QWidget) callconv(.c) void) void {
+        qtc.QDesignerFormWindowInterface_Connect_MainContainerChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#toolChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` toolIndex: i32 `
     ///
-    pub fn ToolChanged(self: ?*anyopaque, toolIndex: i32) void {
-        qtc.QDesignerFormWindowInterface_ToolChanged(@ptrCast(self), @bitCast(toolIndex));
+    pub fn ToolChanged(self: QDesignerFormWindowInterface, toolIndex: i32) void {
+        qtc.QDesignerFormWindowInterface_ToolChanged(@ptrCast(self.ptr), @bitCast(toolIndex));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#toolChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerFormWindowInterface, toolIndex: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerFormWindowInterface, toolIndex: i32) callconv(.c) void `
     ///
-    pub fn OnToolChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QDesignerFormWindowInterface_Connect_ToolChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnToolChanged(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, i32) callconv(.c) void) void {
+        qtc.QDesignerFormWindowInterface_Connect_ToolChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#fileNameChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` fileName: []const u8 `
     ///
-    pub fn FileNameChanged(self: ?*anyopaque, fileName: []const u8) void {
+    pub fn FileNameChanged(self: QDesignerFormWindowInterface, fileName: []const u8) void {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        qtc.QDesignerFormWindowInterface_FileNameChanged(@ptrCast(self), fileName_str);
+        qtc.QDesignerFormWindowInterface_FileNameChanged(@ptrCast(self.ptr), fileName_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#fileNameChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerFormWindowInterface, fileName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerFormWindowInterface, fileName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnFileNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QDesignerFormWindowInterface_Connect_FileNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFileNameChanged(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, [*:0]const u8) callconv(.c) void) void {
+        qtc.QDesignerFormWindowInterface_Connect_FileNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#featureChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` f: flag of abstractformwindow_enums.FeatureFlag `
     ///
-    pub fn FeatureChanged(self: ?*anyopaque, f: i32) void {
-        qtc.QDesignerFormWindowInterface_FeatureChanged(@ptrCast(self), @bitCast(f));
+    pub fn FeatureChanged(self: QDesignerFormWindowInterface, f: i32) void {
+        qtc.QDesignerFormWindowInterface_FeatureChanged(@ptrCast(self.ptr), @bitCast(f));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#featureChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerFormWindowInterface, f: flag of abstractformwindow_enums.FeatureFlag) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerFormWindowInterface, f: flag of abstractformwindow_enums.FeatureFlag) callconv(.c) void `
     ///
-    pub fn OnFeatureChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QDesignerFormWindowInterface_Connect_FeatureChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFeatureChanged(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, i32) callconv(.c) void) void {
+        qtc.QDesignerFormWindowInterface_Connect_FeatureChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#selectionChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn SelectionChanged(self: ?*anyopaque) void {
-        qtc.QDesignerFormWindowInterface_SelectionChanged(@ptrCast(self));
+    pub fn SelectionChanged(self: QDesignerFormWindowInterface) void {
+        qtc.QDesignerFormWindowInterface_SelectionChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#selectionChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerFormWindowInterface) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerFormWindowInterface) callconv(.c) void `
     ///
-    pub fn OnSelectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerFormWindowInterface_Connect_SelectionChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSelectionChanged(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface) callconv(.c) void) void {
+        qtc.QDesignerFormWindowInterface_Connect_SelectionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#geometryChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn GeometryChanged(self: ?*anyopaque) void {
-        qtc.QDesignerFormWindowInterface_GeometryChanged(@ptrCast(self));
+    pub fn GeometryChanged(self: QDesignerFormWindowInterface) void {
+        qtc.QDesignerFormWindowInterface_GeometryChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#geometryChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerFormWindowInterface) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerFormWindowInterface) callconv(.c) void `
     ///
-    pub fn OnGeometryChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerFormWindowInterface_Connect_GeometryChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnGeometryChanged(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface) callconv(.c) void) void {
+        qtc.QDesignerFormWindowInterface_Connect_GeometryChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#resourceFilesChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn ResourceFilesChanged(self: ?*anyopaque) void {
-        qtc.QDesignerFormWindowInterface_ResourceFilesChanged(@ptrCast(self));
+    pub fn ResourceFilesChanged(self: QDesignerFormWindowInterface) void {
+        qtc.QDesignerFormWindowInterface_ResourceFilesChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#resourceFilesChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerFormWindowInterface) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerFormWindowInterface) callconv(.c) void `
     ///
-    pub fn OnResourceFilesChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerFormWindowInterface_Connect_ResourceFilesChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResourceFilesChanged(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface) callconv(.c) void) void {
+        qtc.QDesignerFormWindowInterface_Connect_ResourceFilesChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#widgetManaged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn WidgetManaged(self: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.QDesignerFormWindowInterface_WidgetManaged(@ptrCast(self), @ptrCast(widget));
+    pub fn WidgetManaged(self: QDesignerFormWindowInterface, widget: anytype) void {
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.QDesignerFormWindowInterface_WidgetManaged(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#widgetManaged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerFormWindowInterface, widget: QtC.QWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerFormWindowInterface, widget: QWidget) callconv(.c) void `
     ///
-    pub fn OnWidgetManaged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerFormWindowInterface_Connect_WidgetManaged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWidgetManaged(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, QWidget) callconv(.c) void) void {
+        qtc.QDesignerFormWindowInterface_Connect_WidgetManaged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#widgetUnmanaged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn WidgetUnmanaged(self: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.QDesignerFormWindowInterface_WidgetUnmanaged(@ptrCast(self), @ptrCast(widget));
+    pub fn WidgetUnmanaged(self: QDesignerFormWindowInterface, widget: anytype) void {
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.QDesignerFormWindowInterface_WidgetUnmanaged(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#widgetUnmanaged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerFormWindowInterface, widget: QtC.QWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerFormWindowInterface, widget: QWidget) callconv(.c) void `
     ///
-    pub fn OnWidgetUnmanaged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerFormWindowInterface_Connect_WidgetUnmanaged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWidgetUnmanaged(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, QWidget) callconv(.c) void) void {
+        qtc.QDesignerFormWindowInterface_Connect_WidgetUnmanaged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#aboutToUnmanageWidget)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn AboutToUnmanageWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.QDesignerFormWindowInterface_AboutToUnmanageWidget(@ptrCast(self), @ptrCast(widget));
+    pub fn AboutToUnmanageWidget(self: QDesignerFormWindowInterface, widget: anytype) void {
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.QDesignerFormWindowInterface_AboutToUnmanageWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#aboutToUnmanageWidget)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerFormWindowInterface, widget: QtC.QWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerFormWindowInterface, widget: QWidget) callconv(.c) void `
     ///
-    pub fn OnAboutToUnmanageWidget(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerFormWindowInterface_Connect_AboutToUnmanageWidget(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAboutToUnmanageWidget(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, QWidget) callconv(.c) void) void {
+        qtc.QDesignerFormWindowInterface_Connect_AboutToUnmanageWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#activated)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn Activated(self: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.QDesignerFormWindowInterface_Activated(@ptrCast(self), @ptrCast(widget));
+    pub fn Activated(self: QDesignerFormWindowInterface, widget: anytype) void {
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.QDesignerFormWindowInterface_Activated(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#activated)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerFormWindowInterface, widget: QtC.QWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerFormWindowInterface, widget: QWidget) callconv(.c) void `
     ///
-    pub fn OnActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerFormWindowInterface_Connect_Activated(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnActivated(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, QWidget) callconv(.c) void) void {
+        qtc.QDesignerFormWindowInterface_Connect_Activated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#changed)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Changed(self: ?*anyopaque) void {
-        qtc.QDesignerFormWindowInterface_Changed(@ptrCast(self));
+    pub fn Changed(self: QDesignerFormWindowInterface) void {
+        qtc.QDesignerFormWindowInterface_Changed(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#changed)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerFormWindowInterface) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerFormWindowInterface) callconv(.c) void `
     ///
-    pub fn OnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerFormWindowInterface_Connect_Changed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChanged(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface) callconv(.c) void) void {
+        qtc.QDesignerFormWindowInterface_Connect_Changed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#widgetRemoved)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` w: QtC.QWidget `
+    /// ` w: QWidget `
     ///
-    pub fn WidgetRemoved(self: ?*anyopaque, w: ?*anyopaque) void {
-        qtc.QDesignerFormWindowInterface_WidgetRemoved(@ptrCast(self), @ptrCast(w));
+    pub fn WidgetRemoved(self: QDesignerFormWindowInterface, w: anytype) void {
+        comptime _ = @TypeOf(w)._is_QWidget;
+        qtc.QDesignerFormWindowInterface_WidgetRemoved(@ptrCast(self.ptr), @ptrCast(w.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#widgetRemoved)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerFormWindowInterface, w: QtC.QWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerFormWindowInterface, w: QWidget) callconv(.c) void `
     ///
-    pub fn OnWidgetRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerFormWindowInterface_Connect_WidgetRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWidgetRemoved(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, QWidget) callconv(.c) void) void {
+        qtc.QDesignerFormWindowInterface_Connect_WidgetRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#objectRemoved)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` o: QtC.QObject `
+    /// ` o: QObject `
     ///
-    pub fn ObjectRemoved(self: ?*anyopaque, o: ?*anyopaque) void {
-        qtc.QDesignerFormWindowInterface_ObjectRemoved(@ptrCast(self), @ptrCast(o));
+    pub fn ObjectRemoved(self: QDesignerFormWindowInterface, o: anytype) void {
+        comptime _ = @TypeOf(o)._is_QObject;
+        qtc.QDesignerFormWindowInterface_ObjectRemoved(@ptrCast(self.ptr), @ptrCast(o.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformwindowinterface.html#objectRemoved)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerFormWindowInterface, o: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerFormWindowInterface, o: QObject) callconv(.c) void `
     ///
-    pub fn OnObjectRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerFormWindowInterface_Connect_ObjectRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectRemoved(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, QObject) callconv(.c) void) void {
+        qtc.QDesignerFormWindowInterface_Connect_ObjectRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -1245,15 +1309,15 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -1267,28 +1331,27 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` paths: []const []const u8 `
     ///
     /// ` errorCount: *i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn ActivateResourceFilePaths2(self: ?*anyopaque, paths: []const []const u8, errorCount: *i32, allocator: std.mem.Allocator) void {
+    pub fn ActivateResourceFilePaths2(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator, paths: []const []const u8, errorCount: *i32) void {
         const paths_arr = allocator.alloc(qtc.libqt_string, paths.len) catch @panic("qdesignerformwindowinterface.ActivateResourceFilePaths2: Memory allocation failed");
         defer allocator.free(paths_arr);
-        for (paths, 0..paths.len) |item, i| {
+        for (paths, 0..paths.len) |item, i|
             paths_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const paths_list = qtc.libqt_list{
             .len = paths.len,
             .data = paths_arr.ptr,
         };
-        qtc.QDesignerFormWindowInterface_ActivateResourceFilePaths2(@ptrCast(self), paths_list, @ptrCast(errorCount));
+        qtc.QDesignerFormWindowInterface_ActivateResourceFilePaths2(@ptrCast(self.ptr), paths_list, @ptrCast(errorCount));
     }
 
     /// Inherited from QWidget
@@ -1297,10 +1360,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn DevType(self: ?*anyopaque) i32 {
-        return qtc.QWidget_DevType(@ptrCast(self));
+    pub fn DevType(self: QDesignerFormWindowInterface) i32 {
+        return qtc.QWidget_DevType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1309,10 +1372,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn WinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_WinId(@ptrCast(self));
+    pub fn WinId(self: QDesignerFormWindowInterface) usize {
+        return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1321,10 +1384,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn CreateWinId(self: ?*anyopaque) void {
-        qtc.QWidget_CreateWinId(@ptrCast(self));
+    pub fn CreateWinId(self: QDesignerFormWindowInterface) void {
+        qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1333,10 +1396,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn InternalWinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_InternalWinId(@ptrCast(self));
+    pub fn InternalWinId(self: QDesignerFormWindowInterface) usize {
+        return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1345,10 +1408,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn EffectiveWinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_EffectiveWinId(@ptrCast(self));
+    pub fn EffectiveWinId(self: QDesignerFormWindowInterface) usize {
+        return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1357,10 +1420,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Style(self: ?*anyopaque) QtC.QStyle {
-        return qtc.QWidget_Style(@ptrCast(self));
+    pub fn Style(self: QDesignerFormWindowInterface) QStyle {
+        return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1369,12 +1432,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` style: QtC.QStyle `
+    /// ` style: QStyle `
     ///
-    pub fn SetStyle(self: ?*anyopaque, style: ?*anyopaque) void {
-        qtc.QWidget_SetStyle(@ptrCast(self), @ptrCast(style));
+    pub fn SetStyle(self: QDesignerFormWindowInterface, style: anytype) void {
+        comptime _ = @TypeOf(style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
     }
 
     /// Inherited from QWidget
@@ -1383,10 +1447,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn IsTopLevel(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsTopLevel(@ptrCast(self));
+    pub fn IsTopLevel(self: QDesignerFormWindowInterface) bool {
+        return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1395,10 +1459,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn IsWindow(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsWindow(@ptrCast(self));
+    pub fn IsWindow(self: QDesignerFormWindowInterface) bool {
+        return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1407,10 +1471,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn IsModal(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsModal(@ptrCast(self));
+    pub fn IsModal(self: QDesignerFormWindowInterface) bool {
+        return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1419,14 +1483,14 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowModality(@ptrCast(self));
+    pub fn WindowModality(self: QDesignerFormWindowInterface) i32 {
+        return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1435,12 +1499,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self), @bitCast(windowModality));
+    pub fn SetWindowModality(self: QDesignerFormWindowInterface, windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
     }
 
     /// Inherited from QWidget
@@ -1449,10 +1513,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn IsEnabled(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsEnabled(@ptrCast(self));
+    pub fn IsEnabled(self: QDesignerFormWindowInterface) bool {
+        return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1461,12 +1525,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidget_IsEnabledTo(@ptrCast(self), @ptrCast(param1));
+    pub fn IsEnabledTo(self: QDesignerFormWindowInterface, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -1475,12 +1540,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
-        qtc.QWidget_SetEnabled(@ptrCast(self), enabled);
+    pub fn SetEnabled(self: QDesignerFormWindowInterface, enabled: bool) void {
+        qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QWidget
@@ -1489,12 +1554,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: ?*anyopaque, disabled: bool) void {
-        qtc.QWidget_SetDisabled(@ptrCast(self), disabled);
+    pub fn SetDisabled(self: QDesignerFormWindowInterface, disabled: bool) void {
+        qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
 
     /// Inherited from QWidget
@@ -1503,12 +1568,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: ?*anyopaque, windowModified: bool) void {
-        qtc.QWidget_SetWindowModified(@ptrCast(self), windowModified);
+    pub fn SetWindowModified(self: QDesignerFormWindowInterface, windowModified: bool) void {
+        qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
 
     /// Inherited from QWidget
@@ -1517,10 +1582,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn FrameGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_FrameGeometry(@ptrCast(self));
+    pub fn FrameGeometry(self: QDesignerFormWindowInterface) QRect {
+        return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1529,10 +1594,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Geometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_Geometry(@ptrCast(self));
+    pub fn Geometry(self: QDesignerFormWindowInterface) QRect {
+        return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1541,10 +1606,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn NormalGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_NormalGeometry(@ptrCast(self));
+    pub fn NormalGeometry(self: QDesignerFormWindowInterface) QRect {
+        return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1553,10 +1618,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn X(self: ?*anyopaque) i32 {
-        return qtc.QWidget_X(@ptrCast(self));
+    pub fn X(self: QDesignerFormWindowInterface) i32 {
+        return qtc.QWidget_X(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1565,10 +1630,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Y(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Y(@ptrCast(self));
+    pub fn Y(self: QDesignerFormWindowInterface) i32 {
+        return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1577,10 +1642,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Pos(self: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_Pos(@ptrCast(self));
+    pub fn Pos(self: QDesignerFormWindowInterface) QPoint {
+        return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1589,10 +1654,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_FrameSize(@ptrCast(self));
+    pub fn FrameSize(self: QDesignerFormWindowInterface) QSize {
+        return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1601,10 +1666,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Size(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_Size(@ptrCast(self));
+    pub fn Size(self: QDesignerFormWindowInterface) QSize {
+        return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1613,10 +1678,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Width(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Width(@ptrCast(self));
+    pub fn Width(self: QDesignerFormWindowInterface) i32 {
+        return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1625,10 +1690,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Height(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Height(@ptrCast(self));
+    pub fn Height(self: QDesignerFormWindowInterface) i32 {
+        return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1637,10 +1702,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Rect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_Rect(@ptrCast(self));
+    pub fn Rect(self: QDesignerFormWindowInterface) QRect {
+        return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1649,10 +1714,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn ChildrenRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_ChildrenRect(@ptrCast(self));
+    pub fn ChildrenRect(self: QDesignerFormWindowInterface) QRect {
+        return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1661,10 +1726,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn ChildrenRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_ChildrenRegion(@ptrCast(self));
+    pub fn ChildrenRegion(self: QDesignerFormWindowInterface) QRegion {
+        return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1673,10 +1738,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MinimumSize(@ptrCast(self));
+    pub fn MinimumSize(self: QDesignerFormWindowInterface) QSize {
+        return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1685,10 +1750,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MaximumSize(@ptrCast(self));
+    pub fn MaximumSize(self: QDesignerFormWindowInterface) QSize {
+        return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1697,10 +1762,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn MinimumWidth(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MinimumWidth(@ptrCast(self));
+    pub fn MinimumWidth(self: QDesignerFormWindowInterface) i32 {
+        return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1709,10 +1774,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn MinimumHeight(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MinimumHeight(@ptrCast(self));
+    pub fn MinimumHeight(self: QDesignerFormWindowInterface) i32 {
+        return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1721,10 +1786,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn MaximumWidth(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MaximumWidth(@ptrCast(self));
+    pub fn MaximumWidth(self: QDesignerFormWindowInterface) i32 {
+        return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1733,10 +1798,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn MaximumHeight(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MaximumHeight(@ptrCast(self));
+    pub fn MaximumHeight(self: QDesignerFormWindowInterface) i32 {
+        return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1745,12 +1810,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` minimumSize: QtC.QSize `
+    /// ` minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: ?*anyopaque, minimumSize: ?*anyopaque) void {
-        qtc.QWidget_SetMinimumSize(@ptrCast(self), @ptrCast(minimumSize));
+    pub fn SetMinimumSize(self: QDesignerFormWindowInterface, minimumSize: anytype) void {
+        comptime _ = @TypeOf(minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -1759,14 +1825,14 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` minw: i32 `
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
-        qtc.QWidget_SetMinimumSize2(@ptrCast(self), @bitCast(minw), @bitCast(minh));
+    pub fn SetMinimumSize2(self: QDesignerFormWindowInterface, minw: i32, minh: i32) void {
+        qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -1775,12 +1841,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` maximumSize: QtC.QSize `
+    /// ` maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: ?*anyopaque, maximumSize: ?*anyopaque) void {
-        qtc.QWidget_SetMaximumSize(@ptrCast(self), @ptrCast(maximumSize));
+    pub fn SetMaximumSize(self: QDesignerFormWindowInterface, maximumSize: anytype) void {
+        comptime _ = @TypeOf(maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -1789,14 +1856,14 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` maxw: i32 `
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
-        qtc.QWidget_SetMaximumSize2(@ptrCast(self), @bitCast(maxw), @bitCast(maxh));
+    pub fn SetMaximumSize2(self: QDesignerFormWindowInterface, maxw: i32, maxh: i32) void {
+        qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -1805,12 +1872,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
-        qtc.QWidget_SetMinimumWidth(@ptrCast(self), @bitCast(minw));
+    pub fn SetMinimumWidth(self: QDesignerFormWindowInterface, minw: i32) void {
+        qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
 
     /// Inherited from QWidget
@@ -1819,12 +1886,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
-        qtc.QWidget_SetMinimumHeight(@ptrCast(self), @bitCast(minh));
+    pub fn SetMinimumHeight(self: QDesignerFormWindowInterface, minh: i32) void {
+        qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -1833,12 +1900,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
-        qtc.QWidget_SetMaximumWidth(@ptrCast(self), @bitCast(maxw));
+    pub fn SetMaximumWidth(self: QDesignerFormWindowInterface, maxw: i32) void {
+        qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
 
     /// Inherited from QWidget
@@ -1847,12 +1914,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
-        qtc.QWidget_SetMaximumHeight(@ptrCast(self), @bitCast(maxh));
+    pub fn SetMaximumHeight(self: QDesignerFormWindowInterface, maxh: i32) void {
+        qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -1861,10 +1928,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn SizeIncrement(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_SizeIncrement(@ptrCast(self));
+    pub fn SizeIncrement(self: QDesignerFormWindowInterface) QSize {
+        return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1873,12 +1940,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` sizeIncrement: QtC.QSize `
+    /// ` sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: ?*anyopaque, sizeIncrement: ?*anyopaque) void {
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self), @ptrCast(sizeIncrement));
+    pub fn SetSizeIncrement(self: QDesignerFormWindowInterface, sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
     }
 
     /// Inherited from QWidget
@@ -1887,14 +1955,14 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetSizeIncrement2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetSizeIncrement2(self: QDesignerFormWindowInterface, w: i32, h: i32) void {
+        qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -1903,10 +1971,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn BaseSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_BaseSize(@ptrCast(self));
+    pub fn BaseSize(self: QDesignerFormWindowInterface) QSize {
+        return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1915,12 +1983,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` baseSize: QtC.QSize `
+    /// ` baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: ?*anyopaque, baseSize: ?*anyopaque) void {
-        qtc.QWidget_SetBaseSize(@ptrCast(self), @ptrCast(baseSize));
+    pub fn SetBaseSize(self: QDesignerFormWindowInterface, baseSize: anytype) void {
+        comptime _ = @TypeOf(baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -1929,14 +1998,14 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` basew: i32 `
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
-        qtc.QWidget_SetBaseSize2(@ptrCast(self), @bitCast(basew), @bitCast(baseh));
+    pub fn SetBaseSize2(self: QDesignerFormWindowInterface, basew: i32, baseh: i32) void {
+        qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
 
     /// Inherited from QWidget
@@ -1945,12 +2014,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` fixedSize: QtC.QSize `
+    /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: ?*anyopaque, fixedSize: ?*anyopaque) void {
-        qtc.QWidget_SetFixedSize(@ptrCast(self), @ptrCast(fixedSize));
+    pub fn SetFixedSize(self: QDesignerFormWindowInterface, fixedSize: anytype) void {
+        comptime _ = @TypeOf(fixedSize)._is_QSize;
+        qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -1959,14 +2029,14 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetFixedSize2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetFixedSize2(self: QDesignerFormWindowInterface, w: i32, h: i32) void {
+        qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -1975,12 +2045,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
-        qtc.QWidget_SetFixedWidth(@ptrCast(self), @bitCast(w));
+    pub fn SetFixedWidth(self: QDesignerFormWindowInterface, w: i32) void {
+        qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
 
     /// Inherited from QWidget
@@ -1989,12 +2059,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
-        qtc.QWidget_SetFixedHeight(@ptrCast(self), @bitCast(h));
+    pub fn SetFixedHeight(self: QDesignerFormWindowInterface, h: i32) void {
+        qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -2003,12 +2073,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapToGlobal(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal(self: QDesignerFormWindowInterface, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2017,12 +2088,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToGlobal2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal2(self: QDesignerFormWindowInterface, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2031,12 +2103,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFromGlobal(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal(self: QDesignerFormWindowInterface, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2045,12 +2118,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromGlobal2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal2(self: QDesignerFormWindowInterface, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2059,12 +2133,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapToParent(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent(self: QDesignerFormWindowInterface, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2073,12 +2148,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToParent2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent2(self: QDesignerFormWindowInterface, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2087,12 +2163,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFromParent(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent(self: QDesignerFormWindowInterface, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2101,12 +2178,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromParent2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent2(self: QDesignerFormWindowInterface, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2115,14 +2193,16 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPointF `
+    /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapTo(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapTo(self: QDesignerFormWindowInterface, param1: anytype, param2: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2131,14 +2211,16 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPoint `
+    /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapTo2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapTo2(self: QDesignerFormWindowInterface, param1: anytype, param2: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2147,14 +2229,16 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPointF `
+    /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFrom(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapFrom(self: QDesignerFormWindowInterface, param1: anytype, param2: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2163,14 +2247,16 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPoint `
+    /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFrom2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapFrom2(self: QDesignerFormWindowInterface, param1: anytype, param2: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2179,10 +2265,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Window(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_Window(@ptrCast(self));
+    pub fn Window(self: QDesignerFormWindowInterface) QWidget {
+        return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2191,10 +2277,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn NativeParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_NativeParentWidget(@ptrCast(self));
+    pub fn NativeParentWidget(self: QDesignerFormWindowInterface) QWidget {
+        return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2203,10 +2289,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn TopLevelWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_TopLevelWidget(@ptrCast(self));
+    pub fn TopLevelWidget(self: QDesignerFormWindowInterface) QWidget {
+        return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2215,10 +2301,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Palette(self: ?*anyopaque) QtC.QPalette {
-        return qtc.QWidget_Palette(@ptrCast(self));
+    pub fn Palette(self: QDesignerFormWindowInterface) QPalette {
+        return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2227,12 +2313,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` palette: QtC.QPalette `
+    /// ` palette: QPalette `
     ///
-    pub fn SetPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
-        qtc.QWidget_SetPalette(@ptrCast(self), @ptrCast(palette));
+    pub fn SetPalette(self: QDesignerFormWindowInterface, palette: anytype) void {
+        comptime _ = @TypeOf(palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
     }
 
     /// Inherited from QWidget
@@ -2241,12 +2328,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self), @bitCast(backgroundRole));
+    pub fn SetBackgroundRole(self: QDesignerFormWindowInterface, backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
     }
 
     /// Inherited from QWidget
@@ -2255,14 +2342,14 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: ?*anyopaque) i32 {
-        return qtc.QWidget_BackgroundRole(@ptrCast(self));
+    pub fn BackgroundRole(self: QDesignerFormWindowInterface) i32 {
+        return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2271,12 +2358,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self), @bitCast(foregroundRole));
+    pub fn SetForegroundRole(self: QDesignerFormWindowInterface, foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
     }
 
     /// Inherited from QWidget
@@ -2285,14 +2372,14 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ForegroundRole(@ptrCast(self));
+    pub fn ForegroundRole(self: QDesignerFormWindowInterface) i32 {
+        return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2301,10 +2388,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Font(self: ?*anyopaque) QtC.QFont {
-        return qtc.QWidget_Font(@ptrCast(self));
+    pub fn Font(self: QDesignerFormWindowInterface) QFont {
+        return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2313,12 +2400,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` font: QtC.QFont `
+    /// ` font: QFont `
     ///
-    pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
-        qtc.QWidget_SetFont(@ptrCast(self), @ptrCast(font));
+    pub fn SetFont(self: QDesignerFormWindowInterface, font: anytype) void {
+        comptime _ = @TypeOf(font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
     }
 
     /// Inherited from QWidget
@@ -2327,10 +2415,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn FontMetrics(self: ?*anyopaque) QtC.QFontMetrics {
-        return qtc.QWidget_FontMetrics(@ptrCast(self));
+    pub fn FontMetrics(self: QDesignerFormWindowInterface) QFontMetrics {
+        return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2339,10 +2427,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn FontInfo(self: ?*anyopaque) QtC.QFontInfo {
-        return qtc.QWidget_FontInfo(@ptrCast(self));
+    pub fn FontInfo(self: QDesignerFormWindowInterface) QFontInfo {
+        return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2351,12 +2439,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` cursor: QtC.QCursor `
+    /// ` cursor: QCursor `
     ///
-    pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
-        qtc.QWidget_SetCursor(@ptrCast(self), @ptrCast(cursor));
+    pub fn SetCursor(self: QDesignerFormWindowInterface, cursor: anytype) void {
+        comptime _ = @TypeOf(cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
     }
 
     /// Inherited from QWidget
@@ -2365,10 +2454,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn UnsetCursor(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetCursor(@ptrCast(self));
+    pub fn UnsetCursor(self: QDesignerFormWindowInterface) void {
+        qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2377,12 +2466,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetMouseTracking(@ptrCast(self), enable);
+    pub fn SetMouseTracking(self: QDesignerFormWindowInterface, enable: bool) void {
+        qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -2391,10 +2480,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn HasMouseTracking(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasMouseTracking(@ptrCast(self));
+    pub fn HasMouseTracking(self: QDesignerFormWindowInterface) bool {
+        return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2403,10 +2492,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn UnderMouse(self: ?*anyopaque) bool {
-        return qtc.QWidget_UnderMouse(@ptrCast(self));
+    pub fn UnderMouse(self: QDesignerFormWindowInterface) bool {
+        return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2415,12 +2504,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetTabletTracking(@ptrCast(self), enable);
+    pub fn SetTabletTracking(self: QDesignerFormWindowInterface, enable: bool) void {
+        qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -2429,10 +2518,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn HasTabletTracking(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasTabletTracking(@ptrCast(self));
+    pub fn HasTabletTracking(self: QDesignerFormWindowInterface) bool {
+        return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2441,12 +2530,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` mask: QtC.QBitmap `
+    /// ` mask: QBitmap `
     ///
-    pub fn SetMask(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMask(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask(self: QDesignerFormWindowInterface, mask: anytype) void {
+        comptime _ = @TypeOf(mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
 
     /// Inherited from QWidget
@@ -2455,12 +2545,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` mask: QtC.QRegion `
+    /// ` mask: QRegion `
     ///
-    pub fn SetMask2(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMask2(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask2(self: QDesignerFormWindowInterface, mask: anytype) void {
+        comptime _ = @TypeOf(mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
 
     /// Inherited from QWidget
@@ -2469,10 +2560,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Mask(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_Mask(@ptrCast(self));
+    pub fn Mask(self: QDesignerFormWindowInterface) QRegion {
+        return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2481,10 +2572,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn ClearMask(self: ?*anyopaque) void {
-        qtc.QWidget_ClearMask(@ptrCast(self));
+    pub fn ClearMask(self: QDesignerFormWindowInterface) void {
+        qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2493,12 +2584,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: ?*anyopaque, target: ?*anyopaque) void {
-        qtc.QWidget_Render(@ptrCast(self), @ptrCast(target));
+    pub fn Render(self: QDesignerFormWindowInterface, target: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
 
     /// Inherited from QWidget
@@ -2507,12 +2599,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn Render2(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QWidget_Render2(@ptrCast(self), @ptrCast(painter));
+    pub fn Render2(self: QDesignerFormWindowInterface, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// Inherited from QWidget
@@ -2521,10 +2614,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Grab(self: ?*anyopaque) QtC.QPixmap {
-        return qtc.QWidget_Grab(@ptrCast(self));
+    pub fn Grab(self: QDesignerFormWindowInterface) QPixmap {
+        return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2533,10 +2626,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
-        return qtc.QWidget_GraphicsEffect(@ptrCast(self));
+    pub fn GraphicsEffect(self: QDesignerFormWindowInterface) QGraphicsEffect {
+        return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2545,12 +2638,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` effect: QtC.QGraphicsEffect `
+    /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
-        qtc.QWidget_SetGraphicsEffect(@ptrCast(self), @ptrCast(effect));
+    pub fn SetGraphicsEffect(self: QDesignerFormWindowInterface, effect: anytype) void {
+        comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
+        qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
 
     /// Inherited from QWidget
@@ -2559,12 +2653,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_GrabGesture(@ptrCast(self), @bitCast(typeVal));
+    pub fn GrabGesture(self: QDesignerFormWindowInterface, typeVal: i32) void {
+        qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -2573,12 +2667,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_UngrabGesture(@ptrCast(self), @bitCast(typeVal));
+    pub fn UngrabGesture(self: QDesignerFormWindowInterface, typeVal: i32) void {
+        qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -2587,16 +2681,16 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
+    pub fn SetWindowTitle(self: QDesignerFormWindowInterface, windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
             .len = windowTitle.len,
             .data = windowTitle.ptr,
         };
-        qtc.QWidget_SetWindowTitle(@ptrCast(self), windowTitle_str);
+        qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
 
     /// Inherited from QWidget
@@ -2605,16 +2699,16 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
+    pub fn SetStyleSheet(self: QDesignerFormWindowInterface, styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
             .len = styleSheet.len,
             .data = styleSheet.ptr,
         };
-        qtc.QWidget_SetStyleSheet(@ptrCast(self), styleSheet_str);
+        qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
 
     /// Inherited from QWidget
@@ -2623,12 +2717,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_StyleSheet(@ptrCast(self));
+    pub fn StyleSheet(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerformwindowinterface.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2641,12 +2735,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowTitle(@ptrCast(self));
+    pub fn WindowTitle(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerformwindowinterface.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2659,12 +2753,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QWidget_SetWindowIcon(@ptrCast(self), @ptrCast(icon));
+    pub fn SetWindowIcon(self: QDesignerFormWindowInterface, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QWidget
@@ -2673,10 +2768,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn WindowIcon(self: ?*anyopaque) QtC.QIcon {
-        return qtc.QWidget_WindowIcon(@ptrCast(self));
+    pub fn WindowIcon(self: QDesignerFormWindowInterface) QIcon {
+        return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2685,16 +2780,16 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
+    pub fn SetWindowIconText(self: QDesignerFormWindowInterface, windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
             .len = windowIconText.len,
             .data = windowIconText.ptr,
         };
-        qtc.QWidget_SetWindowIconText(@ptrCast(self), windowIconText_str);
+        qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
 
     /// Inherited from QWidget
@@ -2703,12 +2798,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowIconText(@ptrCast(self));
+    pub fn WindowIconText(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerformwindowinterface.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2721,16 +2816,16 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
+    pub fn SetWindowRole(self: QDesignerFormWindowInterface, windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
             .len = windowRole.len,
             .data = windowRole.ptr,
         };
-        qtc.QWidget_SetWindowRole(@ptrCast(self), windowRole_str);
+        qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
 
     /// Inherited from QWidget
@@ -2739,12 +2834,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowRole(@ptrCast(self));
+    pub fn WindowRole(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerformwindowinterface.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2757,16 +2852,16 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
+    pub fn SetWindowFilePath(self: QDesignerFormWindowInterface, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
-        qtc.QWidget_SetWindowFilePath(@ptrCast(self), filePath_str);
+        qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
 
     /// Inherited from QWidget
@@ -2775,12 +2870,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
+    pub fn WindowFilePath(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerformwindowinterface.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2793,12 +2888,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
-        qtc.QWidget_SetWindowOpacity(@ptrCast(self), @bitCast(level));
+    pub fn SetWindowOpacity(self: QDesignerFormWindowInterface, level: f64) void {
+        qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
 
     /// Inherited from QWidget
@@ -2807,10 +2902,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn WindowOpacity(self: ?*anyopaque) f64 {
-        return qtc.QWidget_WindowOpacity(@ptrCast(self));
+    pub fn WindowOpacity(self: QDesignerFormWindowInterface) f64 {
+        return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2819,10 +2914,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn IsWindowModified(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsWindowModified(@ptrCast(self));
+    pub fn IsWindowModified(self: QDesignerFormWindowInterface) bool {
+        return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2831,16 +2926,16 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
+    pub fn SetToolTip(self: QDesignerFormWindowInterface, toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
             .len = toolTip.len,
             .data = toolTip.ptr,
         };
-        qtc.QWidget_SetToolTip(@ptrCast(self), toolTip_str);
+        qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
 
     /// Inherited from QWidget
@@ -2849,12 +2944,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_ToolTip(@ptrCast(self));
+    pub fn ToolTip(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerformwindowinterface.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2867,12 +2962,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
-        qtc.QWidget_SetToolTipDuration(@ptrCast(self), @bitCast(msec));
+    pub fn SetToolTipDuration(self: QDesignerFormWindowInterface, msec: i32) void {
+        qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
 
     /// Inherited from QWidget
@@ -2881,10 +2976,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn ToolTipDuration(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ToolTipDuration(@ptrCast(self));
+    pub fn ToolTipDuration(self: QDesignerFormWindowInterface) i32 {
+        return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2893,16 +2988,16 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
+    pub fn SetStatusTip(self: QDesignerFormWindowInterface, statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
             .len = statusTip.len,
             .data = statusTip.ptr,
         };
-        qtc.QWidget_SetStatusTip(@ptrCast(self), statusTip_str);
+        qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
 
     /// Inherited from QWidget
@@ -2911,12 +3006,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_StatusTip(@ptrCast(self));
+    pub fn StatusTip(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerformwindowinterface.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2929,16 +3024,16 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
+    pub fn SetWhatsThis(self: QDesignerFormWindowInterface, whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
             .len = whatsThis.len,
             .data = whatsThis.ptr,
         };
-        qtc.QWidget_SetWhatsThis(@ptrCast(self), whatsThis_str);
+        qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
 
     /// Inherited from QWidget
@@ -2947,12 +3042,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WhatsThis(@ptrCast(self));
+    pub fn WhatsThis(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerformwindowinterface.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2965,12 +3060,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_AccessibleName(@ptrCast(self));
+    pub fn AccessibleName(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerformwindowinterface.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2983,16 +3078,16 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
+    pub fn SetAccessibleName(self: QDesignerFormWindowInterface, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QWidget_SetAccessibleName(@ptrCast(self), name_str);
+        qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QWidget
@@ -3001,12 +3096,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
+    pub fn AccessibleDescription(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerformwindowinterface.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3019,16 +3114,16 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
+    pub fn SetAccessibleDescription(self: QDesignerFormWindowInterface, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
-        qtc.QWidget_SetAccessibleDescription(@ptrCast(self), description_str);
+        qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
 
     /// Inherited from QWidget
@@ -3037,12 +3132,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QWidget_SetLayoutDirection(@ptrCast(self), @bitCast(direction));
+    pub fn SetLayoutDirection(self: QDesignerFormWindowInterface, direction: i32) void {
+        qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
 
     /// Inherited from QWidget
@@ -3051,14 +3146,14 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: ?*anyopaque) i32 {
-        return qtc.QWidget_LayoutDirection(@ptrCast(self));
+    pub fn LayoutDirection(self: QDesignerFormWindowInterface) i32 {
+        return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3067,10 +3162,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn UnsetLayoutDirection(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self));
+    pub fn UnsetLayoutDirection(self: QDesignerFormWindowInterface) void {
+        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3079,12 +3174,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` locale: QtC.QLocale `
+    /// ` locale: QLocale `
     ///
-    pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
-        qtc.QWidget_SetLocale(@ptrCast(self), @ptrCast(locale));
+    pub fn SetLocale(self: QDesignerFormWindowInterface, locale: anytype) void {
+        comptime _ = @TypeOf(locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
     }
 
     /// Inherited from QWidget
@@ -3093,10 +3189,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Locale(self: ?*anyopaque) QtC.QLocale {
-        return qtc.QWidget_Locale(@ptrCast(self));
+    pub fn Locale(self: QDesignerFormWindowInterface) QLocale {
+        return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3105,10 +3201,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn UnsetLocale(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetLocale(@ptrCast(self));
+    pub fn UnsetLocale(self: QDesignerFormWindowInterface) void {
+        qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3117,10 +3213,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn IsRightToLeft(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsRightToLeft(@ptrCast(self));
+    pub fn IsRightToLeft(self: QDesignerFormWindowInterface) bool {
+        return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3129,10 +3225,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn IsLeftToRight(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsLeftToRight(@ptrCast(self));
+    pub fn IsLeftToRight(self: QDesignerFormWindowInterface) bool {
+        return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3141,10 +3237,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn SetFocus(self: ?*anyopaque) void {
-        qtc.QWidget_SetFocus(@ptrCast(self));
+    pub fn SetFocus(self: QDesignerFormWindowInterface) void {
+        qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3153,10 +3249,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn IsActiveWindow(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsActiveWindow(@ptrCast(self));
+    pub fn IsActiveWindow(self: QDesignerFormWindowInterface) bool {
+        return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3165,10 +3261,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn ActivateWindow(self: ?*anyopaque) void {
-        qtc.QWidget_ActivateWindow(@ptrCast(self));
+    pub fn ActivateWindow(self: QDesignerFormWindowInterface) void {
+        qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3177,10 +3273,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn ClearFocus(self: ?*anyopaque) void {
-        qtc.QWidget_ClearFocus(@ptrCast(self));
+    pub fn ClearFocus(self: QDesignerFormWindowInterface) void {
+        qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3189,12 +3285,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
-        qtc.QWidget_SetFocus2(@ptrCast(self), @bitCast(reason));
+    pub fn SetFocus2(self: QDesignerFormWindowInterface, reason: i32) void {
+        qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
 
     /// Inherited from QWidget
@@ -3203,14 +3299,14 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: ?*anyopaque) i32 {
-        return qtc.QWidget_FocusPolicy(@ptrCast(self));
+    pub fn FocusPolicy(self: QDesignerFormWindowInterface) i32 {
+        return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3219,12 +3315,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetFocusPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetFocusPolicy(self: QDesignerFormWindowInterface, policy: i32) void {
+        qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -3233,10 +3329,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn HasFocus(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasFocus(@ptrCast(self));
+    pub fn HasFocus(self: QDesignerFormWindowInterface) bool {
+        return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3245,12 +3341,14 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QWidget `
+    /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: ?*anyopaque, param2: ?*anyopaque) void {
-        qtc.QWidget_SetTabOrder(@ptrCast(param1), @ptrCast(param2));
+    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QWidget;
+        qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
     /// Inherited from QWidget
@@ -3259,12 +3357,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` focusProxy: QtC.QWidget `
+    /// ` focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: ?*anyopaque, focusProxy: ?*anyopaque) void {
-        qtc.QWidget_SetFocusProxy(@ptrCast(self), @ptrCast(focusProxy));
+    pub fn SetFocusProxy(self: QDesignerFormWindowInterface, focusProxy: anytype) void {
+        comptime _ = @TypeOf(focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
     }
 
     /// Inherited from QWidget
@@ -3273,10 +3372,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn FocusProxy(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_FocusProxy(@ptrCast(self));
+    pub fn FocusProxy(self: QDesignerFormWindowInterface) QWidget {
+        return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3285,14 +3384,14 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
+    pub fn ContextMenuPolicy(self: QDesignerFormWindowInterface) i32 {
+        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3301,12 +3400,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetContextMenuPolicy(self: QDesignerFormWindowInterface, policy: i32) void {
+        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -3315,10 +3414,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn GrabMouse(self: ?*anyopaque) void {
-        qtc.QWidget_GrabMouse(@ptrCast(self));
+    pub fn GrabMouse(self: QDesignerFormWindowInterface) void {
+        qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3327,12 +3426,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` param1: QtC.QCursor `
+    /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_GrabMouse2(@ptrCast(self), @ptrCast(param1));
+    pub fn GrabMouse2(self: QDesignerFormWindowInterface, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QCursor;
+        qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3341,10 +3441,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn ReleaseMouse(self: ?*anyopaque) void {
-        qtc.QWidget_ReleaseMouse(@ptrCast(self));
+    pub fn ReleaseMouse(self: QDesignerFormWindowInterface) void {
+        qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3353,10 +3453,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn GrabKeyboard(self: ?*anyopaque) void {
-        qtc.QWidget_GrabKeyboard(@ptrCast(self));
+    pub fn GrabKeyboard(self: QDesignerFormWindowInterface) void {
+        qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3365,10 +3465,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn ReleaseKeyboard(self: ?*anyopaque) void {
-        qtc.QWidget_ReleaseKeyboard(@ptrCast(self));
+    pub fn ReleaseKeyboard(self: QDesignerFormWindowInterface) void {
+        qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3377,12 +3477,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` key: QtC.QKeySequence `
+    /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: ?*anyopaque, key: ?*anyopaque) i32 {
-        return qtc.QWidget_GrabShortcut(@ptrCast(self), @ptrCast(key));
+    pub fn GrabShortcut(self: QDesignerFormWindowInterface, key: anytype) i32 {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
 
     /// Inherited from QWidget
@@ -3391,12 +3492,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_ReleaseShortcut(@ptrCast(self), @bitCast(id));
+    pub fn ReleaseShortcut(self: QDesignerFormWindowInterface, id: i32) void {
+        qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -3405,12 +3506,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutEnabled(@ptrCast(self), @bitCast(id));
+    pub fn SetShortcutEnabled(self: QDesignerFormWindowInterface, id: i32) void {
+        qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -3419,28 +3520,28 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self), @bitCast(id));
+    pub fn SetShortcutAutoRepeat(self: QDesignerFormWindowInterface, id: i32) void {
+        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QtC.QWidget {
-        return qtc.QWidget_MouseGrabber();
+    pub fn MouseGrabber() QWidget {
+        return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QtC.QWidget {
-        return qtc.QWidget_KeyboardGrabber();
+    pub fn KeyboardGrabber() QWidget {
+        return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
 
     /// Inherited from QWidget
@@ -3449,10 +3550,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn UpdatesEnabled(self: ?*anyopaque) bool {
-        return qtc.QWidget_UpdatesEnabled(@ptrCast(self));
+    pub fn UpdatesEnabled(self: QDesignerFormWindowInterface) bool {
+        return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3461,12 +3562,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self), enable);
+    pub fn SetUpdatesEnabled(self: QDesignerFormWindowInterface, enable: bool) void {
+        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -3475,10 +3576,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn GraphicsProxyWidget(self: ?*anyopaque) QtC.QGraphicsProxyWidget {
-        return qtc.QWidget_GraphicsProxyWidget(@ptrCast(self));
+    pub fn GraphicsProxyWidget(self: QDesignerFormWindowInterface) QGraphicsProxyWidget {
+        return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3487,10 +3588,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Update(self: ?*anyopaque) void {
-        qtc.QWidget_Update(@ptrCast(self));
+    pub fn Update(self: QDesignerFormWindowInterface) void {
+        qtc.QWidget_Update(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3499,10 +3600,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Repaint(self: ?*anyopaque) void {
-        qtc.QWidget_Repaint(@ptrCast(self));
+    pub fn Repaint(self: QDesignerFormWindowInterface) void {
+        qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3511,7 +3612,7 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` x: i32 `
     ///
@@ -3521,8 +3622,8 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn Update2(self: QDesignerFormWindowInterface, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3531,12 +3632,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn Update3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Update3(@ptrCast(self), @ptrCast(param1));
+    pub fn Update3(self: QDesignerFormWindowInterface, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3545,12 +3647,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn Update4(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Update4(@ptrCast(self), @ptrCast(param1));
+    pub fn Update4(self: QDesignerFormWindowInterface, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3559,7 +3662,7 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` x: i32 `
     ///
@@ -3569,8 +3672,8 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn Repaint2(self: QDesignerFormWindowInterface, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3579,12 +3682,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Repaint3(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint3(self: QDesignerFormWindowInterface, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3593,12 +3697,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Repaint4(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint4(self: QDesignerFormWindowInterface, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3607,12 +3712,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.QWidget_SetVisible(@ptrCast(self), visible);
+    pub fn SetVisible(self: QDesignerFormWindowInterface, visible: bool) void {
+        qtc.QWidget_SetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// Inherited from QWidget
@@ -3621,12 +3726,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: ?*anyopaque, hidden: bool) void {
-        qtc.QWidget_SetHidden(@ptrCast(self), hidden);
+    pub fn SetHidden(self: QDesignerFormWindowInterface, hidden: bool) void {
+        qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
 
     /// Inherited from QWidget
@@ -3635,10 +3740,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Show(self: ?*anyopaque) void {
-        qtc.QWidget_Show(@ptrCast(self));
+    pub fn Show(self: QDesignerFormWindowInterface) void {
+        qtc.QWidget_Show(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3647,10 +3752,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Hide(self: ?*anyopaque) void {
-        qtc.QWidget_Hide(@ptrCast(self));
+    pub fn Hide(self: QDesignerFormWindowInterface) void {
+        qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3659,10 +3764,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn ShowMinimized(self: ?*anyopaque) void {
-        qtc.QWidget_ShowMinimized(@ptrCast(self));
+    pub fn ShowMinimized(self: QDesignerFormWindowInterface) void {
+        qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3671,10 +3776,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn ShowMaximized(self: ?*anyopaque) void {
-        qtc.QWidget_ShowMaximized(@ptrCast(self));
+    pub fn ShowMaximized(self: QDesignerFormWindowInterface) void {
+        qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3683,10 +3788,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn ShowFullScreen(self: ?*anyopaque) void {
-        qtc.QWidget_ShowFullScreen(@ptrCast(self));
+    pub fn ShowFullScreen(self: QDesignerFormWindowInterface) void {
+        qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3695,10 +3800,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn ShowNormal(self: ?*anyopaque) void {
-        qtc.QWidget_ShowNormal(@ptrCast(self));
+    pub fn ShowNormal(self: QDesignerFormWindowInterface) void {
+        qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3707,10 +3812,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Close(self: ?*anyopaque) bool {
-        return qtc.QWidget_Close(@ptrCast(self));
+    pub fn Close(self: QDesignerFormWindowInterface) bool {
+        return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3719,10 +3824,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Raise(self: ?*anyopaque) void {
-        qtc.QWidget_Raise(@ptrCast(self));
+    pub fn Raise(self: QDesignerFormWindowInterface) void {
+        qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3731,10 +3836,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Lower(self: ?*anyopaque) void {
-        qtc.QWidget_Lower(@ptrCast(self));
+    pub fn Lower(self: QDesignerFormWindowInterface) void {
+        qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3743,12 +3848,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_StackUnder(@ptrCast(self), @ptrCast(param1));
+    pub fn StackUnder(self: QDesignerFormWindowInterface, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3757,14 +3863,14 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn Move(self: QDesignerFormWindowInterface, x: i32, y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QWidget
@@ -3773,12 +3879,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn Move2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Move2(@ptrCast(self), @ptrCast(param1));
+    pub fn Move2(self: QDesignerFormWindowInterface, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3787,14 +3894,14 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_Resize(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn Resize(self: QDesignerFormWindowInterface, w: i32, h: i32) void {
+        qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3803,12 +3910,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` param1: QtC.QSize `
+    /// ` param1: QSize `
     ///
-    pub fn Resize2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Resize2(@ptrCast(self), @ptrCast(param1));
+    pub fn Resize2(self: QDesignerFormWindowInterface, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QSize;
+        qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3817,7 +3925,7 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` x: i32 `
     ///
@@ -3827,8 +3935,8 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn SetGeometry(self: QDesignerFormWindowInterface, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3837,12 +3945,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` geometry: QtC.QRect `
+    /// ` geometry: QRect `
     ///
-    pub fn SetGeometry2(self: ?*anyopaque, geometry: ?*anyopaque) void {
-        qtc.QWidget_SetGeometry2(@ptrCast(self), @ptrCast(geometry));
+    pub fn SetGeometry2(self: QDesignerFormWindowInterface, geometry: anytype) void {
+        comptime _ = @TypeOf(geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
     }
 
     /// Inherited from QWidget
@@ -3851,12 +3960,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
+    pub fn SaveGeometry(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qdesignerformwindowinterface.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -3869,16 +3978,16 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
+    pub fn RestoreGeometry(self: QDesignerFormWindowInterface, geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
             .len = geometry.len,
             .data = geometry.ptr,
         };
-        return qtc.QWidget_RestoreGeometry(@ptrCast(self), geometry_str);
+        return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
 
     /// Inherited from QWidget
@@ -3887,10 +3996,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn AdjustSize(self: ?*anyopaque) void {
-        qtc.QWidget_AdjustSize(@ptrCast(self));
+    pub fn AdjustSize(self: QDesignerFormWindowInterface) void {
+        qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3899,10 +4008,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn IsVisible(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsVisible(@ptrCast(self));
+    pub fn IsVisible(self: QDesignerFormWindowInterface) bool {
+        return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3911,12 +4020,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidget_IsVisibleTo(@ptrCast(self), @ptrCast(param1));
+    pub fn IsVisibleTo(self: QDesignerFormWindowInterface, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3925,10 +4035,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn IsHidden(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsHidden(@ptrCast(self));
+    pub fn IsHidden(self: QDesignerFormWindowInterface) bool {
+        return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3937,10 +4047,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn IsMinimized(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsMinimized(@ptrCast(self));
+    pub fn IsMinimized(self: QDesignerFormWindowInterface) bool {
+        return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3949,10 +4059,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn IsMaximized(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsMaximized(@ptrCast(self));
+    pub fn IsMaximized(self: QDesignerFormWindowInterface) bool {
+        return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3961,10 +4071,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn IsFullScreen(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsFullScreen(@ptrCast(self));
+    pub fn IsFullScreen(self: QDesignerFormWindowInterface) bool {
+        return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3973,14 +4083,14 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowState(@ptrCast(self));
+    pub fn WindowState(self: QDesignerFormWindowInterface) i32 {
+        return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3989,12 +4099,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_SetWindowState(@ptrCast(self), @bitCast(state));
+    pub fn SetWindowState(self: QDesignerFormWindowInterface, state: i32) void {
+        qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -4003,12 +4113,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_OverrideWindowState(@ptrCast(self), @bitCast(state));
+    pub fn OverrideWindowState(self: QDesignerFormWindowInterface, state: i32) void {
+        qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -4017,10 +4127,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_SizeHint(@ptrCast(self));
+    pub fn SizeHint(self: QDesignerFormWindowInterface) QSize {
+        return .{ .ptr = qtc.QWidget_SizeHint(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4029,10 +4139,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn MinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MinimumSizeHint(@ptrCast(self));
+    pub fn MinimumSizeHint(self: QDesignerFormWindowInterface) QSize {
+        return .{ .ptr = qtc.QWidget_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4041,10 +4151,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
-        return qtc.QWidget_SizePolicy(@ptrCast(self));
+    pub fn SizePolicy(self: QDesignerFormWindowInterface) QSizePolicy {
+        return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4053,12 +4163,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` sizePolicy: QtC.QSizePolicy `
+    /// ` sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: QtC.QSizePolicy) void {
-        qtc.QWidget_SetSizePolicy(@ptrCast(self), @ptrCast(sizePolicy));
+    pub fn SetSizePolicy(self: QDesignerFormWindowInterface, sizePolicy: anytype) void {
+        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
     }
 
     /// Inherited from QWidget
@@ -4067,14 +4178,14 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` horizontal: qsizepolicy_enums.Policy `
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
-        qtc.QWidget_SetSizePolicy2(@ptrCast(self), @bitCast(horizontal), @bitCast(vertical));
+    pub fn SetSizePolicy2(self: QDesignerFormWindowInterface, horizontal: i32, vertical: i32) void {
+        qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
 
     /// Inherited from QWidget
@@ -4083,12 +4194,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QWidget_HeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn HeightForWidth(self: QDesignerFormWindowInterface, param1: i32) i32 {
+        return qtc.QWidget_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -4097,10 +4208,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn HasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasHeightForWidth(@ptrCast(self));
+    pub fn HasHeightForWidth(self: QDesignerFormWindowInterface) bool {
+        return qtc.QWidget_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4109,10 +4220,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn VisibleRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_VisibleRegion(@ptrCast(self));
+    pub fn VisibleRegion(self: QDesignerFormWindowInterface) QRegion {
+        return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4121,7 +4232,7 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` left: i32 `
     ///
@@ -4131,8 +4242,8 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QWidget_SetContentsMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
+    pub fn SetContentsMargins(self: QDesignerFormWindowInterface, left: i32, top: i32, right: i32, bottom: i32) void {
+        qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QWidget
@@ -4141,12 +4252,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` margins: QtC.QMargins `
+    /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
-        qtc.QWidget_SetContentsMargins2(@ptrCast(self), @ptrCast(margins));
+    pub fn SetContentsMargins2(self: QDesignerFormWindowInterface, margins: anytype) void {
+        comptime _ = @TypeOf(margins)._is_QMargins;
+        qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
 
     /// Inherited from QWidget
@@ -4155,10 +4267,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
-        return qtc.QWidget_ContentsMargins(@ptrCast(self));
+    pub fn ContentsMargins(self: QDesignerFormWindowInterface) QMargins {
+        return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4167,10 +4279,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_ContentsRect(@ptrCast(self));
+    pub fn ContentsRect(self: QDesignerFormWindowInterface) QRect {
+        return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4179,10 +4291,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Layout(self: ?*anyopaque) QtC.QLayout {
-        return qtc.QWidget_Layout(@ptrCast(self));
+    pub fn Layout(self: QDesignerFormWindowInterface) QLayout {
+        return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4191,12 +4303,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` layout: QtC.QLayout `
+    /// ` layout: QLayout `
     ///
-    pub fn SetLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
-        qtc.QWidget_SetLayout(@ptrCast(self), @ptrCast(layout));
+    pub fn SetLayout(self: QDesignerFormWindowInterface, layout: anytype) void {
+        comptime _ = @TypeOf(layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
     }
 
     /// Inherited from QWidget
@@ -4205,10 +4318,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn UpdateGeometry(self: ?*anyopaque) void {
-        qtc.QWidget_UpdateGeometry(@ptrCast(self));
+    pub fn UpdateGeometry(self: QDesignerFormWindowInterface) void {
+        qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4217,12 +4330,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QWidget_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QDesignerFormWindowInterface, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QWidget
@@ -4231,14 +4345,15 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i32) void {
-        qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @bitCast(f));
+    pub fn SetParent2(self: QDesignerFormWindowInterface, parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
     }
 
     /// Inherited from QWidget
@@ -4247,14 +4362,14 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QWidget_Scroll(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn Scroll(self: QDesignerFormWindowInterface, dx: i32, dy: i32) void {
+        qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QWidget
@@ -4263,16 +4378,17 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    /// ` param3: QtC.QRect `
+    /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
-        qtc.QWidget_Scroll2(@ptrCast(self), @bitCast(dx), @bitCast(dy), @ptrCast(param3));
+    pub fn Scroll2(self: QDesignerFormWindowInterface, dx: i32, dy: i32, param3: anytype) void {
+        comptime _ = @TypeOf(param3)._is_QRect;
+        qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
 
     /// Inherited from QWidget
@@ -4281,10 +4397,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn FocusWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_FocusWidget(@ptrCast(self));
+    pub fn FocusWidget(self: QDesignerFormWindowInterface) QWidget {
+        return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4293,10 +4409,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn NextInFocusChain(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_NextInFocusChain(@ptrCast(self));
+    pub fn NextInFocusChain(self: QDesignerFormWindowInterface) QWidget {
+        return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4305,10 +4421,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn PreviousInFocusChain(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_PreviousInFocusChain(@ptrCast(self));
+    pub fn PreviousInFocusChain(self: QDesignerFormWindowInterface) QWidget {
+        return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4317,10 +4433,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn AcceptDrops(self: ?*anyopaque) bool {
-        return qtc.QWidget_AcceptDrops(@ptrCast(self));
+    pub fn AcceptDrops(self: QDesignerFormWindowInterface) bool {
+        return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4329,12 +4445,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
-        qtc.QWidget_SetAcceptDrops(@ptrCast(self), on);
+    pub fn SetAcceptDrops(self: QDesignerFormWindowInterface, on: bool) void {
+        qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
 
     /// Inherited from QWidget
@@ -4343,12 +4459,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_AddAction(@ptrCast(self), @ptrCast(action));
+    pub fn AddAction(self: QDesignerFormWindowInterface, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -4357,16 +4474,16 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn AddActions(self: QDesignerFormWindowInterface, actions: []QAction) void {
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.QWidget_AddActions(@ptrCast(self), actions_list);
+        qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
 
     /// Inherited from QWidget
@@ -4375,18 +4492,19 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` before: QtC.QAction `
+    /// ` before: QAction `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn InsertActions(self: QDesignerFormWindowInterface, before: anytype, actions: []QAction) void {
+        comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.QWidget_InsertActions(@ptrCast(self), @ptrCast(before), actions_list);
+        qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
 
     /// Inherited from QWidget
@@ -4395,14 +4513,16 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` before: QtC.QAction `
+    /// ` before: QAction `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_InsertAction(@ptrCast(self), @ptrCast(before), @ptrCast(action));
+    pub fn InsertAction(self: QDesignerFormWindowInterface, before: anytype, action: anytype) void {
+        comptime _ = @TypeOf(before)._is_QAction;
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -4411,12 +4531,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_RemoveAction(@ptrCast(self), @ptrCast(action));
+    pub fn RemoveAction(self: QDesignerFormWindowInterface, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -4425,16 +4546,17 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
-        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self));
+    pub fn Actions(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []QAction {
+        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("qdesignerformwindowinterface.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("qdesignerformwindowinterface.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -4444,16 +4566,16 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction2(self: QDesignerFormWindowInterface, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction2(@ptrCast(self), text_str);
+        return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
 
     /// Inherited from QWidget
@@ -4462,18 +4584,19 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction3(self: QDesignerFormWindowInterface, icon: anytype, text: []const u8) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction3(@ptrCast(self), @ptrCast(icon), text_str);
+        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
     /// Inherited from QWidget
@@ -4482,18 +4605,19 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction4(self: QDesignerFormWindowInterface, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction4(@ptrCast(self), text_str, @ptrCast(shortcut));
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4502,20 +4626,22 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction5(self: QDesignerFormWindowInterface, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction5(@ptrCast(self), @ptrCast(icon), text_str, @ptrCast(shortcut));
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4524,10 +4650,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ParentWidget(@ptrCast(self));
+    pub fn ParentWidget(self: QDesignerFormWindowInterface) QWidget {
+        return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4536,12 +4662,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_SetWindowFlags(@ptrCast(self), @bitCast(typeVal));
+    pub fn SetWindowFlags(self: QDesignerFormWindowInterface, typeVal: i32) void {
+        qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -4550,14 +4676,14 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowFlags(@ptrCast(self));
+    pub fn WindowFlags(self: QDesignerFormWindowInterface) i32 {
+        return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4566,12 +4692,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetWindowFlag(@ptrCast(self), @bitCast(param1));
+    pub fn SetWindowFlag(self: QDesignerFormWindowInterface, param1: i32) void {
+        qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -4580,12 +4706,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @bitCast(typeVal));
+    pub fn OverrideWindowFlags(self: QDesignerFormWindowInterface, typeVal: i32) void {
+        qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -4594,14 +4720,14 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowType(@ptrCast(self));
+    pub fn WindowType(self: QDesignerFormWindowInterface) i32 {
+        return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4612,8 +4738,8 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QtC.QWidget {
-        return qtc.QWidget_Find(@bitCast(param1));
+    pub fn Find(param1: usize) QWidget {
+        return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
 
     /// Inherited from QWidget
@@ -4622,14 +4748,14 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
-        return qtc.QWidget_ChildAt(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn ChildAt(self: QDesignerFormWindowInterface, x: i32, y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
     }
 
     /// Inherited from QWidget
@@ -4638,12 +4764,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` p: QtC.QPoint `
+    /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAt2(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt2(self: QDesignerFormWindowInterface, p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4652,12 +4779,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` p: QtC.QPointF `
+    /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAt3(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt3(self: QDesignerFormWindowInterface, p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4666,12 +4794,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetAttribute(@ptrCast(self), @bitCast(param1));
+    pub fn SetAttribute(self: QDesignerFormWindowInterface, param1: i32) void {
+        qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -4680,12 +4808,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
-        return qtc.QWidget_TestAttribute(@ptrCast(self), @bitCast(param1));
+    pub fn TestAttribute(self: QDesignerFormWindowInterface, param1: i32) bool {
+        return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -4694,10 +4822,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn PaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QWidget_PaintEngine(@ptrCast(self));
+    pub fn PaintEngine(self: QDesignerFormWindowInterface) QPaintEngine {
+        return .{ .ptr = qtc.QWidget_PaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4706,10 +4834,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn EnsurePolished(self: ?*anyopaque) void {
-        qtc.QWidget_EnsurePolished(@ptrCast(self));
+    pub fn EnsurePolished(self: QDesignerFormWindowInterface) void {
+        qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4718,12 +4846,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` child: QtC.QWidget `
+    /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
-        return qtc.QWidget_IsAncestorOf(@ptrCast(self), @ptrCast(child));
+    pub fn IsAncestorOf(self: QDesignerFormWindowInterface, child: anytype) bool {
+        comptime _ = @TypeOf(child)._is_QWidget;
+        return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
 
     /// Inherited from QWidget
@@ -4732,10 +4861,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn AutoFillBackground(self: ?*anyopaque) bool {
-        return qtc.QWidget_AutoFillBackground(@ptrCast(self));
+    pub fn AutoFillBackground(self: QDesignerFormWindowInterface) bool {
+        return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4744,12 +4873,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: ?*anyopaque, enabled: bool) void {
-        qtc.QWidget_SetAutoFillBackground(@ptrCast(self), enabled);
+    pub fn SetAutoFillBackground(self: QDesignerFormWindowInterface, enabled: bool) void {
+        qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QWidget
@@ -4758,10 +4887,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn BackingStore(self: ?*anyopaque) QtC.QBackingStore {
-        return qtc.QWidget_BackingStore(@ptrCast(self));
+    pub fn BackingStore(self: QDesignerFormWindowInterface) QBackingStore {
+        return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4770,10 +4899,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn WindowHandle(self: ?*anyopaque) QtC.QWindow {
-        return qtc.QWidget_WindowHandle(@ptrCast(self));
+    pub fn WindowHandle(self: QDesignerFormWindowInterface) QWindow {
+        return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4782,10 +4911,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Screen(self: ?*anyopaque) QtC.QScreen {
-        return qtc.QWidget_Screen(@ptrCast(self));
+    pub fn Screen(self: QDesignerFormWindowInterface) QScreen {
+        return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4794,12 +4923,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` screen: QtC.QScreen `
+    /// ` screen: QScreen `
     ///
-    pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
-        qtc.QWidget_SetScreen(@ptrCast(self), @ptrCast(screen));
+    pub fn SetScreen(self: QDesignerFormWindowInterface, screen: anytype) void {
+        comptime _ = @TypeOf(screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
     }
 
     /// Inherited from QWidget
@@ -4808,10 +4938,11 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer(@ptrCast(window));
+    pub fn CreateWindowContainer(window: anytype) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4820,16 +4951,16 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
+    pub fn WindowTitleChanged(self: QDesignerFormWindowInterface, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        qtc.QWidget_WindowTitleChanged(@ptrCast(self), title_str);
+        qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
 
     /// Inherited from QWidget
@@ -4838,12 +4969,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerFormWindowInterface, title: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerFormWindowInterface, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowTitleChanged(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4852,12 +4983,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QWidget_WindowIconChanged(@ptrCast(self), @ptrCast(icon));
+    pub fn WindowIconChanged(self: QDesignerFormWindowInterface, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QWidget
@@ -4866,12 +4998,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerFormWindowInterface, icon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerFormWindowInterface, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowIconChanged(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, QIcon) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4880,16 +5012,16 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
+    pub fn WindowIconTextChanged(self: QDesignerFormWindowInterface, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
-        qtc.QWidget_WindowIconTextChanged(@ptrCast(self), iconText_str);
+        qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
 
     /// Inherited from QWidget
@@ -4898,12 +5030,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerFormWindowInterface, iconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerFormWindowInterface, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowIconTextChanged(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4912,12 +5044,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` pos: QtC.QPoint `
+    /// ` pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: ?*anyopaque, pos: ?*anyopaque) void {
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self), @ptrCast(pos));
+    pub fn CustomContextMenuRequested(self: QDesignerFormWindowInterface, pos: anytype) void {
+        comptime _ = @TypeOf(pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
     }
 
     /// Inherited from QWidget
@@ -4926,12 +5059,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerFormWindowInterface, pos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerFormWindowInterface, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomContextMenuRequested(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, QPoint) callconv(.c) void) void {
+        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4940,12 +5073,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.QWidget_InputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn InputMethodQuery(self: QDesignerFormWindowInterface, param1: i32) QVariant {
+        return .{ .ptr = qtc.QWidget_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
     /// Inherited from QWidget
@@ -4954,14 +5087,14 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: ?*anyopaque) i32 {
-        return qtc.QWidget_InputMethodHints(@ptrCast(self));
+    pub fn InputMethodHints(self: QDesignerFormWindowInterface) i32 {
+        return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4970,12 +5103,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
-        qtc.QWidget_SetInputMethodHints(@ptrCast(self), @bitCast(hints));
+    pub fn SetInputMethodHints(self: QDesignerFormWindowInterface, hints: i32) void {
+        qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
 
     /// Inherited from QWidget
@@ -4984,14 +5117,16 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render22(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset));
+    pub fn Render22(self: QDesignerFormWindowInterface, target: anytype, targetOffset: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// Inherited from QWidget
@@ -5000,16 +5135,19 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        qtc.QWidget_Render3(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+    pub fn Render3(self: QDesignerFormWindowInterface, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// Inherited from QWidget
@@ -5018,18 +5156,21 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
+    pub fn Render4(self: QDesignerFormWindowInterface, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -5038,14 +5179,16 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render23(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset));
+    pub fn Render23(self: QDesignerFormWindowInterface, painter: anytype, targetOffset: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// Inherited from QWidget
@@ -5054,16 +5197,19 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        qtc.QWidget_Render32(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+    pub fn Render32(self: QDesignerFormWindowInterface, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// Inherited from QWidget
@@ -5072,18 +5218,21 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
+    pub fn Render42(self: QDesignerFormWindowInterface, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -5092,12 +5241,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` rectangle: QtC.QRect `
+    /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) QtC.QPixmap {
-        return qtc.QWidget_Grab1(@ptrCast(self), @ptrCast(rectangle));
+    pub fn Grab1(self: QDesignerFormWindowInterface, rectangle: anytype) QPixmap {
+        comptime _ = @TypeOf(rectangle)._is_QRect;
+        return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5106,14 +5256,14 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i32, flags: i32) void {
-        qtc.QWidget_GrabGesture2(@ptrCast(self), @bitCast(typeVal), @bitCast(flags));
+    pub fn GrabGesture2(self: QDesignerFormWindowInterface, typeVal: i32, flags: i32) void {
+        qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
 
     /// Inherited from QWidget
@@ -5122,14 +5272,15 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` key: QtC.QKeySequence `
+    /// ` key: QKeySequence `
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
-        return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @bitCast(context));
+    pub fn GrabShortcut2(self: QDesignerFormWindowInterface, key: anytype, context: i32) i32 {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
 
     /// Inherited from QWidget
@@ -5138,14 +5289,14 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self), @bitCast(id), enable);
+    pub fn SetShortcutEnabled2(self: QDesignerFormWindowInterface, id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -5154,14 +5305,14 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self), @bitCast(id), enable);
+    pub fn SetShortcutAutoRepeat2(self: QDesignerFormWindowInterface, id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -5170,14 +5321,14 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetWindowFlag2(@ptrCast(self), @bitCast(param1), on);
+    pub fn SetWindowFlag2(self: QDesignerFormWindowInterface, param1: i32, on: bool) void {
+        qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -5186,14 +5337,14 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetAttribute2(@ptrCast(self), @bitCast(param1), on);
+    pub fn SetAttribute2(self: QDesignerFormWindowInterface, param1: i32, on: bool) void {
+        qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -5202,12 +5353,14 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer2(@ptrCast(window), @ptrCast(parent));
+    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5216,14 +5369,16 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i32) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @bitCast(flags));
+    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
     }
 
     /// Inherited from QObject
@@ -5232,14 +5387,16 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QObject_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: QDesignerFormWindowInterface, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -5248,12 +5405,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerformwindowinterface.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5266,12 +5423,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QDesignerFormWindowInterface, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -5280,10 +5437,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QDesignerFormWindowInterface) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5292,10 +5449,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QDesignerFormWindowInterface) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5304,10 +5461,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QDesignerFormWindowInterface) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5316,10 +5473,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QDesignerFormWindowInterface) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5328,12 +5485,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QDesignerFormWindowInterface, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -5342,10 +5499,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QDesignerFormWindowInterface) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5354,12 +5511,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QDesignerFormWindowInterface, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -5368,12 +5526,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QDesignerFormWindowInterface, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -5382,12 +5540,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QDesignerFormWindowInterface, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -5396,12 +5554,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QDesignerFormWindowInterface, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -5410,12 +5568,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QDesignerFormWindowInterface, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -5424,16 +5582,17 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qdesignerformwindowinterface.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qdesignerformwindowinterface.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -5443,12 +5602,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QDesignerFormWindowInterface, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -5457,12 +5617,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QDesignerFormWindowInterface, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -5471,18 +5632,20 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -5491,16 +5654,20 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5509,18 +5676,19 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QDesignerFormWindowInterface, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -5529,18 +5697,20 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -5549,16 +5719,20 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -5567,10 +5741,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QDesignerFormWindowInterface) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5579,12 +5753,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QDesignerFormWindowInterface, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -5593,10 +5768,11 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -5605,10 +5781,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QDesignerFormWindowInterface) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5617,10 +5793,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QDesignerFormWindowInterface) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5629,15 +5805,16 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QDesignerFormWindowInterface, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -5646,13 +5823,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QDesignerFormWindowInterface, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -5661,17 +5838,16 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QDesignerFormWindowInterface, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qdesignerformwindowinterface.DynamicPropertyNames: Memory allocation failed");
@@ -5690,10 +5866,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QDesignerFormWindowInterface) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5702,10 +5878,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QDesignerFormWindowInterface) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5714,10 +5890,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QDesignerFormWindowInterface) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5726,12 +5902,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerFormWindowInterface) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerFormWindowInterface) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5740,10 +5916,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QDesignerFormWindowInterface) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5752,13 +5928,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QDesignerFormWindowInterface, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -5767,10 +5943,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QDesignerFormWindowInterface) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5779,14 +5955,14 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QDesignerFormWindowInterface, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -5795,14 +5971,14 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QDesignerFormWindowInterface, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -5811,20 +5987,22 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -5833,18 +6011,22 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -5853,9 +6035,9 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5863,10 +6045,11 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QDesignerFormWindowInterface, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -5875,13 +6058,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QDesignerFormWindowInterface, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -5890,15 +6073,16 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QDesignerFormWindowInterface, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -5907,18 +6091,19 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QDesignerFormWindowInterface, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -5927,15 +6112,16 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QDesignerFormWindowInterface, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -5944,12 +6130,13 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QDesignerFormWindowInterface, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -5958,12 +6145,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerFormWindowInterface, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerFormWindowInterface, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -5972,10 +6159,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn PaintingActive(self: ?*anyopaque) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self));
+    pub fn PaintingActive(self: QDesignerFormWindowInterface) bool {
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5984,10 +6171,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn WidthMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self));
+    pub fn WidthMM(self: QDesignerFormWindowInterface) i32 {
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5996,10 +6183,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn HeightMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self));
+    pub fn HeightMM(self: QDesignerFormWindowInterface) i32 {
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6008,10 +6195,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn LogicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self));
+    pub fn LogicalDpiX(self: QDesignerFormWindowInterface) i32 {
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6020,10 +6207,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn LogicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self));
+    pub fn LogicalDpiY(self: QDesignerFormWindowInterface) i32 {
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6032,10 +6219,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self));
+    pub fn PhysicalDpiX(self: QDesignerFormWindowInterface) i32 {
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6044,10 +6231,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self));
+    pub fn PhysicalDpiY(self: QDesignerFormWindowInterface) i32 {
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6056,10 +6243,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self));
+    pub fn DevicePixelRatio(self: QDesignerFormWindowInterface) f64 {
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6068,10 +6255,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self));
+    pub fn DevicePixelRatioF(self: QDesignerFormWindowInterface) f64 {
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6080,10 +6267,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn ColorCount(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self));
+    pub fn ColorCount(self: QDesignerFormWindowInterface) i32 {
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6092,10 +6279,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Depth(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self));
+    pub fn Depth(self: QDesignerFormWindowInterface) i32 {
+        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6128,12 +6315,12 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerFormWindowInterface, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerFormWindowInterface, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QDesignerFormWindowInterface, callback: *const fn (QDesignerFormWindowInterface, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -6146,10 +6333,10 @@ pub const qdesignerformwindowinterface = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QDesignerFormWindowInterface `
+    /// ` self: QDesignerFormWindowInterface `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QDesignerFormWindowInterface_Delete(@ptrCast(self));
+    pub fn Delete(self: QDesignerFormWindowInterface) void {
+        qtc.QDesignerFormWindowInterface_Delete(@ptrCast(self.ptr));
     }
 };
 

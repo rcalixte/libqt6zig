@@ -2,53 +2,63 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginefindtextresult.html)
-pub const qwebenginefindtextresult = struct {
+pub const QWebEngineFindTextResult = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginefindtextresult.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QWebEngineFindTextResult,
+
+    pub const _is_QWebEngineFindTextResult = {};
+
     /// New constructs a new QWebEngineFindTextResult object.
     ///
-    pub fn New() QtC.QWebEngineFindTextResult {
-        return qtc.QWebEngineFindTextResult_new();
+    pub fn New() QWebEngineFindTextResult {
+        return .{ .ptr = qtc.QWebEngineFindTextResult_new() };
     }
 
     /// New2 constructs a new QWebEngineFindTextResult object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QWebEngineFindTextResult `
+    /// ` other: QWebEngineFindTextResult `
     ///
-    pub fn New2(other: ?*anyopaque) QtC.QWebEngineFindTextResult {
-        return qtc.QWebEngineFindTextResult_new2(@ptrCast(other));
+    pub fn New2(other: anytype) QWebEngineFindTextResult {
+        comptime _ = @TypeOf(other)._is_QWebEngineFindTextResult;
+        return .{ .ptr = qtc.QWebEngineFindTextResult_new2(@ptrCast(other.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginefindtextresult.html#numberOfMatches)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineFindTextResult `
+    /// ` self: QWebEngineFindTextResult `
     ///
-    pub fn NumberOfMatches(self: ?*anyopaque) i32 {
-        return qtc.QWebEngineFindTextResult_NumberOfMatches(@ptrCast(self));
+    pub fn NumberOfMatches(self: QWebEngineFindTextResult) i32 {
+        return qtc.QWebEngineFindTextResult_NumberOfMatches(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginefindtextresult.html#activeMatch)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineFindTextResult `
+    /// ` self: QWebEngineFindTextResult `
     ///
-    pub fn ActiveMatch(self: ?*anyopaque) i32 {
-        return qtc.QWebEngineFindTextResult_ActiveMatch(@ptrCast(self));
+    pub fn ActiveMatch(self: QWebEngineFindTextResult) i32 {
+        return qtc.QWebEngineFindTextResult_ActiveMatch(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginefindtextresult.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineFindTextResult `
+    /// ` self: QWebEngineFindTextResult `
     ///
-    /// ` other: QtC.QWebEngineFindTextResult `
+    /// ` other: QWebEngineFindTextResult `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QWebEngineFindTextResult_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorAssign(self: QWebEngineFindTextResult, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QWebEngineFindTextResult;
+        qtc.QWebEngineFindTextResult_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -61,9 +71,9 @@ pub const qwebenginefindtextresult = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QWebEngineFindTextResult `
+    /// ` self: QWebEngineFindTextResult `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QWebEngineFindTextResult_Delete(@ptrCast(self));
+    pub fn Delete(self: QWebEngineFindTextResult) void {
+        qtc.QWebEngineFindTextResult_Delete(@ptrCast(self.ptr));
     }
 };

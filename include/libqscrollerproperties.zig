@@ -1,69 +1,83 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QVariant = @import("libqt6").QVariant;
 const qscrollerproperties_enums = enums;
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollerproperties.html)
-pub const qscrollerproperties = struct {
+pub const QScrollerProperties = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollerproperties.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QScrollerProperties,
+
+    pub const _is_QScrollerProperties = {};
+
     /// New constructs a new QScrollerProperties object.
     ///
-    pub fn New() QtC.QScrollerProperties {
-        return qtc.QScrollerProperties_new();
+    pub fn New() QScrollerProperties {
+        return .{ .ptr = qtc.QScrollerProperties_new() };
     }
 
     /// New2 constructs a new QScrollerProperties object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` sp: QtC.QScrollerProperties `
+    /// ` sp: QScrollerProperties `
     ///
-    pub fn New2(sp: ?*anyopaque) QtC.QScrollerProperties {
-        return qtc.QScrollerProperties_new2(@ptrCast(sp));
+    pub fn New2(sp: anytype) QScrollerProperties {
+        comptime _ = @TypeOf(sp)._is_QScrollerProperties;
+        return .{ .ptr = qtc.QScrollerProperties_new2(@ptrCast(sp.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollerproperties.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QScrollerProperties `
+    /// ` self: QScrollerProperties `
     ///
-    /// ` sp: QtC.QScrollerProperties `
+    /// ` sp: QScrollerProperties `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, sp: ?*anyopaque) void {
-        qtc.QScrollerProperties_OperatorAssign(@ptrCast(self), @ptrCast(sp));
+    pub fn OperatorAssign(self: QScrollerProperties, sp: anytype) void {
+        comptime _ = @TypeOf(sp)._is_QScrollerProperties;
+        qtc.QScrollerProperties_OperatorAssign(@ptrCast(self.ptr), @ptrCast(sp.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollerproperties.html#operator-eq-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QScrollerProperties `
+    /// ` self: QScrollerProperties `
     ///
-    /// ` sp: QtC.QScrollerProperties `
+    /// ` sp: QScrollerProperties `
     ///
-    pub fn OperatorEqual(self: ?*anyopaque, sp: ?*anyopaque) bool {
-        return qtc.QScrollerProperties_OperatorEqual(@ptrCast(self), @ptrCast(sp));
+    pub fn OperatorEqual(self: QScrollerProperties, sp: anytype) bool {
+        comptime _ = @TypeOf(sp)._is_QScrollerProperties;
+        return qtc.QScrollerProperties_OperatorEqual(@ptrCast(self.ptr), @ptrCast(sp.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollerproperties.html#operator-not-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QScrollerProperties `
+    /// ` self: QScrollerProperties `
     ///
-    /// ` sp: QtC.QScrollerProperties `
+    /// ` sp: QScrollerProperties `
     ///
-    pub fn OperatorNotEqual(self: ?*anyopaque, sp: ?*anyopaque) bool {
-        return qtc.QScrollerProperties_OperatorNotEqual(@ptrCast(self), @ptrCast(sp));
+    pub fn OperatorNotEqual(self: QScrollerProperties, sp: anytype) bool {
+        comptime _ = @TypeOf(sp)._is_QScrollerProperties;
+        return qtc.QScrollerProperties_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(sp.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollerproperties.html#setDefaultScrollerProperties)
     ///
     /// ## Parameter(s):
     ///
-    /// ` sp: QtC.QScrollerProperties `
+    /// ` sp: QScrollerProperties `
     ///
-    pub fn SetDefaultScrollerProperties(sp: ?*anyopaque) void {
-        qtc.QScrollerProperties_SetDefaultScrollerProperties(@ptrCast(sp));
+    pub fn SetDefaultScrollerProperties(sp: anytype) void {
+        comptime _ = @TypeOf(sp)._is_QScrollerProperties;
+        qtc.QScrollerProperties_SetDefaultScrollerProperties(@ptrCast(sp.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollerproperties.html#unsetDefaultScrollerProperties)
@@ -76,26 +90,27 @@ pub const qscrollerproperties = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QScrollerProperties `
+    /// ` self: QScrollerProperties `
     ///
     /// ` metric: qscrollerproperties_enums.ScrollMetric `
     ///
-    pub fn ScrollMetric(self: ?*anyopaque, metric: i32) QtC.QVariant {
-        return qtc.QScrollerProperties_ScrollMetric(@ptrCast(self), @bitCast(metric));
+    pub fn ScrollMetric(self: QScrollerProperties, metric: i32) QVariant {
+        return .{ .ptr = qtc.QScrollerProperties_ScrollMetric(@ptrCast(self.ptr), @bitCast(metric)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollerproperties.html#setScrollMetric)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QScrollerProperties `
+    /// ` self: QScrollerProperties `
     ///
     /// ` metric: qscrollerproperties_enums.ScrollMetric `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetScrollMetric(self: ?*anyopaque, metric: i32, value: ?*anyopaque) void {
-        qtc.QScrollerProperties_SetScrollMetric(@ptrCast(self), @bitCast(metric), @ptrCast(value));
+    pub fn SetScrollMetric(self: QScrollerProperties, metric: i32, value: anytype) void {
+        comptime _ = @TypeOf(value)._is_QVariant;
+        qtc.QScrollerProperties_SetScrollMetric(@ptrCast(self.ptr), @bitCast(metric), @ptrCast(value.ptr));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -108,10 +123,10 @@ pub const qscrollerproperties = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QScrollerProperties `
+    /// ` self: QScrollerProperties `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QScrollerProperties_Delete(@ptrCast(self));
+    pub fn Delete(self: QScrollerProperties) void {
+        qtc.QScrollerProperties_Delete(@ptrCast(self.ptr));
     }
 };
 

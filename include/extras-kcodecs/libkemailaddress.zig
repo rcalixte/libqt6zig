@@ -1,19 +1,28 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QUrl = @import("libqt6").QUrl;
 const kemailaddress_enums = enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/kemailaddress.html)
-pub const kemailaddress = struct {
+pub const KEmailAddress = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kemailaddress.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KEmailAddress,
+
+    pub const _is_KEmailAddress = {};
+
     /// ### [Upstream resources](https://api.kde.org/kemailaddress.html#splitAddressList)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SplitAddressList(param1: []const u8, allocator: std.mem.Allocator) []const []const u8 {
+    /// ` param1: []const u8 `
+    ///
+    pub fn SplitAddressList(allocator: std.mem.Allocator, param1: []const u8) []const []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -21,9 +30,8 @@ pub const kemailaddress = struct {
         const _arr: qtc.libqt_list = qtc.KEmailAddress_SplitAddressList(param1_str);
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kemailaddress.SplitAddressList: Memory allocation failed");
@@ -154,11 +162,11 @@ pub const kemailaddress = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: kemailaddress_enums.EmailParseResult `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn EmailParseResultToString(param1: i32, allocator: std.mem.Allocator) []const u8 {
+    /// ` param1: kemailaddress_enums.EmailParseResult `
+    ///
+    pub fn EmailParseResultToString(allocator: std.mem.Allocator, param1: i32) []const u8 {
         var _str = qtc.KEmailAddress_EmailParseResultToString(@bitCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kemailaddress.EmailParseResultToString: Memory allocation failed");
@@ -198,11 +206,11 @@ pub const kemailaddress = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ExtractEmailAddress(param1: []u8, allocator: std.mem.Allocator) []u8 {
+    /// ` param1: []u8 `
+    ///
+    pub fn ExtractEmailAddress(allocator: std.mem.Allocator, param1: []u8) []u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -218,13 +226,13 @@ pub const kemailaddress = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` param1: []u8 `
     ///
     /// ` param2: []const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn ExtractEmailAddress2(param1: []u8, param2: []const u8, allocator: std.mem.Allocator) []u8 {
+    pub fn ExtractEmailAddress2(allocator: std.mem.Allocator, param1: []u8, param2: []const u8) []u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -244,11 +252,11 @@ pub const kemailaddress = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ExtractEmailAddress3(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` param1: []const u8 `
+    ///
+    pub fn ExtractEmailAddress3(allocator: std.mem.Allocator, param1: []const u8) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -264,13 +272,13 @@ pub const kemailaddress = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` param1: []const u8 `
     ///
     /// ` param2: []const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn ExtractEmailAddress4(param1: []const u8, param2: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn ExtractEmailAddress4(allocator: std.mem.Allocator, param1: []const u8, param2: []const u8) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -290,11 +298,11 @@ pub const kemailaddress = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FirstEmailAddress(param1: []u8, allocator: std.mem.Allocator) []u8 {
+    /// ` param1: []u8 `
+    ///
+    pub fn FirstEmailAddress(allocator: std.mem.Allocator, param1: []u8) []u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -310,13 +318,13 @@ pub const kemailaddress = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` param1: []u8 `
     ///
     /// ` param2: []const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn FirstEmailAddress2(param1: []u8, param2: []const u8, allocator: std.mem.Allocator) []u8 {
+    pub fn FirstEmailAddress2(allocator: std.mem.Allocator, param1: []u8, param2: []const u8) []u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -336,11 +344,11 @@ pub const kemailaddress = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FirstEmailAddress3(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` param1: []const u8 `
+    ///
+    pub fn FirstEmailAddress3(allocator: std.mem.Allocator, param1: []const u8) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -356,13 +364,13 @@ pub const kemailaddress = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` param1: []const u8 `
     ///
     /// ` param2: []const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn FirstEmailAddress4(param1: []const u8, param2: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn FirstEmailAddress4(allocator: std.mem.Allocator, param1: []const u8, param2: []const u8) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -430,15 +438,15 @@ pub const kemailaddress = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` param1: []const u8 `
     ///
     /// ` param2: []const u8 `
     ///
     /// ` param3: []const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn NormalizedAddress(param1: []const u8, param2: []const u8, param3: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn NormalizedAddress(allocator: std.mem.Allocator, param1: []const u8, param2: []const u8, param3: []const u8) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -462,11 +470,11 @@ pub const kemailaddress = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FromIdn(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` param1: []const u8 `
+    ///
+    pub fn FromIdn(allocator: std.mem.Allocator, param1: []const u8) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -482,11 +490,11 @@ pub const kemailaddress = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToIdn(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` param1: []const u8 `
+    ///
+    pub fn ToIdn(allocator: std.mem.Allocator, param1: []const u8) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -502,11 +510,11 @@ pub const kemailaddress = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NormalizeAddressesAndDecodeIdn(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` param1: []const u8 `
+    ///
+    pub fn NormalizeAddressesAndDecodeIdn(allocator: std.mem.Allocator, param1: []const u8) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -522,11 +530,11 @@ pub const kemailaddress = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NormalizeAddressesAndEncodeIdn(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` param1: []const u8 `
+    ///
+    pub fn NormalizeAddressesAndEncodeIdn(allocator: std.mem.Allocator, param1: []const u8) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -542,11 +550,11 @@ pub const kemailaddress = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QuoteNameIfNecessary(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` param1: []const u8 `
+    ///
+    pub fn QuoteNameIfNecessary(allocator: std.mem.Allocator, param1: []const u8) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -564,24 +572,25 @@ pub const kemailaddress = struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn EncodeMailtoUrl(param1: []const u8) QtC.QUrl {
+    pub fn EncodeMailtoUrl(param1: []const u8) QUrl {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
-        return qtc.KEmailAddress_EncodeMailtoUrl(param1_str);
+        return .{ .ptr = qtc.KEmailAddress_EncodeMailtoUrl(param1_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kemailaddress.html#decodeMailtoUrl)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QUrl `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DecodeMailtoUrl(param1: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KEmailAddress_DecodeMailtoUrl(@ptrCast(param1));
+    /// ` param1: QUrl `
+    ///
+    pub fn DecodeMailtoUrl(allocator: std.mem.Allocator, param1: anytype) []const u8 {
+        comptime _ = @TypeOf(param1)._is_QUrl;
+        var _str = qtc.KEmailAddress_DecodeMailtoUrl(@ptrCast(param1.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kemailaddress.DecodeMailtoUrl: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

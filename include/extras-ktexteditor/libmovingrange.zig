@@ -1,337 +1,360 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const KTextEditor__Cursor = @import("libqt6").KTextEditor__Cursor;
+const KTextEditor__Document = @import("libqt6").KTextEditor__Document;
+const KTextEditor__LineRange = @import("libqt6").KTextEditor__LineRange;
+const KTextEditor__MovingCursor = @import("libqt6").KTextEditor__MovingCursor;
+const KTextEditor__MovingRangeFeedback = @import("libqt6").KTextEditor__MovingRangeFeedback;
+const KTextEditor__Range = @import("libqt6").KTextEditor__Range;
+const KTextEditor__View = @import("libqt6").KTextEditor__View;
 const movingrange_enums = enums;
 
 /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html)
-pub const ktexteditor__movingrange = struct {
+pub const KTextEditor__MovingRange = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KTextEditor__MovingRange,
+
+    pub const _is_KTextEditor__MovingRange = {};
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#setInsertBehaviors)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__MovingRange `
+    /// ` self: KTextEditor__MovingRange `
     ///
     /// ` insertBehaviors: flag of movingrange_enums.InsertBehavior `
     ///
-    pub fn SetInsertBehaviors(self: ?*anyopaque, insertBehaviors: i32) void {
-        qtc.KTextEditor__MovingRange_SetInsertBehaviors(@ptrCast(self), @bitCast(insertBehaviors));
+    pub fn SetInsertBehaviors(self: KTextEditor__MovingRange, insertBehaviors: i32) void {
+        qtc.KTextEditor__MovingRange_SetInsertBehaviors(@ptrCast(self.ptr), @bitCast(insertBehaviors));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#insertBehaviors)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__MovingRange `
+    /// ` self: KTextEditor__MovingRange `
     ///
     /// ## Returns:
     ///
     /// ` flag of movingrange_enums.InsertBehavior `
     ///
-    pub fn InsertBehaviors(self: ?*anyopaque) i32 {
-        return qtc.KTextEditor__MovingRange_InsertBehaviors(@ptrCast(self));
+    pub fn InsertBehaviors(self: KTextEditor__MovingRange) i32 {
+        return qtc.KTextEditor__MovingRange_InsertBehaviors(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#setEmptyBehavior)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__MovingRange `
+    /// ` self: KTextEditor__MovingRange `
     ///
     /// ` emptyBehavior: movingrange_enums.EmptyBehavior `
     ///
-    pub fn SetEmptyBehavior(self: ?*anyopaque, emptyBehavior: i32) void {
-        qtc.KTextEditor__MovingRange_SetEmptyBehavior(@ptrCast(self), @bitCast(emptyBehavior));
+    pub fn SetEmptyBehavior(self: KTextEditor__MovingRange, emptyBehavior: i32) void {
+        qtc.KTextEditor__MovingRange_SetEmptyBehavior(@ptrCast(self.ptr), @bitCast(emptyBehavior));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#emptyBehavior)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__MovingRange `
+    /// ` self: KTextEditor__MovingRange `
     ///
     /// ## Returns:
     ///
     /// ` movingrange_enums.EmptyBehavior `
     ///
-    pub fn EmptyBehavior(self: ?*anyopaque) i32 {
-        return qtc.KTextEditor__MovingRange_EmptyBehavior(@ptrCast(self));
+    pub fn EmptyBehavior(self: KTextEditor__MovingRange) i32 {
+        return qtc.KTextEditor__MovingRange_EmptyBehavior(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#document)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__MovingRange `
+    /// ` self: KTextEditor__MovingRange `
     ///
-    pub fn Document(self: ?*anyopaque) QtC.KTextEditor__Document {
-        return qtc.KTextEditor__MovingRange_Document(@ptrCast(self));
+    pub fn Document(self: KTextEditor__MovingRange) KTextEditor__Document {
+        return .{ .ptr = qtc.KTextEditor__MovingRange_Document(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#setRange)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__MovingRange `
+    /// ` self: KTextEditor__MovingRange `
     ///
-    /// ` range: QtC.KTextEditor__Range `
+    /// ` range: KTextEditor__Range `
     ///
-    pub fn SetRange(self: ?*anyopaque, range: QtC.KTextEditor__Range) void {
-        qtc.KTextEditor__MovingRange_SetRange(@ptrCast(self), @ptrCast(range));
+    pub fn SetRange(self: KTextEditor__MovingRange, range: anytype) void {
+        comptime _ = @TypeOf(range)._is_KTextEditor__Range;
+        qtc.KTextEditor__MovingRange_SetRange(@ptrCast(self.ptr), @ptrCast(range.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#start)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__MovingRange `
+    /// ` self: KTextEditor__MovingRange `
     ///
-    pub fn Start(self: ?*anyopaque) QtC.KTextEditor__MovingCursor {
-        return qtc.KTextEditor__MovingRange_Start(@ptrCast(self));
+    pub fn Start(self: KTextEditor__MovingRange) KTextEditor__MovingCursor {
+        return .{ .ptr = qtc.KTextEditor__MovingRange_Start(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#end)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__MovingRange `
+    /// ` self: KTextEditor__MovingRange `
     ///
-    pub fn End(self: ?*anyopaque) QtC.KTextEditor__MovingCursor {
-        return qtc.KTextEditor__MovingRange_End(@ptrCast(self));
+    pub fn End(self: KTextEditor__MovingRange) KTextEditor__MovingCursor {
+        return .{ .ptr = qtc.KTextEditor__MovingRange_End(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#view)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__MovingRange `
+    /// ` self: KTextEditor__MovingRange `
     ///
-    pub fn View(self: ?*anyopaque) QtC.KTextEditor__View {
-        return qtc.KTextEditor__MovingRange_View(@ptrCast(self));
+    pub fn View(self: KTextEditor__MovingRange) KTextEditor__View {
+        return .{ .ptr = qtc.KTextEditor__MovingRange_View(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#setView)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__MovingRange `
+    /// ` self: KTextEditor__MovingRange `
     ///
-    /// ` view: QtC.KTextEditor__View `
+    /// ` view: KTextEditor__View `
     ///
-    pub fn SetView(self: ?*anyopaque, view: ?*anyopaque) void {
-        qtc.KTextEditor__MovingRange_SetView(@ptrCast(self), @ptrCast(view));
+    pub fn SetView(self: KTextEditor__MovingRange, view: anytype) void {
+        comptime _ = @TypeOf(view)._is_KTextEditor__View;
+        qtc.KTextEditor__MovingRange_SetView(@ptrCast(self.ptr), @ptrCast(view.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#attributeOnlyForViews)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__MovingRange `
+    /// ` self: KTextEditor__MovingRange `
     ///
-    pub fn AttributeOnlyForViews(self: ?*anyopaque) bool {
-        return qtc.KTextEditor__MovingRange_AttributeOnlyForViews(@ptrCast(self));
+    pub fn AttributeOnlyForViews(self: KTextEditor__MovingRange) bool {
+        return qtc.KTextEditor__MovingRange_AttributeOnlyForViews(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#setAttributeOnlyForViews)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__MovingRange `
+    /// ` self: KTextEditor__MovingRange `
     ///
     /// ` onlyForViews: bool `
     ///
-    pub fn SetAttributeOnlyForViews(self: ?*anyopaque, onlyForViews: bool) void {
-        qtc.KTextEditor__MovingRange_SetAttributeOnlyForViews(@ptrCast(self), onlyForViews);
+    pub fn SetAttributeOnlyForViews(self: KTextEditor__MovingRange, onlyForViews: bool) void {
+        qtc.KTextEditor__MovingRange_SetAttributeOnlyForViews(@ptrCast(self.ptr), onlyForViews);
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#feedback)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__MovingRange `
+    /// ` self: KTextEditor__MovingRange `
     ///
-    pub fn Feedback(self: ?*anyopaque) QtC.KTextEditor__MovingRangeFeedback {
-        return qtc.KTextEditor__MovingRange_Feedback(@ptrCast(self));
+    pub fn Feedback(self: KTextEditor__MovingRange) KTextEditor__MovingRangeFeedback {
+        return .{ .ptr = qtc.KTextEditor__MovingRange_Feedback(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#setFeedback)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__MovingRange `
+    /// ` self: KTextEditor__MovingRange `
     ///
-    /// ` feedback: QtC.KTextEditor__MovingRangeFeedback `
+    /// ` feedback: KTextEditor__MovingRangeFeedback `
     ///
-    pub fn SetFeedback(self: ?*anyopaque, feedback: ?*anyopaque) void {
-        qtc.KTextEditor__MovingRange_SetFeedback(@ptrCast(self), @ptrCast(feedback));
+    pub fn SetFeedback(self: KTextEditor__MovingRange, feedback: anytype) void {
+        comptime _ = @TypeOf(feedback)._is_KTextEditor__MovingRangeFeedback;
+        qtc.KTextEditor__MovingRange_SetFeedback(@ptrCast(self.ptr), @ptrCast(feedback.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#zDepth)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__MovingRange `
+    /// ` self: KTextEditor__MovingRange `
     ///
-    pub fn ZDepth(self: ?*anyopaque) f64 {
-        return qtc.KTextEditor__MovingRange_ZDepth(@ptrCast(self));
+    pub fn ZDepth(self: KTextEditor__MovingRange) f64 {
+        return qtc.KTextEditor__MovingRange_ZDepth(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#setZDepth)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__MovingRange `
+    /// ` self: KTextEditor__MovingRange `
     ///
     /// ` zDepth: f64 `
     ///
-    pub fn SetZDepth(self: ?*anyopaque, zDepth: f64) void {
-        qtc.KTextEditor__MovingRange_SetZDepth(@ptrCast(self), @bitCast(zDepth));
+    pub fn SetZDepth(self: KTextEditor__MovingRange, zDepth: f64) void {
+        qtc.KTextEditor__MovingRange_SetZDepth(@ptrCast(self.ptr), @bitCast(zDepth));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#setRange)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__MovingRange `
+    /// ` self: KTextEditor__MovingRange `
     ///
-    /// ` start: QtC.KTextEditor__Cursor `
+    /// ` start: KTextEditor__Cursor `
     ///
-    /// ` end: QtC.KTextEditor__Cursor `
+    /// ` end: KTextEditor__Cursor `
     ///
-    pub fn SetRange4(self: ?*anyopaque, start: QtC.KTextEditor__Cursor, end: QtC.KTextEditor__Cursor) void {
-        qtc.KTextEditor__MovingRange_SetRange4(@ptrCast(self), @ptrCast(start), @ptrCast(end));
+    pub fn SetRange4(self: KTextEditor__MovingRange, start: anytype, end: anytype) void {
+        comptime _ = @TypeOf(start)._is_KTextEditor__Cursor;
+        comptime _ = @TypeOf(end)._is_KTextEditor__Cursor;
+        qtc.KTextEditor__MovingRange_SetRange4(@ptrCast(self.ptr), @ptrCast(start.ptr), @ptrCast(end.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#toRange)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__MovingRange `
+    /// ` self: KTextEditor__MovingRange `
     ///
-    pub fn ToRange(self: ?*anyopaque) QtC.KTextEditor__Range {
-        return qtc.KTextEditor__MovingRange_ToRange(@ptrCast(self));
+    pub fn ToRange(self: KTextEditor__MovingRange) KTextEditor__Range {
+        return .{ .ptr = qtc.KTextEditor__MovingRange_ToRange(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#toLineRange)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__MovingRange `
+    /// ` self: KTextEditor__MovingRange `
     ///
-    pub fn ToLineRange(self: ?*anyopaque) QtC.KTextEditor__LineRange {
-        return qtc.KTextEditor__MovingRange_ToLineRange(@ptrCast(self));
+    pub fn ToLineRange(self: KTextEditor__MovingRange) KTextEditor__LineRange {
+        return .{ .ptr = qtc.KTextEditor__MovingRange_ToLineRange(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#isEmpty)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__MovingRange `
+    /// ` self: KTextEditor__MovingRange `
     ///
-    pub fn IsEmpty(self: ?*anyopaque) bool {
-        return qtc.KTextEditor__MovingRange_IsEmpty(@ptrCast(self));
+    pub fn IsEmpty(self: KTextEditor__MovingRange) bool {
+        return qtc.KTextEditor__MovingRange_IsEmpty(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#contains)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__MovingRange `
+    /// ` self: KTextEditor__MovingRange `
     ///
-    /// ` range: QtC.KTextEditor__Range `
+    /// ` range: KTextEditor__Range `
     ///
-    pub fn Contains(self: ?*anyopaque, range: ?*anyopaque) bool {
-        return qtc.KTextEditor__MovingRange_Contains(@ptrCast(self), @ptrCast(range));
+    pub fn Contains(self: KTextEditor__MovingRange, range: anytype) bool {
+        comptime _ = @TypeOf(range)._is_KTextEditor__Range;
+        return qtc.KTextEditor__MovingRange_Contains(@ptrCast(self.ptr), @ptrCast(range.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#contains)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__MovingRange `
+    /// ` self: KTextEditor__MovingRange `
     ///
-    /// ` cursor: QtC.KTextEditor__Cursor `
+    /// ` cursor: KTextEditor__Cursor `
     ///
-    pub fn Contains2(self: ?*anyopaque, cursor: QtC.KTextEditor__Cursor) bool {
-        return qtc.KTextEditor__MovingRange_Contains2(@ptrCast(self), @ptrCast(cursor));
+    pub fn Contains2(self: KTextEditor__MovingRange, cursor: anytype) bool {
+        comptime _ = @TypeOf(cursor)._is_KTextEditor__Cursor;
+        return qtc.KTextEditor__MovingRange_Contains2(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#containsLine)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__MovingRange `
+    /// ` self: KTextEditor__MovingRange `
     ///
     /// ` line: i32 `
     ///
-    pub fn ContainsLine(self: ?*anyopaque, line: i32) bool {
-        return qtc.KTextEditor__MovingRange_ContainsLine(@ptrCast(self), @bitCast(line));
+    pub fn ContainsLine(self: KTextEditor__MovingRange, line: i32) bool {
+        return qtc.KTextEditor__MovingRange_ContainsLine(@ptrCast(self.ptr), @bitCast(line));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#containsColumn)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__MovingRange `
+    /// ` self: KTextEditor__MovingRange `
     ///
     /// ` column: i32 `
     ///
-    pub fn ContainsColumn(self: ?*anyopaque, column: i32) bool {
-        return qtc.KTextEditor__MovingRange_ContainsColumn(@ptrCast(self), @bitCast(column));
+    pub fn ContainsColumn(self: KTextEditor__MovingRange, column: i32) bool {
+        return qtc.KTextEditor__MovingRange_ContainsColumn(@ptrCast(self.ptr), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#overlaps)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__MovingRange `
+    /// ` self: KTextEditor__MovingRange `
     ///
-    /// ` range: QtC.KTextEditor__Range `
+    /// ` range: KTextEditor__Range `
     ///
-    pub fn Overlaps(self: ?*anyopaque, range: ?*anyopaque) bool {
-        return qtc.KTextEditor__MovingRange_Overlaps(@ptrCast(self), @ptrCast(range));
+    pub fn Overlaps(self: KTextEditor__MovingRange, range: anytype) bool {
+        comptime _ = @TypeOf(range)._is_KTextEditor__Range;
+        return qtc.KTextEditor__MovingRange_Overlaps(@ptrCast(self.ptr), @ptrCast(range.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#overlapsLine)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__MovingRange `
+    /// ` self: KTextEditor__MovingRange `
     ///
     /// ` line: i32 `
     ///
-    pub fn OverlapsLine(self: ?*anyopaque, line: i32) bool {
-        return qtc.KTextEditor__MovingRange_OverlapsLine(@ptrCast(self), @bitCast(line));
+    pub fn OverlapsLine(self: KTextEditor__MovingRange, line: i32) bool {
+        return qtc.KTextEditor__MovingRange_OverlapsLine(@ptrCast(self.ptr), @bitCast(line));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#overlapsColumn)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__MovingRange `
+    /// ` self: KTextEditor__MovingRange `
     ///
     /// ` column: i32 `
     ///
-    pub fn OverlapsColumn(self: ?*anyopaque, column: i32) bool {
-        return qtc.KTextEditor__MovingRange_OverlapsColumn(@ptrCast(self), @bitCast(column));
+    pub fn OverlapsColumn(self: KTextEditor__MovingRange, column: i32) bool {
+        return qtc.KTextEditor__MovingRange_OverlapsColumn(@ptrCast(self.ptr), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#onSingleLine)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__MovingRange `
+    /// ` self: KTextEditor__MovingRange `
     ///
-    pub fn OnSingleLine(self: ?*anyopaque) bool {
-        return qtc.KTextEditor__MovingRange_OnSingleLine(@ptrCast(self));
+    pub fn OnSingleLine(self: KTextEditor__MovingRange) bool {
+        return qtc.KTextEditor__MovingRange_OnSingleLine(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#numberOfLines)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__MovingRange `
+    /// ` self: KTextEditor__MovingRange `
     ///
-    pub fn NumberOfLines(self: ?*anyopaque) i32 {
-        return qtc.KTextEditor__MovingRange_NumberOfLines(@ptrCast(self));
+    pub fn NumberOfLines(self: KTextEditor__MovingRange) i32 {
+        return qtc.KTextEditor__MovingRange_NumberOfLines(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -342,10 +365,10 @@ pub const ktexteditor__movingrange = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KTextEditor__MovingRange `
+    /// ` self: KTextEditor__MovingRange `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KTextEditor__MovingRange_Delete(@ptrCast(self));
+    pub fn Delete(self: KTextEditor__MovingRange) void {
+        qtc.KTextEditor__MovingRange_Delete(@ptrCast(self.ptr));
     }
 };
 

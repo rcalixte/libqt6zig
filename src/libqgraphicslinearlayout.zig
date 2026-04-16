@@ -1,14 +1,30 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QEvent = @import("libqt6").QEvent;
+const QGraphicsItem = @import("libqt6").QGraphicsItem;
+const QGraphicsLayoutItem = @import("libqt6").QGraphicsLayoutItem;
+const QRectF = @import("libqt6").QRectF;
+const QSizeF = @import("libqt6").QSizeF;
+const QSizePolicy = @import("libqt6").QSizePolicy;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qsizepolicy_enums = @import("libqsizepolicy.zig").enums;
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html)
-pub const qgraphicslinearlayout = struct {
+pub const QGraphicsLinearLayout = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QGraphicsLinearLayout,
+
+    pub const _is_QGraphicsLinearLayout = {};
+    pub const _is_QGraphicsLayout = {};
+    pub const _is_QGraphicsLayoutItem = {};
+
     /// New constructs a new QGraphicsLinearLayout object.
     ///
-    pub fn New() QtC.QGraphicsLinearLayout {
-        return qtc.QGraphicsLinearLayout_new();
+    pub fn New() QGraphicsLinearLayout {
+        return .{ .ptr = qtc.QGraphicsLinearLayout_new() };
     }
 
     /// New2 constructs a new QGraphicsLinearLayout object.
@@ -17,18 +33,19 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ` orientation: qnamespace_enums.Orientation `
     ///
-    pub fn New2(orientation: i32) QtC.QGraphicsLinearLayout {
-        return qtc.QGraphicsLinearLayout_new2(@bitCast(orientation));
+    pub fn New2(orientation: i32) QGraphicsLinearLayout {
+        return .{ .ptr = qtc.QGraphicsLinearLayout_new2(@bitCast(orientation)) };
     }
 
     /// New3 constructs a new QGraphicsLinearLayout object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QGraphicsLayoutItem `
+    /// ` parent: QGraphicsLayoutItem `
     ///
-    pub fn New3(parent: ?*anyopaque) QtC.QGraphicsLinearLayout {
-        return qtc.QGraphicsLinearLayout_new3(@ptrCast(parent));
+    pub fn New3(parent: anytype) QGraphicsLinearLayout {
+        comptime _ = @TypeOf(parent)._is_QGraphicsLayoutItem;
+        return .{ .ptr = qtc.QGraphicsLinearLayout_new3(@ptrCast(parent.ptr)) };
     }
 
     /// New4 constructs a new QGraphicsLinearLayout object.
@@ -37,108 +54,112 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ` orientation: qnamespace_enums.Orientation `
     ///
-    /// ` parent: QtC.QGraphicsLayoutItem `
+    /// ` parent: QGraphicsLayoutItem `
     ///
-    pub fn New4(orientation: i32, parent: ?*anyopaque) QtC.QGraphicsLinearLayout {
-        return qtc.QGraphicsLinearLayout_new4(@bitCast(orientation), @ptrCast(parent));
+    pub fn New4(orientation: i32, parent: anytype) QGraphicsLinearLayout {
+        comptime _ = @TypeOf(parent)._is_QGraphicsLayoutItem;
+        return .{ .ptr = qtc.QGraphicsLinearLayout_new4(@bitCast(orientation), @ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#setOrientation)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
     /// ` orientation: qnamespace_enums.Orientation `
     ///
-    pub fn SetOrientation(self: ?*anyopaque, orientation: i32) void {
-        qtc.QGraphicsLinearLayout_SetOrientation(@ptrCast(self), @bitCast(orientation));
+    pub fn SetOrientation(self: QGraphicsLinearLayout, orientation: i32) void {
+        qtc.QGraphicsLinearLayout_SetOrientation(@ptrCast(self.ptr), @bitCast(orientation));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#orientation)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.Orientation `
     ///
-    pub fn Orientation(self: ?*anyopaque) i32 {
-        return qtc.QGraphicsLinearLayout_Orientation(@ptrCast(self));
+    pub fn Orientation(self: QGraphicsLinearLayout) i32 {
+        return qtc.QGraphicsLinearLayout_Orientation(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#addItem)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    /// ` item: QtC.QGraphicsLayoutItem `
+    /// ` item: QGraphicsLayoutItem `
     ///
-    pub fn AddItem(self: ?*anyopaque, item: ?*anyopaque) void {
-        qtc.QGraphicsLinearLayout_AddItem(@ptrCast(self), @ptrCast(item));
+    pub fn AddItem(self: QGraphicsLinearLayout, item: anytype) void {
+        comptime _ = @TypeOf(item)._is_QGraphicsLayoutItem;
+        qtc.QGraphicsLinearLayout_AddItem(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#addStretch)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    pub fn AddStretch(self: ?*anyopaque) void {
-        qtc.QGraphicsLinearLayout_AddStretch(@ptrCast(self));
+    pub fn AddStretch(self: QGraphicsLinearLayout) void {
+        qtc.QGraphicsLinearLayout_AddStretch(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#insertItem)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
     /// ` index: i32 `
     ///
-    /// ` item: QtC.QGraphicsLayoutItem `
+    /// ` item: QGraphicsLayoutItem `
     ///
-    pub fn InsertItem(self: ?*anyopaque, index: i32, item: ?*anyopaque) void {
-        qtc.QGraphicsLinearLayout_InsertItem(@ptrCast(self), @bitCast(index), @ptrCast(item));
+    pub fn InsertItem(self: QGraphicsLinearLayout, index: i32, item: anytype) void {
+        comptime _ = @TypeOf(item)._is_QGraphicsLayoutItem;
+        qtc.QGraphicsLinearLayout_InsertItem(@ptrCast(self.ptr), @bitCast(index), @ptrCast(item.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#insertStretch)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
     /// ` index: i32 `
     ///
-    pub fn InsertStretch(self: ?*anyopaque, index: i32) void {
-        qtc.QGraphicsLinearLayout_InsertStretch(@ptrCast(self), @bitCast(index));
+    pub fn InsertStretch(self: QGraphicsLinearLayout, index: i32) void {
+        qtc.QGraphicsLinearLayout_InsertStretch(@ptrCast(self.ptr), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#removeItem)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    /// ` item: QtC.QGraphicsLayoutItem `
+    /// ` item: QGraphicsLayoutItem `
     ///
-    pub fn RemoveItem(self: ?*anyopaque, item: ?*anyopaque) void {
-        qtc.QGraphicsLinearLayout_RemoveItem(@ptrCast(self), @ptrCast(item));
+    pub fn RemoveItem(self: QGraphicsLinearLayout, item: anytype) void {
+        comptime _ = @TypeOf(item)._is_QGraphicsLayoutItem;
+        qtc.QGraphicsLinearLayout_RemoveItem(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#removeAt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
     /// ` index: i32 `
     ///
-    pub fn RemoveAt(self: ?*anyopaque, index: i32) void {
-        qtc.QGraphicsLinearLayout_RemoveAt(@ptrCast(self), @bitCast(index));
+    pub fn RemoveAt(self: QGraphicsLinearLayout, index: i32) void {
+        qtc.QGraphicsLinearLayout_RemoveAt(@ptrCast(self.ptr), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#removeAt)
@@ -147,12 +168,12 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsLinearLayout, index: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QGraphicsLinearLayout, index: i32) callconv(.c) void `
     ///
-    pub fn OnRemoveAt(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGraphicsLinearLayout_OnRemoveAt(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRemoveAt(self: QGraphicsLinearLayout, callback: *const fn (QGraphicsLinearLayout, i32) callconv(.c) void) void {
+        qtc.QGraphicsLinearLayout_OnRemoveAt(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperRemoveAt` instead
@@ -165,128 +186,133 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
     /// ` index: i32 `
     ///
-    pub fn SuperRemoveAt(self: ?*anyopaque, index: i32) void {
-        qtc.QGraphicsLinearLayout_SuperRemoveAt(@ptrCast(self), @bitCast(index));
+    pub fn SuperRemoveAt(self: QGraphicsLinearLayout, index: i32) void {
+        qtc.QGraphicsLinearLayout_SuperRemoveAt(@ptrCast(self.ptr), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#setSpacing)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
     /// ` spacing: f64 `
     ///
-    pub fn SetSpacing(self: ?*anyopaque, spacing: f64) void {
-        qtc.QGraphicsLinearLayout_SetSpacing(@ptrCast(self), @bitCast(spacing));
+    pub fn SetSpacing(self: QGraphicsLinearLayout, spacing: f64) void {
+        qtc.QGraphicsLinearLayout_SetSpacing(@ptrCast(self.ptr), @bitCast(spacing));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#spacing)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    pub fn Spacing(self: ?*anyopaque) f64 {
-        return qtc.QGraphicsLinearLayout_Spacing(@ptrCast(self));
+    pub fn Spacing(self: QGraphicsLinearLayout) f64 {
+        return qtc.QGraphicsLinearLayout_Spacing(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#setItemSpacing)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
     /// ` index: i32 `
     ///
     /// ` spacing: f64 `
     ///
-    pub fn SetItemSpacing(self: ?*anyopaque, index: i32, spacing: f64) void {
-        qtc.QGraphicsLinearLayout_SetItemSpacing(@ptrCast(self), @bitCast(index), @bitCast(spacing));
+    pub fn SetItemSpacing(self: QGraphicsLinearLayout, index: i32, spacing: f64) void {
+        qtc.QGraphicsLinearLayout_SetItemSpacing(@ptrCast(self.ptr), @bitCast(index), @bitCast(spacing));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#itemSpacing)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
     /// ` index: i32 `
     ///
-    pub fn ItemSpacing(self: ?*anyopaque, index: i32) f64 {
-        return qtc.QGraphicsLinearLayout_ItemSpacing(@ptrCast(self), @bitCast(index));
+    pub fn ItemSpacing(self: QGraphicsLinearLayout, index: i32) f64 {
+        return qtc.QGraphicsLinearLayout_ItemSpacing(@ptrCast(self.ptr), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#setStretchFactor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    /// ` item: QtC.QGraphicsLayoutItem `
+    /// ` item: QGraphicsLayoutItem `
     ///
     /// ` stretch: i32 `
     ///
-    pub fn SetStretchFactor(self: ?*anyopaque, item: ?*anyopaque, stretch: i32) void {
-        qtc.QGraphicsLinearLayout_SetStretchFactor(@ptrCast(self), @ptrCast(item), @bitCast(stretch));
+    pub fn SetStretchFactor(self: QGraphicsLinearLayout, item: anytype, stretch: i32) void {
+        comptime _ = @TypeOf(item)._is_QGraphicsLayoutItem;
+        qtc.QGraphicsLinearLayout_SetStretchFactor(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(stretch));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#stretchFactor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    /// ` item: QtC.QGraphicsLayoutItem `
+    /// ` item: QGraphicsLayoutItem `
     ///
-    pub fn StretchFactor(self: ?*anyopaque, item: ?*anyopaque) i32 {
-        return qtc.QGraphicsLinearLayout_StretchFactor(@ptrCast(self), @ptrCast(item));
+    pub fn StretchFactor(self: QGraphicsLinearLayout, item: anytype) i32 {
+        comptime _ = @TypeOf(item)._is_QGraphicsLayoutItem;
+        return qtc.QGraphicsLinearLayout_StretchFactor(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#setAlignment)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    /// ` item: QtC.QGraphicsLayoutItem `
+    /// ` item: QGraphicsLayoutItem `
     ///
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn SetAlignment(self: ?*anyopaque, item: ?*anyopaque, alignment: i32) void {
-        qtc.QGraphicsLinearLayout_SetAlignment(@ptrCast(self), @ptrCast(item), @bitCast(alignment));
+    pub fn SetAlignment(self: QGraphicsLinearLayout, item: anytype, alignment: i32) void {
+        comptime _ = @TypeOf(item)._is_QGraphicsLayoutItem;
+        qtc.QGraphicsLinearLayout_SetAlignment(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(alignment));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#alignment)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    /// ` item: QtC.QGraphicsLayoutItem `
+    /// ` item: QGraphicsLayoutItem `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn Alignment(self: ?*anyopaque, item: ?*anyopaque) i32 {
-        return qtc.QGraphicsLinearLayout_Alignment(@ptrCast(self), @ptrCast(item));
+    pub fn Alignment(self: QGraphicsLinearLayout, item: anytype) i32 {
+        comptime _ = @TypeOf(item)._is_QGraphicsLayoutItem;
+        return qtc.QGraphicsLinearLayout_Alignment(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#setGeometry)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    /// ` rect: QtC.QRectF `
+    /// ` rect: QRectF `
     ///
-    pub fn SetGeometry(self: ?*anyopaque, rect: ?*anyopaque) void {
-        qtc.QGraphicsLinearLayout_SetGeometry(@ptrCast(self), @ptrCast(rect));
+    pub fn SetGeometry(self: QGraphicsLinearLayout, rect: anytype) void {
+        comptime _ = @TypeOf(rect)._is_QRectF;
+        qtc.QGraphicsLinearLayout_SetGeometry(@ptrCast(self.ptr), @ptrCast(rect.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#setGeometry)
@@ -295,12 +321,12 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsLinearLayout, rect: QtC.QRectF) callconv(.c) void `
+    /// ` callback: *const fn (self: QGraphicsLinearLayout, rect: QRectF) callconv(.c) void `
     ///
-    pub fn OnSetGeometry(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLinearLayout_OnSetGeometry(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetGeometry(self: QGraphicsLinearLayout, callback: *const fn (QGraphicsLinearLayout, QRectF) callconv(.c) void) void {
+        qtc.QGraphicsLinearLayout_OnSetGeometry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetGeometry` instead
@@ -313,22 +339,23 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    /// ` rect: QtC.QRectF `
+    /// ` rect: QRectF `
     ///
-    pub fn SuperSetGeometry(self: ?*anyopaque, rect: ?*anyopaque) void {
-        qtc.QGraphicsLinearLayout_SuperSetGeometry(@ptrCast(self), @ptrCast(rect));
+    pub fn SuperSetGeometry(self: QGraphicsLinearLayout, rect: anytype) void {
+        comptime _ = @TypeOf(rect)._is_QRectF;
+        qtc.QGraphicsLinearLayout_SuperSetGeometry(@ptrCast(self.ptr), @ptrCast(rect.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#count)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    pub fn Count(self: ?*anyopaque) i32 {
-        return qtc.QGraphicsLinearLayout_Count(@ptrCast(self));
+    pub fn Count(self: QGraphicsLinearLayout) i32 {
+        return qtc.QGraphicsLinearLayout_Count(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#count)
@@ -337,12 +364,12 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnCount(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGraphicsLinearLayout_OnCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCount(self: QGraphicsLinearLayout, callback: *const fn () callconv(.c) i32) void {
+        qtc.QGraphicsLinearLayout_OnCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperCount` instead
@@ -355,22 +382,22 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    pub fn SuperCount(self: ?*anyopaque) i32 {
-        return qtc.QGraphicsLinearLayout_SuperCount(@ptrCast(self));
+    pub fn SuperCount(self: QGraphicsLinearLayout) i32 {
+        return qtc.QGraphicsLinearLayout_SuperCount(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#itemAt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
     /// ` index: i32 `
     ///
-    pub fn ItemAt(self: ?*anyopaque, index: i32) QtC.QGraphicsLayoutItem {
-        return qtc.QGraphicsLinearLayout_ItemAt(@ptrCast(self), @bitCast(index));
+    pub fn ItemAt(self: QGraphicsLinearLayout, index: i32) QGraphicsLayoutItem {
+        return .{ .ptr = qtc.QGraphicsLinearLayout_ItemAt(@ptrCast(self.ptr), @bitCast(index)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#itemAt)
@@ -379,12 +406,12 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsLinearLayout, index: i32) callconv(.c) QtC.QGraphicsLayoutItem `
+    /// ` callback: *const fn (self: QGraphicsLinearLayout, index: i32) callconv(.c) QGraphicsLayoutItem `
     ///
-    pub fn OnItemAt(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QGraphicsLayoutItem) void {
-        qtc.QGraphicsLinearLayout_OnItemAt(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnItemAt(self: QGraphicsLinearLayout, callback: *const fn (QGraphicsLinearLayout, i32) callconv(.c) QGraphicsLayoutItem) void {
+        qtc.QGraphicsLinearLayout_OnItemAt(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperItemAt` instead
@@ -397,22 +424,22 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
     /// ` index: i32 `
     ///
-    pub fn SuperItemAt(self: ?*anyopaque, index: i32) QtC.QGraphicsLayoutItem {
-        return qtc.QGraphicsLinearLayout_SuperItemAt(@ptrCast(self), @bitCast(index));
+    pub fn SuperItemAt(self: QGraphicsLinearLayout, index: i32) QGraphicsLayoutItem {
+        return .{ .ptr = qtc.QGraphicsLinearLayout_SuperItemAt(@ptrCast(self.ptr), @bitCast(index)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#invalidate)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    pub fn Invalidate(self: ?*anyopaque) void {
-        qtc.QGraphicsLinearLayout_Invalidate(@ptrCast(self));
+    pub fn Invalidate(self: QGraphicsLinearLayout) void {
+        qtc.QGraphicsLinearLayout_Invalidate(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#invalidate)
@@ -421,12 +448,12 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnInvalidate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsLinearLayout_OnInvalidate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInvalidate(self: QGraphicsLinearLayout, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsLinearLayout_OnInvalidate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperInvalidate` instead
@@ -439,24 +466,25 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    pub fn SuperInvalidate(self: ?*anyopaque) void {
-        qtc.QGraphicsLinearLayout_SuperInvalidate(@ptrCast(self));
+    pub fn SuperInvalidate(self: QGraphicsLinearLayout) void {
+        qtc.QGraphicsLinearLayout_SuperInvalidate(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#sizeHint)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
     /// ` which: qnamespace_enums.SizeHint `
     ///
-    /// ` constraint: QtC.QSizeF `
+    /// ` constraint: QSizeF `
     ///
-    pub fn SizeHint(self: ?*anyopaque, which: i32, constraint: ?*anyopaque) QtC.QSizeF {
-        return qtc.QGraphicsLinearLayout_SizeHint(@ptrCast(self), @bitCast(which), @ptrCast(constraint));
+    pub fn SizeHint(self: QGraphicsLinearLayout, which: i32, constraint: anytype) QSizeF {
+        comptime _ = @TypeOf(constraint)._is_QSizeF;
+        return .{ .ptr = qtc.QGraphicsLinearLayout_SizeHint(@ptrCast(self.ptr), @bitCast(which), @ptrCast(constraint.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#sizeHint)
@@ -465,12 +493,12 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsLinearLayout, which: qnamespace_enums.SizeHint, constraint: QtC.QSizeF) callconv(.c) QtC.QSizeF `
+    /// ` callback: *const fn (self: QGraphicsLinearLayout, which: qnamespace_enums.SizeHint, constraint: QSizeF) callconv(.c) QSizeF `
     ///
-    pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QSizeF) void {
-        qtc.QGraphicsLinearLayout_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSizeHint(self: QGraphicsLinearLayout, callback: *const fn (QGraphicsLinearLayout, i32, QSizeF) callconv(.c) QSizeF) void {
+        qtc.QGraphicsLinearLayout_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSizeHint` instead
@@ -483,62 +511,63 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
     /// ` which: qnamespace_enums.SizeHint `
     ///
-    /// ` constraint: QtC.QSizeF `
+    /// ` constraint: QSizeF `
     ///
-    pub fn SuperSizeHint(self: ?*anyopaque, which: i32, constraint: ?*anyopaque) QtC.QSizeF {
-        return qtc.QGraphicsLinearLayout_SuperSizeHint(@ptrCast(self), @bitCast(which), @ptrCast(constraint));
+    pub fn SuperSizeHint(self: QGraphicsLinearLayout, which: i32, constraint: anytype) QSizeF {
+        comptime _ = @TypeOf(constraint)._is_QSizeF;
+        return .{ .ptr = qtc.QGraphicsLinearLayout_SuperSizeHint(@ptrCast(self.ptr), @bitCast(which), @ptrCast(constraint.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#dump)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    pub fn Dump(self: ?*anyopaque) void {
-        qtc.QGraphicsLinearLayout_Dump(@ptrCast(self));
+    pub fn Dump(self: QGraphicsLinearLayout) void {
+        qtc.QGraphicsLinearLayout_Dump(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#addStretch)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
     /// ` stretch: i32 `
     ///
-    pub fn AddStretch1(self: ?*anyopaque, stretch: i32) void {
-        qtc.QGraphicsLinearLayout_AddStretch1(@ptrCast(self), @bitCast(stretch));
+    pub fn AddStretch1(self: QGraphicsLinearLayout, stretch: i32) void {
+        qtc.QGraphicsLinearLayout_AddStretch1(@ptrCast(self.ptr), @bitCast(stretch));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#insertStretch)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
     /// ` index: i32 `
     ///
     /// ` stretch: i32 `
     ///
-    pub fn InsertStretch2(self: ?*anyopaque, index: i32, stretch: i32) void {
-        qtc.QGraphicsLinearLayout_InsertStretch2(@ptrCast(self), @bitCast(index), @bitCast(stretch));
+    pub fn InsertStretch2(self: QGraphicsLinearLayout, index: i32, stretch: i32) void {
+        qtc.QGraphicsLinearLayout_InsertStretch2(@ptrCast(self.ptr), @bitCast(index), @bitCast(stretch));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#dump)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
     /// ` indent: i32 `
     ///
-    pub fn Dump1(self: ?*anyopaque, indent: i32) void {
-        qtc.QGraphicsLinearLayout_Dump1(@ptrCast(self), @bitCast(indent));
+    pub fn Dump1(self: QGraphicsLinearLayout, indent: i32) void {
+        qtc.QGraphicsLinearLayout_Dump1(@ptrCast(self.ptr), @bitCast(indent));
     }
 
     /// Inherited from QGraphicsLayout
@@ -547,7 +576,7 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
     /// ` left: f64 `
     ///
@@ -557,8 +586,8 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ` bottom: f64 `
     ///
-    pub fn SetContentsMargins(self: ?*anyopaque, left: f64, top: f64, right: f64, bottom: f64) void {
-        qtc.QGraphicsLayout_SetContentsMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
+    pub fn SetContentsMargins(self: QGraphicsLinearLayout, left: f64, top: f64, right: f64, bottom: f64) void {
+        qtc.QGraphicsLayout_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QGraphicsLayout
@@ -567,10 +596,10 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    pub fn Activate(self: ?*anyopaque) void {
-        qtc.QGraphicsLayout_Activate(@ptrCast(self));
+    pub fn Activate(self: QGraphicsLinearLayout) void {
+        qtc.QGraphicsLayout_Activate(@ptrCast(self.ptr));
     }
 
     /// Inherited from QGraphicsLayout
@@ -579,10 +608,10 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    pub fn IsActivated(self: ?*anyopaque) bool {
-        return qtc.QGraphicsLayout_IsActivated(@ptrCast(self));
+    pub fn IsActivated(self: QGraphicsLinearLayout) bool {
+        return qtc.QGraphicsLayout_IsActivated(@ptrCast(self.ptr));
     }
 
     /// Inherited from QGraphicsLayout
@@ -611,12 +640,13 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    /// ` policy: QtC.QSizePolicy `
+    /// ` policy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: ?*anyopaque, policy: ?*anyopaque) void {
-        qtc.QGraphicsLayoutItem_SetSizePolicy(@ptrCast(self), @ptrCast(policy));
+    pub fn SetSizePolicy(self: QGraphicsLinearLayout, policy: anytype) void {
+        comptime _ = @TypeOf(policy)._is_QSizePolicy;
+        qtc.QGraphicsLayoutItem_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(policy.ptr));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -625,14 +655,14 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
     /// ` hPolicy: qsizepolicy_enums.Policy `
     ///
     /// ` vPolicy: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: ?*anyopaque, hPolicy: i32, vPolicy: i32) void {
-        qtc.QGraphicsLayoutItem_SetSizePolicy2(@ptrCast(self), @bitCast(hPolicy), @bitCast(vPolicy));
+    pub fn SetSizePolicy2(self: QGraphicsLinearLayout, hPolicy: i32, vPolicy: i32) void {
+        qtc.QGraphicsLayoutItem_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(hPolicy), @bitCast(vPolicy));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -641,10 +671,10 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
-        return qtc.QGraphicsLayoutItem_SizePolicy(@ptrCast(self));
+    pub fn SizePolicy(self: QGraphicsLinearLayout) QSizePolicy {
+        return .{ .ptr = qtc.QGraphicsLayoutItem_SizePolicy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -653,12 +683,13 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    /// ` size: QtC.QSizeF `
+    /// ` size: QSizeF `
     ///
-    pub fn SetMinimumSize(self: ?*anyopaque, size: ?*anyopaque) void {
-        qtc.QGraphicsLayoutItem_SetMinimumSize(@ptrCast(self), @ptrCast(size));
+    pub fn SetMinimumSize(self: QGraphicsLinearLayout, size: anytype) void {
+        comptime _ = @TypeOf(size)._is_QSizeF;
+        qtc.QGraphicsLayoutItem_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(size.ptr));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -667,14 +698,14 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
     /// ` w: f64 `
     ///
     /// ` h: f64 `
     ///
-    pub fn SetMinimumSize2(self: ?*anyopaque, w: f64, h: f64) void {
-        qtc.QGraphicsLayoutItem_SetMinimumSize2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetMinimumSize2(self: QGraphicsLinearLayout, w: f64, h: f64) void {
+        qtc.QGraphicsLayoutItem_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -683,10 +714,10 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    pub fn MinimumSize(self: ?*anyopaque) QtC.QSizeF {
-        return qtc.QGraphicsLayoutItem_MinimumSize(@ptrCast(self));
+    pub fn MinimumSize(self: QGraphicsLinearLayout) QSizeF {
+        return .{ .ptr = qtc.QGraphicsLayoutItem_MinimumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -695,12 +726,12 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
     /// ` width: f64 `
     ///
-    pub fn SetMinimumWidth(self: ?*anyopaque, width: f64) void {
-        qtc.QGraphicsLayoutItem_SetMinimumWidth(@ptrCast(self), @bitCast(width));
+    pub fn SetMinimumWidth(self: QGraphicsLinearLayout, width: f64) void {
+        qtc.QGraphicsLayoutItem_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(width));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -709,10 +740,10 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    pub fn MinimumWidth(self: ?*anyopaque) f64 {
-        return qtc.QGraphicsLayoutItem_MinimumWidth(@ptrCast(self));
+    pub fn MinimumWidth(self: QGraphicsLinearLayout) f64 {
+        return qtc.QGraphicsLayoutItem_MinimumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -721,12 +752,12 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
     /// ` height: f64 `
     ///
-    pub fn SetMinimumHeight(self: ?*anyopaque, height: f64) void {
-        qtc.QGraphicsLayoutItem_SetMinimumHeight(@ptrCast(self), @bitCast(height));
+    pub fn SetMinimumHeight(self: QGraphicsLinearLayout, height: f64) void {
+        qtc.QGraphicsLayoutItem_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(height));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -735,10 +766,10 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    pub fn MinimumHeight(self: ?*anyopaque) f64 {
-        return qtc.QGraphicsLayoutItem_MinimumHeight(@ptrCast(self));
+    pub fn MinimumHeight(self: QGraphicsLinearLayout) f64 {
+        return qtc.QGraphicsLayoutItem_MinimumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -747,12 +778,13 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    /// ` size: QtC.QSizeF `
+    /// ` size: QSizeF `
     ///
-    pub fn SetPreferredSize(self: ?*anyopaque, size: ?*anyopaque) void {
-        qtc.QGraphicsLayoutItem_SetPreferredSize(@ptrCast(self), @ptrCast(size));
+    pub fn SetPreferredSize(self: QGraphicsLinearLayout, size: anytype) void {
+        comptime _ = @TypeOf(size)._is_QSizeF;
+        qtc.QGraphicsLayoutItem_SetPreferredSize(@ptrCast(self.ptr), @ptrCast(size.ptr));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -761,14 +793,14 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
     /// ` w: f64 `
     ///
     /// ` h: f64 `
     ///
-    pub fn SetPreferredSize2(self: ?*anyopaque, w: f64, h: f64) void {
-        qtc.QGraphicsLayoutItem_SetPreferredSize2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetPreferredSize2(self: QGraphicsLinearLayout, w: f64, h: f64) void {
+        qtc.QGraphicsLayoutItem_SetPreferredSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -777,10 +809,10 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    pub fn PreferredSize(self: ?*anyopaque) QtC.QSizeF {
-        return qtc.QGraphicsLayoutItem_PreferredSize(@ptrCast(self));
+    pub fn PreferredSize(self: QGraphicsLinearLayout) QSizeF {
+        return .{ .ptr = qtc.QGraphicsLayoutItem_PreferredSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -789,12 +821,12 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
     /// ` width: f64 `
     ///
-    pub fn SetPreferredWidth(self: ?*anyopaque, width: f64) void {
-        qtc.QGraphicsLayoutItem_SetPreferredWidth(@ptrCast(self), @bitCast(width));
+    pub fn SetPreferredWidth(self: QGraphicsLinearLayout, width: f64) void {
+        qtc.QGraphicsLayoutItem_SetPreferredWidth(@ptrCast(self.ptr), @bitCast(width));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -803,10 +835,10 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    pub fn PreferredWidth(self: ?*anyopaque) f64 {
-        return qtc.QGraphicsLayoutItem_PreferredWidth(@ptrCast(self));
+    pub fn PreferredWidth(self: QGraphicsLinearLayout) f64 {
+        return qtc.QGraphicsLayoutItem_PreferredWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -815,12 +847,12 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
     /// ` height: f64 `
     ///
-    pub fn SetPreferredHeight(self: ?*anyopaque, height: f64) void {
-        qtc.QGraphicsLayoutItem_SetPreferredHeight(@ptrCast(self), @bitCast(height));
+    pub fn SetPreferredHeight(self: QGraphicsLinearLayout, height: f64) void {
+        qtc.QGraphicsLayoutItem_SetPreferredHeight(@ptrCast(self.ptr), @bitCast(height));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -829,10 +861,10 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    pub fn PreferredHeight(self: ?*anyopaque) f64 {
-        return qtc.QGraphicsLayoutItem_PreferredHeight(@ptrCast(self));
+    pub fn PreferredHeight(self: QGraphicsLinearLayout) f64 {
+        return qtc.QGraphicsLayoutItem_PreferredHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -841,12 +873,13 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    /// ` size: QtC.QSizeF `
+    /// ` size: QSizeF `
     ///
-    pub fn SetMaximumSize(self: ?*anyopaque, size: ?*anyopaque) void {
-        qtc.QGraphicsLayoutItem_SetMaximumSize(@ptrCast(self), @ptrCast(size));
+    pub fn SetMaximumSize(self: QGraphicsLinearLayout, size: anytype) void {
+        comptime _ = @TypeOf(size)._is_QSizeF;
+        qtc.QGraphicsLayoutItem_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(size.ptr));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -855,14 +888,14 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
     /// ` w: f64 `
     ///
     /// ` h: f64 `
     ///
-    pub fn SetMaximumSize2(self: ?*anyopaque, w: f64, h: f64) void {
-        qtc.QGraphicsLayoutItem_SetMaximumSize2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetMaximumSize2(self: QGraphicsLinearLayout, w: f64, h: f64) void {
+        qtc.QGraphicsLayoutItem_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -871,10 +904,10 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    pub fn MaximumSize(self: ?*anyopaque) QtC.QSizeF {
-        return qtc.QGraphicsLayoutItem_MaximumSize(@ptrCast(self));
+    pub fn MaximumSize(self: QGraphicsLinearLayout) QSizeF {
+        return .{ .ptr = qtc.QGraphicsLayoutItem_MaximumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -883,12 +916,12 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
     /// ` width: f64 `
     ///
-    pub fn SetMaximumWidth(self: ?*anyopaque, width: f64) void {
-        qtc.QGraphicsLayoutItem_SetMaximumWidth(@ptrCast(self), @bitCast(width));
+    pub fn SetMaximumWidth(self: QGraphicsLinearLayout, width: f64) void {
+        qtc.QGraphicsLayoutItem_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(width));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -897,10 +930,10 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    pub fn MaximumWidth(self: ?*anyopaque) f64 {
-        return qtc.QGraphicsLayoutItem_MaximumWidth(@ptrCast(self));
+    pub fn MaximumWidth(self: QGraphicsLinearLayout) f64 {
+        return qtc.QGraphicsLayoutItem_MaximumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -909,12 +942,12 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
     /// ` height: f64 `
     ///
-    pub fn SetMaximumHeight(self: ?*anyopaque, height: f64) void {
-        qtc.QGraphicsLayoutItem_SetMaximumHeight(@ptrCast(self), @bitCast(height));
+    pub fn SetMaximumHeight(self: QGraphicsLinearLayout, height: f64) void {
+        qtc.QGraphicsLayoutItem_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(height));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -923,10 +956,10 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    pub fn MaximumHeight(self: ?*anyopaque) f64 {
-        return qtc.QGraphicsLayoutItem_MaximumHeight(@ptrCast(self));
+    pub fn MaximumHeight(self: QGraphicsLinearLayout) f64 {
+        return qtc.QGraphicsLayoutItem_MaximumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -935,10 +968,10 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    pub fn Geometry(self: ?*anyopaque) QtC.QRectF {
-        return qtc.QGraphicsLayoutItem_Geometry(@ptrCast(self));
+    pub fn Geometry(self: QGraphicsLinearLayout) QRectF {
+        return .{ .ptr = qtc.QGraphicsLayoutItem_Geometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -947,10 +980,10 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    pub fn ContentsRect(self: ?*anyopaque) QtC.QRectF {
-        return qtc.QGraphicsLayoutItem_ContentsRect(@ptrCast(self));
+    pub fn ContentsRect(self: QGraphicsLinearLayout) QRectF {
+        return .{ .ptr = qtc.QGraphicsLayoutItem_ContentsRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -959,12 +992,12 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
     /// ` which: qnamespace_enums.SizeHint `
     ///
-    pub fn EffectiveSizeHint(self: ?*anyopaque, which: i32) QtC.QSizeF {
-        return qtc.QGraphicsLayoutItem_EffectiveSizeHint(@ptrCast(self), @bitCast(which));
+    pub fn EffectiveSizeHint(self: QGraphicsLinearLayout, which: i32) QSizeF {
+        return .{ .ptr = qtc.QGraphicsLayoutItem_EffectiveSizeHint(@ptrCast(self.ptr), @bitCast(which)) };
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -973,10 +1006,10 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    pub fn ParentLayoutItem(self: ?*anyopaque) QtC.QGraphicsLayoutItem {
-        return qtc.QGraphicsLayoutItem_ParentLayoutItem(@ptrCast(self));
+    pub fn ParentLayoutItem(self: QGraphicsLinearLayout) QGraphicsLayoutItem {
+        return .{ .ptr = qtc.QGraphicsLayoutItem_ParentLayoutItem(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -985,12 +1018,13 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    /// ` parent: QtC.QGraphicsLayoutItem `
+    /// ` parent: QGraphicsLayoutItem `
     ///
-    pub fn SetParentLayoutItem(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QGraphicsLayoutItem_SetParentLayoutItem(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParentLayoutItem(self: QGraphicsLinearLayout, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QGraphicsLayoutItem;
+        qtc.QGraphicsLayoutItem_SetParentLayoutItem(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -999,10 +1033,10 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    pub fn IsLayout(self: ?*anyopaque) bool {
-        return qtc.QGraphicsLayoutItem_IsLayout(@ptrCast(self));
+    pub fn IsLayout(self: QGraphicsLinearLayout) bool {
+        return qtc.QGraphicsLayoutItem_IsLayout(@ptrCast(self.ptr));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -1011,10 +1045,10 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    pub fn GraphicsItem(self: ?*anyopaque) QtC.QGraphicsItem {
-        return qtc.QGraphicsLayoutItem_GraphicsItem(@ptrCast(self));
+    pub fn GraphicsItem(self: QGraphicsLinearLayout) QGraphicsItem {
+        return .{ .ptr = qtc.QGraphicsLayoutItem_GraphicsItem(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -1023,10 +1057,10 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    pub fn OwnedByLayout(self: ?*anyopaque) bool {
-        return qtc.QGraphicsLayoutItem_OwnedByLayout(@ptrCast(self));
+    pub fn OwnedByLayout(self: QGraphicsLinearLayout) bool {
+        return qtc.QGraphicsLayoutItem_OwnedByLayout(@ptrCast(self.ptr));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -1035,7 +1069,7 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
     /// ` hPolicy: qsizepolicy_enums.Policy `
     ///
@@ -1043,8 +1077,8 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ` controlType: qsizepolicy_enums.ControlType `
     ///
-    pub fn SetSizePolicy3(self: ?*anyopaque, hPolicy: i32, vPolicy: i32, controlType: i32) void {
-        qtc.QGraphicsLayoutItem_SetSizePolicy3(@ptrCast(self), @bitCast(hPolicy), @bitCast(vPolicy), @bitCast(controlType));
+    pub fn SetSizePolicy3(self: QGraphicsLinearLayout, hPolicy: i32, vPolicy: i32, controlType: i32) void {
+        qtc.QGraphicsLayoutItem_SetSizePolicy3(@ptrCast(self.ptr), @bitCast(hPolicy), @bitCast(vPolicy), @bitCast(controlType));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -1053,14 +1087,15 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
     /// ` which: qnamespace_enums.SizeHint `
     ///
-    /// ` constraint: QtC.QSizeF `
+    /// ` constraint: QSizeF `
     ///
-    pub fn EffectiveSizeHint2(self: ?*anyopaque, which: i32, constraint: ?*anyopaque) QtC.QSizeF {
-        return qtc.QGraphicsLayoutItem_EffectiveSizeHint2(@ptrCast(self), @bitCast(which), @ptrCast(constraint));
+    pub fn EffectiveSizeHint2(self: QGraphicsLinearLayout, which: i32, constraint: anytype) QSizeF {
+        comptime _ = @TypeOf(constraint)._is_QSizeF;
+        return .{ .ptr = qtc.QGraphicsLayoutItem_EffectiveSizeHint2(@ptrCast(self.ptr), @bitCast(which), @ptrCast(constraint.ptr)) };
     }
 
     /// Inherited from QGraphicsLayout
@@ -1071,7 +1106,7 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
     /// ` left: *f64 `
     ///
@@ -1081,8 +1116,8 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ` bottom: *f64 `
     ///
-    pub fn GetContentsMargins(self: ?*anyopaque, left: *f64, top: *f64, right: *f64, bottom: *f64) void {
-        qtc.QGraphicsLinearLayout_GetContentsMargins(@ptrCast(self), @ptrCast(left), @ptrCast(top), @ptrCast(right), @ptrCast(bottom));
+    pub fn GetContentsMargins(self: QGraphicsLinearLayout, left: *f64, top: *f64, right: *f64, bottom: *f64) void {
+        qtc.QGraphicsLinearLayout_GetContentsMargins(@ptrCast(self.ptr), @ptrCast(left), @ptrCast(top), @ptrCast(right), @ptrCast(bottom));
     }
 
     /// ### DEPRECATED: Use `SuperGetContentsMargins` instead
@@ -1097,7 +1132,7 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
     /// ` left: *f64 `
     ///
@@ -1107,8 +1142,8 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ` bottom: *f64 `
     ///
-    pub fn SuperGetContentsMargins(self: ?*anyopaque, left: *f64, top: *f64, right: *f64, bottom: *f64) void {
-        qtc.QGraphicsLinearLayout_SuperGetContentsMargins(@ptrCast(self), @ptrCast(left), @ptrCast(top), @ptrCast(right), @ptrCast(bottom));
+    pub fn SuperGetContentsMargins(self: QGraphicsLinearLayout, left: *f64, top: *f64, right: *f64, bottom: *f64) void {
+        qtc.QGraphicsLinearLayout_SuperGetContentsMargins(@ptrCast(self.ptr), @ptrCast(left), @ptrCast(top), @ptrCast(right), @ptrCast(bottom));
     }
 
     /// Inherited from QGraphicsLayout
@@ -1119,12 +1154,12 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGraphicsLinearLayout`
+    /// ` self: QGraphicsLinearLayout`
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsLinearLayout, left: *f64, top: *f64, right: *f64, bottom: *f64) callconv(.c) void `
+    /// ` callback: *const fn (self: QGraphicsLinearLayout, left: *f64, top: *f64, right: *f64, bottom: *f64) callconv(.c) void `
     ///
-    pub fn OnGetContentsMargins(self: ?*anyopaque, callback: *const fn (?*anyopaque, *f64, *f64, *f64, *f64) callconv(.c) void) void {
-        qtc.QGraphicsLinearLayout_OnGetContentsMargins(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnGetContentsMargins(self: QGraphicsLinearLayout, callback: *const fn (QGraphicsLinearLayout, *f64, *f64, *f64, *f64) callconv(.c) void) void {
+        qtc.QGraphicsLinearLayout_OnGetContentsMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsLayout
@@ -1135,10 +1170,10 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    pub fn UpdateGeometry(self: ?*anyopaque) void {
-        qtc.QGraphicsLinearLayout_UpdateGeometry(@ptrCast(self));
+    pub fn UpdateGeometry(self: QGraphicsLinearLayout) void {
+        qtc.QGraphicsLinearLayout_UpdateGeometry(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperUpdateGeometry` instead
@@ -1153,10 +1188,10 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    pub fn SuperUpdateGeometry(self: ?*anyopaque) void {
-        qtc.QGraphicsLinearLayout_SuperUpdateGeometry(@ptrCast(self));
+    pub fn SuperUpdateGeometry(self: QGraphicsLinearLayout) void {
+        qtc.QGraphicsLinearLayout_SuperUpdateGeometry(@ptrCast(self.ptr));
     }
 
     /// Inherited from QGraphicsLayout
@@ -1167,12 +1202,12 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGraphicsLinearLayout`
+    /// ` self: QGraphicsLinearLayout`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateGeometry(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsLinearLayout_OnUpdateGeometry(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUpdateGeometry(self: QGraphicsLinearLayout, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsLinearLayout_OnUpdateGeometry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsLayout
@@ -1183,12 +1218,13 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    /// ` e: QtC.QEvent `
+    /// ` e: QEvent `
     ///
-    pub fn WidgetEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QGraphicsLinearLayout_WidgetEvent(@ptrCast(self), @ptrCast(e));
+    pub fn WidgetEvent(self: QGraphicsLinearLayout, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QEvent;
+        qtc.QGraphicsLinearLayout_WidgetEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperWidgetEvent` instead
@@ -1203,12 +1239,13 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    /// ` e: QtC.QEvent `
+    /// ` e: QEvent `
     ///
-    pub fn SuperWidgetEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QGraphicsLinearLayout_SuperWidgetEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperWidgetEvent(self: QGraphicsLinearLayout, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QEvent;
+        qtc.QGraphicsLinearLayout_SuperWidgetEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// Inherited from QGraphicsLayout
@@ -1219,12 +1256,12 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGraphicsLinearLayout`
+    /// ` self: QGraphicsLinearLayout`
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsLinearLayout, e: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QGraphicsLinearLayout, e: QEvent) callconv(.c) void `
     ///
-    pub fn OnWidgetEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLinearLayout_OnWidgetEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWidgetEvent(self: QGraphicsLinearLayout, callback: *const fn (QGraphicsLinearLayout, QEvent) callconv(.c) void) void {
+        qtc.QGraphicsLinearLayout_OnWidgetEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -1235,10 +1272,10 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    pub fn IsEmpty(self: ?*anyopaque) bool {
-        return qtc.QGraphicsLinearLayout_IsEmpty(@ptrCast(self));
+    pub fn IsEmpty(self: QGraphicsLinearLayout) bool {
+        return qtc.QGraphicsLinearLayout_IsEmpty(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsEmpty` instead
@@ -1253,10 +1290,10 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    pub fn SuperIsEmpty(self: ?*anyopaque) bool {
-        return qtc.QGraphicsLinearLayout_SuperIsEmpty(@ptrCast(self));
+    pub fn SuperIsEmpty(self: QGraphicsLinearLayout) bool {
+        return qtc.QGraphicsLinearLayout_SuperIsEmpty(@ptrCast(self.ptr));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -1267,12 +1304,12 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGraphicsLinearLayout`
+    /// ` self: QGraphicsLinearLayout`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnIsEmpty(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QGraphicsLinearLayout_OnIsEmpty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsEmpty(self: QGraphicsLinearLayout, callback: *const fn () callconv(.c) bool) void {
+        qtc.QGraphicsLinearLayout_OnIsEmpty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsLayout
@@ -1283,12 +1320,13 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    /// ` layoutItem: QtC.QGraphicsLayoutItem `
+    /// ` layoutItem: QGraphicsLayoutItem `
     ///
-    pub fn AddChildLayoutItem(self: ?*anyopaque, layoutItem: ?*anyopaque) void {
-        qtc.QGraphicsLinearLayout_AddChildLayoutItem(@ptrCast(self), @ptrCast(layoutItem));
+    pub fn AddChildLayoutItem(self: QGraphicsLinearLayout, layoutItem: anytype) void {
+        comptime _ = @TypeOf(layoutItem)._is_QGraphicsLayoutItem;
+        qtc.QGraphicsLinearLayout_AddChildLayoutItem(@ptrCast(self.ptr), @ptrCast(layoutItem.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperAddChildLayoutItem` instead
@@ -1303,12 +1341,13 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    /// ` layoutItem: QtC.QGraphicsLayoutItem `
+    /// ` layoutItem: QGraphicsLayoutItem `
     ///
-    pub fn SuperAddChildLayoutItem(self: ?*anyopaque, layoutItem: ?*anyopaque) void {
-        qtc.QGraphicsLinearLayout_SuperAddChildLayoutItem(@ptrCast(self), @ptrCast(layoutItem));
+    pub fn SuperAddChildLayoutItem(self: QGraphicsLinearLayout, layoutItem: anytype) void {
+        comptime _ = @TypeOf(layoutItem)._is_QGraphicsLayoutItem;
+        qtc.QGraphicsLinearLayout_SuperAddChildLayoutItem(@ptrCast(self.ptr), @ptrCast(layoutItem.ptr));
     }
 
     /// Inherited from QGraphicsLayout
@@ -1319,12 +1358,12 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGraphicsLinearLayout`
+    /// ` self: QGraphicsLinearLayout`
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsLinearLayout, layoutItem: QtC.QGraphicsLayoutItem) callconv(.c) void `
+    /// ` callback: *const fn (self: QGraphicsLinearLayout, layoutItem: QGraphicsLayoutItem) callconv(.c) void `
     ///
-    pub fn OnAddChildLayoutItem(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLinearLayout_OnAddChildLayoutItem(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAddChildLayoutItem(self: QGraphicsLinearLayout, callback: *const fn (QGraphicsLinearLayout, QGraphicsLayoutItem) callconv(.c) void) void {
+        qtc.QGraphicsLinearLayout_OnAddChildLayoutItem(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -1335,12 +1374,13 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    /// ` item: QtC.QGraphicsItem `
+    /// ` item: QGraphicsItem `
     ///
-    pub fn SetGraphicsItem(self: ?*anyopaque, item: ?*anyopaque) void {
-        qtc.QGraphicsLinearLayout_SetGraphicsItem(@ptrCast(self), @ptrCast(item));
+    pub fn SetGraphicsItem(self: QGraphicsLinearLayout, item: anytype) void {
+        comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        qtc.QGraphicsLinearLayout_SetGraphicsItem(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSetGraphicsItem` instead
@@ -1355,12 +1395,13 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    /// ` item: QtC.QGraphicsItem `
+    /// ` item: QGraphicsItem `
     ///
-    pub fn SuperSetGraphicsItem(self: ?*anyopaque, item: ?*anyopaque) void {
-        qtc.QGraphicsLinearLayout_SuperSetGraphicsItem(@ptrCast(self), @ptrCast(item));
+    pub fn SuperSetGraphicsItem(self: QGraphicsLinearLayout, item: anytype) void {
+        comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        qtc.QGraphicsLinearLayout_SuperSetGraphicsItem(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -1371,12 +1412,12 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGraphicsLinearLayout`
+    /// ` self: QGraphicsLinearLayout`
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsLinearLayout, item: QtC.QGraphicsItem) callconv(.c) void `
+    /// ` callback: *const fn (self: QGraphicsLinearLayout, item: QGraphicsItem) callconv(.c) void `
     ///
-    pub fn OnSetGraphicsItem(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLinearLayout_OnSetGraphicsItem(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetGraphicsItem(self: QGraphicsLinearLayout, callback: *const fn (QGraphicsLinearLayout, QGraphicsItem) callconv(.c) void) void {
+        qtc.QGraphicsLinearLayout_OnSetGraphicsItem(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -1387,12 +1428,12 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
     /// ` ownedByLayout: bool `
     ///
-    pub fn SetOwnedByLayout(self: ?*anyopaque, ownedByLayout: bool) void {
-        qtc.QGraphicsLinearLayout_SetOwnedByLayout(@ptrCast(self), ownedByLayout);
+    pub fn SetOwnedByLayout(self: QGraphicsLinearLayout, ownedByLayout: bool) void {
+        qtc.QGraphicsLinearLayout_SetOwnedByLayout(@ptrCast(self.ptr), ownedByLayout);
     }
 
     /// ### DEPRECATED: Use `SuperSetOwnedByLayout` instead
@@ -1407,12 +1448,12 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
     /// ` ownedByLayout: bool `
     ///
-    pub fn SuperSetOwnedByLayout(self: ?*anyopaque, ownedByLayout: bool) void {
-        qtc.QGraphicsLinearLayout_SuperSetOwnedByLayout(@ptrCast(self), ownedByLayout);
+    pub fn SuperSetOwnedByLayout(self: QGraphicsLinearLayout, ownedByLayout: bool) void {
+        qtc.QGraphicsLinearLayout_SuperSetOwnedByLayout(@ptrCast(self.ptr), ownedByLayout);
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -1423,12 +1464,12 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGraphicsLinearLayout`
+    /// ` self: QGraphicsLinearLayout`
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsLinearLayout, ownedByLayout: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QGraphicsLinearLayout, ownedByLayout: bool) callconv(.c) void `
     ///
-    pub fn OnSetOwnedByLayout(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QGraphicsLinearLayout_OnSetOwnedByLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetOwnedByLayout(self: QGraphicsLinearLayout, callback: *const fn (QGraphicsLinearLayout, bool) callconv(.c) void) void {
+        qtc.QGraphicsLinearLayout_OnSetOwnedByLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -1441,9 +1482,9 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QGraphicsLinearLayout `
+    /// ` self: QGraphicsLinearLayout `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QGraphicsLinearLayout_Delete(@ptrCast(self));
+    pub fn Delete(self: QGraphicsLinearLayout) void {
+        qtc.QGraphicsLinearLayout_Delete(@ptrCast(self.ptr));
     }
 };

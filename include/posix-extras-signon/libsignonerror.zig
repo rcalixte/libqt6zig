@@ -3,21 +3,30 @@ const qtc = @import("qt6c");
 const std = @import("std");
 
 /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Error.html)
-pub const signon__error = struct {
+pub const SignOn__Error = extern struct {
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Error.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.SignOn__Error,
+
+    pub const _is_SignOn__Error = {};
+
     /// New constructs a new SignOn::Error object.
     ///
-    pub fn New() QtC.SignOn__Error {
-        return qtc.SignOn__Error_new();
+    pub fn New() SignOn__Error {
+        return .{ .ptr = qtc.SignOn__Error_new() };
     }
 
     /// New2 constructs a new SignOn::Error object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` src: QtC.SignOn__Error `
+    /// ` src: SignOn__Error `
     ///
-    pub fn New2(src: ?*anyopaque) QtC.SignOn__Error {
-        return qtc.SignOn__Error_new2(@ptrCast(src));
+    pub fn New2(src: anytype) SignOn__Error {
+        comptime _ = @TypeOf(src)._is_SignOn__Error;
+        return .{ .ptr = qtc.SignOn__Error_new2(@ptrCast(src.ptr)) };
     }
 
     /// New3 constructs a new SignOn::Error object.
@@ -26,8 +35,8 @@ pub const signon__error = struct {
     ///
     /// ` typeVal: i32 `
     ///
-    pub fn New3(typeVal: i32) QtC.SignOn__Error {
-        return qtc.SignOn__Error_new3(@bitCast(typeVal));
+    pub fn New3(typeVal: i32) SignOn__Error {
+        return .{ .ptr = qtc.SignOn__Error_new3(@bitCast(typeVal)) };
     }
 
     /// New4 constructs a new SignOn::Error object.
@@ -38,75 +47,75 @@ pub const signon__error = struct {
     ///
     /// ` message: []const u8 `
     ///
-    pub fn New4(typeVal: i32, message: []const u8) QtC.SignOn__Error {
+    pub fn New4(typeVal: i32, message: []const u8) SignOn__Error {
         const message_str = qtc.libqt_string{
             .len = message.len,
             .data = message.ptr,
         };
-
-        return qtc.SignOn__Error_new4(@bitCast(typeVal), message_str);
+        return .{ .ptr = qtc.SignOn__Error_new4(@bitCast(typeVal), message_str) };
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Error.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Error `
+    /// ` self: SignOn__Error `
     ///
-    /// ` src: QtC.SignOn__Error `
+    /// ` src: SignOn__Error `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, src: ?*anyopaque) void {
-        qtc.SignOn__Error_OperatorAssign(@ptrCast(self), @ptrCast(src));
+    pub fn OperatorAssign(self: SignOn__Error, src: anytype) void {
+        comptime _ = @TypeOf(src)._is_SignOn__Error;
+        qtc.SignOn__Error_OperatorAssign(@ptrCast(self.ptr), @ptrCast(src.ptr));
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Error.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Error `
+    /// ` self: SignOn__Error `
     ///
     /// ` typeVal: i32 `
     ///
-    pub fn SetType(self: ?*anyopaque, typeVal: i32) void {
-        qtc.SignOn__Error_SetType(@ptrCast(self), @bitCast(typeVal));
+    pub fn SetType(self: SignOn__Error, typeVal: i32) void {
+        qtc.SignOn__Error_SetType(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Error.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Error `
+    /// ` self: SignOn__Error `
     ///
     /// ` message: []const u8 `
     ///
-    pub fn SetMessage(self: ?*anyopaque, message: []const u8) void {
+    pub fn SetMessage(self: SignOn__Error, message: []const u8) void {
         const message_str = qtc.libqt_string{
             .len = message.len,
             .data = message.ptr,
         };
-        qtc.SignOn__Error_SetMessage(@ptrCast(self), message_str);
+        qtc.SignOn__Error_SetMessage(@ptrCast(self.ptr), message_str);
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Error.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Error `
+    /// ` self: SignOn__Error `
     ///
-    pub fn Type(self: ?*anyopaque) i32 {
-        return qtc.SignOn__Error_Type(@ptrCast(self));
+    pub fn Type(self: SignOn__Error) i32 {
+        return qtc.SignOn__Error_Type(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Error.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Error `
+    /// ` self: SignOn__Error `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Message(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.SignOn__Error_Message(@ptrCast(self));
+    pub fn Message(self: SignOn__Error, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.SignOn__Error_Message(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("signon__error.Message: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -123,10 +132,10 @@ pub const signon__error = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.SignOn__Error `
+    /// ` self: SignOn__Error `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.SignOn__Error_Delete(@ptrCast(self));
+    pub fn Delete(self: SignOn__Error) void {
+        qtc.SignOn__Error_Delete(@ptrCast(self.ptr));
     }
 };
 

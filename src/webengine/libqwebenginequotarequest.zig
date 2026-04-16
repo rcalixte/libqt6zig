@@ -1,120 +1,133 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QUrl = @import("libqt6").QUrl;
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginequotarequest.html)
-pub const qwebenginequotarequest = struct {
+pub const QWebEngineQuotaRequest = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginequotarequest.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QWebEngineQuotaRequest,
+
+    pub const _is_QWebEngineQuotaRequest = {};
+
     /// New constructs a new QWebEngineQuotaRequest object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QWebEngineQuotaRequest `
+    /// ` other: QWebEngineQuotaRequest `
     ///
-    pub fn New(other: ?*anyopaque) QtC.QWebEngineQuotaRequest {
-        return qtc.QWebEngineQuotaRequest_new(@ptrCast(other));
+    pub fn New(other: anytype) QWebEngineQuotaRequest {
+        comptime _ = @TypeOf(other)._is_QWebEngineQuotaRequest;
+        return .{ .ptr = qtc.QWebEngineQuotaRequest_new(@ptrCast(other.ptr)) };
     }
 
     /// New2 constructs a new QWebEngineQuotaRequest object and invalidates the source QWebEngineQuotaRequest object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QWebEngineQuotaRequest `
+    /// ` other: QWebEngineQuotaRequest `
     ///
-    pub fn New2(other: ?*anyopaque) QtC.QWebEngineQuotaRequest {
-        return qtc.QWebEngineQuotaRequest_new2(@ptrCast(other));
+    pub fn New2(other: anytype) QWebEngineQuotaRequest {
+        comptime _ = @TypeOf(other)._is_QWebEngineQuotaRequest;
+        return .{ .ptr = qtc.QWebEngineQuotaRequest_new2(@ptrCast(other.ptr)) };
     }
 
     /// New3 constructs a new QWebEngineQuotaRequest object.
     ///
-    pub fn New3() QtC.QWebEngineQuotaRequest {
-        return qtc.QWebEngineQuotaRequest_new3();
+    pub fn New3() QWebEngineQuotaRequest {
+        return .{ .ptr = qtc.QWebEngineQuotaRequest_new3() };
     }
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWebEngineQuotaRequest `
+    /// ` self: QWebEngineQuotaRequest `
     ///
-    /// ` other: QtC.QWebEngineQuotaRequest `
+    /// ` other: QWebEngineQuotaRequest `
     ///
-    pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QWebEngineQuotaRequest_CopyAssign(@ptrCast(self), @ptrCast(other));
+    pub fn CopyAssign(self: QWebEngineQuotaRequest, other: QWebEngineQuotaRequest) void {
+        qtc.QWebEngineQuotaRequest_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWebEngineQuotaRequest `
+    /// ` self: QWebEngineQuotaRequest `
     ///
-    /// ` other: QtC.QWebEngineQuotaRequest `
+    /// ` other: QWebEngineQuotaRequest `
     ///
-    pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QWebEngineQuotaRequest_MoveAssign(@ptrCast(self), @ptrCast(other));
+    pub fn MoveAssign(self: QWebEngineQuotaRequest, other: QWebEngineQuotaRequest) void {
+        qtc.QWebEngineQuotaRequest_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginequotarequest.html#accept)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineQuotaRequest `
+    /// ` self: QWebEngineQuotaRequest `
     ///
-    pub fn Accept(self: ?*anyopaque) void {
-        qtc.QWebEngineQuotaRequest_Accept(@ptrCast(self));
+    pub fn Accept(self: QWebEngineQuotaRequest) void {
+        qtc.QWebEngineQuotaRequest_Accept(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginequotarequest.html#reject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineQuotaRequest `
+    /// ` self: QWebEngineQuotaRequest `
     ///
-    pub fn Reject(self: ?*anyopaque) void {
-        qtc.QWebEngineQuotaRequest_Reject(@ptrCast(self));
+    pub fn Reject(self: QWebEngineQuotaRequest) void {
+        qtc.QWebEngineQuotaRequest_Reject(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginequotarequest.html#origin)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineQuotaRequest `
+    /// ` self: QWebEngineQuotaRequest `
     ///
-    pub fn Origin(self: ?*anyopaque) QtC.QUrl {
-        return qtc.QWebEngineQuotaRequest_Origin(@ptrCast(self));
+    pub fn Origin(self: QWebEngineQuotaRequest) QUrl {
+        return .{ .ptr = qtc.QWebEngineQuotaRequest_Origin(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginequotarequest.html#requestedSize)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineQuotaRequest `
+    /// ` self: QWebEngineQuotaRequest `
     ///
-    pub fn RequestedSize(self: ?*anyopaque) i64 {
-        return qtc.QWebEngineQuotaRequest_RequestedSize(@ptrCast(self));
+    pub fn RequestedSize(self: QWebEngineQuotaRequest) i64 {
+        return qtc.QWebEngineQuotaRequest_RequestedSize(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginequotarequest.html#operator-eq-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineQuotaRequest `
+    /// ` self: QWebEngineQuotaRequest `
     ///
-    /// ` param1: QtC.QWebEngineQuotaRequest `
+    /// ` param1: QWebEngineQuotaRequest `
     ///
-    pub fn OperatorEqual(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWebEngineQuotaRequest_OperatorEqual(@ptrCast(self), @ptrCast(param1));
+    pub fn OperatorEqual(self: QWebEngineQuotaRequest, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWebEngineQuotaRequest;
+        return qtc.QWebEngineQuotaRequest_OperatorEqual(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginequotarequest.html#operator-not-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineQuotaRequest `
+    /// ` self: QWebEngineQuotaRequest `
     ///
-    /// ` param1: QtC.QWebEngineQuotaRequest `
+    /// ` param1: QWebEngineQuotaRequest `
     ///
-    pub fn OperatorNotEqual(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWebEngineQuotaRequest_OperatorNotEqual(@ptrCast(self), @ptrCast(param1));
+    pub fn OperatorNotEqual(self: QWebEngineQuotaRequest, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWebEngineQuotaRequest;
+        return qtc.QWebEngineQuotaRequest_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -127,9 +140,9 @@ pub const qwebenginequotarequest = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QWebEngineQuotaRequest `
+    /// ` self: QWebEngineQuotaRequest `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QWebEngineQuotaRequest_Delete(@ptrCast(self));
+    pub fn Delete(self: QWebEngineQuotaRequest) void {
+        qtc.QWebEngineQuotaRequest_Delete(@ptrCast(self.ptr));
     }
 };

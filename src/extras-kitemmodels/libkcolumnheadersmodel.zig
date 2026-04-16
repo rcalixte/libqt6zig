@@ -1,38 +1,67 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QAbstractItemModel = @import("libqt6").QAbstractItemModel;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QDataStream = @import("libqt6").QDataStream;
+const QEvent = @import("libqt6").QEvent;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QMimeData = @import("libqt6").QMimeData;
+const QModelIndex = @import("libqt6").QModelIndex;
+const QModelRoleDataSpan = @import("libqt6").QModelRoleDataSpan;
+const QObject = @import("libqt6").QObject;
+const QPersistentModelIndex = @import("libqt6").QPersistentModelIndex;
+const QSize = @import("libqt6").QSize;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
 const qabstractitemmodel_enums = @import("../libqabstractitemmodel.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-const arraymap_i32_qtcqvariant = std.array_hash_map.Auto(i32, QtC.QVariant);
-const map_i32_u8 = std.AutoHashMapUnmanaged(i32, []u8);
+const ArrayMap_i32_QVariant = std.array_hash_map.Auto(i32, QVariant);
+const Map_i32_u8 = std.AutoHashMapUnmanaged(i32, []u8);
 
 /// ### [Upstream resources](https://api.kde.org/kcolumnheadersmodel.html)
-pub const kcolumnheadersmodel = struct {
+pub const KColumnHeadersModel = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kcolumnheadersmodel.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KColumnHeadersModel,
+
+    pub const _is_KColumnHeadersModel = {};
+    pub const _is_QAbstractListModel = {};
+    pub const _is_QAbstractItemModel = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new KColumnHeadersModel object.
     ///
-    pub fn New() QtC.KColumnHeadersModel {
-        return qtc.KColumnHeadersModel_new();
+    pub fn New() KColumnHeadersModel {
+        return .{ .ptr = qtc.KColumnHeadersModel_new() };
     }
 
     /// New2 constructs a new KColumnHeadersModel object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New2(parent: ?*anyopaque) QtC.KColumnHeadersModel {
-        return qtc.KColumnHeadersModel_new2(@ptrCast(parent));
+    pub fn New2(parent: anytype) KColumnHeadersModel {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.KColumnHeadersModel_new2(@ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KColumnHeadersModel_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: KColumnHeadersModel) QMetaObject {
+        return .{ .ptr = qtc.KColumnHeadersModel_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -41,12 +70,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.KColumnHeadersModel_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: KColumnHeadersModel, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.KColumnHeadersModel_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -59,33 +88,33 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KColumnHeadersModel_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: KColumnHeadersModel) QMetaObject {
+        return .{ .ptr = qtc.KColumnHeadersModel_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: KColumnHeadersModel, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KColumnHeadersModel_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.KColumnHeadersModel_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: KColumnHeadersModel, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.KColumnHeadersModel_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.KColumnHeadersModel_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -96,18 +125,18 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: KColumnHeadersModel, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KColumnHeadersModel_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KColumnHeadersModel_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -115,20 +144,20 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KColumnHeadersModel_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: KColumnHeadersModel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KColumnHeadersModel_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KColumnHeadersModel, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.KColumnHeadersModel_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.KColumnHeadersModel_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -139,7 +168,7 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -147,19 +176,19 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KColumnHeadersModel_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: KColumnHeadersModel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KColumnHeadersModel_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -172,12 +201,13 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn RowCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
-        return qtc.KColumnHeadersModel_RowCount(@ptrCast(self), @ptrCast(parent));
+    pub fn RowCount(self: KColumnHeadersModel, parent: anytype) i32 {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KColumnHeadersModel_RowCount(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolumnheadersmodel.html#rowCount)
@@ -186,12 +216,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, parent: QtC.QModelIndex) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KColumnHeadersModel, parent: QModelIndex) callconv(.c) i32 `
     ///
-    pub fn OnRowCount(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KColumnHeadersModel_OnRowCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowCount(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QModelIndex) callconv(.c) i32) void {
+        qtc.KColumnHeadersModel_OnRowCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperRowCount` instead
@@ -204,26 +234,28 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperRowCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
-        return qtc.KColumnHeadersModel_SuperRowCount(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperRowCount(self: KColumnHeadersModel, parent: anytype) i32 {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KColumnHeadersModel_SuperRowCount(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolumnheadersmodel.html#data)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
     /// ` role: i32 `
     ///
-    pub fn Data(self: ?*anyopaque, index: ?*anyopaque, role: i32) QtC.QVariant {
-        return qtc.KColumnHeadersModel_Data(@ptrCast(self), @ptrCast(index), @bitCast(role));
+    pub fn Data(self: KColumnHeadersModel, index: anytype, role: i32) QVariant {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.KColumnHeadersModel_Data(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(role)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolumnheadersmodel.html#data)
@@ -232,12 +264,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, index: QtC.QModelIndex, role: i32) callconv(.c) QtC.QVariant `
+    /// ` callback: *const fn (self: KColumnHeadersModel, index: QModelIndex, role: i32) callconv(.c) QVariant `
     ///
-    pub fn OnData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.KColumnHeadersModel_OnData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnData(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QModelIndex, i32) callconv(.c) QVariant) void {
+        qtc.KColumnHeadersModel_OnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperData` instead
@@ -250,27 +282,28 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
     /// ` role: i32 `
     ///
-    pub fn SuperData(self: ?*anyopaque, index: ?*anyopaque, role: i32) QtC.QVariant {
-        return qtc.KColumnHeadersModel_SuperData(@ptrCast(self), @ptrCast(index), @bitCast(role));
+    pub fn SuperData(self: KColumnHeadersModel, index: anytype, role: i32) QVariant {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.KColumnHeadersModel_SuperData(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(role)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolumnheadersmodel.html#roleNames)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn RoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
-        const _map: qtc.libqt_map = qtc.KColumnHeadersModel_RoleNames(@ptrCast(self));
-        var _ret: map_i32_u8 = .empty;
+    pub fn RoleNames(self: KColumnHeadersModel, allocator: std.mem.Allocator) Map_i32_u8 {
+        const _map: qtc.libqt_map = qtc.KColumnHeadersModel_RoleNames(@ptrCast(self.ptr));
+        var _ret: Map_i32_u8 = .empty;
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -298,16 +331,16 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` callback: *const fn () callconv(.c) qtc.libqt_map `
     ///
     /// ## Callback Returns:
     ///
-    /// ` C ABI representation of map_i32_u8 `
+    /// ` C ABI representation of Map_i32_u8 `
     ///
-    pub fn OnRoleNames(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_map) void {
-        qtc.KColumnHeadersModel_OnRoleNames(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRoleNames(self: KColumnHeadersModel, callback: *const fn () callconv(.c) qtc.libqt_map) void {
+        qtc.KColumnHeadersModel_OnRoleNames(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperRoleNames` instead
@@ -320,13 +353,13 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperRoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
-        const _map: qtc.libqt_map = qtc.KColumnHeadersModel_SuperRoleNames(@ptrCast(self));
-        var _ret: map_i32_u8 = .empty;
+    pub fn SuperRoleNames(self: KColumnHeadersModel, allocator: std.mem.Allocator) Map_i32_u8 {
+        const _map: qtc.libqt_map = qtc.KColumnHeadersModel_SuperRoleNames(@ptrCast(self.ptr));
+        var _ret: Map_i32_u8 = .empty;
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -352,149 +385,150 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn SourceModel(self: ?*anyopaque) QtC.QAbstractItemModel {
-        return qtc.KColumnHeadersModel_SourceModel(@ptrCast(self));
+    pub fn SourceModel(self: KColumnHeadersModel) QAbstractItemModel {
+        return .{ .ptr = qtc.KColumnHeadersModel_SourceModel(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolumnheadersmodel.html#setSourceModel)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` newSourceModel: QtC.QAbstractItemModel `
+    /// ` newSourceModel: QAbstractItemModel `
     ///
-    pub fn SetSourceModel(self: ?*anyopaque, newSourceModel: ?*anyopaque) void {
-        qtc.KColumnHeadersModel_SetSourceModel(@ptrCast(self), @ptrCast(newSourceModel));
+    pub fn SetSourceModel(self: KColumnHeadersModel, newSourceModel: anytype) void {
+        comptime _ = @TypeOf(newSourceModel)._is_QAbstractItemModel;
+        qtc.KColumnHeadersModel_SetSourceModel(@ptrCast(self.ptr), @ptrCast(newSourceModel.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolumnheadersmodel.html#sortColumn)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn SortColumn(self: ?*anyopaque) i32 {
-        return qtc.KColumnHeadersModel_SortColumn(@ptrCast(self));
+    pub fn SortColumn(self: KColumnHeadersModel) i32 {
+        return qtc.KColumnHeadersModel_SortColumn(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolumnheadersmodel.html#setSortColumn)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` newSortColumn: i32 `
     ///
-    pub fn SetSortColumn(self: ?*anyopaque, newSortColumn: i32) void {
-        qtc.KColumnHeadersModel_SetSortColumn(@ptrCast(self), @bitCast(newSortColumn));
+    pub fn SetSortColumn(self: KColumnHeadersModel, newSortColumn: i32) void {
+        qtc.KColumnHeadersModel_SetSortColumn(@ptrCast(self.ptr), @bitCast(newSortColumn));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolumnheadersmodel.html#sortOrder)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.SortOrder `
     ///
-    pub fn SortOrder(self: ?*anyopaque) i32 {
-        return qtc.KColumnHeadersModel_SortOrder(@ptrCast(self));
+    pub fn SortOrder(self: KColumnHeadersModel) i32 {
+        return qtc.KColumnHeadersModel_SortOrder(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolumnheadersmodel.html#setSortOrder)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` newSortOrder: qnamespace_enums.SortOrder `
     ///
-    pub fn SetSortOrder(self: ?*anyopaque, newSortOrder: i32) void {
-        qtc.KColumnHeadersModel_SetSortOrder(@ptrCast(self), @bitCast(newSortOrder));
+    pub fn SetSortOrder(self: KColumnHeadersModel, newSortOrder: i32) void {
+        qtc.KColumnHeadersModel_SetSortOrder(@ptrCast(self.ptr), @bitCast(newSortOrder));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolumnheadersmodel.html#sourceModelChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn SourceModelChanged(self: ?*anyopaque) void {
-        qtc.KColumnHeadersModel_SourceModelChanged(@ptrCast(self));
+    pub fn SourceModelChanged(self: KColumnHeadersModel) void {
+        qtc.KColumnHeadersModel_SourceModelChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolumnheadersmodel.html#sourceModelChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel) callconv(.c) void `
+    /// ` callback: *const fn (self: KColumnHeadersModel) callconv(.c) void `
     ///
-    pub fn OnSourceModelChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KColumnHeadersModel_Connect_SourceModelChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSourceModelChanged(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel) callconv(.c) void) void {
+        qtc.KColumnHeadersModel_Connect_SourceModelChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolumnheadersmodel.html#sortColumnChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn SortColumnChanged(self: ?*anyopaque) void {
-        qtc.KColumnHeadersModel_SortColumnChanged(@ptrCast(self));
+    pub fn SortColumnChanged(self: KColumnHeadersModel) void {
+        qtc.KColumnHeadersModel_SortColumnChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolumnheadersmodel.html#sortColumnChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel) callconv(.c) void `
+    /// ` callback: *const fn (self: KColumnHeadersModel) callconv(.c) void `
     ///
-    pub fn OnSortColumnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KColumnHeadersModel_Connect_SortColumnChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSortColumnChanged(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel) callconv(.c) void) void {
+        qtc.KColumnHeadersModel_Connect_SortColumnChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolumnheadersmodel.html#sortOrderChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn SortOrderChanged(self: ?*anyopaque) void {
-        qtc.KColumnHeadersModel_SortOrderChanged(@ptrCast(self));
+    pub fn SortOrderChanged(self: KColumnHeadersModel) void {
+        qtc.KColumnHeadersModel_SortOrderChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolumnheadersmodel.html#sortOrderChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel) callconv(.c) void `
+    /// ` callback: *const fn (self: KColumnHeadersModel) callconv(.c) void `
     ///
-    pub fn OnSortOrderChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KColumnHeadersModel_Connect_SortOrderChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSortOrderChanged(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel) callconv(.c) void) void {
+        qtc.KColumnHeadersModel_Connect_SortOrderChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -508,15 +542,15 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -532,14 +566,14 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    pub fn HasIndex(self: ?*anyopaque, row: i32, column: i32) bool {
-        return qtc.QAbstractItemModel_HasIndex(@ptrCast(self), @bitCast(row), @bitCast(column));
+    pub fn HasIndex(self: KColumnHeadersModel, row: i32, column: i32) bool {
+        return qtc.QAbstractItemModel_HasIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemModel
@@ -548,12 +582,13 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` child: QtC.QModelIndex `
+    /// ` child: QModelIndex `
     ///
-    pub fn Parent(self: ?*anyopaque, child: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QAbstractItemModel_Parent(@ptrCast(self), @ptrCast(child));
+    pub fn Parent(self: KColumnHeadersModel, child: anytype) QModelIndex {
+        comptime _ = @TypeOf(child)._is_QModelIndex;
+        return .{ .ptr = qtc.QAbstractItemModel_Parent(@ptrCast(self.ptr), @ptrCast(child.ptr)) };
     }
 
     /// Inherited from QAbstractItemModel
@@ -564,12 +599,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, child: QtC.QModelIndex) callconv(.c) QtC.QModelIndex `
+    /// ` callback: *const fn (self: KColumnHeadersModel, child: QModelIndex) callconv(.c) QModelIndex `
     ///
-    pub fn OnParent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.QAbstractItemModel_OnParent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnParent(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QModelIndex) callconv(.c) QModelIndex) void {
+        qtc.QAbstractItemModel_OnParent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperParent` instead
@@ -584,12 +619,13 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` child: QtC.QModelIndex `
+    /// ` child: QModelIndex `
     ///
-    pub fn SuperParent(self: ?*anyopaque, child: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QAbstractItemModel_SuperParent(@ptrCast(self), @ptrCast(child));
+    pub fn SuperParent(self: KColumnHeadersModel, child: anytype) QModelIndex {
+        comptime _ = @TypeOf(child)._is_QModelIndex;
+        return .{ .ptr = qtc.QAbstractItemModel_SuperParent(@ptrCast(self.ptr), @ptrCast(child.ptr)) };
     }
 
     /// Inherited from QAbstractItemModel
@@ -598,12 +634,13 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn ColumnCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
-        return qtc.QAbstractItemModel_ColumnCount(@ptrCast(self), @ptrCast(parent));
+    pub fn ColumnCount(self: KColumnHeadersModel, parent: anytype) i32 {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_ColumnCount(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -614,12 +651,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, parent: QtC.QModelIndex) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KColumnHeadersModel, parent: QModelIndex) callconv(.c) i32 `
     ///
-    pub fn OnColumnCount(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QAbstractItemModel_OnColumnCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnCount(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QModelIndex) callconv(.c) i32) void {
+        qtc.QAbstractItemModel_OnColumnCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperColumnCount` instead
@@ -634,12 +671,13 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperColumnCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
-        return qtc.QAbstractItemModel_SuperColumnCount(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperColumnCount(self: KColumnHeadersModel, parent: anytype) i32 {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_SuperColumnCount(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -648,12 +686,13 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn HasChildren(self: ?*anyopaque, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_HasChildren(@ptrCast(self), @ptrCast(parent));
+    pub fn HasChildren(self: KColumnHeadersModel, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_HasChildren(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -664,12 +703,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KColumnHeadersModel, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnHasChildren(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractItemModel_OnHasChildren(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHasChildren(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QModelIndex) callconv(.c) bool) void {
+        qtc.QAbstractItemModel_OnHasChildren(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperHasChildren` instead
@@ -684,12 +723,13 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperHasChildren(self: ?*anyopaque, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_SuperHasChildren(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperHasChildren(self: KColumnHeadersModel, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_SuperHasChildren(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -698,12 +738,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` row: i32 `
     ///
-    pub fn InsertRow(self: ?*anyopaque, row: i32) bool {
-        return qtc.QAbstractItemModel_InsertRow(@ptrCast(self), @bitCast(row));
+    pub fn InsertRow(self: KColumnHeadersModel, row: i32) bool {
+        return qtc.QAbstractItemModel_InsertRow(@ptrCast(self.ptr), @bitCast(row));
     }
 
     /// Inherited from QAbstractItemModel
@@ -712,12 +752,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` column: i32 `
     ///
-    pub fn InsertColumn(self: ?*anyopaque, column: i32) bool {
-        return qtc.QAbstractItemModel_InsertColumn(@ptrCast(self), @bitCast(column));
+    pub fn InsertColumn(self: KColumnHeadersModel, column: i32) bool {
+        return qtc.QAbstractItemModel_InsertColumn(@ptrCast(self.ptr), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemModel
@@ -726,12 +766,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` row: i32 `
     ///
-    pub fn RemoveRow(self: ?*anyopaque, row: i32) bool {
-        return qtc.QAbstractItemModel_RemoveRow(@ptrCast(self), @bitCast(row));
+    pub fn RemoveRow(self: KColumnHeadersModel, row: i32) bool {
+        return qtc.QAbstractItemModel_RemoveRow(@ptrCast(self.ptr), @bitCast(row));
     }
 
     /// Inherited from QAbstractItemModel
@@ -740,12 +780,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` column: i32 `
     ///
-    pub fn RemoveColumn(self: ?*anyopaque, column: i32) bool {
-        return qtc.QAbstractItemModel_RemoveColumn(@ptrCast(self), @bitCast(column));
+    pub fn RemoveColumn(self: KColumnHeadersModel, column: i32) bool {
+        return qtc.QAbstractItemModel_RemoveColumn(@ptrCast(self.ptr), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemModel
@@ -754,18 +794,20 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceRow: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn MoveRow(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.QAbstractItemModel_MoveRow(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceRow), @ptrCast(destinationParent), @bitCast(destinationChild));
+    pub fn MoveRow(self: KColumnHeadersModel, sourceParent: anytype, sourceRow: i32, destinationParent: anytype, destinationChild: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_MoveRow(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceRow), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -774,18 +816,20 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceColumn: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn MoveColumn(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.QAbstractItemModel_MoveColumn(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @ptrCast(destinationParent), @bitCast(destinationChild));
+    pub fn MoveColumn(self: KColumnHeadersModel, sourceParent: anytype, sourceColumn: i32, destinationParent: anytype, destinationChild: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_MoveColumn(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceColumn), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -794,12 +838,13 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn CheckIndex(self: ?*anyopaque, index: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_CheckIndex(@ptrCast(self), @ptrCast(index));
+    pub fn CheckIndex(self: KColumnHeadersModel, index: anytype) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.QAbstractItemModel_CheckIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -808,14 +853,16 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` topLeft: QtC.QModelIndex `
+    /// ` topLeft: QModelIndex `
     ///
-    /// ` bottomRight: QtC.QModelIndex `
+    /// ` bottomRight: QModelIndex `
     ///
-    pub fn DataChanged(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque) void {
-        qtc.QAbstractItemModel_DataChanged(@ptrCast(self), @ptrCast(topLeft), @ptrCast(bottomRight));
+    pub fn DataChanged(self: KColumnHeadersModel, topLeft: anytype, bottomRight: anytype) void {
+        comptime _ = @TypeOf(topLeft)._is_QModelIndex;
+        comptime _ = @TypeOf(bottomRight)._is_QModelIndex;
+        qtc.QAbstractItemModel_DataChanged(@ptrCast(self.ptr), @ptrCast(topLeft.ptr), @ptrCast(bottomRight.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -824,12 +871,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: KColumnHeadersModel, topLeft: QModelIndex, bottomRight: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_DataChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDataChanged(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QModelIndex, QModelIndex) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_DataChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -838,7 +885,7 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` orientation: qnamespace_enums.Orientation `
     ///
@@ -846,8 +893,8 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ` last: i32 `
     ///
-    pub fn HeaderDataChanged(self: ?*anyopaque, orientation: i32, first: i32, last: i32) void {
-        qtc.QAbstractItemModel_HeaderDataChanged(@ptrCast(self), @bitCast(orientation), @bitCast(first), @bitCast(last));
+    pub fn HeaderDataChanged(self: KColumnHeadersModel, orientation: i32, first: i32, last: i32) void {
+        qtc.QAbstractItemModel_HeaderDataChanged(@ptrCast(self.ptr), @bitCast(orientation), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -856,12 +903,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, orientation: qnamespace_enums.Orientation, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KColumnHeadersModel, orientation: qnamespace_enums.Orientation, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnHeaderDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_HeaderDataChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHeaderDataChanged(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, i32, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_HeaderDataChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -870,10 +917,10 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn LayoutChanged(self: ?*anyopaque) void {
-        qtc.QAbstractItemModel_LayoutChanged(@ptrCast(self));
+    pub fn LayoutChanged(self: KColumnHeadersModel) void {
+        qtc.QAbstractItemModel_LayoutChanged(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -882,12 +929,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel) callconv(.c) void `
+    /// ` callback: *const fn (self: KColumnHeadersModel) callconv(.c) void `
     ///
-    pub fn OnLayoutChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLayoutChanged(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_LayoutChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -896,10 +943,10 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn LayoutAboutToBeChanged(self: ?*anyopaque) void {
-        qtc.QAbstractItemModel_LayoutAboutToBeChanged(@ptrCast(self));
+    pub fn LayoutAboutToBeChanged(self: KColumnHeadersModel) void {
+        qtc.QAbstractItemModel_LayoutAboutToBeChanged(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -908,12 +955,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel) callconv(.c) void `
+    /// ` callback: *const fn (self: KColumnHeadersModel) callconv(.c) void `
     ///
-    pub fn OnLayoutAboutToBeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLayoutAboutToBeChanged(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -922,16 +969,17 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn HasIndex3(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_HasIndex3(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn HasIndex3(self: KColumnHeadersModel, row: i32, column: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_HasIndex3(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -940,14 +988,15 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` row: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn InsertRow2(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_InsertRow2(@ptrCast(self), @bitCast(row), @ptrCast(parent));
+    pub fn InsertRow2(self: KColumnHeadersModel, row: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_InsertRow2(@ptrCast(self.ptr), @bitCast(row), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -956,14 +1005,15 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn InsertColumn2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_InsertColumn2(@ptrCast(self), @bitCast(column), @ptrCast(parent));
+    pub fn InsertColumn2(self: KColumnHeadersModel, column: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_InsertColumn2(@ptrCast(self.ptr), @bitCast(column), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -972,14 +1022,15 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` row: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn RemoveRow2(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_RemoveRow2(@ptrCast(self), @bitCast(row), @ptrCast(parent));
+    pub fn RemoveRow2(self: KColumnHeadersModel, row: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_RemoveRow2(@ptrCast(self.ptr), @bitCast(row), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -988,14 +1039,15 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn RemoveColumn2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_RemoveColumn2(@ptrCast(self), @bitCast(column), @ptrCast(parent));
+    pub fn RemoveColumn2(self: KColumnHeadersModel, column: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_RemoveColumn2(@ptrCast(self.ptr), @bitCast(column), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1004,14 +1056,15 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
     /// ` options: flag of qabstractitemmodel_enums.CheckIndexOption `
     ///
-    pub fn CheckIndex2(self: ?*anyopaque, index: ?*anyopaque, options: i32) bool {
-        return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self), @ptrCast(index), @bitCast(options));
+    pub fn CheckIndex2(self: KColumnHeadersModel, index: anytype, options: i32) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(options));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1020,20 +1073,22 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` topLeft: QtC.QModelIndex `
+    /// ` topLeft: QModelIndex `
     ///
-    /// ` bottomRight: QtC.QModelIndex `
+    /// ` bottomRight: QModelIndex `
     ///
     /// ` roles: []i32 `
     ///
-    pub fn DataChanged3(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque, roles: []i32) void {
+    pub fn DataChanged3(self: KColumnHeadersModel, topLeft: anytype, bottomRight: anytype, roles: []i32) void {
+        comptime _ = @TypeOf(topLeft)._is_QModelIndex;
+        comptime _ = @TypeOf(bottomRight)._is_QModelIndex;
         const roles_list = qtc.libqt_list{
             .len = roles.len,
             .data = roles.ptr,
         };
-        qtc.QAbstractItemModel_DataChanged3(@ptrCast(self), @ptrCast(topLeft), @ptrCast(bottomRight), roles_list);
+        qtc.QAbstractItemModel_DataChanged3(@ptrCast(self.ptr), @ptrCast(topLeft.ptr), @ptrCast(bottomRight.ptr), roles_list);
     }
 
     /// Inherited from QAbstractItemModel
@@ -1042,12 +1097,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: qtc.libqt_list ([]i32)) callconv(.c) void `
+    /// ` callback: *const fn (self: KColumnHeadersModel, topLeft: QModelIndex, bottomRight: QModelIndex, roles: qtc.libqt_list ([]i32)) callconv(.c) void `
     ///
-    pub fn OnDataChanged3(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_DataChanged3(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDataChanged3(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QModelIndex, QModelIndex, qtc.libqt_list) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_DataChanged3(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1056,16 +1111,16 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` parents: []QtC.QPersistentModelIndex `
+    /// ` parents: []QPersistentModelIndex `
     ///
-    pub fn LayoutChanged1(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex) void {
+    pub fn LayoutChanged1(self: KColumnHeadersModel, parents: []QPersistentModelIndex) void {
         const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
-        qtc.QAbstractItemModel_LayoutChanged1(@ptrCast(self), parents_list);
+        qtc.QAbstractItemModel_LayoutChanged1(@ptrCast(self.ptr), parents_list);
     }
 
     /// Inherited from QAbstractItemModel
@@ -1074,12 +1129,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex)) callconv(.c) void `
+    /// ` callback: *const fn (self: KColumnHeadersModel, parents: qtc.libqt_list ([]QPersistentModelIndex)) callconv(.c) void `
     ///
-    pub fn OnLayoutChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutChanged1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLayoutChanged1(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, qtc.libqt_list) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_LayoutChanged1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1088,18 +1143,18 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` parents: []QtC.QPersistentModelIndex `
+    /// ` parents: []QPersistentModelIndex `
     ///
     /// ` hint: qabstractitemmodel_enums.LayoutChangeHint `
     ///
-    pub fn LayoutChanged2(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex, hint: i32) void {
+    pub fn LayoutChanged2(self: KColumnHeadersModel, parents: []QPersistentModelIndex, hint: i32) void {
         const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
-        qtc.QAbstractItemModel_LayoutChanged2(@ptrCast(self), parents_list, @bitCast(hint));
+        qtc.QAbstractItemModel_LayoutChanged2(@ptrCast(self.ptr), parents_list, @bitCast(hint));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1108,12 +1163,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
+    /// ` callback: *const fn (self: KColumnHeadersModel, parents: qtc.libqt_list ([]QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
     ///
-    pub fn OnLayoutChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutChanged2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLayoutChanged2(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, qtc.libqt_list, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_LayoutChanged2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1122,16 +1177,16 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` parents: []QtC.QPersistentModelIndex `
+    /// ` parents: []QPersistentModelIndex `
     ///
-    pub fn LayoutAboutToBeChanged1(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex) void {
+    pub fn LayoutAboutToBeChanged1(self: KColumnHeadersModel, parents: []QPersistentModelIndex) void {
         const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
-        qtc.QAbstractItemModel_LayoutAboutToBeChanged1(@ptrCast(self), parents_list);
+        qtc.QAbstractItemModel_LayoutAboutToBeChanged1(@ptrCast(self.ptr), parents_list);
     }
 
     /// Inherited from QAbstractItemModel
@@ -1140,12 +1195,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex)) callconv(.c) void `
+    /// ` callback: *const fn (self: KColumnHeadersModel, parents: qtc.libqt_list ([]QPersistentModelIndex)) callconv(.c) void `
     ///
-    pub fn OnLayoutAboutToBeChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLayoutAboutToBeChanged1(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, qtc.libqt_list) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1154,18 +1209,18 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` parents: []QtC.QPersistentModelIndex `
+    /// ` parents: []QPersistentModelIndex `
     ///
     /// ` hint: qabstractitemmodel_enums.LayoutChangeHint `
     ///
-    pub fn LayoutAboutToBeChanged2(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex, hint: i32) void {
+    pub fn LayoutAboutToBeChanged2(self: KColumnHeadersModel, parents: []QPersistentModelIndex, hint: i32) void {
         const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
-        qtc.QAbstractItemModel_LayoutAboutToBeChanged2(@ptrCast(self), parents_list, @bitCast(hint));
+        qtc.QAbstractItemModel_LayoutAboutToBeChanged2(@ptrCast(self.ptr), parents_list, @bitCast(hint));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1174,12 +1229,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
+    /// ` callback: *const fn (self: KColumnHeadersModel, parents: qtc.libqt_list ([]QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
     ///
-    pub fn OnLayoutAboutToBeChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLayoutAboutToBeChanged2(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, qtc.libqt_list, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1188,12 +1243,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: KColumnHeadersModel, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kcolumnheadersmodel.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1206,12 +1261,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: KColumnHeadersModel, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -1220,10 +1275,10 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: KColumnHeadersModel) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1232,10 +1287,10 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: KColumnHeadersModel) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1244,10 +1299,10 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: KColumnHeadersModel) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1256,10 +1311,10 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: KColumnHeadersModel) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1268,12 +1323,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: KColumnHeadersModel, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -1282,10 +1337,10 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: KColumnHeadersModel) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1294,12 +1349,13 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: KColumnHeadersModel, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -1308,12 +1364,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: KColumnHeadersModel, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1322,12 +1378,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: KColumnHeadersModel, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1336,12 +1392,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: KColumnHeadersModel, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1350,12 +1406,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: KColumnHeadersModel, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1364,16 +1420,17 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: KColumnHeadersModel, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("kcolumnheadersmodel.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kcolumnheadersmodel.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1383,12 +1440,13 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: KColumnHeadersModel, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -1397,12 +1455,13 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: KColumnHeadersModel, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -1411,12 +1470,13 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: KColumnHeadersModel, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -1425,18 +1485,20 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1445,16 +1507,20 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1463,18 +1529,19 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: KColumnHeadersModel, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1483,18 +1550,20 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1503,16 +1572,20 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -1521,10 +1594,10 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: KColumnHeadersModel) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1533,12 +1606,13 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: KColumnHeadersModel, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1547,10 +1621,11 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1559,10 +1634,10 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: KColumnHeadersModel) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1571,10 +1646,10 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: KColumnHeadersModel) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1583,15 +1658,16 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: KColumnHeadersModel, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -1600,13 +1676,13 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: KColumnHeadersModel, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1615,17 +1691,16 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: KColumnHeadersModel, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kcolumnheadersmodel.DynamicPropertyNames: Memory allocation failed");
@@ -1644,10 +1719,10 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: KColumnHeadersModel) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1656,10 +1731,10 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: KColumnHeadersModel) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1668,10 +1743,10 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: KColumnHeadersModel) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1680,12 +1755,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel) callconv(.c) void `
+    /// ` callback: *const fn (self: KColumnHeadersModel) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1694,13 +1769,13 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: KColumnHeadersModel, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -1709,10 +1784,10 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: KColumnHeadersModel) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1721,14 +1796,14 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: KColumnHeadersModel, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1737,14 +1812,14 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: KColumnHeadersModel, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1753,20 +1828,22 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -1775,18 +1852,22 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1795,9 +1876,9 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1805,10 +1886,11 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: KColumnHeadersModel, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1817,13 +1899,13 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: KColumnHeadersModel, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1832,15 +1914,16 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: KColumnHeadersModel, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1849,18 +1932,19 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: KColumnHeadersModel, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1869,15 +1953,16 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: KColumnHeadersModel, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1886,12 +1971,13 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: KColumnHeadersModel, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1900,12 +1986,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: KColumnHeadersModel, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractListModel
@@ -1916,16 +2002,17 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn Index(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KColumnHeadersModel_Index(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn Index(self: KColumnHeadersModel, row: i32, column: i32, parent: anytype) QModelIndex {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return .{ .ptr = qtc.KColumnHeadersModel_Index(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperIndex` instead
@@ -1940,16 +2027,17 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperIndex(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KColumnHeadersModel_SuperIndex(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn SuperIndex(self: KColumnHeadersModel, row: i32, column: i32, parent: anytype) QModelIndex {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return .{ .ptr = qtc.KColumnHeadersModel_SuperIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr)) };
     }
 
     /// Inherited from QAbstractListModel
@@ -1960,12 +2048,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, row: i32, column: i32, parent: QtC.QModelIndex) callconv(.c) QtC.QModelIndex `
+    /// ` callback: *const fn (self: KColumnHeadersModel, row: i32, column: i32, parent: QModelIndex) callconv(.c) QModelIndex `
     ///
-    pub fn OnIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.KColumnHeadersModel_OnIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIndex(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
+        qtc.KColumnHeadersModel_OnIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractListModel
@@ -1976,16 +2064,17 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    /// ` idx: QtC.QModelIndex `
+    /// ` idx: QModelIndex `
     ///
-    pub fn Sibling(self: ?*anyopaque, row: i32, column: i32, idx: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KColumnHeadersModel_Sibling(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(idx));
+    pub fn Sibling(self: KColumnHeadersModel, row: i32, column: i32, idx: anytype) QModelIndex {
+        comptime _ = @TypeOf(idx)._is_QModelIndex;
+        return .{ .ptr = qtc.KColumnHeadersModel_Sibling(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(idx.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSibling` instead
@@ -2000,16 +2089,17 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    /// ` idx: QtC.QModelIndex `
+    /// ` idx: QModelIndex `
     ///
-    pub fn SuperSibling(self: ?*anyopaque, row: i32, column: i32, idx: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KColumnHeadersModel_SuperSibling(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(idx));
+    pub fn SuperSibling(self: KColumnHeadersModel, row: i32, column: i32, idx: anytype) QModelIndex {
+        comptime _ = @TypeOf(idx)._is_QModelIndex;
+        return .{ .ptr = qtc.KColumnHeadersModel_SuperSibling(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(idx.ptr)) };
     }
 
     /// Inherited from QAbstractListModel
@@ -2020,12 +2110,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, row: i32, column: i32, idx: QtC.QModelIndex) callconv(.c) QtC.QModelIndex `
+    /// ` callback: *const fn (self: KColumnHeadersModel, row: i32, column: i32, idx: QModelIndex) callconv(.c) QModelIndex `
     ///
-    pub fn OnSibling(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.KColumnHeadersModel_OnSibling(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSibling(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
+        qtc.KColumnHeadersModel_OnSibling(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractListModel
@@ -2036,9 +2126,9 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` data: QtC.QMimeData `
+    /// ` data: QMimeData `
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
@@ -2046,10 +2136,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn DropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.KColumnHeadersModel_DropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn DropMimeData(self: KColumnHeadersModel, data: anytype, action: i32, row: i32, column: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(data)._is_QMimeData;
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KColumnHeadersModel_DropMimeData(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDropMimeData` instead
@@ -2064,9 +2156,9 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` data: QtC.QMimeData `
+    /// ` data: QMimeData `
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
@@ -2074,10 +2166,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.KColumnHeadersModel_SuperDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn SuperDropMimeData(self: KColumnHeadersModel, data: anytype, action: i32, row: i32, column: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(data)._is_QMimeData;
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KColumnHeadersModel_SuperDropMimeData(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractListModel
@@ -2088,12 +2182,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, data: QtC.QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KColumnHeadersModel, data: QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnDropMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KColumnHeadersModel_OnDropMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDropMimeData(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QMimeData, i32, i32, i32, QModelIndex) callconv(.c) bool) void {
+        qtc.KColumnHeadersModel_OnDropMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractListModel
@@ -2104,16 +2198,17 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.ItemFlag `
     ///
-    pub fn Flags(self: ?*anyopaque, index: ?*anyopaque) i32 {
-        return qtc.KColumnHeadersModel_Flags(@ptrCast(self), @ptrCast(index));
+    pub fn Flags(self: KColumnHeadersModel, index: anytype) i32 {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.KColumnHeadersModel_Flags(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFlags` instead
@@ -2128,16 +2223,17 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.ItemFlag `
     ///
-    pub fn SuperFlags(self: ?*anyopaque, index: ?*anyopaque) i32 {
-        return qtc.KColumnHeadersModel_SuperFlags(@ptrCast(self), @ptrCast(index));
+    pub fn SuperFlags(self: KColumnHeadersModel, index: anytype) i32 {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.KColumnHeadersModel_SuperFlags(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// Inherited from QAbstractListModel
@@ -2148,12 +2244,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, index: QtC.QModelIndex) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KColumnHeadersModel, index: QModelIndex) callconv(.c) i32 `
     ///
-    pub fn OnFlags(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KColumnHeadersModel_OnFlags(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFlags(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QModelIndex) callconv(.c) i32) void {
+        qtc.KColumnHeadersModel_OnFlags(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2164,16 +2260,18 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
     /// ` role: i32 `
     ///
-    pub fn SetData(self: ?*anyopaque, index: ?*anyopaque, value: ?*anyopaque, role: i32) bool {
-        return qtc.KColumnHeadersModel_SetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @bitCast(role));
+    pub fn SetData(self: KColumnHeadersModel, index: anytype, value: anytype, role: i32) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.KColumnHeadersModel_SetData(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(value.ptr), @bitCast(role));
     }
 
     /// ### DEPRECATED: Use `SuperSetData` instead
@@ -2188,16 +2286,18 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
     /// ` role: i32 `
     ///
-    pub fn SuperSetData(self: ?*anyopaque, index: ?*anyopaque, value: ?*anyopaque, role: i32) bool {
-        return qtc.KColumnHeadersModel_SuperSetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @bitCast(role));
+    pub fn SuperSetData(self: KColumnHeadersModel, index: anytype, value: anytype, role: i32) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.KColumnHeadersModel_SuperSetData(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(value.ptr), @bitCast(role));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2208,12 +2308,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, index: QtC.QModelIndex, value: QtC.QVariant, role: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: KColumnHeadersModel, index: QModelIndex, value: QVariant, role: i32) callconv(.c) bool `
     ///
-    pub fn OnSetData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KColumnHeadersModel_OnSetData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetData(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QModelIndex, QVariant, i32) callconv(.c) bool) void {
+        qtc.KColumnHeadersModel_OnSetData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2224,7 +2324,7 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` section: i32 `
     ///
@@ -2232,8 +2332,8 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn HeaderData(self: ?*anyopaque, section: i32, orientation: i32, role: i32) QtC.QVariant {
-        return qtc.KColumnHeadersModel_HeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @bitCast(role));
+    pub fn HeaderData(self: KColumnHeadersModel, section: i32, orientation: i32, role: i32) QVariant {
+        return .{ .ptr = qtc.KColumnHeadersModel_HeaderData(@ptrCast(self.ptr), @bitCast(section), @bitCast(orientation), @bitCast(role)) };
     }
 
     /// ### DEPRECATED: Use `SuperHeaderData` instead
@@ -2248,7 +2348,7 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` section: i32 `
     ///
@@ -2256,8 +2356,8 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn SuperHeaderData(self: ?*anyopaque, section: i32, orientation: i32, role: i32) QtC.QVariant {
-        return qtc.KColumnHeadersModel_SuperHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @bitCast(role));
+    pub fn SuperHeaderData(self: KColumnHeadersModel, section: i32, orientation: i32, role: i32) QVariant {
+        return .{ .ptr = qtc.KColumnHeadersModel_SuperHeaderData(@ptrCast(self.ptr), @bitCast(section), @bitCast(orientation), @bitCast(role)) };
     }
 
     /// Inherited from QAbstractItemModel
@@ -2268,12 +2368,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32) callconv(.c) QtC.QVariant `
+    /// ` callback: *const fn (self: KColumnHeadersModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32) callconv(.c) QVariant `
     ///
-    pub fn OnHeaderData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) QtC.QVariant) void {
-        qtc.KColumnHeadersModel_OnHeaderData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHeaderData(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, i32, i32, i32) callconv(.c) QVariant) void {
+        qtc.KColumnHeadersModel_OnHeaderData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2284,18 +2384,19 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` section: i32 `
     ///
     /// ` orientation: qnamespace_enums.Orientation `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
     /// ` role: i32 `
     ///
-    pub fn SetHeaderData(self: ?*anyopaque, section: i32, orientation: i32, value: ?*anyopaque, role: i32) bool {
-        return qtc.KColumnHeadersModel_SetHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @ptrCast(value), @bitCast(role));
+    pub fn SetHeaderData(self: KColumnHeadersModel, section: i32, orientation: i32, value: anytype, role: i32) bool {
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.KColumnHeadersModel_SetHeaderData(@ptrCast(self.ptr), @bitCast(section), @bitCast(orientation), @ptrCast(value.ptr), @bitCast(role));
     }
 
     /// ### DEPRECATED: Use `SuperSetHeaderData` instead
@@ -2310,18 +2411,19 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` section: i32 `
     ///
     /// ` orientation: qnamespace_enums.Orientation `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
     /// ` role: i32 `
     ///
-    pub fn SuperSetHeaderData(self: ?*anyopaque, section: i32, orientation: i32, value: ?*anyopaque, role: i32) bool {
-        return qtc.KColumnHeadersModel_SuperSetHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @ptrCast(value), @bitCast(role));
+    pub fn SuperSetHeaderData(self: KColumnHeadersModel, section: i32, orientation: i32, value: anytype, role: i32) bool {
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.KColumnHeadersModel_SuperSetHeaderData(@ptrCast(self.ptr), @bitCast(section), @bitCast(orientation), @ptrCast(value.ptr), @bitCast(role));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2332,12 +2434,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, section: i32, orientation: qnamespace_enums.Orientation, value: QtC.QVariant, role: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: KColumnHeadersModel, section: i32, orientation: qnamespace_enums.Orientation, value: QVariant, role: i32) callconv(.c) bool `
     ///
-    pub fn OnSetHeaderData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KColumnHeadersModel_OnSetHeaderData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetHeaderData(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, i32, i32, QVariant, i32) callconv(.c) bool) void {
+        qtc.KColumnHeadersModel_OnSetHeaderData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2348,15 +2450,16 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
-    ///
-    /// ` index: QtC.QModelIndex `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_qtcqvariant {
-        const _map: qtc.libqt_map = qtc.KColumnHeadersModel_ItemData(@ptrCast(self), @ptrCast(index));
-        var _ret: arraymap_i32_qtcqvariant = .empty;
+    /// ` index: QModelIndex `
+    ///
+    pub fn ItemData(self: KColumnHeadersModel, allocator: std.mem.Allocator, index: anytype) ArrayMap_i32_QVariant {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        const _map: qtc.libqt_map = qtc.KColumnHeadersModel_ItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
+        var _ret: ArrayMap_i32_QVariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -2367,7 +2470,7 @@ pub const kcolumnheadersmodel = struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            _ret.put(allocator, _key, @ptrCast(_value)) catch @panic("kcolumnheadersmodel.ItemData: Memory allocation failed");
+            _ret.put(allocator, _key, .{ .ptr = @ptrCast(_value) }) catch @panic("kcolumnheadersmodel.ItemData: Memory allocation failed");
         }
         return _ret;
     }
@@ -2384,15 +2487,16 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
-    ///
-    /// ` index: QtC.QModelIndex `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_qtcqvariant {
-        const _map: qtc.libqt_map = qtc.KColumnHeadersModel_SuperItemData(@ptrCast(self), @ptrCast(index));
-        var _ret: arraymap_i32_qtcqvariant = .empty;
+    /// ` index: QModelIndex `
+    ///
+    pub fn SuperItemData(self: KColumnHeadersModel, allocator: std.mem.Allocator, index: anytype) ArrayMap_i32_QVariant {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        const _map: qtc.libqt_map = qtc.KColumnHeadersModel_SuperItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
+        var _ret: ArrayMap_i32_QVariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -2403,7 +2507,7 @@ pub const kcolumnheadersmodel = struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            _ret.put(allocator, _key, @ptrCast(_value)) catch @panic("kcolumnheadersmodel.ItemData: Memory allocation failed");
+            _ret.put(allocator, _key, .{ .ptr = @ptrCast(_value) }) catch @panic("kcolumnheadersmodel.ItemData: Memory allocation failed");
         }
         return _ret;
     }
@@ -2416,16 +2520,16 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, index: QtC.QModelIndex) callconv(.c) qtc.libqt_map `
+    /// ` callback: *const fn (self: KColumnHeadersModel, index: QModelIndex) callconv(.c) qtc.libqt_map `
     ///
     /// ## Callback Returns:
     ///
-    /// ` C ABI representation of arraymap_i32_qtcqvariant `
+    /// ` C ABI representation of ArrayMap_i32_QVariant `
     ///
-    pub fn OnItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) qtc.libqt_map) void {
-        qtc.KColumnHeadersModel_OnItemData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnItemData(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QModelIndex) callconv(.c) qtc.libqt_map) void {
+        qtc.KColumnHeadersModel_OnItemData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2436,15 +2540,16 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
-    ///
-    /// ` index: QtC.QModelIndex `
-    ///
-    /// ` roles: arraymap_i32_qtcqvariant `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetItemData(self: ?*anyopaque, index: ?*anyopaque, roles: arraymap_i32_qtcqvariant, allocator: std.mem.Allocator) bool {
+    /// ` index: QModelIndex `
+    ///
+    /// ` roles: ArrayMap_i32_QVariant `
+    ///
+    pub fn SetItemData(self: KColumnHeadersModel, allocator: std.mem.Allocator, index: anytype, roles: ArrayMap_i32_QVariant) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
         const roles_count = roles.count();
         const roles_keys = allocator.alloc(i32, roles_count) catch @panic("kcolumnheadersmodel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_keys);
@@ -2455,14 +2560,14 @@ pub const kcolumnheadersmodel = struct {
         while (roles_it.next()) |it_entry| : (i += 1) {
             const roles_key = it_entry.key_ptr.*;
             roles_keys[i] = @bitCast(roles_key);
-            roles_values[i] = @ptrCast(it_entry.value_ptr.*);
+            roles_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const roles_map = qtc.libqt_map{
             .len = roles_count,
             .keys = @ptrCast(roles_keys.ptr),
             .values = @ptrCast(roles_values.ptr),
         };
-        return qtc.KColumnHeadersModel_SetItemData(@ptrCast(self), @ptrCast(index), roles_map);
+        return qtc.KColumnHeadersModel_SetItemData(@ptrCast(self.ptr), @ptrCast(index.ptr), roles_map);
     }
 
     /// ### DEPRECATED: Use `SuperSetItemData` instead
@@ -2477,15 +2582,16 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
-    ///
-    /// ` index: QtC.QModelIndex `
-    ///
-    /// ` roles: arraymap_i32_qtcqvariant `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperSetItemData(self: ?*anyopaque, index: ?*anyopaque, roles: arraymap_i32_qtcqvariant, allocator: std.mem.Allocator) bool {
+    /// ` index: QModelIndex `
+    ///
+    /// ` roles: ArrayMap_i32_QVariant `
+    ///
+    pub fn SuperSetItemData(self: KColumnHeadersModel, allocator: std.mem.Allocator, index: anytype, roles: ArrayMap_i32_QVariant) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
         const roles_count = roles.count();
         const roles_keys = allocator.alloc(i32, roles_count) catch @panic("kcolumnheadersmodel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_keys);
@@ -2496,14 +2602,14 @@ pub const kcolumnheadersmodel = struct {
         while (roles_it.next()) |it_entry| : (i += 1) {
             const roles_key = it_entry.key_ptr.*;
             roles_keys[i] = @bitCast(roles_key);
-            roles_values[i] = @ptrCast(it_entry.value_ptr.*);
+            roles_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const roles_map = qtc.libqt_map{
             .len = roles_count,
             .keys = @ptrCast(roles_keys.ptr),
             .values = @ptrCast(roles_values.ptr),
         };
-        return qtc.KColumnHeadersModel_SuperSetItemData(@ptrCast(self), @ptrCast(index), roles_map);
+        return qtc.KColumnHeadersModel_SuperSetItemData(@ptrCast(self.ptr), @ptrCast(index.ptr), roles_map);
     }
 
     /// Inherited from QAbstractItemModel
@@ -2514,12 +2620,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, index: QtC.QModelIndex, roles: qtc.libqt_map (arraymap_i32_qtcqvariant)) callconv(.c) bool `
+    /// ` callback: *const fn (self: KColumnHeadersModel, index: QModelIndex, roles: qtc.libqt_map (ArrayMap_i32_QVariant)) callconv(.c) bool `
     ///
-    pub fn OnSetItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, qtc.libqt_map) callconv(.c) bool) void {
-        qtc.KColumnHeadersModel_OnSetItemData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetItemData(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QModelIndex, qtc.libqt_map) callconv(.c) bool) void {
+        qtc.KColumnHeadersModel_OnSetItemData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2530,12 +2636,13 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn ClearItemData(self: ?*anyopaque, index: ?*anyopaque) bool {
-        return qtc.KColumnHeadersModel_ClearItemData(@ptrCast(self), @ptrCast(index));
+    pub fn ClearItemData(self: KColumnHeadersModel, index: anytype) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.KColumnHeadersModel_ClearItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperClearItemData` instead
@@ -2550,12 +2657,13 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SuperClearItemData(self: ?*anyopaque, index: ?*anyopaque) bool {
-        return qtc.KColumnHeadersModel_SuperClearItemData(@ptrCast(self), @ptrCast(index));
+    pub fn SuperClearItemData(self: KColumnHeadersModel, index: anytype) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.KColumnHeadersModel_SuperClearItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2566,12 +2674,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, index: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KColumnHeadersModel, index: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnClearItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KColumnHeadersModel_OnClearItemData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnClearItemData(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QModelIndex) callconv(.c) bool) void {
+        qtc.KColumnHeadersModel_OnClearItemData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2582,17 +2690,16 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KColumnHeadersModel_MimeTypes(@ptrCast(self));
+    pub fn MimeTypes(self: KColumnHeadersModel, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.KColumnHeadersModel_MimeTypes(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kcolumnheadersmodel.MimeTypes: Memory allocation failed");
@@ -2617,17 +2724,16 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KColumnHeadersModel_SuperMimeTypes(@ptrCast(self));
+    pub fn SuperMimeTypes(self: KColumnHeadersModel, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.KColumnHeadersModel_SuperMimeTypes(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kcolumnheadersmodel.MimeTypes: Memory allocation failed");
@@ -2646,16 +2752,16 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
     /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnMimeTypes(self: ?*anyopaque, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
-        qtc.KColumnHeadersModel_OnMimeTypes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMimeTypes(self: KColumnHeadersModel, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
+        qtc.KColumnHeadersModel_OnMimeTypes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2666,16 +2772,16 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` indexes: []QtC.QModelIndex `
+    /// ` indexes: []QModelIndex `
     ///
-    pub fn MimeData(self: ?*anyopaque, indexes: []QtC.QModelIndex) QtC.QMimeData {
+    pub fn MimeData(self: KColumnHeadersModel, indexes: []QModelIndex) QMimeData {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
-        return qtc.KColumnHeadersModel_MimeData(@ptrCast(self), indexes_list);
+        return .{ .ptr = qtc.KColumnHeadersModel_MimeData(@ptrCast(self.ptr), indexes_list) };
     }
 
     /// ### DEPRECATED: Use `SuperMimeData` instead
@@ -2690,16 +2796,16 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` indexes: []QtC.QModelIndex `
+    /// ` indexes: []QModelIndex `
     ///
-    pub fn SuperMimeData(self: ?*anyopaque, indexes: []QtC.QModelIndex) QtC.QMimeData {
+    pub fn SuperMimeData(self: KColumnHeadersModel, indexes: []QModelIndex) QMimeData {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
-        return qtc.KColumnHeadersModel_SuperMimeData(@ptrCast(self), indexes_list);
+        return .{ .ptr = qtc.KColumnHeadersModel_SuperMimeData(@ptrCast(self.ptr), indexes_list) };
     }
 
     /// Inherited from QAbstractItemModel
@@ -2710,12 +2816,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, indexes: qtc.libqt_list ([]QtC.QModelIndex)) callconv(.c) QtC.QMimeData `
+    /// ` callback: *const fn (self: KColumnHeadersModel, indexes: qtc.libqt_list ([]QModelIndex)) callconv(.c) QMimeData `
     ///
-    pub fn OnMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) QtC.QMimeData) void {
-        qtc.KColumnHeadersModel_OnMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMimeData(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, qtc.libqt_list) callconv(.c) QMimeData) void {
+        qtc.KColumnHeadersModel_OnMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2726,9 +2832,9 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` data: QtC.QMimeData `
+    /// ` data: QMimeData `
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
@@ -2736,10 +2842,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn CanDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.KColumnHeadersModel_CanDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn CanDropMimeData(self: KColumnHeadersModel, data: anytype, action: i32, row: i32, column: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(data)._is_QMimeData;
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KColumnHeadersModel_CanDropMimeData(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCanDropMimeData` instead
@@ -2754,9 +2862,9 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` data: QtC.QMimeData `
+    /// ` data: QMimeData `
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
@@ -2764,10 +2872,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperCanDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.KColumnHeadersModel_SuperCanDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn SuperCanDropMimeData(self: KColumnHeadersModel, data: anytype, action: i32, row: i32, column: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(data)._is_QMimeData;
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KColumnHeadersModel_SuperCanDropMimeData(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2778,12 +2888,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, data: QtC.QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KColumnHeadersModel, data: QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnCanDropMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KColumnHeadersModel_OnCanDropMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCanDropMimeData(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QMimeData, i32, i32, i32, QModelIndex) callconv(.c) bool) void {
+        qtc.KColumnHeadersModel_OnCanDropMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2794,14 +2904,14 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SupportedDropActions(self: ?*anyopaque) i32 {
-        return qtc.KColumnHeadersModel_SupportedDropActions(@ptrCast(self));
+    pub fn SupportedDropActions(self: KColumnHeadersModel) i32 {
+        return qtc.KColumnHeadersModel_SupportedDropActions(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSupportedDropActions` instead
@@ -2816,14 +2926,14 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SuperSupportedDropActions(self: ?*anyopaque) i32 {
-        return qtc.KColumnHeadersModel_SuperSupportedDropActions(@ptrCast(self));
+    pub fn SuperSupportedDropActions(self: KColumnHeadersModel) i32 {
+        return qtc.KColumnHeadersModel_SuperSupportedDropActions(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2834,12 +2944,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSupportedDropActions(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KColumnHeadersModel_OnSupportedDropActions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSupportedDropActions(self: KColumnHeadersModel, callback: *const fn () callconv(.c) i32) void {
+        qtc.KColumnHeadersModel_OnSupportedDropActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2850,14 +2960,14 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SupportedDragActions(self: ?*anyopaque) i32 {
-        return qtc.KColumnHeadersModel_SupportedDragActions(@ptrCast(self));
+    pub fn SupportedDragActions(self: KColumnHeadersModel) i32 {
+        return qtc.KColumnHeadersModel_SupportedDragActions(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSupportedDragActions` instead
@@ -2872,14 +2982,14 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SuperSupportedDragActions(self: ?*anyopaque) i32 {
-        return qtc.KColumnHeadersModel_SuperSupportedDragActions(@ptrCast(self));
+    pub fn SuperSupportedDragActions(self: KColumnHeadersModel) i32 {
+        return qtc.KColumnHeadersModel_SuperSupportedDragActions(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2890,12 +3000,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSupportedDragActions(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KColumnHeadersModel_OnSupportedDragActions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSupportedDragActions(self: KColumnHeadersModel, callback: *const fn () callconv(.c) i32) void {
+        qtc.KColumnHeadersModel_OnSupportedDragActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2906,16 +3016,17 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` row: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn InsertRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KColumnHeadersModel_InsertRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
+    pub fn InsertRows(self: KColumnHeadersModel, row: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KColumnHeadersModel_InsertRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInsertRows` instead
@@ -2930,16 +3041,17 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` row: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperInsertRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KColumnHeadersModel_SuperInsertRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
+    pub fn SuperInsertRows(self: KColumnHeadersModel, row: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KColumnHeadersModel_SuperInsertRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2950,12 +3062,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, row: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KColumnHeadersModel, row: i32, count: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnInsertRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KColumnHeadersModel_OnInsertRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInsertRows(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, i32, i32, QModelIndex) callconv(.c) bool) void {
+        qtc.KColumnHeadersModel_OnInsertRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2966,16 +3078,17 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` column: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn InsertColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KColumnHeadersModel_InsertColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
+    pub fn InsertColumns(self: KColumnHeadersModel, column: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KColumnHeadersModel_InsertColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInsertColumns` instead
@@ -2990,16 +3103,17 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` column: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperInsertColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KColumnHeadersModel_SuperInsertColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
+    pub fn SuperInsertColumns(self: KColumnHeadersModel, column: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KColumnHeadersModel_SuperInsertColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3010,12 +3124,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, column: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KColumnHeadersModel, column: i32, count: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnInsertColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KColumnHeadersModel_OnInsertColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInsertColumns(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, i32, i32, QModelIndex) callconv(.c) bool) void {
+        qtc.KColumnHeadersModel_OnInsertColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3026,16 +3140,17 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` row: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn RemoveRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KColumnHeadersModel_RemoveRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
+    pub fn RemoveRows(self: KColumnHeadersModel, row: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KColumnHeadersModel_RemoveRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperRemoveRows` instead
@@ -3050,16 +3165,17 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` row: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperRemoveRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KColumnHeadersModel_SuperRemoveRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
+    pub fn SuperRemoveRows(self: KColumnHeadersModel, row: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KColumnHeadersModel_SuperRemoveRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3070,12 +3186,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, row: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KColumnHeadersModel, row: i32, count: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnRemoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KColumnHeadersModel_OnRemoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRemoveRows(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, i32, i32, QModelIndex) callconv(.c) bool) void {
+        qtc.KColumnHeadersModel_OnRemoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3086,16 +3202,17 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` column: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn RemoveColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KColumnHeadersModel_RemoveColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
+    pub fn RemoveColumns(self: KColumnHeadersModel, column: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KColumnHeadersModel_RemoveColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperRemoveColumns` instead
@@ -3110,16 +3227,17 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` column: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperRemoveColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KColumnHeadersModel_SuperRemoveColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
+    pub fn SuperRemoveColumns(self: KColumnHeadersModel, column: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KColumnHeadersModel_SuperRemoveColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3130,12 +3248,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, column: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KColumnHeadersModel, column: i32, count: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnRemoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KColumnHeadersModel_OnRemoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRemoveColumns(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, i32, i32, QModelIndex) callconv(.c) bool) void {
+        qtc.KColumnHeadersModel_OnRemoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3146,20 +3264,22 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceRow: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn MoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.KColumnHeadersModel_MoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
+    pub fn MoveRows(self: KColumnHeadersModel, sourceParent: anytype, sourceRow: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KColumnHeadersModel_MoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
 
     /// ### DEPRECATED: Use `SuperMoveRows` instead
@@ -3174,20 +3294,22 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceRow: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn SuperMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.KColumnHeadersModel_SuperMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
+    pub fn SuperMoveRows(self: KColumnHeadersModel, sourceParent: anytype, sourceRow: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KColumnHeadersModel_SuperMoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3198,12 +3320,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, sourceParent: QtC.QModelIndex, sourceRow: i32, count: i32, destinationParent: QtC.QModelIndex, destinationChild: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: KColumnHeadersModel, sourceParent: QModelIndex, sourceRow: i32, count: i32, destinationParent: QModelIndex, destinationChild: i32) callconv(.c) bool `
     ///
-    pub fn OnMoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KColumnHeadersModel_OnMoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMoveRows(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
+        qtc.KColumnHeadersModel_OnMoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3214,20 +3336,22 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceColumn: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn MoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.KColumnHeadersModel_MoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
+    pub fn MoveColumns(self: KColumnHeadersModel, sourceParent: anytype, sourceColumn: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KColumnHeadersModel_MoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
 
     /// ### DEPRECATED: Use `SuperMoveColumns` instead
@@ -3242,20 +3366,22 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceColumn: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn SuperMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.KColumnHeadersModel_SuperMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
+    pub fn SuperMoveColumns(self: KColumnHeadersModel, sourceParent: anytype, sourceColumn: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KColumnHeadersModel_SuperMoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3266,12 +3392,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, sourceParent: QtC.QModelIndex, sourceColumn: i32, count: i32, destinationParent: QtC.QModelIndex, destinationChild: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: KColumnHeadersModel, sourceParent: QModelIndex, sourceColumn: i32, count: i32, destinationParent: QModelIndex, destinationChild: i32) callconv(.c) bool `
     ///
-    pub fn OnMoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KColumnHeadersModel_OnMoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMoveColumns(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
+        qtc.KColumnHeadersModel_OnMoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3282,12 +3408,13 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn FetchMore(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.KColumnHeadersModel_FetchMore(@ptrCast(self), @ptrCast(parent));
+    pub fn FetchMore(self: KColumnHeadersModel, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KColumnHeadersModel_FetchMore(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFetchMore` instead
@@ -3302,12 +3429,13 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperFetchMore(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.KColumnHeadersModel_SuperFetchMore(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperFetchMore(self: KColumnHeadersModel, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KColumnHeadersModel_SuperFetchMore(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3318,12 +3446,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, parent: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: KColumnHeadersModel, parent: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnFetchMore(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KColumnHeadersModel_OnFetchMore(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFetchMore(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QModelIndex) callconv(.c) void) void {
+        qtc.KColumnHeadersModel_OnFetchMore(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3334,12 +3462,13 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn CanFetchMore(self: ?*anyopaque, parent: ?*anyopaque) bool {
-        return qtc.KColumnHeadersModel_CanFetchMore(@ptrCast(self), @ptrCast(parent));
+    pub fn CanFetchMore(self: KColumnHeadersModel, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KColumnHeadersModel_CanFetchMore(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCanFetchMore` instead
@@ -3354,12 +3483,13 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperCanFetchMore(self: ?*anyopaque, parent: ?*anyopaque) bool {
-        return qtc.KColumnHeadersModel_SuperCanFetchMore(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperCanFetchMore(self: KColumnHeadersModel, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KColumnHeadersModel_SuperCanFetchMore(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3370,12 +3500,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KColumnHeadersModel, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnCanFetchMore(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KColumnHeadersModel_OnCanFetchMore(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCanFetchMore(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QModelIndex) callconv(.c) bool) void {
+        qtc.KColumnHeadersModel_OnCanFetchMore(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3386,14 +3516,14 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` column: i32 `
     ///
     /// ` order: qnamespace_enums.SortOrder `
     ///
-    pub fn Sort(self: ?*anyopaque, column: i32, order: i32) void {
-        qtc.KColumnHeadersModel_Sort(@ptrCast(self), @bitCast(column), @bitCast(order));
+    pub fn Sort(self: KColumnHeadersModel, column: i32, order: i32) void {
+        qtc.KColumnHeadersModel_Sort(@ptrCast(self.ptr), @bitCast(column), @bitCast(order));
     }
 
     /// ### DEPRECATED: Use `SuperSort` instead
@@ -3408,14 +3538,14 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` column: i32 `
     ///
     /// ` order: qnamespace_enums.SortOrder `
     ///
-    pub fn SuperSort(self: ?*anyopaque, column: i32, order: i32) void {
-        qtc.KColumnHeadersModel_SuperSort(@ptrCast(self), @bitCast(column), @bitCast(order));
+    pub fn SuperSort(self: KColumnHeadersModel, column: i32, order: i32) void {
+        qtc.KColumnHeadersModel_SuperSort(@ptrCast(self.ptr), @bitCast(column), @bitCast(order));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3426,12 +3556,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, column: i32, order: qnamespace_enums.SortOrder) callconv(.c) void `
+    /// ` callback: *const fn (self: KColumnHeadersModel, column: i32, order: qnamespace_enums.SortOrder) callconv(.c) void `
     ///
-    pub fn OnSort(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KColumnHeadersModel_OnSort(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSort(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, i32, i32) callconv(.c) void) void {
+        qtc.KColumnHeadersModel_OnSort(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3442,12 +3572,13 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn Buddy(self: ?*anyopaque, index: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KColumnHeadersModel_Buddy(@ptrCast(self), @ptrCast(index));
+    pub fn Buddy(self: KColumnHeadersModel, index: anytype) QModelIndex {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.KColumnHeadersModel_Buddy(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperBuddy` instead
@@ -3462,12 +3593,13 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SuperBuddy(self: ?*anyopaque, index: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KColumnHeadersModel_SuperBuddy(@ptrCast(self), @ptrCast(index));
+    pub fn SuperBuddy(self: KColumnHeadersModel, index: anytype) QModelIndex {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.KColumnHeadersModel_SuperBuddy(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// Inherited from QAbstractItemModel
@@ -3478,12 +3610,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, index: QtC.QModelIndex) callconv(.c) QtC.QModelIndex `
+    /// ` callback: *const fn (self: KColumnHeadersModel, index: QModelIndex) callconv(.c) QModelIndex `
     ///
-    pub fn OnBuddy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.KColumnHeadersModel_OnBuddy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBuddy(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QModelIndex) callconv(.c) QModelIndex) void {
+        qtc.KColumnHeadersModel_OnBuddy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3494,26 +3626,29 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` start: QtC.QModelIndex `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` start: QModelIndex `
     ///
     /// ` role: i32 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
     /// ` hits: i32 `
     ///
     /// ` flags: flag of qnamespace_enums.MatchFlag `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Match(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.KColumnHeadersModel_Match(@ptrCast(self), @ptrCast(start), @bitCast(role), @ptrCast(value), @bitCast(hits), @bitCast(flags));
+    pub fn Match(self: KColumnHeadersModel, allocator: std.mem.Allocator, start: anytype, role: i32, value: anytype, hits: i32, flags: i32) []QModelIndex {
+        comptime _ = @TypeOf(start)._is_QModelIndex;
+        comptime _ = @TypeOf(value)._is_QVariant;
+        const _arr: qtc.libqt_list = qtc.KColumnHeadersModel_Match(@ptrCast(self.ptr), @ptrCast(start.ptr), @bitCast(role), @ptrCast(value.ptr), @bitCast(hits), @bitCast(flags));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("kcolumnheadersmodel.Match: Memory allocation failed");
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("kcolumnheadersmodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -3529,26 +3664,29 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` start: QtC.QModelIndex `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` start: QModelIndex `
     ///
     /// ` role: i32 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
     /// ` hits: i32 `
     ///
     /// ` flags: flag of qnamespace_enums.MatchFlag `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn SuperMatch(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.KColumnHeadersModel_SuperMatch(@ptrCast(self), @ptrCast(start), @bitCast(role), @ptrCast(value), @bitCast(hits), @bitCast(flags));
+    pub fn SuperMatch(self: KColumnHeadersModel, allocator: std.mem.Allocator, start: anytype, role: i32, value: anytype, hits: i32, flags: i32) []QModelIndex {
+        comptime _ = @TypeOf(start)._is_QModelIndex;
+        comptime _ = @TypeOf(value)._is_QVariant;
+        const _arr: qtc.libqt_list = qtc.KColumnHeadersModel_SuperMatch(@ptrCast(self.ptr), @ptrCast(start.ptr), @bitCast(role), @ptrCast(value.ptr), @bitCast(hits), @bitCast(flags));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("kcolumnheadersmodel.Match: Memory allocation failed");
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("kcolumnheadersmodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -3558,20 +3696,20 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag) callconv(.c) qtc.libqt_list `
+    /// ` callback: *const fn (self: KColumnHeadersModel, start: QModelIndex, role: i32, value: QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag) callconv(.c) qtc.libqt_list `
     ///
     /// ## Callback Returns:
     ///
-    /// ` C ABI representation of []QtC.QModelIndex `
+    /// ` C ABI representation of []QModelIndex `
     ///
-    pub fn OnMatch(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, i32, i32) callconv(.c) qtc.libqt_list) void {
-        qtc.KColumnHeadersModel_OnMatch(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMatch(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QModelIndex, i32, QVariant, i32, i32) callconv(.c) qtc.libqt_list) void {
+        qtc.KColumnHeadersModel_OnMatch(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3582,12 +3720,13 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn Span(self: ?*anyopaque, index: ?*anyopaque) QtC.QSize {
-        return qtc.KColumnHeadersModel_Span(@ptrCast(self), @ptrCast(index));
+    pub fn Span(self: KColumnHeadersModel, index: anytype) QSize {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.KColumnHeadersModel_Span(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSpan` instead
@@ -3602,12 +3741,13 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SuperSpan(self: ?*anyopaque, index: ?*anyopaque) QtC.QSize {
-        return qtc.KColumnHeadersModel_SuperSpan(@ptrCast(self), @ptrCast(index));
+    pub fn SuperSpan(self: KColumnHeadersModel, index: anytype) QSize {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.KColumnHeadersModel_SuperSpan(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// Inherited from QAbstractItemModel
@@ -3618,12 +3758,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, index: QtC.QModelIndex) callconv(.c) QtC.QSize `
+    /// ` callback: *const fn (self: KColumnHeadersModel, index: QModelIndex) callconv(.c) QSize `
     ///
-    pub fn OnSpan(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QSize) void {
-        qtc.KColumnHeadersModel_OnSpan(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSpan(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QModelIndex) callconv(.c) QSize) void {
+        qtc.KColumnHeadersModel_OnSpan(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3634,14 +3774,16 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    /// ` roleDataSpan: QtC.QModelRoleDataSpan `
+    /// ` roleDataSpan: QModelRoleDataSpan `
     ///
-    pub fn MultiData(self: ?*anyopaque, index: ?*anyopaque, roleDataSpan: QtC.QModelRoleDataSpan) void {
-        qtc.KColumnHeadersModel_MultiData(@ptrCast(self), @ptrCast(index), @ptrCast(roleDataSpan));
+    pub fn MultiData(self: KColumnHeadersModel, index: anytype, roleDataSpan: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        comptime _ = @TypeOf(roleDataSpan)._is_QModelRoleDataSpan;
+        qtc.KColumnHeadersModel_MultiData(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(roleDataSpan.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMultiData` instead
@@ -3656,14 +3798,16 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    /// ` roleDataSpan: QtC.QModelRoleDataSpan `
+    /// ` roleDataSpan: QModelRoleDataSpan `
     ///
-    pub fn SuperMultiData(self: ?*anyopaque, index: ?*anyopaque, roleDataSpan: QtC.QModelRoleDataSpan) void {
-        qtc.KColumnHeadersModel_SuperMultiData(@ptrCast(self), @ptrCast(index), @ptrCast(roleDataSpan));
+    pub fn SuperMultiData(self: KColumnHeadersModel, index: anytype, roleDataSpan: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        comptime _ = @TypeOf(roleDataSpan)._is_QModelRoleDataSpan;
+        qtc.KColumnHeadersModel_SuperMultiData(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(roleDataSpan.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3674,12 +3818,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, index: QtC.QModelIndex, roleDataSpan: QtC.QModelRoleDataSpan) callconv(.c) void `
+    /// ` callback: *const fn (self: KColumnHeadersModel, index: QModelIndex, roleDataSpan: QModelRoleDataSpan) callconv(.c) void `
     ///
-    pub fn OnMultiData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, QtC.QModelRoleDataSpan) callconv(.c) void) void {
-        qtc.KColumnHeadersModel_OnMultiData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMultiData(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QModelIndex, QModelRoleDataSpan) callconv(.c) void) void {
+        qtc.KColumnHeadersModel_OnMultiData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3690,10 +3834,10 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn Submit(self: ?*anyopaque) bool {
-        return qtc.KColumnHeadersModel_Submit(@ptrCast(self));
+    pub fn Submit(self: KColumnHeadersModel) bool {
+        return qtc.KColumnHeadersModel_Submit(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSubmit` instead
@@ -3708,10 +3852,10 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn SuperSubmit(self: ?*anyopaque) bool {
-        return qtc.KColumnHeadersModel_SuperSubmit(@ptrCast(self));
+    pub fn SuperSubmit(self: KColumnHeadersModel) bool {
+        return qtc.KColumnHeadersModel_SuperSubmit(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3722,12 +3866,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnSubmit(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KColumnHeadersModel_OnSubmit(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSubmit(self: KColumnHeadersModel, callback: *const fn () callconv(.c) bool) void {
+        qtc.KColumnHeadersModel_OnSubmit(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3738,10 +3882,10 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn Revert(self: ?*anyopaque) void {
-        qtc.KColumnHeadersModel_Revert(@ptrCast(self));
+    pub fn Revert(self: KColumnHeadersModel) void {
+        qtc.KColumnHeadersModel_Revert(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperRevert` instead
@@ -3756,10 +3900,10 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn SuperRevert(self: ?*anyopaque) void {
-        qtc.KColumnHeadersModel_SuperRevert(@ptrCast(self));
+    pub fn SuperRevert(self: KColumnHeadersModel) void {
+        qtc.KColumnHeadersModel_SuperRevert(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3770,12 +3914,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnRevert(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KColumnHeadersModel_OnRevert(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRevert(self: KColumnHeadersModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KColumnHeadersModel_OnRevert(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3786,10 +3930,10 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn ResetInternalData(self: ?*anyopaque) void {
-        qtc.KColumnHeadersModel_ResetInternalData(@ptrCast(self));
+    pub fn ResetInternalData(self: KColumnHeadersModel) void {
+        qtc.KColumnHeadersModel_ResetInternalData(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperResetInternalData` instead
@@ -3804,10 +3948,10 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn SuperResetInternalData(self: ?*anyopaque) void {
-        qtc.KColumnHeadersModel_SuperResetInternalData(@ptrCast(self));
+    pub fn SuperResetInternalData(self: KColumnHeadersModel) void {
+        qtc.KColumnHeadersModel_SuperResetInternalData(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3818,12 +3962,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnResetInternalData(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KColumnHeadersModel_OnResetInternalData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResetInternalData(self: KColumnHeadersModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KColumnHeadersModel_OnResetInternalData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3834,12 +3978,13 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KColumnHeadersModel_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: KColumnHeadersModel, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KColumnHeadersModel_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -3854,12 +3999,13 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KColumnHeadersModel_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: KColumnHeadersModel, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KColumnHeadersModel_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3870,12 +4016,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KColumnHeadersModel, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KColumnHeadersModel_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QEvent) callconv(.c) bool) void {
+        qtc.KColumnHeadersModel_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3886,14 +4032,16 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KColumnHeadersModel_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: KColumnHeadersModel, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KColumnHeadersModel_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -3908,14 +4056,16 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KColumnHeadersModel_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: KColumnHeadersModel, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KColumnHeadersModel_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3926,12 +4076,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KColumnHeadersModel, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KColumnHeadersModel_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QObject, QEvent) callconv(.c) bool) void {
+        qtc.KColumnHeadersModel_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3942,12 +4092,13 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KColumnHeadersModel_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: KColumnHeadersModel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KColumnHeadersModel_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -3962,12 +4113,13 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KColumnHeadersModel_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: KColumnHeadersModel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KColumnHeadersModel_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3978,12 +4130,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KColumnHeadersModel, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KColumnHeadersModel_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QTimerEvent) callconv(.c) void) void {
+        qtc.KColumnHeadersModel_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3994,12 +4146,13 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KColumnHeadersModel_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: KColumnHeadersModel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KColumnHeadersModel_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -4014,12 +4167,13 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KColumnHeadersModel_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: KColumnHeadersModel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KColumnHeadersModel_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -4030,12 +4184,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KColumnHeadersModel, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KColumnHeadersModel_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QChildEvent) callconv(.c) void) void {
+        qtc.KColumnHeadersModel_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4046,12 +4200,13 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KColumnHeadersModel_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: KColumnHeadersModel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KColumnHeadersModel_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -4066,12 +4221,13 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KColumnHeadersModel_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: KColumnHeadersModel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KColumnHeadersModel_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -4082,12 +4238,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KColumnHeadersModel, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KColumnHeadersModel_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QEvent) callconv(.c) void) void {
+        qtc.KColumnHeadersModel_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4098,12 +4254,13 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KColumnHeadersModel_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: KColumnHeadersModel, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KColumnHeadersModel_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -4118,12 +4275,13 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KColumnHeadersModel_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: KColumnHeadersModel, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KColumnHeadersModel_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -4134,12 +4292,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KColumnHeadersModel, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KColumnHeadersModel_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QMetaMethod) callconv(.c) void) void {
+        qtc.KColumnHeadersModel_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4150,12 +4308,13 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KColumnHeadersModel_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: KColumnHeadersModel, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KColumnHeadersModel_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -4170,12 +4329,13 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KColumnHeadersModel_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: KColumnHeadersModel, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KColumnHeadersModel_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -4186,12 +4346,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KColumnHeadersModel, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KColumnHeadersModel_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QMetaMethod) callconv(.c) void) void {
+        qtc.KColumnHeadersModel_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4202,14 +4362,14 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    pub fn CreateIndex(self: ?*anyopaque, row: i32, column: i32) QtC.QModelIndex {
-        return qtc.KColumnHeadersModel_CreateIndex(@ptrCast(self), @bitCast(row), @bitCast(column));
+    pub fn CreateIndex(self: KColumnHeadersModel, row: i32, column: i32) QModelIndex {
+        return .{ .ptr = qtc.KColumnHeadersModel_CreateIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column)) };
     }
 
     /// ### DEPRECATED: Use `SuperCreateIndex` instead
@@ -4224,14 +4384,14 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    pub fn SuperCreateIndex(self: ?*anyopaque, row: i32, column: i32) QtC.QModelIndex {
-        return qtc.KColumnHeadersModel_SuperCreateIndex(@ptrCast(self), @bitCast(row), @bitCast(column));
+    pub fn SuperCreateIndex(self: KColumnHeadersModel, row: i32, column: i32) QModelIndex {
+        return .{ .ptr = qtc.KColumnHeadersModel_SuperCreateIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column)) };
     }
 
     /// Inherited from QAbstractItemModel
@@ -4242,12 +4402,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, row: i32, column: i32) callconv(.c) QtC.QModelIndex `
+    /// ` callback: *const fn (self: KColumnHeadersModel, row: i32, column: i32) callconv(.c) QModelIndex `
     ///
-    pub fn OnCreateIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) QtC.QModelIndex) void {
-        qtc.KColumnHeadersModel_OnCreateIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreateIndex(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, i32, i32) callconv(.c) QModelIndex) void {
+        qtc.KColumnHeadersModel_OnCreateIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4258,18 +4418,19 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` indexes: []QtC.QModelIndex `
+    /// ` indexes: []QModelIndex `
     ///
-    /// ` stream: QtC.QDataStream `
+    /// ` stream: QDataStream `
     ///
-    pub fn EncodeData(self: ?*anyopaque, indexes: []QtC.QModelIndex, stream: ?*anyopaque) void {
+    pub fn EncodeData(self: KColumnHeadersModel, indexes: []QModelIndex, stream: anytype) void {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
-        qtc.KColumnHeadersModel_EncodeData(@ptrCast(self), indexes_list, @ptrCast(stream));
+        comptime _ = @TypeOf(stream)._is_QDataStream;
+        qtc.KColumnHeadersModel_EncodeData(@ptrCast(self.ptr), indexes_list, @ptrCast(stream.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEncodeData` instead
@@ -4284,18 +4445,19 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` indexes: []QtC.QModelIndex `
+    /// ` indexes: []QModelIndex `
     ///
-    /// ` stream: QtC.QDataStream `
+    /// ` stream: QDataStream `
     ///
-    pub fn SuperEncodeData(self: ?*anyopaque, indexes: []QtC.QModelIndex, stream: ?*anyopaque) void {
+    pub fn SuperEncodeData(self: KColumnHeadersModel, indexes: []QModelIndex, stream: anytype) void {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
-        qtc.KColumnHeadersModel_SuperEncodeData(@ptrCast(self), indexes_list, @ptrCast(stream));
+        comptime _ = @TypeOf(stream)._is_QDataStream;
+        qtc.KColumnHeadersModel_SuperEncodeData(@ptrCast(self.ptr), indexes_list, @ptrCast(stream.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4306,12 +4468,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, indexes: qtc.libqt_list ([]QtC.QModelIndex), stream: QtC.QDataStream) callconv(.c) void `
+    /// ` callback: *const fn (self: KColumnHeadersModel, indexes: qtc.libqt_list ([]QModelIndex), stream: QDataStream) callconv(.c) void `
     ///
-    pub fn OnEncodeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, ?*anyopaque) callconv(.c) void) void {
-        qtc.KColumnHeadersModel_OnEncodeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEncodeData(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, qtc.libqt_list, QDataStream) callconv(.c) void) void {
+        qtc.KColumnHeadersModel_OnEncodeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4322,18 +4484,20 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    /// ` stream: QtC.QDataStream `
+    /// ` stream: QDataStream `
     ///
-    pub fn DecodeData(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque, stream: ?*anyopaque) bool {
-        return qtc.KColumnHeadersModel_DecodeData(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent), @ptrCast(stream));
+    pub fn DecodeData(self: KColumnHeadersModel, row: i32, column: i32, parent: anytype, stream: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        comptime _ = @TypeOf(stream)._is_QDataStream;
+        return qtc.KColumnHeadersModel_DecodeData(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr), @ptrCast(stream.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDecodeData` instead
@@ -4348,18 +4512,20 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    /// ` stream: QtC.QDataStream `
+    /// ` stream: QDataStream `
     ///
-    pub fn SuperDecodeData(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque, stream: ?*anyopaque) bool {
-        return qtc.KColumnHeadersModel_SuperDecodeData(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent), @ptrCast(stream));
+    pub fn SuperDecodeData(self: KColumnHeadersModel, row: i32, column: i32, parent: anytype, stream: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        comptime _ = @TypeOf(stream)._is_QDataStream;
+        return qtc.KColumnHeadersModel_SuperDecodeData(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr), @ptrCast(stream.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4370,12 +4536,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, row: i32, column: i32, parent: QtC.QModelIndex, stream: QtC.QDataStream) callconv(.c) bool `
+    /// ` callback: *const fn (self: KColumnHeadersModel, row: i32, column: i32, parent: QModelIndex, stream: QDataStream) callconv(.c) bool `
     ///
-    pub fn OnDecodeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KColumnHeadersModel_OnDecodeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDecodeData(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, i32, i32, QModelIndex, QDataStream) callconv(.c) bool) void {
+        qtc.KColumnHeadersModel_OnDecodeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4386,16 +4552,17 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn BeginInsertRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KColumnHeadersModel_BeginInsertRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn BeginInsertRows(self: KColumnHeadersModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KColumnHeadersModel_BeginInsertRows(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// ### DEPRECATED: Use `SuperBeginInsertRows` instead
@@ -4410,16 +4577,17 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn SuperBeginInsertRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KColumnHeadersModel_SuperBeginInsertRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn SuperBeginInsertRows(self: KColumnHeadersModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KColumnHeadersModel_SuperBeginInsertRows(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4430,12 +4598,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KColumnHeadersModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnBeginInsertRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KColumnHeadersModel_OnBeginInsertRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBeginInsertRows(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.KColumnHeadersModel_OnBeginInsertRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4446,10 +4614,10 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn EndInsertRows(self: ?*anyopaque) void {
-        qtc.KColumnHeadersModel_EndInsertRows(@ptrCast(self));
+    pub fn EndInsertRows(self: KColumnHeadersModel) void {
+        qtc.KColumnHeadersModel_EndInsertRows(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEndInsertRows` instead
@@ -4464,10 +4632,10 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn SuperEndInsertRows(self: ?*anyopaque) void {
-        qtc.KColumnHeadersModel_SuperEndInsertRows(@ptrCast(self));
+    pub fn SuperEndInsertRows(self: KColumnHeadersModel) void {
+        qtc.KColumnHeadersModel_SuperEndInsertRows(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4478,12 +4646,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndInsertRows(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KColumnHeadersModel_OnEndInsertRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEndInsertRows(self: KColumnHeadersModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KColumnHeadersModel_OnEndInsertRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4494,16 +4662,17 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn BeginRemoveRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KColumnHeadersModel_BeginRemoveRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn BeginRemoveRows(self: KColumnHeadersModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KColumnHeadersModel_BeginRemoveRows(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// ### DEPRECATED: Use `SuperBeginRemoveRows` instead
@@ -4518,16 +4687,17 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn SuperBeginRemoveRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KColumnHeadersModel_SuperBeginRemoveRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn SuperBeginRemoveRows(self: KColumnHeadersModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KColumnHeadersModel_SuperBeginRemoveRows(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4538,12 +4708,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KColumnHeadersModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnBeginRemoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KColumnHeadersModel_OnBeginRemoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBeginRemoveRows(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.KColumnHeadersModel_OnBeginRemoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4554,10 +4724,10 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn EndRemoveRows(self: ?*anyopaque) void {
-        qtc.KColumnHeadersModel_EndRemoveRows(@ptrCast(self));
+    pub fn EndRemoveRows(self: KColumnHeadersModel) void {
+        qtc.KColumnHeadersModel_EndRemoveRows(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEndRemoveRows` instead
@@ -4572,10 +4742,10 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn SuperEndRemoveRows(self: ?*anyopaque) void {
-        qtc.KColumnHeadersModel_SuperEndRemoveRows(@ptrCast(self));
+    pub fn SuperEndRemoveRows(self: KColumnHeadersModel) void {
+        qtc.KColumnHeadersModel_SuperEndRemoveRows(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4586,12 +4756,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndRemoveRows(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KColumnHeadersModel_OnEndRemoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEndRemoveRows(self: KColumnHeadersModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KColumnHeadersModel_OnEndRemoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4602,20 +4772,22 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceFirst: i32 `
     ///
     /// ` sourceLast: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationRow: i32 `
     ///
-    pub fn BeginMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationRow: i32) bool {
-        return qtc.KColumnHeadersModel_BeginMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationRow));
+    pub fn BeginMoveRows(self: KColumnHeadersModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationRow: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KColumnHeadersModel_BeginMoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationRow));
     }
 
     /// ### DEPRECATED: Use `SuperBeginMoveRows` instead
@@ -4630,20 +4802,22 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceFirst: i32 `
     ///
     /// ` sourceLast: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationRow: i32 `
     ///
-    pub fn SuperBeginMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationRow: i32) bool {
-        return qtc.KColumnHeadersModel_SuperBeginMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationRow));
+    pub fn SuperBeginMoveRows(self: KColumnHeadersModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationRow: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KColumnHeadersModel_SuperBeginMoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationRow));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4654,12 +4828,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, sourceParent: QtC.QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: KColumnHeadersModel, sourceParent: QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QModelIndex, destinationRow: i32) callconv(.c) bool `
     ///
-    pub fn OnBeginMoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KColumnHeadersModel_OnBeginMoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBeginMoveRows(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
+        qtc.KColumnHeadersModel_OnBeginMoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4670,10 +4844,10 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn EndMoveRows(self: ?*anyopaque) void {
-        qtc.KColumnHeadersModel_EndMoveRows(@ptrCast(self));
+    pub fn EndMoveRows(self: KColumnHeadersModel) void {
+        qtc.KColumnHeadersModel_EndMoveRows(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEndMoveRows` instead
@@ -4688,10 +4862,10 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn SuperEndMoveRows(self: ?*anyopaque) void {
-        qtc.KColumnHeadersModel_SuperEndMoveRows(@ptrCast(self));
+    pub fn SuperEndMoveRows(self: KColumnHeadersModel) void {
+        qtc.KColumnHeadersModel_SuperEndMoveRows(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4702,12 +4876,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndMoveRows(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KColumnHeadersModel_OnEndMoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEndMoveRows(self: KColumnHeadersModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KColumnHeadersModel_OnEndMoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4718,16 +4892,17 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn BeginInsertColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KColumnHeadersModel_BeginInsertColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn BeginInsertColumns(self: KColumnHeadersModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KColumnHeadersModel_BeginInsertColumns(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// ### DEPRECATED: Use `SuperBeginInsertColumns` instead
@@ -4742,16 +4917,17 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn SuperBeginInsertColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KColumnHeadersModel_SuperBeginInsertColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn SuperBeginInsertColumns(self: KColumnHeadersModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KColumnHeadersModel_SuperBeginInsertColumns(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4762,12 +4938,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KColumnHeadersModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnBeginInsertColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KColumnHeadersModel_OnBeginInsertColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBeginInsertColumns(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.KColumnHeadersModel_OnBeginInsertColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4778,10 +4954,10 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn EndInsertColumns(self: ?*anyopaque) void {
-        qtc.KColumnHeadersModel_EndInsertColumns(@ptrCast(self));
+    pub fn EndInsertColumns(self: KColumnHeadersModel) void {
+        qtc.KColumnHeadersModel_EndInsertColumns(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEndInsertColumns` instead
@@ -4796,10 +4972,10 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn SuperEndInsertColumns(self: ?*anyopaque) void {
-        qtc.KColumnHeadersModel_SuperEndInsertColumns(@ptrCast(self));
+    pub fn SuperEndInsertColumns(self: KColumnHeadersModel) void {
+        qtc.KColumnHeadersModel_SuperEndInsertColumns(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4810,12 +4986,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndInsertColumns(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KColumnHeadersModel_OnEndInsertColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEndInsertColumns(self: KColumnHeadersModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KColumnHeadersModel_OnEndInsertColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4826,16 +5002,17 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn BeginRemoveColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KColumnHeadersModel_BeginRemoveColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn BeginRemoveColumns(self: KColumnHeadersModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KColumnHeadersModel_BeginRemoveColumns(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// ### DEPRECATED: Use `SuperBeginRemoveColumns` instead
@@ -4850,16 +5027,17 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn SuperBeginRemoveColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KColumnHeadersModel_SuperBeginRemoveColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn SuperBeginRemoveColumns(self: KColumnHeadersModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KColumnHeadersModel_SuperBeginRemoveColumns(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4870,12 +5048,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KColumnHeadersModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnBeginRemoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KColumnHeadersModel_OnBeginRemoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBeginRemoveColumns(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.KColumnHeadersModel_OnBeginRemoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4886,10 +5064,10 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn EndRemoveColumns(self: ?*anyopaque) void {
-        qtc.KColumnHeadersModel_EndRemoveColumns(@ptrCast(self));
+    pub fn EndRemoveColumns(self: KColumnHeadersModel) void {
+        qtc.KColumnHeadersModel_EndRemoveColumns(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEndRemoveColumns` instead
@@ -4904,10 +5082,10 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn SuperEndRemoveColumns(self: ?*anyopaque) void {
-        qtc.KColumnHeadersModel_SuperEndRemoveColumns(@ptrCast(self));
+    pub fn SuperEndRemoveColumns(self: KColumnHeadersModel) void {
+        qtc.KColumnHeadersModel_SuperEndRemoveColumns(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4918,12 +5096,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndRemoveColumns(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KColumnHeadersModel_OnEndRemoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEndRemoveColumns(self: KColumnHeadersModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KColumnHeadersModel_OnEndRemoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4934,20 +5112,22 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceFirst: i32 `
     ///
     /// ` sourceLast: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationColumn: i32 `
     ///
-    pub fn BeginMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationColumn: i32) bool {
-        return qtc.KColumnHeadersModel_BeginMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationColumn));
+    pub fn BeginMoveColumns(self: KColumnHeadersModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationColumn: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KColumnHeadersModel_BeginMoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationColumn));
     }
 
     /// ### DEPRECATED: Use `SuperBeginMoveColumns` instead
@@ -4962,20 +5142,22 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceFirst: i32 `
     ///
     /// ` sourceLast: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationColumn: i32 `
     ///
-    pub fn SuperBeginMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationColumn: i32) bool {
-        return qtc.KColumnHeadersModel_SuperBeginMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationColumn));
+    pub fn SuperBeginMoveColumns(self: KColumnHeadersModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationColumn: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KColumnHeadersModel_SuperBeginMoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationColumn));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4986,12 +5168,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, sourceParent: QtC.QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: KColumnHeadersModel, sourceParent: QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QModelIndex, destinationColumn: i32) callconv(.c) bool `
     ///
-    pub fn OnBeginMoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KColumnHeadersModel_OnBeginMoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBeginMoveColumns(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
+        qtc.KColumnHeadersModel_OnBeginMoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5002,10 +5184,10 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn EndMoveColumns(self: ?*anyopaque) void {
-        qtc.KColumnHeadersModel_EndMoveColumns(@ptrCast(self));
+    pub fn EndMoveColumns(self: KColumnHeadersModel) void {
+        qtc.KColumnHeadersModel_EndMoveColumns(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEndMoveColumns` instead
@@ -5020,10 +5202,10 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn SuperEndMoveColumns(self: ?*anyopaque) void {
-        qtc.KColumnHeadersModel_SuperEndMoveColumns(@ptrCast(self));
+    pub fn SuperEndMoveColumns(self: KColumnHeadersModel) void {
+        qtc.KColumnHeadersModel_SuperEndMoveColumns(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5034,12 +5216,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndMoveColumns(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KColumnHeadersModel_OnEndMoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEndMoveColumns(self: KColumnHeadersModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KColumnHeadersModel_OnEndMoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5050,10 +5232,10 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn BeginResetModel(self: ?*anyopaque) void {
-        qtc.KColumnHeadersModel_BeginResetModel(@ptrCast(self));
+    pub fn BeginResetModel(self: KColumnHeadersModel) void {
+        qtc.KColumnHeadersModel_BeginResetModel(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperBeginResetModel` instead
@@ -5068,10 +5250,10 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn SuperBeginResetModel(self: ?*anyopaque) void {
-        qtc.KColumnHeadersModel_SuperBeginResetModel(@ptrCast(self));
+    pub fn SuperBeginResetModel(self: KColumnHeadersModel) void {
+        qtc.KColumnHeadersModel_SuperBeginResetModel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5082,12 +5264,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnBeginResetModel(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KColumnHeadersModel_OnBeginResetModel(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBeginResetModel(self: KColumnHeadersModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KColumnHeadersModel_OnBeginResetModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5098,10 +5280,10 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn EndResetModel(self: ?*anyopaque) void {
-        qtc.KColumnHeadersModel_EndResetModel(@ptrCast(self));
+    pub fn EndResetModel(self: KColumnHeadersModel) void {
+        qtc.KColumnHeadersModel_EndResetModel(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEndResetModel` instead
@@ -5116,10 +5298,10 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn SuperEndResetModel(self: ?*anyopaque) void {
-        qtc.KColumnHeadersModel_SuperEndResetModel(@ptrCast(self));
+    pub fn SuperEndResetModel(self: KColumnHeadersModel) void {
+        qtc.KColumnHeadersModel_SuperEndResetModel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5130,12 +5312,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndResetModel(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KColumnHeadersModel_OnEndResetModel(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEndResetModel(self: KColumnHeadersModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KColumnHeadersModel_OnEndResetModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5146,14 +5328,16 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` from: QtC.QModelIndex `
+    /// ` from: QModelIndex `
     ///
-    /// ` to: QtC.QModelIndex `
+    /// ` to: QModelIndex `
     ///
-    pub fn ChangePersistentIndex(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque) void {
-        qtc.KColumnHeadersModel_ChangePersistentIndex(@ptrCast(self), @ptrCast(from), @ptrCast(to));
+    pub fn ChangePersistentIndex(self: KColumnHeadersModel, from: anytype, to: anytype) void {
+        comptime _ = @TypeOf(from)._is_QModelIndex;
+        comptime _ = @TypeOf(to)._is_QModelIndex;
+        qtc.KColumnHeadersModel_ChangePersistentIndex(@ptrCast(self.ptr), @ptrCast(from.ptr), @ptrCast(to.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChangePersistentIndex` instead
@@ -5168,14 +5352,16 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` from: QtC.QModelIndex `
+    /// ` from: QModelIndex `
     ///
-    /// ` to: QtC.QModelIndex `
+    /// ` to: QModelIndex `
     ///
-    pub fn SuperChangePersistentIndex(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque) void {
-        qtc.KColumnHeadersModel_SuperChangePersistentIndex(@ptrCast(self), @ptrCast(from), @ptrCast(to));
+    pub fn SuperChangePersistentIndex(self: KColumnHeadersModel, from: anytype, to: anytype) void {
+        comptime _ = @TypeOf(from)._is_QModelIndex;
+        comptime _ = @TypeOf(to)._is_QModelIndex;
+        qtc.KColumnHeadersModel_SuperChangePersistentIndex(@ptrCast(self.ptr), @ptrCast(from.ptr), @ptrCast(to.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5186,12 +5372,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, from: QtC.QModelIndex, to: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: KColumnHeadersModel, from: QModelIndex, to: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnChangePersistentIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KColumnHeadersModel_OnChangePersistentIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChangePersistentIndex(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QModelIndex, QModelIndex) callconv(.c) void) void {
+        qtc.KColumnHeadersModel_OnChangePersistentIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5202,13 +5388,13 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` from: []QtC.QModelIndex `
+    /// ` from: []QModelIndex `
     ///
-    /// ` to: []QtC.QModelIndex `
+    /// ` to: []QModelIndex `
     ///
-    pub fn ChangePersistentIndexList(self: ?*anyopaque, from: []QtC.QModelIndex, to: []QtC.QModelIndex) void {
+    pub fn ChangePersistentIndexList(self: KColumnHeadersModel, from: []QModelIndex, to: []QModelIndex) void {
         const from_list = qtc.libqt_list{
             .len = from.len,
             .data = @ptrCast(from.ptr),
@@ -5217,7 +5403,7 @@ pub const kcolumnheadersmodel = struct {
             .len = to.len,
             .data = @ptrCast(to.ptr),
         };
-        qtc.KColumnHeadersModel_ChangePersistentIndexList(@ptrCast(self), from_list, to_list);
+        qtc.KColumnHeadersModel_ChangePersistentIndexList(@ptrCast(self.ptr), from_list, to_list);
     }
 
     /// ### DEPRECATED: Use `SuperChangePersistentIndexList` instead
@@ -5232,13 +5418,13 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` from: []QtC.QModelIndex `
+    /// ` from: []QModelIndex `
     ///
-    /// ` to: []QtC.QModelIndex `
+    /// ` to: []QModelIndex `
     ///
-    pub fn SuperChangePersistentIndexList(self: ?*anyopaque, from: []QtC.QModelIndex, to: []QtC.QModelIndex) void {
+    pub fn SuperChangePersistentIndexList(self: KColumnHeadersModel, from: []QModelIndex, to: []QModelIndex) void {
         const from_list = qtc.libqt_list{
             .len = from.len,
             .data = @ptrCast(from.ptr),
@@ -5247,7 +5433,7 @@ pub const kcolumnheadersmodel = struct {
             .len = to.len,
             .data = @ptrCast(to.ptr),
         };
-        qtc.KColumnHeadersModel_SuperChangePersistentIndexList(@ptrCast(self), from_list, to_list);
+        qtc.KColumnHeadersModel_SuperChangePersistentIndexList(@ptrCast(self.ptr), from_list, to_list);
     }
 
     /// Inherited from QAbstractItemModel
@@ -5258,12 +5444,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, from: qtc.libqt_list ([]QtC.QModelIndex), to: qtc.libqt_list ([]QtC.QModelIndex)) callconv(.c) void `
+    /// ` callback: *const fn (self: KColumnHeadersModel, from: qtc.libqt_list ([]QModelIndex), to: qtc.libqt_list ([]QModelIndex)) callconv(.c) void `
     ///
-    pub fn OnChangePersistentIndexList(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, qtc.libqt_list) callconv(.c) void) void {
-        qtc.KColumnHeadersModel_OnChangePersistentIndexList(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChangePersistentIndexList(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, qtc.libqt_list, qtc.libqt_list) callconv(.c) void) void {
+        qtc.KColumnHeadersModel_OnChangePersistentIndexList(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5274,16 +5460,17 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PersistentIndexList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.KColumnHeadersModel_PersistentIndexList(@ptrCast(self));
+    pub fn PersistentIndexList(self: KColumnHeadersModel, allocator: std.mem.Allocator) []QModelIndex {
+        const _arr: qtc.libqt_list = qtc.KColumnHeadersModel_PersistentIndexList(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("kcolumnheadersmodel.PersistentIndexList: Memory allocation failed");
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("kcolumnheadersmodel.PersistentIndexList: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -5299,16 +5486,17 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperPersistentIndexList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.KColumnHeadersModel_SuperPersistentIndexList(@ptrCast(self));
+    pub fn SuperPersistentIndexList(self: KColumnHeadersModel, allocator: std.mem.Allocator) []QModelIndex {
+        const _arr: qtc.libqt_list = qtc.KColumnHeadersModel_SuperPersistentIndexList(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("kcolumnheadersmodel.PersistentIndexList: Memory allocation failed");
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("kcolumnheadersmodel.PersistentIndexList: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -5318,20 +5506,20 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
     /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
     ///
     /// ## Callback Returns:
     ///
-    /// ` C ABI representation of []QtC.QModelIndex `
+    /// ` C ABI representation of []QModelIndex `
     ///
-    pub fn OnPersistentIndexList(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
-        qtc.KColumnHeadersModel_OnPersistentIndexList(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPersistentIndexList(self: KColumnHeadersModel, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+        qtc.KColumnHeadersModel_OnPersistentIndexList(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5342,10 +5530,10 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KColumnHeadersModel_Sender(@ptrCast(self));
+    pub fn Sender(self: KColumnHeadersModel) QObject {
+        return .{ .ptr = qtc.KColumnHeadersModel_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -5360,10 +5548,10 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KColumnHeadersModel_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: KColumnHeadersModel) QObject {
+        return .{ .ptr = qtc.KColumnHeadersModel_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5374,12 +5562,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.KColumnHeadersModel_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: KColumnHeadersModel, callback: *const fn () callconv(.c) QObject) void {
+        qtc.KColumnHeadersModel_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5390,10 +5578,10 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KColumnHeadersModel_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: KColumnHeadersModel) i32 {
+        return qtc.KColumnHeadersModel_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -5408,10 +5596,10 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KColumnHeadersModel_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: KColumnHeadersModel) i32 {
+        return qtc.KColumnHeadersModel_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5422,12 +5610,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KColumnHeadersModel_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: KColumnHeadersModel, callback: *const fn () callconv(.c) i32) void {
+        qtc.KColumnHeadersModel_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5438,13 +5626,13 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: KColumnHeadersModel, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KColumnHeadersModel_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.KColumnHeadersModel_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -5459,13 +5647,13 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: KColumnHeadersModel, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KColumnHeadersModel_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KColumnHeadersModel_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -5476,12 +5664,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KColumnHeadersModel, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KColumnHeadersModel_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KColumnHeadersModel_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5492,12 +5680,13 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KColumnHeadersModel_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: KColumnHeadersModel, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KColumnHeadersModel_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -5512,12 +5701,13 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KColumnHeadersModel_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: KColumnHeadersModel, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KColumnHeadersModel_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -5528,12 +5718,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel`
+    /// ` self: KColumnHeadersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: KColumnHeadersModel, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KColumnHeadersModel_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QMetaMethod) callconv(.c) bool) void {
+        qtc.KColumnHeadersModel_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5544,12 +5734,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KColumnHeadersModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnRowsAboutToBeInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsAboutToBeInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowsAboutToBeInserted(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_RowsAboutToBeInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5560,12 +5750,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KColumnHeadersModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnRowsInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowsInserted(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_RowsInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5576,12 +5766,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KColumnHeadersModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnRowsAboutToBeRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsAboutToBeRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowsAboutToBeRemoved(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_RowsAboutToBeRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5592,12 +5782,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KColumnHeadersModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnRowsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowsRemoved(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_RowsRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5608,12 +5798,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KColumnHeadersModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsAboutToBeInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnsAboutToBeInserted(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5624,12 +5814,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KColumnHeadersModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnsInserted(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ColumnsInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5640,12 +5830,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KColumnHeadersModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsAboutToBeRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnsAboutToBeRemoved(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5656,12 +5846,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KColumnHeadersModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnsRemoved(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ColumnsRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5672,12 +5862,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel) callconv(.c) void `
+    /// ` callback: *const fn (self: KColumnHeadersModel) callconv(.c) void `
     ///
-    pub fn OnModelAboutToBeReset(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ModelAboutToBeReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnModelAboutToBeReset(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ModelAboutToBeReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5688,12 +5878,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel) callconv(.c) void `
+    /// ` callback: *const fn (self: KColumnHeadersModel) callconv(.c) void `
     ///
-    pub fn OnModelReset(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ModelReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnModelReset(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ModelReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5704,12 +5894,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KColumnHeadersModel, sourceParent: QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QModelIndex, destinationRow: i32) callconv(.c) void `
     ///
-    pub fn OnRowsAboutToBeMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsAboutToBeMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowsAboutToBeMoved(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_RowsAboutToBeMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5720,12 +5910,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KColumnHeadersModel, sourceParent: QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QModelIndex, destinationRow: i32) callconv(.c) void `
     ///
-    pub fn OnRowsMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowsMoved(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_RowsMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5736,12 +5926,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KColumnHeadersModel, sourceParent: QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QModelIndex, destinationColumn: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsAboutToBeMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnsAboutToBeMoved(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5752,12 +5942,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KColumnHeadersModel, sourceParent: QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QModelIndex, destinationColumn: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnsMoved(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ColumnsMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5768,12 +5958,12 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KColumnHeadersModel, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KColumnHeadersModel, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -5786,10 +5976,10 @@ pub const kcolumnheadersmodel = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KColumnHeadersModel `
+    /// ` self: KColumnHeadersModel `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KColumnHeadersModel_Delete(@ptrCast(self));
+    pub fn Delete(self: KColumnHeadersModel) void {
+        qtc.KColumnHeadersModel_Delete(@ptrCast(self.ptr));
     }
 };
 

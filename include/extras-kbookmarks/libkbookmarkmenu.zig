@@ -1,54 +1,83 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const KBookmark = @import("libqt6").KBookmark;
+const KBookmarkManager = @import("libqt6").KBookmarkManager;
+const KBookmarkOwner = @import("libqt6").KBookmarkOwner;
+const QAction = @import("libqt6").QAction;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QEvent = @import("libqt6").QEvent;
+const QMenu = @import("libqt6").QMenu;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html)
-pub const kbookmarkmenu = struct {
+pub const KBookmarkMenu = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KBookmarkMenu,
+
+    pub const _is_KBookmarkMenu = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new KBookmarkMenu object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` manager: QtC.KBookmarkManager `
+    /// ` manager: KBookmarkManager `
     ///
-    /// ` owner: QtC.KBookmarkOwner `
+    /// ` owner: KBookmarkOwner `
     ///
-    /// ` parentMenu: QtC.QMenu `
+    /// ` parentMenu: QMenu `
     ///
-    pub fn New(manager: ?*anyopaque, owner: ?*anyopaque, parentMenu: ?*anyopaque) QtC.KBookmarkMenu {
-        return qtc.KBookmarkMenu_new(@ptrCast(manager), @ptrCast(owner), @ptrCast(parentMenu));
+    pub fn New(manager: anytype, owner: anytype, parentMenu: anytype) KBookmarkMenu {
+        comptime _ = @TypeOf(manager)._is_KBookmarkManager;
+        comptime _ = @TypeOf(owner)._is_KBookmarkOwner;
+        comptime _ = @TypeOf(parentMenu)._is_QMenu;
+        return .{ .ptr = qtc.KBookmarkMenu_new(@ptrCast(manager.ptr), @ptrCast(owner.ptr), @ptrCast(parentMenu.ptr)) };
     }
 
     /// New2 constructs a new KBookmarkMenu object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` mgr: QtC.KBookmarkManager `
+    /// ` mgr: KBookmarkManager `
     ///
-    /// ` owner: QtC.KBookmarkOwner `
+    /// ` owner: KBookmarkOwner `
     ///
-    /// ` parentMenu: QtC.QMenu `
+    /// ` parentMenu: QMenu `
     ///
     /// ` parentAddress: []const u8 `
     ///
-    pub fn New2(mgr: ?*anyopaque, owner: ?*anyopaque, parentMenu: ?*anyopaque, parentAddress: []const u8) QtC.KBookmarkMenu {
+    pub fn New2(mgr: anytype, owner: anytype, parentMenu: anytype, parentAddress: []const u8) KBookmarkMenu {
+        comptime _ = @TypeOf(mgr)._is_KBookmarkManager;
+        comptime _ = @TypeOf(owner)._is_KBookmarkOwner;
+        comptime _ = @TypeOf(parentMenu)._is_QMenu;
         const parentAddress_str = qtc.libqt_string{
             .len = parentAddress.len,
             .data = parentAddress.ptr,
         };
-
-        return qtc.KBookmarkMenu_new2(@ptrCast(mgr), @ptrCast(owner), @ptrCast(parentMenu), parentAddress_str);
+        return .{ .ptr = qtc.KBookmarkMenu_new2(@ptrCast(mgr.ptr), @ptrCast(owner.ptr), @ptrCast(parentMenu.ptr), parentAddress_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KBookmarkMenu_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: KBookmarkMenu) QMetaObject {
+        return .{ .ptr = qtc.KBookmarkMenu_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -57,12 +86,12 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.KBookmarkMenu_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: KBookmarkMenu, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.KBookmarkMenu_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -75,33 +104,33 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KBookmarkMenu_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: KBookmarkMenu) QMetaObject {
+        return .{ .ptr = qtc.KBookmarkMenu_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: KBookmarkMenu, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KBookmarkMenu_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.KBookmarkMenu_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    /// ` callback: *const fn (self: QtC.KBookmarkMenu, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: KBookmarkMenu, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.KBookmarkMenu_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: KBookmarkMenu, callback: *const fn (KBookmarkMenu, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.KBookmarkMenu_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -112,18 +141,18 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: KBookmarkMenu, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KBookmarkMenu_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KBookmarkMenu_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -131,20 +160,20 @@ pub const kbookmarkmenu = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KBookmarkMenu_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: KBookmarkMenu, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KBookmarkMenu_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    /// ` callback: *const fn (self: QtC.KBookmarkMenu, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KBookmarkMenu, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.KBookmarkMenu_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: KBookmarkMenu, callback: *const fn (KBookmarkMenu, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.KBookmarkMenu_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -155,7 +184,7 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -163,19 +192,19 @@ pub const kbookmarkmenu = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KBookmarkMenu_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: KBookmarkMenu, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KBookmarkMenu_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -188,98 +217,98 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn EnsureUpToDate(self: ?*anyopaque) void {
-        qtc.KBookmarkMenu_EnsureUpToDate(@ptrCast(self));
+    pub fn EnsureUpToDate(self: KBookmarkMenu) void {
+        qtc.KBookmarkMenu_EnsureUpToDate(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#addBookmarkAction)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn AddBookmarkAction(self: ?*anyopaque) QtC.QAction {
-        return qtc.KBookmarkMenu_AddBookmarkAction(@ptrCast(self));
+    pub fn AddBookmarkAction(self: KBookmarkMenu) QAction {
+        return .{ .ptr = qtc.KBookmarkMenu_AddBookmarkAction(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#bookmarkTabsAsFolderAction)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn BookmarkTabsAsFolderAction(self: ?*anyopaque) QtC.QAction {
-        return qtc.KBookmarkMenu_BookmarkTabsAsFolderAction(@ptrCast(self));
+    pub fn BookmarkTabsAsFolderAction(self: KBookmarkMenu) QAction {
+        return .{ .ptr = qtc.KBookmarkMenu_BookmarkTabsAsFolderAction(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#newBookmarkFolderAction)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn NewBookmarkFolderAction(self: ?*anyopaque) QtC.QAction {
-        return qtc.KBookmarkMenu_NewBookmarkFolderAction(@ptrCast(self));
+    pub fn NewBookmarkFolderAction(self: KBookmarkMenu) QAction {
+        return .{ .ptr = qtc.KBookmarkMenu_NewBookmarkFolderAction(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#editBookmarksAction)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn EditBookmarksAction(self: ?*anyopaque) QtC.QAction {
-        return qtc.KBookmarkMenu_EditBookmarksAction(@ptrCast(self));
+    pub fn EditBookmarksAction(self: KBookmarkMenu) QAction {
+        return .{ .ptr = qtc.KBookmarkMenu_EditBookmarksAction(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#setBrowserMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
     /// ` browserMode: bool `
     ///
-    pub fn SetBrowserMode(self: ?*anyopaque, browserMode: bool) void {
-        qtc.KBookmarkMenu_SetBrowserMode(@ptrCast(self), browserMode);
+    pub fn SetBrowserMode(self: KBookmarkMenu, browserMode: bool) void {
+        qtc.KBookmarkMenu_SetBrowserMode(@ptrCast(self.ptr), browserMode);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#browserMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn BrowserMode(self: ?*anyopaque) bool {
-        return qtc.KBookmarkMenu_BrowserMode(@ptrCast(self));
+    pub fn BrowserMode(self: KBookmarkMenu) bool {
+        return qtc.KBookmarkMenu_BrowserMode(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#slotBookmarksChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn SlotBookmarksChanged(self: ?*anyopaque, param1: []const u8) void {
+    pub fn SlotBookmarksChanged(self: KBookmarkMenu, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
-        qtc.KBookmarkMenu_SlotBookmarksChanged(@ptrCast(self), param1_str);
+        qtc.KBookmarkMenu_SlotBookmarksChanged(@ptrCast(self.ptr), param1_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#slotAboutToShow)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn SlotAboutToShow(self: ?*anyopaque) void {
-        qtc.KBookmarkMenu_SlotAboutToShow(@ptrCast(self));
+    pub fn SlotAboutToShow(self: KBookmarkMenu) void {
+        qtc.KBookmarkMenu_SlotAboutToShow(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#slotAboutToShow)
@@ -288,12 +317,12 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnSlotAboutToShow(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnSlotAboutToShow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSlotAboutToShow(self: KBookmarkMenu, callback: *const fn () callconv(.c) void) void {
+        qtc.KBookmarkMenu_OnSlotAboutToShow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSlotAboutToShow` instead
@@ -306,20 +335,20 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn SuperSlotAboutToShow(self: ?*anyopaque) void {
-        qtc.KBookmarkMenu_SuperSlotAboutToShow(@ptrCast(self));
+    pub fn SuperSlotAboutToShow(self: KBookmarkMenu) void {
+        qtc.KBookmarkMenu_SuperSlotAboutToShow(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#slotAddBookmarksList)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn SlotAddBookmarksList(self: ?*anyopaque) void {
-        qtc.KBookmarkMenu_SlotAddBookmarksList(@ptrCast(self));
+    pub fn SlotAddBookmarksList(self: KBookmarkMenu) void {
+        qtc.KBookmarkMenu_SlotAddBookmarksList(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#slotAddBookmarksList)
@@ -328,12 +357,12 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnSlotAddBookmarksList(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnSlotAddBookmarksList(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSlotAddBookmarksList(self: KBookmarkMenu, callback: *const fn () callconv(.c) void) void {
+        qtc.KBookmarkMenu_OnSlotAddBookmarksList(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSlotAddBookmarksList` instead
@@ -346,20 +375,20 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn SuperSlotAddBookmarksList(self: ?*anyopaque) void {
-        qtc.KBookmarkMenu_SuperSlotAddBookmarksList(@ptrCast(self));
+    pub fn SuperSlotAddBookmarksList(self: KBookmarkMenu) void {
+        qtc.KBookmarkMenu_SuperSlotAddBookmarksList(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#slotAddBookmark)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn SlotAddBookmark(self: ?*anyopaque) void {
-        qtc.KBookmarkMenu_SlotAddBookmark(@ptrCast(self));
+    pub fn SlotAddBookmark(self: KBookmarkMenu) void {
+        qtc.KBookmarkMenu_SlotAddBookmark(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#slotAddBookmark)
@@ -368,12 +397,12 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnSlotAddBookmark(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnSlotAddBookmark(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSlotAddBookmark(self: KBookmarkMenu, callback: *const fn () callconv(.c) void) void {
+        qtc.KBookmarkMenu_OnSlotAddBookmark(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSlotAddBookmark` instead
@@ -386,20 +415,20 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn SuperSlotAddBookmark(self: ?*anyopaque) void {
-        qtc.KBookmarkMenu_SuperSlotAddBookmark(@ptrCast(self));
+    pub fn SuperSlotAddBookmark(self: KBookmarkMenu) void {
+        qtc.KBookmarkMenu_SuperSlotAddBookmark(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#slotNewFolder)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn SlotNewFolder(self: ?*anyopaque) void {
-        qtc.KBookmarkMenu_SlotNewFolder(@ptrCast(self));
+    pub fn SlotNewFolder(self: KBookmarkMenu) void {
+        qtc.KBookmarkMenu_SlotNewFolder(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#slotNewFolder)
@@ -408,12 +437,12 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnSlotNewFolder(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnSlotNewFolder(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSlotNewFolder(self: KBookmarkMenu, callback: *const fn () callconv(.c) void) void {
+        qtc.KBookmarkMenu_OnSlotNewFolder(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSlotNewFolder` instead
@@ -426,20 +455,20 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn SuperSlotNewFolder(self: ?*anyopaque) void {
-        qtc.KBookmarkMenu_SuperSlotNewFolder(@ptrCast(self));
+    pub fn SuperSlotNewFolder(self: KBookmarkMenu) void {
+        qtc.KBookmarkMenu_SuperSlotNewFolder(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#slotOpenFolderInTabs)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn SlotOpenFolderInTabs(self: ?*anyopaque) void {
-        qtc.KBookmarkMenu_SlotOpenFolderInTabs(@ptrCast(self));
+    pub fn SlotOpenFolderInTabs(self: KBookmarkMenu) void {
+        qtc.KBookmarkMenu_SlotOpenFolderInTabs(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#slotOpenFolderInTabs)
@@ -448,12 +477,12 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnSlotOpenFolderInTabs(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnSlotOpenFolderInTabs(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSlotOpenFolderInTabs(self: KBookmarkMenu, callback: *const fn () callconv(.c) void) void {
+        qtc.KBookmarkMenu_OnSlotOpenFolderInTabs(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSlotOpenFolderInTabs` instead
@@ -466,20 +495,20 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn SuperSlotOpenFolderInTabs(self: ?*anyopaque) void {
-        qtc.KBookmarkMenu_SuperSlotOpenFolderInTabs(@ptrCast(self));
+    pub fn SuperSlotOpenFolderInTabs(self: KBookmarkMenu) void {
+        qtc.KBookmarkMenu_SuperSlotOpenFolderInTabs(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#clear)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn Clear(self: ?*anyopaque) void {
-        qtc.KBookmarkMenu_Clear(@ptrCast(self));
+    pub fn Clear(self: KBookmarkMenu) void {
+        qtc.KBookmarkMenu_Clear(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#clear)
@@ -488,12 +517,12 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnClear(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnClear(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnClear(self: KBookmarkMenu, callback: *const fn () callconv(.c) void) void {
+        qtc.KBookmarkMenu_OnClear(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperClear` instead
@@ -506,20 +535,20 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn SuperClear(self: ?*anyopaque) void {
-        qtc.KBookmarkMenu_SuperClear(@ptrCast(self));
+    pub fn SuperClear(self: KBookmarkMenu) void {
+        qtc.KBookmarkMenu_SuperClear(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#refill)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn Refill(self: ?*anyopaque) void {
-        qtc.KBookmarkMenu_Refill(@ptrCast(self));
+    pub fn Refill(self: KBookmarkMenu) void {
+        qtc.KBookmarkMenu_Refill(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#refill)
@@ -528,12 +557,12 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnRefill(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnRefill(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRefill(self: KBookmarkMenu, callback: *const fn () callconv(.c) void) void {
+        qtc.KBookmarkMenu_OnRefill(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperRefill` instead
@@ -546,22 +575,23 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn SuperRefill(self: ?*anyopaque) void {
-        qtc.KBookmarkMenu_SuperRefill(@ptrCast(self));
+    pub fn SuperRefill(self: KBookmarkMenu) void {
+        qtc.KBookmarkMenu_SuperRefill(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#actionForBookmark)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    /// ` bm: QtC.KBookmark `
+    /// ` bm: KBookmark `
     ///
-    pub fn ActionForBookmark(self: ?*anyopaque, bm: ?*anyopaque) QtC.QAction {
-        return qtc.KBookmarkMenu_ActionForBookmark(@ptrCast(self), @ptrCast(bm));
+    pub fn ActionForBookmark(self: KBookmarkMenu, bm: anytype) QAction {
+        comptime _ = @TypeOf(bm)._is_KBookmark;
+        return .{ .ptr = qtc.KBookmarkMenu_ActionForBookmark(@ptrCast(self.ptr), @ptrCast(bm.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#actionForBookmark)
@@ -570,12 +600,12 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    /// ` callback: *const fn (self: QtC.KBookmarkMenu, bm: QtC.KBookmark) callconv(.c) QtC.QAction `
+    /// ` callback: *const fn (self: KBookmarkMenu, bm: KBookmark) callconv(.c) QAction `
     ///
-    pub fn OnActionForBookmark(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QAction) void {
-        qtc.KBookmarkMenu_OnActionForBookmark(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnActionForBookmark(self: KBookmarkMenu, callback: *const fn (KBookmarkMenu, KBookmark) callconv(.c) QAction) void {
+        qtc.KBookmarkMenu_OnActionForBookmark(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperActionForBookmark` instead
@@ -588,24 +618,26 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    /// ` bm: QtC.KBookmark `
+    /// ` bm: KBookmark `
     ///
-    pub fn SuperActionForBookmark(self: ?*anyopaque, bm: ?*anyopaque) QtC.QAction {
-        return qtc.KBookmarkMenu_SuperActionForBookmark(@ptrCast(self), @ptrCast(bm));
+    pub fn SuperActionForBookmark(self: KBookmarkMenu, bm: anytype) QAction {
+        comptime _ = @TypeOf(bm)._is_KBookmark;
+        return .{ .ptr = qtc.KBookmarkMenu_SuperActionForBookmark(@ptrCast(self.ptr), @ptrCast(bm.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#contextMenu)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn ContextMenu(self: ?*anyopaque, action: ?*anyopaque) QtC.QMenu {
-        return qtc.KBookmarkMenu_ContextMenu(@ptrCast(self), @ptrCast(action));
+    pub fn ContextMenu(self: KBookmarkMenu, action: anytype) QMenu {
+        comptime _ = @TypeOf(action)._is_QAction;
+        return .{ .ptr = qtc.KBookmarkMenu_ContextMenu(@ptrCast(self.ptr), @ptrCast(action.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#contextMenu)
@@ -614,12 +646,12 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    /// ` callback: *const fn (self: QtC.KBookmarkMenu, action: QtC.QAction) callconv(.c) QtC.QMenu `
+    /// ` callback: *const fn (self: KBookmarkMenu, action: QAction) callconv(.c) QMenu `
     ///
-    pub fn OnContextMenu(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QMenu) void {
-        qtc.KBookmarkMenu_OnContextMenu(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnContextMenu(self: KBookmarkMenu, callback: *const fn (KBookmarkMenu, QAction) callconv(.c) QMenu) void {
+        qtc.KBookmarkMenu_OnContextMenu(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperContextMenu` instead
@@ -632,22 +664,23 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn SuperContextMenu(self: ?*anyopaque, action: ?*anyopaque) QtC.QMenu {
-        return qtc.KBookmarkMenu_SuperContextMenu(@ptrCast(self), @ptrCast(action));
+    pub fn SuperContextMenu(self: KBookmarkMenu, action: anytype) QMenu {
+        comptime _ = @TypeOf(action)._is_QAction;
+        return .{ .ptr = qtc.KBookmarkMenu_SuperContextMenu(@ptrCast(self.ptr), @ptrCast(action.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#addActions)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn AddActions(self: ?*anyopaque) void {
-        qtc.KBookmarkMenu_AddActions(@ptrCast(self));
+    pub fn AddActions(self: KBookmarkMenu) void {
+        qtc.KBookmarkMenu_AddActions(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#addActions)
@@ -656,12 +689,12 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnAddActions(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnAddActions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAddActions(self: KBookmarkMenu, callback: *const fn () callconv(.c) void) void {
+        qtc.KBookmarkMenu_OnAddActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperAddActions` instead
@@ -674,20 +707,20 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn SuperAddActions(self: ?*anyopaque) void {
-        qtc.KBookmarkMenu_SuperAddActions(@ptrCast(self));
+    pub fn SuperAddActions(self: KBookmarkMenu) void {
+        qtc.KBookmarkMenu_SuperAddActions(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#fillBookmarks)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn FillBookmarks(self: ?*anyopaque) void {
-        qtc.KBookmarkMenu_FillBookmarks(@ptrCast(self));
+    pub fn FillBookmarks(self: KBookmarkMenu) void {
+        qtc.KBookmarkMenu_FillBookmarks(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#fillBookmarks)
@@ -696,12 +729,12 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnFillBookmarks(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnFillBookmarks(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFillBookmarks(self: KBookmarkMenu, callback: *const fn () callconv(.c) void) void {
+        qtc.KBookmarkMenu_OnFillBookmarks(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperFillBookmarks` instead
@@ -714,20 +747,20 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn SuperFillBookmarks(self: ?*anyopaque) void {
-        qtc.KBookmarkMenu_SuperFillBookmarks(@ptrCast(self));
+    pub fn SuperFillBookmarks(self: KBookmarkMenu) void {
+        qtc.KBookmarkMenu_SuperFillBookmarks(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#addAddBookmark)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn AddAddBookmark(self: ?*anyopaque) void {
-        qtc.KBookmarkMenu_AddAddBookmark(@ptrCast(self));
+    pub fn AddAddBookmark(self: KBookmarkMenu) void {
+        qtc.KBookmarkMenu_AddAddBookmark(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#addAddBookmark)
@@ -736,12 +769,12 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnAddAddBookmark(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnAddAddBookmark(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAddAddBookmark(self: KBookmarkMenu, callback: *const fn () callconv(.c) void) void {
+        qtc.KBookmarkMenu_OnAddAddBookmark(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperAddAddBookmark` instead
@@ -754,20 +787,20 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn SuperAddAddBookmark(self: ?*anyopaque) void {
-        qtc.KBookmarkMenu_SuperAddAddBookmark(@ptrCast(self));
+    pub fn SuperAddAddBookmark(self: KBookmarkMenu) void {
+        qtc.KBookmarkMenu_SuperAddAddBookmark(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#addAddBookmarksList)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn AddAddBookmarksList(self: ?*anyopaque) void {
-        qtc.KBookmarkMenu_AddAddBookmarksList(@ptrCast(self));
+    pub fn AddAddBookmarksList(self: KBookmarkMenu) void {
+        qtc.KBookmarkMenu_AddAddBookmarksList(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#addAddBookmarksList)
@@ -776,12 +809,12 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnAddAddBookmarksList(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnAddAddBookmarksList(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAddAddBookmarksList(self: KBookmarkMenu, callback: *const fn () callconv(.c) void) void {
+        qtc.KBookmarkMenu_OnAddAddBookmarksList(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperAddAddBookmarksList` instead
@@ -794,20 +827,20 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn SuperAddAddBookmarksList(self: ?*anyopaque) void {
-        qtc.KBookmarkMenu_SuperAddAddBookmarksList(@ptrCast(self));
+    pub fn SuperAddAddBookmarksList(self: KBookmarkMenu) void {
+        qtc.KBookmarkMenu_SuperAddAddBookmarksList(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#addEditBookmarks)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn AddEditBookmarks(self: ?*anyopaque) void {
-        qtc.KBookmarkMenu_AddEditBookmarks(@ptrCast(self));
+    pub fn AddEditBookmarks(self: KBookmarkMenu) void {
+        qtc.KBookmarkMenu_AddEditBookmarks(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#addEditBookmarks)
@@ -816,12 +849,12 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnAddEditBookmarks(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnAddEditBookmarks(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAddEditBookmarks(self: KBookmarkMenu, callback: *const fn () callconv(.c) void) void {
+        qtc.KBookmarkMenu_OnAddEditBookmarks(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperAddEditBookmarks` instead
@@ -834,20 +867,20 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn SuperAddEditBookmarks(self: ?*anyopaque) void {
-        qtc.KBookmarkMenu_SuperAddEditBookmarks(@ptrCast(self));
+    pub fn SuperAddEditBookmarks(self: KBookmarkMenu) void {
+        qtc.KBookmarkMenu_SuperAddEditBookmarks(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#addNewFolder)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn AddNewFolder(self: ?*anyopaque) void {
-        qtc.KBookmarkMenu_AddNewFolder(@ptrCast(self));
+    pub fn AddNewFolder(self: KBookmarkMenu) void {
+        qtc.KBookmarkMenu_AddNewFolder(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#addNewFolder)
@@ -856,12 +889,12 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnAddNewFolder(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnAddNewFolder(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAddNewFolder(self: KBookmarkMenu, callback: *const fn () callconv(.c) void) void {
+        qtc.KBookmarkMenu_OnAddNewFolder(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperAddNewFolder` instead
@@ -874,20 +907,20 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn SuperAddNewFolder(self: ?*anyopaque) void {
-        qtc.KBookmarkMenu_SuperAddNewFolder(@ptrCast(self));
+    pub fn SuperAddNewFolder(self: KBookmarkMenu) void {
+        qtc.KBookmarkMenu_SuperAddNewFolder(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#addOpenInTabs)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn AddOpenInTabs(self: ?*anyopaque) void {
-        qtc.KBookmarkMenu_AddOpenInTabs(@ptrCast(self));
+    pub fn AddOpenInTabs(self: KBookmarkMenu) void {
+        qtc.KBookmarkMenu_AddOpenInTabs(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#addOpenInTabs)
@@ -896,12 +929,12 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnAddOpenInTabs(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnAddOpenInTabs(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAddOpenInTabs(self: KBookmarkMenu, callback: *const fn () callconv(.c) void) void {
+        qtc.KBookmarkMenu_OnAddOpenInTabs(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperAddOpenInTabs` instead
@@ -914,20 +947,20 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn SuperAddOpenInTabs(self: ?*anyopaque) void {
-        qtc.KBookmarkMenu_SuperAddOpenInTabs(@ptrCast(self));
+    pub fn SuperAddOpenInTabs(self: KBookmarkMenu) void {
+        qtc.KBookmarkMenu_SuperAddOpenInTabs(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#isRoot)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn IsRoot(self: ?*anyopaque) bool {
-        return qtc.KBookmarkMenu_IsRoot(@ptrCast(self));
+    pub fn IsRoot(self: KBookmarkMenu) bool {
+        return qtc.KBookmarkMenu_IsRoot(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#isRoot)
@@ -936,12 +969,12 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnIsRoot(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KBookmarkMenu_OnIsRoot(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsRoot(self: KBookmarkMenu, callback: *const fn () callconv(.c) bool) void {
+        qtc.KBookmarkMenu_OnIsRoot(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperIsRoot` instead
@@ -954,20 +987,20 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn SuperIsRoot(self: ?*anyopaque) bool {
-        return qtc.KBookmarkMenu_SuperIsRoot(@ptrCast(self));
+    pub fn SuperIsRoot(self: KBookmarkMenu) bool {
+        return qtc.KBookmarkMenu_SuperIsRoot(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#isDirty)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn IsDirty(self: ?*anyopaque) bool {
-        return qtc.KBookmarkMenu_IsDirty(@ptrCast(self));
+    pub fn IsDirty(self: KBookmarkMenu) bool {
+        return qtc.KBookmarkMenu_IsDirty(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#isDirty)
@@ -976,12 +1009,12 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnIsDirty(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KBookmarkMenu_OnIsDirty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsDirty(self: KBookmarkMenu, callback: *const fn () callconv(.c) bool) void {
+        qtc.KBookmarkMenu_OnIsDirty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperIsDirty` instead
@@ -994,22 +1027,22 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn SuperIsDirty(self: ?*anyopaque) bool {
-        return qtc.KBookmarkMenu_SuperIsDirty(@ptrCast(self));
+    pub fn SuperIsDirty(self: KBookmarkMenu) bool {
+        return qtc.KBookmarkMenu_SuperIsDirty(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#parentAddress)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ParentAddress(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KBookmarkMenu_ParentAddress(@ptrCast(self));
+    pub fn ParentAddress(self: KBookmarkMenu, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KBookmarkMenu_ParentAddress(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kbookmarkmenu.ParentAddress: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1020,16 +1053,16 @@ pub const kbookmarkmenu = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnParentAddress(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.KBookmarkMenu_OnParentAddress(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnParentAddress(self: KBookmarkMenu, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.KBookmarkMenu_OnParentAddress(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperParentAddress` instead
@@ -1042,12 +1075,12 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperParentAddress(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KBookmarkMenu_SuperParentAddress(@ptrCast(self));
+    pub fn SuperParentAddress(self: KBookmarkMenu, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KBookmarkMenu_SuperParentAddress(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kbookmarkmenu.ParentAddress: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1058,10 +1091,10 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn Manager(self: ?*anyopaque) QtC.KBookmarkManager {
-        return qtc.KBookmarkMenu_Manager(@ptrCast(self));
+    pub fn Manager(self: KBookmarkMenu) KBookmarkManager {
+        return .{ .ptr = qtc.KBookmarkMenu_Manager(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#manager)
@@ -1070,12 +1103,12 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.KBookmarkManager `
+    /// ` callback: *const fn () callconv(.c) KBookmarkManager `
     ///
-    pub fn OnManager(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.KBookmarkManager) void {
-        qtc.KBookmarkMenu_OnManager(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnManager(self: KBookmarkMenu, callback: *const fn () callconv(.c) KBookmarkManager) void {
+        qtc.KBookmarkMenu_OnManager(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperManager` instead
@@ -1088,20 +1121,20 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn SuperManager(self: ?*anyopaque) QtC.KBookmarkManager {
-        return qtc.KBookmarkMenu_SuperManager(@ptrCast(self));
+    pub fn SuperManager(self: KBookmarkMenu) KBookmarkManager {
+        return .{ .ptr = qtc.KBookmarkMenu_SuperManager(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#owner)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn Owner(self: ?*anyopaque) QtC.KBookmarkOwner {
-        return qtc.KBookmarkMenu_Owner(@ptrCast(self));
+    pub fn Owner(self: KBookmarkMenu) KBookmarkOwner {
+        return .{ .ptr = qtc.KBookmarkMenu_Owner(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#owner)
@@ -1110,12 +1143,12 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.KBookmarkOwner `
+    /// ` callback: *const fn () callconv(.c) KBookmarkOwner `
     ///
-    pub fn OnOwner(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.KBookmarkOwner) void {
-        qtc.KBookmarkMenu_OnOwner(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnOwner(self: KBookmarkMenu, callback: *const fn () callconv(.c) KBookmarkOwner) void {
+        qtc.KBookmarkMenu_OnOwner(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperOwner` instead
@@ -1128,20 +1161,20 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn SuperOwner(self: ?*anyopaque) QtC.KBookmarkOwner {
-        return qtc.KBookmarkMenu_SuperOwner(@ptrCast(self));
+    pub fn SuperOwner(self: KBookmarkMenu) KBookmarkOwner {
+        return .{ .ptr = qtc.KBookmarkMenu_SuperOwner(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#parentMenu)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn ParentMenu(self: ?*anyopaque) QtC.QMenu {
-        return qtc.KBookmarkMenu_ParentMenu(@ptrCast(self));
+    pub fn ParentMenu(self: KBookmarkMenu) QMenu {
+        return .{ .ptr = qtc.KBookmarkMenu_ParentMenu(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#parentMenu)
@@ -1150,12 +1183,12 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMenu `
+    /// ` callback: *const fn () callconv(.c) QMenu `
     ///
-    pub fn OnParentMenu(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMenu) void {
-        qtc.KBookmarkMenu_OnParentMenu(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnParentMenu(self: KBookmarkMenu, callback: *const fn () callconv(.c) QMenu) void {
+        qtc.KBookmarkMenu_OnParentMenu(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperParentMenu` instead
@@ -1168,23 +1201,23 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn SuperParentMenu(self: ?*anyopaque) QtC.QMenu {
-        return qtc.KBookmarkMenu_SuperParentMenu(@ptrCast(self));
+    pub fn SuperParentMenu(self: KBookmarkMenu) QMenu {
+        return .{ .ptr = qtc.KBookmarkMenu_SuperParentMenu(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -1198,15 +1231,15 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -1222,12 +1255,12 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: KBookmarkMenu, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kbookmarkmenu.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1240,12 +1273,12 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: KBookmarkMenu, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -1254,10 +1287,10 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: KBookmarkMenu) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1266,10 +1299,10 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: KBookmarkMenu) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1278,10 +1311,10 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: KBookmarkMenu) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1290,10 +1323,10 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: KBookmarkMenu) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1302,12 +1335,12 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: KBookmarkMenu, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -1316,10 +1349,10 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: KBookmarkMenu) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1328,12 +1361,13 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: KBookmarkMenu, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -1342,12 +1376,12 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: KBookmarkMenu, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1356,12 +1390,12 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: KBookmarkMenu, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1370,12 +1404,12 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: KBookmarkMenu, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1384,12 +1418,12 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: KBookmarkMenu, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1398,16 +1432,17 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: KBookmarkMenu, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("kbookmarkmenu.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kbookmarkmenu.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1417,12 +1452,13 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: KBookmarkMenu, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -1431,12 +1467,13 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: KBookmarkMenu, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -1445,12 +1482,13 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: KBookmarkMenu, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -1459,18 +1497,20 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1479,16 +1519,20 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1497,18 +1541,19 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: KBookmarkMenu, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1517,18 +1562,20 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1537,16 +1584,20 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -1555,10 +1606,10 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: KBookmarkMenu) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1567,12 +1618,13 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: KBookmarkMenu, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1581,10 +1633,11 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1593,10 +1646,10 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: KBookmarkMenu) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1605,10 +1658,10 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: KBookmarkMenu) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1617,15 +1670,16 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: KBookmarkMenu, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -1634,13 +1688,13 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: KBookmarkMenu, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1649,17 +1703,16 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: KBookmarkMenu, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kbookmarkmenu.DynamicPropertyNames: Memory allocation failed");
@@ -1678,10 +1731,10 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: KBookmarkMenu) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1690,10 +1743,10 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: KBookmarkMenu) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1702,10 +1755,10 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: KBookmarkMenu) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1714,12 +1767,12 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    /// ` callback: *const fn (self: QtC.KBookmarkMenu) callconv(.c) void `
+    /// ` callback: *const fn (self: KBookmarkMenu) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: KBookmarkMenu, callback: *const fn (KBookmarkMenu) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1728,10 +1781,10 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: KBookmarkMenu) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1740,13 +1793,13 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: KBookmarkMenu, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -1755,10 +1808,10 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: KBookmarkMenu) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1767,14 +1820,14 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: KBookmarkMenu, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1783,14 +1836,14 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: KBookmarkMenu, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1799,20 +1852,22 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -1821,18 +1876,22 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1841,9 +1900,9 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1851,10 +1910,11 @@ pub const kbookmarkmenu = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: KBookmarkMenu, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1863,13 +1923,13 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: KBookmarkMenu, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1878,15 +1938,16 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: KBookmarkMenu, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1895,18 +1956,19 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: KBookmarkMenu, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1915,15 +1977,16 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: KBookmarkMenu, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1932,12 +1995,13 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: KBookmarkMenu, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1946,12 +2010,12 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    /// ` callback: *const fn (self: QtC.KBookmarkMenu, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: KBookmarkMenu, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: KBookmarkMenu, callback: *const fn (KBookmarkMenu, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1962,12 +2026,13 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KBookmarkMenu_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: KBookmarkMenu, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KBookmarkMenu_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -1982,12 +2047,13 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KBookmarkMenu_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: KBookmarkMenu, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KBookmarkMenu_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1998,12 +2064,12 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KBookmarkMenu`
+    /// ` self: KBookmarkMenu`
     ///
-    /// ` callback: *const fn (self: QtC.KBookmarkMenu, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KBookmarkMenu, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KBookmarkMenu_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: KBookmarkMenu, callback: *const fn (KBookmarkMenu, QEvent) callconv(.c) bool) void {
+        qtc.KBookmarkMenu_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2014,14 +2080,16 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KBookmarkMenu_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: KBookmarkMenu, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KBookmarkMenu_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -2036,14 +2104,16 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KBookmarkMenu_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: KBookmarkMenu, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KBookmarkMenu_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2054,12 +2124,12 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KBookmarkMenu`
+    /// ` self: KBookmarkMenu`
     ///
-    /// ` callback: *const fn (self: QtC.KBookmarkMenu, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KBookmarkMenu, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KBookmarkMenu_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: KBookmarkMenu, callback: *const fn (KBookmarkMenu, QObject, QEvent) callconv(.c) bool) void {
+        qtc.KBookmarkMenu_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2070,12 +2140,13 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KBookmarkMenu_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: KBookmarkMenu, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KBookmarkMenu_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -2090,12 +2161,13 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KBookmarkMenu_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: KBookmarkMenu, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KBookmarkMenu_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2106,12 +2178,12 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KBookmarkMenu`
+    /// ` self: KBookmarkMenu`
     ///
-    /// ` callback: *const fn (self: QtC.KBookmarkMenu, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KBookmarkMenu, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: KBookmarkMenu, callback: *const fn (KBookmarkMenu, QTimerEvent) callconv(.c) void) void {
+        qtc.KBookmarkMenu_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2122,12 +2194,13 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KBookmarkMenu_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: KBookmarkMenu, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KBookmarkMenu_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -2142,12 +2215,13 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KBookmarkMenu_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: KBookmarkMenu, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KBookmarkMenu_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2158,12 +2232,12 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KBookmarkMenu`
+    /// ` self: KBookmarkMenu`
     ///
-    /// ` callback: *const fn (self: QtC.KBookmarkMenu, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KBookmarkMenu, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: KBookmarkMenu, callback: *const fn (KBookmarkMenu, QChildEvent) callconv(.c) void) void {
+        qtc.KBookmarkMenu_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2174,12 +2248,13 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KBookmarkMenu_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: KBookmarkMenu, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KBookmarkMenu_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -2194,12 +2269,13 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KBookmarkMenu_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: KBookmarkMenu, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KBookmarkMenu_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2210,12 +2286,12 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KBookmarkMenu`
+    /// ` self: KBookmarkMenu`
     ///
-    /// ` callback: *const fn (self: QtC.KBookmarkMenu, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KBookmarkMenu, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: KBookmarkMenu, callback: *const fn (KBookmarkMenu, QEvent) callconv(.c) void) void {
+        qtc.KBookmarkMenu_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2226,12 +2302,13 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KBookmarkMenu_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: KBookmarkMenu, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KBookmarkMenu_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -2246,12 +2323,13 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KBookmarkMenu_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: KBookmarkMenu, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KBookmarkMenu_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -2262,12 +2340,12 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KBookmarkMenu`
+    /// ` self: KBookmarkMenu`
     ///
-    /// ` callback: *const fn (self: QtC.KBookmarkMenu, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KBookmarkMenu, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: KBookmarkMenu, callback: *const fn (KBookmarkMenu, QMetaMethod) callconv(.c) void) void {
+        qtc.KBookmarkMenu_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2278,12 +2356,13 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KBookmarkMenu_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: KBookmarkMenu, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KBookmarkMenu_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -2298,12 +2377,13 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KBookmarkMenu_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: KBookmarkMenu, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KBookmarkMenu_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -2314,12 +2394,12 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KBookmarkMenu`
+    /// ` self: KBookmarkMenu`
     ///
-    /// ` callback: *const fn (self: QtC.KBookmarkMenu, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KBookmarkMenu, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: KBookmarkMenu, callback: *const fn (KBookmarkMenu, QMetaMethod) callconv(.c) void) void {
+        qtc.KBookmarkMenu_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2330,10 +2410,10 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KBookmarkMenu_Sender(@ptrCast(self));
+    pub fn Sender(self: KBookmarkMenu) QObject {
+        return .{ .ptr = qtc.KBookmarkMenu_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -2348,10 +2428,10 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KBookmarkMenu_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: KBookmarkMenu) QObject {
+        return .{ .ptr = qtc.KBookmarkMenu_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2362,12 +2442,12 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KBookmarkMenu`
+    /// ` self: KBookmarkMenu`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.KBookmarkMenu_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: KBookmarkMenu, callback: *const fn () callconv(.c) QObject) void {
+        qtc.KBookmarkMenu_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2378,10 +2458,10 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KBookmarkMenu_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: KBookmarkMenu) i32 {
+        return qtc.KBookmarkMenu_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -2396,10 +2476,10 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KBookmarkMenu_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: KBookmarkMenu) i32 {
+        return qtc.KBookmarkMenu_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2410,12 +2490,12 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KBookmarkMenu`
+    /// ` self: KBookmarkMenu`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KBookmarkMenu_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: KBookmarkMenu, callback: *const fn () callconv(.c) i32) void {
+        qtc.KBookmarkMenu_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2426,13 +2506,13 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: KBookmarkMenu, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KBookmarkMenu_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.KBookmarkMenu_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -2447,13 +2527,13 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: KBookmarkMenu, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KBookmarkMenu_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KBookmarkMenu_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2464,12 +2544,12 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KBookmarkMenu`
+    /// ` self: KBookmarkMenu`
     ///
-    /// ` callback: *const fn (self: QtC.KBookmarkMenu, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KBookmarkMenu, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KBookmarkMenu_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: KBookmarkMenu, callback: *const fn (KBookmarkMenu, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KBookmarkMenu_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2480,12 +2560,13 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KBookmarkMenu_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: KBookmarkMenu, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KBookmarkMenu_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -2500,12 +2581,13 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KBookmarkMenu_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: KBookmarkMenu, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KBookmarkMenu_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -2516,12 +2598,12 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KBookmarkMenu`
+    /// ` self: KBookmarkMenu`
     ///
-    /// ` callback: *const fn (self: QtC.KBookmarkMenu, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: KBookmarkMenu, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KBookmarkMenu_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: KBookmarkMenu, callback: *const fn (KBookmarkMenu, QMetaMethod) callconv(.c) bool) void {
+        qtc.KBookmarkMenu_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2532,12 +2614,12 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    /// ` callback: *const fn (self: QtC.KBookmarkMenu, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KBookmarkMenu, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: KBookmarkMenu, callback: *const fn (KBookmarkMenu, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -2550,9 +2632,9 @@ pub const kbookmarkmenu = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KBookmarkMenu `
+    /// ` self: KBookmarkMenu `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KBookmarkMenu_Delete(@ptrCast(self));
+    pub fn Delete(self: KBookmarkMenu) void {
+        qtc.KBookmarkMenu_Delete(@ptrCast(self.ptr));
     }
 };

@@ -1,24 +1,40 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QIODevice = @import("libqt6").QIODevice;
+const QPaintDevice = @import("libqt6").QPaintDevice;
+const QPaintEngine = @import("libqt6").QPaintEngine;
+const QPainter = @import("libqt6").QPainter;
+const QPoint = @import("libqt6").QPoint;
+const QRect = @import("libqt6").QRect;
 const qpaintdevice_enums = @import("libqpaintdevice.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qpicture.html)
-pub const qpicture = struct {
+pub const QPicture = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpicture.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QPicture,
+
+    pub const _is_QPicture = {};
+    pub const _is_QPaintDevice = {};
+
     /// New constructs a new QPicture object.
     ///
-    pub fn New() QtC.QPicture {
-        return qtc.QPicture_new();
+    pub fn New() QPicture {
+        return .{ .ptr = qtc.QPicture_new() };
     }
 
     /// New2 constructs a new QPicture object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QPicture `
+    /// ` param1: QPicture `
     ///
-    pub fn New2(param1: ?*anyopaque) QtC.QPicture {
-        return qtc.QPicture_new2(@ptrCast(param1));
+    pub fn New2(param1: anytype) QPicture {
+        comptime _ = @TypeOf(param1)._is_QPicture;
+        return .{ .ptr = qtc.QPicture_new2(@ptrCast(param1.ptr)) };
     }
 
     /// New3 constructs a new QPicture object.
@@ -27,28 +43,28 @@ pub const qpicture = struct {
     ///
     /// ` formatVersion: i32 `
     ///
-    pub fn New3(formatVersion: i32) QtC.QPicture {
-        return qtc.QPicture_new3(@bitCast(formatVersion));
+    pub fn New3(formatVersion: i32) QPicture {
+        return .{ .ptr = qtc.QPicture_new3(@bitCast(formatVersion)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#isNull)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
-    pub fn IsNull(self: ?*anyopaque) bool {
-        return qtc.QPicture_IsNull(@ptrCast(self));
+    pub fn IsNull(self: QPicture) bool {
+        return qtc.QPicture_IsNull(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#devType)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
-    pub fn DevType(self: ?*anyopaque) i32 {
-        return qtc.QPicture_DevType(@ptrCast(self));
+    pub fn DevType(self: QPicture) i32 {
+        return qtc.QPicture_DevType(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#devType)
@@ -57,12 +73,12 @@ pub const qpicture = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QPicture_OnDevType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDevType(self: QPicture, callback: *const fn () callconv(.c) i32) void {
+        qtc.QPicture_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperDevType` instead
@@ -75,30 +91,30 @@ pub const qpicture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
-    pub fn SuperDevType(self: ?*anyopaque) i32 {
-        return qtc.QPicture_SuperDevType(@ptrCast(self));
+    pub fn SuperDevType(self: QPicture) i32 {
+        return qtc.QPicture_SuperDevType(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#size)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
-    pub fn Size(self: ?*anyopaque) u32 {
-        return qtc.QPicture_Size(@ptrCast(self));
+    pub fn Size(self: QPicture) u32 {
+        return qtc.QPicture_Size(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#data)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
-    pub fn Data(self: ?*anyopaque) [:0]const u8 {
-        const _ret = qtc.QPicture_Data(@ptrCast(self));
+    pub fn Data(self: QPicture) [:0]const u8 {
+        const _ret = qtc.QPicture_Data(@ptrCast(self.ptr));
         return std.mem.span(_ret);
     }
 
@@ -106,15 +122,15 @@ pub const qpicture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
     /// ` data: [:0]const u8 `
     ///
     /// ` size: u32 `
     ///
-    pub fn SetData(self: ?*anyopaque, data: [:0]const u8, size: u32) void {
+    pub fn SetData(self: QPicture, data: [:0]const u8, size: u32) void {
         const data_Cstring = data.ptr;
-        qtc.QPicture_SetData(@ptrCast(self), data_Cstring, @bitCast(size));
+        qtc.QPicture_SetData(@ptrCast(self.ptr), data_Cstring, @bitCast(size));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#setData)
@@ -123,12 +139,12 @@ pub const qpicture = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
-    /// ` callback: *const fn (self: QtC.QPicture, data: [*:0]const u8, size: u32) callconv(.c) void `
+    /// ` callback: *const fn (self: QPicture, data: [*:0]const u8, size: u32) callconv(.c) void `
     ///
-    pub fn OnSetData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, u32) callconv(.c) void) void {
-        qtc.QPicture_OnSetData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetData(self: QPicture, callback: *const fn (QPicture, [*:0]const u8, u32) callconv(.c) void) void {
+        qtc.QPicture_OnSetData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetData` instead
@@ -141,159 +157,165 @@ pub const qpicture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
     /// ` data: [:0]const u8 `
     ///
     /// ` size: u32 `
     ///
-    pub fn SuperSetData(self: ?*anyopaque, data: [:0]const u8, size: u32) void {
+    pub fn SuperSetData(self: QPicture, data: [:0]const u8, size: u32) void {
         const data_Cstring = data.ptr;
-        qtc.QPicture_SuperSetData(@ptrCast(self), data_Cstring, @bitCast(size));
+        qtc.QPicture_SuperSetData(@ptrCast(self.ptr), data_Cstring, @bitCast(size));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#play)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
-    /// ` p: QtC.QPainter `
+    /// ` p: QPainter `
     ///
-    pub fn Play(self: ?*anyopaque, p: ?*anyopaque) bool {
-        return qtc.QPicture_Play(@ptrCast(self), @ptrCast(p));
+    pub fn Play(self: QPicture, p: anytype) bool {
+        comptime _ = @TypeOf(p)._is_QPainter;
+        return qtc.QPicture_Play(@ptrCast(self.ptr), @ptrCast(p.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#load)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
-    /// ` dev: QtC.QIODevice `
+    /// ` dev: QIODevice `
     ///
-    pub fn Load(self: ?*anyopaque, dev: ?*anyopaque) bool {
-        return qtc.QPicture_Load(@ptrCast(self), @ptrCast(dev));
+    pub fn Load(self: QPicture, dev: anytype) bool {
+        comptime _ = @TypeOf(dev)._is_QIODevice;
+        return qtc.QPicture_Load(@ptrCast(self.ptr), @ptrCast(dev.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#load)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
     /// ` fileName: []const u8 `
     ///
-    pub fn Load2(self: ?*anyopaque, fileName: []const u8) bool {
+    pub fn Load2(self: QPicture, fileName: []const u8) bool {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        return qtc.QPicture_Load2(@ptrCast(self), fileName_str);
+        return qtc.QPicture_Load2(@ptrCast(self.ptr), fileName_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#save)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
-    /// ` dev: QtC.QIODevice `
+    /// ` dev: QIODevice `
     ///
-    pub fn Save(self: ?*anyopaque, dev: ?*anyopaque) bool {
-        return qtc.QPicture_Save(@ptrCast(self), @ptrCast(dev));
+    pub fn Save(self: QPicture, dev: anytype) bool {
+        comptime _ = @TypeOf(dev)._is_QIODevice;
+        return qtc.QPicture_Save(@ptrCast(self.ptr), @ptrCast(dev.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#save)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
     /// ` fileName: []const u8 `
     ///
-    pub fn Save2(self: ?*anyopaque, fileName: []const u8) bool {
+    pub fn Save2(self: QPicture, fileName: []const u8) bool {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        return qtc.QPicture_Save2(@ptrCast(self), fileName_str);
+        return qtc.QPicture_Save2(@ptrCast(self.ptr), fileName_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#boundingRect)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
-    pub fn BoundingRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QPicture_BoundingRect(@ptrCast(self));
+    pub fn BoundingRect(self: QPicture) QRect {
+        return .{ .ptr = qtc.QPicture_BoundingRect(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#setBoundingRect)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
-    /// ` r: QtC.QRect `
+    /// ` r: QRect `
     ///
-    pub fn SetBoundingRect(self: ?*anyopaque, r: ?*anyopaque) void {
-        qtc.QPicture_SetBoundingRect(@ptrCast(self), @ptrCast(r));
+    pub fn SetBoundingRect(self: QPicture, r: anytype) void {
+        comptime _ = @TypeOf(r)._is_QRect;
+        qtc.QPicture_SetBoundingRect(@ptrCast(self.ptr), @ptrCast(r.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
-    /// ` p: QtC.QPicture `
+    /// ` p: QPicture `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, p: ?*anyopaque) void {
-        qtc.QPicture_OperatorAssign(@ptrCast(self), @ptrCast(p));
+    pub fn OperatorAssign(self: QPicture, p: anytype) void {
+        comptime _ = @TypeOf(p)._is_QPicture;
+        qtc.QPicture_OperatorAssign(@ptrCast(self.ptr), @ptrCast(p.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#swap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
-    /// ` other: QtC.QPicture `
+    /// ` other: QPicture `
     ///
-    pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QPicture_Swap(@ptrCast(self), @ptrCast(other));
+    pub fn Swap(self: QPicture, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QPicture;
+        qtc.QPicture_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#detach)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
-    pub fn Detach(self: ?*anyopaque) void {
-        qtc.QPicture_Detach(@ptrCast(self));
+    pub fn Detach(self: QPicture) void {
+        qtc.QPicture_Detach(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#isDetached)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
-    pub fn IsDetached(self: ?*anyopaque) bool {
-        return qtc.QPicture_IsDetached(@ptrCast(self));
+    pub fn IsDetached(self: QPicture) bool {
+        return qtc.QPicture_IsDetached(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#paintEngine)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
-    pub fn PaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QPicture_PaintEngine(@ptrCast(self));
+    pub fn PaintEngine(self: QPicture) QPaintEngine {
+        return .{ .ptr = qtc.QPicture_PaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#paintEngine)
@@ -302,12 +324,12 @@ pub const qpicture = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPaintEngine `
+    /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.QPicture_OnPaintEngine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaintEngine(self: QPicture, callback: *const fn () callconv(.c) QPaintEngine) void {
+        qtc.QPicture_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperPaintEngine` instead
@@ -320,22 +342,22 @@ pub const qpicture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
-    pub fn SuperPaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QPicture_SuperPaintEngine(@ptrCast(self));
+    pub fn SuperPaintEngine(self: QPicture) QPaintEngine {
+        return .{ .ptr = qtc.QPicture_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#metric)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
     /// ` m: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: ?*anyopaque, m: i32) i32 {
-        return qtc.QPicture_Metric(@ptrCast(self), @bitCast(m));
+    pub fn Metric(self: QPicture, m: i32) i32 {
+        return qtc.QPicture_Metric(@ptrCast(self.ptr), @bitCast(m));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#metric)
@@ -344,12 +366,12 @@ pub const qpicture = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
-    /// ` callback: *const fn (self: QtC.QPicture, m: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QPicture, m: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QPicture_OnMetric(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetric(self: QPicture, callback: *const fn (QPicture, i32) callconv(.c) i32) void {
+        qtc.QPicture_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetric` instead
@@ -362,12 +384,12 @@ pub const qpicture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
     /// ` m: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: ?*anyopaque, m: i32) i32 {
-        return qtc.QPicture_SuperMetric(@ptrCast(self), @bitCast(m));
+    pub fn SuperMetric(self: QPicture, m: i32) i32 {
+        return qtc.QPicture_SuperMetric(@ptrCast(self.ptr), @bitCast(m));
     }
 
     /// Inherited from QPaintDevice
@@ -376,10 +398,10 @@ pub const qpicture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
-    pub fn PaintingActive(self: ?*anyopaque) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self));
+    pub fn PaintingActive(self: QPicture) bool {
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -388,10 +410,10 @@ pub const qpicture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
-    pub fn Width(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_Width(@ptrCast(self));
+    pub fn Width(self: QPicture) i32 {
+        return qtc.QPaintDevice_Width(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -400,10 +422,10 @@ pub const qpicture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
-    pub fn Height(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_Height(@ptrCast(self));
+    pub fn Height(self: QPicture) i32 {
+        return qtc.QPaintDevice_Height(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -412,10 +434,10 @@ pub const qpicture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
-    pub fn WidthMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self));
+    pub fn WidthMM(self: QPicture) i32 {
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -424,10 +446,10 @@ pub const qpicture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
-    pub fn HeightMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self));
+    pub fn HeightMM(self: QPicture) i32 {
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -436,10 +458,10 @@ pub const qpicture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
-    pub fn LogicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self));
+    pub fn LogicalDpiX(self: QPicture) i32 {
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -448,10 +470,10 @@ pub const qpicture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
-    pub fn LogicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self));
+    pub fn LogicalDpiY(self: QPicture) i32 {
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -460,10 +482,10 @@ pub const qpicture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
-    pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self));
+    pub fn PhysicalDpiX(self: QPicture) i32 {
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -472,10 +494,10 @@ pub const qpicture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
-    pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self));
+    pub fn PhysicalDpiY(self: QPicture) i32 {
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -484,10 +506,10 @@ pub const qpicture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
-    pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self));
+    pub fn DevicePixelRatio(self: QPicture) f64 {
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -496,10 +518,10 @@ pub const qpicture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
-    pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self));
+    pub fn DevicePixelRatioF(self: QPicture) f64 {
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -508,10 +530,10 @@ pub const qpicture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
-    pub fn ColorCount(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self));
+    pub fn ColorCount(self: QPicture) i32 {
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -520,10 +542,10 @@ pub const qpicture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
-    pub fn Depth(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self));
+    pub fn Depth(self: QPicture) i32 {
+        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -556,12 +578,13 @@ pub const qpicture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QPicture_InitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn InitPainter(self: QPicture, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QPicture_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInitPainter` instead
@@ -576,12 +599,13 @@ pub const qpicture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QPicture_SuperInitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperInitPainter(self: QPicture, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QPicture_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -592,12 +616,12 @@ pub const qpicture = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPicture`
+    /// ` self: QPicture`
     ///
-    /// ` callback: *const fn (self: QtC.QPicture, painter: QtC.QPainter) callconv(.c) void `
+    /// ` callback: *const fn (self: QPicture, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPicture_OnInitPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInitPainter(self: QPicture, callback: *const fn (QPicture, QPainter) callconv(.c) void) void {
+        qtc.QPicture_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -608,12 +632,13 @@ pub const qpicture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QPicture_Redirected(@ptrCast(self), @ptrCast(offset));
+    pub fn Redirected(self: QPicture, offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        return .{ .ptr = qtc.QPicture_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperRedirected` instead
@@ -628,12 +653,13 @@ pub const qpicture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QPicture_SuperRedirected(@ptrCast(self), @ptrCast(offset));
+    pub fn SuperRedirected(self: QPicture, offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        return .{ .ptr = qtc.QPicture_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
     /// Inherited from QPaintDevice
@@ -644,12 +670,12 @@ pub const qpicture = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPicture`
+    /// ` self: QPicture`
     ///
-    /// ` callback: *const fn (self: QtC.QPicture, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice `
+    /// ` callback: *const fn (self: QPicture, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.QPicture_OnRedirected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRedirected(self: QPicture, callback: *const fn (QPicture, QPoint) callconv(.c) QPaintDevice) void {
+        qtc.QPicture_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -660,10 +686,10 @@ pub const qpicture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
-    pub fn SharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QPicture_SharedPainter(@ptrCast(self));
+    pub fn SharedPainter(self: QPicture) QPainter {
+        return .{ .ptr = qtc.QPicture_SharedPainter(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSharedPainter` instead
@@ -678,10 +704,10 @@ pub const qpicture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
-    pub fn SuperSharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QPicture_SuperSharedPainter(@ptrCast(self));
+    pub fn SuperSharedPainter(self: QPicture) QPainter {
+        return .{ .ptr = qtc.QPicture_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QPaintDevice
@@ -692,12 +718,12 @@ pub const qpicture = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPicture`
+    /// ` self: QPicture`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPainter `
+    /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
-        qtc.QPicture_OnSharedPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSharedPainter(self: QPicture, callback: *const fn () callconv(.c) QPainter) void {
+        qtc.QPicture_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -708,14 +734,14 @@ pub const qpicture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
     /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QPicture_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn GetDecodedMetricF(self: QPicture, metricA: i32, metricB: i32) f64 {
+        return qtc.QPicture_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
@@ -730,14 +756,14 @@ pub const qpicture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
     /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QPicture_SuperGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn SuperGetDecodedMetricF(self: QPicture, metricA: i32, metricB: i32) f64 {
+        return qtc.QPicture_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -748,12 +774,12 @@ pub const qpicture = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPicture`
+    /// ` self: QPicture`
     ///
-    /// ` callback: *const fn (self: QtC.QPicture, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
+    /// ` callback: *const fn (self: QPicture, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.QPicture_OnGetDecodedMetricF(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnGetDecodedMetricF(self: QPicture, callback: *const fn (QPicture, i32, i32) callconv(.c) f64) void {
+        qtc.QPicture_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -766,9 +792,9 @@ pub const qpicture = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QPicture `
+    /// ` self: QPicture `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QPicture_Delete(@ptrCast(self));
+    pub fn Delete(self: QPicture) void {
+        qtc.QPicture_Delete(@ptrCast(self.ptr));
     }
 };

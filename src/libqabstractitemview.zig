@@ -1,5 +1,71 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QAbstractItemDelegate = @import("libqt6").QAbstractItemDelegate;
+const QAbstractItemModel = @import("libqt6").QAbstractItemModel;
+const QAction = @import("libqt6").QAction;
+const QActionEvent = @import("libqt6").QActionEvent;
+const QBackingStore = @import("libqt6").QBackingStore;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QBitmap = @import("libqt6").QBitmap;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QCloseEvent = @import("libqt6").QCloseEvent;
+const QContextMenuEvent = @import("libqt6").QContextMenuEvent;
+const QCursor = @import("libqt6").QCursor;
+const QDragEnterEvent = @import("libqt6").QDragEnterEvent;
+const QDragLeaveEvent = @import("libqt6").QDragLeaveEvent;
+const QDragMoveEvent = @import("libqt6").QDragMoveEvent;
+const QDropEvent = @import("libqt6").QDropEvent;
+const QEnterEvent = @import("libqt6").QEnterEvent;
+const QEvent = @import("libqt6").QEvent;
+const QFocusEvent = @import("libqt6").QFocusEvent;
+const QFont = @import("libqt6").QFont;
+const QFontInfo = @import("libqt6").QFontInfo;
+const QFontMetrics = @import("libqt6").QFontMetrics;
+const QGraphicsEffect = @import("libqt6").QGraphicsEffect;
+const QGraphicsProxyWidget = @import("libqt6").QGraphicsProxyWidget;
+const QHideEvent = @import("libqt6").QHideEvent;
+const QIcon = @import("libqt6").QIcon;
+const QInputMethodEvent = @import("libqt6").QInputMethodEvent;
+const QItemSelection = @import("libqt6").QItemSelection;
+const QItemSelectionModel = @import("libqt6").QItemSelectionModel;
+const QKeyEvent = @import("libqt6").QKeyEvent;
+const QKeySequence = @import("libqt6").QKeySequence;
+const QLayout = @import("libqt6").QLayout;
+const QLocale = @import("libqt6").QLocale;
+const QMargins = @import("libqt6").QMargins;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QModelIndex = @import("libqt6").QModelIndex;
+const QMouseEvent = @import("libqt6").QMouseEvent;
+const QMoveEvent = @import("libqt6").QMoveEvent;
+const QObject = @import("libqt6").QObject;
+const QPaintDevice = @import("libqt6").QPaintDevice;
+const QPaintEngine = @import("libqt6").QPaintEngine;
+const QPaintEvent = @import("libqt6").QPaintEvent;
+const QPainter = @import("libqt6").QPainter;
+const QPalette = @import("libqt6").QPalette;
+const QPixmap = @import("libqt6").QPixmap;
+const QPoint = @import("libqt6").QPoint;
+const QPointF = @import("libqt6").QPointF;
+const QRect = @import("libqt6").QRect;
+const QRegion = @import("libqt6").QRegion;
+const QResizeEvent = @import("libqt6").QResizeEvent;
+const QScreen = @import("libqt6").QScreen;
+const QScrollBar = @import("libqt6").QScrollBar;
+const QShowEvent = @import("libqt6").QShowEvent;
+const QSize = @import("libqt6").QSize;
+const QSizePolicy = @import("libqt6").QSizePolicy;
+const QStyle = @import("libqt6").QStyle;
+const QStyleOptionFrame = @import("libqt6").QStyleOptionFrame;
+const QStyleOptionViewItem = @import("libqt6").QStyleOptionViewItem;
+const QTabletEvent = @import("libqt6").QTabletEvent;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
+const QWheelEvent = @import("libqt6").QWheelEvent;
+const QWidget = @import("libqt6").QWidget;
+const QWindow = @import("libqt6").QWindow;
 const qabstractitemdelegate_enums = @import("libqabstractitemdelegate.zig").enums;
 const qabstractitemview_enums = enums;
 const qabstractscrollarea_enums = @import("libqabstractscrollarea.zig").enums;
@@ -14,31 +80,45 @@ const qwidget_enums = @import("libqwidget.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html)
-pub const qabstractitemview = struct {
+pub const QAbstractItemView = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QAbstractItemView,
+
+    pub const _is_QAbstractItemView = {};
+    pub const _is_QAbstractScrollArea = {};
+    pub const _is_QFrame = {};
+    pub const _is_QWidget = {};
+    pub const _is_QObject = {};
+    pub const _is_QPaintDevice = {};
+
     /// New constructs a new QAbstractItemView object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn New(parent: ?*anyopaque) QtC.QAbstractItemView {
-        return qtc.QAbstractItemView_new(@ptrCast(parent));
+    pub fn New(parent: anytype) QAbstractItemView {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QAbstractItemView_new(@ptrCast(parent.ptr)) };
     }
 
     /// New2 constructs a new QAbstractItemView object.
     ///
-    pub fn New2() QtC.QAbstractItemView {
-        return qtc.QAbstractItemView_new2();
+    pub fn New2() QAbstractItemView {
+        return .{ .ptr = qtc.QAbstractItemView_new2() };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QAbstractItemView_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QAbstractItemView) QMetaObject {
+        return .{ .ptr = qtc.QAbstractItemView_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -47,12 +127,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QAbstractItemView_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QAbstractItemView, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QAbstractItemView_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -65,33 +145,33 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QAbstractItemView_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QAbstractItemView) QMetaObject {
+        return .{ .ptr = qtc.QAbstractItemView_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QAbstractItemView, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QAbstractItemView_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QAbstractItemView_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QAbstractItemView, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QAbstractItemView_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QAbstractItemView, callback: *const fn (QAbstractItemView, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QAbstractItemView_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -102,18 +182,18 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QAbstractItemView, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QAbstractItemView_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QAbstractItemView_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -121,20 +201,20 @@ pub const qabstractitemview = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QAbstractItemView_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QAbstractItemView, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QAbstractItemView_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QAbstractItemView, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QAbstractItemView_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QAbstractItemView, callback: *const fn (QAbstractItemView, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QAbstractItemView_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -145,7 +225,7 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -153,19 +233,19 @@ pub const qabstractitemview = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QAbstractItemView_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QAbstractItemView, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QAbstractItemView_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -178,12 +258,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` model: QtC.QAbstractItemModel `
+    /// ` model: QAbstractItemModel `
     ///
-    pub fn SetModel(self: ?*anyopaque, model: ?*anyopaque) void {
-        qtc.QAbstractItemView_SetModel(@ptrCast(self), @ptrCast(model));
+    pub fn SetModel(self: QAbstractItemView, model: anytype) void {
+        comptime _ = @TypeOf(model)._is_QAbstractItemModel;
+        qtc.QAbstractItemView_SetModel(@ptrCast(self.ptr), @ptrCast(model.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setModel)
@@ -192,12 +273,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, model: QtC.QAbstractItemModel) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, model: QAbstractItemModel) callconv(.c) void `
     ///
-    pub fn OnSetModel(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnSetModel(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetModel(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QAbstractItemModel) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnSetModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetModel` instead
@@ -210,34 +291,36 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` model: QtC.QAbstractItemModel `
+    /// ` model: QAbstractItemModel `
     ///
-    pub fn SuperSetModel(self: ?*anyopaque, model: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperSetModel(@ptrCast(self), @ptrCast(model));
+    pub fn SuperSetModel(self: QAbstractItemView, model: anytype) void {
+        comptime _ = @TypeOf(model)._is_QAbstractItemModel;
+        qtc.QAbstractItemView_SuperSetModel(@ptrCast(self.ptr), @ptrCast(model.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#model)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn Model(self: ?*anyopaque) QtC.QAbstractItemModel {
-        return qtc.QAbstractItemView_Model(@ptrCast(self));
+    pub fn Model(self: QAbstractItemView) QAbstractItemModel {
+        return .{ .ptr = qtc.QAbstractItemView_Model(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionModel)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` selectionModel: QtC.QItemSelectionModel `
+    /// ` selectionModel: QItemSelectionModel `
     ///
-    pub fn SetSelectionModel(self: ?*anyopaque, selectionModel: ?*anyopaque) void {
-        qtc.QAbstractItemView_SetSelectionModel(@ptrCast(self), @ptrCast(selectionModel));
+    pub fn SetSelectionModel(self: QAbstractItemView, selectionModel: anytype) void {
+        comptime _ = @TypeOf(selectionModel)._is_QItemSelectionModel;
+        qtc.QAbstractItemView_SetSelectionModel(@ptrCast(self.ptr), @ptrCast(selectionModel.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionModel)
@@ -246,12 +329,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, selectionModel: QtC.QItemSelectionModel) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, selectionModel: QItemSelectionModel) callconv(.c) void `
     ///
-    pub fn OnSetSelectionModel(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnSetSelectionModel(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetSelectionModel(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QItemSelectionModel) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnSetSelectionModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetSelectionModel` instead
@@ -264,484 +347,487 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` selectionModel: QtC.QItemSelectionModel `
+    /// ` selectionModel: QItemSelectionModel `
     ///
-    pub fn SuperSetSelectionModel(self: ?*anyopaque, selectionModel: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperSetSelectionModel(@ptrCast(self), @ptrCast(selectionModel));
+    pub fn SuperSetSelectionModel(self: QAbstractItemView, selectionModel: anytype) void {
+        comptime _ = @TypeOf(selectionModel)._is_QItemSelectionModel;
+        qtc.QAbstractItemView_SuperSetSelectionModel(@ptrCast(self.ptr), @ptrCast(selectionModel.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionModel)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn SelectionModel(self: ?*anyopaque) QtC.QItemSelectionModel {
-        return qtc.QAbstractItemView_SelectionModel(@ptrCast(self));
+    pub fn SelectionModel(self: QAbstractItemView) QItemSelectionModel {
+        return .{ .ptr = qtc.QAbstractItemView_SelectionModel(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setItemDelegate)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` delegate: QtC.QAbstractItemDelegate `
+    /// ` delegate: QAbstractItemDelegate `
     ///
-    pub fn SetItemDelegate(self: ?*anyopaque, delegate: ?*anyopaque) void {
-        qtc.QAbstractItemView_SetItemDelegate(@ptrCast(self), @ptrCast(delegate));
+    pub fn SetItemDelegate(self: QAbstractItemView, delegate: anytype) void {
+        comptime _ = @TypeOf(delegate)._is_QAbstractItemDelegate;
+        qtc.QAbstractItemView_SetItemDelegate(@ptrCast(self.ptr), @ptrCast(delegate.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegate)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn ItemDelegate(self: ?*anyopaque) QtC.QAbstractItemDelegate {
-        return qtc.QAbstractItemView_ItemDelegate(@ptrCast(self));
+    pub fn ItemDelegate(self: QAbstractItemView) QAbstractItemDelegate {
+        return .{ .ptr = qtc.QAbstractItemView_ItemDelegate(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` mode: qabstractitemview_enums.SelectionMode `
     ///
-    pub fn SetSelectionMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QAbstractItemView_SetSelectionMode(@ptrCast(self), @bitCast(mode));
+    pub fn SetSelectionMode(self: QAbstractItemView, mode: i32) void {
+        qtc.QAbstractItemView_SetSelectionMode(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ## Returns:
     ///
     /// ` qabstractitemview_enums.SelectionMode `
     ///
-    pub fn SelectionMode(self: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_SelectionMode(@ptrCast(self));
+    pub fn SelectionMode(self: QAbstractItemView) i32 {
+        return qtc.QAbstractItemView_SelectionMode(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionBehavior)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` behavior: qabstractitemview_enums.SelectionBehavior `
     ///
-    pub fn SetSelectionBehavior(self: ?*anyopaque, behavior: i32) void {
-        qtc.QAbstractItemView_SetSelectionBehavior(@ptrCast(self), @bitCast(behavior));
+    pub fn SetSelectionBehavior(self: QAbstractItemView, behavior: i32) void {
+        qtc.QAbstractItemView_SetSelectionBehavior(@ptrCast(self.ptr), @bitCast(behavior));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionBehavior)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ## Returns:
     ///
     /// ` qabstractitemview_enums.SelectionBehavior `
     ///
-    pub fn SelectionBehavior(self: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_SelectionBehavior(@ptrCast(self));
+    pub fn SelectionBehavior(self: QAbstractItemView) i32 {
+        return qtc.QAbstractItemView_SelectionBehavior(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#currentIndex)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn CurrentIndex(self: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QAbstractItemView_CurrentIndex(@ptrCast(self));
+    pub fn CurrentIndex(self: QAbstractItemView) QModelIndex {
+        return .{ .ptr = qtc.QAbstractItemView_CurrentIndex(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#rootIndex)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn RootIndex(self: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QAbstractItemView_RootIndex(@ptrCast(self));
+    pub fn RootIndex(self: QAbstractItemView) QModelIndex {
+        return .{ .ptr = qtc.QAbstractItemView_RootIndex(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setEditTriggers)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` triggers: flag of qabstractitemview_enums.EditTrigger `
     ///
-    pub fn SetEditTriggers(self: ?*anyopaque, triggers: i32) void {
-        qtc.QAbstractItemView_SetEditTriggers(@ptrCast(self), @bitCast(triggers));
+    pub fn SetEditTriggers(self: QAbstractItemView, triggers: i32) void {
+        qtc.QAbstractItemView_SetEditTriggers(@ptrCast(self.ptr), @bitCast(triggers));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#editTriggers)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ## Returns:
     ///
     /// ` flag of qabstractitemview_enums.EditTrigger `
     ///
-    pub fn EditTriggers(self: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_EditTriggers(@ptrCast(self));
+    pub fn EditTriggers(self: QAbstractItemView) i32 {
+        return qtc.QAbstractItemView_EditTriggers(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setVerticalScrollMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` mode: qabstractitemview_enums.ScrollMode `
     ///
-    pub fn SetVerticalScrollMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QAbstractItemView_SetVerticalScrollMode(@ptrCast(self), @bitCast(mode));
+    pub fn SetVerticalScrollMode(self: QAbstractItemView, mode: i32) void {
+        qtc.QAbstractItemView_SetVerticalScrollMode(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ## Returns:
     ///
     /// ` qabstractitemview_enums.ScrollMode `
     ///
-    pub fn VerticalScrollMode(self: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_VerticalScrollMode(@ptrCast(self));
+    pub fn VerticalScrollMode(self: QAbstractItemView) i32 {
+        return qtc.QAbstractItemView_VerticalScrollMode(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#resetVerticalScrollMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn ResetVerticalScrollMode(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_ResetVerticalScrollMode(@ptrCast(self));
+    pub fn ResetVerticalScrollMode(self: QAbstractItemView) void {
+        qtc.QAbstractItemView_ResetVerticalScrollMode(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setHorizontalScrollMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` mode: qabstractitemview_enums.ScrollMode `
     ///
-    pub fn SetHorizontalScrollMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QAbstractItemView_SetHorizontalScrollMode(@ptrCast(self), @bitCast(mode));
+    pub fn SetHorizontalScrollMode(self: QAbstractItemView, mode: i32) void {
+        qtc.QAbstractItemView_SetHorizontalScrollMode(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ## Returns:
     ///
     /// ` qabstractitemview_enums.ScrollMode `
     ///
-    pub fn HorizontalScrollMode(self: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_HorizontalScrollMode(@ptrCast(self));
+    pub fn HorizontalScrollMode(self: QAbstractItemView) i32 {
+        return qtc.QAbstractItemView_HorizontalScrollMode(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#resetHorizontalScrollMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn ResetHorizontalScrollMode(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_ResetHorizontalScrollMode(@ptrCast(self));
+    pub fn ResetHorizontalScrollMode(self: QAbstractItemView) void {
+        qtc.QAbstractItemView_ResetHorizontalScrollMode(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setAutoScroll)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetAutoScroll(self: ?*anyopaque, enable: bool) void {
-        qtc.QAbstractItemView_SetAutoScroll(@ptrCast(self), enable);
+    pub fn SetAutoScroll(self: QAbstractItemView, enable: bool) void {
+        qtc.QAbstractItemView_SetAutoScroll(@ptrCast(self.ptr), enable);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#hasAutoScroll)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn HasAutoScroll(self: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_HasAutoScroll(@ptrCast(self));
+    pub fn HasAutoScroll(self: QAbstractItemView) bool {
+        return qtc.QAbstractItemView_HasAutoScroll(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setAutoScrollMargin)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` margin: i32 `
     ///
-    pub fn SetAutoScrollMargin(self: ?*anyopaque, margin: i32) void {
-        qtc.QAbstractItemView_SetAutoScrollMargin(@ptrCast(self), @bitCast(margin));
+    pub fn SetAutoScrollMargin(self: QAbstractItemView, margin: i32) void {
+        qtc.QAbstractItemView_SetAutoScrollMargin(@ptrCast(self.ptr), @bitCast(margin));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#autoScrollMargin)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn AutoScrollMargin(self: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_AutoScrollMargin(@ptrCast(self));
+    pub fn AutoScrollMargin(self: QAbstractItemView) i32 {
+        return qtc.QAbstractItemView_AutoScrollMargin(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setTabKeyNavigation)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabKeyNavigation(self: ?*anyopaque, enable: bool) void {
-        qtc.QAbstractItemView_SetTabKeyNavigation(@ptrCast(self), enable);
+    pub fn SetTabKeyNavigation(self: QAbstractItemView, enable: bool) void {
+        qtc.QAbstractItemView_SetTabKeyNavigation(@ptrCast(self.ptr), enable);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#tabKeyNavigation)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn TabKeyNavigation(self: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_TabKeyNavigation(@ptrCast(self));
+    pub fn TabKeyNavigation(self: QAbstractItemView) bool {
+        return qtc.QAbstractItemView_TabKeyNavigation(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDropIndicatorShown)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetDropIndicatorShown(self: ?*anyopaque, enable: bool) void {
-        qtc.QAbstractItemView_SetDropIndicatorShown(@ptrCast(self), enable);
+    pub fn SetDropIndicatorShown(self: QAbstractItemView, enable: bool) void {
+        qtc.QAbstractItemView_SetDropIndicatorShown(@ptrCast(self.ptr), enable);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#showDropIndicator)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn ShowDropIndicator(self: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_ShowDropIndicator(@ptrCast(self));
+    pub fn ShowDropIndicator(self: QAbstractItemView) bool {
+        return qtc.QAbstractItemView_ShowDropIndicator(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDragEnabled)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetDragEnabled(self: ?*anyopaque, enable: bool) void {
-        qtc.QAbstractItemView_SetDragEnabled(@ptrCast(self), enable);
+    pub fn SetDragEnabled(self: QAbstractItemView, enable: bool) void {
+        qtc.QAbstractItemView_SetDragEnabled(@ptrCast(self.ptr), enable);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragEnabled)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn DragEnabled(self: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_DragEnabled(@ptrCast(self));
+    pub fn DragEnabled(self: QAbstractItemView) bool {
+        return qtc.QAbstractItemView_DragEnabled(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDragDropOverwriteMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` overwrite: bool `
     ///
-    pub fn SetDragDropOverwriteMode(self: ?*anyopaque, overwrite: bool) void {
-        qtc.QAbstractItemView_SetDragDropOverwriteMode(@ptrCast(self), overwrite);
+    pub fn SetDragDropOverwriteMode(self: QAbstractItemView, overwrite: bool) void {
+        qtc.QAbstractItemView_SetDragDropOverwriteMode(@ptrCast(self.ptr), overwrite);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragDropOverwriteMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn DragDropOverwriteMode(self: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_DragDropOverwriteMode(@ptrCast(self));
+    pub fn DragDropOverwriteMode(self: QAbstractItemView) bool {
+        return qtc.QAbstractItemView_DragDropOverwriteMode(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDragDropMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` behavior: qabstractitemview_enums.DragDropMode `
     ///
-    pub fn SetDragDropMode(self: ?*anyopaque, behavior: i32) void {
-        qtc.QAbstractItemView_SetDragDropMode(@ptrCast(self), @bitCast(behavior));
+    pub fn SetDragDropMode(self: QAbstractItemView, behavior: i32) void {
+        qtc.QAbstractItemView_SetDragDropMode(@ptrCast(self.ptr), @bitCast(behavior));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragDropMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ## Returns:
     ///
     /// ` qabstractitemview_enums.DragDropMode `
     ///
-    pub fn DragDropMode(self: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_DragDropMode(@ptrCast(self));
+    pub fn DragDropMode(self: QAbstractItemView) i32 {
+        return qtc.QAbstractItemView_DragDropMode(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDefaultDropAction)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` dropAction: qnamespace_enums.DropAction `
     ///
-    pub fn SetDefaultDropAction(self: ?*anyopaque, dropAction: i32) void {
-        qtc.QAbstractItemView_SetDefaultDropAction(@ptrCast(self), @bitCast(dropAction));
+    pub fn SetDefaultDropAction(self: QAbstractItemView, dropAction: i32) void {
+        qtc.QAbstractItemView_SetDefaultDropAction(@ptrCast(self.ptr), @bitCast(dropAction));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#defaultDropAction)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.DropAction `
     ///
-    pub fn DefaultDropAction(self: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_DefaultDropAction(@ptrCast(self));
+    pub fn DefaultDropAction(self: QAbstractItemView) i32 {
+        return qtc.QAbstractItemView_DefaultDropAction(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setAlternatingRowColors)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetAlternatingRowColors(self: ?*anyopaque, enable: bool) void {
-        qtc.QAbstractItemView_SetAlternatingRowColors(@ptrCast(self), enable);
+    pub fn SetAlternatingRowColors(self: QAbstractItemView, enable: bool) void {
+        qtc.QAbstractItemView_SetAlternatingRowColors(@ptrCast(self.ptr), enable);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#alternatingRowColors)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn AlternatingRowColors(self: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_AlternatingRowColors(@ptrCast(self));
+    pub fn AlternatingRowColors(self: QAbstractItemView) bool {
+        return qtc.QAbstractItemView_AlternatingRowColors(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setIconSize)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` size: QtC.QSize `
+    /// ` size: QSize `
     ///
-    pub fn SetIconSize(self: ?*anyopaque, size: ?*anyopaque) void {
-        qtc.QAbstractItemView_SetIconSize(@ptrCast(self), @ptrCast(size));
+    pub fn SetIconSize(self: QAbstractItemView, size: anytype) void {
+        comptime _ = @TypeOf(size)._is_QSize;
+        qtc.QAbstractItemView_SetIconSize(@ptrCast(self.ptr), @ptrCast(size.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#iconSize)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn IconSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QAbstractItemView_IconSize(@ptrCast(self));
+    pub fn IconSize(self: QAbstractItemView) QSize {
+        return .{ .ptr = qtc.QAbstractItemView_IconSize(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setTextElideMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` mode: qnamespace_enums.TextElideMode `
     ///
-    pub fn SetTextElideMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QAbstractItemView_SetTextElideMode(@ptrCast(self), @bitCast(mode));
+    pub fn SetTextElideMode(self: QAbstractItemView, mode: i32) void {
+        qtc.QAbstractItemView_SetTextElideMode(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#textElideMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.TextElideMode `
     ///
-    pub fn TextElideMode(self: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_TextElideMode(@ptrCast(self));
+    pub fn TextElideMode(self: QAbstractItemView) i32 {
+        return qtc.QAbstractItemView_TextElideMode(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#keyboardSearch)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` search: []const u8 `
     ///
-    pub fn KeyboardSearch(self: ?*anyopaque, search: []const u8) void {
+    pub fn KeyboardSearch(self: QAbstractItemView, search: []const u8) void {
         const search_str = qtc.libqt_string{
             .len = search.len,
             .data = search.ptr,
         };
-        qtc.QAbstractItemView_KeyboardSearch(@ptrCast(self), search_str);
+        qtc.QAbstractItemView_KeyboardSearch(@ptrCast(self.ptr), search_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#keyboardSearch)
@@ -750,12 +836,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, search: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, search: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnKeyboardSearch(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnKeyboardSearch(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyboardSearch(self: QAbstractItemView, callback: *const fn (QAbstractItemView, [*:0]const u8) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnKeyboardSearch(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperKeyboardSearch` instead
@@ -768,28 +854,29 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` search: []const u8 `
     ///
-    pub fn SuperKeyboardSearch(self: ?*anyopaque, search: []const u8) void {
+    pub fn SuperKeyboardSearch(self: QAbstractItemView, search: []const u8) void {
         const search_str = qtc.libqt_string{
             .len = search.len,
             .data = search.ptr,
         };
-        qtc.QAbstractItemView_SuperKeyboardSearch(@ptrCast(self), search_str);
+        qtc.QAbstractItemView_SuperKeyboardSearch(@ptrCast(self.ptr), search_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#visualRect)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn VisualRect(self: ?*anyopaque, index: ?*anyopaque) QtC.QRect {
-        return qtc.QAbstractItemView_VisualRect(@ptrCast(self), @ptrCast(index));
+    pub fn VisualRect(self: QAbstractItemView, index: anytype) QRect {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.QAbstractItemView_VisualRect(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#visualRect)
@@ -798,12 +885,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, index: QtC.QModelIndex) callconv(.c) QtC.QRect `
+    /// ` callback: *const fn (self: QAbstractItemView, index: QModelIndex) callconv(.c) QRect `
     ///
-    pub fn OnVisualRect(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRect) void {
-        qtc.QAbstractItemView_OnVisualRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnVisualRect(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QModelIndex) callconv(.c) QRect) void {
+        qtc.QAbstractItemView_OnVisualRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperVisualRect` instead
@@ -816,26 +903,28 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SuperVisualRect(self: ?*anyopaque, index: ?*anyopaque) QtC.QRect {
-        return qtc.QAbstractItemView_SuperVisualRect(@ptrCast(self), @ptrCast(index));
+    pub fn SuperVisualRect(self: QAbstractItemView, index: anytype) QRect {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.QAbstractItemView_SuperVisualRect(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollTo)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
     /// ` hint: qabstractitemview_enums.ScrollHint `
     ///
-    pub fn ScrollTo(self: ?*anyopaque, index: ?*anyopaque, hint: i32) void {
-        qtc.QAbstractItemView_ScrollTo(@ptrCast(self), @ptrCast(index), @bitCast(hint));
+    pub fn ScrollTo(self: QAbstractItemView, index: anytype, hint: i32) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QAbstractItemView_ScrollTo(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(hint));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollTo)
@@ -844,12 +933,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, index: QtC.QModelIndex, hint: qabstractitemview_enums.ScrollHint) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, index: QModelIndex, hint: qabstractitemview_enums.ScrollHint) callconv(.c) void `
     ///
-    pub fn OnScrollTo(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnScrollTo(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnScrollTo(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QModelIndex, i32) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnScrollTo(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperScrollTo` instead
@@ -862,26 +951,28 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
     /// ` hint: qabstractitemview_enums.ScrollHint `
     ///
-    pub fn SuperScrollTo(self: ?*anyopaque, index: ?*anyopaque, hint: i32) void {
-        qtc.QAbstractItemView_SuperScrollTo(@ptrCast(self), @ptrCast(index), @bitCast(hint));
+    pub fn SuperScrollTo(self: QAbstractItemView, index: anytype, hint: i32) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QAbstractItemView_SuperScrollTo(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(hint));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#indexAt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` point: QtC.QPoint `
+    /// ` point: QPoint `
     ///
-    pub fn IndexAt(self: ?*anyopaque, point: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QAbstractItemView_IndexAt(@ptrCast(self), @ptrCast(point));
+    pub fn IndexAt(self: QAbstractItemView, point: anytype) QModelIndex {
+        comptime _ = @TypeOf(point)._is_QPoint;
+        return .{ .ptr = qtc.QAbstractItemView_IndexAt(@ptrCast(self.ptr), @ptrCast(point.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#indexAt)
@@ -890,12 +981,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, point: QtC.QPoint) callconv(.c) QtC.QModelIndex `
+    /// ` callback: *const fn (self: QAbstractItemView, point: QPoint) callconv(.c) QModelIndex `
     ///
-    pub fn OnIndexAt(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.QAbstractItemView_OnIndexAt(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIndexAt(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QPoint) callconv(.c) QModelIndex) void {
+        qtc.QAbstractItemView_OnIndexAt(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperIndexAt` instead
@@ -908,36 +999,38 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` point: QtC.QPoint `
+    /// ` point: QPoint `
     ///
-    pub fn SuperIndexAt(self: ?*anyopaque, point: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QAbstractItemView_SuperIndexAt(@ptrCast(self), @ptrCast(point));
+    pub fn SuperIndexAt(self: QAbstractItemView, point: anytype) QModelIndex {
+        comptime _ = @TypeOf(point)._is_QPoint;
+        return .{ .ptr = qtc.QAbstractItemView_SuperIndexAt(@ptrCast(self.ptr), @ptrCast(point.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForIndex)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SizeHintForIndex(self: ?*anyopaque, index: ?*anyopaque) QtC.QSize {
-        return qtc.QAbstractItemView_SizeHintForIndex(@ptrCast(self), @ptrCast(index));
+    pub fn SizeHintForIndex(self: QAbstractItemView, index: anytype) QSize {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.QAbstractItemView_SizeHintForIndex(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForRow)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` row: i32 `
     ///
-    pub fn SizeHintForRow(self: ?*anyopaque, row: i32) i32 {
-        return qtc.QAbstractItemView_SizeHintForRow(@ptrCast(self), @bitCast(row));
+    pub fn SizeHintForRow(self: QAbstractItemView, row: i32) i32 {
+        return qtc.QAbstractItemView_SizeHintForRow(@ptrCast(self.ptr), @bitCast(row));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForRow)
@@ -946,12 +1039,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, row: i32) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QAbstractItemView, row: i32) callconv(.c) i32 `
     ///
-    pub fn OnSizeHintForRow(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QAbstractItemView_OnSizeHintForRow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSizeHintForRow(self: QAbstractItemView, callback: *const fn (QAbstractItemView, i32) callconv(.c) i32) void {
+        qtc.QAbstractItemView_OnSizeHintForRow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSizeHintForRow` instead
@@ -964,24 +1057,24 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` row: i32 `
     ///
-    pub fn SuperSizeHintForRow(self: ?*anyopaque, row: i32) i32 {
-        return qtc.QAbstractItemView_SuperSizeHintForRow(@ptrCast(self), @bitCast(row));
+    pub fn SuperSizeHintForRow(self: QAbstractItemView, row: i32) i32 {
+        return qtc.QAbstractItemView_SuperSizeHintForRow(@ptrCast(self.ptr), @bitCast(row));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForColumn)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` column: i32 `
     ///
-    pub fn SizeHintForColumn(self: ?*anyopaque, column: i32) i32 {
-        return qtc.QAbstractItemView_SizeHintForColumn(@ptrCast(self), @bitCast(column));
+    pub fn SizeHintForColumn(self: QAbstractItemView, column: i32) i32 {
+        return qtc.QAbstractItemView_SizeHintForColumn(@ptrCast(self.ptr), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#sizeHintForColumn)
@@ -990,12 +1083,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, column: i32) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QAbstractItemView, column: i32) callconv(.c) i32 `
     ///
-    pub fn OnSizeHintForColumn(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QAbstractItemView_OnSizeHintForColumn(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSizeHintForColumn(self: QAbstractItemView, callback: *const fn (QAbstractItemView, i32) callconv(.c) i32) void {
+        qtc.QAbstractItemView_OnSizeHintForColumn(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSizeHintForColumn` instead
@@ -1008,150 +1101,160 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` column: i32 `
     ///
-    pub fn SuperSizeHintForColumn(self: ?*anyopaque, column: i32) i32 {
-        return qtc.QAbstractItemView_SuperSizeHintForColumn(@ptrCast(self), @bitCast(column));
+    pub fn SuperSizeHintForColumn(self: QAbstractItemView, column: i32) i32 {
+        return qtc.QAbstractItemView_SuperSizeHintForColumn(@ptrCast(self.ptr), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#openPersistentEditor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn OpenPersistentEditor(self: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QAbstractItemView_OpenPersistentEditor(@ptrCast(self), @ptrCast(index));
+    pub fn OpenPersistentEditor(self: QAbstractItemView, index: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QAbstractItemView_OpenPersistentEditor(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#closePersistentEditor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn ClosePersistentEditor(self: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QAbstractItemView_ClosePersistentEditor(@ptrCast(self), @ptrCast(index));
+    pub fn ClosePersistentEditor(self: QAbstractItemView, index: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QAbstractItemView_ClosePersistentEditor(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#isPersistentEditorOpen)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn IsPersistentEditorOpen(self: ?*anyopaque, index: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_IsPersistentEditorOpen(@ptrCast(self), @ptrCast(index));
+    pub fn IsPersistentEditorOpen(self: QAbstractItemView, index: anytype) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.QAbstractItemView_IsPersistentEditorOpen(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setIndexWidget)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn SetIndexWidget(self: ?*anyopaque, index: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.QAbstractItemView_SetIndexWidget(@ptrCast(self), @ptrCast(index), @ptrCast(widget));
+    pub fn SetIndexWidget(self: QAbstractItemView, index: anytype, widget: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.QAbstractItemView_SetIndexWidget(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(widget.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#indexWidget)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn IndexWidget(self: ?*anyopaque, index: ?*anyopaque) QtC.QWidget {
-        return qtc.QAbstractItemView_IndexWidget(@ptrCast(self), @ptrCast(index));
+    pub fn IndexWidget(self: QAbstractItemView, index: anytype) QWidget {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.QAbstractItemView_IndexWidget(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setItemDelegateForRow)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` row: i32 `
     ///
-    /// ` delegate: QtC.QAbstractItemDelegate `
+    /// ` delegate: QAbstractItemDelegate `
     ///
-    pub fn SetItemDelegateForRow(self: ?*anyopaque, row: i32, delegate: ?*anyopaque) void {
-        qtc.QAbstractItemView_SetItemDelegateForRow(@ptrCast(self), @bitCast(row), @ptrCast(delegate));
+    pub fn SetItemDelegateForRow(self: QAbstractItemView, row: i32, delegate: anytype) void {
+        comptime _ = @TypeOf(delegate)._is_QAbstractItemDelegate;
+        qtc.QAbstractItemView_SetItemDelegateForRow(@ptrCast(self.ptr), @bitCast(row), @ptrCast(delegate.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForRow)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` row: i32 `
     ///
-    pub fn ItemDelegateForRow(self: ?*anyopaque, row: i32) QtC.QAbstractItemDelegate {
-        return qtc.QAbstractItemView_ItemDelegateForRow(@ptrCast(self), @bitCast(row));
+    pub fn ItemDelegateForRow(self: QAbstractItemView, row: i32) QAbstractItemDelegate {
+        return .{ .ptr = qtc.QAbstractItemView_ItemDelegateForRow(@ptrCast(self.ptr), @bitCast(row)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setItemDelegateForColumn)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` column: i32 `
     ///
-    /// ` delegate: QtC.QAbstractItemDelegate `
+    /// ` delegate: QAbstractItemDelegate `
     ///
-    pub fn SetItemDelegateForColumn(self: ?*anyopaque, column: i32, delegate: ?*anyopaque) void {
-        qtc.QAbstractItemView_SetItemDelegateForColumn(@ptrCast(self), @bitCast(column), @ptrCast(delegate));
+    pub fn SetItemDelegateForColumn(self: QAbstractItemView, column: i32, delegate: anytype) void {
+        comptime _ = @TypeOf(delegate)._is_QAbstractItemDelegate;
+        qtc.QAbstractItemView_SetItemDelegateForColumn(@ptrCast(self.ptr), @bitCast(column), @ptrCast(delegate.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForColumn)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` column: i32 `
     ///
-    pub fn ItemDelegateForColumn(self: ?*anyopaque, column: i32) QtC.QAbstractItemDelegate {
-        return qtc.QAbstractItemView_ItemDelegateForColumn(@ptrCast(self), @bitCast(column));
+    pub fn ItemDelegateForColumn(self: QAbstractItemView, column: i32) QAbstractItemDelegate {
+        return .{ .ptr = qtc.QAbstractItemView_ItemDelegateForColumn(@ptrCast(self.ptr), @bitCast(column)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegate)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn ItemDelegate2(self: ?*anyopaque, index: ?*anyopaque) QtC.QAbstractItemDelegate {
-        return qtc.QAbstractItemView_ItemDelegate2(@ptrCast(self), @ptrCast(index));
+    pub fn ItemDelegate2(self: QAbstractItemView, index: anytype) QAbstractItemDelegate {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.QAbstractItemView_ItemDelegate2(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForIndex)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn ItemDelegateForIndex(self: ?*anyopaque, index: ?*anyopaque) QtC.QAbstractItemDelegate {
-        return qtc.QAbstractItemView_ItemDelegateForIndex(@ptrCast(self), @ptrCast(index));
+    pub fn ItemDelegateForIndex(self: QAbstractItemView, index: anytype) QAbstractItemDelegate {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.QAbstractItemView_ItemDelegateForIndex(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegateForIndex)
@@ -1160,12 +1263,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, index: QtC.QModelIndex) callconv(.c) QtC.QAbstractItemDelegate `
+    /// ` callback: *const fn (self: QAbstractItemView, index: QModelIndex) callconv(.c) QAbstractItemDelegate `
     ///
-    pub fn OnItemDelegateForIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QAbstractItemDelegate) void {
-        qtc.QAbstractItemView_OnItemDelegateForIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnItemDelegateForIndex(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QModelIndex) callconv(.c) QAbstractItemDelegate) void {
+        qtc.QAbstractItemView_OnItemDelegateForIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperItemDelegateForIndex` instead
@@ -1178,24 +1281,25 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SuperItemDelegateForIndex(self: ?*anyopaque, index: ?*anyopaque) QtC.QAbstractItemDelegate {
-        return qtc.QAbstractItemView_SuperItemDelegateForIndex(@ptrCast(self), @ptrCast(index));
+    pub fn SuperItemDelegateForIndex(self: QAbstractItemView, index: anytype) QAbstractItemDelegate {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.QAbstractItemView_SuperItemDelegateForIndex(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodQuery)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.QAbstractItemView_InputMethodQuery(@ptrCast(self), @bitCast(query));
+    pub fn InputMethodQuery(self: QAbstractItemView, query: i32) QVariant {
+        return .{ .ptr = qtc.QAbstractItemView_InputMethodQuery(@ptrCast(self.ptr), @bitCast(query)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodQuery)
@@ -1204,12 +1308,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
+    /// ` callback: *const fn (self: QAbstractItemView, query: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
-    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QAbstractItemView_OnInputMethodQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInputMethodQuery(self: QAbstractItemView, callback: *const fn (QAbstractItemView, i32) callconv(.c) QVariant) void {
+        qtc.QAbstractItemView_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
@@ -1222,22 +1326,22 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.QAbstractItemView_SuperInputMethodQuery(@ptrCast(self), @bitCast(query));
+    pub fn SuperInputMethodQuery(self: QAbstractItemView, query: i32) QVariant {
+        return .{ .ptr = qtc.QAbstractItemView_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(query)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#reset)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn Reset(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_Reset(@ptrCast(self));
+    pub fn Reset(self: QAbstractItemView) void {
+        qtc.QAbstractItemView_Reset(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#reset)
@@ -1246,12 +1350,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnReset(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractItemView_OnReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReset(self: QAbstractItemView, callback: *const fn () callconv(.c) void) void {
+        qtc.QAbstractItemView_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperReset` instead
@@ -1264,22 +1368,23 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn SuperReset(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperReset(@ptrCast(self));
+    pub fn SuperReset(self: QAbstractItemView) void {
+        qtc.QAbstractItemView_SuperReset(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setRootIndex)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SetRootIndex(self: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QAbstractItemView_SetRootIndex(@ptrCast(self), @ptrCast(index));
+    pub fn SetRootIndex(self: QAbstractItemView, index: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QAbstractItemView_SetRootIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setRootIndex)
@@ -1288,12 +1393,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, index: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnSetRootIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnSetRootIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetRootIndex(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QModelIndex) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnSetRootIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetRootIndex` instead
@@ -1306,22 +1411,23 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SuperSetRootIndex(self: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperSetRootIndex(@ptrCast(self), @ptrCast(index));
+    pub fn SuperSetRootIndex(self: QAbstractItemView, index: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QAbstractItemView_SuperSetRootIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doItemsLayout)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn DoItemsLayout(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_DoItemsLayout(@ptrCast(self));
+    pub fn DoItemsLayout(self: QAbstractItemView) void {
+        qtc.QAbstractItemView_DoItemsLayout(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doItemsLayout)
@@ -1330,12 +1436,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDoItemsLayout(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractItemView_OnDoItemsLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDoItemsLayout(self: QAbstractItemView, callback: *const fn () callconv(.c) void) void {
+        qtc.QAbstractItemView_OnDoItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperDoItemsLayout` instead
@@ -1348,20 +1454,20 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn SuperDoItemsLayout(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperDoItemsLayout(@ptrCast(self));
+    pub fn SuperDoItemsLayout(self: QAbstractItemView) void {
+        qtc.QAbstractItemView_SuperDoItemsLayout(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectAll)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn SelectAll(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_SelectAll(@ptrCast(self));
+    pub fn SelectAll(self: QAbstractItemView) void {
+        qtc.QAbstractItemView_SelectAll(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectAll)
@@ -1370,12 +1476,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnSelectAll(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractItemView_OnSelectAll(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSelectAll(self: QAbstractItemView, callback: *const fn () callconv(.c) void) void {
+        qtc.QAbstractItemView_OnSelectAll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSelectAll` instead
@@ -1388,96 +1494,101 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn SuperSelectAll(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperSelectAll(@ptrCast(self));
+    pub fn SuperSelectAll(self: QAbstractItemView) void {
+        qtc.QAbstractItemView_SuperSelectAll(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn Edit(self: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QAbstractItemView_Edit(@ptrCast(self), @ptrCast(index));
+    pub fn Edit(self: QAbstractItemView, index: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QAbstractItemView_Edit(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#clearSelection)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn ClearSelection(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_ClearSelection(@ptrCast(self));
+    pub fn ClearSelection(self: QAbstractItemView) void {
+        qtc.QAbstractItemView_ClearSelection(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setCurrentIndex)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SetCurrentIndex(self: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QAbstractItemView_SetCurrentIndex(@ptrCast(self), @ptrCast(index));
+    pub fn SetCurrentIndex(self: QAbstractItemView, index: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QAbstractItemView_SetCurrentIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollToTop)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn ScrollToTop(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_ScrollToTop(@ptrCast(self));
+    pub fn ScrollToTop(self: QAbstractItemView) void {
+        qtc.QAbstractItemView_ScrollToTop(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollToBottom)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn ScrollToBottom(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_ScrollToBottom(@ptrCast(self));
+    pub fn ScrollToBottom(self: QAbstractItemView) void {
+        qtc.QAbstractItemView_ScrollToBottom(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#update)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn Update(self: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QAbstractItemView_Update(@ptrCast(self), @ptrCast(index));
+    pub fn Update(self: QAbstractItemView, index: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QAbstractItemView_Update(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dataChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` topLeft: QtC.QModelIndex `
+    /// ` topLeft: QModelIndex `
     ///
-    /// ` bottomRight: QtC.QModelIndex `
+    /// ` bottomRight: QModelIndex `
     ///
     /// ` roles: []i32 `
     ///
-    pub fn DataChanged(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque, roles: []i32) void {
+    pub fn DataChanged(self: QAbstractItemView, topLeft: anytype, bottomRight: anytype, roles: []i32) void {
+        comptime _ = @TypeOf(topLeft)._is_QModelIndex;
+        comptime _ = @TypeOf(bottomRight)._is_QModelIndex;
         const roles_list = qtc.libqt_list{
             .len = roles.len,
             .data = roles.ptr,
         };
-        qtc.QAbstractItemView_DataChanged(@ptrCast(self), @ptrCast(topLeft), @ptrCast(bottomRight), roles_list);
+        qtc.QAbstractItemView_DataChanged(@ptrCast(self.ptr), @ptrCast(topLeft.ptr), @ptrCast(bottomRight.ptr), roles_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dataChanged)
@@ -1486,12 +1597,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: qtc.libqt_list ([]i32)) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, topLeft: QModelIndex, bottomRight: QModelIndex, roles: qtc.libqt_list ([]i32)) callconv(.c) void `
     ///
-    pub fn OnDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnDataChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDataChanged(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QModelIndex, QModelIndex, qtc.libqt_list) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnDataChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperDataChanged` instead
@@ -1504,36 +1615,39 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` topLeft: QtC.QModelIndex `
+    /// ` topLeft: QModelIndex `
     ///
-    /// ` bottomRight: QtC.QModelIndex `
+    /// ` bottomRight: QModelIndex `
     ///
     /// ` roles: []i32 `
     ///
-    pub fn SuperDataChanged(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque, roles: []i32) void {
+    pub fn SuperDataChanged(self: QAbstractItemView, topLeft: anytype, bottomRight: anytype, roles: []i32) void {
+        comptime _ = @TypeOf(topLeft)._is_QModelIndex;
+        comptime _ = @TypeOf(bottomRight)._is_QModelIndex;
         const roles_list = qtc.libqt_list{
             .len = roles.len,
             .data = roles.ptr,
         };
-        qtc.QAbstractItemView_SuperDataChanged(@ptrCast(self), @ptrCast(topLeft), @ptrCast(bottomRight), roles_list);
+        qtc.QAbstractItemView_SuperDataChanged(@ptrCast(self.ptr), @ptrCast(topLeft.ptr), @ptrCast(bottomRight.ptr), roles_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#rowsInserted)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` start: i32 `
     ///
     /// ` end: i32 `
     ///
-    pub fn RowsInserted(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
-        qtc.QAbstractItemView_RowsInserted(@ptrCast(self), @ptrCast(parent), @bitCast(start), @bitCast(end));
+    pub fn RowsInserted(self: QAbstractItemView, parent: anytype, start: i32, end: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.QAbstractItemView_RowsInserted(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(start), @bitCast(end));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#rowsInserted)
@@ -1542,12 +1656,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, parent: QtC.QModelIndex, start: i32, end: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, parent: QModelIndex, start: i32, end: i32) callconv(.c) void `
     ///
-    pub fn OnRowsInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnRowsInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowsInserted(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnRowsInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperRowsInserted` instead
@@ -1560,32 +1674,34 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` start: i32 `
     ///
     /// ` end: i32 `
     ///
-    pub fn SuperRowsInserted(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
-        qtc.QAbstractItemView_SuperRowsInserted(@ptrCast(self), @ptrCast(parent), @bitCast(start), @bitCast(end));
+    pub fn SuperRowsInserted(self: QAbstractItemView, parent: anytype, start: i32, end: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.QAbstractItemView_SuperRowsInserted(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(start), @bitCast(end));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#rowsAboutToBeRemoved)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` start: i32 `
     ///
     /// ` end: i32 `
     ///
-    pub fn RowsAboutToBeRemoved(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
-        qtc.QAbstractItemView_RowsAboutToBeRemoved(@ptrCast(self), @ptrCast(parent), @bitCast(start), @bitCast(end));
+    pub fn RowsAboutToBeRemoved(self: QAbstractItemView, parent: anytype, start: i32, end: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.QAbstractItemView_RowsAboutToBeRemoved(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(start), @bitCast(end));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#rowsAboutToBeRemoved)
@@ -1594,12 +1710,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, parent: QtC.QModelIndex, start: i32, end: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, parent: QModelIndex, start: i32, end: i32) callconv(.c) void `
     ///
-    pub fn OnRowsAboutToBeRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnRowsAboutToBeRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowsAboutToBeRemoved(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnRowsAboutToBeRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperRowsAboutToBeRemoved` instead
@@ -1612,30 +1728,33 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` start: i32 `
     ///
     /// ` end: i32 `
     ///
-    pub fn SuperRowsAboutToBeRemoved(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
-        qtc.QAbstractItemView_SuperRowsAboutToBeRemoved(@ptrCast(self), @ptrCast(parent), @bitCast(start), @bitCast(end));
+    pub fn SuperRowsAboutToBeRemoved(self: QAbstractItemView, parent: anytype, start: i32, end: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.QAbstractItemView_SuperRowsAboutToBeRemoved(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(start), @bitCast(end));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` selected: QtC.QItemSelection `
+    /// ` selected: QItemSelection `
     ///
-    /// ` deselected: QtC.QItemSelection `
+    /// ` deselected: QItemSelection `
     ///
-    pub fn SelectionChanged(self: ?*anyopaque, selected: ?*anyopaque, deselected: ?*anyopaque) void {
-        qtc.QAbstractItemView_SelectionChanged(@ptrCast(self), @ptrCast(selected), @ptrCast(deselected));
+    pub fn SelectionChanged(self: QAbstractItemView, selected: anytype, deselected: anytype) void {
+        comptime _ = @TypeOf(selected)._is_QItemSelection;
+        comptime _ = @TypeOf(deselected)._is_QItemSelection;
+        qtc.QAbstractItemView_SelectionChanged(@ptrCast(self.ptr), @ptrCast(selected.ptr), @ptrCast(deselected.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionChanged)
@@ -1644,12 +1763,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, selected: QtC.QItemSelection, deselected: QtC.QItemSelection) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, selected: QItemSelection, deselected: QItemSelection) callconv(.c) void `
     ///
-    pub fn OnSelectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnSelectionChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSelectionChanged(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QItemSelection, QItemSelection) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnSelectionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSelectionChanged` instead
@@ -1662,28 +1781,32 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` selected: QtC.QItemSelection `
+    /// ` selected: QItemSelection `
     ///
-    /// ` deselected: QtC.QItemSelection `
+    /// ` deselected: QItemSelection `
     ///
-    pub fn SuperSelectionChanged(self: ?*anyopaque, selected: ?*anyopaque, deselected: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperSelectionChanged(@ptrCast(self), @ptrCast(selected), @ptrCast(deselected));
+    pub fn SuperSelectionChanged(self: QAbstractItemView, selected: anytype, deselected: anytype) void {
+        comptime _ = @TypeOf(selected)._is_QItemSelection;
+        comptime _ = @TypeOf(deselected)._is_QItemSelection;
+        qtc.QAbstractItemView_SuperSelectionChanged(@ptrCast(self.ptr), @ptrCast(selected.ptr), @ptrCast(deselected.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#currentChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` current: QtC.QModelIndex `
+    /// ` current: QModelIndex `
     ///
-    /// ` previous: QtC.QModelIndex `
+    /// ` previous: QModelIndex `
     ///
-    pub fn CurrentChanged(self: ?*anyopaque, current: ?*anyopaque, previous: ?*anyopaque) void {
-        qtc.QAbstractItemView_CurrentChanged(@ptrCast(self), @ptrCast(current), @ptrCast(previous));
+    pub fn CurrentChanged(self: QAbstractItemView, current: anytype, previous: anytype) void {
+        comptime _ = @TypeOf(current)._is_QModelIndex;
+        comptime _ = @TypeOf(previous)._is_QModelIndex;
+        qtc.QAbstractItemView_CurrentChanged(@ptrCast(self.ptr), @ptrCast(current.ptr), @ptrCast(previous.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#currentChanged)
@@ -1692,12 +1815,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, current: QtC.QModelIndex, previous: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, current: QModelIndex, previous: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnCurrentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnCurrentChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCurrentChanged(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QModelIndex, QModelIndex) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnCurrentChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperCurrentChanged` instead
@@ -1710,24 +1833,26 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` current: QtC.QModelIndex `
+    /// ` current: QModelIndex `
     ///
-    /// ` previous: QtC.QModelIndex `
+    /// ` previous: QModelIndex `
     ///
-    pub fn SuperCurrentChanged(self: ?*anyopaque, current: ?*anyopaque, previous: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperCurrentChanged(@ptrCast(self), @ptrCast(current), @ptrCast(previous));
+    pub fn SuperCurrentChanged(self: QAbstractItemView, current: anytype, previous: anytype) void {
+        comptime _ = @TypeOf(current)._is_QModelIndex;
+        comptime _ = @TypeOf(previous)._is_QModelIndex;
+        qtc.QAbstractItemView_SuperCurrentChanged(@ptrCast(self.ptr), @ptrCast(current.ptr), @ptrCast(previous.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn UpdateEditorData(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_UpdateEditorData(@ptrCast(self));
+    pub fn UpdateEditorData(self: QAbstractItemView) void {
+        qtc.QAbstractItemView_UpdateEditorData(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
@@ -1736,12 +1861,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateEditorData(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractItemView_OnUpdateEditorData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUpdateEditorData(self: QAbstractItemView, callback: *const fn () callconv(.c) void) void {
+        qtc.QAbstractItemView_OnUpdateEditorData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperUpdateEditorData` instead
@@ -1754,20 +1879,20 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn SuperUpdateEditorData(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperUpdateEditorData(@ptrCast(self));
+    pub fn SuperUpdateEditorData(self: QAbstractItemView) void {
+        qtc.QAbstractItemView_SuperUpdateEditorData(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorGeometries)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn UpdateEditorGeometries(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_UpdateEditorGeometries(@ptrCast(self));
+    pub fn UpdateEditorGeometries(self: QAbstractItemView) void {
+        qtc.QAbstractItemView_UpdateEditorGeometries(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorGeometries)
@@ -1776,12 +1901,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateEditorGeometries(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractItemView_OnUpdateEditorGeometries(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUpdateEditorGeometries(self: QAbstractItemView, callback: *const fn () callconv(.c) void) void {
+        qtc.QAbstractItemView_OnUpdateEditorGeometries(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperUpdateEditorGeometries` instead
@@ -1794,20 +1919,20 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn SuperUpdateEditorGeometries(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperUpdateEditorGeometries(@ptrCast(self));
+    pub fn SuperUpdateEditorGeometries(self: QAbstractItemView) void {
+        qtc.QAbstractItemView_SuperUpdateEditorGeometries(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateGeometries)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn UpdateGeometries(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_UpdateGeometries(@ptrCast(self));
+    pub fn UpdateGeometries(self: QAbstractItemView) void {
+        qtc.QAbstractItemView_UpdateGeometries(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateGeometries)
@@ -1816,12 +1941,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateGeometries(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractItemView_OnUpdateGeometries(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUpdateGeometries(self: QAbstractItemView, callback: *const fn () callconv(.c) void) void {
+        qtc.QAbstractItemView_OnUpdateGeometries(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperUpdateGeometries` instead
@@ -1834,22 +1959,22 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn SuperUpdateGeometries(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperUpdateGeometries(@ptrCast(self));
+    pub fn SuperUpdateGeometries(self: QAbstractItemView) void {
+        qtc.QAbstractItemView_SuperUpdateGeometries(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarAction)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` action: i32 `
     ///
-    pub fn VerticalScrollbarAction(self: ?*anyopaque, action: i32) void {
-        qtc.QAbstractItemView_VerticalScrollbarAction(@ptrCast(self), @bitCast(action));
+    pub fn VerticalScrollbarAction(self: QAbstractItemView, action: i32) void {
+        qtc.QAbstractItemView_VerticalScrollbarAction(@ptrCast(self.ptr), @bitCast(action));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarAction)
@@ -1858,12 +1983,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, action: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, action: i32) callconv(.c) void `
     ///
-    pub fn OnVerticalScrollbarAction(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnVerticalScrollbarAction(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnVerticalScrollbarAction(self: QAbstractItemView, callback: *const fn (QAbstractItemView, i32) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnVerticalScrollbarAction(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperVerticalScrollbarAction` instead
@@ -1876,24 +2001,24 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` action: i32 `
     ///
-    pub fn SuperVerticalScrollbarAction(self: ?*anyopaque, action: i32) void {
-        qtc.QAbstractItemView_SuperVerticalScrollbarAction(@ptrCast(self), @bitCast(action));
+    pub fn SuperVerticalScrollbarAction(self: QAbstractItemView, action: i32) void {
+        qtc.QAbstractItemView_SuperVerticalScrollbarAction(@ptrCast(self.ptr), @bitCast(action));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarAction)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` action: i32 `
     ///
-    pub fn HorizontalScrollbarAction(self: ?*anyopaque, action: i32) void {
-        qtc.QAbstractItemView_HorizontalScrollbarAction(@ptrCast(self), @bitCast(action));
+    pub fn HorizontalScrollbarAction(self: QAbstractItemView, action: i32) void {
+        qtc.QAbstractItemView_HorizontalScrollbarAction(@ptrCast(self.ptr), @bitCast(action));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarAction)
@@ -1902,12 +2027,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, action: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, action: i32) callconv(.c) void `
     ///
-    pub fn OnHorizontalScrollbarAction(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnHorizontalScrollbarAction(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHorizontalScrollbarAction(self: QAbstractItemView, callback: *const fn (QAbstractItemView, i32) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnHorizontalScrollbarAction(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperHorizontalScrollbarAction` instead
@@ -1920,24 +2045,24 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` action: i32 `
     ///
-    pub fn SuperHorizontalScrollbarAction(self: ?*anyopaque, action: i32) void {
-        qtc.QAbstractItemView_SuperHorizontalScrollbarAction(@ptrCast(self), @bitCast(action));
+    pub fn SuperHorizontalScrollbarAction(self: QAbstractItemView, action: i32) void {
+        qtc.QAbstractItemView_SuperHorizontalScrollbarAction(@ptrCast(self.ptr), @bitCast(action));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarValueChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` value: i32 `
     ///
-    pub fn VerticalScrollbarValueChanged(self: ?*anyopaque, value: i32) void {
-        qtc.QAbstractItemView_VerticalScrollbarValueChanged(@ptrCast(self), @bitCast(value));
+    pub fn VerticalScrollbarValueChanged(self: QAbstractItemView, value: i32) void {
+        qtc.QAbstractItemView_VerticalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarValueChanged)
@@ -1946,12 +2071,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, value: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, value: i32) callconv(.c) void `
     ///
-    pub fn OnVerticalScrollbarValueChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnVerticalScrollbarValueChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnVerticalScrollbarValueChanged(self: QAbstractItemView, callback: *const fn (QAbstractItemView, i32) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnVerticalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperVerticalScrollbarValueChanged` instead
@@ -1964,24 +2089,24 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` value: i32 `
     ///
-    pub fn SuperVerticalScrollbarValueChanged(self: ?*anyopaque, value: i32) void {
-        qtc.QAbstractItemView_SuperVerticalScrollbarValueChanged(@ptrCast(self), @bitCast(value));
+    pub fn SuperVerticalScrollbarValueChanged(self: QAbstractItemView, value: i32) void {
+        qtc.QAbstractItemView_SuperVerticalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarValueChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` value: i32 `
     ///
-    pub fn HorizontalScrollbarValueChanged(self: ?*anyopaque, value: i32) void {
-        qtc.QAbstractItemView_HorizontalScrollbarValueChanged(@ptrCast(self), @bitCast(value));
+    pub fn HorizontalScrollbarValueChanged(self: QAbstractItemView, value: i32) void {
+        qtc.QAbstractItemView_HorizontalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollbarValueChanged)
@@ -1990,12 +2115,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, value: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, value: i32) callconv(.c) void `
     ///
-    pub fn OnHorizontalScrollbarValueChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnHorizontalScrollbarValueChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHorizontalScrollbarValueChanged(self: QAbstractItemView, callback: *const fn (QAbstractItemView, i32) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnHorizontalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperHorizontalScrollbarValueChanged` instead
@@ -2008,26 +2133,27 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` value: i32 `
     ///
-    pub fn SuperHorizontalScrollbarValueChanged(self: ?*anyopaque, value: i32) void {
-        qtc.QAbstractItemView_SuperHorizontalScrollbarValueChanged(@ptrCast(self), @bitCast(value));
+    pub fn SuperHorizontalScrollbarValueChanged(self: QAbstractItemView, value: i32) void {
+        qtc.QAbstractItemView_SuperHorizontalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#closeEditor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` editor: QtC.QWidget `
+    /// ` editor: QWidget `
     ///
     /// ` hint: qabstractitemdelegate_enums.EndEditHint `
     ///
-    pub fn CloseEditor(self: ?*anyopaque, editor: ?*anyopaque, hint: i32) void {
-        qtc.QAbstractItemView_CloseEditor(@ptrCast(self), @ptrCast(editor), @bitCast(hint));
+    pub fn CloseEditor(self: QAbstractItemView, editor: anytype, hint: i32) void {
+        comptime _ = @TypeOf(editor)._is_QWidget;
+        qtc.QAbstractItemView_CloseEditor(@ptrCast(self.ptr), @ptrCast(editor.ptr), @bitCast(hint));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#closeEditor)
@@ -2036,12 +2162,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, editor: QtC.QWidget, hint: qabstractitemdelegate_enums.EndEditHint) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, editor: QWidget, hint: qabstractitemdelegate_enums.EndEditHint) callconv(.c) void `
     ///
-    pub fn OnCloseEditor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnCloseEditor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCloseEditor(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QWidget, i32) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnCloseEditor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperCloseEditor` instead
@@ -2054,26 +2180,28 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` editor: QtC.QWidget `
+    /// ` editor: QWidget `
     ///
     /// ` hint: qabstractitemdelegate_enums.EndEditHint `
     ///
-    pub fn SuperCloseEditor(self: ?*anyopaque, editor: ?*anyopaque, hint: i32) void {
-        qtc.QAbstractItemView_SuperCloseEditor(@ptrCast(self), @ptrCast(editor), @bitCast(hint));
+    pub fn SuperCloseEditor(self: QAbstractItemView, editor: anytype, hint: i32) void {
+        comptime _ = @TypeOf(editor)._is_QWidget;
+        qtc.QAbstractItemView_SuperCloseEditor(@ptrCast(self.ptr), @ptrCast(editor.ptr), @bitCast(hint));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#commitData)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` editor: QtC.QWidget `
+    /// ` editor: QWidget `
     ///
-    pub fn CommitData(self: ?*anyopaque, editor: ?*anyopaque) void {
-        qtc.QAbstractItemView_CommitData(@ptrCast(self), @ptrCast(editor));
+    pub fn CommitData(self: QAbstractItemView, editor: anytype) void {
+        comptime _ = @TypeOf(editor)._is_QWidget;
+        qtc.QAbstractItemView_CommitData(@ptrCast(self.ptr), @ptrCast(editor.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#commitData)
@@ -2082,12 +2210,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, editor: QtC.QWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, editor: QWidget) callconv(.c) void `
     ///
-    pub fn OnCommitData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnCommitData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCommitData(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QWidget) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnCommitData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperCommitData` instead
@@ -2100,24 +2228,26 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` editor: QtC.QWidget `
+    /// ` editor: QWidget `
     ///
-    pub fn SuperCommitData(self: ?*anyopaque, editor: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperCommitData(@ptrCast(self), @ptrCast(editor));
+    pub fn SuperCommitData(self: QAbstractItemView, editor: anytype) void {
+        comptime _ = @TypeOf(editor)._is_QWidget;
+        qtc.QAbstractItemView_SuperCommitData(@ptrCast(self.ptr), @ptrCast(editor.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#editorDestroyed)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` editor: QtC.QObject `
+    /// ` editor: QObject `
     ///
-    pub fn EditorDestroyed(self: ?*anyopaque, editor: ?*anyopaque) void {
-        qtc.QAbstractItemView_EditorDestroyed(@ptrCast(self), @ptrCast(editor));
+    pub fn EditorDestroyed(self: QAbstractItemView, editor: anytype) void {
+        comptime _ = @TypeOf(editor)._is_QObject;
+        qtc.QAbstractItemView_EditorDestroyed(@ptrCast(self.ptr), @ptrCast(editor.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#editorDestroyed)
@@ -2126,12 +2256,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, editor: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, editor: QObject) callconv(.c) void `
     ///
-    pub fn OnEditorDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnEditorDestroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEditorDestroyed(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QObject) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnEditorDestroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperEditorDestroyed` instead
@@ -2144,192 +2274,199 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` editor: QtC.QObject `
+    /// ` editor: QObject `
     ///
-    pub fn SuperEditorDestroyed(self: ?*anyopaque, editor: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperEditorDestroyed(@ptrCast(self), @ptrCast(editor));
+    pub fn SuperEditorDestroyed(self: QAbstractItemView, editor: anytype) void {
+        comptime _ = @TypeOf(editor)._is_QObject;
+        qtc.QAbstractItemView_SuperEditorDestroyed(@ptrCast(self.ptr), @ptrCast(editor.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#pressed)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn Pressed(self: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QAbstractItemView_Pressed(@ptrCast(self), @ptrCast(index));
+    pub fn Pressed(self: QAbstractItemView, index: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QAbstractItemView_Pressed(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#pressed)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, index: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_Pressed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPressed(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QModelIndex) callconv(.c) void) void {
+        qtc.QAbstractItemView_Connect_Pressed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#clicked)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn Clicked(self: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QAbstractItemView_Clicked(@ptrCast(self), @ptrCast(index));
+    pub fn Clicked(self: QAbstractItemView, index: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QAbstractItemView_Clicked(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#clicked)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, index: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_Clicked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnClicked(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QModelIndex) callconv(.c) void) void {
+        qtc.QAbstractItemView_Connect_Clicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doubleClicked)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn DoubleClicked(self: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QAbstractItemView_DoubleClicked(@ptrCast(self), @ptrCast(index));
+    pub fn DoubleClicked(self: QAbstractItemView, index: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QAbstractItemView_DoubleClicked(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doubleClicked)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, index: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_DoubleClicked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDoubleClicked(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QModelIndex) callconv(.c) void) void {
+        qtc.QAbstractItemView_Connect_DoubleClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#activated)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn Activated(self: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QAbstractItemView_Activated(@ptrCast(self), @ptrCast(index));
+    pub fn Activated(self: QAbstractItemView, index: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QAbstractItemView_Activated(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#activated)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, index: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_Activated(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnActivated(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QModelIndex) callconv(.c) void) void {
+        qtc.QAbstractItemView_Connect_Activated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#entered)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn Entered(self: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QAbstractItemView_Entered(@ptrCast(self), @ptrCast(index));
+    pub fn Entered(self: QAbstractItemView, index: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QAbstractItemView_Entered(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#entered)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, index: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_Entered(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEntered(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QModelIndex) callconv(.c) void) void {
+        qtc.QAbstractItemView_Connect_Entered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEntered)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn ViewportEntered(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_ViewportEntered(@ptrCast(self));
+    pub fn ViewportEntered(self: QAbstractItemView) void {
+        qtc.QAbstractItemView_ViewportEntered(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEntered)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView) callconv(.c) void `
     ///
-    pub fn OnViewportEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_ViewportEntered(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnViewportEntered(self: QAbstractItemView, callback: *const fn (QAbstractItemView) callconv(.c) void) void {
+        qtc.QAbstractItemView_Connect_ViewportEntered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#iconSizeChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` size: QtC.QSize `
+    /// ` size: QSize `
     ///
-    pub fn IconSizeChanged(self: ?*anyopaque, size: ?*anyopaque) void {
-        qtc.QAbstractItemView_IconSizeChanged(@ptrCast(self), @ptrCast(size));
+    pub fn IconSizeChanged(self: QAbstractItemView, size: anytype) void {
+        comptime _ = @TypeOf(size)._is_QSize;
+        qtc.QAbstractItemView_IconSizeChanged(@ptrCast(self.ptr), @ptrCast(size.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#iconSizeChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, size: QtC.QSize) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, size: QSize) callconv(.c) void `
     ///
-    pub fn OnIconSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_IconSizeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIconSizeChanged(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QSize) callconv(.c) void) void {
+        qtc.QAbstractItemView_Connect_IconSizeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#moveCursor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` cursorAction: qabstractitemview_enums.CursorAction `
     ///
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn MoveCursor(self: ?*anyopaque, cursorAction: i32, modifiers: i32) QtC.QModelIndex {
-        return qtc.QAbstractItemView_MoveCursor(@ptrCast(self), @bitCast(cursorAction), @bitCast(modifiers));
+    pub fn MoveCursor(self: QAbstractItemView, cursorAction: i32, modifiers: i32) QModelIndex {
+        return .{ .ptr = qtc.QAbstractItemView_MoveCursor(@ptrCast(self.ptr), @bitCast(cursorAction), @bitCast(modifiers)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#moveCursor)
@@ -2338,12 +2475,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, cursorAction: qabstractitemview_enums.CursorAction, modifiers: flag of qnamespace_enums.KeyboardModifier) callconv(.c) QtC.QModelIndex `
+    /// ` callback: *const fn (self: QAbstractItemView, cursorAction: qabstractitemview_enums.CursorAction, modifiers: flag of qnamespace_enums.KeyboardModifier) callconv(.c) QModelIndex `
     ///
-    pub fn OnMoveCursor(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) QtC.QModelIndex) void {
-        qtc.QAbstractItemView_OnMoveCursor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMoveCursor(self: QAbstractItemView, callback: *const fn (QAbstractItemView, i32, i32) callconv(.c) QModelIndex) void {
+        qtc.QAbstractItemView_OnMoveCursor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMoveCursor` instead
@@ -2356,24 +2493,24 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` cursorAction: qabstractitemview_enums.CursorAction `
     ///
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn SuperMoveCursor(self: ?*anyopaque, cursorAction: i32, modifiers: i32) QtC.QModelIndex {
-        return qtc.QAbstractItemView_SuperMoveCursor(@ptrCast(self), @bitCast(cursorAction), @bitCast(modifiers));
+    pub fn SuperMoveCursor(self: QAbstractItemView, cursorAction: i32, modifiers: i32) QModelIndex {
+        return .{ .ptr = qtc.QAbstractItemView_SuperMoveCursor(@ptrCast(self.ptr), @bitCast(cursorAction), @bitCast(modifiers)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalOffset)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn HorizontalOffset(self: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_HorizontalOffset(@ptrCast(self));
+    pub fn HorizontalOffset(self: QAbstractItemView) i32 {
+        return qtc.QAbstractItemView_HorizontalOffset(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalOffset)
@@ -2382,12 +2519,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnHorizontalOffset(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAbstractItemView_OnHorizontalOffset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHorizontalOffset(self: QAbstractItemView, callback: *const fn () callconv(.c) i32) void {
+        qtc.QAbstractItemView_OnHorizontalOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperHorizontalOffset` instead
@@ -2400,20 +2537,20 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn SuperHorizontalOffset(self: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_SuperHorizontalOffset(@ptrCast(self));
+    pub fn SuperHorizontalOffset(self: QAbstractItemView) i32 {
+        return qtc.QAbstractItemView_SuperHorizontalOffset(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalOffset)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn VerticalOffset(self: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_VerticalOffset(@ptrCast(self));
+    pub fn VerticalOffset(self: QAbstractItemView) i32 {
+        return qtc.QAbstractItemView_VerticalOffset(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalOffset)
@@ -2422,12 +2559,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnVerticalOffset(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAbstractItemView_OnVerticalOffset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnVerticalOffset(self: QAbstractItemView, callback: *const fn () callconv(.c) i32) void {
+        qtc.QAbstractItemView_OnVerticalOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperVerticalOffset` instead
@@ -2440,22 +2577,23 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn SuperVerticalOffset(self: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_SuperVerticalOffset(@ptrCast(self));
+    pub fn SuperVerticalOffset(self: QAbstractItemView) i32 {
+        return qtc.QAbstractItemView_SuperVerticalOffset(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#isIndexHidden)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn IsIndexHidden(self: ?*anyopaque, index: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_IsIndexHidden(@ptrCast(self), @ptrCast(index));
+    pub fn IsIndexHidden(self: QAbstractItemView, index: anytype) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.QAbstractItemView_IsIndexHidden(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#isIndexHidden)
@@ -2464,12 +2602,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, index: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: QAbstractItemView, index: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnIsIndexHidden(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractItemView_OnIsIndexHidden(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsIndexHidden(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QModelIndex) callconv(.c) bool) void {
+        qtc.QAbstractItemView_OnIsIndexHidden(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperIsIndexHidden` instead
@@ -2482,26 +2620,28 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SuperIsIndexHidden(self: ?*anyopaque, index: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_SuperIsIndexHidden(@ptrCast(self), @ptrCast(index));
+    pub fn SuperIsIndexHidden(self: QAbstractItemView, index: anytype) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.QAbstractItemView_SuperIsIndexHidden(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setSelection)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` rect: QtC.QRect `
+    /// ` rect: QRect `
     ///
     /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn SetSelection(self: ?*anyopaque, rect: ?*anyopaque, command: i32) void {
-        qtc.QAbstractItemView_SetSelection(@ptrCast(self), @ptrCast(rect), @bitCast(command));
+    pub fn SetSelection(self: QAbstractItemView, rect: anytype, command: i32) void {
+        comptime _ = @TypeOf(rect)._is_QRect;
+        qtc.QAbstractItemView_SetSelection(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(command));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setSelection)
@@ -2510,12 +2650,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, rect: QtC.QRect, command: flag of qitemselectionmodel_enums.SelectionFlag) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, rect: QRect, command: flag of qitemselectionmodel_enums.SelectionFlag) callconv(.c) void `
     ///
-    pub fn OnSetSelection(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnSetSelection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetSelection(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QRect, i32) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnSetSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetSelection` instead
@@ -2528,26 +2668,28 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` rect: QtC.QRect `
+    /// ` rect: QRect `
     ///
     /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn SuperSetSelection(self: ?*anyopaque, rect: ?*anyopaque, command: i32) void {
-        qtc.QAbstractItemView_SuperSetSelection(@ptrCast(self), @ptrCast(rect), @bitCast(command));
+    pub fn SuperSetSelection(self: QAbstractItemView, rect: anytype, command: i32) void {
+        comptime _ = @TypeOf(rect)._is_QRect;
+        qtc.QAbstractItemView_SuperSetSelection(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(command));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#visualRegionForSelection)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` selection: QtC.QItemSelection `
+    /// ` selection: QItemSelection `
     ///
-    pub fn VisualRegionForSelection(self: ?*anyopaque, selection: ?*anyopaque) QtC.QRegion {
-        return qtc.QAbstractItemView_VisualRegionForSelection(@ptrCast(self), @ptrCast(selection));
+    pub fn VisualRegionForSelection(self: QAbstractItemView, selection: anytype) QRegion {
+        comptime _ = @TypeOf(selection)._is_QItemSelection;
+        return .{ .ptr = qtc.QAbstractItemView_VisualRegionForSelection(@ptrCast(self.ptr), @ptrCast(selection.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#visualRegionForSelection)
@@ -2556,12 +2698,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, selection: QtC.QItemSelection) callconv(.c) QtC.QRegion `
+    /// ` callback: *const fn (self: QAbstractItemView, selection: QItemSelection) callconv(.c) QRegion `
     ///
-    pub fn OnVisualRegionForSelection(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRegion) void {
-        qtc.QAbstractItemView_OnVisualRegionForSelection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnVisualRegionForSelection(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QItemSelection) callconv(.c) QRegion) void {
+        qtc.QAbstractItemView_OnVisualRegionForSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperVisualRegionForSelection` instead
@@ -2574,28 +2716,30 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` selection: QtC.QItemSelection `
+    /// ` selection: QItemSelection `
     ///
-    pub fn SuperVisualRegionForSelection(self: ?*anyopaque, selection: ?*anyopaque) QtC.QRegion {
-        return qtc.QAbstractItemView_SuperVisualRegionForSelection(@ptrCast(self), @ptrCast(selection));
+    pub fn SuperVisualRegionForSelection(self: QAbstractItemView, selection: anytype) QRegion {
+        comptime _ = @TypeOf(selection)._is_QItemSelection;
+        return .{ .ptr = qtc.QAbstractItemView_SuperVisualRegionForSelection(@ptrCast(self.ptr), @ptrCast(selection.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectedIndexes)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SelectedIndexes(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.QAbstractItemView_SelectedIndexes(@ptrCast(self));
+    pub fn SelectedIndexes(self: QAbstractItemView, allocator: std.mem.Allocator) []QModelIndex {
+        const _arr: qtc.libqt_list = qtc.QAbstractItemView_SelectedIndexes(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qabstractitemview.SelectedIndexes: Memory allocation failed");
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("qabstractitemview.SelectedIndexes: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -2603,20 +2747,20 @@ pub const qabstractitemview = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
     ///
     /// ## Callback Returns:
     ///
-    /// ` C ABI representation of []QtC.QModelIndex `
+    /// ` C ABI representation of []QModelIndex `
     ///
-    pub fn OnSelectedIndexes(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
-        qtc.QAbstractItemView_OnSelectedIndexes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSelectedIndexes(self: QAbstractItemView, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+        qtc.QAbstractItemView_OnSelectedIndexes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSelectedIndexes` instead
@@ -2629,16 +2773,17 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperSelectedIndexes(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.QAbstractItemView_SuperSelectedIndexes(@ptrCast(self));
+    pub fn SuperSelectedIndexes(self: QAbstractItemView, allocator: std.mem.Allocator) []QModelIndex {
+        const _arr: qtc.libqt_list = qtc.QAbstractItemView_SuperSelectedIndexes(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qabstractitemview.SelectedIndexes: Memory allocation failed");
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("qabstractitemview.SelectedIndexes: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -2646,16 +2791,18 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
     /// ` trigger: qabstractitemview_enums.EditTrigger `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Edit2(self: ?*anyopaque, index: ?*anyopaque, trigger: i32, event: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_Edit2(@ptrCast(self), @ptrCast(index), @bitCast(trigger), @ptrCast(event));
+    pub fn Edit2(self: QAbstractItemView, index: anytype, trigger: i32, event: anytype) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QAbstractItemView_Edit2(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(trigger), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
@@ -2664,12 +2811,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, index: QtC.QModelIndex, trigger: qabstractitemview_enums.EditTrigger, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QAbstractItemView, index: QModelIndex, trigger: qabstractitemview_enums.EditTrigger, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEdit2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractItemView_OnEdit2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEdit2(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QModelIndex, i32, QEvent) callconv(.c) bool) void {
+        qtc.QAbstractItemView_OnEdit2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperEdit2` instead
@@ -2682,34 +2829,38 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
     /// ` trigger: qabstractitemview_enums.EditTrigger `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEdit2(self: ?*anyopaque, index: ?*anyopaque, trigger: i32, event: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_SuperEdit2(@ptrCast(self), @ptrCast(index), @bitCast(trigger), @ptrCast(event));
+    pub fn SuperEdit2(self: QAbstractItemView, index: anytype, trigger: i32, event: anytype) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QAbstractItemView_SuperEdit2(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(trigger), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionCommand)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
     /// ## Returns:
     ///
     /// ` flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn SelectionCommand(self: ?*anyopaque, index: ?*anyopaque, event: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_SelectionCommand(@ptrCast(self), @ptrCast(index), @ptrCast(event));
+    pub fn SelectionCommand(self: QAbstractItemView, index: anytype, event: anytype) i32 {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QAbstractItemView_SelectionCommand(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#selectionCommand)
@@ -2718,12 +2869,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, index: QtC.QModelIndex, event: QtC.QEvent) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QAbstractItemView, index: QModelIndex, event: QEvent) callconv(.c) i32 `
     ///
-    pub fn OnSelectionCommand(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QAbstractItemView_OnSelectionCommand(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSelectionCommand(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QModelIndex, QEvent) callconv(.c) i32) void {
+        qtc.QAbstractItemView_OnSelectionCommand(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSelectionCommand` instead
@@ -2736,30 +2887,32 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
     /// ## Returns:
     ///
     /// ` flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn SuperSelectionCommand(self: ?*anyopaque, index: ?*anyopaque, event: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_SuperSelectionCommand(@ptrCast(self), @ptrCast(index), @ptrCast(event));
+    pub fn SuperSelectionCommand(self: QAbstractItemView, index: anytype, event: anytype) i32 {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QAbstractItemView_SuperSelectionCommand(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startDrag)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` supportedActions: flag of qnamespace_enums.DropAction `
     ///
-    pub fn StartDrag(self: ?*anyopaque, supportedActions: i32) void {
-        qtc.QAbstractItemView_StartDrag(@ptrCast(self), @bitCast(supportedActions));
+    pub fn StartDrag(self: QAbstractItemView, supportedActions: i32) void {
+        qtc.QAbstractItemView_StartDrag(@ptrCast(self.ptr), @bitCast(supportedActions));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startDrag)
@@ -2768,12 +2921,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, supportedActions: flag of qnamespace_enums.DropAction) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, supportedActions: flag of qnamespace_enums.DropAction) callconv(.c) void `
     ///
-    pub fn OnStartDrag(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnStartDrag(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnStartDrag(self: QAbstractItemView, callback: *const fn (QAbstractItemView, i32) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnStartDrag(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperStartDrag` instead
@@ -2786,24 +2939,25 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` supportedActions: flag of qnamespace_enums.DropAction `
     ///
-    pub fn SuperStartDrag(self: ?*anyopaque, supportedActions: i32) void {
-        qtc.QAbstractItemView_SuperStartDrag(@ptrCast(self), @bitCast(supportedActions));
+    pub fn SuperStartDrag(self: QAbstractItemView, supportedActions: i32) void {
+        qtc.QAbstractItemView_SuperStartDrag(@ptrCast(self.ptr), @bitCast(supportedActions));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#initViewItemOption)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` option: QtC.QStyleOptionViewItem `
+    /// ` option: QStyleOptionViewItem `
     ///
-    pub fn InitViewItemOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        qtc.QAbstractItemView_InitViewItemOption(@ptrCast(self), @ptrCast(option));
+    pub fn InitViewItemOption(self: QAbstractItemView, option: anytype) void {
+        comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
+        qtc.QAbstractItemView_InitViewItemOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#initViewItemOption)
@@ -2812,12 +2966,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, option: QtC.QStyleOptionViewItem) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, option: QStyleOptionViewItem) callconv(.c) void `
     ///
-    pub fn OnInitViewItemOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnInitViewItemOption(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInitViewItemOption(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QStyleOptionViewItem) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnInitViewItemOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperInitViewItemOption` instead
@@ -2830,26 +2984,27 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` option: QtC.QStyleOptionViewItem `
+    /// ` option: QStyleOptionViewItem `
     ///
-    pub fn SuperInitViewItemOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperInitViewItemOption(@ptrCast(self), @ptrCast(option));
+    pub fn SuperInitViewItemOption(self: QAbstractItemView, option: anytype) void {
+        comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
+        qtc.QAbstractItemView_SuperInitViewItemOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#state)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ## Returns:
     ///
     /// ` qabstractitemview_enums.State `
     ///
-    pub fn State(self: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_State(@ptrCast(self));
+    pub fn State(self: QAbstractItemView) i32 {
+        return qtc.QAbstractItemView_State(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#state)
@@ -2858,12 +3013,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnState(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAbstractItemView_OnState(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnState(self: QAbstractItemView, callback: *const fn () callconv(.c) i32) void {
+        qtc.QAbstractItemView_OnState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperState` instead
@@ -2876,26 +3031,26 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ## Returns:
     ///
     /// ` qabstractitemview_enums.State `
     ///
-    pub fn SuperState(self: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_SuperState(@ptrCast(self));
+    pub fn SuperState(self: QAbstractItemView) i32 {
+        return qtc.QAbstractItemView_SuperState(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` state: qabstractitemview_enums.State `
     ///
-    pub fn SetState(self: ?*anyopaque, state: i32) void {
-        qtc.QAbstractItemView_SetState(@ptrCast(self), @bitCast(state));
+    pub fn SetState(self: QAbstractItemView, state: i32) void {
+        qtc.QAbstractItemView_SetState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
@@ -2904,12 +3059,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, state: qabstractitemview_enums.State) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, state: qabstractitemview_enums.State) callconv(.c) void `
     ///
-    pub fn OnSetState(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnSetState(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetState(self: QAbstractItemView, callback: *const fn (QAbstractItemView, i32) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnSetState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetState` instead
@@ -2922,22 +3077,22 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` state: qabstractitemview_enums.State `
     ///
-    pub fn SuperSetState(self: ?*anyopaque, state: i32) void {
-        qtc.QAbstractItemView_SuperSetState(@ptrCast(self), @bitCast(state));
+    pub fn SuperSetState(self: QAbstractItemView, state: i32) void {
+        qtc.QAbstractItemView_SuperSetState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn ScheduleDelayedItemsLayout(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_ScheduleDelayedItemsLayout(@ptrCast(self));
+    pub fn ScheduleDelayedItemsLayout(self: QAbstractItemView) void {
+        qtc.QAbstractItemView_ScheduleDelayedItemsLayout(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
@@ -2946,12 +3101,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnScheduleDelayedItemsLayout(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractItemView_OnScheduleDelayedItemsLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnScheduleDelayedItemsLayout(self: QAbstractItemView, callback: *const fn () callconv(.c) void) void {
+        qtc.QAbstractItemView_OnScheduleDelayedItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperScheduleDelayedItemsLayout` instead
@@ -2964,20 +3119,20 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn SuperScheduleDelayedItemsLayout(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperScheduleDelayedItemsLayout(@ptrCast(self));
+    pub fn SuperScheduleDelayedItemsLayout(self: QAbstractItemView) void {
+        qtc.QAbstractItemView_SuperScheduleDelayedItemsLayout(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn ExecuteDelayedItemsLayout(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_ExecuteDelayedItemsLayout(@ptrCast(self));
+    pub fn ExecuteDelayedItemsLayout(self: QAbstractItemView) void {
+        qtc.QAbstractItemView_ExecuteDelayedItemsLayout(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
@@ -2986,12 +3141,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnExecuteDelayedItemsLayout(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractItemView_OnExecuteDelayedItemsLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnExecuteDelayedItemsLayout(self: QAbstractItemView, callback: *const fn () callconv(.c) void) void {
+        qtc.QAbstractItemView_OnExecuteDelayedItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperExecuteDelayedItemsLayout` instead
@@ -3004,22 +3159,23 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn SuperExecuteDelayedItemsLayout(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperExecuteDelayedItemsLayout(@ptrCast(self));
+    pub fn SuperExecuteDelayedItemsLayout(self: QAbstractItemView) void {
+        qtc.QAbstractItemView_SuperExecuteDelayedItemsLayout(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` region: QtC.QRegion `
+    /// ` region: QRegion `
     ///
-    pub fn SetDirtyRegion(self: ?*anyopaque, region: ?*anyopaque) void {
-        qtc.QAbstractItemView_SetDirtyRegion(@ptrCast(self), @ptrCast(region));
+    pub fn SetDirtyRegion(self: QAbstractItemView, region: anytype) void {
+        comptime _ = @TypeOf(region)._is_QRegion;
+        qtc.QAbstractItemView_SetDirtyRegion(@ptrCast(self.ptr), @ptrCast(region.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
@@ -3028,12 +3184,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, region: QtC.QRegion) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, region: QRegion) callconv(.c) void `
     ///
-    pub fn OnSetDirtyRegion(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnSetDirtyRegion(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetDirtyRegion(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QRegion) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnSetDirtyRegion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetDirtyRegion` instead
@@ -3046,26 +3202,27 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` region: QtC.QRegion `
+    /// ` region: QRegion `
     ///
-    pub fn SuperSetDirtyRegion(self: ?*anyopaque, region: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperSetDirtyRegion(@ptrCast(self), @ptrCast(region));
+    pub fn SuperSetDirtyRegion(self: QAbstractItemView, region: anytype) void {
+        comptime _ = @TypeOf(region)._is_QRegion;
+        qtc.QAbstractItemView_SuperSetDirtyRegion(@ptrCast(self.ptr), @ptrCast(region.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    pub fn ScrollDirtyRegion(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QAbstractItemView_ScrollDirtyRegion(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn ScrollDirtyRegion(self: QAbstractItemView, dx: i32, dy: i32) void {
+        qtc.QAbstractItemView_ScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
@@ -3074,12 +3231,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, dx: i32, dy: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, dx: i32, dy: i32) callconv(.c) void `
     ///
-    pub fn OnScrollDirtyRegion(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnScrollDirtyRegion(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnScrollDirtyRegion(self: QAbstractItemView, callback: *const fn (QAbstractItemView, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperScrollDirtyRegion` instead
@@ -3092,24 +3249,24 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    pub fn SuperScrollDirtyRegion(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QAbstractItemView_SuperScrollDirtyRegion(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn SuperScrollDirtyRegion(self: QAbstractItemView, dx: i32, dy: i32) void {
+        qtc.QAbstractItemView_SuperScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn DirtyRegionOffset(self: ?*anyopaque) QtC.QPoint {
-        return qtc.QAbstractItemView_DirtyRegionOffset(@ptrCast(self));
+    pub fn DirtyRegionOffset(self: QAbstractItemView) QPoint {
+        return .{ .ptr = qtc.QAbstractItemView_DirtyRegionOffset(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
@@ -3118,12 +3275,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPoint `
+    /// ` callback: *const fn () callconv(.c) QPoint `
     ///
-    pub fn OnDirtyRegionOffset(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPoint) void {
-        qtc.QAbstractItemView_OnDirtyRegionOffset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDirtyRegionOffset(self: QAbstractItemView, callback: *const fn () callconv(.c) QPoint) void {
+        qtc.QAbstractItemView_OnDirtyRegionOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperDirtyRegionOffset` instead
@@ -3136,20 +3293,20 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn SuperDirtyRegionOffset(self: ?*anyopaque) QtC.QPoint {
-        return qtc.QAbstractItemView_SuperDirtyRegionOffset(@ptrCast(self));
+    pub fn SuperDirtyRegionOffset(self: QAbstractItemView) QPoint {
+        return .{ .ptr = qtc.QAbstractItemView_SuperDirtyRegionOffset(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn StartAutoScroll(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_StartAutoScroll(@ptrCast(self));
+    pub fn StartAutoScroll(self: QAbstractItemView) void {
+        qtc.QAbstractItemView_StartAutoScroll(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
@@ -3158,12 +3315,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnStartAutoScroll(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractItemView_OnStartAutoScroll(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnStartAutoScroll(self: QAbstractItemView, callback: *const fn () callconv(.c) void) void {
+        qtc.QAbstractItemView_OnStartAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperStartAutoScroll` instead
@@ -3176,20 +3333,20 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn SuperStartAutoScroll(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperStartAutoScroll(@ptrCast(self));
+    pub fn SuperStartAutoScroll(self: QAbstractItemView) void {
+        qtc.QAbstractItemView_SuperStartAutoScroll(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn StopAutoScroll(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_StopAutoScroll(@ptrCast(self));
+    pub fn StopAutoScroll(self: QAbstractItemView) void {
+        qtc.QAbstractItemView_StopAutoScroll(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
@@ -3198,12 +3355,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnStopAutoScroll(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractItemView_OnStopAutoScroll(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnStopAutoScroll(self: QAbstractItemView, callback: *const fn () callconv(.c) void) void {
+        qtc.QAbstractItemView_OnStopAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperStopAutoScroll` instead
@@ -3216,20 +3373,20 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn SuperStopAutoScroll(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperStopAutoScroll(@ptrCast(self));
+    pub fn SuperStopAutoScroll(self: QAbstractItemView) void {
+        qtc.QAbstractItemView_SuperStopAutoScroll(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn DoAutoScroll(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_DoAutoScroll(@ptrCast(self));
+    pub fn DoAutoScroll(self: QAbstractItemView) void {
+        qtc.QAbstractItemView_DoAutoScroll(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
@@ -3238,12 +3395,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDoAutoScroll(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractItemView_OnDoAutoScroll(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDoAutoScroll(self: QAbstractItemView, callback: *const fn () callconv(.c) void) void {
+        qtc.QAbstractItemView_OnDoAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperDoAutoScroll` instead
@@ -3256,22 +3413,22 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn SuperDoAutoScroll(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperDoAutoScroll(@ptrCast(self));
+    pub fn SuperDoAutoScroll(self: QAbstractItemView) void {
+        qtc.QAbstractItemView_SuperDoAutoScroll(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusNextPrevChild)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.QAbstractItemView_FocusNextPrevChild(@ptrCast(self), next);
+    pub fn FocusNextPrevChild(self: QAbstractItemView, next: bool) bool {
+        return qtc.QAbstractItemView_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusNextPrevChild)
@@ -3280,12 +3437,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, next: bool) callconv(.c) bool `
+    /// ` callback: *const fn (self: QAbstractItemView, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
-        qtc.QAbstractItemView_OnFocusNextPrevChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusNextPrevChild(self: QAbstractItemView, callback: *const fn (QAbstractItemView, bool) callconv(.c) bool) void {
+        qtc.QAbstractItemView_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
@@ -3298,24 +3455,25 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.QAbstractItemView_SuperFocusNextPrevChild(@ptrCast(self), next);
+    pub fn SuperFocusNextPrevChild(self: QAbstractItemView, next: bool) bool {
+        return qtc.QAbstractItemView_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#event)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: QAbstractItemView, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QAbstractItemView_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#event)
@@ -3324,12 +3482,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QAbstractItemView, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractItemView_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QEvent) callconv(.c) bool) void {
+        qtc.QAbstractItemView_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -3342,24 +3500,26 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: QAbstractItemView, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QAbstractItemView_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn ViewportEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_ViewportEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ViewportEvent(self: QAbstractItemView, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QAbstractItemView_ViewportEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEvent)
@@ -3368,12 +3528,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QAbstractItemView, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnViewportEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractItemView_OnViewportEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnViewportEvent(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QEvent) callconv(.c) bool) void {
+        qtc.QAbstractItemView_OnViewportEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperViewportEvent` instead
@@ -3386,24 +3546,26 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperViewportEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_SuperViewportEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperViewportEvent(self: QAbstractItemView, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QAbstractItemView_SuperViewportEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mousePressEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_MousePressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MousePressEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QAbstractItemView_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mousePressEvent)
@@ -3412,12 +3574,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMousePressEvent(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QMouseEvent) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMousePressEvent` instead
@@ -3430,24 +3592,26 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperMousePressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMousePressEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QAbstractItemView_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mouseMoveEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_MouseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseMoveEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QAbstractItemView_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mouseMoveEvent)
@@ -3456,12 +3620,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseMoveEvent(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QMouseEvent) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
@@ -3474,24 +3638,26 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperMouseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseMoveEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QAbstractItemView_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mouseReleaseEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_MouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseReleaseEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QAbstractItemView_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mouseReleaseEvent)
@@ -3500,12 +3666,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseReleaseEvent(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QMouseEvent) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
@@ -3518,24 +3684,26 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseReleaseEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QAbstractItemView_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mouseDoubleClickEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseDoubleClickEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QAbstractItemView_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mouseDoubleClickEvent)
@@ -3544,12 +3712,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnMouseDoubleClickEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseDoubleClickEvent(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QMouseEvent) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
@@ -3562,24 +3730,26 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseDoubleClickEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QAbstractItemView_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragEnterEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QDragEnterEvent `
+    /// ` event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_DragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragEnterEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
+        qtc.QAbstractItemView_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragEnterEvent)
@@ -3588,12 +3758,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, event: QtC.QDragEnterEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnDragEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragEnterEvent(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QDragEnterEvent) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
@@ -3606,24 +3776,26 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QDragEnterEvent `
+    /// ` event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperDragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragEnterEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
+        qtc.QAbstractItemView_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragMoveEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QDragMoveEvent `
+    /// ` event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_DragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragMoveEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
+        qtc.QAbstractItemView_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragMoveEvent)
@@ -3632,12 +3804,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, event: QtC.QDragMoveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnDragMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragMoveEvent(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QDragMoveEvent) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
@@ -3650,24 +3822,26 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QDragMoveEvent `
+    /// ` event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperDragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragMoveEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
+        qtc.QAbstractItemView_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragLeaveEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QDragLeaveEvent `
+    /// ` event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_DragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragLeaveEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
+        qtc.QAbstractItemView_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dragLeaveEvent)
@@ -3676,12 +3850,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, event: QtC.QDragLeaveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnDragLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragLeaveEvent(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QDragLeaveEvent) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
@@ -3694,24 +3868,26 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QDragLeaveEvent `
+    /// ` event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperDragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragLeaveEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
+        qtc.QAbstractItemView_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QDropEvent `
+    /// ` event: QDropEvent `
     ///
-    pub fn DropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_DropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DropEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDropEvent;
+        qtc.QAbstractItemView_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropEvent)
@@ -3720,12 +3896,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, event: QtC.QDropEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnDropEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDropEvent(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QDropEvent) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperDropEvent` instead
@@ -3738,24 +3914,26 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QDropEvent `
+    /// ` event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperDropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDropEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDropEvent;
+        qtc.QAbstractItemView_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusInEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_FocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn FocusInEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QAbstractItemView_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusInEvent)
@@ -3764,12 +3942,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, event: QtC.QFocusEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusInEvent(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QFocusEvent) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperFocusInEvent` instead
@@ -3782,24 +3960,26 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperFocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusInEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QAbstractItemView_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusOutEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_FocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn FocusOutEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QAbstractItemView_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusOutEvent)
@@ -3808,12 +3988,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, event: QtC.QFocusEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusOutEvent(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QFocusEvent) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
@@ -3826,24 +4006,26 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperFocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusOutEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QAbstractItemView_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#keyPressEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_KeyPressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn KeyPressEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QAbstractItemView_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#keyPressEvent)
@@ -3852,12 +4034,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, event: QtC.QKeyEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyPressEvent(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QKeyEvent) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
@@ -3870,24 +4052,26 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperKeyPressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyPressEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QAbstractItemView_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#resizeEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QResizeEvent `
+    /// ` event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_ResizeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ResizeEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QResizeEvent;
+        qtc.QAbstractItemView_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#resizeEvent)
@@ -3896,12 +4080,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, event: QtC.QResizeEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnResizeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResizeEvent(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QResizeEvent) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperResizeEvent` instead
@@ -3914,24 +4098,26 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QResizeEvent `
+    /// ` event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperResizeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperResizeEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QResizeEvent;
+        qtc.QAbstractItemView_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#timerEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QAbstractItemView_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#timerEvent)
@@ -3940,12 +4126,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QTimerEvent) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -3958,24 +4144,26 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QAbstractItemView_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QInputMethodEvent `
+    /// ` event: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_InputMethodEvent(@ptrCast(self), @ptrCast(event));
+    pub fn InputMethodEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QInputMethodEvent;
+        qtc.QAbstractItemView_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#inputMethodEvent)
@@ -3984,12 +4172,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, event: QtC.QInputMethodEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, event: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnInputMethodEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInputMethodEvent(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QInputMethodEvent) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
@@ -4002,26 +4190,29 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QInputMethodEvent `
+    /// ` event: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperInputMethodEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperInputMethodEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QInputMethodEvent;
+        qtc.QAbstractItemView_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#eventFilter)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` object: QtC.QObject `
+    /// ` object: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, object: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_EventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
+    pub fn EventFilter(self: QAbstractItemView, object: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(object)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QAbstractItemView_EventFilter(@ptrCast(self.ptr), @ptrCast(object.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#eventFilter)
@@ -4030,12 +4221,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, object: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QAbstractItemView, object: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractItemView_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QAbstractItemView_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -4048,28 +4239,30 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` object: QtC.QObject `
+    /// ` object: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, object: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_SuperEventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
+    pub fn SuperEventFilter(self: QAbstractItemView, object: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(object)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QAbstractItemView_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(object.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ## Returns:
     ///
     /// ` qabstractitemview_enums.DropIndicatorPosition `
     ///
-    pub fn DropIndicatorPosition(self: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_DropIndicatorPosition(@ptrCast(self));
+    pub fn DropIndicatorPosition(self: QAbstractItemView) i32 {
+        return qtc.QAbstractItemView_DropIndicatorPosition(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
@@ -4078,12 +4271,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDropIndicatorPosition(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAbstractItemView_OnDropIndicatorPosition(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDropIndicatorPosition(self: QAbstractItemView, callback: *const fn () callconv(.c) i32) void {
+        qtc.QAbstractItemView_OnDropIndicatorPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperDropIndicatorPosition` instead
@@ -4096,24 +4289,24 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ## Returns:
     ///
     /// ` qabstractitemview_enums.DropIndicatorPosition `
     ///
-    pub fn SuperDropIndicatorPosition(self: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_SuperDropIndicatorPosition(@ptrCast(self));
+    pub fn SuperDropIndicatorPosition(self: QAbstractItemView) i32 {
+        return qtc.QAbstractItemView_SuperDropIndicatorPosition(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#viewportSizeHint)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn ViewportSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QAbstractItemView_ViewportSizeHint(@ptrCast(self));
+    pub fn ViewportSizeHint(self: QAbstractItemView) QSize {
+        return .{ .ptr = qtc.QAbstractItemView_ViewportSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#viewportSizeHint)
@@ -4122,12 +4315,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnViewportSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QAbstractItemView_OnViewportSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnViewportSizeHint(self: QAbstractItemView, callback: *const fn () callconv(.c) QSize) void {
+        qtc.QAbstractItemView_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperViewportSizeHint` instead
@@ -4140,23 +4333,23 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn SuperViewportSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QAbstractItemView_SuperViewportSizeHint(@ptrCast(self));
+    pub fn SuperViewportSizeHint(self: QAbstractItemView) QSize {
+        return .{ .ptr = qtc.QAbstractItemView_SuperViewportSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -4170,15 +4363,15 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -4194,14 +4387,14 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn VerticalScrollBarPolicy(self: ?*anyopaque) i32 {
-        return qtc.QAbstractScrollArea_VerticalScrollBarPolicy(@ptrCast(self));
+    pub fn VerticalScrollBarPolicy(self: QAbstractItemView) i32 {
+        return qtc.QAbstractScrollArea_VerticalScrollBarPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4210,12 +4403,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn SetVerticalScrollBarPolicy(self: ?*anyopaque, verticalScrollBarPolicy: i32) void {
-        qtc.QAbstractScrollArea_SetVerticalScrollBarPolicy(@ptrCast(self), @bitCast(verticalScrollBarPolicy));
+    pub fn SetVerticalScrollBarPolicy(self: QAbstractItemView, verticalScrollBarPolicy: i32) void {
+        qtc.QAbstractScrollArea_SetVerticalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(verticalScrollBarPolicy));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4224,10 +4417,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn VerticalScrollBar(self: ?*anyopaque) QtC.QScrollBar {
-        return qtc.QAbstractScrollArea_VerticalScrollBar(@ptrCast(self));
+    pub fn VerticalScrollBar(self: QAbstractItemView) QScrollBar {
+        return .{ .ptr = qtc.QAbstractScrollArea_VerticalScrollBar(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4236,12 +4429,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` scrollbar: QtC.QScrollBar `
+    /// ` scrollbar: QScrollBar `
     ///
-    pub fn SetVerticalScrollBar(self: ?*anyopaque, scrollbar: ?*anyopaque) void {
-        qtc.QAbstractScrollArea_SetVerticalScrollBar(@ptrCast(self), @ptrCast(scrollbar));
+    pub fn SetVerticalScrollBar(self: QAbstractItemView, scrollbar: anytype) void {
+        comptime _ = @TypeOf(scrollbar)._is_QScrollBar;
+        qtc.QAbstractScrollArea_SetVerticalScrollBar(@ptrCast(self.ptr), @ptrCast(scrollbar.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4250,14 +4444,14 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn HorizontalScrollBarPolicy(self: ?*anyopaque) i32 {
-        return qtc.QAbstractScrollArea_HorizontalScrollBarPolicy(@ptrCast(self));
+    pub fn HorizontalScrollBarPolicy(self: QAbstractItemView) i32 {
+        return qtc.QAbstractScrollArea_HorizontalScrollBarPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4266,12 +4460,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn SetHorizontalScrollBarPolicy(self: ?*anyopaque, horizontalScrollBarPolicy: i32) void {
-        qtc.QAbstractScrollArea_SetHorizontalScrollBarPolicy(@ptrCast(self), @bitCast(horizontalScrollBarPolicy));
+    pub fn SetHorizontalScrollBarPolicy(self: QAbstractItemView, horizontalScrollBarPolicy: i32) void {
+        qtc.QAbstractScrollArea_SetHorizontalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(horizontalScrollBarPolicy));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4280,10 +4474,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn HorizontalScrollBar(self: ?*anyopaque) QtC.QScrollBar {
-        return qtc.QAbstractScrollArea_HorizontalScrollBar(@ptrCast(self));
+    pub fn HorizontalScrollBar(self: QAbstractItemView) QScrollBar {
+        return .{ .ptr = qtc.QAbstractScrollArea_HorizontalScrollBar(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4292,12 +4486,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` scrollbar: QtC.QScrollBar `
+    /// ` scrollbar: QScrollBar `
     ///
-    pub fn SetHorizontalScrollBar(self: ?*anyopaque, scrollbar: ?*anyopaque) void {
-        qtc.QAbstractScrollArea_SetHorizontalScrollBar(@ptrCast(self), @ptrCast(scrollbar));
+    pub fn SetHorizontalScrollBar(self: QAbstractItemView, scrollbar: anytype) void {
+        comptime _ = @TypeOf(scrollbar)._is_QScrollBar;
+        qtc.QAbstractScrollArea_SetHorizontalScrollBar(@ptrCast(self.ptr), @ptrCast(scrollbar.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4306,10 +4501,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn CornerWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QAbstractScrollArea_CornerWidget(@ptrCast(self));
+    pub fn CornerWidget(self: QAbstractItemView) QWidget {
+        return .{ .ptr = qtc.QAbstractScrollArea_CornerWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4318,12 +4513,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn SetCornerWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.QAbstractScrollArea_SetCornerWidget(@ptrCast(self), @ptrCast(widget));
+    pub fn SetCornerWidget(self: QAbstractItemView, widget: anytype) void {
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.QAbstractScrollArea_SetCornerWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4332,14 +4528,15 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn AddScrollBarWidget(self: ?*anyopaque, widget: ?*anyopaque, alignment: i32) void {
-        qtc.QAbstractScrollArea_AddScrollBarWidget(@ptrCast(self), @ptrCast(widget), @bitCast(alignment));
+    pub fn AddScrollBarWidget(self: QAbstractItemView, widget: anytype, alignment: i32) void {
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.QAbstractScrollArea_AddScrollBarWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr), @bitCast(alignment));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4348,18 +4545,19 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
-    ///
-    /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
+    /// ` self: QAbstractItemView `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ScrollBarWidgets(self: ?*anyopaque, alignment: i32, allocator: std.mem.Allocator) []QtC.QWidget {
-        const _arr: qtc.libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self), @bitCast(alignment));
+    /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
+    ///
+    pub fn ScrollBarWidgets(self: QAbstractItemView, allocator: std.mem.Allocator, alignment: i32) []QWidget {
+        const _arr: qtc.libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self.ptr), @bitCast(alignment));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QWidget, _arr.len) catch @panic("qabstractitemview.ScrollBarWidgets: Memory allocation failed");
+        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("qabstractitemview.ScrollBarWidgets: Memory allocation failed");
         const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -4369,10 +4567,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn Viewport(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QAbstractScrollArea_Viewport(@ptrCast(self));
+    pub fn Viewport(self: QAbstractItemView) QWidget {
+        return .{ .ptr = qtc.QAbstractScrollArea_Viewport(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4381,12 +4579,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn SetViewport(self: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.QAbstractScrollArea_SetViewport(@ptrCast(self), @ptrCast(widget));
+    pub fn SetViewport(self: QAbstractItemView, widget: anytype) void {
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.QAbstractScrollArea_SetViewport(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4395,10 +4594,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn MaximumViewportSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QAbstractScrollArea_MaximumViewportSize(@ptrCast(self));
+    pub fn MaximumViewportSize(self: QAbstractItemView) QSize {
+        return .{ .ptr = qtc.QAbstractScrollArea_MaximumViewportSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4407,14 +4606,14 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ## Returns:
     ///
     /// ` qabstractscrollarea_enums.SizeAdjustPolicy `
     ///
-    pub fn SizeAdjustPolicy(self: ?*anyopaque) i32 {
-        return qtc.QAbstractScrollArea_SizeAdjustPolicy(@ptrCast(self));
+    pub fn SizeAdjustPolicy(self: QAbstractItemView) i32 {
+        return qtc.QAbstractScrollArea_SizeAdjustPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4423,12 +4622,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` policy: qabstractscrollarea_enums.SizeAdjustPolicy `
     ///
-    pub fn SetSizeAdjustPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QAbstractScrollArea_SetSizeAdjustPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetSizeAdjustPolicy(self: QAbstractItemView, policy: i32) void {
+        qtc.QAbstractScrollArea_SetSizeAdjustPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QFrame
@@ -4437,10 +4636,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn FrameStyle(self: ?*anyopaque) i32 {
-        return qtc.QFrame_FrameStyle(@ptrCast(self));
+    pub fn FrameStyle(self: QAbstractItemView) i32 {
+        return qtc.QFrame_FrameStyle(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -4449,12 +4648,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` frameStyle: i32 `
     ///
-    pub fn SetFrameStyle(self: ?*anyopaque, frameStyle: i32) void {
-        qtc.QFrame_SetFrameStyle(@ptrCast(self), @bitCast(frameStyle));
+    pub fn SetFrameStyle(self: QAbstractItemView, frameStyle: i32) void {
+        qtc.QFrame_SetFrameStyle(@ptrCast(self.ptr), @bitCast(frameStyle));
     }
 
     /// Inherited from QFrame
@@ -4463,10 +4662,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn FrameWidth(self: ?*anyopaque) i32 {
-        return qtc.QFrame_FrameWidth(@ptrCast(self));
+    pub fn FrameWidth(self: QAbstractItemView) i32 {
+        return qtc.QFrame_FrameWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -4475,14 +4674,14 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ## Returns:
     ///
     /// ` qframe_enums.Shape `
     ///
-    pub fn FrameShape(self: ?*anyopaque) i32 {
-        return qtc.QFrame_FrameShape(@ptrCast(self));
+    pub fn FrameShape(self: QAbstractItemView) i32 {
+        return qtc.QFrame_FrameShape(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -4491,12 +4690,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` frameShape: qframe_enums.Shape `
     ///
-    pub fn SetFrameShape(self: ?*anyopaque, frameShape: i32) void {
-        qtc.QFrame_SetFrameShape(@ptrCast(self), @bitCast(frameShape));
+    pub fn SetFrameShape(self: QAbstractItemView, frameShape: i32) void {
+        qtc.QFrame_SetFrameShape(@ptrCast(self.ptr), @bitCast(frameShape));
     }
 
     /// Inherited from QFrame
@@ -4505,14 +4704,14 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ## Returns:
     ///
     /// ` qframe_enums.Shadow `
     ///
-    pub fn FrameShadow(self: ?*anyopaque) i32 {
-        return qtc.QFrame_FrameShadow(@ptrCast(self));
+    pub fn FrameShadow(self: QAbstractItemView) i32 {
+        return qtc.QFrame_FrameShadow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -4521,12 +4720,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` frameShadow: qframe_enums.Shadow `
     ///
-    pub fn SetFrameShadow(self: ?*anyopaque, frameShadow: i32) void {
-        qtc.QFrame_SetFrameShadow(@ptrCast(self), @bitCast(frameShadow));
+    pub fn SetFrameShadow(self: QAbstractItemView, frameShadow: i32) void {
+        qtc.QFrame_SetFrameShadow(@ptrCast(self.ptr), @bitCast(frameShadow));
     }
 
     /// Inherited from QFrame
@@ -4535,10 +4734,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn LineWidth(self: ?*anyopaque) i32 {
-        return qtc.QFrame_LineWidth(@ptrCast(self));
+    pub fn LineWidth(self: QAbstractItemView) i32 {
+        return qtc.QFrame_LineWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -4547,12 +4746,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` lineWidth: i32 `
     ///
-    pub fn SetLineWidth(self: ?*anyopaque, lineWidth: i32) void {
-        qtc.QFrame_SetLineWidth(@ptrCast(self), @bitCast(lineWidth));
+    pub fn SetLineWidth(self: QAbstractItemView, lineWidth: i32) void {
+        qtc.QFrame_SetLineWidth(@ptrCast(self.ptr), @bitCast(lineWidth));
     }
 
     /// Inherited from QFrame
@@ -4561,10 +4760,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn MidLineWidth(self: ?*anyopaque) i32 {
-        return qtc.QFrame_MidLineWidth(@ptrCast(self));
+    pub fn MidLineWidth(self: QAbstractItemView) i32 {
+        return qtc.QFrame_MidLineWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -4573,12 +4772,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` midLineWidth: i32 `
     ///
-    pub fn SetMidLineWidth(self: ?*anyopaque, midLineWidth: i32) void {
-        qtc.QFrame_SetMidLineWidth(@ptrCast(self), @bitCast(midLineWidth));
+    pub fn SetMidLineWidth(self: QAbstractItemView, midLineWidth: i32) void {
+        qtc.QFrame_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(midLineWidth));
     }
 
     /// Inherited from QFrame
@@ -4587,10 +4786,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn FrameRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QFrame_FrameRect(@ptrCast(self));
+    pub fn FrameRect(self: QAbstractItemView) QRect {
+        return .{ .ptr = qtc.QFrame_FrameRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QFrame
@@ -4599,12 +4798,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` frameRect: QtC.QRect `
+    /// ` frameRect: QRect `
     ///
-    pub fn SetFrameRect(self: ?*anyopaque, frameRect: ?*anyopaque) void {
-        qtc.QFrame_SetFrameRect(@ptrCast(self), @ptrCast(frameRect));
+    pub fn SetFrameRect(self: QAbstractItemView, frameRect: anytype) void {
+        comptime _ = @TypeOf(frameRect)._is_QRect;
+        qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(frameRect.ptr));
     }
 
     /// Inherited from QWidget
@@ -4613,10 +4813,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn WinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_WinId(@ptrCast(self));
+    pub fn WinId(self: QAbstractItemView) usize {
+        return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4625,10 +4825,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn CreateWinId(self: ?*anyopaque) void {
-        qtc.QWidget_CreateWinId(@ptrCast(self));
+    pub fn CreateWinId(self: QAbstractItemView) void {
+        qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4637,10 +4837,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn InternalWinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_InternalWinId(@ptrCast(self));
+    pub fn InternalWinId(self: QAbstractItemView) usize {
+        return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4649,10 +4849,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn EffectiveWinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_EffectiveWinId(@ptrCast(self));
+    pub fn EffectiveWinId(self: QAbstractItemView) usize {
+        return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4661,10 +4861,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn Style(self: ?*anyopaque) QtC.QStyle {
-        return qtc.QWidget_Style(@ptrCast(self));
+    pub fn Style(self: QAbstractItemView) QStyle {
+        return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4673,12 +4873,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` style: QtC.QStyle `
+    /// ` style: QStyle `
     ///
-    pub fn SetStyle(self: ?*anyopaque, style: ?*anyopaque) void {
-        qtc.QWidget_SetStyle(@ptrCast(self), @ptrCast(style));
+    pub fn SetStyle(self: QAbstractItemView, style: anytype) void {
+        comptime _ = @TypeOf(style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
     }
 
     /// Inherited from QWidget
@@ -4687,10 +4888,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn IsTopLevel(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsTopLevel(@ptrCast(self));
+    pub fn IsTopLevel(self: QAbstractItemView) bool {
+        return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4699,10 +4900,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn IsWindow(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsWindow(@ptrCast(self));
+    pub fn IsWindow(self: QAbstractItemView) bool {
+        return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4711,10 +4912,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn IsModal(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsModal(@ptrCast(self));
+    pub fn IsModal(self: QAbstractItemView) bool {
+        return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4723,14 +4924,14 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowModality(@ptrCast(self));
+    pub fn WindowModality(self: QAbstractItemView) i32 {
+        return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4739,12 +4940,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self), @bitCast(windowModality));
+    pub fn SetWindowModality(self: QAbstractItemView, windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
     }
 
     /// Inherited from QWidget
@@ -4753,10 +4954,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn IsEnabled(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsEnabled(@ptrCast(self));
+    pub fn IsEnabled(self: QAbstractItemView) bool {
+        return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4765,12 +4966,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidget_IsEnabledTo(@ptrCast(self), @ptrCast(param1));
+    pub fn IsEnabledTo(self: QAbstractItemView, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -4779,12 +4981,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
-        qtc.QWidget_SetEnabled(@ptrCast(self), enabled);
+    pub fn SetEnabled(self: QAbstractItemView, enabled: bool) void {
+        qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QWidget
@@ -4793,12 +4995,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: ?*anyopaque, disabled: bool) void {
-        qtc.QWidget_SetDisabled(@ptrCast(self), disabled);
+    pub fn SetDisabled(self: QAbstractItemView, disabled: bool) void {
+        qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
 
     /// Inherited from QWidget
@@ -4807,12 +5009,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: ?*anyopaque, windowModified: bool) void {
-        qtc.QWidget_SetWindowModified(@ptrCast(self), windowModified);
+    pub fn SetWindowModified(self: QAbstractItemView, windowModified: bool) void {
+        qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
 
     /// Inherited from QWidget
@@ -4821,10 +5023,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn FrameGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_FrameGeometry(@ptrCast(self));
+    pub fn FrameGeometry(self: QAbstractItemView) QRect {
+        return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4833,10 +5035,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn Geometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_Geometry(@ptrCast(self));
+    pub fn Geometry(self: QAbstractItemView) QRect {
+        return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4845,10 +5047,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn NormalGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_NormalGeometry(@ptrCast(self));
+    pub fn NormalGeometry(self: QAbstractItemView) QRect {
+        return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4857,10 +5059,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn X(self: ?*anyopaque) i32 {
-        return qtc.QWidget_X(@ptrCast(self));
+    pub fn X(self: QAbstractItemView) i32 {
+        return qtc.QWidget_X(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4869,10 +5071,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn Y(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Y(@ptrCast(self));
+    pub fn Y(self: QAbstractItemView) i32 {
+        return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4881,10 +5083,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn Pos(self: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_Pos(@ptrCast(self));
+    pub fn Pos(self: QAbstractItemView) QPoint {
+        return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4893,10 +5095,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_FrameSize(@ptrCast(self));
+    pub fn FrameSize(self: QAbstractItemView) QSize {
+        return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4905,10 +5107,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn Size(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_Size(@ptrCast(self));
+    pub fn Size(self: QAbstractItemView) QSize {
+        return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4917,10 +5119,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn Width(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Width(@ptrCast(self));
+    pub fn Width(self: QAbstractItemView) i32 {
+        return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4929,10 +5131,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn Height(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Height(@ptrCast(self));
+    pub fn Height(self: QAbstractItemView) i32 {
+        return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4941,10 +5143,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn Rect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_Rect(@ptrCast(self));
+    pub fn Rect(self: QAbstractItemView) QRect {
+        return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4953,10 +5155,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn ChildrenRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_ChildrenRect(@ptrCast(self));
+    pub fn ChildrenRect(self: QAbstractItemView) QRect {
+        return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4965,10 +5167,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn ChildrenRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_ChildrenRegion(@ptrCast(self));
+    pub fn ChildrenRegion(self: QAbstractItemView) QRegion {
+        return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4977,10 +5179,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MinimumSize(@ptrCast(self));
+    pub fn MinimumSize(self: QAbstractItemView) QSize {
+        return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4989,10 +5191,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MaximumSize(@ptrCast(self));
+    pub fn MaximumSize(self: QAbstractItemView) QSize {
+        return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5001,10 +5203,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn MinimumWidth(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MinimumWidth(@ptrCast(self));
+    pub fn MinimumWidth(self: QAbstractItemView) i32 {
+        return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5013,10 +5215,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn MinimumHeight(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MinimumHeight(@ptrCast(self));
+    pub fn MinimumHeight(self: QAbstractItemView) i32 {
+        return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5025,10 +5227,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn MaximumWidth(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MaximumWidth(@ptrCast(self));
+    pub fn MaximumWidth(self: QAbstractItemView) i32 {
+        return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5037,10 +5239,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn MaximumHeight(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MaximumHeight(@ptrCast(self));
+    pub fn MaximumHeight(self: QAbstractItemView) i32 {
+        return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5049,12 +5251,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` minimumSize: QtC.QSize `
+    /// ` minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: ?*anyopaque, minimumSize: ?*anyopaque) void {
-        qtc.QWidget_SetMinimumSize(@ptrCast(self), @ptrCast(minimumSize));
+    pub fn SetMinimumSize(self: QAbstractItemView, minimumSize: anytype) void {
+        comptime _ = @TypeOf(minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -5063,14 +5266,14 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` minw: i32 `
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
-        qtc.QWidget_SetMinimumSize2(@ptrCast(self), @bitCast(minw), @bitCast(minh));
+    pub fn SetMinimumSize2(self: QAbstractItemView, minw: i32, minh: i32) void {
+        qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -5079,12 +5282,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` maximumSize: QtC.QSize `
+    /// ` maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: ?*anyopaque, maximumSize: ?*anyopaque) void {
-        qtc.QWidget_SetMaximumSize(@ptrCast(self), @ptrCast(maximumSize));
+    pub fn SetMaximumSize(self: QAbstractItemView, maximumSize: anytype) void {
+        comptime _ = @TypeOf(maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -5093,14 +5297,14 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` maxw: i32 `
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
-        qtc.QWidget_SetMaximumSize2(@ptrCast(self), @bitCast(maxw), @bitCast(maxh));
+    pub fn SetMaximumSize2(self: QAbstractItemView, maxw: i32, maxh: i32) void {
+        qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -5109,12 +5313,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
-        qtc.QWidget_SetMinimumWidth(@ptrCast(self), @bitCast(minw));
+    pub fn SetMinimumWidth(self: QAbstractItemView, minw: i32) void {
+        qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
 
     /// Inherited from QWidget
@@ -5123,12 +5327,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
-        qtc.QWidget_SetMinimumHeight(@ptrCast(self), @bitCast(minh));
+    pub fn SetMinimumHeight(self: QAbstractItemView, minh: i32) void {
+        qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -5137,12 +5341,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
-        qtc.QWidget_SetMaximumWidth(@ptrCast(self), @bitCast(maxw));
+    pub fn SetMaximumWidth(self: QAbstractItemView, maxw: i32) void {
+        qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
 
     /// Inherited from QWidget
@@ -5151,12 +5355,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
-        qtc.QWidget_SetMaximumHeight(@ptrCast(self), @bitCast(maxh));
+    pub fn SetMaximumHeight(self: QAbstractItemView, maxh: i32) void {
+        qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -5165,10 +5369,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn SizeIncrement(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_SizeIncrement(@ptrCast(self));
+    pub fn SizeIncrement(self: QAbstractItemView) QSize {
+        return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5177,12 +5381,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` sizeIncrement: QtC.QSize `
+    /// ` sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: ?*anyopaque, sizeIncrement: ?*anyopaque) void {
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self), @ptrCast(sizeIncrement));
+    pub fn SetSizeIncrement(self: QAbstractItemView, sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
     }
 
     /// Inherited from QWidget
@@ -5191,14 +5396,14 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetSizeIncrement2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetSizeIncrement2(self: QAbstractItemView, w: i32, h: i32) void {
+        qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -5207,10 +5412,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn BaseSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_BaseSize(@ptrCast(self));
+    pub fn BaseSize(self: QAbstractItemView) QSize {
+        return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5219,12 +5424,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` baseSize: QtC.QSize `
+    /// ` baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: ?*anyopaque, baseSize: ?*anyopaque) void {
-        qtc.QWidget_SetBaseSize(@ptrCast(self), @ptrCast(baseSize));
+    pub fn SetBaseSize(self: QAbstractItemView, baseSize: anytype) void {
+        comptime _ = @TypeOf(baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -5233,14 +5439,14 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` basew: i32 `
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
-        qtc.QWidget_SetBaseSize2(@ptrCast(self), @bitCast(basew), @bitCast(baseh));
+    pub fn SetBaseSize2(self: QAbstractItemView, basew: i32, baseh: i32) void {
+        qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
 
     /// Inherited from QWidget
@@ -5249,12 +5455,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` fixedSize: QtC.QSize `
+    /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: ?*anyopaque, fixedSize: ?*anyopaque) void {
-        qtc.QWidget_SetFixedSize(@ptrCast(self), @ptrCast(fixedSize));
+    pub fn SetFixedSize(self: QAbstractItemView, fixedSize: anytype) void {
+        comptime _ = @TypeOf(fixedSize)._is_QSize;
+        qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -5263,14 +5470,14 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetFixedSize2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetFixedSize2(self: QAbstractItemView, w: i32, h: i32) void {
+        qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -5279,12 +5486,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
-        qtc.QWidget_SetFixedWidth(@ptrCast(self), @bitCast(w));
+    pub fn SetFixedWidth(self: QAbstractItemView, w: i32) void {
+        qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
 
     /// Inherited from QWidget
@@ -5293,12 +5500,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
-        qtc.QWidget_SetFixedHeight(@ptrCast(self), @bitCast(h));
+    pub fn SetFixedHeight(self: QAbstractItemView, h: i32) void {
+        qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -5307,12 +5514,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapToGlobal(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal(self: QAbstractItemView, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5321,12 +5529,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToGlobal2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal2(self: QAbstractItemView, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5335,12 +5544,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFromGlobal(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal(self: QAbstractItemView, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5349,12 +5559,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromGlobal2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal2(self: QAbstractItemView, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5363,12 +5574,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapToParent(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent(self: QAbstractItemView, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5377,12 +5589,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToParent2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent2(self: QAbstractItemView, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5391,12 +5604,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFromParent(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent(self: QAbstractItemView, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5405,12 +5619,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromParent2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent2(self: QAbstractItemView, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5419,14 +5634,16 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPointF `
+    /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapTo(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapTo(self: QAbstractItemView, param1: anytype, param2: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5435,14 +5652,16 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPoint `
+    /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapTo2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapTo2(self: QAbstractItemView, param1: anytype, param2: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5451,14 +5670,16 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPointF `
+    /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFrom(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapFrom(self: QAbstractItemView, param1: anytype, param2: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5467,14 +5688,16 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPoint `
+    /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFrom2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapFrom2(self: QAbstractItemView, param1: anytype, param2: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5483,10 +5706,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn Window(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_Window(@ptrCast(self));
+    pub fn Window(self: QAbstractItemView) QWidget {
+        return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5495,10 +5718,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn NativeParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_NativeParentWidget(@ptrCast(self));
+    pub fn NativeParentWidget(self: QAbstractItemView) QWidget {
+        return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5507,10 +5730,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn TopLevelWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_TopLevelWidget(@ptrCast(self));
+    pub fn TopLevelWidget(self: QAbstractItemView) QWidget {
+        return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5519,10 +5742,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn Palette(self: ?*anyopaque) QtC.QPalette {
-        return qtc.QWidget_Palette(@ptrCast(self));
+    pub fn Palette(self: QAbstractItemView) QPalette {
+        return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5531,12 +5754,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` palette: QtC.QPalette `
+    /// ` palette: QPalette `
     ///
-    pub fn SetPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
-        qtc.QWidget_SetPalette(@ptrCast(self), @ptrCast(palette));
+    pub fn SetPalette(self: QAbstractItemView, palette: anytype) void {
+        comptime _ = @TypeOf(palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
     }
 
     /// Inherited from QWidget
@@ -5545,12 +5769,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self), @bitCast(backgroundRole));
+    pub fn SetBackgroundRole(self: QAbstractItemView, backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
     }
 
     /// Inherited from QWidget
@@ -5559,14 +5783,14 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: ?*anyopaque) i32 {
-        return qtc.QWidget_BackgroundRole(@ptrCast(self));
+    pub fn BackgroundRole(self: QAbstractItemView) i32 {
+        return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5575,12 +5799,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self), @bitCast(foregroundRole));
+    pub fn SetForegroundRole(self: QAbstractItemView, foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
     }
 
     /// Inherited from QWidget
@@ -5589,14 +5813,14 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ForegroundRole(@ptrCast(self));
+    pub fn ForegroundRole(self: QAbstractItemView) i32 {
+        return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5605,10 +5829,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn Font(self: ?*anyopaque) QtC.QFont {
-        return qtc.QWidget_Font(@ptrCast(self));
+    pub fn Font(self: QAbstractItemView) QFont {
+        return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5617,12 +5841,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` font: QtC.QFont `
+    /// ` font: QFont `
     ///
-    pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
-        qtc.QWidget_SetFont(@ptrCast(self), @ptrCast(font));
+    pub fn SetFont(self: QAbstractItemView, font: anytype) void {
+        comptime _ = @TypeOf(font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
     }
 
     /// Inherited from QWidget
@@ -5631,10 +5856,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn FontMetrics(self: ?*anyopaque) QtC.QFontMetrics {
-        return qtc.QWidget_FontMetrics(@ptrCast(self));
+    pub fn FontMetrics(self: QAbstractItemView) QFontMetrics {
+        return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5643,10 +5868,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn FontInfo(self: ?*anyopaque) QtC.QFontInfo {
-        return qtc.QWidget_FontInfo(@ptrCast(self));
+    pub fn FontInfo(self: QAbstractItemView) QFontInfo {
+        return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5655,10 +5880,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
-        return qtc.QWidget_Cursor(@ptrCast(self));
+    pub fn Cursor(self: QAbstractItemView) QCursor {
+        return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5667,12 +5892,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` cursor: QtC.QCursor `
+    /// ` cursor: QCursor `
     ///
-    pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
-        qtc.QWidget_SetCursor(@ptrCast(self), @ptrCast(cursor));
+    pub fn SetCursor(self: QAbstractItemView, cursor: anytype) void {
+        comptime _ = @TypeOf(cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
     }
 
     /// Inherited from QWidget
@@ -5681,10 +5907,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn UnsetCursor(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetCursor(@ptrCast(self));
+    pub fn UnsetCursor(self: QAbstractItemView) void {
+        qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5693,12 +5919,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetMouseTracking(@ptrCast(self), enable);
+    pub fn SetMouseTracking(self: QAbstractItemView, enable: bool) void {
+        qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -5707,10 +5933,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn HasMouseTracking(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasMouseTracking(@ptrCast(self));
+    pub fn HasMouseTracking(self: QAbstractItemView) bool {
+        return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5719,10 +5945,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn UnderMouse(self: ?*anyopaque) bool {
-        return qtc.QWidget_UnderMouse(@ptrCast(self));
+    pub fn UnderMouse(self: QAbstractItemView) bool {
+        return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5731,12 +5957,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetTabletTracking(@ptrCast(self), enable);
+    pub fn SetTabletTracking(self: QAbstractItemView, enable: bool) void {
+        qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -5745,10 +5971,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn HasTabletTracking(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasTabletTracking(@ptrCast(self));
+    pub fn HasTabletTracking(self: QAbstractItemView) bool {
+        return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5757,12 +5983,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` mask: QtC.QBitmap `
+    /// ` mask: QBitmap `
     ///
-    pub fn SetMask(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMask(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask(self: QAbstractItemView, mask: anytype) void {
+        comptime _ = @TypeOf(mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
 
     /// Inherited from QWidget
@@ -5771,12 +5998,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` mask: QtC.QRegion `
+    /// ` mask: QRegion `
     ///
-    pub fn SetMask2(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMask2(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask2(self: QAbstractItemView, mask: anytype) void {
+        comptime _ = @TypeOf(mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
 
     /// Inherited from QWidget
@@ -5785,10 +6013,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn Mask(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_Mask(@ptrCast(self));
+    pub fn Mask(self: QAbstractItemView) QRegion {
+        return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5797,10 +6025,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn ClearMask(self: ?*anyopaque) void {
-        qtc.QWidget_ClearMask(@ptrCast(self));
+    pub fn ClearMask(self: QAbstractItemView) void {
+        qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5809,12 +6037,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: ?*anyopaque, target: ?*anyopaque) void {
-        qtc.QWidget_Render(@ptrCast(self), @ptrCast(target));
+    pub fn Render(self: QAbstractItemView, target: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
 
     /// Inherited from QWidget
@@ -5823,12 +6052,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn Render2(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QWidget_Render2(@ptrCast(self), @ptrCast(painter));
+    pub fn Render2(self: QAbstractItemView, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// Inherited from QWidget
@@ -5837,10 +6067,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn Grab(self: ?*anyopaque) QtC.QPixmap {
-        return qtc.QWidget_Grab(@ptrCast(self));
+    pub fn Grab(self: QAbstractItemView) QPixmap {
+        return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5849,10 +6079,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
-        return qtc.QWidget_GraphicsEffect(@ptrCast(self));
+    pub fn GraphicsEffect(self: QAbstractItemView) QGraphicsEffect {
+        return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5861,12 +6091,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` effect: QtC.QGraphicsEffect `
+    /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
-        qtc.QWidget_SetGraphicsEffect(@ptrCast(self), @ptrCast(effect));
+    pub fn SetGraphicsEffect(self: QAbstractItemView, effect: anytype) void {
+        comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
+        qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
 
     /// Inherited from QWidget
@@ -5875,12 +6106,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_GrabGesture(@ptrCast(self), @bitCast(typeVal));
+    pub fn GrabGesture(self: QAbstractItemView, typeVal: i32) void {
+        qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -5889,12 +6120,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_UngrabGesture(@ptrCast(self), @bitCast(typeVal));
+    pub fn UngrabGesture(self: QAbstractItemView, typeVal: i32) void {
+        qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -5903,16 +6134,16 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
+    pub fn SetWindowTitle(self: QAbstractItemView, windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
             .len = windowTitle.len,
             .data = windowTitle.ptr,
         };
-        qtc.QWidget_SetWindowTitle(@ptrCast(self), windowTitle_str);
+        qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
 
     /// Inherited from QWidget
@@ -5921,16 +6152,16 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
+    pub fn SetStyleSheet(self: QAbstractItemView, styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
             .len = styleSheet.len,
             .data = styleSheet.ptr,
         };
-        qtc.QWidget_SetStyleSheet(@ptrCast(self), styleSheet_str);
+        qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
 
     /// Inherited from QWidget
@@ -5939,12 +6170,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_StyleSheet(@ptrCast(self));
+    pub fn StyleSheet(self: QAbstractItemView, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstractitemview.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5957,12 +6188,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowTitle(@ptrCast(self));
+    pub fn WindowTitle(self: QAbstractItemView, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstractitemview.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5975,12 +6206,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QWidget_SetWindowIcon(@ptrCast(self), @ptrCast(icon));
+    pub fn SetWindowIcon(self: QAbstractItemView, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QWidget
@@ -5989,10 +6221,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn WindowIcon(self: ?*anyopaque) QtC.QIcon {
-        return qtc.QWidget_WindowIcon(@ptrCast(self));
+    pub fn WindowIcon(self: QAbstractItemView) QIcon {
+        return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -6001,16 +6233,16 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
+    pub fn SetWindowIconText(self: QAbstractItemView, windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
             .len = windowIconText.len,
             .data = windowIconText.ptr,
         };
-        qtc.QWidget_SetWindowIconText(@ptrCast(self), windowIconText_str);
+        qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
 
     /// Inherited from QWidget
@@ -6019,12 +6251,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowIconText(@ptrCast(self));
+    pub fn WindowIconText(self: QAbstractItemView, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstractitemview.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6037,16 +6269,16 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
+    pub fn SetWindowRole(self: QAbstractItemView, windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
             .len = windowRole.len,
             .data = windowRole.ptr,
         };
-        qtc.QWidget_SetWindowRole(@ptrCast(self), windowRole_str);
+        qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
 
     /// Inherited from QWidget
@@ -6055,12 +6287,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowRole(@ptrCast(self));
+    pub fn WindowRole(self: QAbstractItemView, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstractitemview.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6073,16 +6305,16 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
+    pub fn SetWindowFilePath(self: QAbstractItemView, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
-        qtc.QWidget_SetWindowFilePath(@ptrCast(self), filePath_str);
+        qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
 
     /// Inherited from QWidget
@@ -6091,12 +6323,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
+    pub fn WindowFilePath(self: QAbstractItemView, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstractitemview.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6109,12 +6341,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
-        qtc.QWidget_SetWindowOpacity(@ptrCast(self), @bitCast(level));
+    pub fn SetWindowOpacity(self: QAbstractItemView, level: f64) void {
+        qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
 
     /// Inherited from QWidget
@@ -6123,10 +6355,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn WindowOpacity(self: ?*anyopaque) f64 {
-        return qtc.QWidget_WindowOpacity(@ptrCast(self));
+    pub fn WindowOpacity(self: QAbstractItemView) f64 {
+        return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6135,10 +6367,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn IsWindowModified(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsWindowModified(@ptrCast(self));
+    pub fn IsWindowModified(self: QAbstractItemView) bool {
+        return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6147,16 +6379,16 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
+    pub fn SetToolTip(self: QAbstractItemView, toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
             .len = toolTip.len,
             .data = toolTip.ptr,
         };
-        qtc.QWidget_SetToolTip(@ptrCast(self), toolTip_str);
+        qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
 
     /// Inherited from QWidget
@@ -6165,12 +6397,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_ToolTip(@ptrCast(self));
+    pub fn ToolTip(self: QAbstractItemView, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstractitemview.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6183,12 +6415,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
-        qtc.QWidget_SetToolTipDuration(@ptrCast(self), @bitCast(msec));
+    pub fn SetToolTipDuration(self: QAbstractItemView, msec: i32) void {
+        qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
 
     /// Inherited from QWidget
@@ -6197,10 +6429,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn ToolTipDuration(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ToolTipDuration(@ptrCast(self));
+    pub fn ToolTipDuration(self: QAbstractItemView) i32 {
+        return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6209,16 +6441,16 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
+    pub fn SetStatusTip(self: QAbstractItemView, statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
             .len = statusTip.len,
             .data = statusTip.ptr,
         };
-        qtc.QWidget_SetStatusTip(@ptrCast(self), statusTip_str);
+        qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
 
     /// Inherited from QWidget
@@ -6227,12 +6459,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_StatusTip(@ptrCast(self));
+    pub fn StatusTip(self: QAbstractItemView, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstractitemview.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6245,16 +6477,16 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
+    pub fn SetWhatsThis(self: QAbstractItemView, whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
             .len = whatsThis.len,
             .data = whatsThis.ptr,
         };
-        qtc.QWidget_SetWhatsThis(@ptrCast(self), whatsThis_str);
+        qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
 
     /// Inherited from QWidget
@@ -6263,12 +6495,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WhatsThis(@ptrCast(self));
+    pub fn WhatsThis(self: QAbstractItemView, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstractitemview.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6281,12 +6513,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_AccessibleName(@ptrCast(self));
+    pub fn AccessibleName(self: QAbstractItemView, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstractitemview.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6299,16 +6531,16 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
+    pub fn SetAccessibleName(self: QAbstractItemView, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QWidget_SetAccessibleName(@ptrCast(self), name_str);
+        qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QWidget
@@ -6317,12 +6549,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
+    pub fn AccessibleDescription(self: QAbstractItemView, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstractitemview.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6335,16 +6567,16 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
+    pub fn SetAccessibleDescription(self: QAbstractItemView, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
-        qtc.QWidget_SetAccessibleDescription(@ptrCast(self), description_str);
+        qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
 
     /// Inherited from QWidget
@@ -6353,12 +6585,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QWidget_SetLayoutDirection(@ptrCast(self), @bitCast(direction));
+    pub fn SetLayoutDirection(self: QAbstractItemView, direction: i32) void {
+        qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
 
     /// Inherited from QWidget
@@ -6367,14 +6599,14 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: ?*anyopaque) i32 {
-        return qtc.QWidget_LayoutDirection(@ptrCast(self));
+    pub fn LayoutDirection(self: QAbstractItemView) i32 {
+        return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6383,10 +6615,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn UnsetLayoutDirection(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self));
+    pub fn UnsetLayoutDirection(self: QAbstractItemView) void {
+        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6395,12 +6627,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` locale: QtC.QLocale `
+    /// ` locale: QLocale `
     ///
-    pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
-        qtc.QWidget_SetLocale(@ptrCast(self), @ptrCast(locale));
+    pub fn SetLocale(self: QAbstractItemView, locale: anytype) void {
+        comptime _ = @TypeOf(locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
     }
 
     /// Inherited from QWidget
@@ -6409,10 +6642,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn Locale(self: ?*anyopaque) QtC.QLocale {
-        return qtc.QWidget_Locale(@ptrCast(self));
+    pub fn Locale(self: QAbstractItemView) QLocale {
+        return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -6421,10 +6654,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn UnsetLocale(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetLocale(@ptrCast(self));
+    pub fn UnsetLocale(self: QAbstractItemView) void {
+        qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6433,10 +6666,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn IsRightToLeft(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsRightToLeft(@ptrCast(self));
+    pub fn IsRightToLeft(self: QAbstractItemView) bool {
+        return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6445,10 +6678,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn IsLeftToRight(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsLeftToRight(@ptrCast(self));
+    pub fn IsLeftToRight(self: QAbstractItemView) bool {
+        return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6457,10 +6690,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn SetFocus(self: ?*anyopaque) void {
-        qtc.QWidget_SetFocus(@ptrCast(self));
+    pub fn SetFocus(self: QAbstractItemView) void {
+        qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6469,10 +6702,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn IsActiveWindow(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsActiveWindow(@ptrCast(self));
+    pub fn IsActiveWindow(self: QAbstractItemView) bool {
+        return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6481,10 +6714,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn ActivateWindow(self: ?*anyopaque) void {
-        qtc.QWidget_ActivateWindow(@ptrCast(self));
+    pub fn ActivateWindow(self: QAbstractItemView) void {
+        qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6493,10 +6726,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn ClearFocus(self: ?*anyopaque) void {
-        qtc.QWidget_ClearFocus(@ptrCast(self));
+    pub fn ClearFocus(self: QAbstractItemView) void {
+        qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6505,12 +6738,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
-        qtc.QWidget_SetFocus2(@ptrCast(self), @bitCast(reason));
+    pub fn SetFocus2(self: QAbstractItemView, reason: i32) void {
+        qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
 
     /// Inherited from QWidget
@@ -6519,14 +6752,14 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: ?*anyopaque) i32 {
-        return qtc.QWidget_FocusPolicy(@ptrCast(self));
+    pub fn FocusPolicy(self: QAbstractItemView) i32 {
+        return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6535,12 +6768,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetFocusPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetFocusPolicy(self: QAbstractItemView, policy: i32) void {
+        qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -6549,10 +6782,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn HasFocus(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasFocus(@ptrCast(self));
+    pub fn HasFocus(self: QAbstractItemView) bool {
+        return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6561,12 +6794,14 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QWidget `
+    /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: ?*anyopaque, param2: ?*anyopaque) void {
-        qtc.QWidget_SetTabOrder(@ptrCast(param1), @ptrCast(param2));
+    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QWidget;
+        qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
     /// Inherited from QWidget
@@ -6575,12 +6810,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` focusProxy: QtC.QWidget `
+    /// ` focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: ?*anyopaque, focusProxy: ?*anyopaque) void {
-        qtc.QWidget_SetFocusProxy(@ptrCast(self), @ptrCast(focusProxy));
+    pub fn SetFocusProxy(self: QAbstractItemView, focusProxy: anytype) void {
+        comptime _ = @TypeOf(focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
     }
 
     /// Inherited from QWidget
@@ -6589,10 +6825,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn FocusProxy(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_FocusProxy(@ptrCast(self));
+    pub fn FocusProxy(self: QAbstractItemView) QWidget {
+        return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -6601,14 +6837,14 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
+    pub fn ContextMenuPolicy(self: QAbstractItemView) i32 {
+        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6617,12 +6853,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetContextMenuPolicy(self: QAbstractItemView, policy: i32) void {
+        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -6631,10 +6867,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn GrabMouse(self: ?*anyopaque) void {
-        qtc.QWidget_GrabMouse(@ptrCast(self));
+    pub fn GrabMouse(self: QAbstractItemView) void {
+        qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6643,12 +6879,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` param1: QtC.QCursor `
+    /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_GrabMouse2(@ptrCast(self), @ptrCast(param1));
+    pub fn GrabMouse2(self: QAbstractItemView, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QCursor;
+        qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -6657,10 +6894,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn ReleaseMouse(self: ?*anyopaque) void {
-        qtc.QWidget_ReleaseMouse(@ptrCast(self));
+    pub fn ReleaseMouse(self: QAbstractItemView) void {
+        qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6669,10 +6906,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn GrabKeyboard(self: ?*anyopaque) void {
-        qtc.QWidget_GrabKeyboard(@ptrCast(self));
+    pub fn GrabKeyboard(self: QAbstractItemView) void {
+        qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6681,10 +6918,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn ReleaseKeyboard(self: ?*anyopaque) void {
-        qtc.QWidget_ReleaseKeyboard(@ptrCast(self));
+    pub fn ReleaseKeyboard(self: QAbstractItemView) void {
+        qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6693,12 +6930,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` key: QtC.QKeySequence `
+    /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: ?*anyopaque, key: ?*anyopaque) i32 {
-        return qtc.QWidget_GrabShortcut(@ptrCast(self), @ptrCast(key));
+    pub fn GrabShortcut(self: QAbstractItemView, key: anytype) i32 {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
 
     /// Inherited from QWidget
@@ -6707,12 +6945,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_ReleaseShortcut(@ptrCast(self), @bitCast(id));
+    pub fn ReleaseShortcut(self: QAbstractItemView, id: i32) void {
+        qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -6721,12 +6959,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutEnabled(@ptrCast(self), @bitCast(id));
+    pub fn SetShortcutEnabled(self: QAbstractItemView, id: i32) void {
+        qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -6735,28 +6973,28 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self), @bitCast(id));
+    pub fn SetShortcutAutoRepeat(self: QAbstractItemView, id: i32) void {
+        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QtC.QWidget {
-        return qtc.QWidget_MouseGrabber();
+    pub fn MouseGrabber() QWidget {
+        return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QtC.QWidget {
-        return qtc.QWidget_KeyboardGrabber();
+    pub fn KeyboardGrabber() QWidget {
+        return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
 
     /// Inherited from QWidget
@@ -6765,10 +7003,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn UpdatesEnabled(self: ?*anyopaque) bool {
-        return qtc.QWidget_UpdatesEnabled(@ptrCast(self));
+    pub fn UpdatesEnabled(self: QAbstractItemView) bool {
+        return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6777,12 +7015,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self), enable);
+    pub fn SetUpdatesEnabled(self: QAbstractItemView, enable: bool) void {
+        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -6791,10 +7029,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn GraphicsProxyWidget(self: ?*anyopaque) QtC.QGraphicsProxyWidget {
-        return qtc.QWidget_GraphicsProxyWidget(@ptrCast(self));
+    pub fn GraphicsProxyWidget(self: QAbstractItemView) QGraphicsProxyWidget {
+        return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -6803,10 +7041,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn Repaint(self: ?*anyopaque) void {
-        qtc.QWidget_Repaint(@ptrCast(self));
+    pub fn Repaint(self: QAbstractItemView) void {
+        qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6815,7 +7053,7 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` x: i32 `
     ///
@@ -6825,8 +7063,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn Update2(self: QAbstractItemView, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -6835,12 +7073,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn Update3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Update3(@ptrCast(self), @ptrCast(param1));
+    pub fn Update3(self: QAbstractItemView, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -6849,12 +7088,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn Update4(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Update4(@ptrCast(self), @ptrCast(param1));
+    pub fn Update4(self: QAbstractItemView, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -6863,7 +7103,7 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` x: i32 `
     ///
@@ -6873,8 +7113,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn Repaint2(self: QAbstractItemView, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -6883,12 +7123,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Repaint3(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint3(self: QAbstractItemView, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -6897,12 +7138,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Repaint4(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint4(self: QAbstractItemView, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -6911,12 +7153,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: ?*anyopaque, hidden: bool) void {
-        qtc.QWidget_SetHidden(@ptrCast(self), hidden);
+    pub fn SetHidden(self: QAbstractItemView, hidden: bool) void {
+        qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
 
     /// Inherited from QWidget
@@ -6925,10 +7167,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn Show(self: ?*anyopaque) void {
-        qtc.QWidget_Show(@ptrCast(self));
+    pub fn Show(self: QAbstractItemView) void {
+        qtc.QWidget_Show(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6937,10 +7179,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn Hide(self: ?*anyopaque) void {
-        qtc.QWidget_Hide(@ptrCast(self));
+    pub fn Hide(self: QAbstractItemView) void {
+        qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6949,10 +7191,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn ShowMinimized(self: ?*anyopaque) void {
-        qtc.QWidget_ShowMinimized(@ptrCast(self));
+    pub fn ShowMinimized(self: QAbstractItemView) void {
+        qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6961,10 +7203,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn ShowMaximized(self: ?*anyopaque) void {
-        qtc.QWidget_ShowMaximized(@ptrCast(self));
+    pub fn ShowMaximized(self: QAbstractItemView) void {
+        qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6973,10 +7215,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn ShowFullScreen(self: ?*anyopaque) void {
-        qtc.QWidget_ShowFullScreen(@ptrCast(self));
+    pub fn ShowFullScreen(self: QAbstractItemView) void {
+        qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6985,10 +7227,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn ShowNormal(self: ?*anyopaque) void {
-        qtc.QWidget_ShowNormal(@ptrCast(self));
+    pub fn ShowNormal(self: QAbstractItemView) void {
+        qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6997,10 +7239,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn Close(self: ?*anyopaque) bool {
-        return qtc.QWidget_Close(@ptrCast(self));
+    pub fn Close(self: QAbstractItemView) bool {
+        return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7009,10 +7251,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn Raise(self: ?*anyopaque) void {
-        qtc.QWidget_Raise(@ptrCast(self));
+    pub fn Raise(self: QAbstractItemView) void {
+        qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7021,10 +7263,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn Lower(self: ?*anyopaque) void {
-        qtc.QWidget_Lower(@ptrCast(self));
+    pub fn Lower(self: QAbstractItemView) void {
+        qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7033,12 +7275,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_StackUnder(@ptrCast(self), @ptrCast(param1));
+    pub fn StackUnder(self: QAbstractItemView, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -7047,14 +7290,14 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn Move(self: QAbstractItemView, x: i32, y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QWidget
@@ -7063,12 +7306,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn Move2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Move2(@ptrCast(self), @ptrCast(param1));
+    pub fn Move2(self: QAbstractItemView, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -7077,14 +7321,14 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_Resize(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn Resize(self: QAbstractItemView, w: i32, h: i32) void {
+        qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -7093,12 +7337,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` param1: QtC.QSize `
+    /// ` param1: QSize `
     ///
-    pub fn Resize2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Resize2(@ptrCast(self), @ptrCast(param1));
+    pub fn Resize2(self: QAbstractItemView, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QSize;
+        qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -7107,7 +7352,7 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` x: i32 `
     ///
@@ -7117,8 +7362,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn SetGeometry(self: QAbstractItemView, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -7127,12 +7372,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` geometry: QtC.QRect `
+    /// ` geometry: QRect `
     ///
-    pub fn SetGeometry2(self: ?*anyopaque, geometry: ?*anyopaque) void {
-        qtc.QWidget_SetGeometry2(@ptrCast(self), @ptrCast(geometry));
+    pub fn SetGeometry2(self: QAbstractItemView, geometry: anytype) void {
+        comptime _ = @TypeOf(geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
     }
 
     /// Inherited from QWidget
@@ -7141,12 +7387,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
+    pub fn SaveGeometry(self: QAbstractItemView, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qabstractitemview.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -7159,16 +7405,16 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
+    pub fn RestoreGeometry(self: QAbstractItemView, geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
             .len = geometry.len,
             .data = geometry.ptr,
         };
-        return qtc.QWidget_RestoreGeometry(@ptrCast(self), geometry_str);
+        return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
 
     /// Inherited from QWidget
@@ -7177,10 +7423,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn AdjustSize(self: ?*anyopaque) void {
-        qtc.QWidget_AdjustSize(@ptrCast(self));
+    pub fn AdjustSize(self: QAbstractItemView) void {
+        qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7189,10 +7435,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn IsVisible(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsVisible(@ptrCast(self));
+    pub fn IsVisible(self: QAbstractItemView) bool {
+        return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7201,12 +7447,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidget_IsVisibleTo(@ptrCast(self), @ptrCast(param1));
+    pub fn IsVisibleTo(self: QAbstractItemView, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -7215,10 +7462,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn IsHidden(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsHidden(@ptrCast(self));
+    pub fn IsHidden(self: QAbstractItemView) bool {
+        return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7227,10 +7474,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn IsMinimized(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsMinimized(@ptrCast(self));
+    pub fn IsMinimized(self: QAbstractItemView) bool {
+        return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7239,10 +7486,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn IsMaximized(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsMaximized(@ptrCast(self));
+    pub fn IsMaximized(self: QAbstractItemView) bool {
+        return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7251,10 +7498,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn IsFullScreen(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsFullScreen(@ptrCast(self));
+    pub fn IsFullScreen(self: QAbstractItemView) bool {
+        return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7263,14 +7510,14 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowState(@ptrCast(self));
+    pub fn WindowState(self: QAbstractItemView) i32 {
+        return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7279,12 +7526,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_SetWindowState(@ptrCast(self), @bitCast(state));
+    pub fn SetWindowState(self: QAbstractItemView, state: i32) void {
+        qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -7293,12 +7540,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_OverrideWindowState(@ptrCast(self), @bitCast(state));
+    pub fn OverrideWindowState(self: QAbstractItemView, state: i32) void {
+        qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -7307,10 +7554,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
-        return qtc.QWidget_SizePolicy(@ptrCast(self));
+    pub fn SizePolicy(self: QAbstractItemView) QSizePolicy {
+        return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7319,12 +7566,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` sizePolicy: QtC.QSizePolicy `
+    /// ` sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: QtC.QSizePolicy) void {
-        qtc.QWidget_SetSizePolicy(@ptrCast(self), @ptrCast(sizePolicy));
+    pub fn SetSizePolicy(self: QAbstractItemView, sizePolicy: anytype) void {
+        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
     }
 
     /// Inherited from QWidget
@@ -7333,14 +7581,14 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` horizontal: qsizepolicy_enums.Policy `
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
-        qtc.QWidget_SetSizePolicy2(@ptrCast(self), @bitCast(horizontal), @bitCast(vertical));
+    pub fn SetSizePolicy2(self: QAbstractItemView, horizontal: i32, vertical: i32) void {
+        qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
 
     /// Inherited from QWidget
@@ -7349,10 +7597,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn VisibleRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_VisibleRegion(@ptrCast(self));
+    pub fn VisibleRegion(self: QAbstractItemView) QRegion {
+        return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7361,7 +7609,7 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` left: i32 `
     ///
@@ -7371,8 +7619,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QWidget_SetContentsMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
+    pub fn SetContentsMargins(self: QAbstractItemView, left: i32, top: i32, right: i32, bottom: i32) void {
+        qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QWidget
@@ -7381,12 +7629,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` margins: QtC.QMargins `
+    /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
-        qtc.QWidget_SetContentsMargins2(@ptrCast(self), @ptrCast(margins));
+    pub fn SetContentsMargins2(self: QAbstractItemView, margins: anytype) void {
+        comptime _ = @TypeOf(margins)._is_QMargins;
+        qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
 
     /// Inherited from QWidget
@@ -7395,10 +7644,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
-        return qtc.QWidget_ContentsMargins(@ptrCast(self));
+    pub fn ContentsMargins(self: QAbstractItemView) QMargins {
+        return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7407,10 +7656,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_ContentsRect(@ptrCast(self));
+    pub fn ContentsRect(self: QAbstractItemView) QRect {
+        return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7419,10 +7668,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn Layout(self: ?*anyopaque) QtC.QLayout {
-        return qtc.QWidget_Layout(@ptrCast(self));
+    pub fn Layout(self: QAbstractItemView) QLayout {
+        return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7431,12 +7680,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` layout: QtC.QLayout `
+    /// ` layout: QLayout `
     ///
-    pub fn SetLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
-        qtc.QWidget_SetLayout(@ptrCast(self), @ptrCast(layout));
+    pub fn SetLayout(self: QAbstractItemView, layout: anytype) void {
+        comptime _ = @TypeOf(layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
     }
 
     /// Inherited from QWidget
@@ -7445,10 +7695,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn UpdateGeometry(self: ?*anyopaque) void {
-        qtc.QWidget_UpdateGeometry(@ptrCast(self));
+    pub fn UpdateGeometry(self: QAbstractItemView) void {
+        qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7457,12 +7707,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QWidget_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QAbstractItemView, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QWidget
@@ -7471,14 +7722,15 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i32) void {
-        qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @bitCast(f));
+    pub fn SetParent2(self: QAbstractItemView, parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
     }
 
     /// Inherited from QWidget
@@ -7487,14 +7739,14 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QWidget_Scroll(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn Scroll(self: QAbstractItemView, dx: i32, dy: i32) void {
+        qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QWidget
@@ -7503,16 +7755,17 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    /// ` param3: QtC.QRect `
+    /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
-        qtc.QWidget_Scroll2(@ptrCast(self), @bitCast(dx), @bitCast(dy), @ptrCast(param3));
+    pub fn Scroll2(self: QAbstractItemView, dx: i32, dy: i32, param3: anytype) void {
+        comptime _ = @TypeOf(param3)._is_QRect;
+        qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
 
     /// Inherited from QWidget
@@ -7521,10 +7774,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn FocusWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_FocusWidget(@ptrCast(self));
+    pub fn FocusWidget(self: QAbstractItemView) QWidget {
+        return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7533,10 +7786,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn NextInFocusChain(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_NextInFocusChain(@ptrCast(self));
+    pub fn NextInFocusChain(self: QAbstractItemView) QWidget {
+        return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7545,10 +7798,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn PreviousInFocusChain(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_PreviousInFocusChain(@ptrCast(self));
+    pub fn PreviousInFocusChain(self: QAbstractItemView) QWidget {
+        return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7557,10 +7810,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn AcceptDrops(self: ?*anyopaque) bool {
-        return qtc.QWidget_AcceptDrops(@ptrCast(self));
+    pub fn AcceptDrops(self: QAbstractItemView) bool {
+        return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7569,12 +7822,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
-        qtc.QWidget_SetAcceptDrops(@ptrCast(self), on);
+    pub fn SetAcceptDrops(self: QAbstractItemView, on: bool) void {
+        qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
 
     /// Inherited from QWidget
@@ -7583,12 +7836,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_AddAction(@ptrCast(self), @ptrCast(action));
+    pub fn AddAction(self: QAbstractItemView, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -7597,16 +7851,16 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn AddActions(self: QAbstractItemView, actions: []QAction) void {
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.QWidget_AddActions(@ptrCast(self), actions_list);
+        qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
 
     /// Inherited from QWidget
@@ -7615,18 +7869,19 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` before: QtC.QAction `
+    /// ` before: QAction `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn InsertActions(self: QAbstractItemView, before: anytype, actions: []QAction) void {
+        comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.QWidget_InsertActions(@ptrCast(self), @ptrCast(before), actions_list);
+        qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
 
     /// Inherited from QWidget
@@ -7635,14 +7890,16 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` before: QtC.QAction `
+    /// ` before: QAction `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_InsertAction(@ptrCast(self), @ptrCast(before), @ptrCast(action));
+    pub fn InsertAction(self: QAbstractItemView, before: anytype, action: anytype) void {
+        comptime _ = @TypeOf(before)._is_QAction;
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -7651,12 +7908,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_RemoveAction(@ptrCast(self), @ptrCast(action));
+    pub fn RemoveAction(self: QAbstractItemView, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -7665,16 +7923,17 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
-        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self));
+    pub fn Actions(self: QAbstractItemView, allocator: std.mem.Allocator) []QAction {
+        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("qabstractitemview.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("qabstractitemview.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -7684,16 +7943,16 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction2(self: QAbstractItemView, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction2(@ptrCast(self), text_str);
+        return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
 
     /// Inherited from QWidget
@@ -7702,18 +7961,19 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction3(self: QAbstractItemView, icon: anytype, text: []const u8) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction3(@ptrCast(self), @ptrCast(icon), text_str);
+        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
     /// Inherited from QWidget
@@ -7722,18 +7982,19 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction4(self: QAbstractItemView, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction4(@ptrCast(self), text_str, @ptrCast(shortcut));
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7742,20 +8003,22 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction5(self: QAbstractItemView, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction5(@ptrCast(self), @ptrCast(icon), text_str, @ptrCast(shortcut));
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7764,10 +8027,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ParentWidget(@ptrCast(self));
+    pub fn ParentWidget(self: QAbstractItemView) QWidget {
+        return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7776,12 +8039,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_SetWindowFlags(@ptrCast(self), @bitCast(typeVal));
+    pub fn SetWindowFlags(self: QAbstractItemView, typeVal: i32) void {
+        qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -7790,14 +8053,14 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowFlags(@ptrCast(self));
+    pub fn WindowFlags(self: QAbstractItemView) i32 {
+        return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7806,12 +8069,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetWindowFlag(@ptrCast(self), @bitCast(param1));
+    pub fn SetWindowFlag(self: QAbstractItemView, param1: i32) void {
+        qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7820,12 +8083,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @bitCast(typeVal));
+    pub fn OverrideWindowFlags(self: QAbstractItemView, typeVal: i32) void {
+        qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -7834,14 +8097,14 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowType(@ptrCast(self));
+    pub fn WindowType(self: QAbstractItemView) i32 {
+        return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7852,8 +8115,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QtC.QWidget {
-        return qtc.QWidget_Find(@bitCast(param1));
+    pub fn Find(param1: usize) QWidget {
+        return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
 
     /// Inherited from QWidget
@@ -7862,14 +8125,14 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
-        return qtc.QWidget_ChildAt(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn ChildAt(self: QAbstractItemView, x: i32, y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
     }
 
     /// Inherited from QWidget
@@ -7878,12 +8141,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` p: QtC.QPoint `
+    /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAt2(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt2(self: QAbstractItemView, p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7892,12 +8156,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` p: QtC.QPointF `
+    /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAt3(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt3(self: QAbstractItemView, p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7906,12 +8171,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetAttribute(@ptrCast(self), @bitCast(param1));
+    pub fn SetAttribute(self: QAbstractItemView, param1: i32) void {
+        qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7920,12 +8185,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
-        return qtc.QWidget_TestAttribute(@ptrCast(self), @bitCast(param1));
+    pub fn TestAttribute(self: QAbstractItemView, param1: i32) bool {
+        return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7934,10 +8199,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn EnsurePolished(self: ?*anyopaque) void {
-        qtc.QWidget_EnsurePolished(@ptrCast(self));
+    pub fn EnsurePolished(self: QAbstractItemView) void {
+        qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7946,12 +8211,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` child: QtC.QWidget `
+    /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
-        return qtc.QWidget_IsAncestorOf(@ptrCast(self), @ptrCast(child));
+    pub fn IsAncestorOf(self: QAbstractItemView, child: anytype) bool {
+        comptime _ = @TypeOf(child)._is_QWidget;
+        return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
 
     /// Inherited from QWidget
@@ -7960,10 +8226,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn AutoFillBackground(self: ?*anyopaque) bool {
-        return qtc.QWidget_AutoFillBackground(@ptrCast(self));
+    pub fn AutoFillBackground(self: QAbstractItemView) bool {
+        return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7972,12 +8238,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: ?*anyopaque, enabled: bool) void {
-        qtc.QWidget_SetAutoFillBackground(@ptrCast(self), enabled);
+    pub fn SetAutoFillBackground(self: QAbstractItemView, enabled: bool) void {
+        qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QWidget
@@ -7986,10 +8252,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn BackingStore(self: ?*anyopaque) QtC.QBackingStore {
-        return qtc.QWidget_BackingStore(@ptrCast(self));
+    pub fn BackingStore(self: QAbstractItemView) QBackingStore {
+        return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7998,10 +8264,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn WindowHandle(self: ?*anyopaque) QtC.QWindow {
-        return qtc.QWidget_WindowHandle(@ptrCast(self));
+    pub fn WindowHandle(self: QAbstractItemView) QWindow {
+        return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -8010,10 +8276,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn Screen(self: ?*anyopaque) QtC.QScreen {
-        return qtc.QWidget_Screen(@ptrCast(self));
+    pub fn Screen(self: QAbstractItemView) QScreen {
+        return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -8022,12 +8288,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` screen: QtC.QScreen `
+    /// ` screen: QScreen `
     ///
-    pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
-        qtc.QWidget_SetScreen(@ptrCast(self), @ptrCast(screen));
+    pub fn SetScreen(self: QAbstractItemView, screen: anytype) void {
+        comptime _ = @TypeOf(screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
     }
 
     /// Inherited from QWidget
@@ -8036,10 +8303,11 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer(@ptrCast(window));
+    pub fn CreateWindowContainer(window: anytype) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -8048,16 +8316,16 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
+    pub fn WindowTitleChanged(self: QAbstractItemView, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        qtc.QWidget_WindowTitleChanged(@ptrCast(self), title_str);
+        qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
 
     /// Inherited from QWidget
@@ -8066,12 +8334,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, title: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowTitleChanged(self: QAbstractItemView, callback: *const fn (QAbstractItemView, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8080,12 +8348,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QWidget_WindowIconChanged(@ptrCast(self), @ptrCast(icon));
+    pub fn WindowIconChanged(self: QAbstractItemView, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QWidget
@@ -8094,12 +8363,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, icon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowIconChanged(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QIcon) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8108,16 +8377,16 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
+    pub fn WindowIconTextChanged(self: QAbstractItemView, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
-        qtc.QWidget_WindowIconTextChanged(@ptrCast(self), iconText_str);
+        qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
 
     /// Inherited from QWidget
@@ -8126,12 +8395,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, iconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowIconTextChanged(self: QAbstractItemView, callback: *const fn (QAbstractItemView, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8140,12 +8409,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` pos: QtC.QPoint `
+    /// ` pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: ?*anyopaque, pos: ?*anyopaque) void {
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self), @ptrCast(pos));
+    pub fn CustomContextMenuRequested(self: QAbstractItemView, pos: anytype) void {
+        comptime _ = @TypeOf(pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
     }
 
     /// Inherited from QWidget
@@ -8154,12 +8424,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, pos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomContextMenuRequested(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QPoint) callconv(.c) void) void {
+        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8168,14 +8438,14 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: ?*anyopaque) i32 {
-        return qtc.QWidget_InputMethodHints(@ptrCast(self));
+    pub fn InputMethodHints(self: QAbstractItemView) i32 {
+        return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8184,12 +8454,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
-        qtc.QWidget_SetInputMethodHints(@ptrCast(self), @bitCast(hints));
+    pub fn SetInputMethodHints(self: QAbstractItemView, hints: i32) void {
+        qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
 
     /// Inherited from QWidget
@@ -8198,14 +8468,16 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render22(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset));
+    pub fn Render22(self: QAbstractItemView, target: anytype, targetOffset: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// Inherited from QWidget
@@ -8214,16 +8486,19 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        qtc.QWidget_Render3(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+    pub fn Render3(self: QAbstractItemView, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// Inherited from QWidget
@@ -8232,18 +8507,21 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
+    pub fn Render4(self: QAbstractItemView, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -8252,14 +8530,16 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render23(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset));
+    pub fn Render23(self: QAbstractItemView, painter: anytype, targetOffset: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// Inherited from QWidget
@@ -8268,16 +8548,19 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        qtc.QWidget_Render32(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+    pub fn Render32(self: QAbstractItemView, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// Inherited from QWidget
@@ -8286,18 +8569,21 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
+    pub fn Render42(self: QAbstractItemView, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -8306,12 +8592,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` rectangle: QtC.QRect `
+    /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) QtC.QPixmap {
-        return qtc.QWidget_Grab1(@ptrCast(self), @ptrCast(rectangle));
+    pub fn Grab1(self: QAbstractItemView, rectangle: anytype) QPixmap {
+        comptime _ = @TypeOf(rectangle)._is_QRect;
+        return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -8320,14 +8607,14 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i32, flags: i32) void {
-        qtc.QWidget_GrabGesture2(@ptrCast(self), @bitCast(typeVal), @bitCast(flags));
+    pub fn GrabGesture2(self: QAbstractItemView, typeVal: i32, flags: i32) void {
+        qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
 
     /// Inherited from QWidget
@@ -8336,14 +8623,15 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` key: QtC.QKeySequence `
+    /// ` key: QKeySequence `
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
-        return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @bitCast(context));
+    pub fn GrabShortcut2(self: QAbstractItemView, key: anytype, context: i32) i32 {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
 
     /// Inherited from QWidget
@@ -8352,14 +8640,14 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self), @bitCast(id), enable);
+    pub fn SetShortcutEnabled2(self: QAbstractItemView, id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -8368,14 +8656,14 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self), @bitCast(id), enable);
+    pub fn SetShortcutAutoRepeat2(self: QAbstractItemView, id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -8384,14 +8672,14 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetWindowFlag2(@ptrCast(self), @bitCast(param1), on);
+    pub fn SetWindowFlag2(self: QAbstractItemView, param1: i32, on: bool) void {
+        qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -8400,14 +8688,14 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetAttribute2(@ptrCast(self), @bitCast(param1), on);
+    pub fn SetAttribute2(self: QAbstractItemView, param1: i32, on: bool) void {
+        qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -8416,12 +8704,14 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer2(@ptrCast(window), @ptrCast(parent));
+    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -8430,14 +8720,16 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i32) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @bitCast(flags));
+    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
     }
 
     /// Inherited from QObject
@@ -8446,12 +8738,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QAbstractItemView, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstractitemview.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -8464,12 +8756,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QAbstractItemView, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -8478,10 +8770,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QAbstractItemView) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -8490,10 +8782,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QAbstractItemView) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -8502,10 +8794,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QAbstractItemView) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -8514,10 +8806,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QAbstractItemView) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -8526,12 +8818,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QAbstractItemView, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -8540,10 +8832,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QAbstractItemView) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -8552,12 +8844,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QAbstractItemView, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -8566,12 +8859,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QAbstractItemView, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -8580,12 +8873,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QAbstractItemView, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -8594,12 +8887,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QAbstractItemView, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -8608,12 +8901,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QAbstractItemView, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -8622,16 +8915,17 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QAbstractItemView, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qabstractitemview.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qabstractitemview.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -8641,12 +8935,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QAbstractItemView, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -8655,12 +8950,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QAbstractItemView, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -8669,18 +8965,20 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -8689,16 +8987,20 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -8707,18 +9009,19 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QAbstractItemView, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -8727,18 +9030,20 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -8747,16 +9052,20 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -8765,10 +9074,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QAbstractItemView) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -8777,12 +9086,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QAbstractItemView, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -8791,10 +9101,11 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -8803,10 +9114,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QAbstractItemView) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -8815,10 +9126,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QAbstractItemView) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -8827,15 +9138,16 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QAbstractItemView, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -8844,13 +9156,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QAbstractItemView, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -8859,17 +9171,16 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QAbstractItemView, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qabstractitemview.DynamicPropertyNames: Memory allocation failed");
@@ -8888,10 +9199,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QAbstractItemView) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -8900,10 +9211,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QAbstractItemView) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -8912,10 +9223,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QAbstractItemView) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -8924,12 +9235,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QAbstractItemView, callback: *const fn (QAbstractItemView) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8938,10 +9249,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QAbstractItemView) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -8950,13 +9261,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QAbstractItemView, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -8965,10 +9276,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QAbstractItemView) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -8977,14 +9288,14 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QAbstractItemView, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -8993,14 +9304,14 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QAbstractItemView, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -9009,20 +9320,22 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -9031,18 +9344,22 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -9051,9 +9368,9 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -9061,10 +9378,11 @@ pub const qabstractitemview = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QAbstractItemView, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -9073,13 +9391,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QAbstractItemView, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -9088,15 +9406,16 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QAbstractItemView, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -9105,18 +9424,19 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QAbstractItemView, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -9125,15 +9445,16 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QAbstractItemView, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -9142,12 +9463,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QAbstractItemView, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -9156,12 +9478,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -9170,10 +9492,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn PaintingActive(self: ?*anyopaque) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self));
+    pub fn PaintingActive(self: QAbstractItemView) bool {
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -9182,10 +9504,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn WidthMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self));
+    pub fn WidthMM(self: QAbstractItemView) i32 {
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -9194,10 +9516,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn HeightMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self));
+    pub fn HeightMM(self: QAbstractItemView) i32 {
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -9206,10 +9528,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn LogicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self));
+    pub fn LogicalDpiX(self: QAbstractItemView) i32 {
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -9218,10 +9540,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn LogicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self));
+    pub fn LogicalDpiY(self: QAbstractItemView) i32 {
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -9230,10 +9552,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self));
+    pub fn PhysicalDpiX(self: QAbstractItemView) i32 {
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -9242,10 +9564,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self));
+    pub fn PhysicalDpiY(self: QAbstractItemView) i32 {
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -9254,10 +9576,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self));
+    pub fn DevicePixelRatio(self: QAbstractItemView) f64 {
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -9266,10 +9588,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self));
+    pub fn DevicePixelRatioF(self: QAbstractItemView) f64 {
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -9278,10 +9600,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn ColorCount(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self));
+    pub fn ColorCount(self: QAbstractItemView) i32 {
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -9290,10 +9612,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn Depth(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self));
+    pub fn Depth(self: QAbstractItemView) i32 {
+        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -9326,10 +9648,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn MinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QAbstractItemView_MinimumSizeHint(@ptrCast(self));
+    pub fn MinimumSizeHint(self: QAbstractItemView) QSize {
+        return .{ .ptr = qtc.QAbstractItemView_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
@@ -9344,10 +9666,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn SuperMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QAbstractItemView_SuperMinimumSizeHint(@ptrCast(self));
+    pub fn SuperMinimumSizeHint(self: QAbstractItemView) QSize {
+        return .{ .ptr = qtc.QAbstractItemView_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9358,12 +9680,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView`
+    /// ` self: QAbstractItemView`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnMinimumSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QAbstractItemView_OnMinimumSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMinimumSizeHint(self: QAbstractItemView, callback: *const fn () callconv(.c) QSize) void {
+        qtc.QAbstractItemView_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9374,10 +9696,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QAbstractItemView_SizeHint(@ptrCast(self));
+    pub fn SizeHint(self: QAbstractItemView) QSize {
+        return .{ .ptr = qtc.QAbstractItemView_SizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSizeHint` instead
@@ -9392,10 +9714,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QAbstractItemView_SuperSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: QAbstractItemView) QSize {
+        return .{ .ptr = qtc.QAbstractItemView_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9406,12 +9728,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView`
+    /// ` self: QAbstractItemView`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QAbstractItemView_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSizeHint(self: QAbstractItemView, callback: *const fn () callconv(.c) QSize) void {
+        qtc.QAbstractItemView_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9422,12 +9744,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` viewport: QtC.QWidget `
+    /// ` viewport: QWidget `
     ///
-    pub fn SetupViewport(self: ?*anyopaque, viewport: ?*anyopaque) void {
-        qtc.QAbstractItemView_SetupViewport(@ptrCast(self), @ptrCast(viewport));
+    pub fn SetupViewport(self: QAbstractItemView, viewport: anytype) void {
+        comptime _ = @TypeOf(viewport)._is_QWidget;
+        qtc.QAbstractItemView_SetupViewport(@ptrCast(self.ptr), @ptrCast(viewport.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSetupViewport` instead
@@ -9442,12 +9765,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` viewport: QtC.QWidget `
+    /// ` viewport: QWidget `
     ///
-    pub fn SuperSetupViewport(self: ?*anyopaque, viewport: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperSetupViewport(@ptrCast(self), @ptrCast(viewport));
+    pub fn SuperSetupViewport(self: QAbstractItemView, viewport: anytype) void {
+        comptime _ = @TypeOf(viewport)._is_QWidget;
+        qtc.QAbstractItemView_SuperSetupViewport(@ptrCast(self.ptr), @ptrCast(viewport.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9458,12 +9782,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView`
+    /// ` self: QAbstractItemView`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, viewport: QtC.QWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, viewport: QWidget) callconv(.c) void `
     ///
-    pub fn OnSetupViewport(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnSetupViewport(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetupViewport(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QWidget) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnSetupViewport(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9474,12 +9798,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` param1: QtC.QPaintEvent `
+    /// ` param1: QPaintEvent `
     ///
-    pub fn PaintEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QAbstractItemView_PaintEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn PaintEvent(self: QAbstractItemView, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPaintEvent;
+        qtc.QAbstractItemView_PaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperPaintEvent` instead
@@ -9494,12 +9819,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` param1: QtC.QPaintEvent `
+    /// ` param1: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperPaintEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperPaintEvent(self: QAbstractItemView, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPaintEvent;
+        qtc.QAbstractItemView_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9510,12 +9836,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView`
+    /// ` self: QAbstractItemView`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, param1: QtC.QPaintEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, param1: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnPaintEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaintEvent(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QPaintEvent) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9526,12 +9852,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` param1: QtC.QWheelEvent `
+    /// ` param1: QWheelEvent `
     ///
-    pub fn WheelEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QAbstractItemView_WheelEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn WheelEvent(self: QAbstractItemView, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWheelEvent;
+        qtc.QAbstractItemView_WheelEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperWheelEvent` instead
@@ -9546,12 +9873,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` param1: QtC.QWheelEvent `
+    /// ` param1: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperWheelEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperWheelEvent(self: QAbstractItemView, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWheelEvent;
+        qtc.QAbstractItemView_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9562,12 +9890,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView`
+    /// ` self: QAbstractItemView`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, param1: QtC.QWheelEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, param1: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnWheelEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWheelEvent(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QWheelEvent) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9578,12 +9906,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` param1: QtC.QContextMenuEvent `
+    /// ` param1: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QAbstractItemView_ContextMenuEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn ContextMenuEvent(self: QAbstractItemView, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
+        qtc.QAbstractItemView_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
@@ -9598,12 +9927,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` param1: QtC.QContextMenuEvent `
+    /// ` param1: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperContextMenuEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperContextMenuEvent(self: QAbstractItemView, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
+        qtc.QAbstractItemView_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9614,12 +9944,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView`
+    /// ` self: QAbstractItemView`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, param1: QtC.QContextMenuEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, param1: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnContextMenuEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnContextMenuEvent(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QContextMenuEvent) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9630,14 +9960,14 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    pub fn ScrollContentsBy(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QAbstractItemView_ScrollContentsBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn ScrollContentsBy(self: QAbstractItemView, dx: i32, dy: i32) void {
+        qtc.QAbstractItemView_ScrollContentsBy(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
     /// ### DEPRECATED: Use `SuperScrollContentsBy` instead
@@ -9652,14 +9982,14 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    pub fn SuperScrollContentsBy(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QAbstractItemView_SuperScrollContentsBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn SuperScrollContentsBy(self: QAbstractItemView, dx: i32, dy: i32) void {
+        qtc.QAbstractItemView_SuperScrollContentsBy(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9670,12 +10000,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView`
+    /// ` self: QAbstractItemView`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, dx: i32, dy: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, dx: i32, dy: i32) callconv(.c) void `
     ///
-    pub fn OnScrollContentsBy(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnScrollContentsBy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnScrollContentsBy(self: QAbstractItemView, callback: *const fn (QAbstractItemView, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnScrollContentsBy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFrame
@@ -9686,12 +10016,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` param1: QtC.QEvent `
+    /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QAbstractItemView_ChangeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn ChangeEvent(self: QAbstractItemView, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QEvent;
+        qtc.QAbstractItemView_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChangeEvent` instead
@@ -9706,12 +10037,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` param1: QtC.QEvent `
+    /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperChangeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperChangeEvent(self: QAbstractItemView, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QEvent;
+        qtc.QAbstractItemView_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QFrame
@@ -9722,12 +10054,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView`
+    /// ` self: QAbstractItemView`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, param1: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnChangeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChangeEvent(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QEvent) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFrame
@@ -9738,12 +10070,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` option: QtC.QStyleOptionFrame `
+    /// ` option: QStyleOptionFrame `
     ///
-    pub fn InitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        qtc.QAbstractItemView_InitStyleOption(@ptrCast(self), @ptrCast(option));
+    pub fn InitStyleOption(self: QAbstractItemView, option: anytype) void {
+        comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
+        qtc.QAbstractItemView_InitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInitStyleOption` instead
@@ -9758,12 +10091,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` option: QtC.QStyleOptionFrame `
+    /// ` option: QStyleOptionFrame `
     ///
-    pub fn SuperInitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperInitStyleOption(@ptrCast(self), @ptrCast(option));
+    pub fn SuperInitStyleOption(self: QAbstractItemView, option: anytype) void {
+        comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
+        qtc.QAbstractItemView_SuperInitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
     /// Inherited from QFrame
@@ -9774,12 +10108,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView`
+    /// ` self: QAbstractItemView`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, option: QtC.QStyleOptionFrame) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, option: QStyleOptionFrame) callconv(.c) void `
     ///
-    pub fn OnInitStyleOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnInitStyleOption(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInitStyleOption(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QStyleOptionFrame) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnInitStyleOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9790,10 +10124,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn DevType(self: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_DevType(@ptrCast(self));
+    pub fn DevType(self: QAbstractItemView) i32 {
+        return qtc.QAbstractItemView_DevType(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDevType` instead
@@ -9808,10 +10142,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn SuperDevType(self: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_SuperDevType(@ptrCast(self));
+    pub fn SuperDevType(self: QAbstractItemView) i32 {
+        return qtc.QAbstractItemView_SuperDevType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -9822,12 +10156,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView`
+    /// ` self: QAbstractItemView`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAbstractItemView_OnDevType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDevType(self: QAbstractItemView, callback: *const fn () callconv(.c) i32) void {
+        qtc.QAbstractItemView_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9838,12 +10172,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.QAbstractItemView_SetVisible(@ptrCast(self), visible);
+    pub fn SetVisible(self: QAbstractItemView, visible: bool) void {
+        qtc.QAbstractItemView_SetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// ### DEPRECATED: Use `SuperSetVisible` instead
@@ -9858,12 +10192,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.QAbstractItemView_SuperSetVisible(@ptrCast(self), visible);
+    pub fn SuperSetVisible(self: QAbstractItemView, visible: bool) void {
+        qtc.QAbstractItemView_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// Inherited from QWidget
@@ -9874,12 +10208,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView`
+    /// ` self: QAbstractItemView`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, visible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnSetVisible(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetVisible(self: QAbstractItemView, callback: *const fn (QAbstractItemView, bool) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9890,12 +10224,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QAbstractItemView_HeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn HeightForWidth(self: QAbstractItemView, param1: i32) i32 {
+        return qtc.QAbstractItemView_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### DEPRECATED: Use `SuperHeightForWidth` instead
@@ -9910,12 +10244,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QAbstractItemView_SuperHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperHeightForWidth(self: QAbstractItemView, param1: i32) i32 {
+        return qtc.QAbstractItemView_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -9926,12 +10260,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView`
+    /// ` self: QAbstractItemView`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, param1: i32) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QAbstractItemView, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QAbstractItemView_OnHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHeightForWidth(self: QAbstractItemView, callback: *const fn (QAbstractItemView, i32) callconv(.c) i32) void {
+        qtc.QAbstractItemView_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9942,10 +10276,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn HasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_HasHeightForWidth(@ptrCast(self));
+    pub fn HasHeightForWidth(self: QAbstractItemView) bool {
+        return qtc.QAbstractItemView_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
@@ -9960,10 +10294,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_SuperHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: QAbstractItemView) bool {
+        return qtc.QAbstractItemView_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -9974,12 +10308,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView`
+    /// ` self: QAbstractItemView`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QAbstractItemView_OnHasHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHasHeightForWidth(self: QAbstractItemView, callback: *const fn () callconv(.c) bool) void {
+        qtc.QAbstractItemView_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9990,10 +10324,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn PaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QAbstractItemView_PaintEngine(@ptrCast(self));
+    pub fn PaintEngine(self: QAbstractItemView) QPaintEngine {
+        return .{ .ptr = qtc.QAbstractItemView_PaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperPaintEngine` instead
@@ -10008,10 +10342,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn SuperPaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QAbstractItemView_SuperPaintEngine(@ptrCast(self));
+    pub fn SuperPaintEngine(self: QAbstractItemView) QPaintEngine {
+        return .{ .ptr = qtc.QAbstractItemView_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10022,12 +10356,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView`
+    /// ` self: QAbstractItemView`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPaintEngine `
+    /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.QAbstractItemView_OnPaintEngine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaintEngine(self: QAbstractItemView, callback: *const fn () callconv(.c) QPaintEngine) void {
+        qtc.QAbstractItemView_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10038,12 +10372,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_KeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn KeyReleaseEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QAbstractItemView_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
@@ -10058,12 +10393,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyReleaseEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QAbstractItemView_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -10074,12 +10410,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView`
+    /// ` self: QAbstractItemView`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, event: QtC.QKeyEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnKeyReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyReleaseEvent(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QKeyEvent) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10090,12 +10426,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QEnterEvent `
+    /// ` event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_EnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn EnterEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEnterEvent;
+        qtc.QAbstractItemView_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEnterEvent` instead
@@ -10110,12 +10447,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QEnterEvent `
+    /// ` event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEnterEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEnterEvent;
+        qtc.QAbstractItemView_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -10126,12 +10464,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView`
+    /// ` self: QAbstractItemView`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, event: QtC.QEnterEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEnterEvent(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QEnterEvent) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10142,12 +10480,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn LeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_LeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn LeaveEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QAbstractItemView_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperLeaveEvent` instead
@@ -10162,12 +10501,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperLeaveEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QAbstractItemView_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -10178,12 +10518,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView`
+    /// ` self: QAbstractItemView`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLeaveEvent(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QEvent) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10194,12 +10534,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QMoveEvent `
+    /// ` event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_MoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MoveEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMoveEvent;
+        qtc.QAbstractItemView_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMoveEvent` instead
@@ -10214,12 +10555,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QMoveEvent `
+    /// ` event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMoveEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMoveEvent;
+        qtc.QAbstractItemView_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -10230,12 +10572,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView`
+    /// ` self: QAbstractItemView`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, event: QtC.QMoveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMoveEvent(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QMoveEvent) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10246,12 +10588,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QCloseEvent `
+    /// ` event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_CloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CloseEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QCloseEvent;
+        qtc.QAbstractItemView_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCloseEvent` instead
@@ -10266,12 +10609,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QCloseEvent `
+    /// ` event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperCloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCloseEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QCloseEvent;
+        qtc.QAbstractItemView_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -10282,12 +10626,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView`
+    /// ` self: QAbstractItemView`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, event: QtC.QCloseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnCloseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCloseEvent(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QCloseEvent) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10298,12 +10642,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QTabletEvent `
+    /// ` event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_TabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TabletEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTabletEvent;
+        qtc.QAbstractItemView_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTabletEvent` instead
@@ -10318,12 +10663,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QTabletEvent `
+    /// ` event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperTabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTabletEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTabletEvent;
+        qtc.QAbstractItemView_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -10334,12 +10680,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView`
+    /// ` self: QAbstractItemView`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, event: QtC.QTabletEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnTabletEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTabletEvent(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QTabletEvent) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10350,12 +10696,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QActionEvent `
+    /// ` event: QActionEvent `
     ///
-    pub fn ActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_ActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ActionEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QActionEvent;
+        qtc.QAbstractItemView_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperActionEvent` instead
@@ -10370,12 +10717,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QActionEvent `
+    /// ` event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperActionEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QActionEvent;
+        qtc.QAbstractItemView_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -10386,12 +10734,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView`
+    /// ` self: QAbstractItemView`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, event: QtC.QActionEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnActionEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnActionEvent(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QActionEvent) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10402,12 +10750,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QShowEvent `
+    /// ` event: QShowEvent `
     ///
-    pub fn ShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_ShowEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ShowEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QShowEvent;
+        qtc.QAbstractItemView_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperShowEvent` instead
@@ -10422,12 +10771,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QShowEvent `
+    /// ` event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperShowEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperShowEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QShowEvent;
+        qtc.QAbstractItemView_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -10438,12 +10788,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView`
+    /// ` self: QAbstractItemView`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, event: QtC.QShowEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnShowEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnShowEvent(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QShowEvent) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10454,12 +10804,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QHideEvent `
+    /// ` event: QHideEvent `
     ///
-    pub fn HideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_HideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn HideEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QHideEvent;
+        qtc.QAbstractItemView_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHideEvent` instead
@@ -10474,12 +10825,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QHideEvent `
+    /// ` event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperHideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHideEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QHideEvent;
+        qtc.QAbstractItemView_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -10490,12 +10842,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView`
+    /// ` self: QAbstractItemView`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, event: QtC.QHideEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnHideEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHideEvent(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QHideEvent) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10506,7 +10858,7 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` eventType: []u8 `
     ///
@@ -10514,12 +10866,12 @@ pub const qabstractitemview = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn NativeEvent(self: QAbstractItemView, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QAbstractItemView_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QAbstractItemView_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// ### DEPRECATED: Use `SuperNativeEvent` instead
@@ -10534,7 +10886,7 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` eventType: []u8 `
     ///
@@ -10542,12 +10894,12 @@ pub const qabstractitemview = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn SuperNativeEvent(self: QAbstractItemView, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QAbstractItemView_SuperNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QAbstractItemView_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -10558,12 +10910,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView`
+    /// ` self: QAbstractItemView`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QAbstractItemView, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
-        qtc.QAbstractItemView_OnNativeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnNativeEvent(self: QAbstractItemView, callback: *const fn (QAbstractItemView, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+        qtc.QAbstractItemView_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10574,12 +10926,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QAbstractItemView_Metric(@ptrCast(self), @bitCast(param1));
+    pub fn Metric(self: QAbstractItemView, param1: i32) i32 {
+        return qtc.QAbstractItemView_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### DEPRECATED: Use `SuperMetric` instead
@@ -10594,12 +10946,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QAbstractItemView_SuperMetric(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMetric(self: QAbstractItemView, param1: i32) i32 {
+        return qtc.QAbstractItemView_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -10610,12 +10962,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView`
+    /// ` self: QAbstractItemView`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QAbstractItemView, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QAbstractItemView_OnMetric(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetric(self: QAbstractItemView, callback: *const fn (QAbstractItemView, i32) callconv(.c) i32) void {
+        qtc.QAbstractItemView_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10626,12 +10978,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QAbstractItemView_InitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn InitPainter(self: QAbstractItemView, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QAbstractItemView_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInitPainter` instead
@@ -10646,12 +10999,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperInitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperInitPainter(self: QAbstractItemView, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QAbstractItemView_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// Inherited from QWidget
@@ -10662,12 +11016,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView`
+    /// ` self: QAbstractItemView`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, painter: QtC.QPainter) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnInitPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInitPainter(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QPainter) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10678,12 +11032,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QAbstractItemView_Redirected(@ptrCast(self), @ptrCast(offset));
+    pub fn Redirected(self: QAbstractItemView, offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        return .{ .ptr = qtc.QAbstractItemView_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperRedirected` instead
@@ -10698,12 +11053,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QAbstractItemView_SuperRedirected(@ptrCast(self), @ptrCast(offset));
+    pub fn SuperRedirected(self: QAbstractItemView, offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        return .{ .ptr = qtc.QAbstractItemView_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10714,12 +11070,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView`
+    /// ` self: QAbstractItemView`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice `
+    /// ` callback: *const fn (self: QAbstractItemView, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.QAbstractItemView_OnRedirected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRedirected(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QPoint) callconv(.c) QPaintDevice) void {
+        qtc.QAbstractItemView_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10730,10 +11086,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn SharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QAbstractItemView_SharedPainter(@ptrCast(self));
+    pub fn SharedPainter(self: QAbstractItemView) QPainter {
+        return .{ .ptr = qtc.QAbstractItemView_SharedPainter(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSharedPainter` instead
@@ -10748,10 +11104,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn SuperSharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QAbstractItemView_SuperSharedPainter(@ptrCast(self));
+    pub fn SuperSharedPainter(self: QAbstractItemView) QPainter {
+        return .{ .ptr = qtc.QAbstractItemView_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10762,12 +11118,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView`
+    /// ` self: QAbstractItemView`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPainter `
+    /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
-        qtc.QAbstractItemView_OnSharedPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSharedPainter(self: QAbstractItemView, callback: *const fn () callconv(.c) QPainter) void {
+        qtc.QAbstractItemView_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -10778,12 +11134,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QAbstractItemView_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -10798,12 +11155,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QAbstractItemView_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -10814,12 +11172,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView`
+    /// ` self: QAbstractItemView`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QChildEvent) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -10830,12 +11188,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QAbstractItemView_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -10850,12 +11209,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QAbstractItemView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QAbstractItemView_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -10866,12 +11226,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView`
+    /// ` self: QAbstractItemView`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QEvent) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -10882,12 +11242,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QAbstractItemView_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QAbstractItemView, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QAbstractItemView_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -10902,12 +11263,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QAbstractItemView, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QAbstractItemView_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -10918,12 +11280,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView`
+    /// ` self: QAbstractItemView`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QMetaMethod) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -10934,12 +11296,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QAbstractItemView_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QAbstractItemView, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QAbstractItemView_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -10954,12 +11317,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QAbstractItemView, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QAbstractItemView_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -10970,12 +11334,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView`
+    /// ` self: QAbstractItemView`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QMetaMethod) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -10986,7 +11350,7 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` left: i32 `
     ///
@@ -10996,8 +11360,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetViewportMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QAbstractItemView_SetViewportMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
+    pub fn SetViewportMargins(self: QAbstractItemView, left: i32, top: i32, right: i32, bottom: i32) void {
+        qtc.QAbstractItemView_SetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// ### DEPRECATED: Use `SuperSetViewportMargins` instead
@@ -11012,7 +11376,7 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` left: i32 `
     ///
@@ -11022,8 +11386,8 @@ pub const qabstractitemview = struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SuperSetViewportMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QAbstractItemView_SuperSetViewportMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
+    pub fn SuperSetViewportMargins(self: QAbstractItemView, left: i32, top: i32, right: i32, bottom: i32) void {
+        qtc.QAbstractItemView_SuperSetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -11034,12 +11398,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView`
+    /// ` self: QAbstractItemView`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void `
     ///
-    pub fn OnSetViewportMargins(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnSetViewportMargins(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetViewportMargins(self: QAbstractItemView, callback: *const fn (QAbstractItemView, i32, i32, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnSetViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -11050,10 +11414,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn ViewportMargins(self: ?*anyopaque) QtC.QMargins {
-        return qtc.QAbstractItemView_ViewportMargins(@ptrCast(self));
+    pub fn ViewportMargins(self: QAbstractItemView) QMargins {
+        return .{ .ptr = qtc.QAbstractItemView_ViewportMargins(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperViewportMargins` instead
@@ -11068,10 +11432,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn SuperViewportMargins(self: ?*anyopaque) QtC.QMargins {
-        return qtc.QAbstractItemView_SuperViewportMargins(@ptrCast(self));
+    pub fn SuperViewportMargins(self: QAbstractItemView) QMargins {
+        return .{ .ptr = qtc.QAbstractItemView_SuperViewportMargins(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractScrollArea
@@ -11082,12 +11446,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView`
+    /// ` self: QAbstractItemView`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMargins `
+    /// ` callback: *const fn () callconv(.c) QMargins `
     ///
-    pub fn OnViewportMargins(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMargins) void {
-        qtc.QAbstractItemView_OnViewportMargins(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnViewportMargins(self: QAbstractItemView, callback: *const fn () callconv(.c) QMargins) void {
+        qtc.QAbstractItemView_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFrame
@@ -11098,12 +11462,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` param1: QtC.QPainter `
+    /// ` param1: QPainter `
     ///
-    pub fn DrawFrame(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QAbstractItemView_DrawFrame(@ptrCast(self), @ptrCast(param1));
+    pub fn DrawFrame(self: QAbstractItemView, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPainter;
+        qtc.QAbstractItemView_DrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDrawFrame` instead
@@ -11118,12 +11483,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` param1: QtC.QPainter `
+    /// ` param1: QPainter `
     ///
-    pub fn SuperDrawFrame(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperDrawFrame(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperDrawFrame(self: QAbstractItemView, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPainter;
+        qtc.QAbstractItemView_SuperDrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QFrame
@@ -11134,12 +11500,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView`
+    /// ` self: QAbstractItemView`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, param1: QtC.QPainter) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, param1: QPainter) callconv(.c) void `
     ///
-    pub fn OnDrawFrame(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_OnDrawFrame(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDrawFrame(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QPainter) callconv(.c) void) void {
+        qtc.QAbstractItemView_OnDrawFrame(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11150,10 +11516,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn UpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_UpdateMicroFocus(@ptrCast(self));
+    pub fn UpdateMicroFocus(self: QAbstractItemView) void {
+        qtc.QAbstractItemView_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
@@ -11168,10 +11534,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn SuperUpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperUpdateMicroFocus(@ptrCast(self));
+    pub fn SuperUpdateMicroFocus(self: QAbstractItemView) void {
+        qtc.QAbstractItemView_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11182,12 +11548,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView`
+    /// ` self: QAbstractItemView`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractItemView_OnUpdateMicroFocus(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUpdateMicroFocus(self: QAbstractItemView, callback: *const fn () callconv(.c) void) void {
+        qtc.QAbstractItemView_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11198,10 +11564,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn Create(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_Create(@ptrCast(self));
+    pub fn Create(self: QAbstractItemView) void {
+        qtc.QAbstractItemView_Create(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCreate` instead
@@ -11216,10 +11582,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn SuperCreate(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperCreate(@ptrCast(self));
+    pub fn SuperCreate(self: QAbstractItemView) void {
+        qtc.QAbstractItemView_SuperCreate(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11230,12 +11596,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView`
+    /// ` self: QAbstractItemView`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractItemView_OnCreate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreate(self: QAbstractItemView, callback: *const fn () callconv(.c) void) void {
+        qtc.QAbstractItemView_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11246,10 +11612,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn Destroy(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_Destroy(@ptrCast(self));
+    pub fn Destroy(self: QAbstractItemView) void {
+        qtc.QAbstractItemView_Destroy(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDestroy` instead
@@ -11264,10 +11630,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn SuperDestroy(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_SuperDestroy(@ptrCast(self));
+    pub fn SuperDestroy(self: QAbstractItemView) void {
+        qtc.QAbstractItemView_SuperDestroy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11278,12 +11644,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView`
+    /// ` self: QAbstractItemView`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractItemView_OnDestroy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroy(self: QAbstractItemView, callback: *const fn () callconv(.c) void) void {
+        qtc.QAbstractItemView_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11294,10 +11660,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn FocusNextChild(self: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_FocusNextChild(@ptrCast(self));
+    pub fn FocusNextChild(self: QAbstractItemView) bool {
+        return qtc.QAbstractItemView_FocusNextChild(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusNextChild` instead
@@ -11312,10 +11678,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn SuperFocusNextChild(self: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_SuperFocusNextChild(@ptrCast(self));
+    pub fn SuperFocusNextChild(self: QAbstractItemView) bool {
+        return qtc.QAbstractItemView_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11326,12 +11692,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView`
+    /// ` self: QAbstractItemView`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QAbstractItemView_OnFocusNextChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusNextChild(self: QAbstractItemView, callback: *const fn () callconv(.c) bool) void {
+        qtc.QAbstractItemView_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11342,10 +11708,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn FocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_FocusPreviousChild(@ptrCast(self));
+    pub fn FocusPreviousChild(self: QAbstractItemView) bool {
+        return qtc.QAbstractItemView_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
@@ -11360,10 +11726,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn SuperFocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_SuperFocusPreviousChild(@ptrCast(self));
+    pub fn SuperFocusPreviousChild(self: QAbstractItemView) bool {
+        return qtc.QAbstractItemView_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11374,12 +11740,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView`
+    /// ` self: QAbstractItemView`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QAbstractItemView_OnFocusPreviousChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusPreviousChild(self: QAbstractItemView, callback: *const fn () callconv(.c) bool) void {
+        qtc.QAbstractItemView_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -11390,10 +11756,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QAbstractItemView_Sender(@ptrCast(self));
+    pub fn Sender(self: QAbstractItemView) QObject {
+        return .{ .ptr = qtc.QAbstractItemView_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -11408,10 +11774,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QAbstractItemView_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QAbstractItemView) QObject {
+        return .{ .ptr = qtc.QAbstractItemView_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -11422,12 +11788,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView`
+    /// ` self: QAbstractItemView`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QAbstractItemView_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QAbstractItemView, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QAbstractItemView_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -11438,10 +11804,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QAbstractItemView) i32 {
+        return qtc.QAbstractItemView_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -11456,10 +11822,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QAbstractItemView) i32 {
+        return qtc.QAbstractItemView_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -11470,12 +11836,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView`
+    /// ` self: QAbstractItemView`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAbstractItemView_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QAbstractItemView, callback: *const fn () callconv(.c) i32) void {
+        qtc.QAbstractItemView_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -11486,13 +11852,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QAbstractItemView, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QAbstractItemView_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QAbstractItemView_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -11507,13 +11873,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QAbstractItemView, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QAbstractItemView_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QAbstractItemView_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -11524,12 +11890,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView`
+    /// ` self: QAbstractItemView`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QAbstractItemView, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QAbstractItemView_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QAbstractItemView, callback: *const fn (QAbstractItemView, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QAbstractItemView_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -11540,12 +11906,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QAbstractItemView, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QAbstractItemView_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -11560,12 +11927,13 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QAbstractItemView, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QAbstractItemView_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -11576,12 +11944,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView`
+    /// ` self: QAbstractItemView`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QAbstractItemView, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractItemView_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QMetaMethod) callconv(.c) bool) void {
+        qtc.QAbstractItemView_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -11592,14 +11960,14 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QAbstractItemView_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn GetDecodedMetricF(self: QAbstractItemView, metricA: i32, metricB: i32) f64 {
+        return qtc.QAbstractItemView_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
@@ -11614,14 +11982,14 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
     /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QAbstractItemView_SuperGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn SuperGetDecodedMetricF(self: QAbstractItemView, metricA: i32, metricB: i32) f64 {
+        return qtc.QAbstractItemView_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -11632,12 +12000,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView`
+    /// ` self: QAbstractItemView`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
+    /// ` callback: *const fn (self: QAbstractItemView, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.QAbstractItemView_OnGetDecodedMetricF(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnGetDecodedMetricF(self: QAbstractItemView, callback: *const fn (QAbstractItemView, i32, i32) callconv(.c) f64) void {
+        qtc.QAbstractItemView_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -11648,12 +12016,12 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemView, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractItemView, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QAbstractItemView, callback: *const fn (QAbstractItemView, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -11666,10 +12034,10 @@ pub const qabstractitemview = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QAbstractItemView `
+    /// ` self: QAbstractItemView `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_Delete(@ptrCast(self));
+    pub fn Delete(self: QAbstractItemView) void {
+        qtc.QAbstractItemView_Delete(@ptrCast(self.ptr));
     }
 };
 

@@ -1,61 +1,76 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const KParts__Part = @import("libqt6").KParts__Part;
+const QEvent = @import("libqt6").QEvent;
+const QWidget = @import("libqt6").QWidget;
 const qcoreevent_enums = @import("../libqcoreevent.zig").enums;
 
 /// ### [Upstream resources](https://api.kde.org/kparts-partactivateevent.html)
-pub const kparts__partactivateevent = struct {
+pub const KParts__PartActivateEvent = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kparts-partactivateevent.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KParts__PartActivateEvent,
+
+    pub const _is_KParts__PartActivateEvent = {};
+    pub const _is_QEvent = {};
+
     /// New constructs a new KParts::PartActivateEvent object.
     ///
     /// ## Parameter(s):
     ///
     /// ` activated: bool `
     ///
-    /// ` part: QtC.KParts__Part `
+    /// ` part: KParts__Part `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn New(activated: bool, part: ?*anyopaque, widget: ?*anyopaque) QtC.KParts__PartActivateEvent {
-        return qtc.KParts__PartActivateEvent_new(activated, @ptrCast(part), @ptrCast(widget));
+    pub fn New(activated: bool, part: anytype, widget: anytype) KParts__PartActivateEvent {
+        comptime _ = @TypeOf(part)._is_KParts__Part;
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        return .{ .ptr = qtc.KParts__PartActivateEvent_new(activated, @ptrCast(part.ptr), @ptrCast(widget.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-partactivateevent.html#activated)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartActivateEvent `
+    /// ` self: KParts__PartActivateEvent `
     ///
-    pub fn Activated(self: ?*anyopaque) bool {
-        return qtc.KParts__PartActivateEvent_Activated(@ptrCast(self));
+    pub fn Activated(self: KParts__PartActivateEvent) bool {
+        return qtc.KParts__PartActivateEvent_Activated(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-partactivateevent.html#part)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartActivateEvent `
+    /// ` self: KParts__PartActivateEvent `
     ///
-    pub fn Part(self: ?*anyopaque) QtC.KParts__Part {
-        return qtc.KParts__PartActivateEvent_Part(@ptrCast(self));
+    pub fn Part(self: KParts__PartActivateEvent) KParts__Part {
+        return .{ .ptr = qtc.KParts__PartActivateEvent_Part(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-partactivateevent.html#widget)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartActivateEvent `
+    /// ` self: KParts__PartActivateEvent `
     ///
-    pub fn Widget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.KParts__PartActivateEvent_Widget(@ptrCast(self));
+    pub fn Widget(self: KParts__PartActivateEvent) QWidget {
+        return .{ .ptr = qtc.KParts__PartActivateEvent_Widget(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-partactivateevent.html#test)
     ///
     /// ## Parameter(s):
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Test(event: ?*anyopaque) bool {
-        return qtc.KParts__PartActivateEvent_Test(@ptrCast(event));
+    pub fn Test(event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KParts__PartActivateEvent_Test(@ptrCast(event.ptr));
     }
 
     /// Inherited from QEvent
@@ -64,14 +79,14 @@ pub const kparts__partactivateevent = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartActivateEvent `
+    /// ` self: KParts__PartActivateEvent `
     ///
     /// ## Returns:
     ///
     /// ` qcoreevent_enums.Type `
     ///
-    pub fn Type(self: ?*anyopaque) i32 {
-        return qtc.QEvent_Type(@ptrCast(self));
+    pub fn Type(self: KParts__PartActivateEvent) i32 {
+        return qtc.QEvent_Type(@ptrCast(self.ptr));
     }
 
     /// Inherited from QEvent
@@ -80,10 +95,10 @@ pub const kparts__partactivateevent = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartActivateEvent `
+    /// ` self: KParts__PartActivateEvent `
     ///
-    pub fn Spontaneous(self: ?*anyopaque) bool {
-        return qtc.QEvent_Spontaneous(@ptrCast(self));
+    pub fn Spontaneous(self: KParts__PartActivateEvent) bool {
+        return qtc.QEvent_Spontaneous(@ptrCast(self.ptr));
     }
 
     /// Inherited from QEvent
@@ -92,10 +107,10 @@ pub const kparts__partactivateevent = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartActivateEvent `
+    /// ` self: KParts__PartActivateEvent `
     ///
-    pub fn IsAccepted(self: ?*anyopaque) bool {
-        return qtc.QEvent_IsAccepted(@ptrCast(self));
+    pub fn IsAccepted(self: KParts__PartActivateEvent) bool {
+        return qtc.QEvent_IsAccepted(@ptrCast(self.ptr));
     }
 
     /// Inherited from QEvent
@@ -104,10 +119,10 @@ pub const kparts__partactivateevent = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartActivateEvent `
+    /// ` self: KParts__PartActivateEvent `
     ///
-    pub fn Accept(self: ?*anyopaque) void {
-        qtc.QEvent_Accept(@ptrCast(self));
+    pub fn Accept(self: KParts__PartActivateEvent) void {
+        qtc.QEvent_Accept(@ptrCast(self.ptr));
     }
 
     /// Inherited from QEvent
@@ -116,10 +131,10 @@ pub const kparts__partactivateevent = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartActivateEvent `
+    /// ` self: KParts__PartActivateEvent `
     ///
-    pub fn Ignore(self: ?*anyopaque) void {
-        qtc.QEvent_Ignore(@ptrCast(self));
+    pub fn Ignore(self: KParts__PartActivateEvent) void {
+        qtc.QEvent_Ignore(@ptrCast(self.ptr));
     }
 
     /// Inherited from QEvent
@@ -128,10 +143,10 @@ pub const kparts__partactivateevent = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartActivateEvent `
+    /// ` self: KParts__PartActivateEvent `
     ///
-    pub fn IsInputEvent(self: ?*anyopaque) bool {
-        return qtc.QEvent_IsInputEvent(@ptrCast(self));
+    pub fn IsInputEvent(self: KParts__PartActivateEvent) bool {
+        return qtc.QEvent_IsInputEvent(@ptrCast(self.ptr));
     }
 
     /// Inherited from QEvent
@@ -140,10 +155,10 @@ pub const kparts__partactivateevent = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartActivateEvent `
+    /// ` self: KParts__PartActivateEvent `
     ///
-    pub fn IsPointerEvent(self: ?*anyopaque) bool {
-        return qtc.QEvent_IsPointerEvent(@ptrCast(self));
+    pub fn IsPointerEvent(self: KParts__PartActivateEvent) bool {
+        return qtc.QEvent_IsPointerEvent(@ptrCast(self.ptr));
     }
 
     /// Inherited from QEvent
@@ -152,10 +167,10 @@ pub const kparts__partactivateevent = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartActivateEvent `
+    /// ` self: KParts__PartActivateEvent `
     ///
-    pub fn IsSinglePointEvent(self: ?*anyopaque) bool {
-        return qtc.QEvent_IsSinglePointEvent(@ptrCast(self));
+    pub fn IsSinglePointEvent(self: KParts__PartActivateEvent) bool {
+        return qtc.QEvent_IsSinglePointEvent(@ptrCast(self.ptr));
     }
 
     /// Inherited from QEvent
@@ -186,12 +201,12 @@ pub const kparts__partactivateevent = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartActivateEvent `
+    /// ` self: KParts__PartActivateEvent `
     ///
     /// ` accepted: bool `
     ///
-    pub fn SetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.KParts__PartActivateEvent_SetAccepted(@ptrCast(self), accepted);
+    pub fn SetAccepted(self: KParts__PartActivateEvent, accepted: bool) void {
+        qtc.KParts__PartActivateEvent_SetAccepted(@ptrCast(self.ptr), accepted);
     }
 
     /// ### DEPRECATED: Use `SuperSetAccepted` instead
@@ -206,12 +221,12 @@ pub const kparts__partactivateevent = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartActivateEvent `
+    /// ` self: KParts__PartActivateEvent `
     ///
     /// ` accepted: bool `
     ///
-    pub fn SuperSetAccepted(self: ?*anyopaque, accepted: bool) void {
-        qtc.KParts__PartActivateEvent_SuperSetAccepted(@ptrCast(self), accepted);
+    pub fn SuperSetAccepted(self: KParts__PartActivateEvent, accepted: bool) void {
+        qtc.KParts__PartActivateEvent_SuperSetAccepted(@ptrCast(self.ptr), accepted);
     }
 
     /// Inherited from QEvent
@@ -222,12 +237,12 @@ pub const kparts__partactivateevent = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__PartActivateEvent`
+    /// ` self: KParts__PartActivateEvent`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__PartActivateEvent, accepted: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__PartActivateEvent, accepted: bool) callconv(.c) void `
     ///
-    pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KParts__PartActivateEvent_OnSetAccepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetAccepted(self: KParts__PartActivateEvent, callback: *const fn (KParts__PartActivateEvent, bool) callconv(.c) void) void {
+        qtc.KParts__PartActivateEvent_OnSetAccepted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QEvent
@@ -238,10 +253,10 @@ pub const kparts__partactivateevent = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartActivateEvent `
+    /// ` self: KParts__PartActivateEvent `
     ///
-    pub fn Clone(self: ?*anyopaque) QtC.QEvent {
-        return qtc.KParts__PartActivateEvent_Clone(@ptrCast(self));
+    pub fn Clone(self: KParts__PartActivateEvent) QEvent {
+        return .{ .ptr = qtc.KParts__PartActivateEvent_Clone(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperClone` instead
@@ -256,10 +271,10 @@ pub const kparts__partactivateevent = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartActivateEvent `
+    /// ` self: KParts__PartActivateEvent `
     ///
-    pub fn SuperClone(self: ?*anyopaque) QtC.QEvent {
-        return qtc.KParts__PartActivateEvent_SuperClone(@ptrCast(self));
+    pub fn SuperClone(self: KParts__PartActivateEvent) QEvent {
+        return .{ .ptr = qtc.KParts__PartActivateEvent_SuperClone(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QEvent
@@ -270,12 +285,12 @@ pub const kparts__partactivateevent = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__PartActivateEvent`
+    /// ` self: KParts__PartActivateEvent`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QEvent `
+    /// ` callback: *const fn () callconv(.c) QEvent `
     ///
-    pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QEvent) void {
-        qtc.KParts__PartActivateEvent_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnClone(self: KParts__PartActivateEvent, callback: *const fn () callconv(.c) QEvent) void {
+        qtc.KParts__PartActivateEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -286,9 +301,9 @@ pub const kparts__partactivateevent = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KParts__PartActivateEvent `
+    /// ` self: KParts__PartActivateEvent `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KParts__PartActivateEvent_Delete(@ptrCast(self));
+    pub fn Delete(self: KParts__PartActivateEvent) void {
+        qtc.KParts__PartActivateEvent_Delete(@ptrCast(self.ptr));
     }
 };

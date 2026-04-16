@@ -1,23 +1,37 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QGeoAreaMonitorSource = @import("libqt6").QGeoAreaMonitorSource;
+const QGeoPositionInfoSource = @import("libqt6").QGeoPositionInfoSource;
+const QGeoSatelliteInfoSource = @import("libqt6").QGeoSatelliteInfoSource;
+const QObject = @import("libqt6").QObject;
+const QVariant = @import("libqt6").QVariant;
 const std = @import("std");
-const arraymap_constu8_qtcqvariant = std.array_hash_map.String(QtC.QVariant);
+const ArrayMap_constu8_QVariant = std.array_hash_map.String(QVariant);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfosourcefactory.html)
-pub const qgeopositioninfosourcefactory = struct {
+pub const QGeoPositionInfoSourceFactory = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfosourcefactory.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QGeoPositionInfoSourceFactory,
+
+    pub const _is_QGeoPositionInfoSourceFactory = {};
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfosourcefactory.html#positionInfoSource)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoPositionInfoSourceFactory `
-    ///
-    /// ` parent: QtC.QObject `
-    ///
-    /// ` parameters: arraymap_constu8_qtcqvariant `
+    /// ` self: QGeoPositionInfoSourceFactory `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PositionInfoSource(self: ?*anyopaque, parent: ?*anyopaque, parameters: arraymap_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.QGeoPositionInfoSource {
+    /// ` parent: QObject `
+    ///
+    /// ` parameters: ArrayMap_constu8_QVariant `
+    ///
+    pub fn PositionInfoSource(self: QGeoPositionInfoSourceFactory, allocator: std.mem.Allocator, parent: anytype, parameters: ArrayMap_constu8_QVariant) QGeoPositionInfoSource {
+        comptime _ = @TypeOf(parent)._is_QObject;
         const parameters_count = parameters.count();
         const parameters_keys = allocator.alloc(qtc.libqt_string, parameters_count) catch @panic("qgeopositioninfosourcefactory.PositionInfoSource: Memory allocation failed");
         defer allocator.free(parameters_keys);
@@ -31,29 +45,30 @@ pub const qgeopositioninfosourcefactory = struct {
                 .len = parameters_key.len,
                 .data = parameters_key.ptr,
             };
-            parameters_values[i] = @ptrCast(it_entry.value_ptr.*);
+            parameters_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const parameters_map = qtc.libqt_map{
             .len = parameters_count,
             .keys = @ptrCast(parameters_keys.ptr),
             .values = @ptrCast(parameters_values.ptr),
         };
-        return qtc.QGeoPositionInfoSourceFactory_PositionInfoSource(@ptrCast(self), @ptrCast(parent), parameters_map);
+        return .{ .ptr = qtc.QGeoPositionInfoSourceFactory_PositionInfoSource(@ptrCast(self.ptr), @ptrCast(parent.ptr), parameters_map) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfosourcefactory.html#satelliteInfoSource)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoPositionInfoSourceFactory `
-    ///
-    /// ` parent: QtC.QObject `
-    ///
-    /// ` parameters: arraymap_constu8_qtcqvariant `
+    /// ` self: QGeoPositionInfoSourceFactory `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SatelliteInfoSource(self: ?*anyopaque, parent: ?*anyopaque, parameters: arraymap_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.QGeoSatelliteInfoSource {
+    /// ` parent: QObject `
+    ///
+    /// ` parameters: ArrayMap_constu8_QVariant `
+    ///
+    pub fn SatelliteInfoSource(self: QGeoPositionInfoSourceFactory, allocator: std.mem.Allocator, parent: anytype, parameters: ArrayMap_constu8_QVariant) QGeoSatelliteInfoSource {
+        comptime _ = @TypeOf(parent)._is_QObject;
         const parameters_count = parameters.count();
         const parameters_keys = allocator.alloc(qtc.libqt_string, parameters_count) catch @panic("qgeopositioninfosourcefactory.SatelliteInfoSource: Memory allocation failed");
         defer allocator.free(parameters_keys);
@@ -67,29 +82,30 @@ pub const qgeopositioninfosourcefactory = struct {
                 .len = parameters_key.len,
                 .data = parameters_key.ptr,
             };
-            parameters_values[i] = @ptrCast(it_entry.value_ptr.*);
+            parameters_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const parameters_map = qtc.libqt_map{
             .len = parameters_count,
             .keys = @ptrCast(parameters_keys.ptr),
             .values = @ptrCast(parameters_values.ptr),
         };
-        return qtc.QGeoPositionInfoSourceFactory_SatelliteInfoSource(@ptrCast(self), @ptrCast(parent), parameters_map);
+        return .{ .ptr = qtc.QGeoPositionInfoSourceFactory_SatelliteInfoSource(@ptrCast(self.ptr), @ptrCast(parent.ptr), parameters_map) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfosourcefactory.html#areaMonitor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoPositionInfoSourceFactory `
-    ///
-    /// ` parent: QtC.QObject `
-    ///
-    /// ` parameters: arraymap_constu8_qtcqvariant `
+    /// ` self: QGeoPositionInfoSourceFactory `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AreaMonitor(self: ?*anyopaque, parent: ?*anyopaque, parameters: arraymap_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.QGeoAreaMonitorSource {
+    /// ` parent: QObject `
+    ///
+    /// ` parameters: ArrayMap_constu8_QVariant `
+    ///
+    pub fn AreaMonitor(self: QGeoPositionInfoSourceFactory, allocator: std.mem.Allocator, parent: anytype, parameters: ArrayMap_constu8_QVariant) QGeoAreaMonitorSource {
+        comptime _ = @TypeOf(parent)._is_QObject;
         const parameters_count = parameters.count();
         const parameters_keys = allocator.alloc(qtc.libqt_string, parameters_count) catch @panic("qgeopositioninfosourcefactory.AreaMonitor: Memory allocation failed");
         defer allocator.free(parameters_keys);
@@ -103,26 +119,27 @@ pub const qgeopositioninfosourcefactory = struct {
                 .len = parameters_key.len,
                 .data = parameters_key.ptr,
             };
-            parameters_values[i] = @ptrCast(it_entry.value_ptr.*);
+            parameters_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const parameters_map = qtc.libqt_map{
             .len = parameters_count,
             .keys = @ptrCast(parameters_keys.ptr),
             .values = @ptrCast(parameters_values.ptr),
         };
-        return qtc.QGeoPositionInfoSourceFactory_AreaMonitor(@ptrCast(self), @ptrCast(parent), parameters_map);
+        return .{ .ptr = qtc.QGeoPositionInfoSourceFactory_AreaMonitor(@ptrCast(self.ptr), @ptrCast(parent.ptr), parameters_map) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfosourcefactory.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoPositionInfoSourceFactory `
+    /// ` self: QGeoPositionInfoSourceFactory `
     ///
-    /// ` param1: QtC.QGeoPositionInfoSourceFactory `
+    /// ` param1: QGeoPositionInfoSourceFactory `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QGeoPositionInfoSourceFactory_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+    pub fn OperatorAssign(self: QGeoPositionInfoSourceFactory, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QGeoPositionInfoSourceFactory;
+        qtc.QGeoPositionInfoSourceFactory_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -135,9 +152,9 @@ pub const qgeopositioninfosourcefactory = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QGeoPositionInfoSourceFactory `
+    /// ` self: QGeoPositionInfoSourceFactory `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QGeoPositionInfoSourceFactory_Delete(@ptrCast(self));
+    pub fn Delete(self: QGeoPositionInfoSourceFactory) void {
+        qtc.QGeoPositionInfoSourceFactory_Delete(@ptrCast(self.ptr));
     }
 };

@@ -1,25 +1,46 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const KPluginMetaData = @import("libqt6").KPluginMetaData;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QEvent = @import("libqt6").QEvent;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
+const QWidget = @import("libqt6").QWidget;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/kpluginfactory.html)
-pub const kpluginfactory = struct {
+pub const KPluginFactory = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kpluginfactory.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KPluginFactory,
+
+    pub const _is_KPluginFactory = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new KPluginFactory object.
     ///
-    pub fn New() QtC.KPluginFactory {
-        return qtc.KPluginFactory_new();
+    pub fn New() KPluginFactory {
+        return .{ .ptr = qtc.KPluginFactory_new() };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KPluginFactory_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: KPluginFactory) QMetaObject {
+        return .{ .ptr = qtc.KPluginFactory_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -28,12 +49,12 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.KPluginFactory_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: KPluginFactory, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.KPluginFactory_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -46,33 +67,33 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KPluginFactory_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: KPluginFactory) QMetaObject {
+        return .{ .ptr = qtc.KPluginFactory_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: KPluginFactory, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KPluginFactory_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.KPluginFactory_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    /// ` callback: *const fn (self: QtC.KPluginFactory, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: KPluginFactory, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.KPluginFactory_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: KPluginFactory, callback: *const fn (KPluginFactory, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.KPluginFactory_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -83,18 +104,18 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: KPluginFactory, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KPluginFactory_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KPluginFactory_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -102,20 +123,20 @@ pub const kpluginfactory = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KPluginFactory_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: KPluginFactory, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KPluginFactory_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    /// ` callback: *const fn (self: QtC.KPluginFactory, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KPluginFactory, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.KPluginFactory_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: KPluginFactory, callback: *const fn (KPluginFactory, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.KPluginFactory_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -126,7 +147,7 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -134,19 +155,19 @@ pub const kpluginfactory = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KPluginFactory_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: KPluginFactory, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KPluginFactory_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -159,45 +180,48 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    pub fn MetaData(self: ?*anyopaque) QtC.KPluginMetaData {
-        return qtc.KPluginFactory_MetaData(@ptrCast(self));
+    pub fn MetaData(self: KPluginFactory) KPluginMetaData {
+        return .{ .ptr = qtc.KPluginFactory_MetaData(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpluginfactory.html#setMetaData)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    /// ` metaData: QtC.KPluginMetaData `
+    /// ` metaData: KPluginMetaData `
     ///
-    pub fn SetMetaData(self: ?*anyopaque, metaData: ?*anyopaque) void {
-        qtc.KPluginFactory_SetMetaData(@ptrCast(self), @ptrCast(metaData));
+    pub fn SetMetaData(self: KPluginFactory, metaData: anytype) void {
+        comptime _ = @TypeOf(metaData)._is_KPluginMetaData;
+        qtc.KPluginFactory_SetMetaData(@ptrCast(self.ptr), @ptrCast(metaData.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpluginfactory.html#create)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
     /// ` iface: [:0]const u8 `
     ///
-    /// ` parentWidget: QtC.QWidget `
+    /// ` parentWidget: QWidget `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    /// ` args: []QtC.QVariant `
+    /// ` args: []QVariant `
     ///
-    pub fn Create(self: ?*anyopaque, iface: [:0]const u8, parentWidget: ?*anyopaque, parent: ?*anyopaque, args: []QtC.QVariant) QtC.QObject {
+    pub fn Create(self: KPluginFactory, iface: [:0]const u8, parentWidget: anytype, parent: anytype, args: []QVariant) QObject {
         const iface_Cstring = iface.ptr;
+        comptime _ = @TypeOf(parentWidget)._is_QWidget;
+        comptime _ = @TypeOf(parent)._is_QObject;
         const args_list = qtc.libqt_list{
             .len = args.len,
             .data = @ptrCast(args.ptr),
         };
-        return qtc.KPluginFactory_Create(@ptrCast(self), iface_Cstring, @ptrCast(parentWidget), @ptrCast(parent), args_list);
+        return .{ .ptr = qtc.KPluginFactory_Create(@ptrCast(self.ptr), iface_Cstring, @ptrCast(parentWidget.ptr), @ptrCast(parent.ptr), args_list) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpluginfactory.html#create)
@@ -206,12 +230,12 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    /// ` callback: *const fn (self: QtC.KPluginFactory, iface: [*:0]const u8, parentWidget: QtC.QWidget, parent: QtC.QObject, args: qtc.libqt_list ([]QtC.QVariant)) callconv(.c) QtC.QObject `
+    /// ` callback: *const fn (self: KPluginFactory, iface: [*:0]const u8, parentWidget: QWidget, parent: QObject, args: qtc.libqt_list ([]QVariant)) callconv(.c) QObject `
     ///
-    pub fn OnCreate(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?*anyopaque, ?*anyopaque, qtc.libqt_list) callconv(.c) QtC.QObject) void {
-        qtc.KPluginFactory_OnCreate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreate(self: KPluginFactory, callback: *const fn (KPluginFactory, [*:0]const u8, QWidget, QObject, qtc.libqt_list) callconv(.c) QObject) void {
+        qtc.KPluginFactory_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperCreate` instead
@@ -224,36 +248,38 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
     /// ` iface: [:0]const u8 `
     ///
-    /// ` parentWidget: QtC.QWidget `
+    /// ` parentWidget: QWidget `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    /// ` args: []QtC.QVariant `
+    /// ` args: []QVariant `
     ///
-    pub fn SuperCreate(self: ?*anyopaque, iface: [:0]const u8, parentWidget: ?*anyopaque, parent: ?*anyopaque, args: []QtC.QVariant) QtC.QObject {
+    pub fn SuperCreate(self: KPluginFactory, iface: [:0]const u8, parentWidget: anytype, parent: anytype, args: []QVariant) QObject {
         const iface_Cstring = iface.ptr;
+        comptime _ = @TypeOf(parentWidget)._is_QWidget;
+        comptime _ = @TypeOf(parent)._is_QObject;
         const args_list = qtc.libqt_list{
             .len = args.len,
             .data = @ptrCast(args.ptr),
         };
-        return qtc.KPluginFactory_SuperCreate(@ptrCast(self), iface_Cstring, @ptrCast(parentWidget), @ptrCast(parent), args_list);
+        return .{ .ptr = qtc.KPluginFactory_SuperCreate(@ptrCast(self.ptr), iface_Cstring, @ptrCast(parentWidget.ptr), @ptrCast(parent.ptr), args_list) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -267,15 +293,15 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -291,12 +317,12 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: KPluginFactory, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kpluginfactory.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -309,12 +335,12 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: KPluginFactory, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -323,10 +349,10 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: KPluginFactory) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -335,10 +361,10 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: KPluginFactory) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -347,10 +373,10 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: KPluginFactory) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -359,10 +385,10 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: KPluginFactory) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -371,12 +397,12 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: KPluginFactory, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -385,10 +411,10 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: KPluginFactory) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -397,12 +423,13 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: KPluginFactory, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -411,12 +438,12 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: KPluginFactory, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -425,12 +452,12 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: KPluginFactory, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -439,12 +466,12 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: KPluginFactory, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -453,12 +480,12 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: KPluginFactory, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -467,16 +494,17 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: KPluginFactory, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("kpluginfactory.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kpluginfactory.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -486,12 +514,13 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: KPluginFactory, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -500,12 +529,13 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: KPluginFactory, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -514,12 +544,13 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: KPluginFactory, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -528,18 +559,20 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -548,16 +581,20 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -566,18 +603,19 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: KPluginFactory, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -586,18 +624,20 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -606,16 +646,20 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -624,10 +668,10 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: KPluginFactory) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -636,12 +680,13 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: KPluginFactory, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -650,10 +695,11 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -662,10 +708,10 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: KPluginFactory) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -674,10 +720,10 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: KPluginFactory) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -686,15 +732,16 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: KPluginFactory, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -703,13 +750,13 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: KPluginFactory, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -718,17 +765,16 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: KPluginFactory, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kpluginfactory.DynamicPropertyNames: Memory allocation failed");
@@ -747,10 +793,10 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: KPluginFactory) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -759,10 +805,10 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: KPluginFactory) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -771,10 +817,10 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: KPluginFactory) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -783,12 +829,12 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    /// ` callback: *const fn (self: QtC.KPluginFactory) callconv(.c) void `
+    /// ` callback: *const fn (self: KPluginFactory) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: KPluginFactory, callback: *const fn (KPluginFactory) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -797,10 +843,10 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: KPluginFactory) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -809,13 +855,13 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: KPluginFactory, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -824,10 +870,10 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: KPluginFactory) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -836,14 +882,14 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: KPluginFactory, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -852,14 +898,14 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: KPluginFactory, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -868,20 +914,22 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -890,18 +938,22 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -910,9 +962,9 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -920,10 +972,11 @@ pub const kpluginfactory = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: KPluginFactory, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -932,13 +985,13 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: KPluginFactory, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -947,15 +1000,16 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: KPluginFactory, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -964,18 +1018,19 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: KPluginFactory, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -984,15 +1039,16 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: KPluginFactory, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1001,12 +1057,13 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: KPluginFactory, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1015,12 +1072,12 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    /// ` callback: *const fn (self: QtC.KPluginFactory, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: KPluginFactory, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: KPluginFactory, callback: *const fn (KPluginFactory, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1031,12 +1088,13 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KPluginFactory_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: KPluginFactory, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KPluginFactory_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -1051,12 +1109,13 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KPluginFactory_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: KPluginFactory, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KPluginFactory_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1067,12 +1126,12 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPluginFactory`
+    /// ` self: KPluginFactory`
     ///
-    /// ` callback: *const fn (self: QtC.KPluginFactory, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KPluginFactory, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KPluginFactory_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: KPluginFactory, callback: *const fn (KPluginFactory, QEvent) callconv(.c) bool) void {
+        qtc.KPluginFactory_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1083,14 +1142,16 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KPluginFactory_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: KPluginFactory, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KPluginFactory_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -1105,14 +1166,16 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KPluginFactory_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: KPluginFactory, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KPluginFactory_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1123,12 +1186,12 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPluginFactory`
+    /// ` self: KPluginFactory`
     ///
-    /// ` callback: *const fn (self: QtC.KPluginFactory, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KPluginFactory, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KPluginFactory_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: KPluginFactory, callback: *const fn (KPluginFactory, QObject, QEvent) callconv(.c) bool) void {
+        qtc.KPluginFactory_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1139,12 +1202,13 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KPluginFactory_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: KPluginFactory, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KPluginFactory_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -1159,12 +1223,13 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KPluginFactory_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: KPluginFactory, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KPluginFactory_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1175,12 +1240,12 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPluginFactory`
+    /// ` self: KPluginFactory`
     ///
-    /// ` callback: *const fn (self: QtC.KPluginFactory, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KPluginFactory, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KPluginFactory_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: KPluginFactory, callback: *const fn (KPluginFactory, QTimerEvent) callconv(.c) void) void {
+        qtc.KPluginFactory_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1191,12 +1256,13 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KPluginFactory_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: KPluginFactory, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KPluginFactory_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -1211,12 +1277,13 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KPluginFactory_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: KPluginFactory, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KPluginFactory_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1227,12 +1294,12 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPluginFactory`
+    /// ` self: KPluginFactory`
     ///
-    /// ` callback: *const fn (self: QtC.KPluginFactory, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KPluginFactory, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KPluginFactory_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: KPluginFactory, callback: *const fn (KPluginFactory, QChildEvent) callconv(.c) void) void {
+        qtc.KPluginFactory_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1243,12 +1310,13 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KPluginFactory_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: KPluginFactory, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KPluginFactory_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -1263,12 +1331,13 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KPluginFactory_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: KPluginFactory, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KPluginFactory_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1279,12 +1348,12 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPluginFactory`
+    /// ` self: KPluginFactory`
     ///
-    /// ` callback: *const fn (self: QtC.KPluginFactory, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KPluginFactory, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KPluginFactory_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: KPluginFactory, callback: *const fn (KPluginFactory, QEvent) callconv(.c) void) void {
+        qtc.KPluginFactory_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1295,12 +1364,13 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KPluginFactory_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: KPluginFactory, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KPluginFactory_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -1315,12 +1385,13 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KPluginFactory_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: KPluginFactory, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KPluginFactory_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1331,12 +1402,12 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPluginFactory`
+    /// ` self: KPluginFactory`
     ///
-    /// ` callback: *const fn (self: QtC.KPluginFactory, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KPluginFactory, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KPluginFactory_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: KPluginFactory, callback: *const fn (KPluginFactory, QMetaMethod) callconv(.c) void) void {
+        qtc.KPluginFactory_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1347,12 +1418,13 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KPluginFactory_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: KPluginFactory, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KPluginFactory_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -1367,12 +1439,13 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KPluginFactory_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: KPluginFactory, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KPluginFactory_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1383,12 +1456,12 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPluginFactory`
+    /// ` self: KPluginFactory`
     ///
-    /// ` callback: *const fn (self: QtC.KPluginFactory, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KPluginFactory, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KPluginFactory_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: KPluginFactory, callback: *const fn (KPluginFactory, QMetaMethod) callconv(.c) void) void {
+        qtc.KPluginFactory_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1399,10 +1472,10 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KPluginFactory_Sender(@ptrCast(self));
+    pub fn Sender(self: KPluginFactory) QObject {
+        return .{ .ptr = qtc.KPluginFactory_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -1417,10 +1490,10 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KPluginFactory_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: KPluginFactory) QObject {
+        return .{ .ptr = qtc.KPluginFactory_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1431,12 +1504,12 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPluginFactory`
+    /// ` self: KPluginFactory`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.KPluginFactory_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: KPluginFactory, callback: *const fn () callconv(.c) QObject) void {
+        qtc.KPluginFactory_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1447,10 +1520,10 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KPluginFactory_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: KPluginFactory) i32 {
+        return qtc.KPluginFactory_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -1465,10 +1538,10 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KPluginFactory_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: KPluginFactory) i32 {
+        return qtc.KPluginFactory_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1479,12 +1552,12 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPluginFactory`
+    /// ` self: KPluginFactory`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KPluginFactory_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: KPluginFactory, callback: *const fn () callconv(.c) i32) void {
+        qtc.KPluginFactory_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1495,13 +1568,13 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: KPluginFactory, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KPluginFactory_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.KPluginFactory_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -1516,13 +1589,13 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: KPluginFactory, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KPluginFactory_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KPluginFactory_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1533,12 +1606,12 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPluginFactory`
+    /// ` self: KPluginFactory`
     ///
-    /// ` callback: *const fn (self: QtC.KPluginFactory, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KPluginFactory, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KPluginFactory_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: KPluginFactory, callback: *const fn (KPluginFactory, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KPluginFactory_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1549,12 +1622,13 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KPluginFactory_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: KPluginFactory, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KPluginFactory_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -1569,12 +1643,13 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KPluginFactory_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: KPluginFactory, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KPluginFactory_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1585,12 +1660,12 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPluginFactory`
+    /// ` self: KPluginFactory`
     ///
-    /// ` callback: *const fn (self: QtC.KPluginFactory, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: KPluginFactory, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KPluginFactory_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: KPluginFactory, callback: *const fn (KPluginFactory, QMetaMethod) callconv(.c) bool) void {
+        qtc.KPluginFactory_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1601,12 +1676,12 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    /// ` callback: *const fn (self: QtC.KPluginFactory, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KPluginFactory, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: KPluginFactory, callback: *const fn (KPluginFactory, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -1619,10 +1694,10 @@ pub const kpluginfactory = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KPluginFactory `
+    /// ` self: KPluginFactory `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KPluginFactory_Delete(@ptrCast(self));
+    pub fn Delete(self: KPluginFactory) void {
+        qtc.KPluginFactory_Delete(@ptrCast(self.ptr));
     }
 };
 

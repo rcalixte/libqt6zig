@@ -1,5 +1,75 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QAbstractItemDelegate = @import("libqt6").QAbstractItemDelegate;
+const QAbstractItemModel = @import("libqt6").QAbstractItemModel;
+const QAction = @import("libqt6").QAction;
+const QActionEvent = @import("libqt6").QActionEvent;
+const QBackingStore = @import("libqt6").QBackingStore;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QBitmap = @import("libqt6").QBitmap;
+const QBrush = @import("libqt6").QBrush;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QCloseEvent = @import("libqt6").QCloseEvent;
+const QContextMenuEvent = @import("libqt6").QContextMenuEvent;
+const QCursor = @import("libqt6").QCursor;
+const QDataStream = @import("libqt6").QDataStream;
+const QDragEnterEvent = @import("libqt6").QDragEnterEvent;
+const QDragLeaveEvent = @import("libqt6").QDragLeaveEvent;
+const QDragMoveEvent = @import("libqt6").QDragMoveEvent;
+const QDropEvent = @import("libqt6").QDropEvent;
+const QEnterEvent = @import("libqt6").QEnterEvent;
+const QEvent = @import("libqt6").QEvent;
+const QFocusEvent = @import("libqt6").QFocusEvent;
+const QFont = @import("libqt6").QFont;
+const QFontInfo = @import("libqt6").QFontInfo;
+const QFontMetrics = @import("libqt6").QFontMetrics;
+const QGraphicsEffect = @import("libqt6").QGraphicsEffect;
+const QGraphicsProxyWidget = @import("libqt6").QGraphicsProxyWidget;
+const QHeaderView = @import("libqt6").QHeaderView;
+const QHideEvent = @import("libqt6").QHideEvent;
+const QIcon = @import("libqt6").QIcon;
+const QInputMethodEvent = @import("libqt6").QInputMethodEvent;
+const QItemSelection = @import("libqt6").QItemSelection;
+const QItemSelectionModel = @import("libqt6").QItemSelectionModel;
+const QKeyEvent = @import("libqt6").QKeyEvent;
+const QKeySequence = @import("libqt6").QKeySequence;
+const QLayout = @import("libqt6").QLayout;
+const QLocale = @import("libqt6").QLocale;
+const QMargins = @import("libqt6").QMargins;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QMimeData = @import("libqt6").QMimeData;
+const QModelIndex = @import("libqt6").QModelIndex;
+const QMouseEvent = @import("libqt6").QMouseEvent;
+const QMoveEvent = @import("libqt6").QMoveEvent;
+const QObject = @import("libqt6").QObject;
+const QPaintDevice = @import("libqt6").QPaintDevice;
+const QPaintEngine = @import("libqt6").QPaintEngine;
+const QPaintEvent = @import("libqt6").QPaintEvent;
+const QPainter = @import("libqt6").QPainter;
+const QPalette = @import("libqt6").QPalette;
+const QPixmap = @import("libqt6").QPixmap;
+const QPoint = @import("libqt6").QPoint;
+const QPointF = @import("libqt6").QPointF;
+const QRect = @import("libqt6").QRect;
+const QRegion = @import("libqt6").QRegion;
+const QResizeEvent = @import("libqt6").QResizeEvent;
+const QScreen = @import("libqt6").QScreen;
+const QScrollBar = @import("libqt6").QScrollBar;
+const QShowEvent = @import("libqt6").QShowEvent;
+const QSize = @import("libqt6").QSize;
+const QSizePolicy = @import("libqt6").QSizePolicy;
+const QStyle = @import("libqt6").QStyle;
+const QStyleOptionFrame = @import("libqt6").QStyleOptionFrame;
+const QStyleOptionViewItem = @import("libqt6").QStyleOptionViewItem;
+const QTabletEvent = @import("libqt6").QTabletEvent;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
+const QWheelEvent = @import("libqt6").QWheelEvent;
+const QWidget = @import("libqt6").QWidget;
+const QWindow = @import("libqt6").QWindow;
 const qabstractitemdelegate_enums = @import("libqabstractitemdelegate.zig").enums;
 const qabstractitemview_enums = @import("libqabstractitemview.zig").enums;
 const qabstractscrollarea_enums = @import("libqabstractscrollarea.zig").enums;
@@ -14,31 +84,41 @@ const qwidget_enums = @import("libqwidget.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetselectionrange.html)
-pub const qtablewidgetselectionrange = struct {
+pub const QTableWidgetSelectionRange = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetselectionrange.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QTableWidgetSelectionRange,
+
+    pub const _is_QTableWidgetSelectionRange = {};
+
     /// New constructs a new QTableWidgetSelectionRange object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QTableWidgetSelectionRange `
+    /// ` other: QTableWidgetSelectionRange `
     ///
-    pub fn New(other: ?*anyopaque) QtC.QTableWidgetSelectionRange {
-        return qtc.QTableWidgetSelectionRange_new(@ptrCast(other));
+    pub fn New(other: anytype) QTableWidgetSelectionRange {
+        comptime _ = @TypeOf(other)._is_QTableWidgetSelectionRange;
+        return .{ .ptr = qtc.QTableWidgetSelectionRange_new(@ptrCast(other.ptr)) };
     }
 
     /// New2 constructs a new QTableWidgetSelectionRange object and invalidates the source QTableWidgetSelectionRange object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QTableWidgetSelectionRange `
+    /// ` other: QTableWidgetSelectionRange `
     ///
-    pub fn New2(other: ?*anyopaque) QtC.QTableWidgetSelectionRange {
-        return qtc.QTableWidgetSelectionRange_new2(@ptrCast(other));
+    pub fn New2(other: anytype) QTableWidgetSelectionRange {
+        comptime _ = @TypeOf(other)._is_QTableWidgetSelectionRange;
+        return .{ .ptr = qtc.QTableWidgetSelectionRange_new2(@ptrCast(other.ptr)) };
     }
 
     /// New3 constructs a new QTableWidgetSelectionRange object.
     ///
-    pub fn New3() QtC.QTableWidgetSelectionRange {
-        return qtc.QTableWidgetSelectionRange_new3();
+    pub fn New3() QTableWidgetSelectionRange {
+        return .{ .ptr = qtc.QTableWidgetSelectionRange_new3() };
     }
 
     /// New4 constructs a new QTableWidgetSelectionRange object.
@@ -53,92 +133,92 @@ pub const qtablewidgetselectionrange = struct {
     ///
     /// ` right: i32 `
     ///
-    pub fn New4(top: i32, left: i32, bottom: i32, right: i32) QtC.QTableWidgetSelectionRange {
-        return qtc.QTableWidgetSelectionRange_new4(@bitCast(top), @bitCast(left), @bitCast(bottom), @bitCast(right));
+    pub fn New4(top: i32, left: i32, bottom: i32, right: i32) QTableWidgetSelectionRange {
+        return .{ .ptr = qtc.QTableWidgetSelectionRange_new4(@bitCast(top), @bitCast(left), @bitCast(bottom), @bitCast(right)) };
     }
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidgetSelectionRange `
+    /// ` self: QTableWidgetSelectionRange `
     ///
-    /// ` other: QtC.QTableWidgetSelectionRange `
+    /// ` other: QTableWidgetSelectionRange `
     ///
-    pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QTableWidgetSelectionRange_CopyAssign(@ptrCast(self), @ptrCast(other));
+    pub fn CopyAssign(self: QTableWidgetSelectionRange, other: QTableWidgetSelectionRange) void {
+        qtc.QTableWidgetSelectionRange_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidgetSelectionRange `
+    /// ` self: QTableWidgetSelectionRange `
     ///
-    /// ` other: QtC.QTableWidgetSelectionRange `
+    /// ` other: QTableWidgetSelectionRange `
     ///
-    pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QTableWidgetSelectionRange_MoveAssign(@ptrCast(self), @ptrCast(other));
+    pub fn MoveAssign(self: QTableWidgetSelectionRange, other: QTableWidgetSelectionRange) void {
+        qtc.QTableWidgetSelectionRange_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetselectionrange.html#topRow)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetSelectionRange `
+    /// ` self: QTableWidgetSelectionRange `
     ///
-    pub fn TopRow(self: ?*anyopaque) i32 {
-        return qtc.QTableWidgetSelectionRange_TopRow(@ptrCast(self));
+    pub fn TopRow(self: QTableWidgetSelectionRange) i32 {
+        return qtc.QTableWidgetSelectionRange_TopRow(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetselectionrange.html#bottomRow)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetSelectionRange `
+    /// ` self: QTableWidgetSelectionRange `
     ///
-    pub fn BottomRow(self: ?*anyopaque) i32 {
-        return qtc.QTableWidgetSelectionRange_BottomRow(@ptrCast(self));
+    pub fn BottomRow(self: QTableWidgetSelectionRange) i32 {
+        return qtc.QTableWidgetSelectionRange_BottomRow(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetselectionrange.html#leftColumn)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetSelectionRange `
+    /// ` self: QTableWidgetSelectionRange `
     ///
-    pub fn LeftColumn(self: ?*anyopaque) i32 {
-        return qtc.QTableWidgetSelectionRange_LeftColumn(@ptrCast(self));
+    pub fn LeftColumn(self: QTableWidgetSelectionRange) i32 {
+        return qtc.QTableWidgetSelectionRange_LeftColumn(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetselectionrange.html#rightColumn)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetSelectionRange `
+    /// ` self: QTableWidgetSelectionRange `
     ///
-    pub fn RightColumn(self: ?*anyopaque) i32 {
-        return qtc.QTableWidgetSelectionRange_RightColumn(@ptrCast(self));
+    pub fn RightColumn(self: QTableWidgetSelectionRange) i32 {
+        return qtc.QTableWidgetSelectionRange_RightColumn(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetselectionrange.html#rowCount)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetSelectionRange `
+    /// ` self: QTableWidgetSelectionRange `
     ///
-    pub fn RowCount(self: ?*anyopaque) i32 {
-        return qtc.QTableWidgetSelectionRange_RowCount(@ptrCast(self));
+    pub fn RowCount(self: QTableWidgetSelectionRange) i32 {
+        return qtc.QTableWidgetSelectionRange_RowCount(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetselectionrange.html#columnCount)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetSelectionRange `
+    /// ` self: QTableWidgetSelectionRange `
     ///
-    pub fn ColumnCount(self: ?*anyopaque) i32 {
-        return qtc.QTableWidgetSelectionRange_ColumnCount(@ptrCast(self));
+    pub fn ColumnCount(self: QTableWidgetSelectionRange) i32 {
+        return qtc.QTableWidgetSelectionRange_ColumnCount(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -151,19 +231,27 @@ pub const qtablewidgetselectionrange = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QTableWidgetSelectionRange `
+    /// ` self: QTableWidgetSelectionRange `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QTableWidgetSelectionRange_Delete(@ptrCast(self));
+    pub fn Delete(self: QTableWidgetSelectionRange) void {
+        qtc.QTableWidgetSelectionRange_Delete(@ptrCast(self.ptr));
     }
 };
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html)
-pub const qtablewidgetitem = struct {
+pub const QTableWidgetItem = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QTableWidgetItem,
+
+    pub const _is_QTableWidgetItem = {};
+
     /// New constructs a new QTableWidgetItem object.
     ///
-    pub fn New() QtC.QTableWidgetItem {
-        return qtc.QTableWidgetItem_new();
+    pub fn New() QTableWidgetItem {
+        return .{ .ptr = qtc.QTableWidgetItem_new() };
     }
 
     /// New2 constructs a new QTableWidgetItem object.
@@ -172,40 +260,40 @@ pub const qtablewidgetitem = struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn New2(text: []const u8) QtC.QTableWidgetItem {
+    pub fn New2(text: []const u8) QTableWidgetItem {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-
-        return qtc.QTableWidgetItem_new2(text_str);
+        return .{ .ptr = qtc.QTableWidgetItem_new2(text_str) };
     }
 
     /// New3 constructs a new QTableWidgetItem object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn New3(icon: ?*anyopaque, text: []const u8) QtC.QTableWidgetItem {
+    pub fn New3(icon: anytype, text: []const u8) QTableWidgetItem {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-
-        return qtc.QTableWidgetItem_new3(@ptrCast(icon), text_str);
+        return .{ .ptr = qtc.QTableWidgetItem_new3(@ptrCast(icon.ptr), text_str) };
     }
 
     /// New4 constructs a new QTableWidgetItem object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QTableWidgetItem `
+    /// ` other: QTableWidgetItem `
     ///
-    pub fn New4(other: ?*anyopaque) QtC.QTableWidgetItem {
-        return qtc.QTableWidgetItem_new4(@ptrCast(other));
+    pub fn New4(other: anytype) QTableWidgetItem {
+        comptime _ = @TypeOf(other)._is_QTableWidgetItem;
+        return .{ .ptr = qtc.QTableWidgetItem_new4(@ptrCast(other.ptr)) };
     }
 
     /// New5 constructs a new QTableWidgetItem object.
@@ -214,8 +302,8 @@ pub const qtablewidgetitem = struct {
     ///
     /// ` typeVal: i32 `
     ///
-    pub fn New5(typeVal: i32) QtC.QTableWidgetItem {
-        return qtc.QTableWidgetItem_new5(@bitCast(typeVal));
+    pub fn New5(typeVal: i32) QTableWidgetItem {
+        return .{ .ptr = qtc.QTableWidgetItem_new5(@bitCast(typeVal)) };
     }
 
     /// New6 constructs a new QTableWidgetItem object.
@@ -226,42 +314,41 @@ pub const qtablewidgetitem = struct {
     ///
     /// ` typeVal: i32 `
     ///
-    pub fn New6(text: []const u8, typeVal: i32) QtC.QTableWidgetItem {
+    pub fn New6(text: []const u8, typeVal: i32) QTableWidgetItem {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-
-        return qtc.QTableWidgetItem_new6(text_str, @bitCast(typeVal));
+        return .{ .ptr = qtc.QTableWidgetItem_new6(text_str, @bitCast(typeVal)) };
     }
 
     /// New7 constructs a new QTableWidgetItem object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
     /// ` typeVal: i32 `
     ///
-    pub fn New7(icon: ?*anyopaque, text: []const u8, typeVal: i32) QtC.QTableWidgetItem {
+    pub fn New7(icon: anytype, text: []const u8, typeVal: i32) QTableWidgetItem {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-
-        return qtc.QTableWidgetItem_new7(@ptrCast(icon), text_str, @bitCast(typeVal));
+        return .{ .ptr = qtc.QTableWidgetItem_new7(@ptrCast(icon.ptr), text_str, @bitCast(typeVal)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#clone)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
-    pub fn Clone(self: ?*anyopaque) QtC.QTableWidgetItem {
-        return qtc.QTableWidgetItem_Clone(@ptrCast(self));
+    pub fn Clone(self: QTableWidgetItem) QTableWidgetItem {
+        return .{ .ptr = qtc.QTableWidgetItem_Clone(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#clone)
@@ -270,12 +357,12 @@ pub const qtablewidgetitem = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QTableWidgetItem `
+    /// ` callback: *const fn () callconv(.c) QTableWidgetItem `
     ///
-    pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QTableWidgetItem) void {
-        qtc.QTableWidgetItem_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnClone(self: QTableWidgetItem, callback: *const fn () callconv(.c) QTableWidgetItem) void {
+        qtc.QTableWidgetItem_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperClone` instead
@@ -288,100 +375,100 @@ pub const qtablewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
-    pub fn SuperClone(self: ?*anyopaque) QtC.QTableWidgetItem {
-        return qtc.QTableWidgetItem_SuperClone(@ptrCast(self));
+    pub fn SuperClone(self: QTableWidgetItem) QTableWidgetItem {
+        return .{ .ptr = qtc.QTableWidgetItem_SuperClone(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#tableWidget)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
-    pub fn TableWidget(self: ?*anyopaque) QtC.QTableWidget {
-        return qtc.QTableWidgetItem_TableWidget(@ptrCast(self));
+    pub fn TableWidget(self: QTableWidgetItem) QTableWidget {
+        return .{ .ptr = qtc.QTableWidgetItem_TableWidget(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#row)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
-    pub fn Row(self: ?*anyopaque) i32 {
-        return qtc.QTableWidgetItem_Row(@ptrCast(self));
+    pub fn Row(self: QTableWidgetItem) i32 {
+        return qtc.QTableWidgetItem_Row(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#column)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
-    pub fn Column(self: ?*anyopaque) i32 {
-        return qtc.QTableWidgetItem_Column(@ptrCast(self));
+    pub fn Column(self: QTableWidgetItem) i32 {
+        return qtc.QTableWidgetItem_Column(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setSelected)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
     /// ` selectVal: bool `
     ///
-    pub fn SetSelected(self: ?*anyopaque, selectVal: bool) void {
-        qtc.QTableWidgetItem_SetSelected(@ptrCast(self), selectVal);
+    pub fn SetSelected(self: QTableWidgetItem, selectVal: bool) void {
+        qtc.QTableWidgetItem_SetSelected(@ptrCast(self.ptr), selectVal);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#isSelected)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
-    pub fn IsSelected(self: ?*anyopaque) bool {
-        return qtc.QTableWidgetItem_IsSelected(@ptrCast(self));
+    pub fn IsSelected(self: QTableWidgetItem) bool {
+        return qtc.QTableWidgetItem_IsSelected(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#flags)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.ItemFlag `
     ///
-    pub fn Flags(self: ?*anyopaque) i32 {
-        return qtc.QTableWidgetItem_Flags(@ptrCast(self));
+    pub fn Flags(self: QTableWidgetItem) i32 {
+        return qtc.QTableWidgetItem_Flags(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setFlags)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
     /// ` flags: flag of qnamespace_enums.ItemFlag `
     ///
-    pub fn SetFlags(self: ?*anyopaque, flags: i32) void {
-        qtc.QTableWidgetItem_SetFlags(@ptrCast(self), @bitCast(flags));
+    pub fn SetFlags(self: QTableWidgetItem, flags: i32) void {
+        qtc.QTableWidgetItem_SetFlags(@ptrCast(self.ptr), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#text)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTableWidgetItem_Text(@ptrCast(self));
+    pub fn Text(self: QTableWidgetItem, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QTableWidgetItem_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtablewidgetitem.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -392,50 +479,51 @@ pub const qtablewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetText(self: ?*anyopaque, text: []const u8) void {
+    pub fn SetText(self: QTableWidgetItem, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QTableWidgetItem_SetText(@ptrCast(self), text_str);
+        qtc.QTableWidgetItem_SetText(@ptrCast(self.ptr), text_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#icon)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
-    pub fn Icon(self: ?*anyopaque) QtC.QIcon {
-        return qtc.QTableWidgetItem_Icon(@ptrCast(self));
+    pub fn Icon(self: QTableWidgetItem) QIcon {
+        return .{ .ptr = qtc.QTableWidgetItem_Icon(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setIcon)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn SetIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QTableWidgetItem_SetIcon(@ptrCast(self), @ptrCast(icon));
+    pub fn SetIcon(self: QTableWidgetItem, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QTableWidgetItem_SetIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#statusTip)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTableWidgetItem_StatusTip(@ptrCast(self));
+    pub fn StatusTip(self: QTableWidgetItem, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QTableWidgetItem_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtablewidgetitem.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -446,28 +534,28 @@ pub const qtablewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
     /// ` statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
+    pub fn SetStatusTip(self: QTableWidgetItem, statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
             .len = statusTip.len,
             .data = statusTip.ptr,
         };
-        qtc.QTableWidgetItem_SetStatusTip(@ptrCast(self), statusTip_str);
+        qtc.QTableWidgetItem_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#toolTip)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTableWidgetItem_ToolTip(@ptrCast(self));
+    pub fn ToolTip(self: QTableWidgetItem, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QTableWidgetItem_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtablewidgetitem.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -478,28 +566,28 @@ pub const qtablewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
     /// ` toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
+    pub fn SetToolTip(self: QTableWidgetItem, toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
             .len = toolTip.len,
             .data = toolTip.ptr,
         };
-        qtc.QTableWidgetItem_SetToolTip(@ptrCast(self), toolTip_str);
+        qtc.QTableWidgetItem_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#whatsThis)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTableWidgetItem_WhatsThis(@ptrCast(self));
+    pub fn WhatsThis(self: QTableWidgetItem, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QTableWidgetItem_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtablewidgetitem.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -510,188 +598,192 @@ pub const qtablewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
     /// ` whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
+    pub fn SetWhatsThis(self: QTableWidgetItem, whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
             .len = whatsThis.len,
             .data = whatsThis.ptr,
         };
-        qtc.QTableWidgetItem_SetWhatsThis(@ptrCast(self), whatsThis_str);
+        qtc.QTableWidgetItem_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#font)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
-    pub fn Font(self: ?*anyopaque) QtC.QFont {
-        return qtc.QTableWidgetItem_Font(@ptrCast(self));
+    pub fn Font(self: QTableWidgetItem) QFont {
+        return .{ .ptr = qtc.QTableWidgetItem_Font(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setFont)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
-    /// ` font: QtC.QFont `
+    /// ` font: QFont `
     ///
-    pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
-        qtc.QTableWidgetItem_SetFont(@ptrCast(self), @ptrCast(font));
+    pub fn SetFont(self: QTableWidgetItem, font: anytype) void {
+        comptime _ = @TypeOf(font)._is_QFont;
+        qtc.QTableWidgetItem_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#textAlignment)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
-    pub fn TextAlignment(self: ?*anyopaque) i32 {
-        return qtc.QTableWidgetItem_TextAlignment(@ptrCast(self));
+    pub fn TextAlignment(self: QTableWidgetItem) i32 {
+        return qtc.QTableWidgetItem_TextAlignment(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setTextAlignment)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
     /// ` alignment: i32 `
     ///
-    pub fn SetTextAlignment(self: ?*anyopaque, alignment: i32) void {
-        qtc.QTableWidgetItem_SetTextAlignment(@ptrCast(self), @bitCast(alignment));
+    pub fn SetTextAlignment(self: QTableWidgetItem, alignment: i32) void {
+        qtc.QTableWidgetItem_SetTextAlignment(@ptrCast(self.ptr), @bitCast(alignment));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setTextAlignment)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
     /// ` alignment: qnamespace_enums.AlignmentFlag `
     ///
-    pub fn SetTextAlignment2(self: ?*anyopaque, alignment: i32) void {
-        qtc.QTableWidgetItem_SetTextAlignment2(@ptrCast(self), @bitCast(alignment));
+    pub fn SetTextAlignment2(self: QTableWidgetItem, alignment: i32) void {
+        qtc.QTableWidgetItem_SetTextAlignment2(@ptrCast(self.ptr), @bitCast(alignment));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setTextAlignment)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn SetTextAlignment3(self: ?*anyopaque, alignment: i32) void {
-        qtc.QTableWidgetItem_SetTextAlignment3(@ptrCast(self), @bitCast(alignment));
+    pub fn SetTextAlignment3(self: QTableWidgetItem, alignment: i32) void {
+        qtc.QTableWidgetItem_SetTextAlignment3(@ptrCast(self.ptr), @bitCast(alignment));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#background)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
-    pub fn Background(self: ?*anyopaque) QtC.QBrush {
-        return qtc.QTableWidgetItem_Background(@ptrCast(self));
+    pub fn Background(self: QTableWidgetItem) QBrush {
+        return .{ .ptr = qtc.QTableWidgetItem_Background(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setBackground)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
-    /// ` brush: QtC.QBrush `
+    /// ` brush: QBrush `
     ///
-    pub fn SetBackground(self: ?*anyopaque, brush: ?*anyopaque) void {
-        qtc.QTableWidgetItem_SetBackground(@ptrCast(self), @ptrCast(brush));
+    pub fn SetBackground(self: QTableWidgetItem, brush: anytype) void {
+        comptime _ = @TypeOf(brush)._is_QBrush;
+        qtc.QTableWidgetItem_SetBackground(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#foreground)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
-    pub fn Foreground(self: ?*anyopaque) QtC.QBrush {
-        return qtc.QTableWidgetItem_Foreground(@ptrCast(self));
+    pub fn Foreground(self: QTableWidgetItem) QBrush {
+        return .{ .ptr = qtc.QTableWidgetItem_Foreground(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setForeground)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
-    /// ` brush: QtC.QBrush `
+    /// ` brush: QBrush `
     ///
-    pub fn SetForeground(self: ?*anyopaque, brush: ?*anyopaque) void {
-        qtc.QTableWidgetItem_SetForeground(@ptrCast(self), @ptrCast(brush));
+    pub fn SetForeground(self: QTableWidgetItem, brush: anytype) void {
+        comptime _ = @TypeOf(brush)._is_QBrush;
+        qtc.QTableWidgetItem_SetForeground(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#checkState)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.CheckState `
     ///
-    pub fn CheckState(self: ?*anyopaque) i32 {
-        return qtc.QTableWidgetItem_CheckState(@ptrCast(self));
+    pub fn CheckState(self: QTableWidgetItem) i32 {
+        return qtc.QTableWidgetItem_CheckState(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setCheckState)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
     /// ` state: qnamespace_enums.CheckState `
     ///
-    pub fn SetCheckState(self: ?*anyopaque, state: i32) void {
-        qtc.QTableWidgetItem_SetCheckState(@ptrCast(self), @bitCast(state));
+    pub fn SetCheckState(self: QTableWidgetItem, state: i32) void {
+        qtc.QTableWidgetItem_SetCheckState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#sizeHint)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
-    pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QTableWidgetItem_SizeHint(@ptrCast(self));
+    pub fn SizeHint(self: QTableWidgetItem) QSize {
+        return .{ .ptr = qtc.QTableWidgetItem_SizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setSizeHint)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
-    /// ` size: QtC.QSize `
+    /// ` size: QSize `
     ///
-    pub fn SetSizeHint(self: ?*anyopaque, size: ?*anyopaque) void {
-        qtc.QTableWidgetItem_SetSizeHint(@ptrCast(self), @ptrCast(size));
+    pub fn SetSizeHint(self: QTableWidgetItem, size: anytype) void {
+        comptime _ = @TypeOf(size)._is_QSize;
+        qtc.QTableWidgetItem_SetSizeHint(@ptrCast(self.ptr), @ptrCast(size.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#data)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
     /// ` role: i32 `
     ///
-    pub fn Data(self: ?*anyopaque, role: i32) QtC.QVariant {
-        return qtc.QTableWidgetItem_Data(@ptrCast(self), @bitCast(role));
+    pub fn Data(self: QTableWidgetItem, role: i32) QVariant {
+        return .{ .ptr = qtc.QTableWidgetItem_Data(@ptrCast(self.ptr), @bitCast(role)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#data)
@@ -700,12 +792,12 @@ pub const qtablewidgetitem = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidgetItem, role: i32) callconv(.c) QtC.QVariant `
+    /// ` callback: *const fn (self: QTableWidgetItem, role: i32) callconv(.c) QVariant `
     ///
-    pub fn OnData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QTableWidgetItem_OnData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnData(self: QTableWidgetItem, callback: *const fn (QTableWidgetItem, i32) callconv(.c) QVariant) void {
+        qtc.QTableWidgetItem_OnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperData` instead
@@ -718,26 +810,27 @@ pub const qtablewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
     /// ` role: i32 `
     ///
-    pub fn SuperData(self: ?*anyopaque, role: i32) QtC.QVariant {
-        return qtc.QTableWidgetItem_SuperData(@ptrCast(self), @bitCast(role));
+    pub fn SuperData(self: QTableWidgetItem, role: i32) QVariant {
+        return .{ .ptr = qtc.QTableWidgetItem_SuperData(@ptrCast(self.ptr), @bitCast(role)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setData)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
     /// ` role: i32 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetData(self: ?*anyopaque, role: i32, value: ?*anyopaque) void {
-        qtc.QTableWidgetItem_SetData(@ptrCast(self), @bitCast(role), @ptrCast(value));
+    pub fn SetData(self: QTableWidgetItem, role: i32, value: anytype) void {
+        comptime _ = @TypeOf(value)._is_QVariant;
+        qtc.QTableWidgetItem_SetData(@ptrCast(self.ptr), @bitCast(role), @ptrCast(value.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#setData)
@@ -746,12 +839,12 @@ pub const qtablewidgetitem = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidgetItem, role: i32, value: QtC.QVariant) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidgetItem, role: i32, value: QVariant) callconv(.c) void `
     ///
-    pub fn OnSetData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidgetItem_OnSetData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetData(self: QTableWidgetItem, callback: *const fn (QTableWidgetItem, i32, QVariant) callconv(.c) void) void {
+        qtc.QTableWidgetItem_OnSetData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetData` instead
@@ -764,26 +857,28 @@ pub const qtablewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
     /// ` role: i32 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SuperSetData(self: ?*anyopaque, role: i32, value: ?*anyopaque) void {
-        qtc.QTableWidgetItem_SuperSetData(@ptrCast(self), @bitCast(role), @ptrCast(value));
+    pub fn SuperSetData(self: QTableWidgetItem, role: i32, value: anytype) void {
+        comptime _ = @TypeOf(value)._is_QVariant;
+        qtc.QTableWidgetItem_SuperSetData(@ptrCast(self.ptr), @bitCast(role), @ptrCast(value.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#operator-lt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
-    /// ` other: QtC.QTableWidgetItem `
+    /// ` other: QTableWidgetItem `
     ///
-    pub fn OperatorLesser(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QTableWidgetItem_OperatorLesser(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorLesser(self: QTableWidgetItem, other: anytype) bool {
+        comptime _ = @TypeOf(other)._is_QTableWidgetItem;
+        return qtc.QTableWidgetItem_OperatorLesser(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#operator-lt)
@@ -792,12 +887,12 @@ pub const qtablewidgetitem = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidgetItem, other: QtC.QTableWidgetItem) callconv(.c) bool `
+    /// ` callback: *const fn (self: QTableWidgetItem, other: QTableWidgetItem) callconv(.c) bool `
     ///
-    pub fn OnOperatorLesser(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTableWidgetItem_OnOperatorLesser(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnOperatorLesser(self: QTableWidgetItem, callback: *const fn (QTableWidgetItem, QTableWidgetItem) callconv(.c) bool) void {
+        qtc.QTableWidgetItem_OnOperatorLesser(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperOperatorLesser` instead
@@ -810,24 +905,26 @@ pub const qtablewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
-    /// ` other: QtC.QTableWidgetItem `
+    /// ` other: QTableWidgetItem `
     ///
-    pub fn SuperOperatorLesser(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QTableWidgetItem_SuperOperatorLesser(@ptrCast(self), @ptrCast(other));
+    pub fn SuperOperatorLesser(self: QTableWidgetItem, other: anytype) bool {
+        comptime _ = @TypeOf(other)._is_QTableWidgetItem;
+        return qtc.QTableWidgetItem_SuperOperatorLesser(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#read)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
-    /// ` in: QtC.QDataStream `
+    /// ` in: QDataStream `
     ///
-    pub fn Read(self: ?*anyopaque, in: ?*anyopaque) void {
-        qtc.QTableWidgetItem_Read(@ptrCast(self), @ptrCast(in));
+    pub fn Read(self: QTableWidgetItem, in: anytype) void {
+        comptime _ = @TypeOf(in)._is_QDataStream;
+        qtc.QTableWidgetItem_Read(@ptrCast(self.ptr), @ptrCast(in.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#read)
@@ -836,12 +933,12 @@ pub const qtablewidgetitem = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidgetItem, in: QtC.QDataStream) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidgetItem, in: QDataStream) callconv(.c) void `
     ///
-    pub fn OnRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidgetItem_OnRead(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRead(self: QTableWidgetItem, callback: *const fn (QTableWidgetItem, QDataStream) callconv(.c) void) void {
+        qtc.QTableWidgetItem_OnRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperRead` instead
@@ -854,24 +951,26 @@ pub const qtablewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
-    /// ` in: QtC.QDataStream `
+    /// ` in: QDataStream `
     ///
-    pub fn SuperRead(self: ?*anyopaque, in: ?*anyopaque) void {
-        qtc.QTableWidgetItem_SuperRead(@ptrCast(self), @ptrCast(in));
+    pub fn SuperRead(self: QTableWidgetItem, in: anytype) void {
+        comptime _ = @TypeOf(in)._is_QDataStream;
+        qtc.QTableWidgetItem_SuperRead(@ptrCast(self.ptr), @ptrCast(in.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#write)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
-    /// ` out: QtC.QDataStream `
+    /// ` out: QDataStream `
     ///
-    pub fn Write(self: ?*anyopaque, out: ?*anyopaque) void {
-        qtc.QTableWidgetItem_Write(@ptrCast(self), @ptrCast(out));
+    pub fn Write(self: QTableWidgetItem, out: anytype) void {
+        comptime _ = @TypeOf(out)._is_QDataStream;
+        qtc.QTableWidgetItem_Write(@ptrCast(self.ptr), @ptrCast(out.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#write)
@@ -880,12 +979,12 @@ pub const qtablewidgetitem = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidgetItem, out: QtC.QDataStream) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidgetItem, out: QDataStream) callconv(.c) void `
     ///
-    pub fn OnWrite(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidgetItem_OnWrite(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWrite(self: QTableWidgetItem, callback: *const fn (QTableWidgetItem, QDataStream) callconv(.c) void) void {
+        qtc.QTableWidgetItem_OnWrite(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperWrite` instead
@@ -898,34 +997,36 @@ pub const qtablewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
-    /// ` out: QtC.QDataStream `
+    /// ` out: QDataStream `
     ///
-    pub fn SuperWrite(self: ?*anyopaque, out: ?*anyopaque) void {
-        qtc.QTableWidgetItem_SuperWrite(@ptrCast(self), @ptrCast(out));
+    pub fn SuperWrite(self: QTableWidgetItem, out: anytype) void {
+        comptime _ = @TypeOf(out)._is_QDataStream;
+        qtc.QTableWidgetItem_SuperWrite(@ptrCast(self.ptr), @ptrCast(out.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
-    /// ` other: QtC.QTableWidgetItem `
+    /// ` other: QTableWidgetItem `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QTableWidgetItem_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorAssign(self: QTableWidgetItem, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QTableWidgetItem;
+        qtc.QTableWidgetItem_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#type)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
-    pub fn Type(self: ?*anyopaque) i32 {
-        return qtc.QTableWidgetItem_Type(@ptrCast(self));
+    pub fn Type(self: QTableWidgetItem) i32 {
+        return qtc.QTableWidgetItem_Type(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -938,29 +1039,45 @@ pub const qtablewidgetitem = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QTableWidgetItem `
+    /// ` self: QTableWidgetItem `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QTableWidgetItem_Delete(@ptrCast(self));
+    pub fn Delete(self: QTableWidgetItem) void {
+        qtc.QTableWidgetItem_Delete(@ptrCast(self.ptr));
     }
 };
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html)
-pub const qtablewidget = struct {
+pub const QTableWidget = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QTableWidget,
+
+    pub const _is_QTableWidget = {};
+    pub const _is_QTableView = {};
+    pub const _is_QAbstractItemView = {};
+    pub const _is_QAbstractScrollArea = {};
+    pub const _is_QFrame = {};
+    pub const _is_QWidget = {};
+    pub const _is_QObject = {};
+    pub const _is_QPaintDevice = {};
+
     /// New constructs a new QTableWidget object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn New(parent: ?*anyopaque) QtC.QTableWidget {
-        return qtc.QTableWidget_new(@ptrCast(parent));
+    pub fn New(parent: anytype) QTableWidget {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QTableWidget_new(@ptrCast(parent.ptr)) };
     }
 
     /// New2 constructs a new QTableWidget object.
     ///
-    pub fn New2() QtC.QTableWidget {
-        return qtc.QTableWidget_new2();
+    pub fn New2() QTableWidget {
+        return .{ .ptr = qtc.QTableWidget_new2() };
     }
 
     /// New3 constructs a new QTableWidget object.
@@ -971,8 +1088,8 @@ pub const qtablewidget = struct {
     ///
     /// ` columns: i32 `
     ///
-    pub fn New3(rows: i32, columns: i32) QtC.QTableWidget {
-        return qtc.QTableWidget_new3(@bitCast(rows), @bitCast(columns));
+    pub fn New3(rows: i32, columns: i32) QTableWidget {
+        return .{ .ptr = qtc.QTableWidget_new3(@bitCast(rows), @bitCast(columns)) };
     }
 
     /// New4 constructs a new QTableWidget object.
@@ -983,20 +1100,21 @@ pub const qtablewidget = struct {
     ///
     /// ` columns: i32 `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn New4(rows: i32, columns: i32, parent: ?*anyopaque) QtC.QTableWidget {
-        return qtc.QTableWidget_new4(@bitCast(rows), @bitCast(columns), @ptrCast(parent));
+    pub fn New4(rows: i32, columns: i32, parent: anytype) QTableWidget {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QTableWidget_new4(@bitCast(rows), @bitCast(columns), @ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QTableWidget_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QTableWidget) QMetaObject {
+        return .{ .ptr = qtc.QTableWidget_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -1005,12 +1123,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QTableWidget_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QTableWidget, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QTableWidget_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -1023,33 +1141,33 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QTableWidget_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QTableWidget) QMetaObject {
+        return .{ .ptr = qtc.QTableWidget_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QTableWidget, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QTableWidget_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QTableWidget_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QTableWidget, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QTableWidget_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QTableWidget, callback: *const fn (QTableWidget, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QTableWidget_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -1060,18 +1178,18 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QTableWidget, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QTableWidget_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QTableWidget_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -1079,20 +1197,20 @@ pub const qtablewidget = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QTableWidget_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QTableWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QTableWidget_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QTableWidget, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QTableWidget_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QTableWidget_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -1103,7 +1221,7 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -1111,19 +1229,19 @@ pub const qtablewidget = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QTableWidget_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QTableWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QTableWidget_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -1136,130 +1254,135 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` rows: i32 `
     ///
-    pub fn SetRowCount(self: ?*anyopaque, rows: i32) void {
-        qtc.QTableWidget_SetRowCount(@ptrCast(self), @bitCast(rows));
+    pub fn SetRowCount(self: QTableWidget, rows: i32) void {
+        qtc.QTableWidget_SetRowCount(@ptrCast(self.ptr), @bitCast(rows));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#rowCount)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn RowCount(self: ?*anyopaque) i32 {
-        return qtc.QTableWidget_RowCount(@ptrCast(self));
+    pub fn RowCount(self: QTableWidget) i32 {
+        return qtc.QTableWidget_RowCount(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#setColumnCount)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` columns: i32 `
     ///
-    pub fn SetColumnCount(self: ?*anyopaque, columns: i32) void {
-        qtc.QTableWidget_SetColumnCount(@ptrCast(self), @bitCast(columns));
+    pub fn SetColumnCount(self: QTableWidget, columns: i32) void {
+        qtc.QTableWidget_SetColumnCount(@ptrCast(self.ptr), @bitCast(columns));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#columnCount)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn ColumnCount(self: ?*anyopaque) i32 {
-        return qtc.QTableWidget_ColumnCount(@ptrCast(self));
+    pub fn ColumnCount(self: QTableWidget) i32 {
+        return qtc.QTableWidget_ColumnCount(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#row)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` item: QtC.QTableWidgetItem `
+    /// ` item: QTableWidgetItem `
     ///
-    pub fn Row(self: ?*anyopaque, item: ?*anyopaque) i32 {
-        return qtc.QTableWidget_Row(@ptrCast(self), @ptrCast(item));
+    pub fn Row(self: QTableWidget, item: anytype) i32 {
+        comptime _ = @TypeOf(item)._is_QTableWidgetItem;
+        return qtc.QTableWidget_Row(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#column)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` item: QtC.QTableWidgetItem `
+    /// ` item: QTableWidgetItem `
     ///
-    pub fn Column(self: ?*anyopaque, item: ?*anyopaque) i32 {
-        return qtc.QTableWidget_Column(@ptrCast(self), @ptrCast(item));
+    pub fn Column(self: QTableWidget, item: anytype) i32 {
+        comptime _ = @TypeOf(item)._is_QTableWidgetItem;
+        return qtc.QTableWidget_Column(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#item)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    pub fn Item(self: ?*anyopaque, row: i32, column: i32) QtC.QTableWidgetItem {
-        return qtc.QTableWidget_Item(@ptrCast(self), @bitCast(row), @bitCast(column));
+    pub fn Item(self: QTableWidget, row: i32, column: i32) QTableWidgetItem {
+        return .{ .ptr = qtc.QTableWidget_Item(@ptrCast(self.ptr), @bitCast(row), @bitCast(column)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#setItem)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    /// ` item: QtC.QTableWidgetItem `
+    /// ` item: QTableWidgetItem `
     ///
-    pub fn SetItem(self: ?*anyopaque, row: i32, column: i32, item: ?*anyopaque) void {
-        qtc.QTableWidget_SetItem(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(item));
+    pub fn SetItem(self: QTableWidget, row: i32, column: i32, item: anytype) void {
+        comptime _ = @TypeOf(item)._is_QTableWidgetItem;
+        qtc.QTableWidget_SetItem(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(item.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#takeItem)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    pub fn TakeItem(self: ?*anyopaque, row: i32, column: i32) QtC.QTableWidgetItem {
-        return qtc.QTableWidget_TakeItem(@ptrCast(self), @bitCast(row), @bitCast(column));
+    pub fn TakeItem(self: QTableWidget, row: i32, column: i32) QTableWidgetItem {
+        return .{ .ptr = qtc.QTableWidget_TakeItem(@ptrCast(self.ptr), @bitCast(row), @bitCast(column)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#items)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
-    ///
-    /// ` data: QtC.QMimeData `
+    /// ` self: QTableWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Items(self: ?*anyopaque, data: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QTableWidgetItem {
-        const _arr: qtc.libqt_list = qtc.QTableWidget_Items(@ptrCast(self), @ptrCast(data));
+    /// ` data: QMimeData `
+    ///
+    pub fn Items(self: QTableWidget, allocator: std.mem.Allocator, data: anytype) []QTableWidgetItem {
+        comptime _ = @TypeOf(data)._is_QMimeData;
+        const _arr: qtc.libqt_list = qtc.QTableWidget_Items(@ptrCast(self.ptr), @ptrCast(data.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QTableWidgetItem, _arr.len) catch @panic("qtablewidget.Items: Memory allocation failed");
+        const _ret = allocator.alloc(QTableWidgetItem, _arr.len) catch @panic("qtablewidget.Items: Memory allocation failed");
         const _data: [*]QtC.QTableWidgetItem = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1267,229 +1390,233 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` item: QtC.QTableWidgetItem `
+    /// ` item: QTableWidgetItem `
     ///
-    pub fn IndexFromItem(self: ?*anyopaque, item: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QTableWidget_IndexFromItem(@ptrCast(self), @ptrCast(item));
+    pub fn IndexFromItem(self: QTableWidget, item: anytype) QModelIndex {
+        comptime _ = @TypeOf(item)._is_QTableWidgetItem;
+        return .{ .ptr = qtc.QTableWidget_IndexFromItem(@ptrCast(self.ptr), @ptrCast(item.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemFromIndex)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn ItemFromIndex(self: ?*anyopaque, index: ?*anyopaque) QtC.QTableWidgetItem {
-        return qtc.QTableWidget_ItemFromIndex(@ptrCast(self), @ptrCast(index));
+    pub fn ItemFromIndex(self: QTableWidget, index: anytype) QTableWidgetItem {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.QTableWidget_ItemFromIndex(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#verticalHeaderItem)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` row: i32 `
     ///
-    pub fn VerticalHeaderItem(self: ?*anyopaque, row: i32) QtC.QTableWidgetItem {
-        return qtc.QTableWidget_VerticalHeaderItem(@ptrCast(self), @bitCast(row));
+    pub fn VerticalHeaderItem(self: QTableWidget, row: i32) QTableWidgetItem {
+        return .{ .ptr = qtc.QTableWidget_VerticalHeaderItem(@ptrCast(self.ptr), @bitCast(row)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#setVerticalHeaderItem)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` row: i32 `
     ///
-    /// ` item: QtC.QTableWidgetItem `
+    /// ` item: QTableWidgetItem `
     ///
-    pub fn SetVerticalHeaderItem(self: ?*anyopaque, row: i32, item: ?*anyopaque) void {
-        qtc.QTableWidget_SetVerticalHeaderItem(@ptrCast(self), @bitCast(row), @ptrCast(item));
+    pub fn SetVerticalHeaderItem(self: QTableWidget, row: i32, item: anytype) void {
+        comptime _ = @TypeOf(item)._is_QTableWidgetItem;
+        qtc.QTableWidget_SetVerticalHeaderItem(@ptrCast(self.ptr), @bitCast(row), @ptrCast(item.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#takeVerticalHeaderItem)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` row: i32 `
     ///
-    pub fn TakeVerticalHeaderItem(self: ?*anyopaque, row: i32) QtC.QTableWidgetItem {
-        return qtc.QTableWidget_TakeVerticalHeaderItem(@ptrCast(self), @bitCast(row));
+    pub fn TakeVerticalHeaderItem(self: QTableWidget, row: i32) QTableWidgetItem {
+        return .{ .ptr = qtc.QTableWidget_TakeVerticalHeaderItem(@ptrCast(self.ptr), @bitCast(row)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#horizontalHeaderItem)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` column: i32 `
     ///
-    pub fn HorizontalHeaderItem(self: ?*anyopaque, column: i32) QtC.QTableWidgetItem {
-        return qtc.QTableWidget_HorizontalHeaderItem(@ptrCast(self), @bitCast(column));
+    pub fn HorizontalHeaderItem(self: QTableWidget, column: i32) QTableWidgetItem {
+        return .{ .ptr = qtc.QTableWidget_HorizontalHeaderItem(@ptrCast(self.ptr), @bitCast(column)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#setHorizontalHeaderItem)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` column: i32 `
     ///
-    /// ` item: QtC.QTableWidgetItem `
+    /// ` item: QTableWidgetItem `
     ///
-    pub fn SetHorizontalHeaderItem(self: ?*anyopaque, column: i32, item: ?*anyopaque) void {
-        qtc.QTableWidget_SetHorizontalHeaderItem(@ptrCast(self), @bitCast(column), @ptrCast(item));
+    pub fn SetHorizontalHeaderItem(self: QTableWidget, column: i32, item: anytype) void {
+        comptime _ = @TypeOf(item)._is_QTableWidgetItem;
+        qtc.QTableWidget_SetHorizontalHeaderItem(@ptrCast(self.ptr), @bitCast(column), @ptrCast(item.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#takeHorizontalHeaderItem)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` column: i32 `
     ///
-    pub fn TakeHorizontalHeaderItem(self: ?*anyopaque, column: i32) QtC.QTableWidgetItem {
-        return qtc.QTableWidget_TakeHorizontalHeaderItem(@ptrCast(self), @bitCast(column));
+    pub fn TakeHorizontalHeaderItem(self: QTableWidget, column: i32) QTableWidgetItem {
+        return .{ .ptr = qtc.QTableWidget_TakeHorizontalHeaderItem(@ptrCast(self.ptr), @bitCast(column)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#setVerticalHeaderLabels)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
-    ///
-    /// ` labels: []const []const u8 `
+    /// ` self: QTableWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetVerticalHeaderLabels(self: ?*anyopaque, labels: []const []const u8, allocator: std.mem.Allocator) void {
+    /// ` labels: []const []const u8 `
+    ///
+    pub fn SetVerticalHeaderLabels(self: QTableWidget, allocator: std.mem.Allocator, labels: []const []const u8) void {
         const labels_arr = allocator.alloc(qtc.libqt_string, labels.len) catch @panic("qtablewidget.SetVerticalHeaderLabels: Memory allocation failed");
         defer allocator.free(labels_arr);
-        for (labels, 0..labels.len) |item, i| {
+        for (labels, 0..labels.len) |item, i|
             labels_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const labels_list = qtc.libqt_list{
             .len = labels.len,
             .data = labels_arr.ptr,
         };
-        qtc.QTableWidget_SetVerticalHeaderLabels(@ptrCast(self), labels_list);
+        qtc.QTableWidget_SetVerticalHeaderLabels(@ptrCast(self.ptr), labels_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#setHorizontalHeaderLabels)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
-    ///
-    /// ` labels: []const []const u8 `
+    /// ` self: QTableWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetHorizontalHeaderLabels(self: ?*anyopaque, labels: []const []const u8, allocator: std.mem.Allocator) void {
+    /// ` labels: []const []const u8 `
+    ///
+    pub fn SetHorizontalHeaderLabels(self: QTableWidget, allocator: std.mem.Allocator, labels: []const []const u8) void {
         const labels_arr = allocator.alloc(qtc.libqt_string, labels.len) catch @panic("qtablewidget.SetHorizontalHeaderLabels: Memory allocation failed");
         defer allocator.free(labels_arr);
-        for (labels, 0..labels.len) |item, i| {
+        for (labels, 0..labels.len) |item, i|
             labels_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const labels_list = qtc.libqt_list{
             .len = labels.len,
             .data = labels_arr.ptr,
         };
-        qtc.QTableWidget_SetHorizontalHeaderLabels(@ptrCast(self), labels_list);
+        qtc.QTableWidget_SetHorizontalHeaderLabels(@ptrCast(self.ptr), labels_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#currentRow)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn CurrentRow(self: ?*anyopaque) i32 {
-        return qtc.QTableWidget_CurrentRow(@ptrCast(self));
+    pub fn CurrentRow(self: QTableWidget) i32 {
+        return qtc.QTableWidget_CurrentRow(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#currentColumn)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn CurrentColumn(self: ?*anyopaque) i32 {
-        return qtc.QTableWidget_CurrentColumn(@ptrCast(self));
+    pub fn CurrentColumn(self: QTableWidget) i32 {
+        return qtc.QTableWidget_CurrentColumn(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#currentItem)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn CurrentItem(self: ?*anyopaque) QtC.QTableWidgetItem {
-        return qtc.QTableWidget_CurrentItem(@ptrCast(self));
+    pub fn CurrentItem(self: QTableWidget) QTableWidgetItem {
+        return .{ .ptr = qtc.QTableWidget_CurrentItem(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#setCurrentItem)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` item: QtC.QTableWidgetItem `
+    /// ` item: QTableWidgetItem `
     ///
-    pub fn SetCurrentItem(self: ?*anyopaque, item: ?*anyopaque) void {
-        qtc.QTableWidget_SetCurrentItem(@ptrCast(self), @ptrCast(item));
+    pub fn SetCurrentItem(self: QTableWidget, item: anytype) void {
+        comptime _ = @TypeOf(item)._is_QTableWidgetItem;
+        qtc.QTableWidget_SetCurrentItem(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#setCurrentItem)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` item: QtC.QTableWidgetItem `
+    /// ` item: QTableWidgetItem `
     ///
     /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn SetCurrentItem2(self: ?*anyopaque, item: ?*anyopaque, command: i32) void {
-        qtc.QTableWidget_SetCurrentItem2(@ptrCast(self), @ptrCast(item), @bitCast(command));
+    pub fn SetCurrentItem2(self: QTableWidget, item: anytype, command: i32) void {
+        comptime _ = @TypeOf(item)._is_QTableWidgetItem;
+        qtc.QTableWidget_SetCurrentItem2(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(command));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#setCurrentCell)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    pub fn SetCurrentCell(self: ?*anyopaque, row: i32, column: i32) void {
-        qtc.QTableWidget_SetCurrentCell(@ptrCast(self), @bitCast(row), @bitCast(column));
+    pub fn SetCurrentCell(self: QTableWidget, row: i32, column: i32) void {
+        qtc.QTableWidget_SetCurrentCell(@ptrCast(self.ptr), @bitCast(row), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#setCurrentCell)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` row: i32 `
     ///
@@ -1497,164 +1624,171 @@ pub const qtablewidget = struct {
     ///
     /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn SetCurrentCell2(self: ?*anyopaque, row: i32, column: i32, command: i32) void {
-        qtc.QTableWidget_SetCurrentCell2(@ptrCast(self), @bitCast(row), @bitCast(column), @bitCast(command));
+    pub fn SetCurrentCell2(self: QTableWidget, row: i32, column: i32, command: i32) void {
+        qtc.QTableWidget_SetCurrentCell2(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @bitCast(command));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#sortItems)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` column: i32 `
     ///
-    pub fn SortItems(self: ?*anyopaque, column: i32) void {
-        qtc.QTableWidget_SortItems(@ptrCast(self), @bitCast(column));
+    pub fn SortItems(self: QTableWidget, column: i32) void {
+        qtc.QTableWidget_SortItems(@ptrCast(self.ptr), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#setSortingEnabled)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetSortingEnabled(self: ?*anyopaque, enable: bool) void {
-        qtc.QTableWidget_SetSortingEnabled(@ptrCast(self), enable);
+    pub fn SetSortingEnabled(self: QTableWidget, enable: bool) void {
+        qtc.QTableWidget_SetSortingEnabled(@ptrCast(self.ptr), enable);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#isSortingEnabled)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn IsSortingEnabled(self: ?*anyopaque) bool {
-        return qtc.QTableWidget_IsSortingEnabled(@ptrCast(self));
+    pub fn IsSortingEnabled(self: QTableWidget) bool {
+        return qtc.QTableWidget_IsSortingEnabled(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#editItem)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` item: QtC.QTableWidgetItem `
+    /// ` item: QTableWidgetItem `
     ///
-    pub fn EditItem(self: ?*anyopaque, item: ?*anyopaque) void {
-        qtc.QTableWidget_EditItem(@ptrCast(self), @ptrCast(item));
+    pub fn EditItem(self: QTableWidget, item: anytype) void {
+        comptime _ = @TypeOf(item)._is_QTableWidgetItem;
+        qtc.QTableWidget_EditItem(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#openPersistentEditor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` item: QtC.QTableWidgetItem `
+    /// ` item: QTableWidgetItem `
     ///
-    pub fn OpenPersistentEditor(self: ?*anyopaque, item: ?*anyopaque) void {
-        qtc.QTableWidget_OpenPersistentEditor(@ptrCast(self), @ptrCast(item));
+    pub fn OpenPersistentEditor(self: QTableWidget, item: anytype) void {
+        comptime _ = @TypeOf(item)._is_QTableWidgetItem;
+        qtc.QTableWidget_OpenPersistentEditor(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#closePersistentEditor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` item: QtC.QTableWidgetItem `
+    /// ` item: QTableWidgetItem `
     ///
-    pub fn ClosePersistentEditor(self: ?*anyopaque, item: ?*anyopaque) void {
-        qtc.QTableWidget_ClosePersistentEditor(@ptrCast(self), @ptrCast(item));
+    pub fn ClosePersistentEditor(self: QTableWidget, item: anytype) void {
+        comptime _ = @TypeOf(item)._is_QTableWidgetItem;
+        qtc.QTableWidget_ClosePersistentEditor(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#isPersistentEditorOpen)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` item: QtC.QTableWidgetItem `
+    /// ` item: QTableWidgetItem `
     ///
-    pub fn IsPersistentEditorOpen(self: ?*anyopaque, item: ?*anyopaque) bool {
-        return qtc.QTableWidget_IsPersistentEditorOpen(@ptrCast(self), @ptrCast(item));
+    pub fn IsPersistentEditorOpen(self: QTableWidget, item: anytype) bool {
+        comptime _ = @TypeOf(item)._is_QTableWidgetItem;
+        return qtc.QTableWidget_IsPersistentEditorOpen(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#cellWidget)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    pub fn CellWidget(self: ?*anyopaque, row: i32, column: i32) QtC.QWidget {
-        return qtc.QTableWidget_CellWidget(@ptrCast(self), @bitCast(row), @bitCast(column));
+    pub fn CellWidget(self: QTableWidget, row: i32, column: i32) QWidget {
+        return .{ .ptr = qtc.QTableWidget_CellWidget(@ptrCast(self.ptr), @bitCast(row), @bitCast(column)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#setCellWidget)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn SetCellWidget(self: ?*anyopaque, row: i32, column: i32, widget: ?*anyopaque) void {
-        qtc.QTableWidget_SetCellWidget(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(widget));
+    pub fn SetCellWidget(self: QTableWidget, row: i32, column: i32, widget: anytype) void {
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.QTableWidget_SetCellWidget(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(widget.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#removeCellWidget)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    pub fn RemoveCellWidget(self: ?*anyopaque, row: i32, column: i32) void {
-        qtc.QTableWidget_RemoveCellWidget(@ptrCast(self), @bitCast(row), @bitCast(column));
+    pub fn RemoveCellWidget(self: QTableWidget, row: i32, column: i32) void {
+        qtc.QTableWidget_RemoveCellWidget(@ptrCast(self.ptr), @bitCast(row), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#setRangeSelected)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` range: QtC.QTableWidgetSelectionRange `
+    /// ` range: QTableWidgetSelectionRange `
     ///
     /// ` selectVal: bool `
     ///
-    pub fn SetRangeSelected(self: ?*anyopaque, range: ?*anyopaque, selectVal: bool) void {
-        qtc.QTableWidget_SetRangeSelected(@ptrCast(self), @ptrCast(range), selectVal);
+    pub fn SetRangeSelected(self: QTableWidget, range: anytype, selectVal: bool) void {
+        comptime _ = @TypeOf(range)._is_QTableWidgetSelectionRange;
+        qtc.QTableWidget_SetRangeSelected(@ptrCast(self.ptr), @ptrCast(range.ptr), selectVal);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#selectedRanges)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SelectedRanges(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QTableWidgetSelectionRange {
-        const _arr: qtc.libqt_list = qtc.QTableWidget_SelectedRanges(@ptrCast(self));
+    pub fn SelectedRanges(self: QTableWidget, allocator: std.mem.Allocator) []QTableWidgetSelectionRange {
+        const _arr: qtc.libqt_list = qtc.QTableWidget_SelectedRanges(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QTableWidgetSelectionRange, _arr.len) catch @panic("qtablewidget.SelectedRanges: Memory allocation failed");
+        const _ret = allocator.alloc(QTableWidgetSelectionRange, _arr.len) catch @panic("qtablewidget.SelectedRanges: Memory allocation failed");
         const _data: [*]QtC.QTableWidgetSelectionRange = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1662,16 +1796,17 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SelectedItems(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QTableWidgetItem {
-        const _arr: qtc.libqt_list = qtc.QTableWidget_SelectedItems(@ptrCast(self));
+    pub fn SelectedItems(self: QTableWidget, allocator: std.mem.Allocator) []QTableWidgetItem {
+        const _arr: qtc.libqt_list = qtc.QTableWidget_SelectedItems(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QTableWidgetItem, _arr.len) catch @panic("qtablewidget.SelectedItems: Memory allocation failed");
+        const _ret = allocator.alloc(QTableWidgetItem, _arr.len) catch @panic("qtablewidget.SelectedItems: Memory allocation failed");
         const _data: [*]QtC.QTableWidgetItem = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1679,24 +1814,25 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` text: []const u8 `
     ///
     /// ` flags: flag of qnamespace_enums.MatchFlag `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn FindItems(self: ?*anyopaque, text: []const u8, flags: i32, allocator: std.mem.Allocator) []QtC.QTableWidgetItem {
+    pub fn FindItems(self: QTableWidget, allocator: std.mem.Allocator, text: []const u8, flags: i32) []QTableWidgetItem {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.QTableWidget_FindItems(@ptrCast(self), text_str, @bitCast(flags));
+        const _arr: qtc.libqt_list = qtc.QTableWidget_FindItems(@ptrCast(self.ptr), text_str, @bitCast(flags));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QTableWidgetItem, _arr.len) catch @panic("qtablewidget.FindItems: Memory allocation failed");
+        const _ret = allocator.alloc(QTableWidgetItem, _arr.len) catch @panic("qtablewidget.FindItems: Memory allocation failed");
         const _data: [*]QtC.QTableWidgetItem = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1704,519 +1840,531 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` logicalRow: i32 `
     ///
-    pub fn VisualRow(self: ?*anyopaque, logicalRow: i32) i32 {
-        return qtc.QTableWidget_VisualRow(@ptrCast(self), @bitCast(logicalRow));
+    pub fn VisualRow(self: QTableWidget, logicalRow: i32) i32 {
+        return qtc.QTableWidget_VisualRow(@ptrCast(self.ptr), @bitCast(logicalRow));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#visualColumn)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` logicalColumn: i32 `
     ///
-    pub fn VisualColumn(self: ?*anyopaque, logicalColumn: i32) i32 {
-        return qtc.QTableWidget_VisualColumn(@ptrCast(self), @bitCast(logicalColumn));
+    pub fn VisualColumn(self: QTableWidget, logicalColumn: i32) i32 {
+        return qtc.QTableWidget_VisualColumn(@ptrCast(self.ptr), @bitCast(logicalColumn));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemAt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` p: QtC.QPoint `
+    /// ` p: QPoint `
     ///
-    pub fn ItemAt(self: ?*anyopaque, p: ?*anyopaque) QtC.QTableWidgetItem {
-        return qtc.QTableWidget_ItemAt(@ptrCast(self), @ptrCast(p));
+    pub fn ItemAt(self: QTableWidget, p: anytype) QTableWidgetItem {
+        comptime _ = @TypeOf(p)._is_QPoint;
+        return .{ .ptr = qtc.QTableWidget_ItemAt(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemAt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn ItemAt2(self: ?*anyopaque, x: i32, y: i32) QtC.QTableWidgetItem {
-        return qtc.QTableWidget_ItemAt2(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn ItemAt2(self: QTableWidget, x: i32, y: i32) QTableWidgetItem {
+        return .{ .ptr = qtc.QTableWidget_ItemAt2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#visualItemRect)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` item: QtC.QTableWidgetItem `
+    /// ` item: QTableWidgetItem `
     ///
-    pub fn VisualItemRect(self: ?*anyopaque, item: ?*anyopaque) QtC.QRect {
-        return qtc.QTableWidget_VisualItemRect(@ptrCast(self), @ptrCast(item));
+    pub fn VisualItemRect(self: QTableWidget, item: anytype) QRect {
+        comptime _ = @TypeOf(item)._is_QTableWidgetItem;
+        return .{ .ptr = qtc.QTableWidget_VisualItemRect(@ptrCast(self.ptr), @ptrCast(item.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemPrototype)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn ItemPrototype(self: ?*anyopaque) QtC.QTableWidgetItem {
-        return qtc.QTableWidget_ItemPrototype(@ptrCast(self));
+    pub fn ItemPrototype(self: QTableWidget) QTableWidgetItem {
+        return .{ .ptr = qtc.QTableWidget_ItemPrototype(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#setItemPrototype)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` item: QtC.QTableWidgetItem `
+    /// ` item: QTableWidgetItem `
     ///
-    pub fn SetItemPrototype(self: ?*anyopaque, item: ?*anyopaque) void {
-        qtc.QTableWidget_SetItemPrototype(@ptrCast(self), @ptrCast(item));
+    pub fn SetItemPrototype(self: QTableWidget, item: anytype) void {
+        comptime _ = @TypeOf(item)._is_QTableWidgetItem;
+        qtc.QTableWidget_SetItemPrototype(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#scrollToItem)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` item: QtC.QTableWidgetItem `
+    /// ` item: QTableWidgetItem `
     ///
-    pub fn ScrollToItem(self: ?*anyopaque, item: ?*anyopaque) void {
-        qtc.QTableWidget_ScrollToItem(@ptrCast(self), @ptrCast(item));
+    pub fn ScrollToItem(self: QTableWidget, item: anytype) void {
+        comptime _ = @TypeOf(item)._is_QTableWidgetItem;
+        qtc.QTableWidget_ScrollToItem(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#insertRow)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` row: i32 `
     ///
-    pub fn InsertRow(self: ?*anyopaque, row: i32) void {
-        qtc.QTableWidget_InsertRow(@ptrCast(self), @bitCast(row));
+    pub fn InsertRow(self: QTableWidget, row: i32) void {
+        qtc.QTableWidget_InsertRow(@ptrCast(self.ptr), @bitCast(row));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#insertColumn)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` column: i32 `
     ///
-    pub fn InsertColumn(self: ?*anyopaque, column: i32) void {
-        qtc.QTableWidget_InsertColumn(@ptrCast(self), @bitCast(column));
+    pub fn InsertColumn(self: QTableWidget, column: i32) void {
+        qtc.QTableWidget_InsertColumn(@ptrCast(self.ptr), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#removeRow)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` row: i32 `
     ///
-    pub fn RemoveRow(self: ?*anyopaque, row: i32) void {
-        qtc.QTableWidget_RemoveRow(@ptrCast(self), @bitCast(row));
+    pub fn RemoveRow(self: QTableWidget, row: i32) void {
+        qtc.QTableWidget_RemoveRow(@ptrCast(self.ptr), @bitCast(row));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#removeColumn)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` column: i32 `
     ///
-    pub fn RemoveColumn(self: ?*anyopaque, column: i32) void {
-        qtc.QTableWidget_RemoveColumn(@ptrCast(self), @bitCast(column));
+    pub fn RemoveColumn(self: QTableWidget, column: i32) void {
+        qtc.QTableWidget_RemoveColumn(@ptrCast(self.ptr), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#clear)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn Clear(self: ?*anyopaque) void {
-        qtc.QTableWidget_Clear(@ptrCast(self));
+    pub fn Clear(self: QTableWidget) void {
+        qtc.QTableWidget_Clear(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#clearContents)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn ClearContents(self: ?*anyopaque) void {
-        qtc.QTableWidget_ClearContents(@ptrCast(self));
+    pub fn ClearContents(self: QTableWidget) void {
+        qtc.QTableWidget_ClearContents(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemPressed)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` item: QtC.QTableWidgetItem `
+    /// ` item: QTableWidgetItem `
     ///
-    pub fn ItemPressed(self: ?*anyopaque, item: ?*anyopaque) void {
-        qtc.QTableWidget_ItemPressed(@ptrCast(self), @ptrCast(item));
+    pub fn ItemPressed(self: QTableWidget, item: anytype) void {
+        comptime _ = @TypeOf(item)._is_QTableWidgetItem;
+        qtc.QTableWidget_ItemPressed(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemPressed)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, item: QtC.QTableWidgetItem) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, item: QTableWidgetItem) callconv(.c) void `
     ///
-    pub fn OnItemPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_Connect_ItemPressed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnItemPressed(self: QTableWidget, callback: *const fn (QTableWidget, QTableWidgetItem) callconv(.c) void) void {
+        qtc.QTableWidget_Connect_ItemPressed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemClicked)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` item: QtC.QTableWidgetItem `
+    /// ` item: QTableWidgetItem `
     ///
-    pub fn ItemClicked(self: ?*anyopaque, item: ?*anyopaque) void {
-        qtc.QTableWidget_ItemClicked(@ptrCast(self), @ptrCast(item));
+    pub fn ItemClicked(self: QTableWidget, item: anytype) void {
+        comptime _ = @TypeOf(item)._is_QTableWidgetItem;
+        qtc.QTableWidget_ItemClicked(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemClicked)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, item: QtC.QTableWidgetItem) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, item: QTableWidgetItem) callconv(.c) void `
     ///
-    pub fn OnItemClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_Connect_ItemClicked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnItemClicked(self: QTableWidget, callback: *const fn (QTableWidget, QTableWidgetItem) callconv(.c) void) void {
+        qtc.QTableWidget_Connect_ItemClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemDoubleClicked)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` item: QtC.QTableWidgetItem `
+    /// ` item: QTableWidgetItem `
     ///
-    pub fn ItemDoubleClicked(self: ?*anyopaque, item: ?*anyopaque) void {
-        qtc.QTableWidget_ItemDoubleClicked(@ptrCast(self), @ptrCast(item));
+    pub fn ItemDoubleClicked(self: QTableWidget, item: anytype) void {
+        comptime _ = @TypeOf(item)._is_QTableWidgetItem;
+        qtc.QTableWidget_ItemDoubleClicked(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemDoubleClicked)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, item: QtC.QTableWidgetItem) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, item: QTableWidgetItem) callconv(.c) void `
     ///
-    pub fn OnItemDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_Connect_ItemDoubleClicked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnItemDoubleClicked(self: QTableWidget, callback: *const fn (QTableWidget, QTableWidgetItem) callconv(.c) void) void {
+        qtc.QTableWidget_Connect_ItemDoubleClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemActivated)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` item: QtC.QTableWidgetItem `
+    /// ` item: QTableWidgetItem `
     ///
-    pub fn ItemActivated(self: ?*anyopaque, item: ?*anyopaque) void {
-        qtc.QTableWidget_ItemActivated(@ptrCast(self), @ptrCast(item));
+    pub fn ItemActivated(self: QTableWidget, item: anytype) void {
+        comptime _ = @TypeOf(item)._is_QTableWidgetItem;
+        qtc.QTableWidget_ItemActivated(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemActivated)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, item: QtC.QTableWidgetItem) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, item: QTableWidgetItem) callconv(.c) void `
     ///
-    pub fn OnItemActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_Connect_ItemActivated(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnItemActivated(self: QTableWidget, callback: *const fn (QTableWidget, QTableWidgetItem) callconv(.c) void) void {
+        qtc.QTableWidget_Connect_ItemActivated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemEntered)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` item: QtC.QTableWidgetItem `
+    /// ` item: QTableWidgetItem `
     ///
-    pub fn ItemEntered(self: ?*anyopaque, item: ?*anyopaque) void {
-        qtc.QTableWidget_ItemEntered(@ptrCast(self), @ptrCast(item));
+    pub fn ItemEntered(self: QTableWidget, item: anytype) void {
+        comptime _ = @TypeOf(item)._is_QTableWidgetItem;
+        qtc.QTableWidget_ItemEntered(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemEntered)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, item: QtC.QTableWidgetItem) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, item: QTableWidgetItem) callconv(.c) void `
     ///
-    pub fn OnItemEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_Connect_ItemEntered(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnItemEntered(self: QTableWidget, callback: *const fn (QTableWidget, QTableWidgetItem) callconv(.c) void) void {
+        qtc.QTableWidget_Connect_ItemEntered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` item: QtC.QTableWidgetItem `
+    /// ` item: QTableWidgetItem `
     ///
-    pub fn ItemChanged(self: ?*anyopaque, item: ?*anyopaque) void {
-        qtc.QTableWidget_ItemChanged(@ptrCast(self), @ptrCast(item));
+    pub fn ItemChanged(self: QTableWidget, item: anytype) void {
+        comptime _ = @TypeOf(item)._is_QTableWidgetItem;
+        qtc.QTableWidget_ItemChanged(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, item: QtC.QTableWidgetItem) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, item: QTableWidgetItem) callconv(.c) void `
     ///
-    pub fn OnItemChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_Connect_ItemChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnItemChanged(self: QTableWidget, callback: *const fn (QTableWidget, QTableWidgetItem) callconv(.c) void) void {
+        qtc.QTableWidget_Connect_ItemChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#currentItemChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` current: QtC.QTableWidgetItem `
+    /// ` current: QTableWidgetItem `
     ///
-    /// ` previous: QtC.QTableWidgetItem `
+    /// ` previous: QTableWidgetItem `
     ///
-    pub fn CurrentItemChanged(self: ?*anyopaque, current: ?*anyopaque, previous: ?*anyopaque) void {
-        qtc.QTableWidget_CurrentItemChanged(@ptrCast(self), @ptrCast(current), @ptrCast(previous));
+    pub fn CurrentItemChanged(self: QTableWidget, current: anytype, previous: anytype) void {
+        comptime _ = @TypeOf(current)._is_QTableWidgetItem;
+        comptime _ = @TypeOf(previous)._is_QTableWidgetItem;
+        qtc.QTableWidget_CurrentItemChanged(@ptrCast(self.ptr), @ptrCast(current.ptr), @ptrCast(previous.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#currentItemChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, current: QtC.QTableWidgetItem, previous: QtC.QTableWidgetItem) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, current: QTableWidgetItem, previous: QTableWidgetItem) callconv(.c) void `
     ///
-    pub fn OnCurrentItemChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_Connect_CurrentItemChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCurrentItemChanged(self: QTableWidget, callback: *const fn (QTableWidget, QTableWidgetItem, QTableWidgetItem) callconv(.c) void) void {
+        qtc.QTableWidget_Connect_CurrentItemChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemSelectionChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn ItemSelectionChanged(self: ?*anyopaque) void {
-        qtc.QTableWidget_ItemSelectionChanged(@ptrCast(self));
+    pub fn ItemSelectionChanged(self: QTableWidget) void {
+        qtc.QTableWidget_ItemSelectionChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#itemSelectionChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget) callconv(.c) void `
     ///
-    pub fn OnItemSelectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_Connect_ItemSelectionChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnItemSelectionChanged(self: QTableWidget, callback: *const fn (QTableWidget) callconv(.c) void) void {
+        qtc.QTableWidget_Connect_ItemSelectionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#cellPressed)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    pub fn CellPressed(self: ?*anyopaque, row: i32, column: i32) void {
-        qtc.QTableWidget_CellPressed(@ptrCast(self), @bitCast(row), @bitCast(column));
+    pub fn CellPressed(self: QTableWidget, row: i32, column: i32) void {
+        qtc.QTableWidget_CellPressed(@ptrCast(self.ptr), @bitCast(row), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#cellPressed)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, row: i32, column: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, row: i32, column: i32) callconv(.c) void `
     ///
-    pub fn OnCellPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QTableWidget_Connect_CellPressed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCellPressed(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32) callconv(.c) void) void {
+        qtc.QTableWidget_Connect_CellPressed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#cellClicked)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    pub fn CellClicked(self: ?*anyopaque, row: i32, column: i32) void {
-        qtc.QTableWidget_CellClicked(@ptrCast(self), @bitCast(row), @bitCast(column));
+    pub fn CellClicked(self: QTableWidget, row: i32, column: i32) void {
+        qtc.QTableWidget_CellClicked(@ptrCast(self.ptr), @bitCast(row), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#cellClicked)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, row: i32, column: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, row: i32, column: i32) callconv(.c) void `
     ///
-    pub fn OnCellClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QTableWidget_Connect_CellClicked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCellClicked(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32) callconv(.c) void) void {
+        qtc.QTableWidget_Connect_CellClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#cellDoubleClicked)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    pub fn CellDoubleClicked(self: ?*anyopaque, row: i32, column: i32) void {
-        qtc.QTableWidget_CellDoubleClicked(@ptrCast(self), @bitCast(row), @bitCast(column));
+    pub fn CellDoubleClicked(self: QTableWidget, row: i32, column: i32) void {
+        qtc.QTableWidget_CellDoubleClicked(@ptrCast(self.ptr), @bitCast(row), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#cellDoubleClicked)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, row: i32, column: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, row: i32, column: i32) callconv(.c) void `
     ///
-    pub fn OnCellDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QTableWidget_Connect_CellDoubleClicked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCellDoubleClicked(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32) callconv(.c) void) void {
+        qtc.QTableWidget_Connect_CellDoubleClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#cellActivated)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    pub fn CellActivated(self: ?*anyopaque, row: i32, column: i32) void {
-        qtc.QTableWidget_CellActivated(@ptrCast(self), @bitCast(row), @bitCast(column));
+    pub fn CellActivated(self: QTableWidget, row: i32, column: i32) void {
+        qtc.QTableWidget_CellActivated(@ptrCast(self.ptr), @bitCast(row), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#cellActivated)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, row: i32, column: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, row: i32, column: i32) callconv(.c) void `
     ///
-    pub fn OnCellActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QTableWidget_Connect_CellActivated(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCellActivated(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32) callconv(.c) void) void {
+        qtc.QTableWidget_Connect_CellActivated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#cellEntered)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    pub fn CellEntered(self: ?*anyopaque, row: i32, column: i32) void {
-        qtc.QTableWidget_CellEntered(@ptrCast(self), @bitCast(row), @bitCast(column));
+    pub fn CellEntered(self: QTableWidget, row: i32, column: i32) void {
+        qtc.QTableWidget_CellEntered(@ptrCast(self.ptr), @bitCast(row), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#cellEntered)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, row: i32, column: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, row: i32, column: i32) callconv(.c) void `
     ///
-    pub fn OnCellEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QTableWidget_Connect_CellEntered(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCellEntered(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32) callconv(.c) void) void {
+        qtc.QTableWidget_Connect_CellEntered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#cellChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    pub fn CellChanged(self: ?*anyopaque, row: i32, column: i32) void {
-        qtc.QTableWidget_CellChanged(@ptrCast(self), @bitCast(row), @bitCast(column));
+    pub fn CellChanged(self: QTableWidget, row: i32, column: i32) void {
+        qtc.QTableWidget_CellChanged(@ptrCast(self.ptr), @bitCast(row), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#cellChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, row: i32, column: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, row: i32, column: i32) callconv(.c) void `
     ///
-    pub fn OnCellChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QTableWidget_Connect_CellChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCellChanged(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32) callconv(.c) void) void {
+        qtc.QTableWidget_Connect_CellChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#currentCellChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` currentRow: i32 `
     ///
@@ -2226,32 +2374,33 @@ pub const qtablewidget = struct {
     ///
     /// ` previousColumn: i32 `
     ///
-    pub fn CurrentCellChanged(self: ?*anyopaque, currentRow: i32, currentColumn: i32, previousRow: i32, previousColumn: i32) void {
-        qtc.QTableWidget_CurrentCellChanged(@ptrCast(self), @bitCast(currentRow), @bitCast(currentColumn), @bitCast(previousRow), @bitCast(previousColumn));
+    pub fn CurrentCellChanged(self: QTableWidget, currentRow: i32, currentColumn: i32, previousRow: i32, previousColumn: i32) void {
+        qtc.QTableWidget_CurrentCellChanged(@ptrCast(self.ptr), @bitCast(currentRow), @bitCast(currentColumn), @bitCast(previousRow), @bitCast(previousColumn));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#currentCellChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, currentRow: i32, currentColumn: i32, previousRow: i32, previousColumn: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, currentRow: i32, currentColumn: i32, previousRow: i32, previousColumn: i32) callconv(.c) void `
     ///
-    pub fn OnCurrentCellChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32, i32) callconv(.c) void) void {
-        qtc.QTableWidget_Connect_CurrentCellChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCurrentCellChanged(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32, i32, i32) callconv(.c) void) void {
+        qtc.QTableWidget_Connect_CurrentCellChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#event)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` e: QtC.QEvent `
+    /// ` e: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, e: ?*anyopaque) bool {
-        return qtc.QTableWidget_Event(@ptrCast(self), @ptrCast(e));
+    pub fn Event(self: QTableWidget, e: anytype) bool {
+        comptime _ = @TypeOf(e)._is_QEvent;
+        return qtc.QTableWidget_Event(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#event)
@@ -2260,12 +2409,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, e: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QTableWidget, e: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTableWidget_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QTableWidget, callback: *const fn (QTableWidget, QEvent) callconv(.c) bool) void {
+        qtc.QTableWidget_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -2278,29 +2427,29 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` e: QtC.QEvent `
+    /// ` e: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, e: ?*anyopaque) bool {
-        return qtc.QTableWidget_SuperEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperEvent(self: QTableWidget, e: anytype) bool {
+        comptime _ = @TypeOf(e)._is_QEvent;
+        return qtc.QTableWidget_SuperEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#mimeTypes)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QTableWidget_MimeTypes(@ptrCast(self));
+    pub fn MimeTypes(self: QTableWidget, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.QTableWidget_MimeTypes(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qtablewidget.MimeTypes: Memory allocation failed");
@@ -2317,16 +2466,16 @@ pub const qtablewidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnMimeTypes(self: ?*anyopaque, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
-        qtc.QTableWidget_OnMimeTypes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMimeTypes(self: QTableWidget, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
+        qtc.QTableWidget_OnMimeTypes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMimeTypes` instead
@@ -2339,17 +2488,16 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QTableWidget_SuperMimeTypes(@ptrCast(self));
+    pub fn SuperMimeTypes(self: QTableWidget, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.QTableWidget_SuperMimeTypes(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qtablewidget.MimeTypes: Memory allocation failed");
@@ -2366,16 +2514,16 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` items: []QtC.QTableWidgetItem `
+    /// ` items: []QTableWidgetItem `
     ///
-    pub fn MimeData(self: ?*anyopaque, items: []?*anyopaque) QtC.QMimeData {
+    pub fn MimeData(self: QTableWidget, items: []QTableWidgetItem) QMimeData {
         const items_list = qtc.libqt_list{
             .len = items.len,
             .data = @ptrCast(items.ptr),
         };
-        return qtc.QTableWidget_MimeData(@ptrCast(self), items_list);
+        return .{ .ptr = qtc.QTableWidget_MimeData(@ptrCast(self.ptr), items_list) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#mimeData)
@@ -2384,12 +2532,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, items: qtc.libqt_list ([]QtC.QTableWidgetItem)) callconv(.c) QtC.QMimeData `
+    /// ` callback: *const fn (self: QTableWidget, items: qtc.libqt_list ([]QTableWidgetItem)) callconv(.c) QMimeData `
     ///
-    pub fn OnMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) QtC.QMimeData) void {
-        qtc.QTableWidget_OnMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMimeData(self: QTableWidget, callback: *const fn (QTableWidget, qtc.libqt_list) callconv(.c) QMimeData) void {
+        qtc.QTableWidget_OnMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMimeData` instead
@@ -2402,34 +2550,35 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` items: []QtC.QTableWidgetItem `
+    /// ` items: []QTableWidgetItem `
     ///
-    pub fn SuperMimeData(self: ?*anyopaque, items: []?*anyopaque) QtC.QMimeData {
+    pub fn SuperMimeData(self: QTableWidget, items: []QTableWidgetItem) QMimeData {
         const items_list = qtc.libqt_list{
             .len = items.len,
             .data = @ptrCast(items.ptr),
         };
-        return qtc.QTableWidget_SuperMimeData(@ptrCast(self), items_list);
+        return .{ .ptr = qtc.QTableWidget_SuperMimeData(@ptrCast(self.ptr), items_list) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#dropMimeData)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    /// ` data: QtC.QMimeData `
+    /// ` data: QMimeData `
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
-    pub fn DropMimeData(self: ?*anyopaque, row: i32, column: i32, data: ?*anyopaque, action: i32) bool {
-        return qtc.QTableWidget_DropMimeData(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(data), @bitCast(action));
+    pub fn DropMimeData(self: QTableWidget, row: i32, column: i32, data: anytype, action: i32) bool {
+        comptime _ = @TypeOf(data)._is_QMimeData;
+        return qtc.QTableWidget_DropMimeData(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(data.ptr), @bitCast(action));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#dropMimeData)
@@ -2438,12 +2587,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, row: i32, column: i32, data: QtC.QMimeData, action: qnamespace_enums.DropAction) callconv(.c) bool `
+    /// ` callback: *const fn (self: QTableWidget, row: i32, column: i32, data: QMimeData, action: qnamespace_enums.DropAction) callconv(.c) bool `
     ///
-    pub fn OnDropMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QTableWidget_OnDropMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDropMimeData(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32, QMimeData, i32) callconv(.c) bool) void {
+        qtc.QTableWidget_OnDropMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperDropMimeData` instead
@@ -2456,32 +2605,33 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    /// ` data: QtC.QMimeData `
+    /// ` data: QMimeData `
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
-    pub fn SuperDropMimeData(self: ?*anyopaque, row: i32, column: i32, data: ?*anyopaque, action: i32) bool {
-        return qtc.QTableWidget_SuperDropMimeData(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(data), @bitCast(action));
+    pub fn SuperDropMimeData(self: QTableWidget, row: i32, column: i32, data: anytype, action: i32) bool {
+        comptime _ = @TypeOf(data)._is_QMimeData;
+        return qtc.QTableWidget_SuperDropMimeData(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(data.ptr), @bitCast(action));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#supportedDropActions)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SupportedDropActions(self: ?*anyopaque) i32 {
-        return qtc.QTableWidget_SupportedDropActions(@ptrCast(self));
+    pub fn SupportedDropActions(self: QTableWidget) i32 {
+        return qtc.QTableWidget_SupportedDropActions(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#supportedDropActions)
@@ -2490,12 +2640,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSupportedDropActions(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QTableWidget_OnSupportedDropActions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSupportedDropActions(self: QTableWidget, callback: *const fn () callconv(.c) i32) void {
+        qtc.QTableWidget_OnSupportedDropActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSupportedDropActions` instead
@@ -2508,26 +2658,27 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SuperSupportedDropActions(self: ?*anyopaque) i32 {
-        return qtc.QTableWidget_SuperSupportedDropActions(@ptrCast(self));
+    pub fn SuperSupportedDropActions(self: QTableWidget) i32 {
+        return qtc.QTableWidget_SuperSupportedDropActions(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#dropEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QDropEvent `
+    /// ` event: QDropEvent `
     ///
-    pub fn DropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_DropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DropEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDropEvent;
+        qtc.QTableWidget_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#dropEvent)
@@ -2536,12 +2687,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, event: QtC.QDropEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_OnDropEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDropEvent(self: QTableWidget, callback: *const fn (QTableWidget, QDropEvent) callconv(.c) void) void {
+        qtc.QTableWidget_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperDropEvent` instead
@@ -2554,25 +2705,26 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QDropEvent `
+    /// ` event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_SuperDropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDropEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDropEvent;
+        qtc.QTableWidget_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -2586,15 +2738,15 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -2608,28 +2760,29 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` column: i32 `
     ///
     /// ` order: qnamespace_enums.SortOrder `
     ///
-    pub fn SortItems2(self: ?*anyopaque, column: i32, order: i32) void {
-        qtc.QTableWidget_SortItems2(@ptrCast(self), @bitCast(column), @bitCast(order));
+    pub fn SortItems2(self: QTableWidget, column: i32, order: i32) void {
+        qtc.QTableWidget_SortItems2(@ptrCast(self.ptr), @bitCast(column), @bitCast(order));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidget.html#scrollToItem)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` item: QtC.QTableWidgetItem `
+    /// ` item: QTableWidgetItem `
     ///
     /// ` hint: qabstractitemview_enums.ScrollHint `
     ///
-    pub fn ScrollToItem2(self: ?*anyopaque, item: ?*anyopaque, hint: i32) void {
-        qtc.QTableWidget_ScrollToItem2(@ptrCast(self), @ptrCast(item), @bitCast(hint));
+    pub fn ScrollToItem2(self: QTableWidget, item: anytype, hint: i32) void {
+        comptime _ = @TypeOf(item)._is_QTableWidgetItem;
+        qtc.QTableWidget_ScrollToItem2(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(hint));
     }
 
     /// Inherited from QTableView
@@ -2638,12 +2791,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` model: QtC.QAbstractItemModel `
+    /// ` model: QAbstractItemModel `
     ///
-    pub fn SetModel(self: ?*anyopaque, model: ?*anyopaque) void {
-        qtc.QTableView_SetModel(@ptrCast(self), @ptrCast(model));
+    pub fn SetModel(self: QTableWidget, model: anytype) void {
+        comptime _ = @TypeOf(model)._is_QAbstractItemModel;
+        qtc.QTableView_SetModel(@ptrCast(self.ptr), @ptrCast(model.ptr));
     }
 
     /// Inherited from QTableView
@@ -2654,12 +2808,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, model: QtC.QAbstractItemModel) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, model: QAbstractItemModel) callconv(.c) void `
     ///
-    pub fn OnSetModel(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableView_OnSetModel(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetModel(self: QTableWidget, callback: *const fn (QTableWidget, QAbstractItemModel) callconv(.c) void) void {
+        qtc.QTableView_OnSetModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetModel` instead
@@ -2674,12 +2828,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` model: QtC.QAbstractItemModel `
+    /// ` model: QAbstractItemModel `
     ///
-    pub fn SuperSetModel(self: ?*anyopaque, model: ?*anyopaque) void {
-        qtc.QTableView_SuperSetModel(@ptrCast(self), @ptrCast(model));
+    pub fn SuperSetModel(self: QTableWidget, model: anytype) void {
+        comptime _ = @TypeOf(model)._is_QAbstractItemModel;
+        qtc.QTableView_SuperSetModel(@ptrCast(self.ptr), @ptrCast(model.ptr));
     }
 
     /// Inherited from QTableView
@@ -2688,10 +2843,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn HorizontalHeader(self: ?*anyopaque) QtC.QHeaderView {
-        return qtc.QTableView_HorizontalHeader(@ptrCast(self));
+    pub fn HorizontalHeader(self: QTableWidget) QHeaderView {
+        return .{ .ptr = qtc.QTableView_HorizontalHeader(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QTableView
@@ -2700,10 +2855,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn VerticalHeader(self: ?*anyopaque) QtC.QHeaderView {
-        return qtc.QTableView_VerticalHeader(@ptrCast(self));
+    pub fn VerticalHeader(self: QTableWidget) QHeaderView {
+        return .{ .ptr = qtc.QTableView_VerticalHeader(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QTableView
@@ -2712,12 +2867,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` header: QtC.QHeaderView `
+    /// ` header: QHeaderView `
     ///
-    pub fn SetHorizontalHeader(self: ?*anyopaque, header: ?*anyopaque) void {
-        qtc.QTableView_SetHorizontalHeader(@ptrCast(self), @ptrCast(header));
+    pub fn SetHorizontalHeader(self: QTableWidget, header: anytype) void {
+        comptime _ = @TypeOf(header)._is_QHeaderView;
+        qtc.QTableView_SetHorizontalHeader(@ptrCast(self.ptr), @ptrCast(header.ptr));
     }
 
     /// Inherited from QTableView
@@ -2726,12 +2882,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` header: QtC.QHeaderView `
+    /// ` header: QHeaderView `
     ///
-    pub fn SetVerticalHeader(self: ?*anyopaque, header: ?*anyopaque) void {
-        qtc.QTableView_SetVerticalHeader(@ptrCast(self), @ptrCast(header));
+    pub fn SetVerticalHeader(self: QTableWidget, header: anytype) void {
+        comptime _ = @TypeOf(header)._is_QHeaderView;
+        qtc.QTableView_SetVerticalHeader(@ptrCast(self.ptr), @ptrCast(header.ptr));
     }
 
     /// Inherited from QTableView
@@ -2740,12 +2897,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` row: i32 `
     ///
-    pub fn RowViewportPosition(self: ?*anyopaque, row: i32) i32 {
-        return qtc.QTableView_RowViewportPosition(@ptrCast(self), @bitCast(row));
+    pub fn RowViewportPosition(self: QTableWidget, row: i32) i32 {
+        return qtc.QTableView_RowViewportPosition(@ptrCast(self.ptr), @bitCast(row));
     }
 
     /// Inherited from QTableView
@@ -2754,12 +2911,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` y: i32 `
     ///
-    pub fn RowAt(self: ?*anyopaque, y: i32) i32 {
-        return qtc.QTableView_RowAt(@ptrCast(self), @bitCast(y));
+    pub fn RowAt(self: QTableWidget, y: i32) i32 {
+        return qtc.QTableView_RowAt(@ptrCast(self.ptr), @bitCast(y));
     }
 
     /// Inherited from QTableView
@@ -2768,14 +2925,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` row: i32 `
     ///
     /// ` height: i32 `
     ///
-    pub fn SetRowHeight(self: ?*anyopaque, row: i32, height: i32) void {
-        qtc.QTableView_SetRowHeight(@ptrCast(self), @bitCast(row), @bitCast(height));
+    pub fn SetRowHeight(self: QTableWidget, row: i32, height: i32) void {
+        qtc.QTableView_SetRowHeight(@ptrCast(self.ptr), @bitCast(row), @bitCast(height));
     }
 
     /// Inherited from QTableView
@@ -2784,12 +2941,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` row: i32 `
     ///
-    pub fn RowHeight(self: ?*anyopaque, row: i32) i32 {
-        return qtc.QTableView_RowHeight(@ptrCast(self), @bitCast(row));
+    pub fn RowHeight(self: QTableWidget, row: i32) i32 {
+        return qtc.QTableView_RowHeight(@ptrCast(self.ptr), @bitCast(row));
     }
 
     /// Inherited from QTableView
@@ -2798,12 +2955,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` column: i32 `
     ///
-    pub fn ColumnViewportPosition(self: ?*anyopaque, column: i32) i32 {
-        return qtc.QTableView_ColumnViewportPosition(@ptrCast(self), @bitCast(column));
+    pub fn ColumnViewportPosition(self: QTableWidget, column: i32) i32 {
+        return qtc.QTableView_ColumnViewportPosition(@ptrCast(self.ptr), @bitCast(column));
     }
 
     /// Inherited from QTableView
@@ -2812,12 +2969,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` x: i32 `
     ///
-    pub fn ColumnAt(self: ?*anyopaque, x: i32) i32 {
-        return qtc.QTableView_ColumnAt(@ptrCast(self), @bitCast(x));
+    pub fn ColumnAt(self: QTableWidget, x: i32) i32 {
+        return qtc.QTableView_ColumnAt(@ptrCast(self.ptr), @bitCast(x));
     }
 
     /// Inherited from QTableView
@@ -2826,14 +2983,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` column: i32 `
     ///
     /// ` width: i32 `
     ///
-    pub fn SetColumnWidth(self: ?*anyopaque, column: i32, width: i32) void {
-        qtc.QTableView_SetColumnWidth(@ptrCast(self), @bitCast(column), @bitCast(width));
+    pub fn SetColumnWidth(self: QTableWidget, column: i32, width: i32) void {
+        qtc.QTableView_SetColumnWidth(@ptrCast(self.ptr), @bitCast(column), @bitCast(width));
     }
 
     /// Inherited from QTableView
@@ -2842,12 +2999,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` column: i32 `
     ///
-    pub fn ColumnWidth(self: ?*anyopaque, column: i32) i32 {
-        return qtc.QTableView_ColumnWidth(@ptrCast(self), @bitCast(column));
+    pub fn ColumnWidth(self: QTableWidget, column: i32) i32 {
+        return qtc.QTableView_ColumnWidth(@ptrCast(self.ptr), @bitCast(column));
     }
 
     /// Inherited from QTableView
@@ -2856,12 +3013,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` row: i32 `
     ///
-    pub fn IsRowHidden(self: ?*anyopaque, row: i32) bool {
-        return qtc.QTableView_IsRowHidden(@ptrCast(self), @bitCast(row));
+    pub fn IsRowHidden(self: QTableWidget, row: i32) bool {
+        return qtc.QTableView_IsRowHidden(@ptrCast(self.ptr), @bitCast(row));
     }
 
     /// Inherited from QTableView
@@ -2870,14 +3027,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` row: i32 `
     ///
     /// ` hide: bool `
     ///
-    pub fn SetRowHidden(self: ?*anyopaque, row: i32, hide: bool) void {
-        qtc.QTableView_SetRowHidden(@ptrCast(self), @bitCast(row), hide);
+    pub fn SetRowHidden(self: QTableWidget, row: i32, hide: bool) void {
+        qtc.QTableView_SetRowHidden(@ptrCast(self.ptr), @bitCast(row), hide);
     }
 
     /// Inherited from QTableView
@@ -2886,12 +3043,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` column: i32 `
     ///
-    pub fn IsColumnHidden(self: ?*anyopaque, column: i32) bool {
-        return qtc.QTableView_IsColumnHidden(@ptrCast(self), @bitCast(column));
+    pub fn IsColumnHidden(self: QTableWidget, column: i32) bool {
+        return qtc.QTableView_IsColumnHidden(@ptrCast(self.ptr), @bitCast(column));
     }
 
     /// Inherited from QTableView
@@ -2900,14 +3057,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` column: i32 `
     ///
     /// ` hide: bool `
     ///
-    pub fn SetColumnHidden(self: ?*anyopaque, column: i32, hide: bool) void {
-        qtc.QTableView_SetColumnHidden(@ptrCast(self), @bitCast(column), hide);
+    pub fn SetColumnHidden(self: QTableWidget, column: i32, hide: bool) void {
+        qtc.QTableView_SetColumnHidden(@ptrCast(self.ptr), @bitCast(column), hide);
     }
 
     /// Inherited from QTableView
@@ -2916,10 +3073,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn ShowGrid(self: ?*anyopaque) bool {
-        return qtc.QTableView_ShowGrid(@ptrCast(self));
+    pub fn ShowGrid(self: QTableWidget) bool {
+        return qtc.QTableView_ShowGrid(@ptrCast(self.ptr));
     }
 
     /// Inherited from QTableView
@@ -2928,14 +3085,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.PenStyle `
     ///
-    pub fn GridStyle(self: ?*anyopaque) i32 {
-        return qtc.QTableView_GridStyle(@ptrCast(self));
+    pub fn GridStyle(self: QTableWidget) i32 {
+        return qtc.QTableView_GridStyle(@ptrCast(self.ptr));
     }
 
     /// Inherited from QTableView
@@ -2944,12 +3101,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` style: qnamespace_enums.PenStyle `
     ///
-    pub fn SetGridStyle(self: ?*anyopaque, style: i32) void {
-        qtc.QTableView_SetGridStyle(@ptrCast(self), @bitCast(style));
+    pub fn SetGridStyle(self: QTableWidget, style: i32) void {
+        qtc.QTableView_SetGridStyle(@ptrCast(self.ptr), @bitCast(style));
     }
 
     /// Inherited from QTableView
@@ -2958,12 +3115,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` on: bool `
     ///
-    pub fn SetWordWrap(self: ?*anyopaque, on: bool) void {
-        qtc.QTableView_SetWordWrap(@ptrCast(self), on);
+    pub fn SetWordWrap(self: QTableWidget, on: bool) void {
+        qtc.QTableView_SetWordWrap(@ptrCast(self.ptr), on);
     }
 
     /// Inherited from QTableView
@@ -2972,10 +3129,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn WordWrap(self: ?*anyopaque) bool {
-        return qtc.QTableView_WordWrap(@ptrCast(self));
+    pub fn WordWrap(self: QTableWidget) bool {
+        return qtc.QTableView_WordWrap(@ptrCast(self.ptr));
     }
 
     /// Inherited from QTableView
@@ -2984,12 +3141,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetCornerButtonEnabled(self: ?*anyopaque, enable: bool) void {
-        qtc.QTableView_SetCornerButtonEnabled(@ptrCast(self), enable);
+    pub fn SetCornerButtonEnabled(self: QTableWidget, enable: bool) void {
+        qtc.QTableView_SetCornerButtonEnabled(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QTableView
@@ -2998,10 +3155,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn IsCornerButtonEnabled(self: ?*anyopaque) bool {
-        return qtc.QTableView_IsCornerButtonEnabled(@ptrCast(self));
+    pub fn IsCornerButtonEnabled(self: QTableWidget) bool {
+        return qtc.QTableView_IsCornerButtonEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QTableView
@@ -3010,7 +3167,7 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` row: i32 `
     ///
@@ -3020,8 +3177,8 @@ pub const qtablewidget = struct {
     ///
     /// ` columnSpan: i32 `
     ///
-    pub fn SetSpan(self: ?*anyopaque, row: i32, column: i32, rowSpan: i32, columnSpan: i32) void {
-        qtc.QTableView_SetSpan(@ptrCast(self), @bitCast(row), @bitCast(column), @bitCast(rowSpan), @bitCast(columnSpan));
+    pub fn SetSpan(self: QTableWidget, row: i32, column: i32, rowSpan: i32, columnSpan: i32) void {
+        qtc.QTableView_SetSpan(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @bitCast(rowSpan), @bitCast(columnSpan));
     }
 
     /// Inherited from QTableView
@@ -3030,14 +3187,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    pub fn RowSpan(self: ?*anyopaque, row: i32, column: i32) i32 {
-        return qtc.QTableView_RowSpan(@ptrCast(self), @bitCast(row), @bitCast(column));
+    pub fn RowSpan(self: QTableWidget, row: i32, column: i32) i32 {
+        return qtc.QTableView_RowSpan(@ptrCast(self.ptr), @bitCast(row), @bitCast(column));
     }
 
     /// Inherited from QTableView
@@ -3046,14 +3203,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    pub fn ColumnSpan(self: ?*anyopaque, row: i32, column: i32) i32 {
-        return qtc.QTableView_ColumnSpan(@ptrCast(self), @bitCast(row), @bitCast(column));
+    pub fn ColumnSpan(self: QTableWidget, row: i32, column: i32) i32 {
+        return qtc.QTableView_ColumnSpan(@ptrCast(self.ptr), @bitCast(row), @bitCast(column));
     }
 
     /// Inherited from QTableView
@@ -3062,10 +3219,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn ClearSpans(self: ?*anyopaque) void {
-        qtc.QTableView_ClearSpans(@ptrCast(self));
+    pub fn ClearSpans(self: QTableWidget) void {
+        qtc.QTableView_ClearSpans(@ptrCast(self.ptr));
     }
 
     /// Inherited from QTableView
@@ -3074,12 +3231,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` row: i32 `
     ///
-    pub fn SelectRow(self: ?*anyopaque, row: i32) void {
-        qtc.QTableView_SelectRow(@ptrCast(self), @bitCast(row));
+    pub fn SelectRow(self: QTableWidget, row: i32) void {
+        qtc.QTableView_SelectRow(@ptrCast(self.ptr), @bitCast(row));
     }
 
     /// Inherited from QTableView
@@ -3088,12 +3245,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` column: i32 `
     ///
-    pub fn SelectColumn(self: ?*anyopaque, column: i32) void {
-        qtc.QTableView_SelectColumn(@ptrCast(self), @bitCast(column));
+    pub fn SelectColumn(self: QTableWidget, column: i32) void {
+        qtc.QTableView_SelectColumn(@ptrCast(self.ptr), @bitCast(column));
     }
 
     /// Inherited from QTableView
@@ -3102,12 +3259,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` row: i32 `
     ///
-    pub fn HideRow(self: ?*anyopaque, row: i32) void {
-        qtc.QTableView_HideRow(@ptrCast(self), @bitCast(row));
+    pub fn HideRow(self: QTableWidget, row: i32) void {
+        qtc.QTableView_HideRow(@ptrCast(self.ptr), @bitCast(row));
     }
 
     /// Inherited from QTableView
@@ -3116,12 +3273,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` column: i32 `
     ///
-    pub fn HideColumn(self: ?*anyopaque, column: i32) void {
-        qtc.QTableView_HideColumn(@ptrCast(self), @bitCast(column));
+    pub fn HideColumn(self: QTableWidget, column: i32) void {
+        qtc.QTableView_HideColumn(@ptrCast(self.ptr), @bitCast(column));
     }
 
     /// Inherited from QTableView
@@ -3130,12 +3287,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` row: i32 `
     ///
-    pub fn ShowRow(self: ?*anyopaque, row: i32) void {
-        qtc.QTableView_ShowRow(@ptrCast(self), @bitCast(row));
+    pub fn ShowRow(self: QTableWidget, row: i32) void {
+        qtc.QTableView_ShowRow(@ptrCast(self.ptr), @bitCast(row));
     }
 
     /// Inherited from QTableView
@@ -3144,12 +3301,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` column: i32 `
     ///
-    pub fn ShowColumn(self: ?*anyopaque, column: i32) void {
-        qtc.QTableView_ShowColumn(@ptrCast(self), @bitCast(column));
+    pub fn ShowColumn(self: QTableWidget, column: i32) void {
+        qtc.QTableView_ShowColumn(@ptrCast(self.ptr), @bitCast(column));
     }
 
     /// Inherited from QTableView
@@ -3158,12 +3315,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` row: i32 `
     ///
-    pub fn ResizeRowToContents(self: ?*anyopaque, row: i32) void {
-        qtc.QTableView_ResizeRowToContents(@ptrCast(self), @bitCast(row));
+    pub fn ResizeRowToContents(self: QTableWidget, row: i32) void {
+        qtc.QTableView_ResizeRowToContents(@ptrCast(self.ptr), @bitCast(row));
     }
 
     /// Inherited from QTableView
@@ -3172,10 +3329,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn ResizeRowsToContents(self: ?*anyopaque) void {
-        qtc.QTableView_ResizeRowsToContents(@ptrCast(self));
+    pub fn ResizeRowsToContents(self: QTableWidget) void {
+        qtc.QTableView_ResizeRowsToContents(@ptrCast(self.ptr));
     }
 
     /// Inherited from QTableView
@@ -3184,12 +3341,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` column: i32 `
     ///
-    pub fn ResizeColumnToContents(self: ?*anyopaque, column: i32) void {
-        qtc.QTableView_ResizeColumnToContents(@ptrCast(self), @bitCast(column));
+    pub fn ResizeColumnToContents(self: QTableWidget, column: i32) void {
+        qtc.QTableView_ResizeColumnToContents(@ptrCast(self.ptr), @bitCast(column));
     }
 
     /// Inherited from QTableView
@@ -3198,10 +3355,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn ResizeColumnsToContents(self: ?*anyopaque) void {
-        qtc.QTableView_ResizeColumnsToContents(@ptrCast(self));
+    pub fn ResizeColumnsToContents(self: QTableWidget) void {
+        qtc.QTableView_ResizeColumnsToContents(@ptrCast(self.ptr));
     }
 
     /// Inherited from QTableView
@@ -3210,14 +3367,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` column: i32 `
     ///
     /// ` order: qnamespace_enums.SortOrder `
     ///
-    pub fn SortByColumn(self: ?*anyopaque, column: i32, order: i32) void {
-        qtc.QTableView_SortByColumn(@ptrCast(self), @bitCast(column), @bitCast(order));
+    pub fn SortByColumn(self: QTableWidget, column: i32, order: i32) void {
+        qtc.QTableView_SortByColumn(@ptrCast(self.ptr), @bitCast(column), @bitCast(order));
     }
 
     /// Inherited from QTableView
@@ -3226,12 +3383,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` show: bool `
     ///
-    pub fn SetShowGrid(self: ?*anyopaque, show: bool) void {
-        qtc.QTableView_SetShowGrid(@ptrCast(self), show);
+    pub fn SetShowGrid(self: QTableWidget, show: bool) void {
+        qtc.QTableView_SetShowGrid(@ptrCast(self.ptr), show);
     }
 
     /// Inherited from QAbstractItemView
@@ -3240,10 +3397,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn Model(self: ?*anyopaque) QtC.QAbstractItemModel {
-        return qtc.QAbstractItemView_Model(@ptrCast(self));
+    pub fn Model(self: QTableWidget) QAbstractItemModel {
+        return .{ .ptr = qtc.QAbstractItemView_Model(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractItemView
@@ -3252,10 +3409,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn SelectionModel(self: ?*anyopaque) QtC.QItemSelectionModel {
-        return qtc.QAbstractItemView_SelectionModel(@ptrCast(self));
+    pub fn SelectionModel(self: QTableWidget) QItemSelectionModel {
+        return .{ .ptr = qtc.QAbstractItemView_SelectionModel(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractItemView
@@ -3264,12 +3421,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` delegate: QtC.QAbstractItemDelegate `
+    /// ` delegate: QAbstractItemDelegate `
     ///
-    pub fn SetItemDelegate(self: ?*anyopaque, delegate: ?*anyopaque) void {
-        qtc.QAbstractItemView_SetItemDelegate(@ptrCast(self), @ptrCast(delegate));
+    pub fn SetItemDelegate(self: QTableWidget, delegate: anytype) void {
+        comptime _ = @TypeOf(delegate)._is_QAbstractItemDelegate;
+        qtc.QAbstractItemView_SetItemDelegate(@ptrCast(self.ptr), @ptrCast(delegate.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3278,10 +3436,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn ItemDelegate(self: ?*anyopaque) QtC.QAbstractItemDelegate {
-        return qtc.QAbstractItemView_ItemDelegate(@ptrCast(self));
+    pub fn ItemDelegate(self: QTableWidget) QAbstractItemDelegate {
+        return .{ .ptr = qtc.QAbstractItemView_ItemDelegate(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractItemView
@@ -3290,12 +3448,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` mode: qabstractitemview_enums.SelectionMode `
     ///
-    pub fn SetSelectionMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QAbstractItemView_SetSelectionMode(@ptrCast(self), @bitCast(mode));
+    pub fn SetSelectionMode(self: QTableWidget, mode: i32) void {
+        qtc.QAbstractItemView_SetSelectionMode(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// Inherited from QAbstractItemView
@@ -3304,14 +3462,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ## Returns:
     ///
     /// ` qabstractitemview_enums.SelectionMode `
     ///
-    pub fn SelectionMode(self: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_SelectionMode(@ptrCast(self));
+    pub fn SelectionMode(self: QTableWidget) i32 {
+        return qtc.QAbstractItemView_SelectionMode(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3320,12 +3478,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` behavior: qabstractitemview_enums.SelectionBehavior `
     ///
-    pub fn SetSelectionBehavior(self: ?*anyopaque, behavior: i32) void {
-        qtc.QAbstractItemView_SetSelectionBehavior(@ptrCast(self), @bitCast(behavior));
+    pub fn SetSelectionBehavior(self: QTableWidget, behavior: i32) void {
+        qtc.QAbstractItemView_SetSelectionBehavior(@ptrCast(self.ptr), @bitCast(behavior));
     }
 
     /// Inherited from QAbstractItemView
@@ -3334,14 +3492,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ## Returns:
     ///
     /// ` qabstractitemview_enums.SelectionBehavior `
     ///
-    pub fn SelectionBehavior(self: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_SelectionBehavior(@ptrCast(self));
+    pub fn SelectionBehavior(self: QTableWidget) i32 {
+        return qtc.QAbstractItemView_SelectionBehavior(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3350,10 +3508,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn CurrentIndex(self: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QAbstractItemView_CurrentIndex(@ptrCast(self));
+    pub fn CurrentIndex(self: QTableWidget) QModelIndex {
+        return .{ .ptr = qtc.QAbstractItemView_CurrentIndex(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractItemView
@@ -3362,10 +3520,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn RootIndex(self: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QAbstractItemView_RootIndex(@ptrCast(self));
+    pub fn RootIndex(self: QTableWidget) QModelIndex {
+        return .{ .ptr = qtc.QAbstractItemView_RootIndex(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractItemView
@@ -3374,12 +3532,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` triggers: flag of qabstractitemview_enums.EditTrigger `
     ///
-    pub fn SetEditTriggers(self: ?*anyopaque, triggers: i32) void {
-        qtc.QAbstractItemView_SetEditTriggers(@ptrCast(self), @bitCast(triggers));
+    pub fn SetEditTriggers(self: QTableWidget, triggers: i32) void {
+        qtc.QAbstractItemView_SetEditTriggers(@ptrCast(self.ptr), @bitCast(triggers));
     }
 
     /// Inherited from QAbstractItemView
@@ -3388,14 +3546,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ## Returns:
     ///
     /// ` flag of qabstractitemview_enums.EditTrigger `
     ///
-    pub fn EditTriggers(self: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_EditTriggers(@ptrCast(self));
+    pub fn EditTriggers(self: QTableWidget) i32 {
+        return qtc.QAbstractItemView_EditTriggers(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3404,12 +3562,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` mode: qabstractitemview_enums.ScrollMode `
     ///
-    pub fn SetVerticalScrollMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QAbstractItemView_SetVerticalScrollMode(@ptrCast(self), @bitCast(mode));
+    pub fn SetVerticalScrollMode(self: QTableWidget, mode: i32) void {
+        qtc.QAbstractItemView_SetVerticalScrollMode(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// Inherited from QAbstractItemView
@@ -3418,14 +3576,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ## Returns:
     ///
     /// ` qabstractitemview_enums.ScrollMode `
     ///
-    pub fn VerticalScrollMode(self: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_VerticalScrollMode(@ptrCast(self));
+    pub fn VerticalScrollMode(self: QTableWidget) i32 {
+        return qtc.QAbstractItemView_VerticalScrollMode(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3434,10 +3592,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn ResetVerticalScrollMode(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_ResetVerticalScrollMode(@ptrCast(self));
+    pub fn ResetVerticalScrollMode(self: QTableWidget) void {
+        qtc.QAbstractItemView_ResetVerticalScrollMode(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3446,12 +3604,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` mode: qabstractitemview_enums.ScrollMode `
     ///
-    pub fn SetHorizontalScrollMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QAbstractItemView_SetHorizontalScrollMode(@ptrCast(self), @bitCast(mode));
+    pub fn SetHorizontalScrollMode(self: QTableWidget, mode: i32) void {
+        qtc.QAbstractItemView_SetHorizontalScrollMode(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// Inherited from QAbstractItemView
@@ -3460,14 +3618,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ## Returns:
     ///
     /// ` qabstractitemview_enums.ScrollMode `
     ///
-    pub fn HorizontalScrollMode(self: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_HorizontalScrollMode(@ptrCast(self));
+    pub fn HorizontalScrollMode(self: QTableWidget) i32 {
+        return qtc.QAbstractItemView_HorizontalScrollMode(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3476,10 +3634,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn ResetHorizontalScrollMode(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_ResetHorizontalScrollMode(@ptrCast(self));
+    pub fn ResetHorizontalScrollMode(self: QTableWidget) void {
+        qtc.QAbstractItemView_ResetHorizontalScrollMode(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3488,12 +3646,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetAutoScroll(self: ?*anyopaque, enable: bool) void {
-        qtc.QAbstractItemView_SetAutoScroll(@ptrCast(self), enable);
+    pub fn SetAutoScroll(self: QTableWidget, enable: bool) void {
+        qtc.QAbstractItemView_SetAutoScroll(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QAbstractItemView
@@ -3502,10 +3660,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn HasAutoScroll(self: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_HasAutoScroll(@ptrCast(self));
+    pub fn HasAutoScroll(self: QTableWidget) bool {
+        return qtc.QAbstractItemView_HasAutoScroll(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3514,12 +3672,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` margin: i32 `
     ///
-    pub fn SetAutoScrollMargin(self: ?*anyopaque, margin: i32) void {
-        qtc.QAbstractItemView_SetAutoScrollMargin(@ptrCast(self), @bitCast(margin));
+    pub fn SetAutoScrollMargin(self: QTableWidget, margin: i32) void {
+        qtc.QAbstractItemView_SetAutoScrollMargin(@ptrCast(self.ptr), @bitCast(margin));
     }
 
     /// Inherited from QAbstractItemView
@@ -3528,10 +3686,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn AutoScrollMargin(self: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_AutoScrollMargin(@ptrCast(self));
+    pub fn AutoScrollMargin(self: QTableWidget) i32 {
+        return qtc.QAbstractItemView_AutoScrollMargin(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3540,12 +3698,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabKeyNavigation(self: ?*anyopaque, enable: bool) void {
-        qtc.QAbstractItemView_SetTabKeyNavigation(@ptrCast(self), enable);
+    pub fn SetTabKeyNavigation(self: QTableWidget, enable: bool) void {
+        qtc.QAbstractItemView_SetTabKeyNavigation(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QAbstractItemView
@@ -3554,10 +3712,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn TabKeyNavigation(self: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_TabKeyNavigation(@ptrCast(self));
+    pub fn TabKeyNavigation(self: QTableWidget) bool {
+        return qtc.QAbstractItemView_TabKeyNavigation(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3566,12 +3724,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetDropIndicatorShown(self: ?*anyopaque, enable: bool) void {
-        qtc.QAbstractItemView_SetDropIndicatorShown(@ptrCast(self), enable);
+    pub fn SetDropIndicatorShown(self: QTableWidget, enable: bool) void {
+        qtc.QAbstractItemView_SetDropIndicatorShown(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QAbstractItemView
@@ -3580,10 +3738,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn ShowDropIndicator(self: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_ShowDropIndicator(@ptrCast(self));
+    pub fn ShowDropIndicator(self: QTableWidget) bool {
+        return qtc.QAbstractItemView_ShowDropIndicator(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3592,12 +3750,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetDragEnabled(self: ?*anyopaque, enable: bool) void {
-        qtc.QAbstractItemView_SetDragEnabled(@ptrCast(self), enable);
+    pub fn SetDragEnabled(self: QTableWidget, enable: bool) void {
+        qtc.QAbstractItemView_SetDragEnabled(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QAbstractItemView
@@ -3606,10 +3764,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn DragEnabled(self: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_DragEnabled(@ptrCast(self));
+    pub fn DragEnabled(self: QTableWidget) bool {
+        return qtc.QAbstractItemView_DragEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3618,12 +3776,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` overwrite: bool `
     ///
-    pub fn SetDragDropOverwriteMode(self: ?*anyopaque, overwrite: bool) void {
-        qtc.QAbstractItemView_SetDragDropOverwriteMode(@ptrCast(self), overwrite);
+    pub fn SetDragDropOverwriteMode(self: QTableWidget, overwrite: bool) void {
+        qtc.QAbstractItemView_SetDragDropOverwriteMode(@ptrCast(self.ptr), overwrite);
     }
 
     /// Inherited from QAbstractItemView
@@ -3632,10 +3790,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn DragDropOverwriteMode(self: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_DragDropOverwriteMode(@ptrCast(self));
+    pub fn DragDropOverwriteMode(self: QTableWidget) bool {
+        return qtc.QAbstractItemView_DragDropOverwriteMode(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3644,12 +3802,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` behavior: qabstractitemview_enums.DragDropMode `
     ///
-    pub fn SetDragDropMode(self: ?*anyopaque, behavior: i32) void {
-        qtc.QAbstractItemView_SetDragDropMode(@ptrCast(self), @bitCast(behavior));
+    pub fn SetDragDropMode(self: QTableWidget, behavior: i32) void {
+        qtc.QAbstractItemView_SetDragDropMode(@ptrCast(self.ptr), @bitCast(behavior));
     }
 
     /// Inherited from QAbstractItemView
@@ -3658,14 +3816,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ## Returns:
     ///
     /// ` qabstractitemview_enums.DragDropMode `
     ///
-    pub fn DragDropMode(self: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_DragDropMode(@ptrCast(self));
+    pub fn DragDropMode(self: QTableWidget) i32 {
+        return qtc.QAbstractItemView_DragDropMode(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3674,12 +3832,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` dropAction: qnamespace_enums.DropAction `
     ///
-    pub fn SetDefaultDropAction(self: ?*anyopaque, dropAction: i32) void {
-        qtc.QAbstractItemView_SetDefaultDropAction(@ptrCast(self), @bitCast(dropAction));
+    pub fn SetDefaultDropAction(self: QTableWidget, dropAction: i32) void {
+        qtc.QAbstractItemView_SetDefaultDropAction(@ptrCast(self.ptr), @bitCast(dropAction));
     }
 
     /// Inherited from QAbstractItemView
@@ -3688,14 +3846,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.DropAction `
     ///
-    pub fn DefaultDropAction(self: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_DefaultDropAction(@ptrCast(self));
+    pub fn DefaultDropAction(self: QTableWidget) i32 {
+        return qtc.QAbstractItemView_DefaultDropAction(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3704,12 +3862,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetAlternatingRowColors(self: ?*anyopaque, enable: bool) void {
-        qtc.QAbstractItemView_SetAlternatingRowColors(@ptrCast(self), enable);
+    pub fn SetAlternatingRowColors(self: QTableWidget, enable: bool) void {
+        qtc.QAbstractItemView_SetAlternatingRowColors(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QAbstractItemView
@@ -3718,10 +3876,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn AlternatingRowColors(self: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_AlternatingRowColors(@ptrCast(self));
+    pub fn AlternatingRowColors(self: QTableWidget) bool {
+        return qtc.QAbstractItemView_AlternatingRowColors(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3730,12 +3888,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` size: QtC.QSize `
+    /// ` size: QSize `
     ///
-    pub fn SetIconSize(self: ?*anyopaque, size: ?*anyopaque) void {
-        qtc.QAbstractItemView_SetIconSize(@ptrCast(self), @ptrCast(size));
+    pub fn SetIconSize(self: QTableWidget, size: anytype) void {
+        comptime _ = @TypeOf(size)._is_QSize;
+        qtc.QAbstractItemView_SetIconSize(@ptrCast(self.ptr), @ptrCast(size.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3744,10 +3903,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn IconSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QAbstractItemView_IconSize(@ptrCast(self));
+    pub fn IconSize(self: QTableWidget) QSize {
+        return .{ .ptr = qtc.QAbstractItemView_IconSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractItemView
@@ -3756,12 +3915,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` mode: qnamespace_enums.TextElideMode `
     ///
-    pub fn SetTextElideMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QAbstractItemView_SetTextElideMode(@ptrCast(self), @bitCast(mode));
+    pub fn SetTextElideMode(self: QTableWidget, mode: i32) void {
+        qtc.QAbstractItemView_SetTextElideMode(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// Inherited from QAbstractItemView
@@ -3770,14 +3929,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.TextElideMode `
     ///
-    pub fn TextElideMode(self: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_TextElideMode(@ptrCast(self));
+    pub fn TextElideMode(self: QTableWidget) i32 {
+        return qtc.QAbstractItemView_TextElideMode(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3786,12 +3945,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SizeHintForIndex(self: ?*anyopaque, index: ?*anyopaque) QtC.QSize {
-        return qtc.QAbstractItemView_SizeHintForIndex(@ptrCast(self), @ptrCast(index));
+    pub fn SizeHintForIndex(self: QTableWidget, index: anytype) QSize {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.QAbstractItemView_SizeHintForIndex(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// Inherited from QAbstractItemView
@@ -3800,14 +3960,16 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn SetIndexWidget(self: ?*anyopaque, index: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.QAbstractItemView_SetIndexWidget(@ptrCast(self), @ptrCast(index), @ptrCast(widget));
+    pub fn SetIndexWidget(self: QTableWidget, index: anytype, widget: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.QAbstractItemView_SetIndexWidget(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(widget.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3816,12 +3978,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn IndexWidget(self: ?*anyopaque, index: ?*anyopaque) QtC.QWidget {
-        return qtc.QAbstractItemView_IndexWidget(@ptrCast(self), @ptrCast(index));
+    pub fn IndexWidget(self: QTableWidget, index: anytype) QWidget {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.QAbstractItemView_IndexWidget(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// Inherited from QAbstractItemView
@@ -3830,14 +3993,15 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` row: i32 `
     ///
-    /// ` delegate: QtC.QAbstractItemDelegate `
+    /// ` delegate: QAbstractItemDelegate `
     ///
-    pub fn SetItemDelegateForRow(self: ?*anyopaque, row: i32, delegate: ?*anyopaque) void {
-        qtc.QAbstractItemView_SetItemDelegateForRow(@ptrCast(self), @bitCast(row), @ptrCast(delegate));
+    pub fn SetItemDelegateForRow(self: QTableWidget, row: i32, delegate: anytype) void {
+        comptime _ = @TypeOf(delegate)._is_QAbstractItemDelegate;
+        qtc.QAbstractItemView_SetItemDelegateForRow(@ptrCast(self.ptr), @bitCast(row), @ptrCast(delegate.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3846,12 +4010,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` row: i32 `
     ///
-    pub fn ItemDelegateForRow(self: ?*anyopaque, row: i32) QtC.QAbstractItemDelegate {
-        return qtc.QAbstractItemView_ItemDelegateForRow(@ptrCast(self), @bitCast(row));
+    pub fn ItemDelegateForRow(self: QTableWidget, row: i32) QAbstractItemDelegate {
+        return .{ .ptr = qtc.QAbstractItemView_ItemDelegateForRow(@ptrCast(self.ptr), @bitCast(row)) };
     }
 
     /// Inherited from QAbstractItemView
@@ -3860,14 +4024,15 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` column: i32 `
     ///
-    /// ` delegate: QtC.QAbstractItemDelegate `
+    /// ` delegate: QAbstractItemDelegate `
     ///
-    pub fn SetItemDelegateForColumn(self: ?*anyopaque, column: i32, delegate: ?*anyopaque) void {
-        qtc.QAbstractItemView_SetItemDelegateForColumn(@ptrCast(self), @bitCast(column), @ptrCast(delegate));
+    pub fn SetItemDelegateForColumn(self: QTableWidget, column: i32, delegate: anytype) void {
+        comptime _ = @TypeOf(delegate)._is_QAbstractItemDelegate;
+        qtc.QAbstractItemView_SetItemDelegateForColumn(@ptrCast(self.ptr), @bitCast(column), @ptrCast(delegate.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3876,12 +4041,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` column: i32 `
     ///
-    pub fn ItemDelegateForColumn(self: ?*anyopaque, column: i32) QtC.QAbstractItemDelegate {
-        return qtc.QAbstractItemView_ItemDelegateForColumn(@ptrCast(self), @bitCast(column));
+    pub fn ItemDelegateForColumn(self: QTableWidget, column: i32) QAbstractItemDelegate {
+        return .{ .ptr = qtc.QAbstractItemView_ItemDelegateForColumn(@ptrCast(self.ptr), @bitCast(column)) };
     }
 
     /// Inherited from QAbstractItemView
@@ -3890,12 +4055,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn ItemDelegate2(self: ?*anyopaque, index: ?*anyopaque) QtC.QAbstractItemDelegate {
-        return qtc.QAbstractItemView_ItemDelegate2(@ptrCast(self), @ptrCast(index));
+    pub fn ItemDelegate2(self: QTableWidget, index: anytype) QAbstractItemDelegate {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.QAbstractItemView_ItemDelegate2(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// Inherited from QAbstractItemView
@@ -3904,12 +4070,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn Edit(self: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QAbstractItemView_Edit(@ptrCast(self), @ptrCast(index));
+    pub fn Edit(self: QTableWidget, index: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QAbstractItemView_Edit(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3918,10 +4085,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn ClearSelection(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_ClearSelection(@ptrCast(self));
+    pub fn ClearSelection(self: QTableWidget) void {
+        qtc.QAbstractItemView_ClearSelection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3930,12 +4097,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SetCurrentIndex(self: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QAbstractItemView_SetCurrentIndex(@ptrCast(self), @ptrCast(index));
+    pub fn SetCurrentIndex(self: QTableWidget, index: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QAbstractItemView_SetCurrentIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3944,10 +4112,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn ScrollToTop(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_ScrollToTop(@ptrCast(self));
+    pub fn ScrollToTop(self: QTableWidget) void {
+        qtc.QAbstractItemView_ScrollToTop(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3956,10 +4124,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn ScrollToBottom(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_ScrollToBottom(@ptrCast(self));
+    pub fn ScrollToBottom(self: QTableWidget) void {
+        qtc.QAbstractItemView_ScrollToBottom(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3968,12 +4136,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn Update(self: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QAbstractItemView_Update(@ptrCast(self), @ptrCast(index));
+    pub fn Update(self: QTableWidget, index: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QAbstractItemView_Update(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3982,12 +4151,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn Pressed(self: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QAbstractItemView_Pressed(@ptrCast(self), @ptrCast(index));
+    pub fn Pressed(self: QTableWidget, index: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QAbstractItemView_Pressed(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3996,12 +4166,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, index: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_Pressed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPressed(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex) callconv(.c) void) void {
+        qtc.QAbstractItemView_Connect_Pressed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -4010,12 +4180,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn Clicked(self: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QAbstractItemView_Clicked(@ptrCast(self), @ptrCast(index));
+    pub fn Clicked(self: QTableWidget, index: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QAbstractItemView_Clicked(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -4024,12 +4195,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, index: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_Clicked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnClicked(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex) callconv(.c) void) void {
+        qtc.QAbstractItemView_Connect_Clicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -4038,12 +4209,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn DoubleClicked(self: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QAbstractItemView_DoubleClicked(@ptrCast(self), @ptrCast(index));
+    pub fn DoubleClicked(self: QTableWidget, index: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QAbstractItemView_DoubleClicked(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -4052,12 +4224,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, index: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_DoubleClicked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDoubleClicked(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex) callconv(.c) void) void {
+        qtc.QAbstractItemView_Connect_DoubleClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -4066,12 +4238,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn Activated(self: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QAbstractItemView_Activated(@ptrCast(self), @ptrCast(index));
+    pub fn Activated(self: QTableWidget, index: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QAbstractItemView_Activated(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -4080,12 +4253,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, index: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_Activated(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnActivated(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex) callconv(.c) void) void {
+        qtc.QAbstractItemView_Connect_Activated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -4094,12 +4267,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn Entered(self: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QAbstractItemView_Entered(@ptrCast(self), @ptrCast(index));
+    pub fn Entered(self: QTableWidget, index: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QAbstractItemView_Entered(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -4108,12 +4282,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, index: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_Entered(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEntered(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex) callconv(.c) void) void {
+        qtc.QAbstractItemView_Connect_Entered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -4122,10 +4296,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn ViewportEntered(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_ViewportEntered(@ptrCast(self));
+    pub fn ViewportEntered(self: QTableWidget) void {
+        qtc.QAbstractItemView_ViewportEntered(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -4134,12 +4308,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget) callconv(.c) void `
     ///
-    pub fn OnViewportEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_ViewportEntered(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnViewportEntered(self: QTableWidget, callback: *const fn (QTableWidget) callconv(.c) void) void {
+        qtc.QAbstractItemView_Connect_ViewportEntered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -4148,12 +4322,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` size: QtC.QSize `
+    /// ` size: QSize `
     ///
-    pub fn IconSizeChanged(self: ?*anyopaque, size: ?*anyopaque) void {
-        qtc.QAbstractItemView_IconSizeChanged(@ptrCast(self), @ptrCast(size));
+    pub fn IconSizeChanged(self: QTableWidget, size: anytype) void {
+        comptime _ = @TypeOf(size)._is_QSize;
+        qtc.QAbstractItemView_IconSizeChanged(@ptrCast(self.ptr), @ptrCast(size.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -4162,12 +4337,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, size: QtC.QSize) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, size: QSize) callconv(.c) void `
     ///
-    pub fn OnIconSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_IconSizeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIconSizeChanged(self: QTableWidget, callback: *const fn (QTableWidget, QSize) callconv(.c) void) void {
+        qtc.QAbstractItemView_Connect_IconSizeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4176,14 +4351,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn VerticalScrollBarPolicy(self: ?*anyopaque) i32 {
-        return qtc.QAbstractScrollArea_VerticalScrollBarPolicy(@ptrCast(self));
+    pub fn VerticalScrollBarPolicy(self: QTableWidget) i32 {
+        return qtc.QAbstractScrollArea_VerticalScrollBarPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4192,12 +4367,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn SetVerticalScrollBarPolicy(self: ?*anyopaque, verticalScrollBarPolicy: i32) void {
-        qtc.QAbstractScrollArea_SetVerticalScrollBarPolicy(@ptrCast(self), @bitCast(verticalScrollBarPolicy));
+    pub fn SetVerticalScrollBarPolicy(self: QTableWidget, verticalScrollBarPolicy: i32) void {
+        qtc.QAbstractScrollArea_SetVerticalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(verticalScrollBarPolicy));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4206,10 +4381,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn VerticalScrollBar(self: ?*anyopaque) QtC.QScrollBar {
-        return qtc.QAbstractScrollArea_VerticalScrollBar(@ptrCast(self));
+    pub fn VerticalScrollBar(self: QTableWidget) QScrollBar {
+        return .{ .ptr = qtc.QAbstractScrollArea_VerticalScrollBar(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4218,12 +4393,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` scrollbar: QtC.QScrollBar `
+    /// ` scrollbar: QScrollBar `
     ///
-    pub fn SetVerticalScrollBar(self: ?*anyopaque, scrollbar: ?*anyopaque) void {
-        qtc.QAbstractScrollArea_SetVerticalScrollBar(@ptrCast(self), @ptrCast(scrollbar));
+    pub fn SetVerticalScrollBar(self: QTableWidget, scrollbar: anytype) void {
+        comptime _ = @TypeOf(scrollbar)._is_QScrollBar;
+        qtc.QAbstractScrollArea_SetVerticalScrollBar(@ptrCast(self.ptr), @ptrCast(scrollbar.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4232,14 +4408,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn HorizontalScrollBarPolicy(self: ?*anyopaque) i32 {
-        return qtc.QAbstractScrollArea_HorizontalScrollBarPolicy(@ptrCast(self));
+    pub fn HorizontalScrollBarPolicy(self: QTableWidget) i32 {
+        return qtc.QAbstractScrollArea_HorizontalScrollBarPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4248,12 +4424,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn SetHorizontalScrollBarPolicy(self: ?*anyopaque, horizontalScrollBarPolicy: i32) void {
-        qtc.QAbstractScrollArea_SetHorizontalScrollBarPolicy(@ptrCast(self), @bitCast(horizontalScrollBarPolicy));
+    pub fn SetHorizontalScrollBarPolicy(self: QTableWidget, horizontalScrollBarPolicy: i32) void {
+        qtc.QAbstractScrollArea_SetHorizontalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(horizontalScrollBarPolicy));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4262,10 +4438,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn HorizontalScrollBar(self: ?*anyopaque) QtC.QScrollBar {
-        return qtc.QAbstractScrollArea_HorizontalScrollBar(@ptrCast(self));
+    pub fn HorizontalScrollBar(self: QTableWidget) QScrollBar {
+        return .{ .ptr = qtc.QAbstractScrollArea_HorizontalScrollBar(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4274,12 +4450,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` scrollbar: QtC.QScrollBar `
+    /// ` scrollbar: QScrollBar `
     ///
-    pub fn SetHorizontalScrollBar(self: ?*anyopaque, scrollbar: ?*anyopaque) void {
-        qtc.QAbstractScrollArea_SetHorizontalScrollBar(@ptrCast(self), @ptrCast(scrollbar));
+    pub fn SetHorizontalScrollBar(self: QTableWidget, scrollbar: anytype) void {
+        comptime _ = @TypeOf(scrollbar)._is_QScrollBar;
+        qtc.QAbstractScrollArea_SetHorizontalScrollBar(@ptrCast(self.ptr), @ptrCast(scrollbar.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4288,10 +4465,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn CornerWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QAbstractScrollArea_CornerWidget(@ptrCast(self));
+    pub fn CornerWidget(self: QTableWidget) QWidget {
+        return .{ .ptr = qtc.QAbstractScrollArea_CornerWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4300,12 +4477,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn SetCornerWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.QAbstractScrollArea_SetCornerWidget(@ptrCast(self), @ptrCast(widget));
+    pub fn SetCornerWidget(self: QTableWidget, widget: anytype) void {
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.QAbstractScrollArea_SetCornerWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4314,14 +4492,15 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn AddScrollBarWidget(self: ?*anyopaque, widget: ?*anyopaque, alignment: i32) void {
-        qtc.QAbstractScrollArea_AddScrollBarWidget(@ptrCast(self), @ptrCast(widget), @bitCast(alignment));
+    pub fn AddScrollBarWidget(self: QTableWidget, widget: anytype, alignment: i32) void {
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.QAbstractScrollArea_AddScrollBarWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr), @bitCast(alignment));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4330,18 +4509,19 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
-    ///
-    /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
+    /// ` self: QTableWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ScrollBarWidgets(self: ?*anyopaque, alignment: i32, allocator: std.mem.Allocator) []QtC.QWidget {
-        const _arr: qtc.libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self), @bitCast(alignment));
+    /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
+    ///
+    pub fn ScrollBarWidgets(self: QTableWidget, allocator: std.mem.Allocator, alignment: i32) []QWidget {
+        const _arr: qtc.libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self.ptr), @bitCast(alignment));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QWidget, _arr.len) catch @panic("qtablewidget.ScrollBarWidgets: Memory allocation failed");
+        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("qtablewidget.ScrollBarWidgets: Memory allocation failed");
         const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -4351,10 +4531,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn Viewport(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QAbstractScrollArea_Viewport(@ptrCast(self));
+    pub fn Viewport(self: QTableWidget) QWidget {
+        return .{ .ptr = qtc.QAbstractScrollArea_Viewport(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4363,12 +4543,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn SetViewport(self: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.QAbstractScrollArea_SetViewport(@ptrCast(self), @ptrCast(widget));
+    pub fn SetViewport(self: QTableWidget, widget: anytype) void {
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.QAbstractScrollArea_SetViewport(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4377,10 +4558,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn MaximumViewportSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QAbstractScrollArea_MaximumViewportSize(@ptrCast(self));
+    pub fn MaximumViewportSize(self: QTableWidget) QSize {
+        return .{ .ptr = qtc.QAbstractScrollArea_MaximumViewportSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4389,14 +4570,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ## Returns:
     ///
     /// ` qabstractscrollarea_enums.SizeAdjustPolicy `
     ///
-    pub fn SizeAdjustPolicy(self: ?*anyopaque) i32 {
-        return qtc.QAbstractScrollArea_SizeAdjustPolicy(@ptrCast(self));
+    pub fn SizeAdjustPolicy(self: QTableWidget) i32 {
+        return qtc.QAbstractScrollArea_SizeAdjustPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4405,12 +4586,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` policy: qabstractscrollarea_enums.SizeAdjustPolicy `
     ///
-    pub fn SetSizeAdjustPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QAbstractScrollArea_SetSizeAdjustPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetSizeAdjustPolicy(self: QTableWidget, policy: i32) void {
+        qtc.QAbstractScrollArea_SetSizeAdjustPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QFrame
@@ -4419,10 +4600,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn FrameStyle(self: ?*anyopaque) i32 {
-        return qtc.QFrame_FrameStyle(@ptrCast(self));
+    pub fn FrameStyle(self: QTableWidget) i32 {
+        return qtc.QFrame_FrameStyle(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -4431,12 +4612,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` frameStyle: i32 `
     ///
-    pub fn SetFrameStyle(self: ?*anyopaque, frameStyle: i32) void {
-        qtc.QFrame_SetFrameStyle(@ptrCast(self), @bitCast(frameStyle));
+    pub fn SetFrameStyle(self: QTableWidget, frameStyle: i32) void {
+        qtc.QFrame_SetFrameStyle(@ptrCast(self.ptr), @bitCast(frameStyle));
     }
 
     /// Inherited from QFrame
@@ -4445,10 +4626,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn FrameWidth(self: ?*anyopaque) i32 {
-        return qtc.QFrame_FrameWidth(@ptrCast(self));
+    pub fn FrameWidth(self: QTableWidget) i32 {
+        return qtc.QFrame_FrameWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -4457,14 +4638,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ## Returns:
     ///
     /// ` qframe_enums.Shape `
     ///
-    pub fn FrameShape(self: ?*anyopaque) i32 {
-        return qtc.QFrame_FrameShape(@ptrCast(self));
+    pub fn FrameShape(self: QTableWidget) i32 {
+        return qtc.QFrame_FrameShape(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -4473,12 +4654,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` frameShape: qframe_enums.Shape `
     ///
-    pub fn SetFrameShape(self: ?*anyopaque, frameShape: i32) void {
-        qtc.QFrame_SetFrameShape(@ptrCast(self), @bitCast(frameShape));
+    pub fn SetFrameShape(self: QTableWidget, frameShape: i32) void {
+        qtc.QFrame_SetFrameShape(@ptrCast(self.ptr), @bitCast(frameShape));
     }
 
     /// Inherited from QFrame
@@ -4487,14 +4668,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ## Returns:
     ///
     /// ` qframe_enums.Shadow `
     ///
-    pub fn FrameShadow(self: ?*anyopaque) i32 {
-        return qtc.QFrame_FrameShadow(@ptrCast(self));
+    pub fn FrameShadow(self: QTableWidget) i32 {
+        return qtc.QFrame_FrameShadow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -4503,12 +4684,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` frameShadow: qframe_enums.Shadow `
     ///
-    pub fn SetFrameShadow(self: ?*anyopaque, frameShadow: i32) void {
-        qtc.QFrame_SetFrameShadow(@ptrCast(self), @bitCast(frameShadow));
+    pub fn SetFrameShadow(self: QTableWidget, frameShadow: i32) void {
+        qtc.QFrame_SetFrameShadow(@ptrCast(self.ptr), @bitCast(frameShadow));
     }
 
     /// Inherited from QFrame
@@ -4517,10 +4698,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn LineWidth(self: ?*anyopaque) i32 {
-        return qtc.QFrame_LineWidth(@ptrCast(self));
+    pub fn LineWidth(self: QTableWidget) i32 {
+        return qtc.QFrame_LineWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -4529,12 +4710,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` lineWidth: i32 `
     ///
-    pub fn SetLineWidth(self: ?*anyopaque, lineWidth: i32) void {
-        qtc.QFrame_SetLineWidth(@ptrCast(self), @bitCast(lineWidth));
+    pub fn SetLineWidth(self: QTableWidget, lineWidth: i32) void {
+        qtc.QFrame_SetLineWidth(@ptrCast(self.ptr), @bitCast(lineWidth));
     }
 
     /// Inherited from QFrame
@@ -4543,10 +4724,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn MidLineWidth(self: ?*anyopaque) i32 {
-        return qtc.QFrame_MidLineWidth(@ptrCast(self));
+    pub fn MidLineWidth(self: QTableWidget) i32 {
+        return qtc.QFrame_MidLineWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -4555,12 +4736,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` midLineWidth: i32 `
     ///
-    pub fn SetMidLineWidth(self: ?*anyopaque, midLineWidth: i32) void {
-        qtc.QFrame_SetMidLineWidth(@ptrCast(self), @bitCast(midLineWidth));
+    pub fn SetMidLineWidth(self: QTableWidget, midLineWidth: i32) void {
+        qtc.QFrame_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(midLineWidth));
     }
 
     /// Inherited from QFrame
@@ -4569,10 +4750,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn FrameRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QFrame_FrameRect(@ptrCast(self));
+    pub fn FrameRect(self: QTableWidget) QRect {
+        return .{ .ptr = qtc.QFrame_FrameRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QFrame
@@ -4581,12 +4762,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` frameRect: QtC.QRect `
+    /// ` frameRect: QRect `
     ///
-    pub fn SetFrameRect(self: ?*anyopaque, frameRect: ?*anyopaque) void {
-        qtc.QFrame_SetFrameRect(@ptrCast(self), @ptrCast(frameRect));
+    pub fn SetFrameRect(self: QTableWidget, frameRect: anytype) void {
+        comptime _ = @TypeOf(frameRect)._is_QRect;
+        qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(frameRect.ptr));
     }
 
     /// Inherited from QWidget
@@ -4595,10 +4777,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn WinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_WinId(@ptrCast(self));
+    pub fn WinId(self: QTableWidget) usize {
+        return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4607,10 +4789,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn CreateWinId(self: ?*anyopaque) void {
-        qtc.QWidget_CreateWinId(@ptrCast(self));
+    pub fn CreateWinId(self: QTableWidget) void {
+        qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4619,10 +4801,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn InternalWinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_InternalWinId(@ptrCast(self));
+    pub fn InternalWinId(self: QTableWidget) usize {
+        return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4631,10 +4813,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn EffectiveWinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_EffectiveWinId(@ptrCast(self));
+    pub fn EffectiveWinId(self: QTableWidget) usize {
+        return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4643,10 +4825,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn Style(self: ?*anyopaque) QtC.QStyle {
-        return qtc.QWidget_Style(@ptrCast(self));
+    pub fn Style(self: QTableWidget) QStyle {
+        return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4655,12 +4837,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` style: QtC.QStyle `
+    /// ` style: QStyle `
     ///
-    pub fn SetStyle(self: ?*anyopaque, style: ?*anyopaque) void {
-        qtc.QWidget_SetStyle(@ptrCast(self), @ptrCast(style));
+    pub fn SetStyle(self: QTableWidget, style: anytype) void {
+        comptime _ = @TypeOf(style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
     }
 
     /// Inherited from QWidget
@@ -4669,10 +4852,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn IsTopLevel(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsTopLevel(@ptrCast(self));
+    pub fn IsTopLevel(self: QTableWidget) bool {
+        return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4681,10 +4864,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn IsWindow(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsWindow(@ptrCast(self));
+    pub fn IsWindow(self: QTableWidget) bool {
+        return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4693,10 +4876,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn IsModal(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsModal(@ptrCast(self));
+    pub fn IsModal(self: QTableWidget) bool {
+        return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4705,14 +4888,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowModality(@ptrCast(self));
+    pub fn WindowModality(self: QTableWidget) i32 {
+        return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4721,12 +4904,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self), @bitCast(windowModality));
+    pub fn SetWindowModality(self: QTableWidget, windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
     }
 
     /// Inherited from QWidget
@@ -4735,10 +4918,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn IsEnabled(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsEnabled(@ptrCast(self));
+    pub fn IsEnabled(self: QTableWidget) bool {
+        return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4747,12 +4930,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidget_IsEnabledTo(@ptrCast(self), @ptrCast(param1));
+    pub fn IsEnabledTo(self: QTableWidget, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -4761,12 +4945,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
-        qtc.QWidget_SetEnabled(@ptrCast(self), enabled);
+    pub fn SetEnabled(self: QTableWidget, enabled: bool) void {
+        qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QWidget
@@ -4775,12 +4959,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: ?*anyopaque, disabled: bool) void {
-        qtc.QWidget_SetDisabled(@ptrCast(self), disabled);
+    pub fn SetDisabled(self: QTableWidget, disabled: bool) void {
+        qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
 
     /// Inherited from QWidget
@@ -4789,12 +4973,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: ?*anyopaque, windowModified: bool) void {
-        qtc.QWidget_SetWindowModified(@ptrCast(self), windowModified);
+    pub fn SetWindowModified(self: QTableWidget, windowModified: bool) void {
+        qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
 
     /// Inherited from QWidget
@@ -4803,10 +4987,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn FrameGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_FrameGeometry(@ptrCast(self));
+    pub fn FrameGeometry(self: QTableWidget) QRect {
+        return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4815,10 +4999,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn Geometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_Geometry(@ptrCast(self));
+    pub fn Geometry(self: QTableWidget) QRect {
+        return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4827,10 +5011,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn NormalGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_NormalGeometry(@ptrCast(self));
+    pub fn NormalGeometry(self: QTableWidget) QRect {
+        return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4839,10 +5023,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn X(self: ?*anyopaque) i32 {
-        return qtc.QWidget_X(@ptrCast(self));
+    pub fn X(self: QTableWidget) i32 {
+        return qtc.QWidget_X(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4851,10 +5035,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn Y(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Y(@ptrCast(self));
+    pub fn Y(self: QTableWidget) i32 {
+        return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4863,10 +5047,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn Pos(self: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_Pos(@ptrCast(self));
+    pub fn Pos(self: QTableWidget) QPoint {
+        return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4875,10 +5059,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_FrameSize(@ptrCast(self));
+    pub fn FrameSize(self: QTableWidget) QSize {
+        return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4887,10 +5071,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn Size(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_Size(@ptrCast(self));
+    pub fn Size(self: QTableWidget) QSize {
+        return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4899,10 +5083,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn Width(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Width(@ptrCast(self));
+    pub fn Width(self: QTableWidget) i32 {
+        return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4911,10 +5095,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn Height(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Height(@ptrCast(self));
+    pub fn Height(self: QTableWidget) i32 {
+        return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4923,10 +5107,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn Rect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_Rect(@ptrCast(self));
+    pub fn Rect(self: QTableWidget) QRect {
+        return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4935,10 +5119,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn ChildrenRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_ChildrenRect(@ptrCast(self));
+    pub fn ChildrenRect(self: QTableWidget) QRect {
+        return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4947,10 +5131,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn ChildrenRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_ChildrenRegion(@ptrCast(self));
+    pub fn ChildrenRegion(self: QTableWidget) QRegion {
+        return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4959,10 +5143,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MinimumSize(@ptrCast(self));
+    pub fn MinimumSize(self: QTableWidget) QSize {
+        return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4971,10 +5155,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MaximumSize(@ptrCast(self));
+    pub fn MaximumSize(self: QTableWidget) QSize {
+        return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4983,10 +5167,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn MinimumWidth(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MinimumWidth(@ptrCast(self));
+    pub fn MinimumWidth(self: QTableWidget) i32 {
+        return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4995,10 +5179,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn MinimumHeight(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MinimumHeight(@ptrCast(self));
+    pub fn MinimumHeight(self: QTableWidget) i32 {
+        return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5007,10 +5191,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn MaximumWidth(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MaximumWidth(@ptrCast(self));
+    pub fn MaximumWidth(self: QTableWidget) i32 {
+        return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5019,10 +5203,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn MaximumHeight(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MaximumHeight(@ptrCast(self));
+    pub fn MaximumHeight(self: QTableWidget) i32 {
+        return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5031,12 +5215,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` minimumSize: QtC.QSize `
+    /// ` minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: ?*anyopaque, minimumSize: ?*anyopaque) void {
-        qtc.QWidget_SetMinimumSize(@ptrCast(self), @ptrCast(minimumSize));
+    pub fn SetMinimumSize(self: QTableWidget, minimumSize: anytype) void {
+        comptime _ = @TypeOf(minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -5045,14 +5230,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` minw: i32 `
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
-        qtc.QWidget_SetMinimumSize2(@ptrCast(self), @bitCast(minw), @bitCast(minh));
+    pub fn SetMinimumSize2(self: QTableWidget, minw: i32, minh: i32) void {
+        qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -5061,12 +5246,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` maximumSize: QtC.QSize `
+    /// ` maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: ?*anyopaque, maximumSize: ?*anyopaque) void {
-        qtc.QWidget_SetMaximumSize(@ptrCast(self), @ptrCast(maximumSize));
+    pub fn SetMaximumSize(self: QTableWidget, maximumSize: anytype) void {
+        comptime _ = @TypeOf(maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -5075,14 +5261,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` maxw: i32 `
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
-        qtc.QWidget_SetMaximumSize2(@ptrCast(self), @bitCast(maxw), @bitCast(maxh));
+    pub fn SetMaximumSize2(self: QTableWidget, maxw: i32, maxh: i32) void {
+        qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -5091,12 +5277,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
-        qtc.QWidget_SetMinimumWidth(@ptrCast(self), @bitCast(minw));
+    pub fn SetMinimumWidth(self: QTableWidget, minw: i32) void {
+        qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
 
     /// Inherited from QWidget
@@ -5105,12 +5291,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
-        qtc.QWidget_SetMinimumHeight(@ptrCast(self), @bitCast(minh));
+    pub fn SetMinimumHeight(self: QTableWidget, minh: i32) void {
+        qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -5119,12 +5305,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
-        qtc.QWidget_SetMaximumWidth(@ptrCast(self), @bitCast(maxw));
+    pub fn SetMaximumWidth(self: QTableWidget, maxw: i32) void {
+        qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
 
     /// Inherited from QWidget
@@ -5133,12 +5319,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
-        qtc.QWidget_SetMaximumHeight(@ptrCast(self), @bitCast(maxh));
+    pub fn SetMaximumHeight(self: QTableWidget, maxh: i32) void {
+        qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -5147,10 +5333,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn SizeIncrement(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_SizeIncrement(@ptrCast(self));
+    pub fn SizeIncrement(self: QTableWidget) QSize {
+        return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5159,12 +5345,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` sizeIncrement: QtC.QSize `
+    /// ` sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: ?*anyopaque, sizeIncrement: ?*anyopaque) void {
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self), @ptrCast(sizeIncrement));
+    pub fn SetSizeIncrement(self: QTableWidget, sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
     }
 
     /// Inherited from QWidget
@@ -5173,14 +5360,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetSizeIncrement2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetSizeIncrement2(self: QTableWidget, w: i32, h: i32) void {
+        qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -5189,10 +5376,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn BaseSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_BaseSize(@ptrCast(self));
+    pub fn BaseSize(self: QTableWidget) QSize {
+        return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5201,12 +5388,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` baseSize: QtC.QSize `
+    /// ` baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: ?*anyopaque, baseSize: ?*anyopaque) void {
-        qtc.QWidget_SetBaseSize(@ptrCast(self), @ptrCast(baseSize));
+    pub fn SetBaseSize(self: QTableWidget, baseSize: anytype) void {
+        comptime _ = @TypeOf(baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -5215,14 +5403,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` basew: i32 `
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
-        qtc.QWidget_SetBaseSize2(@ptrCast(self), @bitCast(basew), @bitCast(baseh));
+    pub fn SetBaseSize2(self: QTableWidget, basew: i32, baseh: i32) void {
+        qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
 
     /// Inherited from QWidget
@@ -5231,12 +5419,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` fixedSize: QtC.QSize `
+    /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: ?*anyopaque, fixedSize: ?*anyopaque) void {
-        qtc.QWidget_SetFixedSize(@ptrCast(self), @ptrCast(fixedSize));
+    pub fn SetFixedSize(self: QTableWidget, fixedSize: anytype) void {
+        comptime _ = @TypeOf(fixedSize)._is_QSize;
+        qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -5245,14 +5434,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetFixedSize2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetFixedSize2(self: QTableWidget, w: i32, h: i32) void {
+        qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -5261,12 +5450,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
-        qtc.QWidget_SetFixedWidth(@ptrCast(self), @bitCast(w));
+    pub fn SetFixedWidth(self: QTableWidget, w: i32) void {
+        qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
 
     /// Inherited from QWidget
@@ -5275,12 +5464,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
-        qtc.QWidget_SetFixedHeight(@ptrCast(self), @bitCast(h));
+    pub fn SetFixedHeight(self: QTableWidget, h: i32) void {
+        qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -5289,12 +5478,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapToGlobal(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal(self: QTableWidget, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5303,12 +5493,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToGlobal2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal2(self: QTableWidget, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5317,12 +5508,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFromGlobal(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal(self: QTableWidget, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5331,12 +5523,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromGlobal2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal2(self: QTableWidget, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5345,12 +5538,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapToParent(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent(self: QTableWidget, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5359,12 +5553,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToParent2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent2(self: QTableWidget, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5373,12 +5568,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFromParent(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent(self: QTableWidget, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5387,12 +5583,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromParent2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent2(self: QTableWidget, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5401,14 +5598,16 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPointF `
+    /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapTo(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapTo(self: QTableWidget, param1: anytype, param2: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5417,14 +5616,16 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPoint `
+    /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapTo2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapTo2(self: QTableWidget, param1: anytype, param2: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5433,14 +5634,16 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPointF `
+    /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFrom(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapFrom(self: QTableWidget, param1: anytype, param2: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5449,14 +5652,16 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPoint `
+    /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFrom2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapFrom2(self: QTableWidget, param1: anytype, param2: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5465,10 +5670,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn Window(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_Window(@ptrCast(self));
+    pub fn Window(self: QTableWidget) QWidget {
+        return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5477,10 +5682,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn NativeParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_NativeParentWidget(@ptrCast(self));
+    pub fn NativeParentWidget(self: QTableWidget) QWidget {
+        return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5489,10 +5694,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn TopLevelWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_TopLevelWidget(@ptrCast(self));
+    pub fn TopLevelWidget(self: QTableWidget) QWidget {
+        return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5501,10 +5706,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn Palette(self: ?*anyopaque) QtC.QPalette {
-        return qtc.QWidget_Palette(@ptrCast(self));
+    pub fn Palette(self: QTableWidget) QPalette {
+        return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5513,12 +5718,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` palette: QtC.QPalette `
+    /// ` palette: QPalette `
     ///
-    pub fn SetPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
-        qtc.QWidget_SetPalette(@ptrCast(self), @ptrCast(palette));
+    pub fn SetPalette(self: QTableWidget, palette: anytype) void {
+        comptime _ = @TypeOf(palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
     }
 
     /// Inherited from QWidget
@@ -5527,12 +5733,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self), @bitCast(backgroundRole));
+    pub fn SetBackgroundRole(self: QTableWidget, backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
     }
 
     /// Inherited from QWidget
@@ -5541,14 +5747,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: ?*anyopaque) i32 {
-        return qtc.QWidget_BackgroundRole(@ptrCast(self));
+    pub fn BackgroundRole(self: QTableWidget) i32 {
+        return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5557,12 +5763,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self), @bitCast(foregroundRole));
+    pub fn SetForegroundRole(self: QTableWidget, foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
     }
 
     /// Inherited from QWidget
@@ -5571,14 +5777,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ForegroundRole(@ptrCast(self));
+    pub fn ForegroundRole(self: QTableWidget) i32 {
+        return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5587,10 +5793,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn Font(self: ?*anyopaque) QtC.QFont {
-        return qtc.QWidget_Font(@ptrCast(self));
+    pub fn Font(self: QTableWidget) QFont {
+        return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5599,12 +5805,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` font: QtC.QFont `
+    /// ` font: QFont `
     ///
-    pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
-        qtc.QWidget_SetFont(@ptrCast(self), @ptrCast(font));
+    pub fn SetFont(self: QTableWidget, font: anytype) void {
+        comptime _ = @TypeOf(font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
     }
 
     /// Inherited from QWidget
@@ -5613,10 +5820,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn FontMetrics(self: ?*anyopaque) QtC.QFontMetrics {
-        return qtc.QWidget_FontMetrics(@ptrCast(self));
+    pub fn FontMetrics(self: QTableWidget) QFontMetrics {
+        return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5625,10 +5832,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn FontInfo(self: ?*anyopaque) QtC.QFontInfo {
-        return qtc.QWidget_FontInfo(@ptrCast(self));
+    pub fn FontInfo(self: QTableWidget) QFontInfo {
+        return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5637,10 +5844,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
-        return qtc.QWidget_Cursor(@ptrCast(self));
+    pub fn Cursor(self: QTableWidget) QCursor {
+        return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5649,12 +5856,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` cursor: QtC.QCursor `
+    /// ` cursor: QCursor `
     ///
-    pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
-        qtc.QWidget_SetCursor(@ptrCast(self), @ptrCast(cursor));
+    pub fn SetCursor(self: QTableWidget, cursor: anytype) void {
+        comptime _ = @TypeOf(cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
     }
 
     /// Inherited from QWidget
@@ -5663,10 +5871,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn UnsetCursor(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetCursor(@ptrCast(self));
+    pub fn UnsetCursor(self: QTableWidget) void {
+        qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5675,12 +5883,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetMouseTracking(@ptrCast(self), enable);
+    pub fn SetMouseTracking(self: QTableWidget, enable: bool) void {
+        qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -5689,10 +5897,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn HasMouseTracking(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasMouseTracking(@ptrCast(self));
+    pub fn HasMouseTracking(self: QTableWidget) bool {
+        return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5701,10 +5909,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn UnderMouse(self: ?*anyopaque) bool {
-        return qtc.QWidget_UnderMouse(@ptrCast(self));
+    pub fn UnderMouse(self: QTableWidget) bool {
+        return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5713,12 +5921,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetTabletTracking(@ptrCast(self), enable);
+    pub fn SetTabletTracking(self: QTableWidget, enable: bool) void {
+        qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -5727,10 +5935,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn HasTabletTracking(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasTabletTracking(@ptrCast(self));
+    pub fn HasTabletTracking(self: QTableWidget) bool {
+        return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5739,12 +5947,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` mask: QtC.QBitmap `
+    /// ` mask: QBitmap `
     ///
-    pub fn SetMask(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMask(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask(self: QTableWidget, mask: anytype) void {
+        comptime _ = @TypeOf(mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
 
     /// Inherited from QWidget
@@ -5753,12 +5962,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` mask: QtC.QRegion `
+    /// ` mask: QRegion `
     ///
-    pub fn SetMask2(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMask2(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask2(self: QTableWidget, mask: anytype) void {
+        comptime _ = @TypeOf(mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
 
     /// Inherited from QWidget
@@ -5767,10 +5977,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn Mask(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_Mask(@ptrCast(self));
+    pub fn Mask(self: QTableWidget) QRegion {
+        return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5779,10 +5989,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn ClearMask(self: ?*anyopaque) void {
-        qtc.QWidget_ClearMask(@ptrCast(self));
+    pub fn ClearMask(self: QTableWidget) void {
+        qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5791,12 +6001,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: ?*anyopaque, target: ?*anyopaque) void {
-        qtc.QWidget_Render(@ptrCast(self), @ptrCast(target));
+    pub fn Render(self: QTableWidget, target: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
 
     /// Inherited from QWidget
@@ -5805,12 +6016,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn Render2(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QWidget_Render2(@ptrCast(self), @ptrCast(painter));
+    pub fn Render2(self: QTableWidget, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// Inherited from QWidget
@@ -5819,10 +6031,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn Grab(self: ?*anyopaque) QtC.QPixmap {
-        return qtc.QWidget_Grab(@ptrCast(self));
+    pub fn Grab(self: QTableWidget) QPixmap {
+        return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5831,10 +6043,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
-        return qtc.QWidget_GraphicsEffect(@ptrCast(self));
+    pub fn GraphicsEffect(self: QTableWidget) QGraphicsEffect {
+        return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5843,12 +6055,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` effect: QtC.QGraphicsEffect `
+    /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
-        qtc.QWidget_SetGraphicsEffect(@ptrCast(self), @ptrCast(effect));
+    pub fn SetGraphicsEffect(self: QTableWidget, effect: anytype) void {
+        comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
+        qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
 
     /// Inherited from QWidget
@@ -5857,12 +6070,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_GrabGesture(@ptrCast(self), @bitCast(typeVal));
+    pub fn GrabGesture(self: QTableWidget, typeVal: i32) void {
+        qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -5871,12 +6084,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_UngrabGesture(@ptrCast(self), @bitCast(typeVal));
+    pub fn UngrabGesture(self: QTableWidget, typeVal: i32) void {
+        qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -5885,16 +6098,16 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
+    pub fn SetWindowTitle(self: QTableWidget, windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
             .len = windowTitle.len,
             .data = windowTitle.ptr,
         };
-        qtc.QWidget_SetWindowTitle(@ptrCast(self), windowTitle_str);
+        qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
 
     /// Inherited from QWidget
@@ -5903,16 +6116,16 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
+    pub fn SetStyleSheet(self: QTableWidget, styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
             .len = styleSheet.len,
             .data = styleSheet.ptr,
         };
-        qtc.QWidget_SetStyleSheet(@ptrCast(self), styleSheet_str);
+        qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
 
     /// Inherited from QWidget
@@ -5921,12 +6134,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_StyleSheet(@ptrCast(self));
+    pub fn StyleSheet(self: QTableWidget, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtablewidget.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5939,12 +6152,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowTitle(@ptrCast(self));
+    pub fn WindowTitle(self: QTableWidget, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtablewidget.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5957,12 +6170,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QWidget_SetWindowIcon(@ptrCast(self), @ptrCast(icon));
+    pub fn SetWindowIcon(self: QTableWidget, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QWidget
@@ -5971,10 +6185,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn WindowIcon(self: ?*anyopaque) QtC.QIcon {
-        return qtc.QWidget_WindowIcon(@ptrCast(self));
+    pub fn WindowIcon(self: QTableWidget) QIcon {
+        return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5983,16 +6197,16 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
+    pub fn SetWindowIconText(self: QTableWidget, windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
             .len = windowIconText.len,
             .data = windowIconText.ptr,
         };
-        qtc.QWidget_SetWindowIconText(@ptrCast(self), windowIconText_str);
+        qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
 
     /// Inherited from QWidget
@@ -6001,12 +6215,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowIconText(@ptrCast(self));
+    pub fn WindowIconText(self: QTableWidget, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtablewidget.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6019,16 +6233,16 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
+    pub fn SetWindowRole(self: QTableWidget, windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
             .len = windowRole.len,
             .data = windowRole.ptr,
         };
-        qtc.QWidget_SetWindowRole(@ptrCast(self), windowRole_str);
+        qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
 
     /// Inherited from QWidget
@@ -6037,12 +6251,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowRole(@ptrCast(self));
+    pub fn WindowRole(self: QTableWidget, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtablewidget.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6055,16 +6269,16 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
+    pub fn SetWindowFilePath(self: QTableWidget, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
-        qtc.QWidget_SetWindowFilePath(@ptrCast(self), filePath_str);
+        qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
 
     /// Inherited from QWidget
@@ -6073,12 +6287,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
+    pub fn WindowFilePath(self: QTableWidget, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtablewidget.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6091,12 +6305,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
-        qtc.QWidget_SetWindowOpacity(@ptrCast(self), @bitCast(level));
+    pub fn SetWindowOpacity(self: QTableWidget, level: f64) void {
+        qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
 
     /// Inherited from QWidget
@@ -6105,10 +6319,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn WindowOpacity(self: ?*anyopaque) f64 {
-        return qtc.QWidget_WindowOpacity(@ptrCast(self));
+    pub fn WindowOpacity(self: QTableWidget) f64 {
+        return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6117,10 +6331,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn IsWindowModified(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsWindowModified(@ptrCast(self));
+    pub fn IsWindowModified(self: QTableWidget) bool {
+        return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6129,16 +6343,16 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
+    pub fn SetToolTip(self: QTableWidget, toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
             .len = toolTip.len,
             .data = toolTip.ptr,
         };
-        qtc.QWidget_SetToolTip(@ptrCast(self), toolTip_str);
+        qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
 
     /// Inherited from QWidget
@@ -6147,12 +6361,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_ToolTip(@ptrCast(self));
+    pub fn ToolTip(self: QTableWidget, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtablewidget.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6165,12 +6379,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
-        qtc.QWidget_SetToolTipDuration(@ptrCast(self), @bitCast(msec));
+    pub fn SetToolTipDuration(self: QTableWidget, msec: i32) void {
+        qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
 
     /// Inherited from QWidget
@@ -6179,10 +6393,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn ToolTipDuration(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ToolTipDuration(@ptrCast(self));
+    pub fn ToolTipDuration(self: QTableWidget) i32 {
+        return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6191,16 +6405,16 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
+    pub fn SetStatusTip(self: QTableWidget, statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
             .len = statusTip.len,
             .data = statusTip.ptr,
         };
-        qtc.QWidget_SetStatusTip(@ptrCast(self), statusTip_str);
+        qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
 
     /// Inherited from QWidget
@@ -6209,12 +6423,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_StatusTip(@ptrCast(self));
+    pub fn StatusTip(self: QTableWidget, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtablewidget.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6227,16 +6441,16 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
+    pub fn SetWhatsThis(self: QTableWidget, whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
             .len = whatsThis.len,
             .data = whatsThis.ptr,
         };
-        qtc.QWidget_SetWhatsThis(@ptrCast(self), whatsThis_str);
+        qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
 
     /// Inherited from QWidget
@@ -6245,12 +6459,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WhatsThis(@ptrCast(self));
+    pub fn WhatsThis(self: QTableWidget, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtablewidget.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6263,12 +6477,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_AccessibleName(@ptrCast(self));
+    pub fn AccessibleName(self: QTableWidget, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtablewidget.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6281,16 +6495,16 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
+    pub fn SetAccessibleName(self: QTableWidget, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QWidget_SetAccessibleName(@ptrCast(self), name_str);
+        qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QWidget
@@ -6299,12 +6513,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
+    pub fn AccessibleDescription(self: QTableWidget, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtablewidget.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6317,16 +6531,16 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
+    pub fn SetAccessibleDescription(self: QTableWidget, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
-        qtc.QWidget_SetAccessibleDescription(@ptrCast(self), description_str);
+        qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
 
     /// Inherited from QWidget
@@ -6335,12 +6549,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QWidget_SetLayoutDirection(@ptrCast(self), @bitCast(direction));
+    pub fn SetLayoutDirection(self: QTableWidget, direction: i32) void {
+        qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
 
     /// Inherited from QWidget
@@ -6349,14 +6563,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: ?*anyopaque) i32 {
-        return qtc.QWidget_LayoutDirection(@ptrCast(self));
+    pub fn LayoutDirection(self: QTableWidget) i32 {
+        return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6365,10 +6579,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn UnsetLayoutDirection(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self));
+    pub fn UnsetLayoutDirection(self: QTableWidget) void {
+        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6377,12 +6591,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` locale: QtC.QLocale `
+    /// ` locale: QLocale `
     ///
-    pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
-        qtc.QWidget_SetLocale(@ptrCast(self), @ptrCast(locale));
+    pub fn SetLocale(self: QTableWidget, locale: anytype) void {
+        comptime _ = @TypeOf(locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
     }
 
     /// Inherited from QWidget
@@ -6391,10 +6606,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn Locale(self: ?*anyopaque) QtC.QLocale {
-        return qtc.QWidget_Locale(@ptrCast(self));
+    pub fn Locale(self: QTableWidget) QLocale {
+        return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -6403,10 +6618,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn UnsetLocale(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetLocale(@ptrCast(self));
+    pub fn UnsetLocale(self: QTableWidget) void {
+        qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6415,10 +6630,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn IsRightToLeft(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsRightToLeft(@ptrCast(self));
+    pub fn IsRightToLeft(self: QTableWidget) bool {
+        return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6427,10 +6642,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn IsLeftToRight(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsLeftToRight(@ptrCast(self));
+    pub fn IsLeftToRight(self: QTableWidget) bool {
+        return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6439,10 +6654,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn SetFocus(self: ?*anyopaque) void {
-        qtc.QWidget_SetFocus(@ptrCast(self));
+    pub fn SetFocus(self: QTableWidget) void {
+        qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6451,10 +6666,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn IsActiveWindow(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsActiveWindow(@ptrCast(self));
+    pub fn IsActiveWindow(self: QTableWidget) bool {
+        return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6463,10 +6678,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn ActivateWindow(self: ?*anyopaque) void {
-        qtc.QWidget_ActivateWindow(@ptrCast(self));
+    pub fn ActivateWindow(self: QTableWidget) void {
+        qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6475,10 +6690,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn ClearFocus(self: ?*anyopaque) void {
-        qtc.QWidget_ClearFocus(@ptrCast(self));
+    pub fn ClearFocus(self: QTableWidget) void {
+        qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6487,12 +6702,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
-        qtc.QWidget_SetFocus2(@ptrCast(self), @bitCast(reason));
+    pub fn SetFocus2(self: QTableWidget, reason: i32) void {
+        qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
 
     /// Inherited from QWidget
@@ -6501,14 +6716,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: ?*anyopaque) i32 {
-        return qtc.QWidget_FocusPolicy(@ptrCast(self));
+    pub fn FocusPolicy(self: QTableWidget) i32 {
+        return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6517,12 +6732,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetFocusPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetFocusPolicy(self: QTableWidget, policy: i32) void {
+        qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -6531,10 +6746,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn HasFocus(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasFocus(@ptrCast(self));
+    pub fn HasFocus(self: QTableWidget) bool {
+        return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6543,12 +6758,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QWidget `
+    /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: ?*anyopaque, param2: ?*anyopaque) void {
-        qtc.QWidget_SetTabOrder(@ptrCast(param1), @ptrCast(param2));
+    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QWidget;
+        qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
     /// Inherited from QWidget
@@ -6557,12 +6774,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` focusProxy: QtC.QWidget `
+    /// ` focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: ?*anyopaque, focusProxy: ?*anyopaque) void {
-        qtc.QWidget_SetFocusProxy(@ptrCast(self), @ptrCast(focusProxy));
+    pub fn SetFocusProxy(self: QTableWidget, focusProxy: anytype) void {
+        comptime _ = @TypeOf(focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
     }
 
     /// Inherited from QWidget
@@ -6571,10 +6789,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn FocusProxy(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_FocusProxy(@ptrCast(self));
+    pub fn FocusProxy(self: QTableWidget) QWidget {
+        return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -6583,14 +6801,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
+    pub fn ContextMenuPolicy(self: QTableWidget) i32 {
+        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6599,12 +6817,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetContextMenuPolicy(self: QTableWidget, policy: i32) void {
+        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -6613,10 +6831,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn GrabMouse(self: ?*anyopaque) void {
-        qtc.QWidget_GrabMouse(@ptrCast(self));
+    pub fn GrabMouse(self: QTableWidget) void {
+        qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6625,12 +6843,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` param1: QtC.QCursor `
+    /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_GrabMouse2(@ptrCast(self), @ptrCast(param1));
+    pub fn GrabMouse2(self: QTableWidget, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QCursor;
+        qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -6639,10 +6858,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn ReleaseMouse(self: ?*anyopaque) void {
-        qtc.QWidget_ReleaseMouse(@ptrCast(self));
+    pub fn ReleaseMouse(self: QTableWidget) void {
+        qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6651,10 +6870,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn GrabKeyboard(self: ?*anyopaque) void {
-        qtc.QWidget_GrabKeyboard(@ptrCast(self));
+    pub fn GrabKeyboard(self: QTableWidget) void {
+        qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6663,10 +6882,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn ReleaseKeyboard(self: ?*anyopaque) void {
-        qtc.QWidget_ReleaseKeyboard(@ptrCast(self));
+    pub fn ReleaseKeyboard(self: QTableWidget) void {
+        qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6675,12 +6894,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` key: QtC.QKeySequence `
+    /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: ?*anyopaque, key: ?*anyopaque) i32 {
-        return qtc.QWidget_GrabShortcut(@ptrCast(self), @ptrCast(key));
+    pub fn GrabShortcut(self: QTableWidget, key: anytype) i32 {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
 
     /// Inherited from QWidget
@@ -6689,12 +6909,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_ReleaseShortcut(@ptrCast(self), @bitCast(id));
+    pub fn ReleaseShortcut(self: QTableWidget, id: i32) void {
+        qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -6703,12 +6923,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutEnabled(@ptrCast(self), @bitCast(id));
+    pub fn SetShortcutEnabled(self: QTableWidget, id: i32) void {
+        qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -6717,28 +6937,28 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self), @bitCast(id));
+    pub fn SetShortcutAutoRepeat(self: QTableWidget, id: i32) void {
+        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QtC.QWidget {
-        return qtc.QWidget_MouseGrabber();
+    pub fn MouseGrabber() QWidget {
+        return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QtC.QWidget {
-        return qtc.QWidget_KeyboardGrabber();
+    pub fn KeyboardGrabber() QWidget {
+        return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
 
     /// Inherited from QWidget
@@ -6747,10 +6967,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn UpdatesEnabled(self: ?*anyopaque) bool {
-        return qtc.QWidget_UpdatesEnabled(@ptrCast(self));
+    pub fn UpdatesEnabled(self: QTableWidget) bool {
+        return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6759,12 +6979,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self), enable);
+    pub fn SetUpdatesEnabled(self: QTableWidget, enable: bool) void {
+        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -6773,10 +6993,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn GraphicsProxyWidget(self: ?*anyopaque) QtC.QGraphicsProxyWidget {
-        return qtc.QWidget_GraphicsProxyWidget(@ptrCast(self));
+    pub fn GraphicsProxyWidget(self: QTableWidget) QGraphicsProxyWidget {
+        return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -6785,10 +7005,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn Repaint(self: ?*anyopaque) void {
-        qtc.QWidget_Repaint(@ptrCast(self));
+    pub fn Repaint(self: QTableWidget) void {
+        qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6797,7 +7017,7 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` x: i32 `
     ///
@@ -6807,8 +7027,8 @@ pub const qtablewidget = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn Update2(self: QTableWidget, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -6817,12 +7037,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn Update3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Update3(@ptrCast(self), @ptrCast(param1));
+    pub fn Update3(self: QTableWidget, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -6831,12 +7052,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn Update4(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Update4(@ptrCast(self), @ptrCast(param1));
+    pub fn Update4(self: QTableWidget, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -6845,7 +7067,7 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` x: i32 `
     ///
@@ -6855,8 +7077,8 @@ pub const qtablewidget = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn Repaint2(self: QTableWidget, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -6865,12 +7087,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Repaint3(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint3(self: QTableWidget, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -6879,12 +7102,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Repaint4(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint4(self: QTableWidget, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -6893,12 +7117,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: ?*anyopaque, hidden: bool) void {
-        qtc.QWidget_SetHidden(@ptrCast(self), hidden);
+    pub fn SetHidden(self: QTableWidget, hidden: bool) void {
+        qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
 
     /// Inherited from QWidget
@@ -6907,10 +7131,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn Show(self: ?*anyopaque) void {
-        qtc.QWidget_Show(@ptrCast(self));
+    pub fn Show(self: QTableWidget) void {
+        qtc.QWidget_Show(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6919,10 +7143,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn Hide(self: ?*anyopaque) void {
-        qtc.QWidget_Hide(@ptrCast(self));
+    pub fn Hide(self: QTableWidget) void {
+        qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6931,10 +7155,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn ShowMinimized(self: ?*anyopaque) void {
-        qtc.QWidget_ShowMinimized(@ptrCast(self));
+    pub fn ShowMinimized(self: QTableWidget) void {
+        qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6943,10 +7167,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn ShowMaximized(self: ?*anyopaque) void {
-        qtc.QWidget_ShowMaximized(@ptrCast(self));
+    pub fn ShowMaximized(self: QTableWidget) void {
+        qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6955,10 +7179,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn ShowFullScreen(self: ?*anyopaque) void {
-        qtc.QWidget_ShowFullScreen(@ptrCast(self));
+    pub fn ShowFullScreen(self: QTableWidget) void {
+        qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6967,10 +7191,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn ShowNormal(self: ?*anyopaque) void {
-        qtc.QWidget_ShowNormal(@ptrCast(self));
+    pub fn ShowNormal(self: QTableWidget) void {
+        qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6979,10 +7203,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn Close(self: ?*anyopaque) bool {
-        return qtc.QWidget_Close(@ptrCast(self));
+    pub fn Close(self: QTableWidget) bool {
+        return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6991,10 +7215,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn Raise(self: ?*anyopaque) void {
-        qtc.QWidget_Raise(@ptrCast(self));
+    pub fn Raise(self: QTableWidget) void {
+        qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7003,10 +7227,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn Lower(self: ?*anyopaque) void {
-        qtc.QWidget_Lower(@ptrCast(self));
+    pub fn Lower(self: QTableWidget) void {
+        qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7015,12 +7239,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_StackUnder(@ptrCast(self), @ptrCast(param1));
+    pub fn StackUnder(self: QTableWidget, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -7029,14 +7254,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn Move(self: QTableWidget, x: i32, y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QWidget
@@ -7045,12 +7270,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn Move2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Move2(@ptrCast(self), @ptrCast(param1));
+    pub fn Move2(self: QTableWidget, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -7059,14 +7285,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_Resize(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn Resize(self: QTableWidget, w: i32, h: i32) void {
+        qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -7075,12 +7301,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` param1: QtC.QSize `
+    /// ` param1: QSize `
     ///
-    pub fn Resize2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Resize2(@ptrCast(self), @ptrCast(param1));
+    pub fn Resize2(self: QTableWidget, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QSize;
+        qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -7089,7 +7316,7 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` x: i32 `
     ///
@@ -7099,8 +7326,8 @@ pub const qtablewidget = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn SetGeometry(self: QTableWidget, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -7109,12 +7336,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` geometry: QtC.QRect `
+    /// ` geometry: QRect `
     ///
-    pub fn SetGeometry2(self: ?*anyopaque, geometry: ?*anyopaque) void {
-        qtc.QWidget_SetGeometry2(@ptrCast(self), @ptrCast(geometry));
+    pub fn SetGeometry2(self: QTableWidget, geometry: anytype) void {
+        comptime _ = @TypeOf(geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
     }
 
     /// Inherited from QWidget
@@ -7123,12 +7351,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
+    pub fn SaveGeometry(self: QTableWidget, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qtablewidget.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -7141,16 +7369,16 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
+    pub fn RestoreGeometry(self: QTableWidget, geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
             .len = geometry.len,
             .data = geometry.ptr,
         };
-        return qtc.QWidget_RestoreGeometry(@ptrCast(self), geometry_str);
+        return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
 
     /// Inherited from QWidget
@@ -7159,10 +7387,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn AdjustSize(self: ?*anyopaque) void {
-        qtc.QWidget_AdjustSize(@ptrCast(self));
+    pub fn AdjustSize(self: QTableWidget) void {
+        qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7171,10 +7399,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn IsVisible(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsVisible(@ptrCast(self));
+    pub fn IsVisible(self: QTableWidget) bool {
+        return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7183,12 +7411,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidget_IsVisibleTo(@ptrCast(self), @ptrCast(param1));
+    pub fn IsVisibleTo(self: QTableWidget, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -7197,10 +7426,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn IsHidden(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsHidden(@ptrCast(self));
+    pub fn IsHidden(self: QTableWidget) bool {
+        return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7209,10 +7438,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn IsMinimized(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsMinimized(@ptrCast(self));
+    pub fn IsMinimized(self: QTableWidget) bool {
+        return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7221,10 +7450,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn IsMaximized(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsMaximized(@ptrCast(self));
+    pub fn IsMaximized(self: QTableWidget) bool {
+        return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7233,10 +7462,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn IsFullScreen(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsFullScreen(@ptrCast(self));
+    pub fn IsFullScreen(self: QTableWidget) bool {
+        return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7245,14 +7474,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowState(@ptrCast(self));
+    pub fn WindowState(self: QTableWidget) i32 {
+        return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7261,12 +7490,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_SetWindowState(@ptrCast(self), @bitCast(state));
+    pub fn SetWindowState(self: QTableWidget, state: i32) void {
+        qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -7275,12 +7504,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_OverrideWindowState(@ptrCast(self), @bitCast(state));
+    pub fn OverrideWindowState(self: QTableWidget, state: i32) void {
+        qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -7289,10 +7518,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
-        return qtc.QWidget_SizePolicy(@ptrCast(self));
+    pub fn SizePolicy(self: QTableWidget) QSizePolicy {
+        return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7301,12 +7530,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` sizePolicy: QtC.QSizePolicy `
+    /// ` sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: QtC.QSizePolicy) void {
-        qtc.QWidget_SetSizePolicy(@ptrCast(self), @ptrCast(sizePolicy));
+    pub fn SetSizePolicy(self: QTableWidget, sizePolicy: anytype) void {
+        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
     }
 
     /// Inherited from QWidget
@@ -7315,14 +7545,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` horizontal: qsizepolicy_enums.Policy `
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
-        qtc.QWidget_SetSizePolicy2(@ptrCast(self), @bitCast(horizontal), @bitCast(vertical));
+    pub fn SetSizePolicy2(self: QTableWidget, horizontal: i32, vertical: i32) void {
+        qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
 
     /// Inherited from QWidget
@@ -7331,10 +7561,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn VisibleRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_VisibleRegion(@ptrCast(self));
+    pub fn VisibleRegion(self: QTableWidget) QRegion {
+        return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7343,7 +7573,7 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` left: i32 `
     ///
@@ -7353,8 +7583,8 @@ pub const qtablewidget = struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QWidget_SetContentsMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
+    pub fn SetContentsMargins(self: QTableWidget, left: i32, top: i32, right: i32, bottom: i32) void {
+        qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QWidget
@@ -7363,12 +7593,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` margins: QtC.QMargins `
+    /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
-        qtc.QWidget_SetContentsMargins2(@ptrCast(self), @ptrCast(margins));
+    pub fn SetContentsMargins2(self: QTableWidget, margins: anytype) void {
+        comptime _ = @TypeOf(margins)._is_QMargins;
+        qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
 
     /// Inherited from QWidget
@@ -7377,10 +7608,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
-        return qtc.QWidget_ContentsMargins(@ptrCast(self));
+    pub fn ContentsMargins(self: QTableWidget) QMargins {
+        return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7389,10 +7620,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_ContentsRect(@ptrCast(self));
+    pub fn ContentsRect(self: QTableWidget) QRect {
+        return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7401,10 +7632,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn Layout(self: ?*anyopaque) QtC.QLayout {
-        return qtc.QWidget_Layout(@ptrCast(self));
+    pub fn Layout(self: QTableWidget) QLayout {
+        return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7413,12 +7644,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` layout: QtC.QLayout `
+    /// ` layout: QLayout `
     ///
-    pub fn SetLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
-        qtc.QWidget_SetLayout(@ptrCast(self), @ptrCast(layout));
+    pub fn SetLayout(self: QTableWidget, layout: anytype) void {
+        comptime _ = @TypeOf(layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
     }
 
     /// Inherited from QWidget
@@ -7427,10 +7659,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn UpdateGeometry(self: ?*anyopaque) void {
-        qtc.QWidget_UpdateGeometry(@ptrCast(self));
+    pub fn UpdateGeometry(self: QTableWidget) void {
+        qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7439,12 +7671,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QWidget_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QTableWidget, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QWidget
@@ -7453,14 +7686,15 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i32) void {
-        qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @bitCast(f));
+    pub fn SetParent2(self: QTableWidget, parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
     }
 
     /// Inherited from QWidget
@@ -7469,14 +7703,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QWidget_Scroll(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn Scroll(self: QTableWidget, dx: i32, dy: i32) void {
+        qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QWidget
@@ -7485,16 +7719,17 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    /// ` param3: QtC.QRect `
+    /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
-        qtc.QWidget_Scroll2(@ptrCast(self), @bitCast(dx), @bitCast(dy), @ptrCast(param3));
+    pub fn Scroll2(self: QTableWidget, dx: i32, dy: i32, param3: anytype) void {
+        comptime _ = @TypeOf(param3)._is_QRect;
+        qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
 
     /// Inherited from QWidget
@@ -7503,10 +7738,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn FocusWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_FocusWidget(@ptrCast(self));
+    pub fn FocusWidget(self: QTableWidget) QWidget {
+        return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7515,10 +7750,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn NextInFocusChain(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_NextInFocusChain(@ptrCast(self));
+    pub fn NextInFocusChain(self: QTableWidget) QWidget {
+        return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7527,10 +7762,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn PreviousInFocusChain(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_PreviousInFocusChain(@ptrCast(self));
+    pub fn PreviousInFocusChain(self: QTableWidget) QWidget {
+        return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7539,10 +7774,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn AcceptDrops(self: ?*anyopaque) bool {
-        return qtc.QWidget_AcceptDrops(@ptrCast(self));
+    pub fn AcceptDrops(self: QTableWidget) bool {
+        return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7551,12 +7786,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
-        qtc.QWidget_SetAcceptDrops(@ptrCast(self), on);
+    pub fn SetAcceptDrops(self: QTableWidget, on: bool) void {
+        qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
 
     /// Inherited from QWidget
@@ -7565,12 +7800,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_AddAction(@ptrCast(self), @ptrCast(action));
+    pub fn AddAction(self: QTableWidget, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -7579,16 +7815,16 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn AddActions(self: QTableWidget, actions: []QAction) void {
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.QWidget_AddActions(@ptrCast(self), actions_list);
+        qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
 
     /// Inherited from QWidget
@@ -7597,18 +7833,19 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` before: QtC.QAction `
+    /// ` before: QAction `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn InsertActions(self: QTableWidget, before: anytype, actions: []QAction) void {
+        comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.QWidget_InsertActions(@ptrCast(self), @ptrCast(before), actions_list);
+        qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
 
     /// Inherited from QWidget
@@ -7617,14 +7854,16 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` before: QtC.QAction `
+    /// ` before: QAction `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_InsertAction(@ptrCast(self), @ptrCast(before), @ptrCast(action));
+    pub fn InsertAction(self: QTableWidget, before: anytype, action: anytype) void {
+        comptime _ = @TypeOf(before)._is_QAction;
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -7633,12 +7872,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_RemoveAction(@ptrCast(self), @ptrCast(action));
+    pub fn RemoveAction(self: QTableWidget, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -7647,16 +7887,17 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
-        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self));
+    pub fn Actions(self: QTableWidget, allocator: std.mem.Allocator) []QAction {
+        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("qtablewidget.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("qtablewidget.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -7666,16 +7907,16 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction2(self: QTableWidget, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction2(@ptrCast(self), text_str);
+        return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
 
     /// Inherited from QWidget
@@ -7684,18 +7925,19 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction3(self: QTableWidget, icon: anytype, text: []const u8) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction3(@ptrCast(self), @ptrCast(icon), text_str);
+        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
     /// Inherited from QWidget
@@ -7704,18 +7946,19 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction4(self: QTableWidget, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction4(@ptrCast(self), text_str, @ptrCast(shortcut));
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7724,20 +7967,22 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction5(self: QTableWidget, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction5(@ptrCast(self), @ptrCast(icon), text_str, @ptrCast(shortcut));
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7746,10 +7991,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ParentWidget(@ptrCast(self));
+    pub fn ParentWidget(self: QTableWidget) QWidget {
+        return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7758,12 +8003,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_SetWindowFlags(@ptrCast(self), @bitCast(typeVal));
+    pub fn SetWindowFlags(self: QTableWidget, typeVal: i32) void {
+        qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -7772,14 +8017,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowFlags(@ptrCast(self));
+    pub fn WindowFlags(self: QTableWidget) i32 {
+        return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7788,12 +8033,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetWindowFlag(@ptrCast(self), @bitCast(param1));
+    pub fn SetWindowFlag(self: QTableWidget, param1: i32) void {
+        qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7802,12 +8047,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @bitCast(typeVal));
+    pub fn OverrideWindowFlags(self: QTableWidget, typeVal: i32) void {
+        qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -7816,14 +8061,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowType(@ptrCast(self));
+    pub fn WindowType(self: QTableWidget) i32 {
+        return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7834,8 +8079,8 @@ pub const qtablewidget = struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QtC.QWidget {
-        return qtc.QWidget_Find(@bitCast(param1));
+    pub fn Find(param1: usize) QWidget {
+        return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
 
     /// Inherited from QWidget
@@ -7844,14 +8089,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
-        return qtc.QWidget_ChildAt(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn ChildAt(self: QTableWidget, x: i32, y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
     }
 
     /// Inherited from QWidget
@@ -7860,12 +8105,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` p: QtC.QPoint `
+    /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAt2(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt2(self: QTableWidget, p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7874,12 +8120,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` p: QtC.QPointF `
+    /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAt3(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt3(self: QTableWidget, p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7888,12 +8135,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetAttribute(@ptrCast(self), @bitCast(param1));
+    pub fn SetAttribute(self: QTableWidget, param1: i32) void {
+        qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7902,12 +8149,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
-        return qtc.QWidget_TestAttribute(@ptrCast(self), @bitCast(param1));
+    pub fn TestAttribute(self: QTableWidget, param1: i32) bool {
+        return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7916,10 +8163,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn EnsurePolished(self: ?*anyopaque) void {
-        qtc.QWidget_EnsurePolished(@ptrCast(self));
+    pub fn EnsurePolished(self: QTableWidget) void {
+        qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7928,12 +8175,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` child: QtC.QWidget `
+    /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
-        return qtc.QWidget_IsAncestorOf(@ptrCast(self), @ptrCast(child));
+    pub fn IsAncestorOf(self: QTableWidget, child: anytype) bool {
+        comptime _ = @TypeOf(child)._is_QWidget;
+        return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
 
     /// Inherited from QWidget
@@ -7942,10 +8190,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn AutoFillBackground(self: ?*anyopaque) bool {
-        return qtc.QWidget_AutoFillBackground(@ptrCast(self));
+    pub fn AutoFillBackground(self: QTableWidget) bool {
+        return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7954,12 +8202,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: ?*anyopaque, enabled: bool) void {
-        qtc.QWidget_SetAutoFillBackground(@ptrCast(self), enabled);
+    pub fn SetAutoFillBackground(self: QTableWidget, enabled: bool) void {
+        qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QWidget
@@ -7968,10 +8216,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn BackingStore(self: ?*anyopaque) QtC.QBackingStore {
-        return qtc.QWidget_BackingStore(@ptrCast(self));
+    pub fn BackingStore(self: QTableWidget) QBackingStore {
+        return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7980,10 +8228,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn WindowHandle(self: ?*anyopaque) QtC.QWindow {
-        return qtc.QWidget_WindowHandle(@ptrCast(self));
+    pub fn WindowHandle(self: QTableWidget) QWindow {
+        return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7992,10 +8240,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn Screen(self: ?*anyopaque) QtC.QScreen {
-        return qtc.QWidget_Screen(@ptrCast(self));
+    pub fn Screen(self: QTableWidget) QScreen {
+        return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -8004,12 +8252,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` screen: QtC.QScreen `
+    /// ` screen: QScreen `
     ///
-    pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
-        qtc.QWidget_SetScreen(@ptrCast(self), @ptrCast(screen));
+    pub fn SetScreen(self: QTableWidget, screen: anytype) void {
+        comptime _ = @TypeOf(screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
     }
 
     /// Inherited from QWidget
@@ -8018,10 +8267,11 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer(@ptrCast(window));
+    pub fn CreateWindowContainer(window: anytype) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -8030,16 +8280,16 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
+    pub fn WindowTitleChanged(self: QTableWidget, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        qtc.QWidget_WindowTitleChanged(@ptrCast(self), title_str);
+        qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
 
     /// Inherited from QWidget
@@ -8048,12 +8298,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, title: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowTitleChanged(self: QTableWidget, callback: *const fn (QTableWidget, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8062,12 +8312,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QWidget_WindowIconChanged(@ptrCast(self), @ptrCast(icon));
+    pub fn WindowIconChanged(self: QTableWidget, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QWidget
@@ -8076,12 +8327,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, icon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowIconChanged(self: QTableWidget, callback: *const fn (QTableWidget, QIcon) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8090,16 +8341,16 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
+    pub fn WindowIconTextChanged(self: QTableWidget, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
-        qtc.QWidget_WindowIconTextChanged(@ptrCast(self), iconText_str);
+        qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
 
     /// Inherited from QWidget
@@ -8108,12 +8359,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, iconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowIconTextChanged(self: QTableWidget, callback: *const fn (QTableWidget, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8122,12 +8373,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` pos: QtC.QPoint `
+    /// ` pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: ?*anyopaque, pos: ?*anyopaque) void {
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self), @ptrCast(pos));
+    pub fn CustomContextMenuRequested(self: QTableWidget, pos: anytype) void {
+        comptime _ = @TypeOf(pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
     }
 
     /// Inherited from QWidget
@@ -8136,12 +8388,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, pos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomContextMenuRequested(self: QTableWidget, callback: *const fn (QTableWidget, QPoint) callconv(.c) void) void {
+        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8150,14 +8402,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: ?*anyopaque) i32 {
-        return qtc.QWidget_InputMethodHints(@ptrCast(self));
+    pub fn InputMethodHints(self: QTableWidget) i32 {
+        return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8166,12 +8418,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
-        qtc.QWidget_SetInputMethodHints(@ptrCast(self), @bitCast(hints));
+    pub fn SetInputMethodHints(self: QTableWidget, hints: i32) void {
+        qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
 
     /// Inherited from QWidget
@@ -8180,14 +8432,16 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render22(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset));
+    pub fn Render22(self: QTableWidget, target: anytype, targetOffset: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// Inherited from QWidget
@@ -8196,16 +8450,19 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        qtc.QWidget_Render3(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+    pub fn Render3(self: QTableWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// Inherited from QWidget
@@ -8214,18 +8471,21 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
+    pub fn Render4(self: QTableWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -8234,14 +8494,16 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render23(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset));
+    pub fn Render23(self: QTableWidget, painter: anytype, targetOffset: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// Inherited from QWidget
@@ -8250,16 +8512,19 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        qtc.QWidget_Render32(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+    pub fn Render32(self: QTableWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// Inherited from QWidget
@@ -8268,18 +8533,21 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
+    pub fn Render42(self: QTableWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -8288,12 +8556,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` rectangle: QtC.QRect `
+    /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) QtC.QPixmap {
-        return qtc.QWidget_Grab1(@ptrCast(self), @ptrCast(rectangle));
+    pub fn Grab1(self: QTableWidget, rectangle: anytype) QPixmap {
+        comptime _ = @TypeOf(rectangle)._is_QRect;
+        return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -8302,14 +8571,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i32, flags: i32) void {
-        qtc.QWidget_GrabGesture2(@ptrCast(self), @bitCast(typeVal), @bitCast(flags));
+    pub fn GrabGesture2(self: QTableWidget, typeVal: i32, flags: i32) void {
+        qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
 
     /// Inherited from QWidget
@@ -8318,14 +8587,15 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` key: QtC.QKeySequence `
+    /// ` key: QKeySequence `
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
-        return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @bitCast(context));
+    pub fn GrabShortcut2(self: QTableWidget, key: anytype, context: i32) i32 {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
 
     /// Inherited from QWidget
@@ -8334,14 +8604,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self), @bitCast(id), enable);
+    pub fn SetShortcutEnabled2(self: QTableWidget, id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -8350,14 +8620,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self), @bitCast(id), enable);
+    pub fn SetShortcutAutoRepeat2(self: QTableWidget, id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -8366,14 +8636,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetWindowFlag2(@ptrCast(self), @bitCast(param1), on);
+    pub fn SetWindowFlag2(self: QTableWidget, param1: i32, on: bool) void {
+        qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -8382,14 +8652,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetAttribute2(@ptrCast(self), @bitCast(param1), on);
+    pub fn SetAttribute2(self: QTableWidget, param1: i32, on: bool) void {
+        qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -8398,12 +8668,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer2(@ptrCast(window), @ptrCast(parent));
+    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -8412,14 +8684,16 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i32) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @bitCast(flags));
+    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
     }
 
     /// Inherited from QObject
@@ -8428,12 +8702,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QTableWidget, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtablewidget.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -8446,12 +8720,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QTableWidget, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -8460,10 +8734,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QTableWidget) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -8472,10 +8746,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QTableWidget) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -8484,10 +8758,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QTableWidget) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -8496,10 +8770,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QTableWidget) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -8508,12 +8782,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QTableWidget, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -8522,10 +8796,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QTableWidget) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -8534,12 +8808,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QTableWidget, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -8548,12 +8823,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QTableWidget, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -8562,12 +8837,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QTableWidget, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -8576,12 +8851,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QTableWidget, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -8590,12 +8865,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QTableWidget, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -8604,16 +8879,17 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QTableWidget, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qtablewidget.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qtablewidget.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -8623,12 +8899,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QTableWidget, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -8637,12 +8914,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QTableWidget, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -8651,18 +8929,20 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -8671,16 +8951,20 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -8689,18 +8973,19 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QTableWidget, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -8709,18 +8994,20 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -8729,16 +9016,20 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -8747,10 +9038,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QTableWidget) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -8759,12 +9050,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QTableWidget, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -8773,10 +9065,11 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -8785,10 +9078,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QTableWidget) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -8797,10 +9090,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QTableWidget) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -8809,15 +9102,16 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QTableWidget, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -8826,13 +9120,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QTableWidget, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -8841,17 +9135,16 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QTableWidget, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qtablewidget.DynamicPropertyNames: Memory allocation failed");
@@ -8870,10 +9163,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QTableWidget) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -8882,10 +9175,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QTableWidget) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -8894,10 +9187,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QTableWidget) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -8906,12 +9199,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QTableWidget, callback: *const fn (QTableWidget) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8920,10 +9213,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QTableWidget) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -8932,13 +9225,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QTableWidget, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -8947,10 +9240,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QTableWidget) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -8959,14 +9252,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QTableWidget, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -8975,14 +9268,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QTableWidget, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -8991,20 +9284,22 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -9013,18 +9308,22 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -9033,9 +9332,9 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -9043,10 +9342,11 @@ pub const qtablewidget = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QTableWidget, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -9055,13 +9355,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QTableWidget, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -9070,15 +9370,16 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QTableWidget, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -9087,18 +9388,19 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QTableWidget, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -9107,15 +9409,16 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QTableWidget, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -9124,12 +9427,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QTableWidget, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -9138,12 +9442,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QTableWidget, callback: *const fn (QTableWidget, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -9152,10 +9456,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn PaintingActive(self: ?*anyopaque) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self));
+    pub fn PaintingActive(self: QTableWidget) bool {
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -9164,10 +9468,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn WidthMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self));
+    pub fn WidthMM(self: QTableWidget) i32 {
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -9176,10 +9480,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn HeightMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self));
+    pub fn HeightMM(self: QTableWidget) i32 {
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -9188,10 +9492,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn LogicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self));
+    pub fn LogicalDpiX(self: QTableWidget) i32 {
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -9200,10 +9504,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn LogicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self));
+    pub fn LogicalDpiY(self: QTableWidget) i32 {
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -9212,10 +9516,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self));
+    pub fn PhysicalDpiX(self: QTableWidget) i32 {
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -9224,10 +9528,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self));
+    pub fn PhysicalDpiY(self: QTableWidget) i32 {
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -9236,10 +9540,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self));
+    pub fn DevicePixelRatio(self: QTableWidget) f64 {
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -9248,10 +9552,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self));
+    pub fn DevicePixelRatioF(self: QTableWidget) f64 {
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -9260,10 +9564,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn ColorCount(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self));
+    pub fn ColorCount(self: QTableWidget) i32 {
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -9272,10 +9576,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn Depth(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self));
+    pub fn Depth(self: QTableWidget) i32 {
+        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -9308,12 +9612,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SetRootIndex(self: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QTableWidget_SetRootIndex(@ptrCast(self), @ptrCast(index));
+    pub fn SetRootIndex(self: QTableWidget, index: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QTableWidget_SetRootIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSetRootIndex` instead
@@ -9328,12 +9633,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SuperSetRootIndex(self: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QTableWidget_SuperSetRootIndex(@ptrCast(self), @ptrCast(index));
+    pub fn SuperSetRootIndex(self: QTableWidget, index: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QTableWidget_SuperSetRootIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// Inherited from QTableView
@@ -9344,12 +9650,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, index: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnSetRootIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_OnSetRootIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetRootIndex(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex) callconv(.c) void) void {
+        qtc.QTableWidget_OnSetRootIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTableView
@@ -9360,12 +9666,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` selectionModel: QtC.QItemSelectionModel `
+    /// ` selectionModel: QItemSelectionModel `
     ///
-    pub fn SetSelectionModel(self: ?*anyopaque, selectionModel: ?*anyopaque) void {
-        qtc.QTableWidget_SetSelectionModel(@ptrCast(self), @ptrCast(selectionModel));
+    pub fn SetSelectionModel(self: QTableWidget, selectionModel: anytype) void {
+        comptime _ = @TypeOf(selectionModel)._is_QItemSelectionModel;
+        qtc.QTableWidget_SetSelectionModel(@ptrCast(self.ptr), @ptrCast(selectionModel.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSetSelectionModel` instead
@@ -9380,12 +9687,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` selectionModel: QtC.QItemSelectionModel `
+    /// ` selectionModel: QItemSelectionModel `
     ///
-    pub fn SuperSetSelectionModel(self: ?*anyopaque, selectionModel: ?*anyopaque) void {
-        qtc.QTableWidget_SuperSetSelectionModel(@ptrCast(self), @ptrCast(selectionModel));
+    pub fn SuperSetSelectionModel(self: QTableWidget, selectionModel: anytype) void {
+        comptime _ = @TypeOf(selectionModel)._is_QItemSelectionModel;
+        qtc.QTableWidget_SuperSetSelectionModel(@ptrCast(self.ptr), @ptrCast(selectionModel.ptr));
     }
 
     /// Inherited from QTableView
@@ -9396,12 +9704,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, selectionModel: QtC.QItemSelectionModel) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, selectionModel: QItemSelectionModel) callconv(.c) void `
     ///
-    pub fn OnSetSelectionModel(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_OnSetSelectionModel(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetSelectionModel(self: QTableWidget, callback: *const fn (QTableWidget, QItemSelectionModel) callconv(.c) void) void {
+        qtc.QTableWidget_OnSetSelectionModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTableView
@@ -9412,10 +9720,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn DoItemsLayout(self: ?*anyopaque) void {
-        qtc.QTableWidget_DoItemsLayout(@ptrCast(self));
+    pub fn DoItemsLayout(self: QTableWidget) void {
+        qtc.QTableWidget_DoItemsLayout(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDoItemsLayout` instead
@@ -9430,10 +9738,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn SuperDoItemsLayout(self: ?*anyopaque) void {
-        qtc.QTableWidget_SuperDoItemsLayout(@ptrCast(self));
+    pub fn SuperDoItemsLayout(self: QTableWidget) void {
+        qtc.QTableWidget_SuperDoItemsLayout(@ptrCast(self.ptr));
     }
 
     /// Inherited from QTableView
@@ -9444,12 +9752,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDoItemsLayout(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QTableWidget_OnDoItemsLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDoItemsLayout(self: QTableWidget, callback: *const fn () callconv(.c) void) void {
+        qtc.QTableWidget_OnDoItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTableView
@@ -9460,12 +9768,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn VisualRect(self: ?*anyopaque, index: ?*anyopaque) QtC.QRect {
-        return qtc.QTableWidget_VisualRect(@ptrCast(self), @ptrCast(index));
+    pub fn VisualRect(self: QTableWidget, index: anytype) QRect {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.QTableWidget_VisualRect(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperVisualRect` instead
@@ -9480,12 +9789,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SuperVisualRect(self: ?*anyopaque, index: ?*anyopaque) QtC.QRect {
-        return qtc.QTableWidget_SuperVisualRect(@ptrCast(self), @ptrCast(index));
+    pub fn SuperVisualRect(self: QTableWidget, index: anytype) QRect {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.QTableWidget_SuperVisualRect(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// Inherited from QTableView
@@ -9496,12 +9806,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, index: QtC.QModelIndex) callconv(.c) QtC.QRect `
+    /// ` callback: *const fn (self: QTableWidget, index: QModelIndex) callconv(.c) QRect `
     ///
-    pub fn OnVisualRect(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRect) void {
-        qtc.QTableWidget_OnVisualRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnVisualRect(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex) callconv(.c) QRect) void {
+        qtc.QTableWidget_OnVisualRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTableView
@@ -9512,14 +9822,15 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
     /// ` hint: qabstractitemview_enums.ScrollHint `
     ///
-    pub fn ScrollTo(self: ?*anyopaque, index: ?*anyopaque, hint: i32) void {
-        qtc.QTableWidget_ScrollTo(@ptrCast(self), @ptrCast(index), @bitCast(hint));
+    pub fn ScrollTo(self: QTableWidget, index: anytype, hint: i32) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QTableWidget_ScrollTo(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(hint));
     }
 
     /// ### DEPRECATED: Use `SuperScrollTo` instead
@@ -9534,14 +9845,15 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
     /// ` hint: qabstractitemview_enums.ScrollHint `
     ///
-    pub fn SuperScrollTo(self: ?*anyopaque, index: ?*anyopaque, hint: i32) void {
-        qtc.QTableWidget_SuperScrollTo(@ptrCast(self), @ptrCast(index), @bitCast(hint));
+    pub fn SuperScrollTo(self: QTableWidget, index: anytype, hint: i32) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QTableWidget_SuperScrollTo(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(hint));
     }
 
     /// Inherited from QTableView
@@ -9552,12 +9864,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, index: QtC.QModelIndex, hint: qabstractitemview_enums.ScrollHint) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, index: QModelIndex, hint: qabstractitemview_enums.ScrollHint) callconv(.c) void `
     ///
-    pub fn OnScrollTo(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTableWidget_OnScrollTo(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnScrollTo(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex, i32) callconv(.c) void) void {
+        qtc.QTableWidget_OnScrollTo(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTableView
@@ -9568,12 +9880,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` p: QtC.QPoint `
+    /// ` p: QPoint `
     ///
-    pub fn IndexAt(self: ?*anyopaque, p: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QTableWidget_IndexAt(@ptrCast(self), @ptrCast(p));
+    pub fn IndexAt(self: QTableWidget, p: anytype) QModelIndex {
+        comptime _ = @TypeOf(p)._is_QPoint;
+        return .{ .ptr = qtc.QTableWidget_IndexAt(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperIndexAt` instead
@@ -9588,12 +9901,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` p: QtC.QPoint `
+    /// ` p: QPoint `
     ///
-    pub fn SuperIndexAt(self: ?*anyopaque, p: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QTableWidget_SuperIndexAt(@ptrCast(self), @ptrCast(p));
+    pub fn SuperIndexAt(self: QTableWidget, p: anytype) QModelIndex {
+        comptime _ = @TypeOf(p)._is_QPoint;
+        return .{ .ptr = qtc.QTableWidget_SuperIndexAt(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QTableView
@@ -9604,12 +9918,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, p: QtC.QPoint) callconv(.c) QtC.QModelIndex `
+    /// ` callback: *const fn (self: QTableWidget, p: QPoint) callconv(.c) QModelIndex `
     ///
-    pub fn OnIndexAt(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.QTableWidget_OnIndexAt(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIndexAt(self: QTableWidget, callback: *const fn (QTableWidget, QPoint) callconv(.c) QModelIndex) void {
+        qtc.QTableWidget_OnIndexAt(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTableView
@@ -9620,14 +9934,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    pub fn ScrollContentsBy(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QTableWidget_ScrollContentsBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn ScrollContentsBy(self: QTableWidget, dx: i32, dy: i32) void {
+        qtc.QTableWidget_ScrollContentsBy(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
     /// ### DEPRECATED: Use `SuperScrollContentsBy` instead
@@ -9642,14 +9956,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    pub fn SuperScrollContentsBy(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QTableWidget_SuperScrollContentsBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn SuperScrollContentsBy(self: QTableWidget, dx: i32, dy: i32) void {
+        qtc.QTableWidget_SuperScrollContentsBy(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QTableView
@@ -9660,12 +9974,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, dx: i32, dy: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, dx: i32, dy: i32) callconv(.c) void `
     ///
-    pub fn OnScrollContentsBy(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QTableWidget_OnScrollContentsBy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnScrollContentsBy(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32) callconv(.c) void) void {
+        qtc.QTableWidget_OnScrollContentsBy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTableView
@@ -9676,12 +9990,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` option: QtC.QStyleOptionViewItem `
+    /// ` option: QStyleOptionViewItem `
     ///
-    pub fn InitViewItemOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        qtc.QTableWidget_InitViewItemOption(@ptrCast(self), @ptrCast(option));
+    pub fn InitViewItemOption(self: QTableWidget, option: anytype) void {
+        comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
+        qtc.QTableWidget_InitViewItemOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInitViewItemOption` instead
@@ -9696,12 +10011,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` option: QtC.QStyleOptionViewItem `
+    /// ` option: QStyleOptionViewItem `
     ///
-    pub fn SuperInitViewItemOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        qtc.QTableWidget_SuperInitViewItemOption(@ptrCast(self), @ptrCast(option));
+    pub fn SuperInitViewItemOption(self: QTableWidget, option: anytype) void {
+        comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
+        qtc.QTableWidget_SuperInitViewItemOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
     /// Inherited from QTableView
@@ -9712,12 +10028,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, option: QtC.QStyleOptionViewItem) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, option: QStyleOptionViewItem) callconv(.c) void `
     ///
-    pub fn OnInitViewItemOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_OnInitViewItemOption(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInitViewItemOption(self: QTableWidget, callback: *const fn (QTableWidget, QStyleOptionViewItem) callconv(.c) void) void {
+        qtc.QTableWidget_OnInitViewItemOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTableView
@@ -9728,12 +10044,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` e: QtC.QPaintEvent `
+    /// ` e: QPaintEvent `
     ///
-    pub fn PaintEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QTableWidget_PaintEvent(@ptrCast(self), @ptrCast(e));
+    pub fn PaintEvent(self: QTableWidget, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QPaintEvent;
+        qtc.QTableWidget_PaintEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperPaintEvent` instead
@@ -9748,12 +10065,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` e: QtC.QPaintEvent `
+    /// ` e: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QTableWidget_SuperPaintEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperPaintEvent(self: QTableWidget, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QPaintEvent;
+        qtc.QTableWidget_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// Inherited from QTableView
@@ -9764,12 +10082,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, e: QtC.QPaintEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, e: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_OnPaintEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaintEvent(self: QTableWidget, callback: *const fn (QTableWidget, QPaintEvent) callconv(.c) void) void {
+        qtc.QTableWidget_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTableView
@@ -9780,12 +10098,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QTableWidget_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -9800,12 +10119,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QTableWidget_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QTableView
@@ -9816,12 +10136,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QTableWidget, callback: *const fn (QTableWidget, QTimerEvent) callconv(.c) void) void {
+        qtc.QTableWidget_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTableView
@@ -9832,10 +10152,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn HorizontalOffset(self: ?*anyopaque) i32 {
-        return qtc.QTableWidget_HorizontalOffset(@ptrCast(self));
+    pub fn HorizontalOffset(self: QTableWidget) i32 {
+        return qtc.QTableWidget_HorizontalOffset(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHorizontalOffset` instead
@@ -9850,10 +10170,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn SuperHorizontalOffset(self: ?*anyopaque) i32 {
-        return qtc.QTableWidget_SuperHorizontalOffset(@ptrCast(self));
+    pub fn SuperHorizontalOffset(self: QTableWidget) i32 {
+        return qtc.QTableWidget_SuperHorizontalOffset(@ptrCast(self.ptr));
     }
 
     /// Inherited from QTableView
@@ -9864,12 +10184,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnHorizontalOffset(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QTableWidget_OnHorizontalOffset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHorizontalOffset(self: QTableWidget, callback: *const fn () callconv(.c) i32) void {
+        qtc.QTableWidget_OnHorizontalOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTableView
@@ -9880,10 +10200,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn VerticalOffset(self: ?*anyopaque) i32 {
-        return qtc.QTableWidget_VerticalOffset(@ptrCast(self));
+    pub fn VerticalOffset(self: QTableWidget) i32 {
+        return qtc.QTableWidget_VerticalOffset(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperVerticalOffset` instead
@@ -9898,10 +10218,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn SuperVerticalOffset(self: ?*anyopaque) i32 {
-        return qtc.QTableWidget_SuperVerticalOffset(@ptrCast(self));
+    pub fn SuperVerticalOffset(self: QTableWidget) i32 {
+        return qtc.QTableWidget_SuperVerticalOffset(@ptrCast(self.ptr));
     }
 
     /// Inherited from QTableView
@@ -9912,12 +10232,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnVerticalOffset(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QTableWidget_OnVerticalOffset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnVerticalOffset(self: QTableWidget, callback: *const fn () callconv(.c) i32) void {
+        qtc.QTableWidget_OnVerticalOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTableView
@@ -9928,14 +10248,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` cursorAction: qabstractitemview_enums.CursorAction `
     ///
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn MoveCursor(self: ?*anyopaque, cursorAction: i32, modifiers: i32) QtC.QModelIndex {
-        return qtc.QTableWidget_MoveCursor(@ptrCast(self), @bitCast(cursorAction), @bitCast(modifiers));
+    pub fn MoveCursor(self: QTableWidget, cursorAction: i32, modifiers: i32) QModelIndex {
+        return .{ .ptr = qtc.QTableWidget_MoveCursor(@ptrCast(self.ptr), @bitCast(cursorAction), @bitCast(modifiers)) };
     }
 
     /// ### DEPRECATED: Use `SuperMoveCursor` instead
@@ -9950,14 +10270,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` cursorAction: qabstractitemview_enums.CursorAction `
     ///
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn SuperMoveCursor(self: ?*anyopaque, cursorAction: i32, modifiers: i32) QtC.QModelIndex {
-        return qtc.QTableWidget_SuperMoveCursor(@ptrCast(self), @bitCast(cursorAction), @bitCast(modifiers));
+    pub fn SuperMoveCursor(self: QTableWidget, cursorAction: i32, modifiers: i32) QModelIndex {
+        return .{ .ptr = qtc.QTableWidget_SuperMoveCursor(@ptrCast(self.ptr), @bitCast(cursorAction), @bitCast(modifiers)) };
     }
 
     /// Inherited from QTableView
@@ -9968,12 +10288,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, cursorAction: qabstractitemview_enums.CursorAction, modifiers: flag of qnamespace_enums.KeyboardModifier) callconv(.c) QtC.QModelIndex `
+    /// ` callback: *const fn (self: QTableWidget, cursorAction: qabstractitemview_enums.CursorAction, modifiers: flag of qnamespace_enums.KeyboardModifier) callconv(.c) QModelIndex `
     ///
-    pub fn OnMoveCursor(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) QtC.QModelIndex) void {
-        qtc.QTableWidget_OnMoveCursor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMoveCursor(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32) callconv(.c) QModelIndex) void {
+        qtc.QTableWidget_OnMoveCursor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTableView
@@ -9984,14 +10304,15 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` rect: QtC.QRect `
+    /// ` rect: QRect `
     ///
     /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn SetSelection(self: ?*anyopaque, rect: ?*anyopaque, command: i32) void {
-        qtc.QTableWidget_SetSelection(@ptrCast(self), @ptrCast(rect), @bitCast(command));
+    pub fn SetSelection(self: QTableWidget, rect: anytype, command: i32) void {
+        comptime _ = @TypeOf(rect)._is_QRect;
+        qtc.QTableWidget_SetSelection(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(command));
     }
 
     /// ### DEPRECATED: Use `SuperSetSelection` instead
@@ -10006,14 +10327,15 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` rect: QtC.QRect `
+    /// ` rect: QRect `
     ///
     /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn SuperSetSelection(self: ?*anyopaque, rect: ?*anyopaque, command: i32) void {
-        qtc.QTableWidget_SuperSetSelection(@ptrCast(self), @ptrCast(rect), @bitCast(command));
+    pub fn SuperSetSelection(self: QTableWidget, rect: anytype, command: i32) void {
+        comptime _ = @TypeOf(rect)._is_QRect;
+        qtc.QTableWidget_SuperSetSelection(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(command));
     }
 
     /// Inherited from QTableView
@@ -10024,12 +10346,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, rect: QtC.QRect, command: flag of qitemselectionmodel_enums.SelectionFlag) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, rect: QRect, command: flag of qitemselectionmodel_enums.SelectionFlag) callconv(.c) void `
     ///
-    pub fn OnSetSelection(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTableWidget_OnSetSelection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetSelection(self: QTableWidget, callback: *const fn (QTableWidget, QRect, i32) callconv(.c) void) void {
+        qtc.QTableWidget_OnSetSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTableView
@@ -10040,12 +10362,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` selection: QtC.QItemSelection `
+    /// ` selection: QItemSelection `
     ///
-    pub fn VisualRegionForSelection(self: ?*anyopaque, selection: ?*anyopaque) QtC.QRegion {
-        return qtc.QTableWidget_VisualRegionForSelection(@ptrCast(self), @ptrCast(selection));
+    pub fn VisualRegionForSelection(self: QTableWidget, selection: anytype) QRegion {
+        comptime _ = @TypeOf(selection)._is_QItemSelection;
+        return .{ .ptr = qtc.QTableWidget_VisualRegionForSelection(@ptrCast(self.ptr), @ptrCast(selection.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperVisualRegionForSelection` instead
@@ -10060,12 +10383,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` selection: QtC.QItemSelection `
+    /// ` selection: QItemSelection `
     ///
-    pub fn SuperVisualRegionForSelection(self: ?*anyopaque, selection: ?*anyopaque) QtC.QRegion {
-        return qtc.QTableWidget_SuperVisualRegionForSelection(@ptrCast(self), @ptrCast(selection));
+    pub fn SuperVisualRegionForSelection(self: QTableWidget, selection: anytype) QRegion {
+        comptime _ = @TypeOf(selection)._is_QItemSelection;
+        return .{ .ptr = qtc.QTableWidget_SuperVisualRegionForSelection(@ptrCast(self.ptr), @ptrCast(selection.ptr)) };
     }
 
     /// Inherited from QTableView
@@ -10076,12 +10400,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, selection: QtC.QItemSelection) callconv(.c) QtC.QRegion `
+    /// ` callback: *const fn (self: QTableWidget, selection: QItemSelection) callconv(.c) QRegion `
     ///
-    pub fn OnVisualRegionForSelection(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRegion) void {
-        qtc.QTableWidget_OnVisualRegionForSelection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnVisualRegionForSelection(self: QTableWidget, callback: *const fn (QTableWidget, QItemSelection) callconv(.c) QRegion) void {
+        qtc.QTableWidget_OnVisualRegionForSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTableView
@@ -10092,16 +10416,17 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SelectedIndexes(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.QTableWidget_SelectedIndexes(@ptrCast(self));
+    pub fn SelectedIndexes(self: QTableWidget, allocator: std.mem.Allocator) []QModelIndex {
+        const _arr: qtc.libqt_list = qtc.QTableWidget_SelectedIndexes(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qtablewidget.SelectedIndexes: Memory allocation failed");
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("qtablewidget.SelectedIndexes: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -10117,16 +10442,17 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperSelectedIndexes(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.QTableWidget_SuperSelectedIndexes(@ptrCast(self));
+    pub fn SuperSelectedIndexes(self: QTableWidget, allocator: std.mem.Allocator) []QModelIndex {
+        const _arr: qtc.libqt_list = qtc.QTableWidget_SuperSelectedIndexes(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qtablewidget.SelectedIndexes: Memory allocation failed");
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("qtablewidget.SelectedIndexes: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -10136,20 +10462,20 @@ pub const qtablewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
     /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
     ///
     /// ## Callback Returns:
     ///
-    /// ` C ABI representation of []QtC.QModelIndex `
+    /// ` C ABI representation of []QModelIndex `
     ///
-    pub fn OnSelectedIndexes(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
-        qtc.QTableWidget_OnSelectedIndexes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSelectedIndexes(self: QTableWidget, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+        qtc.QTableWidget_OnSelectedIndexes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTableView
@@ -10160,10 +10486,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn UpdateGeometries(self: ?*anyopaque) void {
-        qtc.QTableWidget_UpdateGeometries(@ptrCast(self));
+    pub fn UpdateGeometries(self: QTableWidget) void {
+        qtc.QTableWidget_UpdateGeometries(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperUpdateGeometries` instead
@@ -10178,10 +10504,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn SuperUpdateGeometries(self: ?*anyopaque) void {
-        qtc.QTableWidget_SuperUpdateGeometries(@ptrCast(self));
+    pub fn SuperUpdateGeometries(self: QTableWidget) void {
+        qtc.QTableWidget_SuperUpdateGeometries(@ptrCast(self.ptr));
     }
 
     /// Inherited from QTableView
@@ -10192,12 +10518,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateGeometries(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QTableWidget_OnUpdateGeometries(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUpdateGeometries(self: QTableWidget, callback: *const fn () callconv(.c) void) void {
+        qtc.QTableWidget_OnUpdateGeometries(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTableView
@@ -10208,10 +10534,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn ViewportSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QTableWidget_ViewportSizeHint(@ptrCast(self));
+    pub fn ViewportSizeHint(self: QTableWidget) QSize {
+        return .{ .ptr = qtc.QTableWidget_ViewportSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperViewportSizeHint` instead
@@ -10226,10 +10552,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn SuperViewportSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QTableWidget_SuperViewportSizeHint(@ptrCast(self));
+    pub fn SuperViewportSizeHint(self: QTableWidget) QSize {
+        return .{ .ptr = qtc.QTableWidget_SuperViewportSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QTableView
@@ -10240,12 +10566,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnViewportSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QTableWidget_OnViewportSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnViewportSizeHint(self: QTableWidget, callback: *const fn () callconv(.c) QSize) void {
+        qtc.QTableWidget_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTableView
@@ -10256,12 +10582,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` row: i32 `
     ///
-    pub fn SizeHintForRow(self: ?*anyopaque, row: i32) i32 {
-        return qtc.QTableWidget_SizeHintForRow(@ptrCast(self), @bitCast(row));
+    pub fn SizeHintForRow(self: QTableWidget, row: i32) i32 {
+        return qtc.QTableWidget_SizeHintForRow(@ptrCast(self.ptr), @bitCast(row));
     }
 
     /// ### DEPRECATED: Use `SuperSizeHintForRow` instead
@@ -10276,12 +10602,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` row: i32 `
     ///
-    pub fn SuperSizeHintForRow(self: ?*anyopaque, row: i32) i32 {
-        return qtc.QTableWidget_SuperSizeHintForRow(@ptrCast(self), @bitCast(row));
+    pub fn SuperSizeHintForRow(self: QTableWidget, row: i32) i32 {
+        return qtc.QTableWidget_SuperSizeHintForRow(@ptrCast(self.ptr), @bitCast(row));
     }
 
     /// Inherited from QTableView
@@ -10292,12 +10618,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, row: i32) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QTableWidget, row: i32) callconv(.c) i32 `
     ///
-    pub fn OnSizeHintForRow(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QTableWidget_OnSizeHintForRow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSizeHintForRow(self: QTableWidget, callback: *const fn (QTableWidget, i32) callconv(.c) i32) void {
+        qtc.QTableWidget_OnSizeHintForRow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTableView
@@ -10308,12 +10634,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` column: i32 `
     ///
-    pub fn SizeHintForColumn(self: ?*anyopaque, column: i32) i32 {
-        return qtc.QTableWidget_SizeHintForColumn(@ptrCast(self), @bitCast(column));
+    pub fn SizeHintForColumn(self: QTableWidget, column: i32) i32 {
+        return qtc.QTableWidget_SizeHintForColumn(@ptrCast(self.ptr), @bitCast(column));
     }
 
     /// ### DEPRECATED: Use `SuperSizeHintForColumn` instead
@@ -10328,12 +10654,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` column: i32 `
     ///
-    pub fn SuperSizeHintForColumn(self: ?*anyopaque, column: i32) i32 {
-        return qtc.QTableWidget_SuperSizeHintForColumn(@ptrCast(self), @bitCast(column));
+    pub fn SuperSizeHintForColumn(self: QTableWidget, column: i32) i32 {
+        return qtc.QTableWidget_SuperSizeHintForColumn(@ptrCast(self.ptr), @bitCast(column));
     }
 
     /// Inherited from QTableView
@@ -10344,12 +10670,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, column: i32) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QTableWidget, column: i32) callconv(.c) i32 `
     ///
-    pub fn OnSizeHintForColumn(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QTableWidget_OnSizeHintForColumn(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSizeHintForColumn(self: QTableWidget, callback: *const fn (QTableWidget, i32) callconv(.c) i32) void {
+        qtc.QTableWidget_OnSizeHintForColumn(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTableView
@@ -10360,12 +10686,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` action: i32 `
     ///
-    pub fn VerticalScrollbarAction(self: ?*anyopaque, action: i32) void {
-        qtc.QTableWidget_VerticalScrollbarAction(@ptrCast(self), @bitCast(action));
+    pub fn VerticalScrollbarAction(self: QTableWidget, action: i32) void {
+        qtc.QTableWidget_VerticalScrollbarAction(@ptrCast(self.ptr), @bitCast(action));
     }
 
     /// ### DEPRECATED: Use `SuperVerticalScrollbarAction` instead
@@ -10380,12 +10706,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` action: i32 `
     ///
-    pub fn SuperVerticalScrollbarAction(self: ?*anyopaque, action: i32) void {
-        qtc.QTableWidget_SuperVerticalScrollbarAction(@ptrCast(self), @bitCast(action));
+    pub fn SuperVerticalScrollbarAction(self: QTableWidget, action: i32) void {
+        qtc.QTableWidget_SuperVerticalScrollbarAction(@ptrCast(self.ptr), @bitCast(action));
     }
 
     /// Inherited from QTableView
@@ -10396,12 +10722,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, action: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, action: i32) callconv(.c) void `
     ///
-    pub fn OnVerticalScrollbarAction(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTableWidget_OnVerticalScrollbarAction(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnVerticalScrollbarAction(self: QTableWidget, callback: *const fn (QTableWidget, i32) callconv(.c) void) void {
+        qtc.QTableWidget_OnVerticalScrollbarAction(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTableView
@@ -10412,12 +10738,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` action: i32 `
     ///
-    pub fn HorizontalScrollbarAction(self: ?*anyopaque, action: i32) void {
-        qtc.QTableWidget_HorizontalScrollbarAction(@ptrCast(self), @bitCast(action));
+    pub fn HorizontalScrollbarAction(self: QTableWidget, action: i32) void {
+        qtc.QTableWidget_HorizontalScrollbarAction(@ptrCast(self.ptr), @bitCast(action));
     }
 
     /// ### DEPRECATED: Use `SuperHorizontalScrollbarAction` instead
@@ -10432,12 +10758,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` action: i32 `
     ///
-    pub fn SuperHorizontalScrollbarAction(self: ?*anyopaque, action: i32) void {
-        qtc.QTableWidget_SuperHorizontalScrollbarAction(@ptrCast(self), @bitCast(action));
+    pub fn SuperHorizontalScrollbarAction(self: QTableWidget, action: i32) void {
+        qtc.QTableWidget_SuperHorizontalScrollbarAction(@ptrCast(self.ptr), @bitCast(action));
     }
 
     /// Inherited from QTableView
@@ -10448,12 +10774,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, action: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, action: i32) callconv(.c) void `
     ///
-    pub fn OnHorizontalScrollbarAction(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTableWidget_OnHorizontalScrollbarAction(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHorizontalScrollbarAction(self: QTableWidget, callback: *const fn (QTableWidget, i32) callconv(.c) void) void {
+        qtc.QTableWidget_OnHorizontalScrollbarAction(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTableView
@@ -10464,12 +10790,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn IsIndexHidden(self: ?*anyopaque, index: ?*anyopaque) bool {
-        return qtc.QTableWidget_IsIndexHidden(@ptrCast(self), @ptrCast(index));
+    pub fn IsIndexHidden(self: QTableWidget, index: anytype) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.QTableWidget_IsIndexHidden(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsIndexHidden` instead
@@ -10484,12 +10811,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SuperIsIndexHidden(self: ?*anyopaque, index: ?*anyopaque) bool {
-        return qtc.QTableWidget_SuperIsIndexHidden(@ptrCast(self), @ptrCast(index));
+    pub fn SuperIsIndexHidden(self: QTableWidget, index: anytype) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.QTableWidget_SuperIsIndexHidden(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// Inherited from QTableView
@@ -10500,12 +10828,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, index: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: QTableWidget, index: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnIsIndexHidden(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTableWidget_OnIsIndexHidden(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsIndexHidden(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex) callconv(.c) bool) void {
+        qtc.QTableWidget_OnIsIndexHidden(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTableView
@@ -10516,14 +10844,16 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` selected: QtC.QItemSelection `
+    /// ` selected: QItemSelection `
     ///
-    /// ` deselected: QtC.QItemSelection `
+    /// ` deselected: QItemSelection `
     ///
-    pub fn SelectionChanged(self: ?*anyopaque, selected: ?*anyopaque, deselected: ?*anyopaque) void {
-        qtc.QTableWidget_SelectionChanged(@ptrCast(self), @ptrCast(selected), @ptrCast(deselected));
+    pub fn SelectionChanged(self: QTableWidget, selected: anytype, deselected: anytype) void {
+        comptime _ = @TypeOf(selected)._is_QItemSelection;
+        comptime _ = @TypeOf(deselected)._is_QItemSelection;
+        qtc.QTableWidget_SelectionChanged(@ptrCast(self.ptr), @ptrCast(selected.ptr), @ptrCast(deselected.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSelectionChanged` instead
@@ -10538,14 +10868,16 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` selected: QtC.QItemSelection `
+    /// ` selected: QItemSelection `
     ///
-    /// ` deselected: QtC.QItemSelection `
+    /// ` deselected: QItemSelection `
     ///
-    pub fn SuperSelectionChanged(self: ?*anyopaque, selected: ?*anyopaque, deselected: ?*anyopaque) void {
-        qtc.QTableWidget_SuperSelectionChanged(@ptrCast(self), @ptrCast(selected), @ptrCast(deselected));
+    pub fn SuperSelectionChanged(self: QTableWidget, selected: anytype, deselected: anytype) void {
+        comptime _ = @TypeOf(selected)._is_QItemSelection;
+        comptime _ = @TypeOf(deselected)._is_QItemSelection;
+        qtc.QTableWidget_SuperSelectionChanged(@ptrCast(self.ptr), @ptrCast(selected.ptr), @ptrCast(deselected.ptr));
     }
 
     /// Inherited from QTableView
@@ -10556,12 +10888,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, selected: QtC.QItemSelection, deselected: QtC.QItemSelection) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, selected: QItemSelection, deselected: QItemSelection) callconv(.c) void `
     ///
-    pub fn OnSelectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_OnSelectionChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSelectionChanged(self: QTableWidget, callback: *const fn (QTableWidget, QItemSelection, QItemSelection) callconv(.c) void) void {
+        qtc.QTableWidget_OnSelectionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTableView
@@ -10572,14 +10904,16 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` current: QtC.QModelIndex `
+    /// ` current: QModelIndex `
     ///
-    /// ` previous: QtC.QModelIndex `
+    /// ` previous: QModelIndex `
     ///
-    pub fn CurrentChanged(self: ?*anyopaque, current: ?*anyopaque, previous: ?*anyopaque) void {
-        qtc.QTableWidget_CurrentChanged(@ptrCast(self), @ptrCast(current), @ptrCast(previous));
+    pub fn CurrentChanged(self: QTableWidget, current: anytype, previous: anytype) void {
+        comptime _ = @TypeOf(current)._is_QModelIndex;
+        comptime _ = @TypeOf(previous)._is_QModelIndex;
+        qtc.QTableWidget_CurrentChanged(@ptrCast(self.ptr), @ptrCast(current.ptr), @ptrCast(previous.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCurrentChanged` instead
@@ -10594,14 +10928,16 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` current: QtC.QModelIndex `
+    /// ` current: QModelIndex `
     ///
-    /// ` previous: QtC.QModelIndex `
+    /// ` previous: QModelIndex `
     ///
-    pub fn SuperCurrentChanged(self: ?*anyopaque, current: ?*anyopaque, previous: ?*anyopaque) void {
-        qtc.QTableWidget_SuperCurrentChanged(@ptrCast(self), @ptrCast(current), @ptrCast(previous));
+    pub fn SuperCurrentChanged(self: QTableWidget, current: anytype, previous: anytype) void {
+        comptime _ = @TypeOf(current)._is_QModelIndex;
+        comptime _ = @TypeOf(previous)._is_QModelIndex;
+        qtc.QTableWidget_SuperCurrentChanged(@ptrCast(self.ptr), @ptrCast(current.ptr), @ptrCast(previous.ptr));
     }
 
     /// Inherited from QTableView
@@ -10612,12 +10948,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, current: QtC.QModelIndex, previous: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, current: QModelIndex, previous: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnCurrentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_OnCurrentChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCurrentChanged(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex, QModelIndex) callconv(.c) void) void {
+        qtc.QTableWidget_OnCurrentChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10628,16 +10964,16 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` search: []const u8 `
     ///
-    pub fn KeyboardSearch(self: ?*anyopaque, search: []const u8) void {
+    pub fn KeyboardSearch(self: QTableWidget, search: []const u8) void {
         const search_str = qtc.libqt_string{
             .len = search.len,
             .data = search.ptr,
         };
-        qtc.QTableWidget_KeyboardSearch(@ptrCast(self), search_str);
+        qtc.QTableWidget_KeyboardSearch(@ptrCast(self.ptr), search_str);
     }
 
     /// ### DEPRECATED: Use `SuperKeyboardSearch` instead
@@ -10652,16 +10988,16 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` search: []const u8 `
     ///
-    pub fn SuperKeyboardSearch(self: ?*anyopaque, search: []const u8) void {
+    pub fn SuperKeyboardSearch(self: QTableWidget, search: []const u8) void {
         const search_str = qtc.libqt_string{
             .len = search.len,
             .data = search.ptr,
         };
-        qtc.QTableWidget_SuperKeyboardSearch(@ptrCast(self), search_str);
+        qtc.QTableWidget_SuperKeyboardSearch(@ptrCast(self.ptr), search_str);
     }
 
     /// Inherited from QAbstractItemView
@@ -10672,12 +11008,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, search: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, search: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnKeyboardSearch(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QTableWidget_OnKeyboardSearch(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyboardSearch(self: QTableWidget, callback: *const fn (QTableWidget, [*:0]const u8) callconv(.c) void) void {
+        qtc.QTableWidget_OnKeyboardSearch(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10688,12 +11024,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn ItemDelegateForIndex(self: ?*anyopaque, index: ?*anyopaque) QtC.QAbstractItemDelegate {
-        return qtc.QTableWidget_ItemDelegateForIndex(@ptrCast(self), @ptrCast(index));
+    pub fn ItemDelegateForIndex(self: QTableWidget, index: anytype) QAbstractItemDelegate {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.QTableWidget_ItemDelegateForIndex(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperItemDelegateForIndex` instead
@@ -10708,12 +11045,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SuperItemDelegateForIndex(self: ?*anyopaque, index: ?*anyopaque) QtC.QAbstractItemDelegate {
-        return qtc.QTableWidget_SuperItemDelegateForIndex(@ptrCast(self), @ptrCast(index));
+    pub fn SuperItemDelegateForIndex(self: QTableWidget, index: anytype) QAbstractItemDelegate {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.QTableWidget_SuperItemDelegateForIndex(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// Inherited from QAbstractItemView
@@ -10724,12 +11062,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, index: QtC.QModelIndex) callconv(.c) QtC.QAbstractItemDelegate `
+    /// ` callback: *const fn (self: QTableWidget, index: QModelIndex) callconv(.c) QAbstractItemDelegate `
     ///
-    pub fn OnItemDelegateForIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QAbstractItemDelegate) void {
-        qtc.QTableWidget_OnItemDelegateForIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnItemDelegateForIndex(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex) callconv(.c) QAbstractItemDelegate) void {
+        qtc.QTableWidget_OnItemDelegateForIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10740,12 +11078,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.QTableWidget_InputMethodQuery(@ptrCast(self), @bitCast(query));
+    pub fn InputMethodQuery(self: QTableWidget, query: i32) QVariant {
+        return .{ .ptr = qtc.QTableWidget_InputMethodQuery(@ptrCast(self.ptr), @bitCast(query)) };
     }
 
     /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
@@ -10760,12 +11098,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.QTableWidget_SuperInputMethodQuery(@ptrCast(self), @bitCast(query));
+    pub fn SuperInputMethodQuery(self: QTableWidget, query: i32) QVariant {
+        return .{ .ptr = qtc.QTableWidget_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(query)) };
     }
 
     /// Inherited from QAbstractItemView
@@ -10776,12 +11114,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
+    /// ` callback: *const fn (self: QTableWidget, query: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
-    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QTableWidget_OnInputMethodQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInputMethodQuery(self: QTableWidget, callback: *const fn (QTableWidget, i32) callconv(.c) QVariant) void {
+        qtc.QTableWidget_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10792,10 +11130,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn Reset(self: ?*anyopaque) void {
-        qtc.QTableWidget_Reset(@ptrCast(self));
+    pub fn Reset(self: QTableWidget) void {
+        qtc.QTableWidget_Reset(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperReset` instead
@@ -10810,10 +11148,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn SuperReset(self: ?*anyopaque) void {
-        qtc.QTableWidget_SuperReset(@ptrCast(self));
+    pub fn SuperReset(self: QTableWidget) void {
+        qtc.QTableWidget_SuperReset(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -10824,12 +11162,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnReset(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QTableWidget_OnReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReset(self: QTableWidget, callback: *const fn () callconv(.c) void) void {
+        qtc.QTableWidget_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10840,10 +11178,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn SelectAll(self: ?*anyopaque) void {
-        qtc.QTableWidget_SelectAll(@ptrCast(self));
+    pub fn SelectAll(self: QTableWidget) void {
+        qtc.QTableWidget_SelectAll(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSelectAll` instead
@@ -10858,10 +11196,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn SuperSelectAll(self: ?*anyopaque) void {
-        qtc.QTableWidget_SuperSelectAll(@ptrCast(self));
+    pub fn SuperSelectAll(self: QTableWidget) void {
+        qtc.QTableWidget_SuperSelectAll(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -10872,12 +11210,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnSelectAll(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QTableWidget_OnSelectAll(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSelectAll(self: QTableWidget, callback: *const fn () callconv(.c) void) void {
+        qtc.QTableWidget_OnSelectAll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10888,20 +11226,22 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` topLeft: QtC.QModelIndex `
+    /// ` topLeft: QModelIndex `
     ///
-    /// ` bottomRight: QtC.QModelIndex `
+    /// ` bottomRight: QModelIndex `
     ///
     /// ` roles: []i32 `
     ///
-    pub fn DataChanged(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque, roles: []i32) void {
+    pub fn DataChanged(self: QTableWidget, topLeft: anytype, bottomRight: anytype, roles: []i32) void {
+        comptime _ = @TypeOf(topLeft)._is_QModelIndex;
+        comptime _ = @TypeOf(bottomRight)._is_QModelIndex;
         const roles_list = qtc.libqt_list{
             .len = roles.len,
             .data = roles.ptr,
         };
-        qtc.QTableWidget_DataChanged(@ptrCast(self), @ptrCast(topLeft), @ptrCast(bottomRight), roles_list);
+        qtc.QTableWidget_DataChanged(@ptrCast(self.ptr), @ptrCast(topLeft.ptr), @ptrCast(bottomRight.ptr), roles_list);
     }
 
     /// ### DEPRECATED: Use `SuperDataChanged` instead
@@ -10916,20 +11256,22 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` topLeft: QtC.QModelIndex `
+    /// ` topLeft: QModelIndex `
     ///
-    /// ` bottomRight: QtC.QModelIndex `
+    /// ` bottomRight: QModelIndex `
     ///
     /// ` roles: []i32 `
     ///
-    pub fn SuperDataChanged(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque, roles: []i32) void {
+    pub fn SuperDataChanged(self: QTableWidget, topLeft: anytype, bottomRight: anytype, roles: []i32) void {
+        comptime _ = @TypeOf(topLeft)._is_QModelIndex;
+        comptime _ = @TypeOf(bottomRight)._is_QModelIndex;
         const roles_list = qtc.libqt_list{
             .len = roles.len,
             .data = roles.ptr,
         };
-        qtc.QTableWidget_SuperDataChanged(@ptrCast(self), @ptrCast(topLeft), @ptrCast(bottomRight), roles_list);
+        qtc.QTableWidget_SuperDataChanged(@ptrCast(self.ptr), @ptrCast(topLeft.ptr), @ptrCast(bottomRight.ptr), roles_list);
     }
 
     /// Inherited from QAbstractItemView
@@ -10940,12 +11282,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: qtc.libqt_list ([]i32)) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, topLeft: QModelIndex, bottomRight: QModelIndex, roles: qtc.libqt_list ([]i32)) callconv(.c) void `
     ///
-    pub fn OnDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QTableWidget_OnDataChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDataChanged(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex, QModelIndex, qtc.libqt_list) callconv(.c) void) void {
+        qtc.QTableWidget_OnDataChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10956,16 +11298,17 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` start: i32 `
     ///
     /// ` end: i32 `
     ///
-    pub fn RowsInserted(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
-        qtc.QTableWidget_RowsInserted(@ptrCast(self), @ptrCast(parent), @bitCast(start), @bitCast(end));
+    pub fn RowsInserted(self: QTableWidget, parent: anytype, start: i32, end: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.QTableWidget_RowsInserted(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(start), @bitCast(end));
     }
 
     /// ### DEPRECATED: Use `SuperRowsInserted` instead
@@ -10980,16 +11323,17 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` start: i32 `
     ///
     /// ` end: i32 `
     ///
-    pub fn SuperRowsInserted(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
-        qtc.QTableWidget_SuperRowsInserted(@ptrCast(self), @ptrCast(parent), @bitCast(start), @bitCast(end));
+    pub fn SuperRowsInserted(self: QTableWidget, parent: anytype, start: i32, end: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.QTableWidget_SuperRowsInserted(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(start), @bitCast(end));
     }
 
     /// Inherited from QAbstractItemView
@@ -11000,12 +11344,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, parent: QtC.QModelIndex, start: i32, end: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, parent: QModelIndex, start: i32, end: i32) callconv(.c) void `
     ///
-    pub fn OnRowsInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QTableWidget_OnRowsInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowsInserted(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QTableWidget_OnRowsInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -11016,16 +11360,17 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` start: i32 `
     ///
     /// ` end: i32 `
     ///
-    pub fn RowsAboutToBeRemoved(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
-        qtc.QTableWidget_RowsAboutToBeRemoved(@ptrCast(self), @ptrCast(parent), @bitCast(start), @bitCast(end));
+    pub fn RowsAboutToBeRemoved(self: QTableWidget, parent: anytype, start: i32, end: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.QTableWidget_RowsAboutToBeRemoved(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(start), @bitCast(end));
     }
 
     /// ### DEPRECATED: Use `SuperRowsAboutToBeRemoved` instead
@@ -11040,16 +11385,17 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` start: i32 `
     ///
     /// ` end: i32 `
     ///
-    pub fn SuperRowsAboutToBeRemoved(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
-        qtc.QTableWidget_SuperRowsAboutToBeRemoved(@ptrCast(self), @ptrCast(parent), @bitCast(start), @bitCast(end));
+    pub fn SuperRowsAboutToBeRemoved(self: QTableWidget, parent: anytype, start: i32, end: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.QTableWidget_SuperRowsAboutToBeRemoved(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(start), @bitCast(end));
     }
 
     /// Inherited from QAbstractItemView
@@ -11060,12 +11406,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, parent: QtC.QModelIndex, start: i32, end: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, parent: QModelIndex, start: i32, end: i32) callconv(.c) void `
     ///
-    pub fn OnRowsAboutToBeRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QTableWidget_OnRowsAboutToBeRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowsAboutToBeRemoved(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QTableWidget_OnRowsAboutToBeRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -11076,10 +11422,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn UpdateEditorData(self: ?*anyopaque) void {
-        qtc.QTableWidget_UpdateEditorData(@ptrCast(self));
+    pub fn UpdateEditorData(self: QTableWidget) void {
+        qtc.QTableWidget_UpdateEditorData(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperUpdateEditorData` instead
@@ -11094,10 +11440,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn SuperUpdateEditorData(self: ?*anyopaque) void {
-        qtc.QTableWidget_SuperUpdateEditorData(@ptrCast(self));
+    pub fn SuperUpdateEditorData(self: QTableWidget) void {
+        qtc.QTableWidget_SuperUpdateEditorData(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -11108,12 +11454,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateEditorData(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QTableWidget_OnUpdateEditorData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUpdateEditorData(self: QTableWidget, callback: *const fn () callconv(.c) void) void {
+        qtc.QTableWidget_OnUpdateEditorData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -11124,10 +11470,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn UpdateEditorGeometries(self: ?*anyopaque) void {
-        qtc.QTableWidget_UpdateEditorGeometries(@ptrCast(self));
+    pub fn UpdateEditorGeometries(self: QTableWidget) void {
+        qtc.QTableWidget_UpdateEditorGeometries(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperUpdateEditorGeometries` instead
@@ -11142,10 +11488,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn SuperUpdateEditorGeometries(self: ?*anyopaque) void {
-        qtc.QTableWidget_SuperUpdateEditorGeometries(@ptrCast(self));
+    pub fn SuperUpdateEditorGeometries(self: QTableWidget) void {
+        qtc.QTableWidget_SuperUpdateEditorGeometries(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -11156,12 +11502,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateEditorGeometries(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QTableWidget_OnUpdateEditorGeometries(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUpdateEditorGeometries(self: QTableWidget, callback: *const fn () callconv(.c) void) void {
+        qtc.QTableWidget_OnUpdateEditorGeometries(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -11172,12 +11518,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` value: i32 `
     ///
-    pub fn VerticalScrollbarValueChanged(self: ?*anyopaque, value: i32) void {
-        qtc.QTableWidget_VerticalScrollbarValueChanged(@ptrCast(self), @bitCast(value));
+    pub fn VerticalScrollbarValueChanged(self: QTableWidget, value: i32) void {
+        qtc.QTableWidget_VerticalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(value));
     }
 
     /// ### DEPRECATED: Use `SuperVerticalScrollbarValueChanged` instead
@@ -11192,12 +11538,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` value: i32 `
     ///
-    pub fn SuperVerticalScrollbarValueChanged(self: ?*anyopaque, value: i32) void {
-        qtc.QTableWidget_SuperVerticalScrollbarValueChanged(@ptrCast(self), @bitCast(value));
+    pub fn SuperVerticalScrollbarValueChanged(self: QTableWidget, value: i32) void {
+        qtc.QTableWidget_SuperVerticalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(value));
     }
 
     /// Inherited from QAbstractItemView
@@ -11208,12 +11554,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, value: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, value: i32) callconv(.c) void `
     ///
-    pub fn OnVerticalScrollbarValueChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTableWidget_OnVerticalScrollbarValueChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnVerticalScrollbarValueChanged(self: QTableWidget, callback: *const fn (QTableWidget, i32) callconv(.c) void) void {
+        qtc.QTableWidget_OnVerticalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -11224,12 +11570,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` value: i32 `
     ///
-    pub fn HorizontalScrollbarValueChanged(self: ?*anyopaque, value: i32) void {
-        qtc.QTableWidget_HorizontalScrollbarValueChanged(@ptrCast(self), @bitCast(value));
+    pub fn HorizontalScrollbarValueChanged(self: QTableWidget, value: i32) void {
+        qtc.QTableWidget_HorizontalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(value));
     }
 
     /// ### DEPRECATED: Use `SuperHorizontalScrollbarValueChanged` instead
@@ -11244,12 +11590,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` value: i32 `
     ///
-    pub fn SuperHorizontalScrollbarValueChanged(self: ?*anyopaque, value: i32) void {
-        qtc.QTableWidget_SuperHorizontalScrollbarValueChanged(@ptrCast(self), @bitCast(value));
+    pub fn SuperHorizontalScrollbarValueChanged(self: QTableWidget, value: i32) void {
+        qtc.QTableWidget_SuperHorizontalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(value));
     }
 
     /// Inherited from QAbstractItemView
@@ -11260,12 +11606,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, value: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, value: i32) callconv(.c) void `
     ///
-    pub fn OnHorizontalScrollbarValueChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTableWidget_OnHorizontalScrollbarValueChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHorizontalScrollbarValueChanged(self: QTableWidget, callback: *const fn (QTableWidget, i32) callconv(.c) void) void {
+        qtc.QTableWidget_OnHorizontalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -11276,14 +11622,15 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` editor: QtC.QWidget `
+    /// ` editor: QWidget `
     ///
     /// ` hint: qabstractitemdelegate_enums.EndEditHint `
     ///
-    pub fn CloseEditor(self: ?*anyopaque, editor: ?*anyopaque, hint: i32) void {
-        qtc.QTableWidget_CloseEditor(@ptrCast(self), @ptrCast(editor), @bitCast(hint));
+    pub fn CloseEditor(self: QTableWidget, editor: anytype, hint: i32) void {
+        comptime _ = @TypeOf(editor)._is_QWidget;
+        qtc.QTableWidget_CloseEditor(@ptrCast(self.ptr), @ptrCast(editor.ptr), @bitCast(hint));
     }
 
     /// ### DEPRECATED: Use `SuperCloseEditor` instead
@@ -11298,14 +11645,15 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` editor: QtC.QWidget `
+    /// ` editor: QWidget `
     ///
     /// ` hint: qabstractitemdelegate_enums.EndEditHint `
     ///
-    pub fn SuperCloseEditor(self: ?*anyopaque, editor: ?*anyopaque, hint: i32) void {
-        qtc.QTableWidget_SuperCloseEditor(@ptrCast(self), @ptrCast(editor), @bitCast(hint));
+    pub fn SuperCloseEditor(self: QTableWidget, editor: anytype, hint: i32) void {
+        comptime _ = @TypeOf(editor)._is_QWidget;
+        qtc.QTableWidget_SuperCloseEditor(@ptrCast(self.ptr), @ptrCast(editor.ptr), @bitCast(hint));
     }
 
     /// Inherited from QAbstractItemView
@@ -11316,12 +11664,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, editor: QtC.QWidget, hint: qabstractitemdelegate_enums.EndEditHint) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, editor: QWidget, hint: qabstractitemdelegate_enums.EndEditHint) callconv(.c) void `
     ///
-    pub fn OnCloseEditor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTableWidget_OnCloseEditor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCloseEditor(self: QTableWidget, callback: *const fn (QTableWidget, QWidget, i32) callconv(.c) void) void {
+        qtc.QTableWidget_OnCloseEditor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -11332,12 +11680,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` editor: QtC.QWidget `
+    /// ` editor: QWidget `
     ///
-    pub fn CommitData(self: ?*anyopaque, editor: ?*anyopaque) void {
-        qtc.QTableWidget_CommitData(@ptrCast(self), @ptrCast(editor));
+    pub fn CommitData(self: QTableWidget, editor: anytype) void {
+        comptime _ = @TypeOf(editor)._is_QWidget;
+        qtc.QTableWidget_CommitData(@ptrCast(self.ptr), @ptrCast(editor.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCommitData` instead
@@ -11352,12 +11701,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` editor: QtC.QWidget `
+    /// ` editor: QWidget `
     ///
-    pub fn SuperCommitData(self: ?*anyopaque, editor: ?*anyopaque) void {
-        qtc.QTableWidget_SuperCommitData(@ptrCast(self), @ptrCast(editor));
+    pub fn SuperCommitData(self: QTableWidget, editor: anytype) void {
+        comptime _ = @TypeOf(editor)._is_QWidget;
+        qtc.QTableWidget_SuperCommitData(@ptrCast(self.ptr), @ptrCast(editor.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -11368,12 +11718,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, editor: QtC.QWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, editor: QWidget) callconv(.c) void `
     ///
-    pub fn OnCommitData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_OnCommitData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCommitData(self: QTableWidget, callback: *const fn (QTableWidget, QWidget) callconv(.c) void) void {
+        qtc.QTableWidget_OnCommitData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -11384,12 +11734,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` editor: QtC.QObject `
+    /// ` editor: QObject `
     ///
-    pub fn EditorDestroyed(self: ?*anyopaque, editor: ?*anyopaque) void {
-        qtc.QTableWidget_EditorDestroyed(@ptrCast(self), @ptrCast(editor));
+    pub fn EditorDestroyed(self: QTableWidget, editor: anytype) void {
+        comptime _ = @TypeOf(editor)._is_QObject;
+        qtc.QTableWidget_EditorDestroyed(@ptrCast(self.ptr), @ptrCast(editor.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEditorDestroyed` instead
@@ -11404,12 +11755,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` editor: QtC.QObject `
+    /// ` editor: QObject `
     ///
-    pub fn SuperEditorDestroyed(self: ?*anyopaque, editor: ?*anyopaque) void {
-        qtc.QTableWidget_SuperEditorDestroyed(@ptrCast(self), @ptrCast(editor));
+    pub fn SuperEditorDestroyed(self: QTableWidget, editor: anytype) void {
+        comptime _ = @TypeOf(editor)._is_QObject;
+        qtc.QTableWidget_SuperEditorDestroyed(@ptrCast(self.ptr), @ptrCast(editor.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -11420,12 +11772,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, editor: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, editor: QObject) callconv(.c) void `
     ///
-    pub fn OnEditorDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_OnEditorDestroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEditorDestroyed(self: QTableWidget, callback: *const fn (QTableWidget, QObject) callconv(.c) void) void {
+        qtc.QTableWidget_OnEditorDestroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -11436,16 +11788,18 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
     /// ` trigger: qabstractitemview_enums.EditTrigger `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Edit2(self: ?*anyopaque, index: ?*anyopaque, trigger: i32, event: ?*anyopaque) bool {
-        return qtc.QTableWidget_Edit2(@ptrCast(self), @ptrCast(index), @bitCast(trigger), @ptrCast(event));
+    pub fn Edit2(self: QTableWidget, index: anytype, trigger: i32, event: anytype) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QTableWidget_Edit2(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(trigger), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEdit2` instead
@@ -11460,16 +11814,18 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
     /// ` trigger: qabstractitemview_enums.EditTrigger `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEdit2(self: ?*anyopaque, index: ?*anyopaque, trigger: i32, event: ?*anyopaque) bool {
-        return qtc.QTableWidget_SuperEdit2(@ptrCast(self), @ptrCast(index), @bitCast(trigger), @ptrCast(event));
+    pub fn SuperEdit2(self: QTableWidget, index: anytype, trigger: i32, event: anytype) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QTableWidget_SuperEdit2(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(trigger), @ptrCast(event.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -11480,12 +11836,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, index: QtC.QModelIndex, trigger: qabstractitemview_enums.EditTrigger, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QTableWidget, index: QModelIndex, trigger: qabstractitemview_enums.EditTrigger, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEdit2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTableWidget_OnEdit2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEdit2(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex, i32, QEvent) callconv(.c) bool) void {
+        qtc.QTableWidget_OnEdit2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -11496,18 +11852,20 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
     /// ## Returns:
     ///
     /// ` flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn SelectionCommand(self: ?*anyopaque, index: ?*anyopaque, event: ?*anyopaque) i32 {
-        return qtc.QTableWidget_SelectionCommand(@ptrCast(self), @ptrCast(index), @ptrCast(event));
+    pub fn SelectionCommand(self: QTableWidget, index: anytype, event: anytype) i32 {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QTableWidget_SelectionCommand(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSelectionCommand` instead
@@ -11522,18 +11880,20 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
     /// ## Returns:
     ///
     /// ` flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn SuperSelectionCommand(self: ?*anyopaque, index: ?*anyopaque, event: ?*anyopaque) i32 {
-        return qtc.QTableWidget_SuperSelectionCommand(@ptrCast(self), @ptrCast(index), @ptrCast(event));
+    pub fn SuperSelectionCommand(self: QTableWidget, index: anytype, event: anytype) i32 {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QTableWidget_SuperSelectionCommand(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -11544,12 +11904,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, index: QtC.QModelIndex, event: QtC.QEvent) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QTableWidget, index: QModelIndex, event: QEvent) callconv(.c) i32 `
     ///
-    pub fn OnSelectionCommand(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QTableWidget_OnSelectionCommand(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSelectionCommand(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex, QEvent) callconv(.c) i32) void {
+        qtc.QTableWidget_OnSelectionCommand(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -11560,12 +11920,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` supportedActions: flag of qnamespace_enums.DropAction `
     ///
-    pub fn StartDrag(self: ?*anyopaque, supportedActions: i32) void {
-        qtc.QTableWidget_StartDrag(@ptrCast(self), @bitCast(supportedActions));
+    pub fn StartDrag(self: QTableWidget, supportedActions: i32) void {
+        qtc.QTableWidget_StartDrag(@ptrCast(self.ptr), @bitCast(supportedActions));
     }
 
     /// ### DEPRECATED: Use `SuperStartDrag` instead
@@ -11580,12 +11940,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` supportedActions: flag of qnamespace_enums.DropAction `
     ///
-    pub fn SuperStartDrag(self: ?*anyopaque, supportedActions: i32) void {
-        qtc.QTableWidget_SuperStartDrag(@ptrCast(self), @bitCast(supportedActions));
+    pub fn SuperStartDrag(self: QTableWidget, supportedActions: i32) void {
+        qtc.QTableWidget_SuperStartDrag(@ptrCast(self.ptr), @bitCast(supportedActions));
     }
 
     /// Inherited from QAbstractItemView
@@ -11596,12 +11956,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, supportedActions: flag of qnamespace_enums.DropAction) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, supportedActions: flag of qnamespace_enums.DropAction) callconv(.c) void `
     ///
-    pub fn OnStartDrag(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTableWidget_OnStartDrag(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnStartDrag(self: QTableWidget, callback: *const fn (QTableWidget, i32) callconv(.c) void) void {
+        qtc.QTableWidget_OnStartDrag(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -11612,12 +11972,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.QTableWidget_FocusNextPrevChild(@ptrCast(self), next);
+    pub fn FocusNextPrevChild(self: QTableWidget, next: bool) bool {
+        return qtc.QTableWidget_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
     /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
@@ -11632,12 +11992,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.QTableWidget_SuperFocusNextPrevChild(@ptrCast(self), next);
+    pub fn SuperFocusNextPrevChild(self: QTableWidget, next: bool) bool {
+        return qtc.QTableWidget_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
     /// Inherited from QAbstractItemView
@@ -11648,12 +12008,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, next: bool) callconv(.c) bool `
+    /// ` callback: *const fn (self: QTableWidget, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
-        qtc.QTableWidget_OnFocusNextPrevChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusNextPrevChild(self: QTableWidget, callback: *const fn (QTableWidget, bool) callconv(.c) bool) void {
+        qtc.QTableWidget_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -11664,12 +12024,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn ViewportEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QTableWidget_ViewportEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ViewportEvent(self: QTableWidget, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QTableWidget_ViewportEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperViewportEvent` instead
@@ -11684,12 +12045,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperViewportEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QTableWidget_SuperViewportEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperViewportEvent(self: QTableWidget, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QTableWidget_SuperViewportEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -11700,12 +12062,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QTableWidget, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnViewportEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTableWidget_OnViewportEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnViewportEvent(self: QTableWidget, callback: *const fn (QTableWidget, QEvent) callconv(.c) bool) void {
+        qtc.QTableWidget_OnViewportEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -11716,12 +12078,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_MousePressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MousePressEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QTableWidget_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMousePressEvent` instead
@@ -11736,12 +12099,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_SuperMousePressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMousePressEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QTableWidget_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -11752,12 +12116,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMousePressEvent(self: QTableWidget, callback: *const fn (QTableWidget, QMouseEvent) callconv(.c) void) void {
+        qtc.QTableWidget_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -11768,12 +12132,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_MouseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseMoveEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QTableWidget_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
@@ -11788,12 +12153,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_SuperMouseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseMoveEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QTableWidget_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -11804,12 +12170,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseMoveEvent(self: QTableWidget, callback: *const fn (QTableWidget, QMouseEvent) callconv(.c) void) void {
+        qtc.QTableWidget_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -11820,12 +12186,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_MouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseReleaseEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QTableWidget_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
@@ -11840,12 +12207,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_SuperMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseReleaseEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QTableWidget_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -11856,12 +12224,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseReleaseEvent(self: QTableWidget, callback: *const fn (QTableWidget, QMouseEvent) callconv(.c) void) void {
+        qtc.QTableWidget_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -11872,12 +12240,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseDoubleClickEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QTableWidget_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
@@ -11892,12 +12261,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_SuperMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseDoubleClickEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QTableWidget_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -11908,12 +12278,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_OnMouseDoubleClickEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseDoubleClickEvent(self: QTableWidget, callback: *const fn (QTableWidget, QMouseEvent) callconv(.c) void) void {
+        qtc.QTableWidget_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -11924,12 +12294,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QDragEnterEvent `
+    /// ` event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_DragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragEnterEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
+        qtc.QTableWidget_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
@@ -11944,12 +12315,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QDragEnterEvent `
+    /// ` event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_SuperDragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragEnterEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
+        qtc.QTableWidget_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -11960,12 +12332,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, event: QtC.QDragEnterEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_OnDragEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragEnterEvent(self: QTableWidget, callback: *const fn (QTableWidget, QDragEnterEvent) callconv(.c) void) void {
+        qtc.QTableWidget_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -11976,12 +12348,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QDragMoveEvent `
+    /// ` event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_DragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragMoveEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
+        qtc.QTableWidget_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
@@ -11996,12 +12369,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QDragMoveEvent `
+    /// ` event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_SuperDragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragMoveEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
+        qtc.QTableWidget_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -12012,12 +12386,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, event: QtC.QDragMoveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_OnDragMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragMoveEvent(self: QTableWidget, callback: *const fn (QTableWidget, QDragMoveEvent) callconv(.c) void) void {
+        qtc.QTableWidget_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -12028,12 +12402,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QDragLeaveEvent `
+    /// ` event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_DragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragLeaveEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
+        qtc.QTableWidget_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
@@ -12048,12 +12423,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QDragLeaveEvent `
+    /// ` event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_SuperDragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragLeaveEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
+        qtc.QTableWidget_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -12064,12 +12440,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, event: QtC.QDragLeaveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_OnDragLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragLeaveEvent(self: QTableWidget, callback: *const fn (QTableWidget, QDragLeaveEvent) callconv(.c) void) void {
+        qtc.QTableWidget_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -12080,12 +12456,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_FocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn FocusInEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QTableWidget_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusInEvent` instead
@@ -12100,12 +12477,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_SuperFocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusInEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QTableWidget_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -12116,12 +12494,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, event: QtC.QFocusEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusInEvent(self: QTableWidget, callback: *const fn (QTableWidget, QFocusEvent) callconv(.c) void) void {
+        qtc.QTableWidget_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -12132,12 +12510,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_FocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn FocusOutEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QTableWidget_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
@@ -12152,12 +12531,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_SuperFocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusOutEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QTableWidget_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -12168,12 +12548,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, event: QtC.QFocusEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusOutEvent(self: QTableWidget, callback: *const fn (QTableWidget, QFocusEvent) callconv(.c) void) void {
+        qtc.QTableWidget_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -12184,12 +12564,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_KeyPressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn KeyPressEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QTableWidget_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
@@ -12204,12 +12585,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_SuperKeyPressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyPressEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QTableWidget_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -12220,12 +12602,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, event: QtC.QKeyEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyPressEvent(self: QTableWidget, callback: *const fn (QTableWidget, QKeyEvent) callconv(.c) void) void {
+        qtc.QTableWidget_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -12236,12 +12618,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QResizeEvent `
+    /// ` event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_ResizeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ResizeEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QResizeEvent;
+        qtc.QTableWidget_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperResizeEvent` instead
@@ -12256,12 +12639,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QResizeEvent `
+    /// ` event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_SuperResizeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperResizeEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QResizeEvent;
+        qtc.QTableWidget_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -12272,12 +12656,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, event: QtC.QResizeEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_OnResizeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResizeEvent(self: QTableWidget, callback: *const fn (QTableWidget, QResizeEvent) callconv(.c) void) void {
+        qtc.QTableWidget_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -12288,12 +12672,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QInputMethodEvent `
+    /// ` event: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_InputMethodEvent(@ptrCast(self), @ptrCast(event));
+    pub fn InputMethodEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QInputMethodEvent;
+        qtc.QTableWidget_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
@@ -12308,12 +12693,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QInputMethodEvent `
+    /// ` event: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_SuperInputMethodEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperInputMethodEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QInputMethodEvent;
+        qtc.QTableWidget_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -12324,12 +12710,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, event: QtC.QInputMethodEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, event: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_OnInputMethodEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInputMethodEvent(self: QTableWidget, callback: *const fn (QTableWidget, QInputMethodEvent) callconv(.c) void) void {
+        qtc.QTableWidget_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -12340,14 +12726,16 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` object: QtC.QObject `
+    /// ` object: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, object: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QTableWidget_EventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
+    pub fn EventFilter(self: QTableWidget, object: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(object)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QTableWidget_EventFilter(@ptrCast(self.ptr), @ptrCast(object.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -12362,14 +12750,16 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` object: QtC.QObject `
+    /// ` object: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, object: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QTableWidget_SuperEventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
+    pub fn SuperEventFilter(self: QTableWidget, object: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(object)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QTableWidget_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(object.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -12380,12 +12770,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, object: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QTableWidget, object: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTableWidget_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QTableWidget, callback: *const fn (QTableWidget, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QTableWidget_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -12396,10 +12786,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn MinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QTableWidget_MinimumSizeHint(@ptrCast(self));
+    pub fn MinimumSizeHint(self: QTableWidget) QSize {
+        return .{ .ptr = qtc.QTableWidget_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
@@ -12414,10 +12804,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn SuperMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QTableWidget_SuperMinimumSizeHint(@ptrCast(self));
+    pub fn SuperMinimumSizeHint(self: QTableWidget) QSize {
+        return .{ .ptr = qtc.QTableWidget_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractScrollArea
@@ -12428,12 +12818,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnMinimumSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QTableWidget_OnMinimumSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMinimumSizeHint(self: QTableWidget, callback: *const fn () callconv(.c) QSize) void {
+        qtc.QTableWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -12444,10 +12834,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QTableWidget_SizeHint(@ptrCast(self));
+    pub fn SizeHint(self: QTableWidget) QSize {
+        return .{ .ptr = qtc.QTableWidget_SizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSizeHint` instead
@@ -12462,10 +12852,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QTableWidget_SuperSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: QTableWidget) QSize {
+        return .{ .ptr = qtc.QTableWidget_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractScrollArea
@@ -12476,12 +12866,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QTableWidget_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSizeHint(self: QTableWidget, callback: *const fn () callconv(.c) QSize) void {
+        qtc.QTableWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -12492,12 +12882,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` viewport: QtC.QWidget `
+    /// ` viewport: QWidget `
     ///
-    pub fn SetupViewport(self: ?*anyopaque, viewport: ?*anyopaque) void {
-        qtc.QTableWidget_SetupViewport(@ptrCast(self), @ptrCast(viewport));
+    pub fn SetupViewport(self: QTableWidget, viewport: anytype) void {
+        comptime _ = @TypeOf(viewport)._is_QWidget;
+        qtc.QTableWidget_SetupViewport(@ptrCast(self.ptr), @ptrCast(viewport.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSetupViewport` instead
@@ -12512,12 +12903,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` viewport: QtC.QWidget `
+    /// ` viewport: QWidget `
     ///
-    pub fn SuperSetupViewport(self: ?*anyopaque, viewport: ?*anyopaque) void {
-        qtc.QTableWidget_SuperSetupViewport(@ptrCast(self), @ptrCast(viewport));
+    pub fn SuperSetupViewport(self: QTableWidget, viewport: anytype) void {
+        comptime _ = @TypeOf(viewport)._is_QWidget;
+        qtc.QTableWidget_SuperSetupViewport(@ptrCast(self.ptr), @ptrCast(viewport.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -12528,12 +12920,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, viewport: QtC.QWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, viewport: QWidget) callconv(.c) void `
     ///
-    pub fn OnSetupViewport(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_OnSetupViewport(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetupViewport(self: QTableWidget, callback: *const fn (QTableWidget, QWidget) callconv(.c) void) void {
+        qtc.QTableWidget_OnSetupViewport(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -12544,12 +12936,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` param1: QtC.QWheelEvent `
+    /// ` param1: QWheelEvent `
     ///
-    pub fn WheelEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QTableWidget_WheelEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn WheelEvent(self: QTableWidget, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWheelEvent;
+        qtc.QTableWidget_WheelEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperWheelEvent` instead
@@ -12564,12 +12957,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` param1: QtC.QWheelEvent `
+    /// ` param1: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QTableWidget_SuperWheelEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperWheelEvent(self: QTableWidget, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWheelEvent;
+        qtc.QTableWidget_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -12580,12 +12974,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, param1: QtC.QWheelEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, param1: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_OnWheelEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWheelEvent(self: QTableWidget, callback: *const fn (QTableWidget, QWheelEvent) callconv(.c) void) void {
+        qtc.QTableWidget_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -12596,12 +12990,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` param1: QtC.QContextMenuEvent `
+    /// ` param1: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QTableWidget_ContextMenuEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn ContextMenuEvent(self: QTableWidget, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
+        qtc.QTableWidget_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
@@ -12616,12 +13011,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` param1: QtC.QContextMenuEvent `
+    /// ` param1: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QTableWidget_SuperContextMenuEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperContextMenuEvent(self: QTableWidget, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
+        qtc.QTableWidget_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -12632,12 +13028,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, param1: QtC.QContextMenuEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, param1: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_OnContextMenuEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnContextMenuEvent(self: QTableWidget, callback: *const fn (QTableWidget, QContextMenuEvent) callconv(.c) void) void {
+        qtc.QTableWidget_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFrame
@@ -12648,12 +13044,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` param1: QtC.QEvent `
+    /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QTableWidget_ChangeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn ChangeEvent(self: QTableWidget, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QEvent;
+        qtc.QTableWidget_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChangeEvent` instead
@@ -12668,12 +13065,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` param1: QtC.QEvent `
+    /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QTableWidget_SuperChangeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperChangeEvent(self: QTableWidget, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QEvent;
+        qtc.QTableWidget_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QFrame
@@ -12684,12 +13082,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, param1: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_OnChangeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChangeEvent(self: QTableWidget, callback: *const fn (QTableWidget, QEvent) callconv(.c) void) void {
+        qtc.QTableWidget_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFrame
@@ -12700,12 +13098,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` option: QtC.QStyleOptionFrame `
+    /// ` option: QStyleOptionFrame `
     ///
-    pub fn InitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        qtc.QTableWidget_InitStyleOption(@ptrCast(self), @ptrCast(option));
+    pub fn InitStyleOption(self: QTableWidget, option: anytype) void {
+        comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
+        qtc.QTableWidget_InitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInitStyleOption` instead
@@ -12720,12 +13119,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` option: QtC.QStyleOptionFrame `
+    /// ` option: QStyleOptionFrame `
     ///
-    pub fn SuperInitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        qtc.QTableWidget_SuperInitStyleOption(@ptrCast(self), @ptrCast(option));
+    pub fn SuperInitStyleOption(self: QTableWidget, option: anytype) void {
+        comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
+        qtc.QTableWidget_SuperInitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
     /// Inherited from QFrame
@@ -12736,12 +13136,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, option: QtC.QStyleOptionFrame) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, option: QStyleOptionFrame) callconv(.c) void `
     ///
-    pub fn OnInitStyleOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_OnInitStyleOption(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInitStyleOption(self: QTableWidget, callback: *const fn (QTableWidget, QStyleOptionFrame) callconv(.c) void) void {
+        qtc.QTableWidget_OnInitStyleOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -12752,10 +13152,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn DevType(self: ?*anyopaque) i32 {
-        return qtc.QTableWidget_DevType(@ptrCast(self));
+    pub fn DevType(self: QTableWidget) i32 {
+        return qtc.QTableWidget_DevType(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDevType` instead
@@ -12770,10 +13170,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn SuperDevType(self: ?*anyopaque) i32 {
-        return qtc.QTableWidget_SuperDevType(@ptrCast(self));
+    pub fn SuperDevType(self: QTableWidget) i32 {
+        return qtc.QTableWidget_SuperDevType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -12784,12 +13184,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QTableWidget_OnDevType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDevType(self: QTableWidget, callback: *const fn () callconv(.c) i32) void {
+        qtc.QTableWidget_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -12800,12 +13200,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.QTableWidget_SetVisible(@ptrCast(self), visible);
+    pub fn SetVisible(self: QTableWidget, visible: bool) void {
+        qtc.QTableWidget_SetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// ### DEPRECATED: Use `SuperSetVisible` instead
@@ -12820,12 +13220,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.QTableWidget_SuperSetVisible(@ptrCast(self), visible);
+    pub fn SuperSetVisible(self: QTableWidget, visible: bool) void {
+        qtc.QTableWidget_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// Inherited from QWidget
@@ -12836,12 +13236,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, visible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QTableWidget_OnSetVisible(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetVisible(self: QTableWidget, callback: *const fn (QTableWidget, bool) callconv(.c) void) void {
+        qtc.QTableWidget_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -12852,12 +13252,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QTableWidget_HeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn HeightForWidth(self: QTableWidget, param1: i32) i32 {
+        return qtc.QTableWidget_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### DEPRECATED: Use `SuperHeightForWidth` instead
@@ -12872,12 +13272,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QTableWidget_SuperHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperHeightForWidth(self: QTableWidget, param1: i32) i32 {
+        return qtc.QTableWidget_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -12888,12 +13288,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, param1: i32) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QTableWidget, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QTableWidget_OnHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHeightForWidth(self: QTableWidget, callback: *const fn (QTableWidget, i32) callconv(.c) i32) void {
+        qtc.QTableWidget_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -12904,10 +13304,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn HasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QTableWidget_HasHeightForWidth(@ptrCast(self));
+    pub fn HasHeightForWidth(self: QTableWidget) bool {
+        return qtc.QTableWidget_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
@@ -12922,10 +13322,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QTableWidget_SuperHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: QTableWidget) bool {
+        return qtc.QTableWidget_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -12936,12 +13336,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QTableWidget_OnHasHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHasHeightForWidth(self: QTableWidget, callback: *const fn () callconv(.c) bool) void {
+        qtc.QTableWidget_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -12952,10 +13352,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn PaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QTableWidget_PaintEngine(@ptrCast(self));
+    pub fn PaintEngine(self: QTableWidget) QPaintEngine {
+        return .{ .ptr = qtc.QTableWidget_PaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperPaintEngine` instead
@@ -12970,10 +13370,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn SuperPaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QTableWidget_SuperPaintEngine(@ptrCast(self));
+    pub fn SuperPaintEngine(self: QTableWidget) QPaintEngine {
+        return .{ .ptr = qtc.QTableWidget_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -12984,12 +13384,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPaintEngine `
+    /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.QTableWidget_OnPaintEngine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaintEngine(self: QTableWidget, callback: *const fn () callconv(.c) QPaintEngine) void {
+        qtc.QTableWidget_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -13000,12 +13400,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_KeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn KeyReleaseEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QTableWidget_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
@@ -13020,12 +13421,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_SuperKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyReleaseEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QTableWidget_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -13036,12 +13438,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, event: QtC.QKeyEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_OnKeyReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyReleaseEvent(self: QTableWidget, callback: *const fn (QTableWidget, QKeyEvent) callconv(.c) void) void {
+        qtc.QTableWidget_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -13052,12 +13454,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QEnterEvent `
+    /// ` event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_EnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn EnterEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEnterEvent;
+        qtc.QTableWidget_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEnterEvent` instead
@@ -13072,12 +13475,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QEnterEvent `
+    /// ` event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_SuperEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEnterEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEnterEvent;
+        qtc.QTableWidget_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -13088,12 +13492,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, event: QtC.QEnterEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_OnEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEnterEvent(self: QTableWidget, callback: *const fn (QTableWidget, QEnterEvent) callconv(.c) void) void {
+        qtc.QTableWidget_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -13104,12 +13508,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn LeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_LeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn LeaveEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QTableWidget_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperLeaveEvent` instead
@@ -13124,12 +13529,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_SuperLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperLeaveEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QTableWidget_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -13140,12 +13546,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_OnLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLeaveEvent(self: QTableWidget, callback: *const fn (QTableWidget, QEvent) callconv(.c) void) void {
+        qtc.QTableWidget_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -13156,12 +13562,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QMoveEvent `
+    /// ` event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_MoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MoveEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMoveEvent;
+        qtc.QTableWidget_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMoveEvent` instead
@@ -13176,12 +13583,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QMoveEvent `
+    /// ` event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_SuperMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMoveEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMoveEvent;
+        qtc.QTableWidget_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -13192,12 +13600,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, event: QtC.QMoveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_OnMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMoveEvent(self: QTableWidget, callback: *const fn (QTableWidget, QMoveEvent) callconv(.c) void) void {
+        qtc.QTableWidget_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -13208,12 +13616,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QCloseEvent `
+    /// ` event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_CloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CloseEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QCloseEvent;
+        qtc.QTableWidget_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCloseEvent` instead
@@ -13228,12 +13637,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QCloseEvent `
+    /// ` event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_SuperCloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCloseEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QCloseEvent;
+        qtc.QTableWidget_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -13244,12 +13654,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, event: QtC.QCloseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_OnCloseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCloseEvent(self: QTableWidget, callback: *const fn (QTableWidget, QCloseEvent) callconv(.c) void) void {
+        qtc.QTableWidget_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -13260,12 +13670,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QTabletEvent `
+    /// ` event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_TabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TabletEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTabletEvent;
+        qtc.QTableWidget_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTabletEvent` instead
@@ -13280,12 +13691,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QTabletEvent `
+    /// ` event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_SuperTabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTabletEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTabletEvent;
+        qtc.QTableWidget_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -13296,12 +13708,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, event: QtC.QTabletEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_OnTabletEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTabletEvent(self: QTableWidget, callback: *const fn (QTableWidget, QTabletEvent) callconv(.c) void) void {
+        qtc.QTableWidget_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -13312,12 +13724,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QActionEvent `
+    /// ` event: QActionEvent `
     ///
-    pub fn ActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_ActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ActionEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QActionEvent;
+        qtc.QTableWidget_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperActionEvent` instead
@@ -13332,12 +13745,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QActionEvent `
+    /// ` event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_SuperActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperActionEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QActionEvent;
+        qtc.QTableWidget_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -13348,12 +13762,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, event: QtC.QActionEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_OnActionEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnActionEvent(self: QTableWidget, callback: *const fn (QTableWidget, QActionEvent) callconv(.c) void) void {
+        qtc.QTableWidget_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -13364,12 +13778,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QShowEvent `
+    /// ` event: QShowEvent `
     ///
-    pub fn ShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_ShowEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ShowEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QShowEvent;
+        qtc.QTableWidget_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperShowEvent` instead
@@ -13384,12 +13799,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QShowEvent `
+    /// ` event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_SuperShowEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperShowEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QShowEvent;
+        qtc.QTableWidget_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -13400,12 +13816,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, event: QtC.QShowEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_OnShowEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnShowEvent(self: QTableWidget, callback: *const fn (QTableWidget, QShowEvent) callconv(.c) void) void {
+        qtc.QTableWidget_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -13416,12 +13832,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QHideEvent `
+    /// ` event: QHideEvent `
     ///
-    pub fn HideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_HideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn HideEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QHideEvent;
+        qtc.QTableWidget_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHideEvent` instead
@@ -13436,12 +13853,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QHideEvent `
+    /// ` event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_SuperHideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHideEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QHideEvent;
+        qtc.QTableWidget_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -13452,12 +13870,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, event: QtC.QHideEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_OnHideEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHideEvent(self: QTableWidget, callback: *const fn (QTableWidget, QHideEvent) callconv(.c) void) void {
+        qtc.QTableWidget_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -13468,7 +13886,7 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` eventType: []u8 `
     ///
@@ -13476,12 +13894,12 @@ pub const qtablewidget = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn NativeEvent(self: QTableWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QTableWidget_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QTableWidget_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// ### DEPRECATED: Use `SuperNativeEvent` instead
@@ -13496,7 +13914,7 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` eventType: []u8 `
     ///
@@ -13504,12 +13922,12 @@ pub const qtablewidget = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn SuperNativeEvent(self: QTableWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QTableWidget_SuperNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QTableWidget_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -13520,12 +13938,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QTableWidget, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
-        qtc.QTableWidget_OnNativeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnNativeEvent(self: QTableWidget, callback: *const fn (QTableWidget, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+        qtc.QTableWidget_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -13536,12 +13954,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QTableWidget_Metric(@ptrCast(self), @bitCast(param1));
+    pub fn Metric(self: QTableWidget, param1: i32) i32 {
+        return qtc.QTableWidget_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### DEPRECATED: Use `SuperMetric` instead
@@ -13556,12 +13974,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QTableWidget_SuperMetric(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMetric(self: QTableWidget, param1: i32) i32 {
+        return qtc.QTableWidget_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -13572,12 +13990,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QTableWidget, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QTableWidget_OnMetric(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetric(self: QTableWidget, callback: *const fn (QTableWidget, i32) callconv(.c) i32) void {
+        qtc.QTableWidget_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -13588,12 +14006,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QTableWidget_InitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn InitPainter(self: QTableWidget, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QTableWidget_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInitPainter` instead
@@ -13608,12 +14027,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QTableWidget_SuperInitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperInitPainter(self: QTableWidget, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QTableWidget_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// Inherited from QWidget
@@ -13624,12 +14044,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, painter: QtC.QPainter) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_OnInitPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInitPainter(self: QTableWidget, callback: *const fn (QTableWidget, QPainter) callconv(.c) void) void {
+        qtc.QTableWidget_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -13640,12 +14060,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QTableWidget_Redirected(@ptrCast(self), @ptrCast(offset));
+    pub fn Redirected(self: QTableWidget, offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        return .{ .ptr = qtc.QTableWidget_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperRedirected` instead
@@ -13660,12 +14081,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QTableWidget_SuperRedirected(@ptrCast(self), @ptrCast(offset));
+    pub fn SuperRedirected(self: QTableWidget, offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        return .{ .ptr = qtc.QTableWidget_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -13676,12 +14098,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice `
+    /// ` callback: *const fn (self: QTableWidget, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.QTableWidget_OnRedirected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRedirected(self: QTableWidget, callback: *const fn (QTableWidget, QPoint) callconv(.c) QPaintDevice) void {
+        qtc.QTableWidget_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -13692,10 +14114,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn SharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QTableWidget_SharedPainter(@ptrCast(self));
+    pub fn SharedPainter(self: QTableWidget) QPainter {
+        return .{ .ptr = qtc.QTableWidget_SharedPainter(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSharedPainter` instead
@@ -13710,10 +14132,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn SuperSharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QTableWidget_SuperSharedPainter(@ptrCast(self));
+    pub fn SuperSharedPainter(self: QTableWidget) QPainter {
+        return .{ .ptr = qtc.QTableWidget_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -13724,12 +14146,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPainter `
+    /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
-        qtc.QTableWidget_OnSharedPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSharedPainter(self: QTableWidget, callback: *const fn () callconv(.c) QPainter) void {
+        qtc.QTableWidget_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -13740,12 +14162,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QTableWidget_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -13760,12 +14183,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QTableWidget_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -13776,12 +14200,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QTableWidget, callback: *const fn (QTableWidget, QChildEvent) callconv(.c) void) void {
+        qtc.QTableWidget_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -13792,12 +14216,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QTableWidget_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -13812,12 +14237,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableWidget_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QTableWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QTableWidget_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -13828,12 +14254,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QTableWidget, callback: *const fn (QTableWidget, QEvent) callconv(.c) void) void {
+        qtc.QTableWidget_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -13844,12 +14270,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QTableWidget_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QTableWidget, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QTableWidget_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -13864,12 +14291,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QTableWidget_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QTableWidget, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QTableWidget_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -13880,12 +14308,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QTableWidget, callback: *const fn (QTableWidget, QMetaMethod) callconv(.c) void) void {
+        qtc.QTableWidget_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -13896,12 +14324,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QTableWidget_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QTableWidget, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QTableWidget_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -13916,12 +14345,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QTableWidget_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QTableWidget, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QTableWidget_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -13932,12 +14362,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QTableWidget, callback: *const fn (QTableWidget, QMetaMethod) callconv(.c) void) void {
+        qtc.QTableWidget_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTableView
@@ -13948,7 +14378,7 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` row: i32 `
     ///
@@ -13956,8 +14386,8 @@ pub const qtablewidget = struct {
     ///
     /// ` newIndex: i32 `
     ///
-    pub fn RowMoved(self: ?*anyopaque, row: i32, oldIndex: i32, newIndex: i32) void {
-        qtc.QTableWidget_RowMoved(@ptrCast(self), @bitCast(row), @bitCast(oldIndex), @bitCast(newIndex));
+    pub fn RowMoved(self: QTableWidget, row: i32, oldIndex: i32, newIndex: i32) void {
+        qtc.QTableWidget_RowMoved(@ptrCast(self.ptr), @bitCast(row), @bitCast(oldIndex), @bitCast(newIndex));
     }
 
     /// ### DEPRECATED: Use `SuperRowMoved` instead
@@ -13972,7 +14402,7 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` row: i32 `
     ///
@@ -13980,8 +14410,8 @@ pub const qtablewidget = struct {
     ///
     /// ` newIndex: i32 `
     ///
-    pub fn SuperRowMoved(self: ?*anyopaque, row: i32, oldIndex: i32, newIndex: i32) void {
-        qtc.QTableWidget_SuperRowMoved(@ptrCast(self), @bitCast(row), @bitCast(oldIndex), @bitCast(newIndex));
+    pub fn SuperRowMoved(self: QTableWidget, row: i32, oldIndex: i32, newIndex: i32) void {
+        qtc.QTableWidget_SuperRowMoved(@ptrCast(self.ptr), @bitCast(row), @bitCast(oldIndex), @bitCast(newIndex));
     }
 
     /// Inherited from QTableView
@@ -13992,12 +14422,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, row: i32, oldIndex: i32, newIndex: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, row: i32, oldIndex: i32, newIndex: i32) callconv(.c) void `
     ///
-    pub fn OnRowMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
-        qtc.QTableWidget_OnRowMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowMoved(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32, i32) callconv(.c) void) void {
+        qtc.QTableWidget_OnRowMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTableView
@@ -14008,7 +14438,7 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` column: i32 `
     ///
@@ -14016,8 +14446,8 @@ pub const qtablewidget = struct {
     ///
     /// ` newIndex: i32 `
     ///
-    pub fn ColumnMoved(self: ?*anyopaque, column: i32, oldIndex: i32, newIndex: i32) void {
-        qtc.QTableWidget_ColumnMoved(@ptrCast(self), @bitCast(column), @bitCast(oldIndex), @bitCast(newIndex));
+    pub fn ColumnMoved(self: QTableWidget, column: i32, oldIndex: i32, newIndex: i32) void {
+        qtc.QTableWidget_ColumnMoved(@ptrCast(self.ptr), @bitCast(column), @bitCast(oldIndex), @bitCast(newIndex));
     }
 
     /// ### DEPRECATED: Use `SuperColumnMoved` instead
@@ -14032,7 +14462,7 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` column: i32 `
     ///
@@ -14040,8 +14470,8 @@ pub const qtablewidget = struct {
     ///
     /// ` newIndex: i32 `
     ///
-    pub fn SuperColumnMoved(self: ?*anyopaque, column: i32, oldIndex: i32, newIndex: i32) void {
-        qtc.QTableWidget_SuperColumnMoved(@ptrCast(self), @bitCast(column), @bitCast(oldIndex), @bitCast(newIndex));
+    pub fn SuperColumnMoved(self: QTableWidget, column: i32, oldIndex: i32, newIndex: i32) void {
+        qtc.QTableWidget_SuperColumnMoved(@ptrCast(self.ptr), @bitCast(column), @bitCast(oldIndex), @bitCast(newIndex));
     }
 
     /// Inherited from QTableView
@@ -14052,12 +14482,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, column: i32, oldIndex: i32, newIndex: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, column: i32, oldIndex: i32, newIndex: i32) callconv(.c) void `
     ///
-    pub fn OnColumnMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
-        qtc.QTableWidget_OnColumnMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnMoved(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32, i32) callconv(.c) void) void {
+        qtc.QTableWidget_OnColumnMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTableView
@@ -14068,7 +14498,7 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` row: i32 `
     ///
@@ -14076,8 +14506,8 @@ pub const qtablewidget = struct {
     ///
     /// ` newHeight: i32 `
     ///
-    pub fn RowResized(self: ?*anyopaque, row: i32, oldHeight: i32, newHeight: i32) void {
-        qtc.QTableWidget_RowResized(@ptrCast(self), @bitCast(row), @bitCast(oldHeight), @bitCast(newHeight));
+    pub fn RowResized(self: QTableWidget, row: i32, oldHeight: i32, newHeight: i32) void {
+        qtc.QTableWidget_RowResized(@ptrCast(self.ptr), @bitCast(row), @bitCast(oldHeight), @bitCast(newHeight));
     }
 
     /// ### DEPRECATED: Use `SuperRowResized` instead
@@ -14092,7 +14522,7 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` row: i32 `
     ///
@@ -14100,8 +14530,8 @@ pub const qtablewidget = struct {
     ///
     /// ` newHeight: i32 `
     ///
-    pub fn SuperRowResized(self: ?*anyopaque, row: i32, oldHeight: i32, newHeight: i32) void {
-        qtc.QTableWidget_SuperRowResized(@ptrCast(self), @bitCast(row), @bitCast(oldHeight), @bitCast(newHeight));
+    pub fn SuperRowResized(self: QTableWidget, row: i32, oldHeight: i32, newHeight: i32) void {
+        qtc.QTableWidget_SuperRowResized(@ptrCast(self.ptr), @bitCast(row), @bitCast(oldHeight), @bitCast(newHeight));
     }
 
     /// Inherited from QTableView
@@ -14112,12 +14542,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, row: i32, oldHeight: i32, newHeight: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, row: i32, oldHeight: i32, newHeight: i32) callconv(.c) void `
     ///
-    pub fn OnRowResized(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
-        qtc.QTableWidget_OnRowResized(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowResized(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32, i32) callconv(.c) void) void {
+        qtc.QTableWidget_OnRowResized(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTableView
@@ -14128,7 +14558,7 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` column: i32 `
     ///
@@ -14136,8 +14566,8 @@ pub const qtablewidget = struct {
     ///
     /// ` newWidth: i32 `
     ///
-    pub fn ColumnResized(self: ?*anyopaque, column: i32, oldWidth: i32, newWidth: i32) void {
-        qtc.QTableWidget_ColumnResized(@ptrCast(self), @bitCast(column), @bitCast(oldWidth), @bitCast(newWidth));
+    pub fn ColumnResized(self: QTableWidget, column: i32, oldWidth: i32, newWidth: i32) void {
+        qtc.QTableWidget_ColumnResized(@ptrCast(self.ptr), @bitCast(column), @bitCast(oldWidth), @bitCast(newWidth));
     }
 
     /// ### DEPRECATED: Use `SuperColumnResized` instead
@@ -14152,7 +14582,7 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` column: i32 `
     ///
@@ -14160,8 +14590,8 @@ pub const qtablewidget = struct {
     ///
     /// ` newWidth: i32 `
     ///
-    pub fn SuperColumnResized(self: ?*anyopaque, column: i32, oldWidth: i32, newWidth: i32) void {
-        qtc.QTableWidget_SuperColumnResized(@ptrCast(self), @bitCast(column), @bitCast(oldWidth), @bitCast(newWidth));
+    pub fn SuperColumnResized(self: QTableWidget, column: i32, oldWidth: i32, newWidth: i32) void {
+        qtc.QTableWidget_SuperColumnResized(@ptrCast(self.ptr), @bitCast(column), @bitCast(oldWidth), @bitCast(newWidth));
     }
 
     /// Inherited from QTableView
@@ -14172,12 +14602,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, column: i32, oldWidth: i32, newWidth: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, column: i32, oldWidth: i32, newWidth: i32) callconv(.c) void `
     ///
-    pub fn OnColumnResized(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
-        qtc.QTableWidget_OnColumnResized(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnResized(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32, i32) callconv(.c) void) void {
+        qtc.QTableWidget_OnColumnResized(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTableView
@@ -14188,14 +14618,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` oldCount: i32 `
     ///
     /// ` newCount: i32 `
     ///
-    pub fn RowCountChanged(self: ?*anyopaque, oldCount: i32, newCount: i32) void {
-        qtc.QTableWidget_RowCountChanged(@ptrCast(self), @bitCast(oldCount), @bitCast(newCount));
+    pub fn RowCountChanged(self: QTableWidget, oldCount: i32, newCount: i32) void {
+        qtc.QTableWidget_RowCountChanged(@ptrCast(self.ptr), @bitCast(oldCount), @bitCast(newCount));
     }
 
     /// ### DEPRECATED: Use `SuperRowCountChanged` instead
@@ -14210,14 +14640,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` oldCount: i32 `
     ///
     /// ` newCount: i32 `
     ///
-    pub fn SuperRowCountChanged(self: ?*anyopaque, oldCount: i32, newCount: i32) void {
-        qtc.QTableWidget_SuperRowCountChanged(@ptrCast(self), @bitCast(oldCount), @bitCast(newCount));
+    pub fn SuperRowCountChanged(self: QTableWidget, oldCount: i32, newCount: i32) void {
+        qtc.QTableWidget_SuperRowCountChanged(@ptrCast(self.ptr), @bitCast(oldCount), @bitCast(newCount));
     }
 
     /// Inherited from QTableView
@@ -14228,12 +14658,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, oldCount: i32, newCount: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, oldCount: i32, newCount: i32) callconv(.c) void `
     ///
-    pub fn OnRowCountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QTableWidget_OnRowCountChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowCountChanged(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32) callconv(.c) void) void {
+        qtc.QTableWidget_OnRowCountChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTableView
@@ -14244,14 +14674,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` oldCount: i32 `
     ///
     /// ` newCount: i32 `
     ///
-    pub fn ColumnCountChanged(self: ?*anyopaque, oldCount: i32, newCount: i32) void {
-        qtc.QTableWidget_ColumnCountChanged(@ptrCast(self), @bitCast(oldCount), @bitCast(newCount));
+    pub fn ColumnCountChanged(self: QTableWidget, oldCount: i32, newCount: i32) void {
+        qtc.QTableWidget_ColumnCountChanged(@ptrCast(self.ptr), @bitCast(oldCount), @bitCast(newCount));
     }
 
     /// ### DEPRECATED: Use `SuperColumnCountChanged` instead
@@ -14266,14 +14696,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` oldCount: i32 `
     ///
     /// ` newCount: i32 `
     ///
-    pub fn SuperColumnCountChanged(self: ?*anyopaque, oldCount: i32, newCount: i32) void {
-        qtc.QTableWidget_SuperColumnCountChanged(@ptrCast(self), @bitCast(oldCount), @bitCast(newCount));
+    pub fn SuperColumnCountChanged(self: QTableWidget, oldCount: i32, newCount: i32) void {
+        qtc.QTableWidget_SuperColumnCountChanged(@ptrCast(self.ptr), @bitCast(oldCount), @bitCast(newCount));
     }
 
     /// Inherited from QTableView
@@ -14284,12 +14714,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, oldCount: i32, newCount: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, oldCount: i32, newCount: i32) callconv(.c) void `
     ///
-    pub fn OnColumnCountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QTableWidget_OnColumnCountChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnCountChanged(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32) callconv(.c) void) void {
+        qtc.QTableWidget_OnColumnCountChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -14300,14 +14730,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ## Returns:
     ///
     /// ` qabstractitemview_enums.State `
     ///
-    pub fn State(self: ?*anyopaque) i32 {
-        return qtc.QTableWidget_State(@ptrCast(self));
+    pub fn State(self: QTableWidget) i32 {
+        return qtc.QTableWidget_State(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperState` instead
@@ -14322,14 +14752,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ## Returns:
     ///
     /// ` qabstractitemview_enums.State `
     ///
-    pub fn SuperState(self: ?*anyopaque) i32 {
-        return qtc.QTableWidget_SuperState(@ptrCast(self));
+    pub fn SuperState(self: QTableWidget) i32 {
+        return qtc.QTableWidget_SuperState(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -14340,12 +14770,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnState(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QTableWidget_OnState(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnState(self: QTableWidget, callback: *const fn () callconv(.c) i32) void {
+        qtc.QTableWidget_OnState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -14356,12 +14786,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` state: qabstractitemview_enums.State `
     ///
-    pub fn SetState(self: ?*anyopaque, state: i32) void {
-        qtc.QTableWidget_SetState(@ptrCast(self), @bitCast(state));
+    pub fn SetState(self: QTableWidget, state: i32) void {
+        qtc.QTableWidget_SetState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// ### DEPRECATED: Use `SuperSetState` instead
@@ -14376,12 +14806,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` state: qabstractitemview_enums.State `
     ///
-    pub fn SuperSetState(self: ?*anyopaque, state: i32) void {
-        qtc.QTableWidget_SuperSetState(@ptrCast(self), @bitCast(state));
+    pub fn SuperSetState(self: QTableWidget, state: i32) void {
+        qtc.QTableWidget_SuperSetState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QAbstractItemView
@@ -14392,12 +14822,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, state: qabstractitemview_enums.State) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, state: qabstractitemview_enums.State) callconv(.c) void `
     ///
-    pub fn OnSetState(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTableWidget_OnSetState(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetState(self: QTableWidget, callback: *const fn (QTableWidget, i32) callconv(.c) void) void {
+        qtc.QTableWidget_OnSetState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -14408,10 +14838,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn ScheduleDelayedItemsLayout(self: ?*anyopaque) void {
-        qtc.QTableWidget_ScheduleDelayedItemsLayout(@ptrCast(self));
+    pub fn ScheduleDelayedItemsLayout(self: QTableWidget) void {
+        qtc.QTableWidget_ScheduleDelayedItemsLayout(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperScheduleDelayedItemsLayout` instead
@@ -14426,10 +14856,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn SuperScheduleDelayedItemsLayout(self: ?*anyopaque) void {
-        qtc.QTableWidget_SuperScheduleDelayedItemsLayout(@ptrCast(self));
+    pub fn SuperScheduleDelayedItemsLayout(self: QTableWidget) void {
+        qtc.QTableWidget_SuperScheduleDelayedItemsLayout(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -14440,12 +14870,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnScheduleDelayedItemsLayout(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QTableWidget_OnScheduleDelayedItemsLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnScheduleDelayedItemsLayout(self: QTableWidget, callback: *const fn () callconv(.c) void) void {
+        qtc.QTableWidget_OnScheduleDelayedItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -14456,10 +14886,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn ExecuteDelayedItemsLayout(self: ?*anyopaque) void {
-        qtc.QTableWidget_ExecuteDelayedItemsLayout(@ptrCast(self));
+    pub fn ExecuteDelayedItemsLayout(self: QTableWidget) void {
+        qtc.QTableWidget_ExecuteDelayedItemsLayout(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperExecuteDelayedItemsLayout` instead
@@ -14474,10 +14904,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn SuperExecuteDelayedItemsLayout(self: ?*anyopaque) void {
-        qtc.QTableWidget_SuperExecuteDelayedItemsLayout(@ptrCast(self));
+    pub fn SuperExecuteDelayedItemsLayout(self: QTableWidget) void {
+        qtc.QTableWidget_SuperExecuteDelayedItemsLayout(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -14488,12 +14918,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnExecuteDelayedItemsLayout(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QTableWidget_OnExecuteDelayedItemsLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnExecuteDelayedItemsLayout(self: QTableWidget, callback: *const fn () callconv(.c) void) void {
+        qtc.QTableWidget_OnExecuteDelayedItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -14504,12 +14934,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` region: QtC.QRegion `
+    /// ` region: QRegion `
     ///
-    pub fn SetDirtyRegion(self: ?*anyopaque, region: ?*anyopaque) void {
-        qtc.QTableWidget_SetDirtyRegion(@ptrCast(self), @ptrCast(region));
+    pub fn SetDirtyRegion(self: QTableWidget, region: anytype) void {
+        comptime _ = @TypeOf(region)._is_QRegion;
+        qtc.QTableWidget_SetDirtyRegion(@ptrCast(self.ptr), @ptrCast(region.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSetDirtyRegion` instead
@@ -14524,12 +14955,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` region: QtC.QRegion `
+    /// ` region: QRegion `
     ///
-    pub fn SuperSetDirtyRegion(self: ?*anyopaque, region: ?*anyopaque) void {
-        qtc.QTableWidget_SuperSetDirtyRegion(@ptrCast(self), @ptrCast(region));
+    pub fn SuperSetDirtyRegion(self: QTableWidget, region: anytype) void {
+        comptime _ = @TypeOf(region)._is_QRegion;
+        qtc.QTableWidget_SuperSetDirtyRegion(@ptrCast(self.ptr), @ptrCast(region.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -14540,12 +14972,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, region: QtC.QRegion) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, region: QRegion) callconv(.c) void `
     ///
-    pub fn OnSetDirtyRegion(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_OnSetDirtyRegion(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetDirtyRegion(self: QTableWidget, callback: *const fn (QTableWidget, QRegion) callconv(.c) void) void {
+        qtc.QTableWidget_OnSetDirtyRegion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -14556,14 +14988,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    pub fn ScrollDirtyRegion(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QTableWidget_ScrollDirtyRegion(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn ScrollDirtyRegion(self: QTableWidget, dx: i32, dy: i32) void {
+        qtc.QTableWidget_ScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
     /// ### DEPRECATED: Use `SuperScrollDirtyRegion` instead
@@ -14578,14 +15010,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    pub fn SuperScrollDirtyRegion(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QTableWidget_SuperScrollDirtyRegion(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn SuperScrollDirtyRegion(self: QTableWidget, dx: i32, dy: i32) void {
+        qtc.QTableWidget_SuperScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QAbstractItemView
@@ -14596,12 +15028,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, dx: i32, dy: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, dx: i32, dy: i32) callconv(.c) void `
     ///
-    pub fn OnScrollDirtyRegion(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QTableWidget_OnScrollDirtyRegion(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnScrollDirtyRegion(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32) callconv(.c) void) void {
+        qtc.QTableWidget_OnScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -14612,10 +15044,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn DirtyRegionOffset(self: ?*anyopaque) QtC.QPoint {
-        return qtc.QTableWidget_DirtyRegionOffset(@ptrCast(self));
+    pub fn DirtyRegionOffset(self: QTableWidget) QPoint {
+        return .{ .ptr = qtc.QTableWidget_DirtyRegionOffset(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperDirtyRegionOffset` instead
@@ -14630,10 +15062,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn SuperDirtyRegionOffset(self: ?*anyopaque) QtC.QPoint {
-        return qtc.QTableWidget_SuperDirtyRegionOffset(@ptrCast(self));
+    pub fn SuperDirtyRegionOffset(self: QTableWidget) QPoint {
+        return .{ .ptr = qtc.QTableWidget_SuperDirtyRegionOffset(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractItemView
@@ -14644,12 +15076,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPoint `
+    /// ` callback: *const fn () callconv(.c) QPoint `
     ///
-    pub fn OnDirtyRegionOffset(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPoint) void {
-        qtc.QTableWidget_OnDirtyRegionOffset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDirtyRegionOffset(self: QTableWidget, callback: *const fn () callconv(.c) QPoint) void {
+        qtc.QTableWidget_OnDirtyRegionOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -14660,10 +15092,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn StartAutoScroll(self: ?*anyopaque) void {
-        qtc.QTableWidget_StartAutoScroll(@ptrCast(self));
+    pub fn StartAutoScroll(self: QTableWidget) void {
+        qtc.QTableWidget_StartAutoScroll(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperStartAutoScroll` instead
@@ -14678,10 +15110,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn SuperStartAutoScroll(self: ?*anyopaque) void {
-        qtc.QTableWidget_SuperStartAutoScroll(@ptrCast(self));
+    pub fn SuperStartAutoScroll(self: QTableWidget) void {
+        qtc.QTableWidget_SuperStartAutoScroll(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -14692,12 +15124,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnStartAutoScroll(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QTableWidget_OnStartAutoScroll(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnStartAutoScroll(self: QTableWidget, callback: *const fn () callconv(.c) void) void {
+        qtc.QTableWidget_OnStartAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -14708,10 +15140,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn StopAutoScroll(self: ?*anyopaque) void {
-        qtc.QTableWidget_StopAutoScroll(@ptrCast(self));
+    pub fn StopAutoScroll(self: QTableWidget) void {
+        qtc.QTableWidget_StopAutoScroll(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperStopAutoScroll` instead
@@ -14726,10 +15158,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn SuperStopAutoScroll(self: ?*anyopaque) void {
-        qtc.QTableWidget_SuperStopAutoScroll(@ptrCast(self));
+    pub fn SuperStopAutoScroll(self: QTableWidget) void {
+        qtc.QTableWidget_SuperStopAutoScroll(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -14740,12 +15172,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnStopAutoScroll(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QTableWidget_OnStopAutoScroll(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnStopAutoScroll(self: QTableWidget, callback: *const fn () callconv(.c) void) void {
+        qtc.QTableWidget_OnStopAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -14756,10 +15188,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn DoAutoScroll(self: ?*anyopaque) void {
-        qtc.QTableWidget_DoAutoScroll(@ptrCast(self));
+    pub fn DoAutoScroll(self: QTableWidget) void {
+        qtc.QTableWidget_DoAutoScroll(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDoAutoScroll` instead
@@ -14774,10 +15206,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn SuperDoAutoScroll(self: ?*anyopaque) void {
-        qtc.QTableWidget_SuperDoAutoScroll(@ptrCast(self));
+    pub fn SuperDoAutoScroll(self: QTableWidget) void {
+        qtc.QTableWidget_SuperDoAutoScroll(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -14788,12 +15220,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDoAutoScroll(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QTableWidget_OnDoAutoScroll(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDoAutoScroll(self: QTableWidget, callback: *const fn () callconv(.c) void) void {
+        qtc.QTableWidget_OnDoAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -14804,14 +15236,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ## Returns:
     ///
     /// ` qabstractitemview_enums.DropIndicatorPosition `
     ///
-    pub fn DropIndicatorPosition(self: ?*anyopaque) i32 {
-        return qtc.QTableWidget_DropIndicatorPosition(@ptrCast(self));
+    pub fn DropIndicatorPosition(self: QTableWidget) i32 {
+        return qtc.QTableWidget_DropIndicatorPosition(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDropIndicatorPosition` instead
@@ -14826,14 +15258,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ## Returns:
     ///
     /// ` qabstractitemview_enums.DropIndicatorPosition `
     ///
-    pub fn SuperDropIndicatorPosition(self: ?*anyopaque) i32 {
-        return qtc.QTableWidget_SuperDropIndicatorPosition(@ptrCast(self));
+    pub fn SuperDropIndicatorPosition(self: QTableWidget) i32 {
+        return qtc.QTableWidget_SuperDropIndicatorPosition(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -14844,12 +15276,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDropIndicatorPosition(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QTableWidget_OnDropIndicatorPosition(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDropIndicatorPosition(self: QTableWidget, callback: *const fn () callconv(.c) i32) void {
+        qtc.QTableWidget_OnDropIndicatorPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -14860,7 +15292,7 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` left: i32 `
     ///
@@ -14870,8 +15302,8 @@ pub const qtablewidget = struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetViewportMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QTableWidget_SetViewportMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
+    pub fn SetViewportMargins(self: QTableWidget, left: i32, top: i32, right: i32, bottom: i32) void {
+        qtc.QTableWidget_SetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// ### DEPRECATED: Use `SuperSetViewportMargins` instead
@@ -14886,7 +15318,7 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` left: i32 `
     ///
@@ -14896,8 +15328,8 @@ pub const qtablewidget = struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SuperSetViewportMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QTableWidget_SuperSetViewportMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
+    pub fn SuperSetViewportMargins(self: QTableWidget, left: i32, top: i32, right: i32, bottom: i32) void {
+        qtc.QTableWidget_SuperSetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -14908,12 +15340,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void `
     ///
-    pub fn OnSetViewportMargins(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32, i32) callconv(.c) void) void {
-        qtc.QTableWidget_OnSetViewportMargins(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetViewportMargins(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32, i32, i32) callconv(.c) void) void {
+        qtc.QTableWidget_OnSetViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -14924,10 +15356,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn ViewportMargins(self: ?*anyopaque) QtC.QMargins {
-        return qtc.QTableWidget_ViewportMargins(@ptrCast(self));
+    pub fn ViewportMargins(self: QTableWidget) QMargins {
+        return .{ .ptr = qtc.QTableWidget_ViewportMargins(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperViewportMargins` instead
@@ -14942,10 +15374,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn SuperViewportMargins(self: ?*anyopaque) QtC.QMargins {
-        return qtc.QTableWidget_SuperViewportMargins(@ptrCast(self));
+    pub fn SuperViewportMargins(self: QTableWidget) QMargins {
+        return .{ .ptr = qtc.QTableWidget_SuperViewportMargins(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractScrollArea
@@ -14956,12 +15388,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMargins `
+    /// ` callback: *const fn () callconv(.c) QMargins `
     ///
-    pub fn OnViewportMargins(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMargins) void {
-        qtc.QTableWidget_OnViewportMargins(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnViewportMargins(self: QTableWidget, callback: *const fn () callconv(.c) QMargins) void {
+        qtc.QTableWidget_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFrame
@@ -14972,12 +15404,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` param1: QtC.QPainter `
+    /// ` param1: QPainter `
     ///
-    pub fn DrawFrame(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QTableWidget_DrawFrame(@ptrCast(self), @ptrCast(param1));
+    pub fn DrawFrame(self: QTableWidget, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPainter;
+        qtc.QTableWidget_DrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDrawFrame` instead
@@ -14992,12 +15425,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` param1: QtC.QPainter `
+    /// ` param1: QPainter `
     ///
-    pub fn SuperDrawFrame(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QTableWidget_SuperDrawFrame(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperDrawFrame(self: QTableWidget, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPainter;
+        qtc.QTableWidget_SuperDrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QFrame
@@ -15008,12 +15442,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, param1: QtC.QPainter) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, param1: QPainter) callconv(.c) void `
     ///
-    pub fn OnDrawFrame(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableWidget_OnDrawFrame(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDrawFrame(self: QTableWidget, callback: *const fn (QTableWidget, QPainter) callconv(.c) void) void {
+        qtc.QTableWidget_OnDrawFrame(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15024,10 +15458,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn UpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.QTableWidget_UpdateMicroFocus(@ptrCast(self));
+    pub fn UpdateMicroFocus(self: QTableWidget) void {
+        qtc.QTableWidget_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
@@ -15042,10 +15476,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn SuperUpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.QTableWidget_SuperUpdateMicroFocus(@ptrCast(self));
+    pub fn SuperUpdateMicroFocus(self: QTableWidget) void {
+        qtc.QTableWidget_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -15056,12 +15490,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QTableWidget_OnUpdateMicroFocus(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUpdateMicroFocus(self: QTableWidget, callback: *const fn () callconv(.c) void) void {
+        qtc.QTableWidget_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15072,10 +15506,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn Create(self: ?*anyopaque) void {
-        qtc.QTableWidget_Create(@ptrCast(self));
+    pub fn Create(self: QTableWidget) void {
+        qtc.QTableWidget_Create(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCreate` instead
@@ -15090,10 +15524,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn SuperCreate(self: ?*anyopaque) void {
-        qtc.QTableWidget_SuperCreate(@ptrCast(self));
+    pub fn SuperCreate(self: QTableWidget) void {
+        qtc.QTableWidget_SuperCreate(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -15104,12 +15538,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QTableWidget_OnCreate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreate(self: QTableWidget, callback: *const fn () callconv(.c) void) void {
+        qtc.QTableWidget_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15120,10 +15554,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn Destroy(self: ?*anyopaque) void {
-        qtc.QTableWidget_Destroy(@ptrCast(self));
+    pub fn Destroy(self: QTableWidget) void {
+        qtc.QTableWidget_Destroy(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDestroy` instead
@@ -15138,10 +15572,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn SuperDestroy(self: ?*anyopaque) void {
-        qtc.QTableWidget_SuperDestroy(@ptrCast(self));
+    pub fn SuperDestroy(self: QTableWidget) void {
+        qtc.QTableWidget_SuperDestroy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -15152,12 +15586,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QTableWidget_OnDestroy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroy(self: QTableWidget, callback: *const fn () callconv(.c) void) void {
+        qtc.QTableWidget_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15168,10 +15602,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn FocusNextChild(self: ?*anyopaque) bool {
-        return qtc.QTableWidget_FocusNextChild(@ptrCast(self));
+    pub fn FocusNextChild(self: QTableWidget) bool {
+        return qtc.QTableWidget_FocusNextChild(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusNextChild` instead
@@ -15186,10 +15620,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn SuperFocusNextChild(self: ?*anyopaque) bool {
-        return qtc.QTableWidget_SuperFocusNextChild(@ptrCast(self));
+    pub fn SuperFocusNextChild(self: QTableWidget) bool {
+        return qtc.QTableWidget_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -15200,12 +15634,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QTableWidget_OnFocusNextChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusNextChild(self: QTableWidget, callback: *const fn () callconv(.c) bool) void {
+        qtc.QTableWidget_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15216,10 +15650,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn FocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.QTableWidget_FocusPreviousChild(@ptrCast(self));
+    pub fn FocusPreviousChild(self: QTableWidget) bool {
+        return qtc.QTableWidget_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
@@ -15234,10 +15668,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn SuperFocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.QTableWidget_SuperFocusPreviousChild(@ptrCast(self));
+    pub fn SuperFocusPreviousChild(self: QTableWidget) bool {
+        return qtc.QTableWidget_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -15248,12 +15682,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QTableWidget_OnFocusPreviousChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusPreviousChild(self: QTableWidget, callback: *const fn () callconv(.c) bool) void {
+        qtc.QTableWidget_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -15264,10 +15698,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QTableWidget_Sender(@ptrCast(self));
+    pub fn Sender(self: QTableWidget) QObject {
+        return .{ .ptr = qtc.QTableWidget_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -15282,10 +15716,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QTableWidget_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QTableWidget) QObject {
+        return .{ .ptr = qtc.QTableWidget_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -15296,12 +15730,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QTableWidget_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QTableWidget, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QTableWidget_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -15312,10 +15746,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QTableWidget_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QTableWidget) i32 {
+        return qtc.QTableWidget_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -15330,10 +15764,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QTableWidget_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QTableWidget) i32 {
+        return qtc.QTableWidget_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -15344,12 +15778,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QTableWidget_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QTableWidget, callback: *const fn () callconv(.c) i32) void {
+        qtc.QTableWidget_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -15360,13 +15794,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QTableWidget, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QTableWidget_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QTableWidget_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -15381,13 +15815,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QTableWidget, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QTableWidget_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QTableWidget_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -15398,12 +15832,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QTableWidget, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QTableWidget_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QTableWidget, callback: *const fn (QTableWidget, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QTableWidget_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -15414,12 +15848,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QTableWidget_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QTableWidget, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QTableWidget_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -15434,12 +15869,13 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QTableWidget_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QTableWidget, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QTableWidget_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -15450,12 +15886,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QTableWidget, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTableWidget_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QTableWidget, callback: *const fn (QTableWidget, QMetaMethod) callconv(.c) bool) void {
+        qtc.QTableWidget_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -15466,14 +15902,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QTableWidget_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn GetDecodedMetricF(self: QTableWidget, metricA: i32, metricB: i32) f64 {
+        return qtc.QTableWidget_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
@@ -15488,14 +15924,14 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
     /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QTableWidget_SuperGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn SuperGetDecodedMetricF(self: QTableWidget, metricA: i32, metricB: i32) f64 {
+        return qtc.QTableWidget_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -15506,12 +15942,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget`
+    /// ` self: QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
+    /// ` callback: *const fn (self: QTableWidget, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.QTableWidget_OnGetDecodedMetricF(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnGetDecodedMetricF(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32) callconv(.c) f64) void {
+        qtc.QTableWidget_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -15522,12 +15958,12 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QTableWidget, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QTableWidget, callback: *const fn (QTableWidget, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -15540,10 +15976,10 @@ pub const qtablewidget = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QTableWidget `
+    /// ` self: QTableWidget `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QTableWidget_Delete(@ptrCast(self));
+    pub fn Delete(self: QTableWidget) void {
+        qtc.QTableWidget_Delete(@ptrCast(self.ptr));
     }
 };
 

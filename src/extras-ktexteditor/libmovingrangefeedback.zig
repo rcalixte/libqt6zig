@@ -1,24 +1,35 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const KTextEditor__MovingRange = @import("libqt6").KTextEditor__MovingRange;
+const KTextEditor__View = @import("libqt6").KTextEditor__View;
 
 /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html)
-pub const ktexteditor__movingrangefeedback = struct {
+pub const KTextEditor__MovingRangeFeedback = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KTextEditor__MovingRangeFeedback,
+
+    pub const _is_KTextEditor__MovingRangeFeedback = {};
+
     /// New constructs a new KTextEditor::MovingRangeFeedback object.
     ///
-    pub fn New() QtC.KTextEditor__MovingRangeFeedback {
-        return qtc.KTextEditor__MovingRangeFeedback_new();
+    pub fn New() KTextEditor__MovingRangeFeedback {
+        return .{ .ptr = qtc.KTextEditor__MovingRangeFeedback_new() };
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#rangeEmpty)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__MovingRangeFeedback `
+    /// ` self: KTextEditor__MovingRangeFeedback `
     ///
-    /// ` range: QtC.KTextEditor__MovingRange `
+    /// ` range: KTextEditor__MovingRange `
     ///
-    pub fn RangeEmpty(self: ?*anyopaque, range: ?*anyopaque) void {
-        qtc.KTextEditor__MovingRangeFeedback_RangeEmpty(@ptrCast(self), @ptrCast(range));
+    pub fn RangeEmpty(self: KTextEditor__MovingRangeFeedback, range: anytype) void {
+        comptime _ = @TypeOf(range)._is_KTextEditor__MovingRange;
+        qtc.KTextEditor__MovingRangeFeedback_RangeEmpty(@ptrCast(self.ptr), @ptrCast(range.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#rangeEmpty)
@@ -27,12 +38,12 @@ pub const ktexteditor__movingrangefeedback = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__MovingRangeFeedback `
+    /// ` self: KTextEditor__MovingRangeFeedback `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__MovingRangeFeedback, range: QtC.KTextEditor__MovingRange) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__MovingRangeFeedback, range: KTextEditor__MovingRange) callconv(.c) void `
     ///
-    pub fn OnRangeEmpty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTextEditor__MovingRangeFeedback_OnRangeEmpty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRangeEmpty(self: KTextEditor__MovingRangeFeedback, callback: *const fn (KTextEditor__MovingRangeFeedback, KTextEditor__MovingRange) callconv(.c) void) void {
+        qtc.KTextEditor__MovingRangeFeedback_OnRangeEmpty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperRangeEmpty` instead
@@ -45,24 +56,26 @@ pub const ktexteditor__movingrangefeedback = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__MovingRangeFeedback `
+    /// ` self: KTextEditor__MovingRangeFeedback `
     ///
-    /// ` range: QtC.KTextEditor__MovingRange `
+    /// ` range: KTextEditor__MovingRange `
     ///
-    pub fn SuperRangeEmpty(self: ?*anyopaque, range: ?*anyopaque) void {
-        qtc.KTextEditor__MovingRangeFeedback_SuperRangeEmpty(@ptrCast(self), @ptrCast(range));
+    pub fn SuperRangeEmpty(self: KTextEditor__MovingRangeFeedback, range: anytype) void {
+        comptime _ = @TypeOf(range)._is_KTextEditor__MovingRange;
+        qtc.KTextEditor__MovingRangeFeedback_SuperRangeEmpty(@ptrCast(self.ptr), @ptrCast(range.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#rangeInvalid)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__MovingRangeFeedback `
+    /// ` self: KTextEditor__MovingRangeFeedback `
     ///
-    /// ` range: QtC.KTextEditor__MovingRange `
+    /// ` range: KTextEditor__MovingRange `
     ///
-    pub fn RangeInvalid(self: ?*anyopaque, range: ?*anyopaque) void {
-        qtc.KTextEditor__MovingRangeFeedback_RangeInvalid(@ptrCast(self), @ptrCast(range));
+    pub fn RangeInvalid(self: KTextEditor__MovingRangeFeedback, range: anytype) void {
+        comptime _ = @TypeOf(range)._is_KTextEditor__MovingRange;
+        qtc.KTextEditor__MovingRangeFeedback_RangeInvalid(@ptrCast(self.ptr), @ptrCast(range.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#rangeInvalid)
@@ -71,12 +84,12 @@ pub const ktexteditor__movingrangefeedback = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__MovingRangeFeedback `
+    /// ` self: KTextEditor__MovingRangeFeedback `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__MovingRangeFeedback, range: QtC.KTextEditor__MovingRange) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__MovingRangeFeedback, range: KTextEditor__MovingRange) callconv(.c) void `
     ///
-    pub fn OnRangeInvalid(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTextEditor__MovingRangeFeedback_OnRangeInvalid(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRangeInvalid(self: KTextEditor__MovingRangeFeedback, callback: *const fn (KTextEditor__MovingRangeFeedback, KTextEditor__MovingRange) callconv(.c) void) void {
+        qtc.KTextEditor__MovingRangeFeedback_OnRangeInvalid(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperRangeInvalid` instead
@@ -89,26 +102,29 @@ pub const ktexteditor__movingrangefeedback = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__MovingRangeFeedback `
+    /// ` self: KTextEditor__MovingRangeFeedback `
     ///
-    /// ` range: QtC.KTextEditor__MovingRange `
+    /// ` range: KTextEditor__MovingRange `
     ///
-    pub fn SuperRangeInvalid(self: ?*anyopaque, range: ?*anyopaque) void {
-        qtc.KTextEditor__MovingRangeFeedback_SuperRangeInvalid(@ptrCast(self), @ptrCast(range));
+    pub fn SuperRangeInvalid(self: KTextEditor__MovingRangeFeedback, range: anytype) void {
+        comptime _ = @TypeOf(range)._is_KTextEditor__MovingRange;
+        qtc.KTextEditor__MovingRangeFeedback_SuperRangeInvalid(@ptrCast(self.ptr), @ptrCast(range.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#mouseEnteredRange)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__MovingRangeFeedback `
+    /// ` self: KTextEditor__MovingRangeFeedback `
     ///
-    /// ` range: QtC.KTextEditor__MovingRange `
+    /// ` range: KTextEditor__MovingRange `
     ///
-    /// ` view: QtC.KTextEditor__View `
+    /// ` view: KTextEditor__View `
     ///
-    pub fn MouseEnteredRange(self: ?*anyopaque, range: ?*anyopaque, view: ?*anyopaque) void {
-        qtc.KTextEditor__MovingRangeFeedback_MouseEnteredRange(@ptrCast(self), @ptrCast(range), @ptrCast(view));
+    pub fn MouseEnteredRange(self: KTextEditor__MovingRangeFeedback, range: anytype, view: anytype) void {
+        comptime _ = @TypeOf(range)._is_KTextEditor__MovingRange;
+        comptime _ = @TypeOf(view)._is_KTextEditor__View;
+        qtc.KTextEditor__MovingRangeFeedback_MouseEnteredRange(@ptrCast(self.ptr), @ptrCast(range.ptr), @ptrCast(view.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#mouseEnteredRange)
@@ -117,12 +133,12 @@ pub const ktexteditor__movingrangefeedback = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__MovingRangeFeedback `
+    /// ` self: KTextEditor__MovingRangeFeedback `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__MovingRangeFeedback, range: QtC.KTextEditor__MovingRange, view: QtC.KTextEditor__View) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__MovingRangeFeedback, range: KTextEditor__MovingRange, view: KTextEditor__View) callconv(.c) void `
     ///
-    pub fn OnMouseEnteredRange(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTextEditor__MovingRangeFeedback_OnMouseEnteredRange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseEnteredRange(self: KTextEditor__MovingRangeFeedback, callback: *const fn (KTextEditor__MovingRangeFeedback, KTextEditor__MovingRange, KTextEditor__View) callconv(.c) void) void {
+        qtc.KTextEditor__MovingRangeFeedback_OnMouseEnteredRange(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMouseEnteredRange` instead
@@ -135,28 +151,32 @@ pub const ktexteditor__movingrangefeedback = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__MovingRangeFeedback `
+    /// ` self: KTextEditor__MovingRangeFeedback `
     ///
-    /// ` range: QtC.KTextEditor__MovingRange `
+    /// ` range: KTextEditor__MovingRange `
     ///
-    /// ` view: QtC.KTextEditor__View `
+    /// ` view: KTextEditor__View `
     ///
-    pub fn SuperMouseEnteredRange(self: ?*anyopaque, range: ?*anyopaque, view: ?*anyopaque) void {
-        qtc.KTextEditor__MovingRangeFeedback_SuperMouseEnteredRange(@ptrCast(self), @ptrCast(range), @ptrCast(view));
+    pub fn SuperMouseEnteredRange(self: KTextEditor__MovingRangeFeedback, range: anytype, view: anytype) void {
+        comptime _ = @TypeOf(range)._is_KTextEditor__MovingRange;
+        comptime _ = @TypeOf(view)._is_KTextEditor__View;
+        qtc.KTextEditor__MovingRangeFeedback_SuperMouseEnteredRange(@ptrCast(self.ptr), @ptrCast(range.ptr), @ptrCast(view.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#mouseExitedRange)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__MovingRangeFeedback `
+    /// ` self: KTextEditor__MovingRangeFeedback `
     ///
-    /// ` range: QtC.KTextEditor__MovingRange `
+    /// ` range: KTextEditor__MovingRange `
     ///
-    /// ` view: QtC.KTextEditor__View `
+    /// ` view: KTextEditor__View `
     ///
-    pub fn MouseExitedRange(self: ?*anyopaque, range: ?*anyopaque, view: ?*anyopaque) void {
-        qtc.KTextEditor__MovingRangeFeedback_MouseExitedRange(@ptrCast(self), @ptrCast(range), @ptrCast(view));
+    pub fn MouseExitedRange(self: KTextEditor__MovingRangeFeedback, range: anytype, view: anytype) void {
+        comptime _ = @TypeOf(range)._is_KTextEditor__MovingRange;
+        comptime _ = @TypeOf(view)._is_KTextEditor__View;
+        qtc.KTextEditor__MovingRangeFeedback_MouseExitedRange(@ptrCast(self.ptr), @ptrCast(range.ptr), @ptrCast(view.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#mouseExitedRange)
@@ -165,12 +185,12 @@ pub const ktexteditor__movingrangefeedback = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__MovingRangeFeedback `
+    /// ` self: KTextEditor__MovingRangeFeedback `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__MovingRangeFeedback, range: QtC.KTextEditor__MovingRange, view: QtC.KTextEditor__View) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__MovingRangeFeedback, range: KTextEditor__MovingRange, view: KTextEditor__View) callconv(.c) void `
     ///
-    pub fn OnMouseExitedRange(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTextEditor__MovingRangeFeedback_OnMouseExitedRange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseExitedRange(self: KTextEditor__MovingRangeFeedback, callback: *const fn (KTextEditor__MovingRangeFeedback, KTextEditor__MovingRange, KTextEditor__View) callconv(.c) void) void {
+        qtc.KTextEditor__MovingRangeFeedback_OnMouseExitedRange(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMouseExitedRange` instead
@@ -183,28 +203,32 @@ pub const ktexteditor__movingrangefeedback = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__MovingRangeFeedback `
+    /// ` self: KTextEditor__MovingRangeFeedback `
     ///
-    /// ` range: QtC.KTextEditor__MovingRange `
+    /// ` range: KTextEditor__MovingRange `
     ///
-    /// ` view: QtC.KTextEditor__View `
+    /// ` view: KTextEditor__View `
     ///
-    pub fn SuperMouseExitedRange(self: ?*anyopaque, range: ?*anyopaque, view: ?*anyopaque) void {
-        qtc.KTextEditor__MovingRangeFeedback_SuperMouseExitedRange(@ptrCast(self), @ptrCast(range), @ptrCast(view));
+    pub fn SuperMouseExitedRange(self: KTextEditor__MovingRangeFeedback, range: anytype, view: anytype) void {
+        comptime _ = @TypeOf(range)._is_KTextEditor__MovingRange;
+        comptime _ = @TypeOf(view)._is_KTextEditor__View;
+        qtc.KTextEditor__MovingRangeFeedback_SuperMouseExitedRange(@ptrCast(self.ptr), @ptrCast(range.ptr), @ptrCast(view.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#caretEnteredRange)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__MovingRangeFeedback `
+    /// ` self: KTextEditor__MovingRangeFeedback `
     ///
-    /// ` range: QtC.KTextEditor__MovingRange `
+    /// ` range: KTextEditor__MovingRange `
     ///
-    /// ` view: QtC.KTextEditor__View `
+    /// ` view: KTextEditor__View `
     ///
-    pub fn CaretEnteredRange(self: ?*anyopaque, range: ?*anyopaque, view: ?*anyopaque) void {
-        qtc.KTextEditor__MovingRangeFeedback_CaretEnteredRange(@ptrCast(self), @ptrCast(range), @ptrCast(view));
+    pub fn CaretEnteredRange(self: KTextEditor__MovingRangeFeedback, range: anytype, view: anytype) void {
+        comptime _ = @TypeOf(range)._is_KTextEditor__MovingRange;
+        comptime _ = @TypeOf(view)._is_KTextEditor__View;
+        qtc.KTextEditor__MovingRangeFeedback_CaretEnteredRange(@ptrCast(self.ptr), @ptrCast(range.ptr), @ptrCast(view.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#caretEnteredRange)
@@ -213,12 +237,12 @@ pub const ktexteditor__movingrangefeedback = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__MovingRangeFeedback `
+    /// ` self: KTextEditor__MovingRangeFeedback `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__MovingRangeFeedback, range: QtC.KTextEditor__MovingRange, view: QtC.KTextEditor__View) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__MovingRangeFeedback, range: KTextEditor__MovingRange, view: KTextEditor__View) callconv(.c) void `
     ///
-    pub fn OnCaretEnteredRange(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTextEditor__MovingRangeFeedback_OnCaretEnteredRange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCaretEnteredRange(self: KTextEditor__MovingRangeFeedback, callback: *const fn (KTextEditor__MovingRangeFeedback, KTextEditor__MovingRange, KTextEditor__View) callconv(.c) void) void {
+        qtc.KTextEditor__MovingRangeFeedback_OnCaretEnteredRange(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperCaretEnteredRange` instead
@@ -231,28 +255,32 @@ pub const ktexteditor__movingrangefeedback = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__MovingRangeFeedback `
+    /// ` self: KTextEditor__MovingRangeFeedback `
     ///
-    /// ` range: QtC.KTextEditor__MovingRange `
+    /// ` range: KTextEditor__MovingRange `
     ///
-    /// ` view: QtC.KTextEditor__View `
+    /// ` view: KTextEditor__View `
     ///
-    pub fn SuperCaretEnteredRange(self: ?*anyopaque, range: ?*anyopaque, view: ?*anyopaque) void {
-        qtc.KTextEditor__MovingRangeFeedback_SuperCaretEnteredRange(@ptrCast(self), @ptrCast(range), @ptrCast(view));
+    pub fn SuperCaretEnteredRange(self: KTextEditor__MovingRangeFeedback, range: anytype, view: anytype) void {
+        comptime _ = @TypeOf(range)._is_KTextEditor__MovingRange;
+        comptime _ = @TypeOf(view)._is_KTextEditor__View;
+        qtc.KTextEditor__MovingRangeFeedback_SuperCaretEnteredRange(@ptrCast(self.ptr), @ptrCast(range.ptr), @ptrCast(view.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#caretExitedRange)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__MovingRangeFeedback `
+    /// ` self: KTextEditor__MovingRangeFeedback `
     ///
-    /// ` range: QtC.KTextEditor__MovingRange `
+    /// ` range: KTextEditor__MovingRange `
     ///
-    /// ` view: QtC.KTextEditor__View `
+    /// ` view: KTextEditor__View `
     ///
-    pub fn CaretExitedRange(self: ?*anyopaque, range: ?*anyopaque, view: ?*anyopaque) void {
-        qtc.KTextEditor__MovingRangeFeedback_CaretExitedRange(@ptrCast(self), @ptrCast(range), @ptrCast(view));
+    pub fn CaretExitedRange(self: KTextEditor__MovingRangeFeedback, range: anytype, view: anytype) void {
+        comptime _ = @TypeOf(range)._is_KTextEditor__MovingRange;
+        comptime _ = @TypeOf(view)._is_KTextEditor__View;
+        qtc.KTextEditor__MovingRangeFeedback_CaretExitedRange(@ptrCast(self.ptr), @ptrCast(range.ptr), @ptrCast(view.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrangefeedback.html#caretExitedRange)
@@ -261,12 +289,12 @@ pub const ktexteditor__movingrangefeedback = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__MovingRangeFeedback `
+    /// ` self: KTextEditor__MovingRangeFeedback `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__MovingRangeFeedback, range: QtC.KTextEditor__MovingRange, view: QtC.KTextEditor__View) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__MovingRangeFeedback, range: KTextEditor__MovingRange, view: KTextEditor__View) callconv(.c) void `
     ///
-    pub fn OnCaretExitedRange(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTextEditor__MovingRangeFeedback_OnCaretExitedRange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCaretExitedRange(self: KTextEditor__MovingRangeFeedback, callback: *const fn (KTextEditor__MovingRangeFeedback, KTextEditor__MovingRange, KTextEditor__View) callconv(.c) void) void {
+        qtc.KTextEditor__MovingRangeFeedback_OnCaretExitedRange(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperCaretExitedRange` instead
@@ -279,14 +307,16 @@ pub const ktexteditor__movingrangefeedback = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__MovingRangeFeedback `
+    /// ` self: KTextEditor__MovingRangeFeedback `
     ///
-    /// ` range: QtC.KTextEditor__MovingRange `
+    /// ` range: KTextEditor__MovingRange `
     ///
-    /// ` view: QtC.KTextEditor__View `
+    /// ` view: KTextEditor__View `
     ///
-    pub fn SuperCaretExitedRange(self: ?*anyopaque, range: ?*anyopaque, view: ?*anyopaque) void {
-        qtc.KTextEditor__MovingRangeFeedback_SuperCaretExitedRange(@ptrCast(self), @ptrCast(range), @ptrCast(view));
+    pub fn SuperCaretExitedRange(self: KTextEditor__MovingRangeFeedback, range: anytype, view: anytype) void {
+        comptime _ = @TypeOf(range)._is_KTextEditor__MovingRange;
+        comptime _ = @TypeOf(view)._is_KTextEditor__View;
+        qtc.KTextEditor__MovingRangeFeedback_SuperCaretExitedRange(@ptrCast(self.ptr), @ptrCast(range.ptr), @ptrCast(view.ptr));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -297,9 +327,9 @@ pub const ktexteditor__movingrangefeedback = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KTextEditor__MovingRangeFeedback `
+    /// ` self: KTextEditor__MovingRangeFeedback `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KTextEditor__MovingRangeFeedback_Delete(@ptrCast(self));
+    pub fn Delete(self: KTextEditor__MovingRangeFeedback) void {
+        qtc.KTextEditor__MovingRangeFeedback_Delete(@ptrCast(self.ptr));
     }
 };

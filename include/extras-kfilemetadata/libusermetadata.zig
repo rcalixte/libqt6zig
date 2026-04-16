@@ -1,57 +1,67 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QUrl = @import("libqt6").QUrl;
 const std = @import("std");
 const usermetadata_enums = enums;
 
 /// ### [Upstream resources](https://api.kde.org/kfilemetadata-usermetadata.html)
-pub const kfilemetadata__usermetadata = struct {
+pub const KFileMetaData__UserMetaData = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kfilemetadata-usermetadata.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KFileMetaData__UserMetaData,
+
+    pub const _is_KFileMetaData__UserMetaData = {};
+
     /// New constructs a new KFileMetaData::UserMetaData object.
     ///
     /// ## Parameter(s):
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn New(filePath: []const u8) QtC.KFileMetaData__UserMetaData {
+    pub fn New(filePath: []const u8) KFileMetaData__UserMetaData {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
-
-        return qtc.KFileMetaData__UserMetaData_new(filePath_str);
+        return .{ .ptr = qtc.KFileMetaData__UserMetaData_new(filePath_str) };
     }
 
     /// New2 constructs a new KFileMetaData::UserMetaData object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` rhs: QtC.KFileMetaData__UserMetaData `
+    /// ` rhs: KFileMetaData__UserMetaData `
     ///
-    pub fn New2(rhs: ?*anyopaque) QtC.KFileMetaData__UserMetaData {
-        return qtc.KFileMetaData__UserMetaData_new2(@ptrCast(rhs));
+    pub fn New2(rhs: anytype) KFileMetaData__UserMetaData {
+        comptime _ = @TypeOf(rhs)._is_KFileMetaData__UserMetaData;
+        return .{ .ptr = qtc.KFileMetaData__UserMetaData_new2(@ptrCast(rhs.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-usermetadata.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFileMetaData__UserMetaData `
+    /// ` self: KFileMetaData__UserMetaData `
     ///
-    /// ` rhs: QtC.KFileMetaData__UserMetaData `
+    /// ` rhs: KFileMetaData__UserMetaData `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, rhs: ?*anyopaque) void {
-        qtc.KFileMetaData__UserMetaData_OperatorAssign(@ptrCast(self), @ptrCast(rhs));
+    pub fn OperatorAssign(self: KFileMetaData__UserMetaData, rhs: anytype) void {
+        comptime _ = @TypeOf(rhs)._is_KFileMetaData__UserMetaData;
+        qtc.KFileMetaData__UserMetaData_OperatorAssign(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-usermetadata.html#filePath)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFileMetaData__UserMetaData `
+    /// ` self: KFileMetaData__UserMetaData `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KFileMetaData__UserMetaData_FilePath(@ptrCast(self));
+    pub fn FilePath(self: KFileMetaData__UserMetaData, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KFileMetaData__UserMetaData_FilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kfilemetadata__usermetadata.FilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -62,57 +72,55 @@ pub const kfilemetadata__usermetadata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFileMetaData__UserMetaData `
+    /// ` self: KFileMetaData__UserMetaData `
     ///
-    pub fn IsSupported(self: ?*anyopaque) bool {
-        return qtc.KFileMetaData__UserMetaData_IsSupported(@ptrCast(self));
+    pub fn IsSupported(self: KFileMetaData__UserMetaData) bool {
+        return qtc.KFileMetaData__UserMetaData_IsSupported(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-usermetadata.html#setTags)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFileMetaData__UserMetaData `
-    ///
-    /// ` tags: []const []const u8 `
+    /// ` self: KFileMetaData__UserMetaData `
     ///
     /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` tags: []const []const u8 `
     ///
     /// ## Returns:
     ///
     /// ` usermetadata_enums.Error `
     ///
-    pub fn SetTags(self: ?*anyopaque, tags: []const []const u8, allocator: std.mem.Allocator) i32 {
+    pub fn SetTags(self: KFileMetaData__UserMetaData, allocator: std.mem.Allocator, tags: []const []const u8) i32 {
         const tags_arr = allocator.alloc(qtc.libqt_string, tags.len) catch @panic("kfilemetadata__usermetadata.SetTags: Memory allocation failed");
         defer allocator.free(tags_arr);
-        for (tags, 0..tags.len) |item, i| {
+        for (tags, 0..tags.len) |item, i|
             tags_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const tags_list = qtc.libqt_list{
             .len = tags.len,
             .data = tags_arr.ptr,
         };
-        return qtc.KFileMetaData__UserMetaData_SetTags(@ptrCast(self), tags_list);
+        return qtc.KFileMetaData__UserMetaData_SetTags(@ptrCast(self.ptr), tags_list);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-usermetadata.html#tags)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFileMetaData__UserMetaData `
+    /// ` self: KFileMetaData__UserMetaData `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tags(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KFileMetaData__UserMetaData_Tags(@ptrCast(self));
+    pub fn Tags(self: KFileMetaData__UserMetaData, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.KFileMetaData__UserMetaData_Tags(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kfilemetadata__usermetadata.Tags: Memory allocation failed");
@@ -129,17 +137,17 @@ pub const kfilemetadata__usermetadata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFileMetaData__UserMetaData `
+    /// ` self: KFileMetaData__UserMetaData `
     ///
-    pub fn Rating(self: ?*anyopaque) i32 {
-        return qtc.KFileMetaData__UserMetaData_Rating(@ptrCast(self));
+    pub fn Rating(self: KFileMetaData__UserMetaData) i32 {
+        return qtc.KFileMetaData__UserMetaData_Rating(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-usermetadata.html#setRating)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFileMetaData__UserMetaData `
+    /// ` self: KFileMetaData__UserMetaData `
     ///
     /// ` rating: i32 `
     ///
@@ -147,20 +155,20 @@ pub const kfilemetadata__usermetadata = struct {
     ///
     /// ` usermetadata_enums.Error `
     ///
-    pub fn SetRating(self: ?*anyopaque, rating: i32) i32 {
-        return qtc.KFileMetaData__UserMetaData_SetRating(@ptrCast(self), @bitCast(rating));
+    pub fn SetRating(self: KFileMetaData__UserMetaData, rating: i32) i32 {
+        return qtc.KFileMetaData__UserMetaData_SetRating(@ptrCast(self.ptr), @bitCast(rating));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-usermetadata.html#userComment)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFileMetaData__UserMetaData `
+    /// ` self: KFileMetaData__UserMetaData `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UserComment(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KFileMetaData__UserMetaData_UserComment(@ptrCast(self));
+    pub fn UserComment(self: KFileMetaData__UserMetaData, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KFileMetaData__UserMetaData_UserComment(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kfilemetadata__usermetadata.UserComment: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -171,7 +179,7 @@ pub const kfilemetadata__usermetadata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFileMetaData__UserMetaData `
+    /// ` self: KFileMetaData__UserMetaData `
     ///
     /// ` userComment: []const u8 `
     ///
@@ -179,50 +187,51 @@ pub const kfilemetadata__usermetadata = struct {
     ///
     /// ` usermetadata_enums.Error `
     ///
-    pub fn SetUserComment(self: ?*anyopaque, userComment: []const u8) i32 {
+    pub fn SetUserComment(self: KFileMetaData__UserMetaData, userComment: []const u8) i32 {
         const userComment_str = qtc.libqt_string{
             .len = userComment.len,
             .data = userComment.ptr,
         };
-        return qtc.KFileMetaData__UserMetaData_SetUserComment(@ptrCast(self), userComment_str);
+        return qtc.KFileMetaData__UserMetaData_SetUserComment(@ptrCast(self.ptr), userComment_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-usermetadata.html#originUrl)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFileMetaData__UserMetaData `
+    /// ` self: KFileMetaData__UserMetaData `
     ///
-    pub fn OriginUrl(self: ?*anyopaque) QtC.QUrl {
-        return qtc.KFileMetaData__UserMetaData_OriginUrl(@ptrCast(self));
+    pub fn OriginUrl(self: KFileMetaData__UserMetaData) QUrl {
+        return .{ .ptr = qtc.KFileMetaData__UserMetaData_OriginUrl(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-usermetadata.html#setOriginUrl)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFileMetaData__UserMetaData `
+    /// ` self: KFileMetaData__UserMetaData `
     ///
-    /// ` originUrl: QtC.QUrl `
+    /// ` originUrl: QUrl `
     ///
     /// ## Returns:
     ///
     /// ` usermetadata_enums.Error `
     ///
-    pub fn SetOriginUrl(self: ?*anyopaque, originUrl: ?*anyopaque) i32 {
-        return qtc.KFileMetaData__UserMetaData_SetOriginUrl(@ptrCast(self), @ptrCast(originUrl));
+    pub fn SetOriginUrl(self: KFileMetaData__UserMetaData, originUrl: anytype) i32 {
+        comptime _ = @TypeOf(originUrl)._is_QUrl;
+        return qtc.KFileMetaData__UserMetaData_SetOriginUrl(@ptrCast(self.ptr), @ptrCast(originUrl.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-usermetadata.html#originEmailSubject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFileMetaData__UserMetaData `
+    /// ` self: KFileMetaData__UserMetaData `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn OriginEmailSubject(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KFileMetaData__UserMetaData_OriginEmailSubject(@ptrCast(self));
+    pub fn OriginEmailSubject(self: KFileMetaData__UserMetaData, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KFileMetaData__UserMetaData_OriginEmailSubject(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kfilemetadata__usermetadata.OriginEmailSubject: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -233,7 +242,7 @@ pub const kfilemetadata__usermetadata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFileMetaData__UserMetaData `
+    /// ` self: KFileMetaData__UserMetaData `
     ///
     /// ` originEmailSubject: []const u8 `
     ///
@@ -241,24 +250,24 @@ pub const kfilemetadata__usermetadata = struct {
     ///
     /// ` usermetadata_enums.Error `
     ///
-    pub fn SetOriginEmailSubject(self: ?*anyopaque, originEmailSubject: []const u8) i32 {
+    pub fn SetOriginEmailSubject(self: KFileMetaData__UserMetaData, originEmailSubject: []const u8) i32 {
         const originEmailSubject_str = qtc.libqt_string{
             .len = originEmailSubject.len,
             .data = originEmailSubject.ptr,
         };
-        return qtc.KFileMetaData__UserMetaData_SetOriginEmailSubject(@ptrCast(self), originEmailSubject_str);
+        return qtc.KFileMetaData__UserMetaData_SetOriginEmailSubject(@ptrCast(self.ptr), originEmailSubject_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-usermetadata.html#originEmailSender)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFileMetaData__UserMetaData `
+    /// ` self: KFileMetaData__UserMetaData `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn OriginEmailSender(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KFileMetaData__UserMetaData_OriginEmailSender(@ptrCast(self));
+    pub fn OriginEmailSender(self: KFileMetaData__UserMetaData, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KFileMetaData__UserMetaData_OriginEmailSender(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kfilemetadata__usermetadata.OriginEmailSender: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -269,7 +278,7 @@ pub const kfilemetadata__usermetadata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFileMetaData__UserMetaData `
+    /// ` self: KFileMetaData__UserMetaData `
     ///
     /// ` originEmailSender: []const u8 `
     ///
@@ -277,24 +286,24 @@ pub const kfilemetadata__usermetadata = struct {
     ///
     /// ` usermetadata_enums.Error `
     ///
-    pub fn SetOriginEmailSender(self: ?*anyopaque, originEmailSender: []const u8) i32 {
+    pub fn SetOriginEmailSender(self: KFileMetaData__UserMetaData, originEmailSender: []const u8) i32 {
         const originEmailSender_str = qtc.libqt_string{
             .len = originEmailSender.len,
             .data = originEmailSender.ptr,
         };
-        return qtc.KFileMetaData__UserMetaData_SetOriginEmailSender(@ptrCast(self), originEmailSender_str);
+        return qtc.KFileMetaData__UserMetaData_SetOriginEmailSender(@ptrCast(self.ptr), originEmailSender_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-usermetadata.html#originEmailMessageId)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFileMetaData__UserMetaData `
+    /// ` self: KFileMetaData__UserMetaData `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn OriginEmailMessageId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KFileMetaData__UserMetaData_OriginEmailMessageId(@ptrCast(self));
+    pub fn OriginEmailMessageId(self: KFileMetaData__UserMetaData, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KFileMetaData__UserMetaData_OriginEmailMessageId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kfilemetadata__usermetadata.OriginEmailMessageId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -305,7 +314,7 @@ pub const kfilemetadata__usermetadata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFileMetaData__UserMetaData `
+    /// ` self: KFileMetaData__UserMetaData `
     ///
     /// ` originEmailMessageId: []const u8 `
     ///
@@ -313,30 +322,30 @@ pub const kfilemetadata__usermetadata = struct {
     ///
     /// ` usermetadata_enums.Error `
     ///
-    pub fn SetOriginEmailMessageId(self: ?*anyopaque, originEmailMessageId: []const u8) i32 {
+    pub fn SetOriginEmailMessageId(self: KFileMetaData__UserMetaData, originEmailMessageId: []const u8) i32 {
         const originEmailMessageId_str = qtc.libqt_string{
             .len = originEmailMessageId.len,
             .data = originEmailMessageId.ptr,
         };
-        return qtc.KFileMetaData__UserMetaData_SetOriginEmailMessageId(@ptrCast(self), originEmailMessageId_str);
+        return qtc.KFileMetaData__UserMetaData_SetOriginEmailMessageId(@ptrCast(self.ptr), originEmailMessageId_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-usermetadata.html#attribute)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFileMetaData__UserMetaData `
-    ///
-    /// ` name: []const u8 `
+    /// ` self: KFileMetaData__UserMetaData `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Attribute(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` name: []const u8 `
+    ///
+    pub fn Attribute(self: KFileMetaData__UserMetaData, allocator: std.mem.Allocator, name: []const u8) []const u8 {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        var _str = qtc.KFileMetaData__UserMetaData_Attribute(@ptrCast(self), name_str);
+        var _str = qtc.KFileMetaData__UserMetaData_Attribute(@ptrCast(self.ptr), name_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kfilemetadata__usermetadata.Attribute: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -347,18 +356,18 @@ pub const kfilemetadata__usermetadata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFileMetaData__UserMetaData `
-    ///
-    /// ` name: []const u8 `
+    /// ` self: KFileMetaData__UserMetaData `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Attribute2(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` name: []const u8 `
+    ///
+    pub fn Attribute2(self: KFileMetaData__UserMetaData, allocator: std.mem.Allocator, name: []const u8) []const u8 {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        var _str = qtc.KFileMetaData__UserMetaData_Attribute2(@ptrCast(self), name_str);
+        var _str = qtc.KFileMetaData__UserMetaData_Attribute2(@ptrCast(self.ptr), name_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kfilemetadata__usermetadata.Attribute2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -369,7 +378,7 @@ pub const kfilemetadata__usermetadata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFileMetaData__UserMetaData `
+    /// ` self: KFileMetaData__UserMetaData `
     ///
     /// ` name: []const u8 `
     ///
@@ -379,7 +388,7 @@ pub const kfilemetadata__usermetadata = struct {
     ///
     /// ` usermetadata_enums.Error `
     ///
-    pub fn SetAttribute(self: ?*anyopaque, name: []const u8, value: []const u8) i32 {
+    pub fn SetAttribute(self: KFileMetaData__UserMetaData, name: []const u8, value: []const u8) i32 {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -388,60 +397,60 @@ pub const kfilemetadata__usermetadata = struct {
             .len = value.len,
             .data = value.ptr,
         };
-        return qtc.KFileMetaData__UserMetaData_SetAttribute(@ptrCast(self), name_str, value_str);
+        return qtc.KFileMetaData__UserMetaData_SetAttribute(@ptrCast(self.ptr), name_str, value_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-usermetadata.html#hasAttribute)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFileMetaData__UserMetaData `
+    /// ` self: KFileMetaData__UserMetaData `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn HasAttribute(self: ?*anyopaque, name: []const u8) bool {
+    pub fn HasAttribute(self: KFileMetaData__UserMetaData, name: []const u8) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.KFileMetaData__UserMetaData_HasAttribute(@ptrCast(self), name_str);
+        return qtc.KFileMetaData__UserMetaData_HasAttribute(@ptrCast(self.ptr), name_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-usermetadata.html#hasAttribute)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFileMetaData__UserMetaData `
+    /// ` self: KFileMetaData__UserMetaData `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn HasAttribute2(self: ?*anyopaque, name: []const u8) bool {
+    pub fn HasAttribute2(self: KFileMetaData__UserMetaData, name: []const u8) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.KFileMetaData__UserMetaData_HasAttribute2(@ptrCast(self), name_str);
+        return qtc.KFileMetaData__UserMetaData_HasAttribute2(@ptrCast(self.ptr), name_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-usermetadata.html#queryAttributes)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFileMetaData__UserMetaData `
+    /// ` self: KFileMetaData__UserMetaData `
     ///
     /// ## Returns:
     ///
     /// ` flag of usermetadata_enums.Attribute `
     ///
-    pub fn QueryAttributes(self: ?*anyopaque) u32 {
-        return qtc.KFileMetaData__UserMetaData_QueryAttributes(@ptrCast(self));
+    pub fn QueryAttributes(self: KFileMetaData__UserMetaData) u32 {
+        return qtc.KFileMetaData__UserMetaData_QueryAttributes(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-usermetadata.html#queryAttributes)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFileMetaData__UserMetaData `
+    /// ` self: KFileMetaData__UserMetaData `
     ///
     /// ` attributes: flag of usermetadata_enums.Attribute `
     ///
@@ -449,8 +458,8 @@ pub const kfilemetadata__usermetadata = struct {
     ///
     /// ` flag of usermetadata_enums.Attribute `
     ///
-    pub fn QueryAttributes1(self: ?*anyopaque, attributes: u32) u32 {
-        return qtc.KFileMetaData__UserMetaData_QueryAttributes1(@ptrCast(self), @bitCast(attributes));
+    pub fn QueryAttributes1(self: KFileMetaData__UserMetaData, attributes: u32) u32 {
+        return qtc.KFileMetaData__UserMetaData_QueryAttributes1(@ptrCast(self.ptr), @bitCast(attributes));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -461,10 +470,10 @@ pub const kfilemetadata__usermetadata = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KFileMetaData__UserMetaData `
+    /// ` self: KFileMetaData__UserMetaData `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KFileMetaData__UserMetaData_Delete(@ptrCast(self));
+    pub fn Delete(self: KFileMetaData__UserMetaData) void {
+        qtc.KFileMetaData__UserMetaData_Delete(@ptrCast(self.ptr));
     }
 };
 

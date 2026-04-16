@@ -1,36 +1,47 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const KBookmark = @import("libqt6").KBookmark;
 
 /// ### [Upstream resources](https://api.kde.org/kbookmarkactioninterface.html)
-pub const kbookmarkactioninterface = struct {
+pub const KBookmarkActionInterface = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kbookmarkactioninterface.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KBookmarkActionInterface,
+
+    pub const _is_KBookmarkActionInterface = {};
+
     /// New constructs a new KBookmarkActionInterface object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` bk: QtC.KBookmark `
+    /// ` bk: KBookmark `
     ///
-    pub fn New(bk: ?*anyopaque) QtC.KBookmarkActionInterface {
-        return qtc.KBookmarkActionInterface_new(@ptrCast(bk));
+    pub fn New(bk: anytype) KBookmarkActionInterface {
+        comptime _ = @TypeOf(bk)._is_KBookmark;
+        return .{ .ptr = qtc.KBookmarkActionInterface_new(@ptrCast(bk.ptr)) };
     }
 
     /// New2 constructs a new KBookmarkActionInterface object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.KBookmarkActionInterface `
+    /// ` param1: KBookmarkActionInterface `
     ///
-    pub fn New2(param1: ?*anyopaque) QtC.KBookmarkActionInterface {
-        return qtc.KBookmarkActionInterface_new2(@ptrCast(param1));
+    pub fn New2(param1: anytype) KBookmarkActionInterface {
+        comptime _ = @TypeOf(param1)._is_KBookmarkActionInterface;
+        return .{ .ptr = qtc.KBookmarkActionInterface_new2(@ptrCast(param1.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbookmarkactioninterface.html#bookmark)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KBookmarkActionInterface `
+    /// ` self: KBookmarkActionInterface `
     ///
-    pub fn Bookmark(self: ?*anyopaque) QtC.KBookmark {
-        return qtc.KBookmarkActionInterface_Bookmark(@ptrCast(self));
+    pub fn Bookmark(self: KBookmarkActionInterface) KBookmark {
+        return .{ .ptr = qtc.KBookmarkActionInterface_Bookmark(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -43,9 +54,9 @@ pub const kbookmarkactioninterface = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KBookmarkActionInterface `
+    /// ` self: KBookmarkActionInterface `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KBookmarkActionInterface_Delete(@ptrCast(self));
+    pub fn Delete(self: KBookmarkActionInterface) void {
+        qtc.KBookmarkActionInterface_Delete(@ptrCast(self.ptr));
     }
 };

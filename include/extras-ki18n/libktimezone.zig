@@ -1,9 +1,18 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const KCountry = @import("libqt6").KCountry;
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/ktimezone.html)
-pub const ktimezone = struct {
+pub const KTimeZone = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/ktimezone.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KTimeZone,
+
+    pub const _is_KTimeZone = {};
+
     /// ### [Upstream resources](https://api.kde.org/ktimezone.html#fromLocation)
     ///
     /// ## Parameter(s):
@@ -23,8 +32,8 @@ pub const ktimezone = struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Country(param1: [:0]const u8) QtC.KCountry {
+    pub fn Country(param1: [:0]const u8) KCountry {
         const param1_Cstring = param1.ptr;
-        return qtc.KTimeZone_Country(param1_Cstring);
+        return .{ .ptr = qtc.KTimeZone_Country(param1_Cstring) };
     }
 };

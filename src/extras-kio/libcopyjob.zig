@@ -1,39 +1,66 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const KIO__Job = @import("libqt6").KIO__Job;
+const KIO__JobUiDelegateExtension = @import("libqt6").KIO__JobUiDelegateExtension;
+const KIO__MetaData = @import("libqt6").KIO__MetaData;
+const KJob = @import("libqt6").KJob;
+const KJobUiDelegate = @import("libqt6").KJobUiDelegate;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QDateTime = @import("libqt6").QDateTime;
+const QEvent = @import("libqt6").QEvent;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QThread = @import("libqt6").QThread;
+const QUrl = @import("libqt6").QUrl;
+const QVariant = @import("libqt6").QVariant;
 const copyjob_enums = enums;
 const job_base_enums = @import("libjob_base.zig").enums;
 const kjob_enums = @import("../extras-kcoreaddons/libkjob.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-const arraymap_constu8_constu8 = std.array_hash_map.String([]const u8);
+const ArrayMap_constu8_constu8 = std.array_hash_map.String([]const u8);
 
 /// ### [Upstream resources](https://api.kde.org/kio-copyjob.html)
-pub const kio__copyjob = struct {
+pub const KIO__CopyJob = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kio-copyjob.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KIO__CopyJob,
+
+    pub const _is_KIO__CopyJob = {};
+    pub const _is_KIO__Job = {};
+    pub const _is_KCompositeJob = {};
+    pub const _is_KJob = {};
+    pub const _is_QObject = {};
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KIO__CopyJob_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: KIO__CopyJob) QMetaObject {
+        return .{ .ptr = qtc.KIO__CopyJob_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: KIO__CopyJob, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KIO__CopyJob_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.KIO__CopyJob_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -41,19 +68,19 @@ pub const kio__copyjob = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KIO__CopyJob_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: KIO__CopyJob, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KIO__CopyJob_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -66,30 +93,31 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
     /// ## Returns:
     ///
     /// ` copyjob_enums.CopyMode `
     ///
-    pub fn OperationMode(self: ?*anyopaque) i32 {
-        return qtc.KIO__CopyJob_OperationMode(@ptrCast(self));
+    pub fn OperationMode(self: KIO__CopyJob) i32 {
+        return qtc.KIO__CopyJob_OperationMode(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-copyjob.html#srcUrls)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SrcUrls(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QUrl {
-        const _arr: qtc.libqt_list = qtc.KIO__CopyJob_SrcUrls(@ptrCast(self));
+    pub fn SrcUrls(self: KIO__CopyJob, allocator: std.mem.Allocator) []QUrl {
+        const _arr: qtc.libqt_list = qtc.KIO__CopyJob_SrcUrls(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QUrl, _arr.len) catch @panic("kio__copyjob.SrcUrls: Memory allocation failed");
+        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("kio__copyjob.SrcUrls: Memory allocation failed");
         const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -97,353 +125,375 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    pub fn DestUrl(self: ?*anyopaque) QtC.QUrl {
-        return qtc.KIO__CopyJob_DestUrl(@ptrCast(self));
+    pub fn DestUrl(self: KIO__CopyJob) QUrl {
+        return .{ .ptr = qtc.KIO__CopyJob_DestUrl(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-copyjob.html#setDefaultPermissions)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
     /// ` b: bool `
     ///
-    pub fn SetDefaultPermissions(self: ?*anyopaque, b: bool) void {
-        qtc.KIO__CopyJob_SetDefaultPermissions(@ptrCast(self), b);
+    pub fn SetDefaultPermissions(self: KIO__CopyJob, b: bool) void {
+        qtc.KIO__CopyJob_SetDefaultPermissions(@ptrCast(self.ptr), b);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-copyjob.html#setAutoSkip)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
     /// ` autoSkip: bool `
     ///
-    pub fn SetAutoSkip(self: ?*anyopaque, autoSkip: bool) void {
-        qtc.KIO__CopyJob_SetAutoSkip(@ptrCast(self), autoSkip);
+    pub fn SetAutoSkip(self: KIO__CopyJob, autoSkip: bool) void {
+        qtc.KIO__CopyJob_SetAutoSkip(@ptrCast(self.ptr), autoSkip);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-copyjob.html#setAutoRename)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
     /// ` autoRename: bool `
     ///
-    pub fn SetAutoRename(self: ?*anyopaque, autoRename: bool) void {
-        qtc.KIO__CopyJob_SetAutoRename(@ptrCast(self), autoRename);
+    pub fn SetAutoRename(self: KIO__CopyJob, autoRename: bool) void {
+        qtc.KIO__CopyJob_SetAutoRename(@ptrCast(self.ptr), autoRename);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-copyjob.html#setWriteIntoExistingDirectories)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
     /// ` overwriteAllDirs: bool `
     ///
-    pub fn SetWriteIntoExistingDirectories(self: ?*anyopaque, overwriteAllDirs: bool) void {
-        qtc.KIO__CopyJob_SetWriteIntoExistingDirectories(@ptrCast(self), overwriteAllDirs);
+    pub fn SetWriteIntoExistingDirectories(self: KIO__CopyJob, overwriteAllDirs: bool) void {
+        qtc.KIO__CopyJob_SetWriteIntoExistingDirectories(@ptrCast(self.ptr), overwriteAllDirs);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-copyjob.html#doSuspend)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    pub fn DoSuspend(self: ?*anyopaque) bool {
-        return qtc.KIO__CopyJob_DoSuspend(@ptrCast(self));
+    pub fn DoSuspend(self: KIO__CopyJob) bool {
+        return qtc.KIO__CopyJob_DoSuspend(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-copyjob.html#doResume)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    pub fn DoResume(self: ?*anyopaque) bool {
-        return qtc.KIO__CopyJob_DoResume(@ptrCast(self));
+    pub fn DoResume(self: KIO__CopyJob) bool {
+        return qtc.KIO__CopyJob_DoResume(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-copyjob.html#processedFiles)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` job: QtC.KIO__Job `
+    /// ` job: KIO__Job `
     ///
     /// ` files: usize `
     ///
-    pub fn ProcessedFiles(self: ?*anyopaque, job: ?*anyopaque, files: usize) void {
-        qtc.KIO__CopyJob_ProcessedFiles(@ptrCast(self), @ptrCast(job), @bitCast(files));
+    pub fn ProcessedFiles(self: KIO__CopyJob, job: anytype, files: usize) void {
+        comptime _ = @TypeOf(job)._is_KIO__Job;
+        qtc.KIO__CopyJob_ProcessedFiles(@ptrCast(self.ptr), @ptrCast(job.ptr), @bitCast(files));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-copyjob.html#processedFiles)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__CopyJob, job: QtC.KIO__Job, files: usize) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__CopyJob, job: KIO__Job, files: usize) callconv(.c) void `
     ///
-    pub fn OnProcessedFiles(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, usize) callconv(.c) void) void {
-        qtc.KIO__CopyJob_Connect_ProcessedFiles(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnProcessedFiles(self: KIO__CopyJob, callback: *const fn (KIO__CopyJob, KIO__Job, usize) callconv(.c) void) void {
+        qtc.KIO__CopyJob_Connect_ProcessedFiles(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-copyjob.html#processedDirs)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` job: QtC.KIO__Job `
+    /// ` job: KIO__Job `
     ///
     /// ` dirs: usize `
     ///
-    pub fn ProcessedDirs(self: ?*anyopaque, job: ?*anyopaque, dirs: usize) void {
-        qtc.KIO__CopyJob_ProcessedDirs(@ptrCast(self), @ptrCast(job), @bitCast(dirs));
+    pub fn ProcessedDirs(self: KIO__CopyJob, job: anytype, dirs: usize) void {
+        comptime _ = @TypeOf(job)._is_KIO__Job;
+        qtc.KIO__CopyJob_ProcessedDirs(@ptrCast(self.ptr), @ptrCast(job.ptr), @bitCast(dirs));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-copyjob.html#processedDirs)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__CopyJob, job: QtC.KIO__Job, dirs: usize) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__CopyJob, job: KIO__Job, dirs: usize) callconv(.c) void `
     ///
-    pub fn OnProcessedDirs(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, usize) callconv(.c) void) void {
-        qtc.KIO__CopyJob_Connect_ProcessedDirs(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnProcessedDirs(self: KIO__CopyJob, callback: *const fn (KIO__CopyJob, KIO__Job, usize) callconv(.c) void) void {
+        qtc.KIO__CopyJob_Connect_ProcessedDirs(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-copyjob.html#copying)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` job: QtC.KIO__Job `
+    /// ` job: KIO__Job `
     ///
-    /// ` src: QtC.QUrl `
+    /// ` src: QUrl `
     ///
-    /// ` dest: QtC.QUrl `
+    /// ` dest: QUrl `
     ///
-    pub fn Copying(self: ?*anyopaque, job: ?*anyopaque, src: ?*anyopaque, dest: ?*anyopaque) void {
-        qtc.KIO__CopyJob_Copying(@ptrCast(self), @ptrCast(job), @ptrCast(src), @ptrCast(dest));
+    pub fn Copying(self: KIO__CopyJob, job: anytype, src: anytype, dest: anytype) void {
+        comptime _ = @TypeOf(job)._is_KIO__Job;
+        comptime _ = @TypeOf(src)._is_QUrl;
+        comptime _ = @TypeOf(dest)._is_QUrl;
+        qtc.KIO__CopyJob_Copying(@ptrCast(self.ptr), @ptrCast(job.ptr), @ptrCast(src.ptr), @ptrCast(dest.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-copyjob.html#copying)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__CopyJob, job: QtC.KIO__Job, src: QtC.QUrl, dest: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__CopyJob, job: KIO__Job, src: QUrl, dest: QUrl) callconv(.c) void `
     ///
-    pub fn OnCopying(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__CopyJob_Connect_Copying(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCopying(self: KIO__CopyJob, callback: *const fn (KIO__CopyJob, KIO__Job, QUrl, QUrl) callconv(.c) void) void {
+        qtc.KIO__CopyJob_Connect_Copying(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-copyjob.html#linking)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` job: QtC.KIO__Job `
+    /// ` job: KIO__Job `
     ///
     /// ` target: []const u8 `
     ///
-    /// ` to: QtC.QUrl `
+    /// ` to: QUrl `
     ///
-    pub fn Linking(self: ?*anyopaque, job: ?*anyopaque, target: []const u8, to: ?*anyopaque) void {
+    pub fn Linking(self: KIO__CopyJob, job: anytype, target: []const u8, to: anytype) void {
+        comptime _ = @TypeOf(job)._is_KIO__Job;
         const target_str = qtc.libqt_string{
             .len = target.len,
             .data = target.ptr,
         };
-        qtc.KIO__CopyJob_Linking(@ptrCast(self), @ptrCast(job), target_str, @ptrCast(to));
+        comptime _ = @TypeOf(to)._is_QUrl;
+        qtc.KIO__CopyJob_Linking(@ptrCast(self.ptr), @ptrCast(job.ptr), target_str, @ptrCast(to.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-copyjob.html#linking)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__CopyJob, job: QtC.KIO__Job, target: [*:0]const u8, to: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__CopyJob, job: KIO__Job, target: [*:0]const u8, to: QUrl) callconv(.c) void `
     ///
-    pub fn OnLinking(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__CopyJob_Connect_Linking(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLinking(self: KIO__CopyJob, callback: *const fn (KIO__CopyJob, KIO__Job, [*:0]const u8, QUrl) callconv(.c) void) void {
+        qtc.KIO__CopyJob_Connect_Linking(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-copyjob.html#moving)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` job: QtC.KIO__Job `
+    /// ` job: KIO__Job `
     ///
-    /// ` from: QtC.QUrl `
+    /// ` from: QUrl `
     ///
-    /// ` to: QtC.QUrl `
+    /// ` to: QUrl `
     ///
-    pub fn Moving(self: ?*anyopaque, job: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque) void {
-        qtc.KIO__CopyJob_Moving(@ptrCast(self), @ptrCast(job), @ptrCast(from), @ptrCast(to));
+    pub fn Moving(self: KIO__CopyJob, job: anytype, from: anytype, to: anytype) void {
+        comptime _ = @TypeOf(job)._is_KIO__Job;
+        comptime _ = @TypeOf(from)._is_QUrl;
+        comptime _ = @TypeOf(to)._is_QUrl;
+        qtc.KIO__CopyJob_Moving(@ptrCast(self.ptr), @ptrCast(job.ptr), @ptrCast(from.ptr), @ptrCast(to.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-copyjob.html#moving)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__CopyJob, job: QtC.KIO__Job, from: QtC.QUrl, to: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__CopyJob, job: KIO__Job, from: QUrl, to: QUrl) callconv(.c) void `
     ///
-    pub fn OnMoving(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__CopyJob_Connect_Moving(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMoving(self: KIO__CopyJob, callback: *const fn (KIO__CopyJob, KIO__Job, QUrl, QUrl) callconv(.c) void) void {
+        qtc.KIO__CopyJob_Connect_Moving(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-copyjob.html#creatingDir)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` job: QtC.KIO__Job `
+    /// ` job: KIO__Job `
     ///
-    /// ` dir: QtC.QUrl `
+    /// ` dir: QUrl `
     ///
-    pub fn CreatingDir(self: ?*anyopaque, job: ?*anyopaque, dir: ?*anyopaque) void {
-        qtc.KIO__CopyJob_CreatingDir(@ptrCast(self), @ptrCast(job), @ptrCast(dir));
+    pub fn CreatingDir(self: KIO__CopyJob, job: anytype, dir: anytype) void {
+        comptime _ = @TypeOf(job)._is_KIO__Job;
+        comptime _ = @TypeOf(dir)._is_QUrl;
+        qtc.KIO__CopyJob_CreatingDir(@ptrCast(self.ptr), @ptrCast(job.ptr), @ptrCast(dir.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-copyjob.html#creatingDir)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__CopyJob, job: QtC.KIO__Job, dir: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__CopyJob, job: KIO__Job, dir: QUrl) callconv(.c) void `
     ///
-    pub fn OnCreatingDir(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__CopyJob_Connect_CreatingDir(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreatingDir(self: KIO__CopyJob, callback: *const fn (KIO__CopyJob, KIO__Job, QUrl) callconv(.c) void) void {
+        qtc.KIO__CopyJob_Connect_CreatingDir(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-copyjob.html#renamed)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` job: QtC.KIO__Job `
+    /// ` job: KIO__Job `
     ///
-    /// ` from: QtC.QUrl `
+    /// ` from: QUrl `
     ///
-    /// ` to: QtC.QUrl `
+    /// ` to: QUrl `
     ///
-    pub fn Renamed(self: ?*anyopaque, job: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque) void {
-        qtc.KIO__CopyJob_Renamed(@ptrCast(self), @ptrCast(job), @ptrCast(from), @ptrCast(to));
+    pub fn Renamed(self: KIO__CopyJob, job: anytype, from: anytype, to: anytype) void {
+        comptime _ = @TypeOf(job)._is_KIO__Job;
+        comptime _ = @TypeOf(from)._is_QUrl;
+        comptime _ = @TypeOf(to)._is_QUrl;
+        qtc.KIO__CopyJob_Renamed(@ptrCast(self.ptr), @ptrCast(job.ptr), @ptrCast(from.ptr), @ptrCast(to.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-copyjob.html#renamed)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__CopyJob, job: QtC.KIO__Job, from: QtC.QUrl, to: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__CopyJob, job: KIO__Job, from: QUrl, to: QUrl) callconv(.c) void `
     ///
-    pub fn OnRenamed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__CopyJob_Connect_Renamed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRenamed(self: KIO__CopyJob, callback: *const fn (KIO__CopyJob, KIO__Job, QUrl, QUrl) callconv(.c) void) void {
+        qtc.KIO__CopyJob_Connect_Renamed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-copyjob.html#copyingDone)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` job: QtC.KIO__Job `
+    /// ` job: KIO__Job `
     ///
-    /// ` from: QtC.QUrl `
+    /// ` from: QUrl `
     ///
-    /// ` to: QtC.QUrl `
+    /// ` to: QUrl `
     ///
-    /// ` mtime: QtC.QDateTime `
+    /// ` mtime: QDateTime `
     ///
     /// ` directory: bool `
     ///
     /// ` renamed: bool `
     ///
-    pub fn CopyingDone(self: ?*anyopaque, job: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque, mtime: ?*anyopaque, directory: bool, renamed: bool) void {
-        qtc.KIO__CopyJob_CopyingDone(@ptrCast(self), @ptrCast(job), @ptrCast(from), @ptrCast(to), @ptrCast(mtime), directory, renamed);
+    pub fn CopyingDone(self: KIO__CopyJob, job: anytype, from: anytype, to: anytype, mtime: anytype, directory: bool, renamed: bool) void {
+        comptime _ = @TypeOf(job)._is_KIO__Job;
+        comptime _ = @TypeOf(from)._is_QUrl;
+        comptime _ = @TypeOf(to)._is_QUrl;
+        comptime _ = @TypeOf(mtime)._is_QDateTime;
+        qtc.KIO__CopyJob_CopyingDone(@ptrCast(self.ptr), @ptrCast(job.ptr), @ptrCast(from.ptr), @ptrCast(to.ptr), @ptrCast(mtime.ptr), directory, renamed);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-copyjob.html#copyingDone)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__CopyJob, job: QtC.KIO__Job, from: QtC.QUrl, to: QtC.QUrl, mtime: QtC.QDateTime, directory: bool, renamed: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__CopyJob, job: KIO__Job, from: QUrl, to: QUrl, mtime: QDateTime, directory: bool, renamed: bool) callconv(.c) void `
     ///
-    pub fn OnCopyingDone(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, bool, bool) callconv(.c) void) void {
-        qtc.KIO__CopyJob_Connect_CopyingDone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCopyingDone(self: KIO__CopyJob, callback: *const fn (KIO__CopyJob, KIO__Job, QUrl, QUrl, QDateTime, bool, bool) callconv(.c) void) void {
+        qtc.KIO__CopyJob_Connect_CopyingDone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-copyjob.html#copyingLinkDone)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` job: QtC.KIO__Job `
+    /// ` job: KIO__Job `
     ///
-    /// ` from: QtC.QUrl `
+    /// ` from: QUrl `
     ///
     /// ` target: []const u8 `
     ///
-    /// ` to: QtC.QUrl `
+    /// ` to: QUrl `
     ///
-    pub fn CopyingLinkDone(self: ?*anyopaque, job: ?*anyopaque, from: ?*anyopaque, target: []const u8, to: ?*anyopaque) void {
+    pub fn CopyingLinkDone(self: KIO__CopyJob, job: anytype, from: anytype, target: []const u8, to: anytype) void {
+        comptime _ = @TypeOf(job)._is_KIO__Job;
+        comptime _ = @TypeOf(from)._is_QUrl;
         const target_str = qtc.libqt_string{
             .len = target.len,
             .data = target.ptr,
         };
-        qtc.KIO__CopyJob_CopyingLinkDone(@ptrCast(self), @ptrCast(job), @ptrCast(from), target_str, @ptrCast(to));
+        comptime _ = @TypeOf(to)._is_QUrl;
+        qtc.KIO__CopyJob_CopyingLinkDone(@ptrCast(self.ptr), @ptrCast(job.ptr), @ptrCast(from.ptr), target_str, @ptrCast(to.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-copyjob.html#copyingLinkDone)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__CopyJob, job: QtC.KIO__Job, from: QtC.QUrl, target: [*:0]const u8, to: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__CopyJob, job: KIO__Job, from: QUrl, target: [*:0]const u8, to: QUrl) callconv(.c) void `
     ///
-    pub fn OnCopyingLinkDone(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, [*:0]const u8, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__CopyJob_Connect_CopyingLinkDone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCopyingLinkDone(self: KIO__CopyJob, callback: *const fn (KIO__CopyJob, KIO__Job, QUrl, [*:0]const u8, QUrl) callconv(.c) void) void {
+        qtc.KIO__CopyJob_Connect_CopyingLinkDone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -457,15 +507,15 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -481,10 +531,10 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    pub fn Start(self: ?*anyopaque) void {
-        qtc.KIO__Job_Start(@ptrCast(self));
+    pub fn Start(self: KIO__CopyJob) void {
+        qtc.KIO__Job_Start(@ptrCast(self.ptr));
     }
 
     /// Inherited from KIO::Job
@@ -493,10 +543,10 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    pub fn UiDelegateExtension(self: ?*anyopaque) QtC.KIO__JobUiDelegateExtension {
-        return qtc.KIO__Job_UiDelegateExtension(@ptrCast(self));
+    pub fn UiDelegateExtension(self: KIO__CopyJob) KIO__JobUiDelegateExtension {
+        return .{ .ptr = qtc.KIO__Job_UiDelegateExtension(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from KIO::Job
@@ -505,12 +555,13 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` extension: QtC.KIO__JobUiDelegateExtension `
+    /// ` extension: KIO__JobUiDelegateExtension `
     ///
-    pub fn SetUiDelegateExtension(self: ?*anyopaque, extension: ?*anyopaque) void {
-        qtc.KIO__Job_SetUiDelegateExtension(@ptrCast(self), @ptrCast(extension));
+    pub fn SetUiDelegateExtension(self: KIO__CopyJob, extension: anytype) void {
+        comptime _ = @TypeOf(extension)._is_KIO__JobUiDelegateExtension;
+        qtc.KIO__Job_SetUiDelegateExtension(@ptrCast(self.ptr), @ptrCast(extension.ptr));
     }
 
     /// Inherited from KIO::Job
@@ -519,12 +570,12 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KIO__Job_ErrorString(@ptrCast(self));
+    pub fn ErrorString(self: KIO__CopyJob, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KIO__Job_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__copyjob.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -537,17 +588,16 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DetailedErrorStrings(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KIO__Job_DetailedErrorStrings(@ptrCast(self));
+    pub fn DetailedErrorStrings(self: KIO__CopyJob, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.KIO__Job_DetailedErrorStrings(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kio__copyjob.DetailedErrorStrings: Memory allocation failed");
@@ -566,12 +616,13 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` parentJob: QtC.KIO__Job `
+    /// ` parentJob: KIO__Job `
     ///
-    pub fn SetParentJob(self: ?*anyopaque, parentJob: ?*anyopaque) void {
-        qtc.KIO__Job_SetParentJob(@ptrCast(self), @ptrCast(parentJob));
+    pub fn SetParentJob(self: KIO__CopyJob, parentJob: anytype) void {
+        comptime _ = @TypeOf(parentJob)._is_KIO__Job;
+        qtc.KIO__Job_SetParentJob(@ptrCast(self.ptr), @ptrCast(parentJob.ptr));
     }
 
     /// Inherited from KIO::Job
@@ -580,10 +631,10 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    pub fn ParentJob(self: ?*anyopaque) QtC.KIO__Job {
-        return qtc.KIO__Job_ParentJob(@ptrCast(self));
+    pub fn ParentJob(self: KIO__CopyJob) KIO__Job {
+        return .{ .ptr = qtc.KIO__Job_ParentJob(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from KIO::Job
@@ -592,12 +643,13 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` metaData: QtC.KIO__MetaData `
+    /// ` metaData: KIO__MetaData `
     ///
-    pub fn SetMetaData(self: ?*anyopaque, metaData: ?*anyopaque) void {
-        qtc.KIO__Job_SetMetaData(@ptrCast(self), @ptrCast(metaData));
+    pub fn SetMetaData(self: KIO__CopyJob, metaData: anytype) void {
+        comptime _ = @TypeOf(metaData)._is_KIO__MetaData;
+        qtc.KIO__Job_SetMetaData(@ptrCast(self.ptr), @ptrCast(metaData.ptr));
     }
 
     /// Inherited from KIO::Job
@@ -606,13 +658,13 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
     /// ` key: []const u8 `
     ///
     /// ` value: []const u8 `
     ///
-    pub fn AddMetaData(self: ?*anyopaque, key: []const u8, value: []const u8) void {
+    pub fn AddMetaData(self: KIO__CopyJob, key: []const u8, value: []const u8) void {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -621,7 +673,7 @@ pub const kio__copyjob = struct {
             .len = value.len,
             .data = value.ptr,
         };
-        qtc.KIO__Job_AddMetaData(@ptrCast(self), key_str, value_str);
+        qtc.KIO__Job_AddMetaData(@ptrCast(self.ptr), key_str, value_str);
     }
 
     /// Inherited from KIO::Job
@@ -630,13 +682,13 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
-    ///
-    /// ` values: arraymap_constu8_constu8 `
+    /// ` self: KIO__CopyJob `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AddMetaData2(self: ?*anyopaque, values: arraymap_constu8_constu8, allocator: std.mem.Allocator) void {
+    /// ` values: ArrayMap_constu8_constu8 `
+    ///
+    pub fn AddMetaData2(self: KIO__CopyJob, allocator: std.mem.Allocator, values: ArrayMap_constu8_constu8) void {
         const values_count = values.count();
         const values_keys = allocator.alloc(qtc.libqt_string, values_count) catch @panic("kio__copyjob.AddMetaData2: Memory allocation failed");
         defer allocator.free(values_keys);
@@ -661,7 +713,7 @@ pub const kio__copyjob = struct {
             .keys = @ptrCast(values_keys.ptr),
             .values = @ptrCast(values_values.ptr),
         };
-        qtc.KIO__Job_AddMetaData2(@ptrCast(self), values_map);
+        qtc.KIO__Job_AddMetaData2(@ptrCast(self.ptr), values_map);
     }
 
     /// Inherited from KIO::Job
@@ -670,13 +722,13 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
-    ///
-    /// ` values: arraymap_constu8_constu8 `
+    /// ` self: KIO__CopyJob `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MergeMetaData(self: ?*anyopaque, values: arraymap_constu8_constu8, allocator: std.mem.Allocator) void {
+    /// ` values: ArrayMap_constu8_constu8 `
+    ///
+    pub fn MergeMetaData(self: KIO__CopyJob, allocator: std.mem.Allocator, values: ArrayMap_constu8_constu8) void {
         const values_count = values.count();
         const values_keys = allocator.alloc(qtc.libqt_string, values_count) catch @panic("kio__copyjob.MergeMetaData: Memory allocation failed");
         defer allocator.free(values_keys);
@@ -701,7 +753,7 @@ pub const kio__copyjob = struct {
             .keys = @ptrCast(values_keys.ptr),
             .values = @ptrCast(values_values.ptr),
         };
-        qtc.KIO__Job_MergeMetaData(@ptrCast(self), values_map);
+        qtc.KIO__Job_MergeMetaData(@ptrCast(self.ptr), values_map);
     }
 
     /// Inherited from KIO::Job
@@ -710,10 +762,10 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    pub fn OutgoingMetaData(self: ?*anyopaque) QtC.KIO__MetaData {
-        return qtc.KIO__Job_OutgoingMetaData(@ptrCast(self));
+    pub fn OutgoingMetaData(self: KIO__CopyJob) KIO__MetaData {
+        return .{ .ptr = qtc.KIO__Job_OutgoingMetaData(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from KIO::Job
@@ -722,10 +774,10 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    pub fn MetaData(self: ?*anyopaque) QtC.KIO__MetaData {
-        return qtc.KIO__Job_MetaData(@ptrCast(self));
+    pub fn MetaData(self: KIO__CopyJob) KIO__MetaData {
+        return .{ .ptr = qtc.KIO__Job_MetaData(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from KIO::Job
@@ -734,18 +786,18 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
-    ///
-    /// ` key: []const u8 `
+    /// ` self: KIO__CopyJob `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QueryMetaData(self: ?*anyopaque, key: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` key: []const u8 `
+    ///
+    pub fn QueryMetaData(self: KIO__CopyJob, allocator: std.mem.Allocator, key: []const u8) []const u8 {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
-        var _str = qtc.KIO__Job_QueryMetaData(@ptrCast(self), key_str);
+        var _str = qtc.KIO__Job_QueryMetaData(@ptrCast(self.ptr), key_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__copyjob.QueryMetaData: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -758,12 +810,13 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` job: QtC.KIO__Job `
+    /// ` job: KIO__Job `
     ///
-    pub fn Connected(self: ?*anyopaque, job: ?*anyopaque) void {
-        qtc.KIO__Job_Connected(@ptrCast(self), @ptrCast(job));
+    pub fn Connected(self: KIO__CopyJob, job: anytype) void {
+        comptime _ = @TypeOf(job)._is_KIO__Job;
+        qtc.KIO__Job_Connected(@ptrCast(self.ptr), @ptrCast(job.ptr));
     }
 
     /// Inherited from KIO::Job
@@ -772,12 +825,12 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__CopyJob, job: QtC.KIO__Job) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__CopyJob, job: KIO__Job) callconv(.c) void `
     ///
-    pub fn OnConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__Job_Connect_Connected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnected(self: KIO__CopyJob, callback: *const fn (KIO__CopyJob, KIO__Job) callconv(.c) void) void {
+        qtc.KIO__Job_Connect_Connected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KIO::Job
@@ -786,19 +839,19 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
-    ///
-    /// ` reqUrl: QtC.QUrl `
+    /// ` self: KIO__CopyJob `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DetailedErrorStrings1(self: ?*anyopaque, reqUrl: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KIO__Job_DetailedErrorStrings1(@ptrCast(self), @ptrCast(reqUrl));
+    /// ` reqUrl: QUrl `
+    ///
+    pub fn DetailedErrorStrings1(self: KIO__CopyJob, allocator: std.mem.Allocator, reqUrl: anytype) []const []const u8 {
+        comptime _ = @TypeOf(reqUrl)._is_QUrl;
+        const _arr: qtc.libqt_list = qtc.KIO__Job_DetailedErrorStrings1(@ptrCast(self.ptr), @ptrCast(reqUrl.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kio__copyjob.DetailedErrorStrings1: Memory allocation failed");
@@ -817,21 +870,21 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
-    ///
-    /// ` reqUrl: QtC.QUrl `
-    ///
-    /// ` method: i32 `
+    /// ` self: KIO__CopyJob `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DetailedErrorStrings2(self: ?*anyopaque, reqUrl: ?*anyopaque, method: i32, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KIO__Job_DetailedErrorStrings2(@ptrCast(self), @ptrCast(reqUrl), @bitCast(method));
+    /// ` reqUrl: QUrl `
+    ///
+    /// ` method: i32 `
+    ///
+    pub fn DetailedErrorStrings2(self: KIO__CopyJob, allocator: std.mem.Allocator, reqUrl: anytype, method: i32) []const []const u8 {
+        comptime _ = @TypeOf(reqUrl)._is_QUrl;
+        const _arr: qtc.libqt_list = qtc.KIO__Job_DetailedErrorStrings2(@ptrCast(self.ptr), @ptrCast(reqUrl.ptr), @bitCast(method));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kio__copyjob.DetailedErrorStrings2: Memory allocation failed");
@@ -850,12 +903,13 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` delegate: QtC.KJobUiDelegate `
+    /// ` delegate: KJobUiDelegate `
     ///
-    pub fn SetUiDelegate(self: ?*anyopaque, delegate: ?*anyopaque) void {
-        qtc.KJob_SetUiDelegate(@ptrCast(self), @ptrCast(delegate));
+    pub fn SetUiDelegate(self: KIO__CopyJob, delegate: anytype) void {
+        comptime _ = @TypeOf(delegate)._is_KJobUiDelegate;
+        qtc.KJob_SetUiDelegate(@ptrCast(self.ptr), @ptrCast(delegate.ptr));
     }
 
     /// Inherited from KJob
@@ -864,10 +918,10 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    pub fn UiDelegate(self: ?*anyopaque) QtC.KJobUiDelegate {
-        return qtc.KJob_UiDelegate(@ptrCast(self));
+    pub fn UiDelegate(self: KIO__CopyJob) KJobUiDelegate {
+        return .{ .ptr = qtc.KJob_UiDelegate(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from KJob
@@ -876,14 +930,14 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
     /// ## Returns:
     ///
     /// ` flag of kjob_enums.Capability `
     ///
-    pub fn Capabilities(self: ?*anyopaque) i32 {
-        return qtc.KJob_Capabilities(@ptrCast(self));
+    pub fn Capabilities(self: KIO__CopyJob) i32 {
+        return qtc.KJob_Capabilities(@ptrCast(self.ptr));
     }
 
     /// Inherited from KJob
@@ -892,10 +946,10 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    pub fn IsSuspended(self: ?*anyopaque) bool {
-        return qtc.KJob_IsSuspended(@ptrCast(self));
+    pub fn IsSuspended(self: KIO__CopyJob) bool {
+        return qtc.KJob_IsSuspended(@ptrCast(self.ptr));
     }
 
     /// Inherited from KJob
@@ -904,10 +958,10 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    pub fn Kill(self: ?*anyopaque) bool {
-        return qtc.KJob_Kill(@ptrCast(self));
+    pub fn Kill(self: KIO__CopyJob) bool {
+        return qtc.KJob_Kill(@ptrCast(self.ptr));
     }
 
     /// Inherited from KJob
@@ -916,10 +970,10 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    pub fn Suspend(self: ?*anyopaque) bool {
-        return qtc.KJob_Suspend(@ptrCast(self));
+    pub fn Suspend(self: KIO__CopyJob) bool {
+        return qtc.KJob_Suspend(@ptrCast(self.ptr));
     }
 
     /// Inherited from KJob
@@ -928,10 +982,10 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    pub fn Resume(self: ?*anyopaque) bool {
-        return qtc.KJob_Resume(@ptrCast(self));
+    pub fn Resume(self: KIO__CopyJob) bool {
+        return qtc.KJob_Resume(@ptrCast(self.ptr));
     }
 
     /// Inherited from KJob
@@ -940,10 +994,10 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    pub fn Exec(self: ?*anyopaque) bool {
-        return qtc.KJob_Exec(@ptrCast(self));
+    pub fn Exec(self: KIO__CopyJob) bool {
+        return qtc.KJob_Exec(@ptrCast(self.ptr));
     }
 
     /// Inherited from KJob
@@ -952,10 +1006,10 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    pub fn Error(self: ?*anyopaque) i32 {
-        return qtc.KJob_Error(@ptrCast(self));
+    pub fn Error(self: KIO__CopyJob) i32 {
+        return qtc.KJob_Error(@ptrCast(self.ptr));
     }
 
     /// Inherited from KJob
@@ -964,12 +1018,12 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KJob_ErrorText(@ptrCast(self));
+    pub fn ErrorText(self: KIO__CopyJob, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KJob_ErrorText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__copyjob.ErrorText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -982,12 +1036,12 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
     /// ` unit: kjob_enums.Unit `
     ///
-    pub fn ProcessedAmount(self: ?*anyopaque, unit: i32) usize {
-        return qtc.KJob_ProcessedAmount(@ptrCast(self), @bitCast(unit));
+    pub fn ProcessedAmount(self: KIO__CopyJob, unit: i32) usize {
+        return qtc.KJob_ProcessedAmount(@ptrCast(self.ptr), @bitCast(unit));
     }
 
     /// Inherited from KJob
@@ -996,12 +1050,12 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
     /// ` unit: kjob_enums.Unit `
     ///
-    pub fn TotalAmount(self: ?*anyopaque, unit: i32) usize {
-        return qtc.KJob_TotalAmount(@ptrCast(self), @bitCast(unit));
+    pub fn TotalAmount(self: KIO__CopyJob, unit: i32) usize {
+        return qtc.KJob_TotalAmount(@ptrCast(self.ptr), @bitCast(unit));
     }
 
     /// Inherited from KJob
@@ -1010,10 +1064,10 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    pub fn Percent(self: ?*anyopaque) usize {
-        return qtc.KJob_Percent(@ptrCast(self));
+    pub fn Percent(self: KIO__CopyJob) usize {
+        return qtc.KJob_Percent(@ptrCast(self.ptr));
     }
 
     /// Inherited from KJob
@@ -1022,12 +1076,12 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
     /// ` autodelete: bool `
     ///
-    pub fn SetAutoDelete(self: ?*anyopaque, autodelete: bool) void {
-        qtc.KJob_SetAutoDelete(@ptrCast(self), autodelete);
+    pub fn SetAutoDelete(self: KIO__CopyJob, autodelete: bool) void {
+        qtc.KJob_SetAutoDelete(@ptrCast(self.ptr), autodelete);
     }
 
     /// Inherited from KJob
@@ -1036,10 +1090,10 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    pub fn IsAutoDelete(self: ?*anyopaque) bool {
-        return qtc.KJob_IsAutoDelete(@ptrCast(self));
+    pub fn IsAutoDelete(self: KIO__CopyJob) bool {
+        return qtc.KJob_IsAutoDelete(@ptrCast(self.ptr));
     }
 
     /// Inherited from KJob
@@ -1048,10 +1102,10 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    pub fn SetFinishedNotificationHidden(self: ?*anyopaque) void {
-        qtc.KJob_SetFinishedNotificationHidden(@ptrCast(self));
+    pub fn SetFinishedNotificationHidden(self: KIO__CopyJob) void {
+        qtc.KJob_SetFinishedNotificationHidden(@ptrCast(self.ptr));
     }
 
     /// Inherited from KJob
@@ -1060,10 +1114,10 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    pub fn IsFinishedNotificationHidden(self: ?*anyopaque) bool {
-        return qtc.KJob_IsFinishedNotificationHidden(@ptrCast(self));
+    pub fn IsFinishedNotificationHidden(self: KIO__CopyJob) bool {
+        return qtc.KJob_IsFinishedNotificationHidden(@ptrCast(self.ptr));
     }
 
     /// Inherited from KJob
@@ -1072,10 +1126,10 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    pub fn IsStartedWithExec(self: ?*anyopaque) bool {
-        return qtc.KJob_IsStartedWithExec(@ptrCast(self));
+    pub fn IsStartedWithExec(self: KIO__CopyJob) bool {
+        return qtc.KJob_IsStartedWithExec(@ptrCast(self.ptr));
     }
 
     /// Inherited from KJob
@@ -1084,10 +1138,10 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    pub fn ElapsedTime(self: ?*anyopaque) i64 {
-        return qtc.KJob_ElapsedTime(@ptrCast(self));
+    pub fn ElapsedTime(self: KIO__CopyJob) i64 {
+        return qtc.KJob_ElapsedTime(@ptrCast(self.ptr));
     }
 
     /// Inherited from KJob
@@ -1096,18 +1150,19 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` job: QtC.KJob `
+    /// ` job: KJob `
     ///
     /// ` message: []const u8 `
     ///
-    pub fn InfoMessage(self: ?*anyopaque, job: ?*anyopaque, message: []const u8) void {
+    pub fn InfoMessage(self: KIO__CopyJob, job: anytype, message: []const u8) void {
+        comptime _ = @TypeOf(job)._is_KJob;
         const message_str = qtc.libqt_string{
             .len = message.len,
             .data = message.ptr,
         };
-        qtc.KJob_InfoMessage(@ptrCast(self), @ptrCast(job), message_str);
+        qtc.KJob_InfoMessage(@ptrCast(self.ptr), @ptrCast(job.ptr), message_str);
     }
 
     /// Inherited from KJob
@@ -1116,12 +1171,12 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__CopyJob, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__CopyJob, job: KJob, message: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnInfoMessage(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KJob_Connect_InfoMessage(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInfoMessage(self: KIO__CopyJob, callback: *const fn (KIO__CopyJob, KJob, [*:0]const u8) callconv(.c) void) void {
+        qtc.KJob_Connect_InfoMessage(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1130,18 +1185,19 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` job: QtC.KJob `
+    /// ` job: KJob `
     ///
     /// ` message: []const u8 `
     ///
-    pub fn Warning(self: ?*anyopaque, job: ?*anyopaque, message: []const u8) void {
+    pub fn Warning(self: KIO__CopyJob, job: anytype, message: []const u8) void {
+        comptime _ = @TypeOf(job)._is_KJob;
         const message_str = qtc.libqt_string{
             .len = message.len,
             .data = message.ptr,
         };
-        qtc.KJob_Warning(@ptrCast(self), @ptrCast(job), message_str);
+        qtc.KJob_Warning(@ptrCast(self.ptr), @ptrCast(job.ptr), message_str);
     }
 
     /// Inherited from KJob
@@ -1150,12 +1206,12 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__CopyJob, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__CopyJob, job: KJob, message: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWarning(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KJob_Connect_Warning(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWarning(self: KIO__CopyJob, callback: *const fn (KIO__CopyJob, KJob, [*:0]const u8) callconv(.c) void) void {
+        qtc.KJob_Connect_Warning(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1164,14 +1220,15 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` job: QtC.KJob `
+    /// ` job: KJob `
     ///
     /// ` size: usize `
     ///
-    pub fn TotalSize(self: ?*anyopaque, job: ?*anyopaque, size: usize) void {
-        qtc.KJob_TotalSize(@ptrCast(self), @ptrCast(job), @bitCast(size));
+    pub fn TotalSize(self: KIO__CopyJob, job: anytype, size: usize) void {
+        comptime _ = @TypeOf(job)._is_KJob;
+        qtc.KJob_TotalSize(@ptrCast(self.ptr), @ptrCast(job.ptr), @bitCast(size));
     }
 
     /// Inherited from KJob
@@ -1180,12 +1237,12 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__CopyJob, job: QtC.KJob, size: usize) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__CopyJob, job: KJob, size: usize) callconv(.c) void `
     ///
-    pub fn OnTotalSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, usize) callconv(.c) void) void {
-        qtc.KJob_Connect_TotalSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTotalSize(self: KIO__CopyJob, callback: *const fn (KIO__CopyJob, KJob, usize) callconv(.c) void) void {
+        qtc.KJob_Connect_TotalSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1194,14 +1251,15 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` job: QtC.KJob `
+    /// ` job: KJob `
     ///
     /// ` size: usize `
     ///
-    pub fn ProcessedSize(self: ?*anyopaque, job: ?*anyopaque, size: usize) void {
-        qtc.KJob_ProcessedSize(@ptrCast(self), @ptrCast(job), @bitCast(size));
+    pub fn ProcessedSize(self: KIO__CopyJob, job: anytype, size: usize) void {
+        comptime _ = @TypeOf(job)._is_KJob;
+        qtc.KJob_ProcessedSize(@ptrCast(self.ptr), @ptrCast(job.ptr), @bitCast(size));
     }
 
     /// Inherited from KJob
@@ -1210,12 +1268,12 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__CopyJob, job: QtC.KJob, size: usize) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__CopyJob, job: KJob, size: usize) callconv(.c) void `
     ///
-    pub fn OnProcessedSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, usize) callconv(.c) void) void {
-        qtc.KJob_Connect_ProcessedSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnProcessedSize(self: KIO__CopyJob, callback: *const fn (KIO__CopyJob, KJob, usize) callconv(.c) void) void {
+        qtc.KJob_Connect_ProcessedSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1224,14 +1282,15 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` job: QtC.KJob `
+    /// ` job: KJob `
     ///
     /// ` speed: usize `
     ///
-    pub fn Speed(self: ?*anyopaque, job: ?*anyopaque, speed: usize) void {
-        qtc.KJob_Speed(@ptrCast(self), @ptrCast(job), @bitCast(speed));
+    pub fn Speed(self: KIO__CopyJob, job: anytype, speed: usize) void {
+        comptime _ = @TypeOf(job)._is_KJob;
+        qtc.KJob_Speed(@ptrCast(self.ptr), @ptrCast(job.ptr), @bitCast(speed));
     }
 
     /// Inherited from KJob
@@ -1240,12 +1299,12 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__CopyJob, job: QtC.KJob, speed: usize) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__CopyJob, job: KJob, speed: usize) callconv(.c) void `
     ///
-    pub fn OnSpeed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, usize) callconv(.c) void) void {
-        qtc.KJob_Connect_Speed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSpeed(self: KIO__CopyJob, callback: *const fn (KIO__CopyJob, KJob, usize) callconv(.c) void) void {
+        qtc.KJob_Connect_Speed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1254,12 +1313,12 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
     /// ` verbosity: kjob_enums.KillVerbosity `
     ///
-    pub fn Kill1(self: ?*anyopaque, verbosity: i32) bool {
-        return qtc.KJob_Kill1(@ptrCast(self), @bitCast(verbosity));
+    pub fn Kill1(self: KIO__CopyJob, verbosity: i32) bool {
+        return qtc.KJob_Kill1(@ptrCast(self.ptr), @bitCast(verbosity));
     }
 
     /// Inherited from KJob
@@ -1268,12 +1327,12 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
     /// ` hide: bool `
     ///
-    pub fn SetFinishedNotificationHidden1(self: ?*anyopaque, hide: bool) void {
-        qtc.KJob_SetFinishedNotificationHidden1(@ptrCast(self), hide);
+    pub fn SetFinishedNotificationHidden1(self: KIO__CopyJob, hide: bool) void {
+        qtc.KJob_SetFinishedNotificationHidden1(@ptrCast(self.ptr), hide);
     }
 
     /// Inherited from QObject
@@ -1282,12 +1341,13 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QObject_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: KIO__CopyJob, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QObject_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1296,14 +1356,16 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QObject_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: KIO__CopyJob, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1312,12 +1374,12 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: KIO__CopyJob, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__copyjob.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1330,12 +1392,12 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: KIO__CopyJob, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -1344,10 +1406,10 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: KIO__CopyJob) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1356,10 +1418,10 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: KIO__CopyJob) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1368,10 +1430,10 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: KIO__CopyJob) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1380,10 +1442,10 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: KIO__CopyJob) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1392,12 +1454,12 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: KIO__CopyJob, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -1406,10 +1468,10 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: KIO__CopyJob) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1418,12 +1480,13 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: KIO__CopyJob, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -1432,12 +1495,12 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: KIO__CopyJob, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1446,12 +1509,12 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: KIO__CopyJob, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1460,12 +1523,12 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: KIO__CopyJob, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1474,12 +1537,12 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: KIO__CopyJob, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1488,16 +1551,17 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: KIO__CopyJob, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("kio__copyjob.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kio__copyjob.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1507,12 +1571,13 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: KIO__CopyJob, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -1521,12 +1586,13 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: KIO__CopyJob, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -1535,12 +1601,13 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: KIO__CopyJob, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -1549,18 +1616,20 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1569,16 +1638,20 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1587,18 +1660,19 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: KIO__CopyJob, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1607,18 +1681,20 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1627,16 +1703,20 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -1645,10 +1725,10 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: KIO__CopyJob) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1657,12 +1737,13 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: KIO__CopyJob, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1671,10 +1752,11 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1683,10 +1765,10 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: KIO__CopyJob) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1695,10 +1777,10 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: KIO__CopyJob) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1707,15 +1789,16 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: KIO__CopyJob, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -1724,13 +1807,13 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: KIO__CopyJob, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1739,17 +1822,16 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: KIO__CopyJob, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kio__copyjob.DynamicPropertyNames: Memory allocation failed");
@@ -1768,10 +1850,10 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: KIO__CopyJob) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1780,10 +1862,10 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: KIO__CopyJob) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1792,10 +1874,10 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: KIO__CopyJob) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1804,12 +1886,12 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__CopyJob) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__CopyJob) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: KIO__CopyJob, callback: *const fn (KIO__CopyJob) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1818,10 +1900,10 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: KIO__CopyJob) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1830,13 +1912,13 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: KIO__CopyJob, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -1845,10 +1927,10 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: KIO__CopyJob) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1857,14 +1939,14 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: KIO__CopyJob, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1873,14 +1955,14 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: KIO__CopyJob, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1889,20 +1971,22 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -1911,18 +1995,22 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1931,9 +2019,9 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1941,10 +2029,11 @@ pub const kio__copyjob = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: KIO__CopyJob, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1953,13 +2042,13 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: KIO__CopyJob, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1968,15 +2057,16 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: KIO__CopyJob, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1985,18 +2075,19 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: KIO__CopyJob, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -2005,15 +2096,16 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: KIO__CopyJob, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -2022,12 +2114,13 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: KIO__CopyJob, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -2036,12 +2129,12 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__CopyJob, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__CopyJob, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: KIO__CopyJob, callback: *const fn (KIO__CopyJob, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -2052,12 +2145,12 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__CopyJob, job: QtC.KJob) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__CopyJob, job: KJob) callconv(.c) void `
     ///
-    pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJob_Connect_Finished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFinished(self: KIO__CopyJob, callback: *const fn (KIO__CopyJob, KJob) callconv(.c) void) void {
+        qtc.KJob_Connect_Finished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -2068,12 +2161,12 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__CopyJob, job: QtC.KJob) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__CopyJob, job: KJob) callconv(.c) void `
     ///
-    pub fn OnSuspended(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJob_Connect_Suspended(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSuspended(self: KIO__CopyJob, callback: *const fn (KIO__CopyJob, KJob) callconv(.c) void) void {
+        qtc.KJob_Connect_Suspended(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -2084,12 +2177,12 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__CopyJob, job: QtC.KJob) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__CopyJob, job: KJob) callconv(.c) void `
     ///
-    pub fn OnResumed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJob_Connect_Resumed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResumed(self: KIO__CopyJob, callback: *const fn (KIO__CopyJob, KJob) callconv(.c) void) void {
+        qtc.KJob_Connect_Resumed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -2100,12 +2193,12 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__CopyJob, job: QtC.KJob) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__CopyJob, job: KJob) callconv(.c) void `
     ///
-    pub fn OnResult(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJob_Connect_Result(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResult(self: KIO__CopyJob, callback: *const fn (KIO__CopyJob, KJob) callconv(.c) void) void {
+        qtc.KJob_Connect_Result(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -2116,12 +2209,12 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__CopyJob, job: QtC.KJob, unit: kjob_enums.Unit, amount: usize) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__CopyJob, job: KJob, unit: kjob_enums.Unit, amount: usize) callconv(.c) void `
     ///
-    pub fn OnTotalAmountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, usize) callconv(.c) void) void {
-        qtc.KJob_Connect_TotalAmountChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTotalAmountChanged(self: KIO__CopyJob, callback: *const fn (KIO__CopyJob, KJob, i32, usize) callconv(.c) void) void {
+        qtc.KJob_Connect_TotalAmountChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -2132,12 +2225,12 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__CopyJob, job: QtC.KJob, unit: kjob_enums.Unit, amount: usize) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__CopyJob, job: KJob, unit: kjob_enums.Unit, amount: usize) callconv(.c) void `
     ///
-    pub fn OnProcessedAmountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, usize) callconv(.c) void) void {
-        qtc.KJob_Connect_ProcessedAmountChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnProcessedAmountChanged(self: KIO__CopyJob, callback: *const fn (KIO__CopyJob, KJob, i32, usize) callconv(.c) void) void {
+        qtc.KJob_Connect_ProcessedAmountChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -2148,12 +2241,12 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__CopyJob, job: QtC.KJob, percent: usize) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__CopyJob, job: KJob, percent: usize) callconv(.c) void `
     ///
-    pub fn OnPercentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, usize) callconv(.c) void) void {
-        qtc.KJob_Connect_PercentChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPercentChanged(self: KIO__CopyJob, callback: *const fn (KIO__CopyJob, KJob, usize) callconv(.c) void) void {
+        qtc.KJob_Connect_PercentChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2164,12 +2257,12 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__CopyJob, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__CopyJob, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: KIO__CopyJob, callback: *const fn (KIO__CopyJob, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -2180,179 +2273,203 @@ pub const kio__copyjob = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KIO__CopyJob `
+    /// ` self: KIO__CopyJob `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KIO__CopyJob_Delete(@ptrCast(self));
+    pub fn Delete(self: KIO__CopyJob) void {
+        qtc.KIO__CopyJob_Delete(@ptrCast(self.ptr));
     }
 };
 
 /// ### [Upstream resources](https://api.kde.org/kio.html)
-pub const kio = struct {
+pub const KIO = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kio.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KIO,
+
+    pub const _is_KIO = {};
+
     /// ### [Upstream resources](https://api.kde.org/kio.html#copy)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QUrl `
+    /// ` param1: QUrl `
     ///
-    /// ` param2: QtC.QUrl `
+    /// ` param2: QUrl `
     ///
     /// ` param3: flag of job_base_enums.JobFlag `
     ///
-    pub fn Copy(param1: ?*anyopaque, param2: ?*anyopaque, param3: i32) QtC.KIO__CopyJob {
-        return qtc.KIO_Copy(@ptrCast(param1), @ptrCast(param2), @bitCast(param3));
+    pub fn Copy(param1: anytype, param2: anytype, param3: i32) KIO__CopyJob {
+        comptime _ = @TypeOf(param1)._is_QUrl;
+        comptime _ = @TypeOf(param2)._is_QUrl;
+        return .{ .ptr = qtc.KIO_Copy(@ptrCast(param1.ptr), @ptrCast(param2.ptr), @bitCast(param3)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#copyAs)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QUrl `
+    /// ` param1: QUrl `
     ///
-    /// ` param2: QtC.QUrl `
+    /// ` param2: QUrl `
     ///
     /// ` param3: flag of job_base_enums.JobFlag `
     ///
-    pub fn CopyAs(param1: ?*anyopaque, param2: ?*anyopaque, param3: i32) QtC.KIO__CopyJob {
-        return qtc.KIO_CopyAs(@ptrCast(param1), @ptrCast(param2), @bitCast(param3));
+    pub fn CopyAs(param1: anytype, param2: anytype, param3: i32) KIO__CopyJob {
+        comptime _ = @TypeOf(param1)._is_QUrl;
+        comptime _ = @TypeOf(param2)._is_QUrl;
+        return .{ .ptr = qtc.KIO_CopyAs(@ptrCast(param1.ptr), @ptrCast(param2.ptr), @bitCast(param3)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#copy)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []QtC.QUrl `
+    /// ` param1: []QUrl `
     ///
-    /// ` param2: QtC.QUrl `
+    /// ` param2: QUrl `
     ///
     /// ` param3: flag of job_base_enums.JobFlag `
     ///
-    pub fn Copy2(param1: []QtC.QUrl, param2: ?*anyopaque, param3: i32) QtC.KIO__CopyJob {
+    pub fn Copy2(param1: []QUrl, param2: anytype, param3: i32) KIO__CopyJob {
         const param1_list = qtc.libqt_list{
             .len = param1.len,
             .data = @ptrCast(param1.ptr),
         };
-        return qtc.KIO_Copy2(param1_list, @ptrCast(param2), @bitCast(param3));
+        comptime _ = @TypeOf(param2)._is_QUrl;
+        return .{ .ptr = qtc.KIO_Copy2(param1_list, @ptrCast(param2.ptr), @bitCast(param3)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#move)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QUrl `
+    /// ` param1: QUrl `
     ///
-    /// ` param2: QtC.QUrl `
+    /// ` param2: QUrl `
     ///
     /// ` param3: flag of job_base_enums.JobFlag `
     ///
-    pub fn Move(param1: ?*anyopaque, param2: ?*anyopaque, param3: i32) QtC.KIO__CopyJob {
-        return qtc.KIO_Move(@ptrCast(param1), @ptrCast(param2), @bitCast(param3));
+    pub fn Move(param1: anytype, param2: anytype, param3: i32) KIO__CopyJob {
+        comptime _ = @TypeOf(param1)._is_QUrl;
+        comptime _ = @TypeOf(param2)._is_QUrl;
+        return .{ .ptr = qtc.KIO_Move(@ptrCast(param1.ptr), @ptrCast(param2.ptr), @bitCast(param3)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#moveAs)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QUrl `
+    /// ` param1: QUrl `
     ///
-    /// ` param2: QtC.QUrl `
+    /// ` param2: QUrl `
     ///
     /// ` param3: flag of job_base_enums.JobFlag `
     ///
-    pub fn MoveAs(param1: ?*anyopaque, param2: ?*anyopaque, param3: i32) QtC.KIO__CopyJob {
-        return qtc.KIO_MoveAs(@ptrCast(param1), @ptrCast(param2), @bitCast(param3));
+    pub fn MoveAs(param1: anytype, param2: anytype, param3: i32) KIO__CopyJob {
+        comptime _ = @TypeOf(param1)._is_QUrl;
+        comptime _ = @TypeOf(param2)._is_QUrl;
+        return .{ .ptr = qtc.KIO_MoveAs(@ptrCast(param1.ptr), @ptrCast(param2.ptr), @bitCast(param3)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#move)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []QtC.QUrl `
+    /// ` param1: []QUrl `
     ///
-    /// ` param2: QtC.QUrl `
+    /// ` param2: QUrl `
     ///
     /// ` param3: flag of job_base_enums.JobFlag `
     ///
-    pub fn Move2(param1: []QtC.QUrl, param2: ?*anyopaque, param3: i32) QtC.KIO__CopyJob {
+    pub fn Move2(param1: []QUrl, param2: anytype, param3: i32) KIO__CopyJob {
         const param1_list = qtc.libqt_list{
             .len = param1.len,
             .data = @ptrCast(param1.ptr),
         };
-        return qtc.KIO_Move2(param1_list, @ptrCast(param2), @bitCast(param3));
+        comptime _ = @TypeOf(param2)._is_QUrl;
+        return .{ .ptr = qtc.KIO_Move2(param1_list, @ptrCast(param2.ptr), @bitCast(param3)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#link)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QUrl `
+    /// ` param1: QUrl `
     ///
-    /// ` param2: QtC.QUrl `
+    /// ` param2: QUrl `
     ///
     /// ` param3: flag of job_base_enums.JobFlag `
     ///
-    pub fn Link(param1: ?*anyopaque, param2: ?*anyopaque, param3: i32) QtC.KIO__CopyJob {
-        return qtc.KIO_Link(@ptrCast(param1), @ptrCast(param2), @bitCast(param3));
+    pub fn Link(param1: anytype, param2: anytype, param3: i32) KIO__CopyJob {
+        comptime _ = @TypeOf(param1)._is_QUrl;
+        comptime _ = @TypeOf(param2)._is_QUrl;
+        return .{ .ptr = qtc.KIO_Link(@ptrCast(param1.ptr), @ptrCast(param2.ptr), @bitCast(param3)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#link)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []QtC.QUrl `
+    /// ` param1: []QUrl `
     ///
-    /// ` param2: QtC.QUrl `
+    /// ` param2: QUrl `
     ///
     /// ` param3: flag of job_base_enums.JobFlag `
     ///
-    pub fn Link2(param1: []QtC.QUrl, param2: ?*anyopaque, param3: i32) QtC.KIO__CopyJob {
+    pub fn Link2(param1: []QUrl, param2: anytype, param3: i32) KIO__CopyJob {
         const param1_list = qtc.libqt_list{
             .len = param1.len,
             .data = @ptrCast(param1.ptr),
         };
-        return qtc.KIO_Link2(param1_list, @ptrCast(param2), @bitCast(param3));
+        comptime _ = @TypeOf(param2)._is_QUrl;
+        return .{ .ptr = qtc.KIO_Link2(param1_list, @ptrCast(param2.ptr), @bitCast(param3)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#linkAs)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QUrl `
+    /// ` param1: QUrl `
     ///
-    /// ` param2: QtC.QUrl `
+    /// ` param2: QUrl `
     ///
     /// ` param3: flag of job_base_enums.JobFlag `
     ///
-    pub fn LinkAs(param1: ?*anyopaque, param2: ?*anyopaque, param3: i32) QtC.KIO__CopyJob {
-        return qtc.KIO_LinkAs(@ptrCast(param1), @ptrCast(param2), @bitCast(param3));
+    pub fn LinkAs(param1: anytype, param2: anytype, param3: i32) KIO__CopyJob {
+        comptime _ = @TypeOf(param1)._is_QUrl;
+        comptime _ = @TypeOf(param2)._is_QUrl;
+        return .{ .ptr = qtc.KIO_LinkAs(@ptrCast(param1.ptr), @ptrCast(param2.ptr), @bitCast(param3)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#trash)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QUrl `
+    /// ` param1: QUrl `
     ///
     /// ` param2: flag of job_base_enums.JobFlag `
     ///
-    pub fn Trash(param1: ?*anyopaque, param2: i32) QtC.KIO__CopyJob {
-        return qtc.KIO_Trash(@ptrCast(param1), @bitCast(param2));
+    pub fn Trash(param1: anytype, param2: i32) KIO__CopyJob {
+        comptime _ = @TypeOf(param1)._is_QUrl;
+        return .{ .ptr = qtc.KIO_Trash(@ptrCast(param1.ptr), @bitCast(param2)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#trash)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []QtC.QUrl `
+    /// ` param1: []QUrl `
     ///
     /// ` param2: flag of job_base_enums.JobFlag `
     ///
-    pub fn Trash2(param1: []QtC.QUrl, param2: i32) QtC.KIO__CopyJob {
+    pub fn Trash2(param1: []QUrl, param2: i32) KIO__CopyJob {
         const param1_list = qtc.libqt_list{
             .len = param1.len,
             .data = @ptrCast(param1.ptr),
         };
-        return qtc.KIO_Trash2(param1_list, @bitCast(param2));
+        return .{ .ptr = qtc.KIO_Trash2(param1_list, @bitCast(param2)) };
     }
 };
 

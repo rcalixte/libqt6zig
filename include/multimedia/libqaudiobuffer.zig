@@ -1,22 +1,32 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QAudioFormat = @import("libqt6").QAudioFormat;
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudiobuffer.html)
-pub const qaudiobuffer = struct {
+pub const QAudioBuffer = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudiobuffer.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QAudioBuffer,
+
+    pub const _is_QAudioBuffer = {};
+
     /// New constructs a new QAudioBuffer object.
     ///
-    pub fn New() QtC.QAudioBuffer {
-        return qtc.QAudioBuffer_new();
+    pub fn New() QAudioBuffer {
+        return .{ .ptr = qtc.QAudioBuffer_new() };
     }
 
     /// New2 constructs a new QAudioBuffer object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QAudioBuffer `
+    /// ` other: QAudioBuffer `
     ///
-    pub fn New2(other: ?*anyopaque) QtC.QAudioBuffer {
-        return qtc.QAudioBuffer_new2(@ptrCast(other));
+    pub fn New2(other: anytype) QAudioBuffer {
+        comptime _ = @TypeOf(other)._is_QAudioBuffer;
+        return .{ .ptr = qtc.QAudioBuffer_new2(@ptrCast(other.ptr)) };
     }
 
     /// New3 constructs a new QAudioBuffer object.
@@ -25,15 +35,15 @@ pub const qaudiobuffer = struct {
     ///
     /// ` data: []u8 `
     ///
-    /// ` format: QtC.QAudioFormat `
+    /// ` format: QAudioFormat `
     ///
-    pub fn New3(data: []u8, format: ?*anyopaque) QtC.QAudioBuffer {
+    pub fn New3(data: []u8, format: anytype) QAudioBuffer {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
-
-        return qtc.QAudioBuffer_new3(data_str, @ptrCast(format));
+        comptime _ = @TypeOf(format)._is_QAudioFormat;
+        return .{ .ptr = qtc.QAudioBuffer_new3(data_str, @ptrCast(format.ptr)) };
     }
 
     /// New4 constructs a new QAudioBuffer object.
@@ -42,10 +52,11 @@ pub const qaudiobuffer = struct {
     ///
     /// ` numFrames: i32 `
     ///
-    /// ` format: QtC.QAudioFormat `
+    /// ` format: QAudioFormat `
     ///
-    pub fn New4(numFrames: i32, format: ?*anyopaque) QtC.QAudioBuffer {
-        return qtc.QAudioBuffer_new4(@bitCast(numFrames), @ptrCast(format));
+    pub fn New4(numFrames: i32, format: anytype) QAudioBuffer {
+        comptime _ = @TypeOf(format)._is_QAudioFormat;
+        return .{ .ptr = qtc.QAudioBuffer_new4(@bitCast(numFrames), @ptrCast(format.ptr)) };
     }
 
     /// New5 constructs a new QAudioBuffer object.
@@ -54,17 +65,17 @@ pub const qaudiobuffer = struct {
     ///
     /// ` data: []u8 `
     ///
-    /// ` format: QtC.QAudioFormat `
+    /// ` format: QAudioFormat `
     ///
     /// ` startTime: i64 `
     ///
-    pub fn New5(data: []u8, format: ?*anyopaque, startTime: i64) QtC.QAudioBuffer {
+    pub fn New5(data: []u8, format: anytype, startTime: i64) QAudioBuffer {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
-
-        return qtc.QAudioBuffer_new5(data_str, @ptrCast(format), @bitCast(startTime));
+        comptime _ = @TypeOf(format)._is_QAudioFormat;
+        return .{ .ptr = qtc.QAudioBuffer_new5(data_str, @ptrCast(format.ptr), @bitCast(startTime)) };
     }
 
     /// New6 constructs a new QAudioBuffer object.
@@ -73,116 +84,119 @@ pub const qaudiobuffer = struct {
     ///
     /// ` numFrames: i32 `
     ///
-    /// ` format: QtC.QAudioFormat `
+    /// ` format: QAudioFormat `
     ///
     /// ` startTime: i64 `
     ///
-    pub fn New6(numFrames: i32, format: ?*anyopaque, startTime: i64) QtC.QAudioBuffer {
-        return qtc.QAudioBuffer_new6(@bitCast(numFrames), @ptrCast(format), @bitCast(startTime));
+    pub fn New6(numFrames: i32, format: anytype, startTime: i64) QAudioBuffer {
+        comptime _ = @TypeOf(format)._is_QAudioFormat;
+        return .{ .ptr = qtc.QAudioBuffer_new6(@bitCast(numFrames), @ptrCast(format.ptr), @bitCast(startTime)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudiobuffer.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAudioBuffer `
+    /// ` self: QAudioBuffer `
     ///
-    /// ` other: QtC.QAudioBuffer `
+    /// ` other: QAudioBuffer `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QAudioBuffer_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorAssign(self: QAudioBuffer, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QAudioBuffer;
+        qtc.QAudioBuffer_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudiobuffer.html#swap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAudioBuffer `
+    /// ` self: QAudioBuffer `
     ///
-    /// ` other: QtC.QAudioBuffer `
+    /// ` other: QAudioBuffer `
     ///
-    pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QAudioBuffer_Swap(@ptrCast(self), @ptrCast(other));
+    pub fn Swap(self: QAudioBuffer, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QAudioBuffer;
+        qtc.QAudioBuffer_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudiobuffer.html#isValid)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAudioBuffer `
+    /// ` self: QAudioBuffer `
     ///
-    pub fn IsValid(self: ?*anyopaque) bool {
-        return qtc.QAudioBuffer_IsValid(@ptrCast(self));
+    pub fn IsValid(self: QAudioBuffer) bool {
+        return qtc.QAudioBuffer_IsValid(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudiobuffer.html#detach)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAudioBuffer `
+    /// ` self: QAudioBuffer `
     ///
-    pub fn Detach(self: ?*anyopaque) void {
-        qtc.QAudioBuffer_Detach(@ptrCast(self));
+    pub fn Detach(self: QAudioBuffer) void {
+        qtc.QAudioBuffer_Detach(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudiobuffer.html#format)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAudioBuffer `
+    /// ` self: QAudioBuffer `
     ///
-    pub fn Format(self: ?*anyopaque) QtC.QAudioFormat {
-        return qtc.QAudioBuffer_Format(@ptrCast(self));
+    pub fn Format(self: QAudioBuffer) QAudioFormat {
+        return .{ .ptr = qtc.QAudioBuffer_Format(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudiobuffer.html#frameCount)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAudioBuffer `
+    /// ` self: QAudioBuffer `
     ///
-    pub fn FrameCount(self: ?*anyopaque) isize {
-        return qtc.QAudioBuffer_FrameCount(@ptrCast(self));
+    pub fn FrameCount(self: QAudioBuffer) isize {
+        return qtc.QAudioBuffer_FrameCount(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudiobuffer.html#sampleCount)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAudioBuffer `
+    /// ` self: QAudioBuffer `
     ///
-    pub fn SampleCount(self: ?*anyopaque) isize {
-        return qtc.QAudioBuffer_SampleCount(@ptrCast(self));
+    pub fn SampleCount(self: QAudioBuffer) isize {
+        return qtc.QAudioBuffer_SampleCount(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudiobuffer.html#byteCount)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAudioBuffer `
+    /// ` self: QAudioBuffer `
     ///
-    pub fn ByteCount(self: ?*anyopaque) isize {
-        return qtc.QAudioBuffer_ByteCount(@ptrCast(self));
+    pub fn ByteCount(self: QAudioBuffer) isize {
+        return qtc.QAudioBuffer_ByteCount(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudiobuffer.html#duration)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAudioBuffer `
+    /// ` self: QAudioBuffer `
     ///
-    pub fn Duration(self: ?*anyopaque) i64 {
-        return qtc.QAudioBuffer_Duration(@ptrCast(self));
+    pub fn Duration(self: QAudioBuffer) i64 {
+        return qtc.QAudioBuffer_Duration(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudiobuffer.html#startTime)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAudioBuffer `
+    /// ` self: QAudioBuffer `
     ///
-    pub fn StartTime(self: ?*anyopaque) i64 {
-        return qtc.QAudioBuffer_StartTime(@ptrCast(self));
+    pub fn StartTime(self: QAudioBuffer) i64 {
+        return qtc.QAudioBuffer_StartTime(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -195,9 +209,9 @@ pub const qaudiobuffer = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QAudioBuffer `
+    /// ` self: QAudioBuffer `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QAudioBuffer_Delete(@ptrCast(self));
+    pub fn Delete(self: QAudioBuffer) void {
+        qtc.QAudioBuffer_Delete(@ptrCast(self.ptr));
     }
 };

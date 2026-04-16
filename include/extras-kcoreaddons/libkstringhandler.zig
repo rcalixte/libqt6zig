@@ -1,18 +1,28 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QChar = @import("libqt6").QChar;
+const QRegularExpression = @import("libqt6").QRegularExpression;
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/kstringhandler.html)
-pub const kstringhandler = struct {
+pub const KStringHandler = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kstringhandler.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KStringHandler,
+
+    pub const _is_KStringHandler = {};
+
     /// ### [Upstream resources](https://api.kde.org/kstringhandler.html#capwords)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Capwords(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` param1: []const u8 `
+    ///
+    pub fn Capwords(allocator: std.mem.Allocator, param1: []const u8) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -28,19 +38,18 @@ pub const kstringhandler = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Capwords2(param1: []const []const u8, allocator: std.mem.Allocator) []const []const u8 {
+    /// ` param1: []const []const u8 `
+    ///
+    pub fn Capwords2(allocator: std.mem.Allocator, param1: []const []const u8) []const []const u8 {
         const param1_arr = allocator.alloc(qtc.libqt_string, param1.len) catch @panic("kstringhandler.Capwords2: Memory allocation failed");
         defer allocator.free(param1_arr);
-        for (param1, 0..param1.len) |item, i| {
+        for (param1, 0..param1.len) |item, i|
             param1_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const param1_list = qtc.libqt_list{
             .len = param1.len,
             .data = param1_arr.ptr,
@@ -48,9 +57,8 @@ pub const kstringhandler = struct {
         const _arr: qtc.libqt_list = qtc.KStringHandler_Capwords2(param1_list);
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kstringhandler.Capwords2: Memory allocation failed");
@@ -67,13 +75,13 @@ pub const kstringhandler = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` param1: []const u8 `
     ///
     /// ` param2: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Lsqueeze(param1: []const u8, param2: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Lsqueeze(allocator: std.mem.Allocator, param1: []const u8, param2: i32) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -89,13 +97,13 @@ pub const kstringhandler = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` param1: []const u8 `
     ///
     /// ` param2: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Csqueeze(param1: []const u8, param2: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Csqueeze(allocator: std.mem.Allocator, param1: []const u8, param2: i32) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -111,13 +119,13 @@ pub const kstringhandler = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` param1: []const u8 `
     ///
     /// ` param2: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Rsqueeze(param1: []const u8, param2: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Rsqueeze(allocator: std.mem.Allocator, param1: []const u8, param2: i32) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -133,15 +141,15 @@ pub const kstringhandler = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` param1: []const u8 `
     ///
     /// ` param2: []const u8 `
     ///
     /// ` param3: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn PerlSplit2(param1: []const u8, param2: []const u8, param3: i32, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn PerlSplit2(allocator: std.mem.Allocator, param1: []const u8, param2: []const u8, param3: i32) []const []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -153,9 +161,8 @@ pub const kstringhandler = struct {
         const _arr: qtc.libqt_list = qtc.KStringHandler_PerlSplit2(param1_str, param2_str, @bitCast(param3));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kstringhandler.PerlSplit2: Memory allocation failed");
@@ -172,25 +179,25 @@ pub const kstringhandler = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QChar `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` param1: QChar `
     ///
     /// ` param2: []const u8 `
     ///
     /// ` param3: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn PerlSplit3(param1: ?*anyopaque, param2: []const u8, param3: i32, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn PerlSplit3(allocator: std.mem.Allocator, param1: anytype, param2: []const u8, param3: i32) []const []const u8 {
+        comptime _ = @TypeOf(param1)._is_QChar;
         const param2_str = qtc.libqt_string{
             .len = param2.len,
             .data = param2.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.KStringHandler_PerlSplit3(@ptrCast(param1), param2_str, @bitCast(param3));
+        const _arr: qtc.libqt_list = qtc.KStringHandler_PerlSplit3(@ptrCast(param1.ptr), param2_str, @bitCast(param3));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kstringhandler.PerlSplit3: Memory allocation failed");
@@ -207,25 +214,25 @@ pub const kstringhandler = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QRegularExpression `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` param1: QRegularExpression `
     ///
     /// ` param2: []const u8 `
     ///
     /// ` param3: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn PerlSplit4(param1: ?*anyopaque, param2: []const u8, param3: i32, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn PerlSplit4(allocator: std.mem.Allocator, param1: anytype, param2: []const u8, param3: i32) []const []const u8 {
+        comptime _ = @TypeOf(param1)._is_QRegularExpression;
         const param2_str = qtc.libqt_string{
             .len = param2.len,
             .data = param2.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.KStringHandler_PerlSplit4(@ptrCast(param1), param2_str, @bitCast(param3));
+        const _arr: qtc.libqt_list = qtc.KStringHandler_PerlSplit4(@ptrCast(param1.ptr), param2_str, @bitCast(param3));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kstringhandler.PerlSplit4: Memory allocation failed");
@@ -242,11 +249,11 @@ pub const kstringhandler = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TagUrls(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` param1: []const u8 `
+    ///
+    pub fn TagUrls(allocator: std.mem.Allocator, param1: []const u8) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -262,11 +269,11 @@ pub const kstringhandler = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Obscure(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` param1: []const u8 `
+    ///
+    pub fn Obscure(allocator: std.mem.Allocator, param1: []const u8) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -282,11 +289,11 @@ pub const kstringhandler = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PreProcessWrap(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` param1: []const u8 `
+    ///
+    pub fn PreProcessWrap(allocator: std.mem.Allocator, param1: []const u8) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,

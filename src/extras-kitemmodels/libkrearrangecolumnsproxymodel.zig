@@ -1,38 +1,69 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QAbstractItemModel = @import("libqt6").QAbstractItemModel;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QDataStream = @import("libqt6").QDataStream;
+const QEvent = @import("libqt6").QEvent;
+const QItemSelection = @import("libqt6").QItemSelection;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QMimeData = @import("libqt6").QMimeData;
+const QModelIndex = @import("libqt6").QModelIndex;
+const QModelRoleDataSpan = @import("libqt6").QModelRoleDataSpan;
+const QObject = @import("libqt6").QObject;
+const QPersistentModelIndex = @import("libqt6").QPersistentModelIndex;
+const QSize = @import("libqt6").QSize;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
 const qabstractitemmodel_enums = @import("../libqabstractitemmodel.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-const arraymap_i32_qtcqvariant = std.array_hash_map.Auto(i32, QtC.QVariant);
-const map_i32_u8 = std.AutoHashMapUnmanaged(i32, []u8);
+const ArrayMap_i32_QVariant = std.array_hash_map.Auto(i32, QVariant);
+const Map_i32_u8 = std.AutoHashMapUnmanaged(i32, []u8);
 
 /// ### [Upstream resources](https://api.kde.org/krearrangecolumnsproxymodel.html)
-pub const krearrangecolumnsproxymodel = struct {
+pub const KRearrangeColumnsProxyModel = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/krearrangecolumnsproxymodel.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KRearrangeColumnsProxyModel,
+
+    pub const _is_KRearrangeColumnsProxyModel = {};
+    pub const _is_QIdentityProxyModel = {};
+    pub const _is_QAbstractProxyModel = {};
+    pub const _is_QAbstractItemModel = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new KRearrangeColumnsProxyModel object.
     ///
-    pub fn New() QtC.KRearrangeColumnsProxyModel {
-        return qtc.KRearrangeColumnsProxyModel_new();
+    pub fn New() KRearrangeColumnsProxyModel {
+        return .{ .ptr = qtc.KRearrangeColumnsProxyModel_new() };
     }
 
     /// New2 constructs a new KRearrangeColumnsProxyModel object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New2(parent: ?*anyopaque) QtC.KRearrangeColumnsProxyModel {
-        return qtc.KRearrangeColumnsProxyModel_new2(@ptrCast(parent));
+    pub fn New2(parent: anytype) KRearrangeColumnsProxyModel {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.KRearrangeColumnsProxyModel_new2(@ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KRearrangeColumnsProxyModel_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: KRearrangeColumnsProxyModel) QMetaObject {
+        return .{ .ptr = qtc.KRearrangeColumnsProxyModel_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -41,12 +72,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.KRearrangeColumnsProxyModel_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: KRearrangeColumnsProxyModel, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.KRearrangeColumnsProxyModel_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -59,33 +90,33 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KRearrangeColumnsProxyModel_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: KRearrangeColumnsProxyModel) QMetaObject {
+        return .{ .ptr = qtc.KRearrangeColumnsProxyModel_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: KRearrangeColumnsProxyModel, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KRearrangeColumnsProxyModel_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.KRearrangeColumnsProxyModel_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.KRearrangeColumnsProxyModel_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -96,18 +127,18 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: KRearrangeColumnsProxyModel, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KRearrangeColumnsProxyModel_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KRearrangeColumnsProxyModel_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -115,20 +146,20 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KRearrangeColumnsProxyModel_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: KRearrangeColumnsProxyModel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KRearrangeColumnsProxyModel_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.KRearrangeColumnsProxyModel_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.KRearrangeColumnsProxyModel_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -139,7 +170,7 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -147,19 +178,19 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KRearrangeColumnsProxyModel_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: KRearrangeColumnsProxyModel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KRearrangeColumnsProxyModel_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -172,28 +203,29 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` columns: []i32 `
     ///
-    pub fn SetSourceColumns(self: ?*anyopaque, columns: []i32) void {
+    pub fn SetSourceColumns(self: KRearrangeColumnsProxyModel, columns: []i32) void {
         const columns_list = qtc.libqt_list{
             .len = columns.len,
             .data = columns.ptr,
         };
-        qtc.KRearrangeColumnsProxyModel_SetSourceColumns(@ptrCast(self), columns_list);
+        qtc.KRearrangeColumnsProxyModel_SetSourceColumns(@ptrCast(self.ptr), columns_list);
     }
 
     /// ### [Upstream resources](https://api.kde.org/krearrangecolumnsproxymodel.html#columnCount)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn ColumnCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
-        return qtc.KRearrangeColumnsProxyModel_ColumnCount(@ptrCast(self), @ptrCast(parent));
+    pub fn ColumnCount(self: KRearrangeColumnsProxyModel, parent: anytype) i32 {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KRearrangeColumnsProxyModel_ColumnCount(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/krearrangecolumnsproxymodel.html#columnCount)
@@ -202,12 +234,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, parent: QtC.QModelIndex) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, parent: QModelIndex) callconv(.c) i32 `
     ///
-    pub fn OnColumnCount(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KRearrangeColumnsProxyModel_OnColumnCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnCount(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex) callconv(.c) i32) void {
+        qtc.KRearrangeColumnsProxyModel_OnColumnCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperColumnCount` instead
@@ -220,24 +252,26 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperColumnCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
-        return qtc.KRearrangeColumnsProxyModel_SuperColumnCount(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperColumnCount(self: KRearrangeColumnsProxyModel, parent: anytype) i32 {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KRearrangeColumnsProxyModel_SuperColumnCount(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/krearrangecolumnsproxymodel.html#rowCount)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn RowCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
-        return qtc.KRearrangeColumnsProxyModel_RowCount(@ptrCast(self), @ptrCast(parent));
+    pub fn RowCount(self: KRearrangeColumnsProxyModel, parent: anytype) i32 {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KRearrangeColumnsProxyModel_RowCount(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/krearrangecolumnsproxymodel.html#rowCount)
@@ -246,12 +280,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, parent: QtC.QModelIndex) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, parent: QModelIndex) callconv(.c) i32 `
     ///
-    pub fn OnRowCount(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KRearrangeColumnsProxyModel_OnRowCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowCount(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex) callconv(.c) i32) void {
+        qtc.KRearrangeColumnsProxyModel_OnRowCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperRowCount` instead
@@ -264,28 +298,30 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperRowCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
-        return qtc.KRearrangeColumnsProxyModel_SuperRowCount(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperRowCount(self: KRearrangeColumnsProxyModel, parent: anytype) i32 {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KRearrangeColumnsProxyModel_SuperRowCount(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/krearrangecolumnsproxymodel.html#index)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn Index(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KRearrangeColumnsProxyModel_Index(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn Index(self: KRearrangeColumnsProxyModel, row: i32, column: i32, parent: anytype) QModelIndex {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return .{ .ptr = qtc.KRearrangeColumnsProxyModel_Index(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/krearrangecolumnsproxymodel.html#index)
@@ -294,12 +330,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, row: i32, column: i32, parent: QtC.QModelIndex) callconv(.c) QtC.QModelIndex `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, row: i32, column: i32, parent: QModelIndex) callconv(.c) QModelIndex `
     ///
-    pub fn OnIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.KRearrangeColumnsProxyModel_OnIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIndex(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
+        qtc.KRearrangeColumnsProxyModel_OnIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperIndex` instead
@@ -312,28 +348,30 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperIndex(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KRearrangeColumnsProxyModel_SuperIndex(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn SuperIndex(self: KRearrangeColumnsProxyModel, row: i32, column: i32, parent: anytype) QModelIndex {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return .{ .ptr = qtc.KRearrangeColumnsProxyModel_SuperIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/krearrangecolumnsproxymodel.html#parent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` child: QtC.QModelIndex `
+    /// ` child: QModelIndex `
     ///
-    pub fn Parent(self: ?*anyopaque, child: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KRearrangeColumnsProxyModel_Parent(@ptrCast(self), @ptrCast(child));
+    pub fn Parent(self: KRearrangeColumnsProxyModel, child: anytype) QModelIndex {
+        comptime _ = @TypeOf(child)._is_QModelIndex;
+        return .{ .ptr = qtc.KRearrangeColumnsProxyModel_Parent(@ptrCast(self.ptr), @ptrCast(child.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/krearrangecolumnsproxymodel.html#parent)
@@ -342,12 +380,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, child: QtC.QModelIndex) callconv(.c) QtC.QModelIndex `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, child: QModelIndex) callconv(.c) QModelIndex `
     ///
-    pub fn OnParent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.KRearrangeColumnsProxyModel_OnParent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnParent(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
+        qtc.KRearrangeColumnsProxyModel_OnParent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperParent` instead
@@ -360,24 +398,26 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` child: QtC.QModelIndex `
+    /// ` child: QModelIndex `
     ///
-    pub fn SuperParent(self: ?*anyopaque, child: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KRearrangeColumnsProxyModel_SuperParent(@ptrCast(self), @ptrCast(child));
+    pub fn SuperParent(self: KRearrangeColumnsProxyModel, child: anytype) QModelIndex {
+        comptime _ = @TypeOf(child)._is_QModelIndex;
+        return .{ .ptr = qtc.KRearrangeColumnsProxyModel_SuperParent(@ptrCast(self.ptr), @ptrCast(child.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/krearrangecolumnsproxymodel.html#mapFromSource)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` sourceIndex: QtC.QModelIndex `
+    /// ` sourceIndex: QModelIndex `
     ///
-    pub fn MapFromSource(self: ?*anyopaque, sourceIndex: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KRearrangeColumnsProxyModel_MapFromSource(@ptrCast(self), @ptrCast(sourceIndex));
+    pub fn MapFromSource(self: KRearrangeColumnsProxyModel, sourceIndex: anytype) QModelIndex {
+        comptime _ = @TypeOf(sourceIndex)._is_QModelIndex;
+        return .{ .ptr = qtc.KRearrangeColumnsProxyModel_MapFromSource(@ptrCast(self.ptr), @ptrCast(sourceIndex.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/krearrangecolumnsproxymodel.html#mapFromSource)
@@ -386,12 +426,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, sourceIndex: QtC.QModelIndex) callconv(.c) QtC.QModelIndex `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, sourceIndex: QModelIndex) callconv(.c) QModelIndex `
     ///
-    pub fn OnMapFromSource(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.KRearrangeColumnsProxyModel_OnMapFromSource(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMapFromSource(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
+        qtc.KRearrangeColumnsProxyModel_OnMapFromSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMapFromSource` instead
@@ -404,24 +444,26 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` sourceIndex: QtC.QModelIndex `
+    /// ` sourceIndex: QModelIndex `
     ///
-    pub fn SuperMapFromSource(self: ?*anyopaque, sourceIndex: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KRearrangeColumnsProxyModel_SuperMapFromSource(@ptrCast(self), @ptrCast(sourceIndex));
+    pub fn SuperMapFromSource(self: KRearrangeColumnsProxyModel, sourceIndex: anytype) QModelIndex {
+        comptime _ = @TypeOf(sourceIndex)._is_QModelIndex;
+        return .{ .ptr = qtc.KRearrangeColumnsProxyModel_SuperMapFromSource(@ptrCast(self.ptr), @ptrCast(sourceIndex.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/krearrangecolumnsproxymodel.html#mapToSource)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` proxyIndex: QtC.QModelIndex `
+    /// ` proxyIndex: QModelIndex `
     ///
-    pub fn MapToSource(self: ?*anyopaque, proxyIndex: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KRearrangeColumnsProxyModel_MapToSource(@ptrCast(self), @ptrCast(proxyIndex));
+    pub fn MapToSource(self: KRearrangeColumnsProxyModel, proxyIndex: anytype) QModelIndex {
+        comptime _ = @TypeOf(proxyIndex)._is_QModelIndex;
+        return .{ .ptr = qtc.KRearrangeColumnsProxyModel_MapToSource(@ptrCast(self.ptr), @ptrCast(proxyIndex.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/krearrangecolumnsproxymodel.html#mapToSource)
@@ -430,12 +472,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, proxyIndex: QtC.QModelIndex) callconv(.c) QtC.QModelIndex `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, proxyIndex: QModelIndex) callconv(.c) QModelIndex `
     ///
-    pub fn OnMapToSource(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.KRearrangeColumnsProxyModel_OnMapToSource(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMapToSource(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
+        qtc.KRearrangeColumnsProxyModel_OnMapToSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMapToSource` instead
@@ -448,19 +490,20 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` proxyIndex: QtC.QModelIndex `
+    /// ` proxyIndex: QModelIndex `
     ///
-    pub fn SuperMapToSource(self: ?*anyopaque, proxyIndex: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KRearrangeColumnsProxyModel_SuperMapToSource(@ptrCast(self), @ptrCast(proxyIndex));
+    pub fn SuperMapToSource(self: KRearrangeColumnsProxyModel, proxyIndex: anytype) QModelIndex {
+        comptime _ = @TypeOf(proxyIndex)._is_QModelIndex;
+        return .{ .ptr = qtc.KRearrangeColumnsProxyModel_SuperMapToSource(@ptrCast(self.ptr), @ptrCast(proxyIndex.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/krearrangecolumnsproxymodel.html#headerData)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` section: i32 `
     ///
@@ -468,8 +511,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn HeaderData(self: ?*anyopaque, section: i32, orientation: i32, role: i32) QtC.QVariant {
-        return qtc.KRearrangeColumnsProxyModel_HeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @bitCast(role));
+    pub fn HeaderData(self: KRearrangeColumnsProxyModel, section: i32, orientation: i32, role: i32) QVariant {
+        return .{ .ptr = qtc.KRearrangeColumnsProxyModel_HeaderData(@ptrCast(self.ptr), @bitCast(section), @bitCast(orientation), @bitCast(role)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/krearrangecolumnsproxymodel.html#headerData)
@@ -478,12 +521,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32) callconv(.c) QtC.QVariant `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32) callconv(.c) QVariant `
     ///
-    pub fn OnHeaderData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) QtC.QVariant) void {
-        qtc.KRearrangeColumnsProxyModel_OnHeaderData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHeaderData(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, i32, i32, i32) callconv(.c) QVariant) void {
+        qtc.KRearrangeColumnsProxyModel_OnHeaderData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperHeaderData` instead
@@ -496,7 +539,7 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` section: i32 `
     ///
@@ -504,20 +547,21 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn SuperHeaderData(self: ?*anyopaque, section: i32, orientation: i32, role: i32) QtC.QVariant {
-        return qtc.KRearrangeColumnsProxyModel_SuperHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @bitCast(role));
+    pub fn SuperHeaderData(self: KRearrangeColumnsProxyModel, section: i32, orientation: i32, role: i32) QVariant {
+        return .{ .ptr = qtc.KRearrangeColumnsProxyModel_SuperHeaderData(@ptrCast(self.ptr), @bitCast(section), @bitCast(orientation), @bitCast(role)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/krearrangecolumnsproxymodel.html#hasChildren)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn HasChildren(self: ?*anyopaque, parent: ?*anyopaque) bool {
-        return qtc.KRearrangeColumnsProxyModel_HasChildren(@ptrCast(self), @ptrCast(parent));
+    pub fn HasChildren(self: KRearrangeColumnsProxyModel, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KRearrangeColumnsProxyModel_HasChildren(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/krearrangecolumnsproxymodel.html#hasChildren)
@@ -526,12 +570,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnHasChildren(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KRearrangeColumnsProxyModel_OnHasChildren(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHasChildren(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex) callconv(.c) bool) void {
+        qtc.KRearrangeColumnsProxyModel_OnHasChildren(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperHasChildren` instead
@@ -544,28 +588,30 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperHasChildren(self: ?*anyopaque, parent: ?*anyopaque) bool {
-        return qtc.KRearrangeColumnsProxyModel_SuperHasChildren(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperHasChildren(self: KRearrangeColumnsProxyModel, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KRearrangeColumnsProxyModel_SuperHasChildren(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/krearrangecolumnsproxymodel.html#sibling)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    /// ` idx: QtC.QModelIndex `
+    /// ` idx: QModelIndex `
     ///
-    pub fn Sibling(self: ?*anyopaque, row: i32, column: i32, idx: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KRearrangeColumnsProxyModel_Sibling(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(idx));
+    pub fn Sibling(self: KRearrangeColumnsProxyModel, row: i32, column: i32, idx: anytype) QModelIndex {
+        comptime _ = @TypeOf(idx)._is_QModelIndex;
+        return .{ .ptr = qtc.KRearrangeColumnsProxyModel_Sibling(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(idx.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/krearrangecolumnsproxymodel.html#sibling)
@@ -574,12 +620,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, row: i32, column: i32, idx: QtC.QModelIndex) callconv(.c) QtC.QModelIndex `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, row: i32, column: i32, idx: QModelIndex) callconv(.c) QModelIndex `
     ///
-    pub fn OnSibling(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.KRearrangeColumnsProxyModel_OnSibling(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSibling(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
+        qtc.KRearrangeColumnsProxyModel_OnSibling(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSibling` instead
@@ -592,53 +638,54 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    /// ` idx: QtC.QModelIndex `
+    /// ` idx: QModelIndex `
     ///
-    pub fn SuperSibling(self: ?*anyopaque, row: i32, column: i32, idx: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KRearrangeColumnsProxyModel_SuperSibling(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(idx));
+    pub fn SuperSibling(self: KRearrangeColumnsProxyModel, row: i32, column: i32, idx: anytype) QModelIndex {
+        comptime _ = @TypeOf(idx)._is_QModelIndex;
+        return .{ .ptr = qtc.KRearrangeColumnsProxyModel_SuperSibling(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(idx.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/krearrangecolumnsproxymodel.html#proxyColumnForSourceColumn)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` sourceColumn: i32 `
     ///
-    pub fn ProxyColumnForSourceColumn(self: ?*anyopaque, sourceColumn: i32) i32 {
-        return qtc.KRearrangeColumnsProxyModel_ProxyColumnForSourceColumn(@ptrCast(self), @bitCast(sourceColumn));
+    pub fn ProxyColumnForSourceColumn(self: KRearrangeColumnsProxyModel, sourceColumn: i32) i32 {
+        return qtc.KRearrangeColumnsProxyModel_ProxyColumnForSourceColumn(@ptrCast(self.ptr), @bitCast(sourceColumn));
     }
 
     /// ### [Upstream resources](https://api.kde.org/krearrangecolumnsproxymodel.html#sourceColumnForProxyColumn)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` proxyColumn: i32 `
     ///
-    pub fn SourceColumnForProxyColumn(self: ?*anyopaque, proxyColumn: i32) i32 {
-        return qtc.KRearrangeColumnsProxyModel_SourceColumnForProxyColumn(@ptrCast(self), @bitCast(proxyColumn));
+    pub fn SourceColumnForProxyColumn(self: KRearrangeColumnsProxyModel, proxyColumn: i32) i32 {
+        return qtc.KRearrangeColumnsProxyModel_SourceColumnForProxyColumn(@ptrCast(self.ptr), @bitCast(proxyColumn));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -652,15 +699,15 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -676,10 +723,10 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    pub fn HandleSourceLayoutChanges(self: ?*anyopaque) bool {
-        return qtc.QIdentityProxyModel_HandleSourceLayoutChanges(@ptrCast(self));
+    pub fn HandleSourceLayoutChanges(self: KRearrangeColumnsProxyModel) bool {
+        return qtc.QIdentityProxyModel_HandleSourceLayoutChanges(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIdentityProxyModel
@@ -688,10 +735,10 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    pub fn HandleSourceDataChanges(self: ?*anyopaque) bool {
-        return qtc.QIdentityProxyModel_HandleSourceDataChanges(@ptrCast(self));
+    pub fn HandleSourceDataChanges(self: KRearrangeColumnsProxyModel) bool {
+        return qtc.QIdentityProxyModel_HandleSourceDataChanges(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -700,10 +747,10 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    pub fn SourceModel(self: ?*anyopaque) QtC.QAbstractItemModel {
-        return qtc.QAbstractProxyModel_SourceModel(@ptrCast(self));
+    pub fn SourceModel(self: KRearrangeColumnsProxyModel) QAbstractItemModel {
+        return .{ .ptr = qtc.QAbstractProxyModel_SourceModel(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractItemModel
@@ -712,14 +759,14 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    pub fn HasIndex(self: ?*anyopaque, row: i32, column: i32) bool {
-        return qtc.QAbstractItemModel_HasIndex(@ptrCast(self), @bitCast(row), @bitCast(column));
+    pub fn HasIndex(self: KRearrangeColumnsProxyModel, row: i32, column: i32) bool {
+        return qtc.QAbstractItemModel_HasIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemModel
@@ -728,12 +775,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` row: i32 `
     ///
-    pub fn InsertRow(self: ?*anyopaque, row: i32) bool {
-        return qtc.QAbstractItemModel_InsertRow(@ptrCast(self), @bitCast(row));
+    pub fn InsertRow(self: KRearrangeColumnsProxyModel, row: i32) bool {
+        return qtc.QAbstractItemModel_InsertRow(@ptrCast(self.ptr), @bitCast(row));
     }
 
     /// Inherited from QAbstractItemModel
@@ -742,12 +789,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` column: i32 `
     ///
-    pub fn InsertColumn(self: ?*anyopaque, column: i32) bool {
-        return qtc.QAbstractItemModel_InsertColumn(@ptrCast(self), @bitCast(column));
+    pub fn InsertColumn(self: KRearrangeColumnsProxyModel, column: i32) bool {
+        return qtc.QAbstractItemModel_InsertColumn(@ptrCast(self.ptr), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemModel
@@ -756,12 +803,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` row: i32 `
     ///
-    pub fn RemoveRow(self: ?*anyopaque, row: i32) bool {
-        return qtc.QAbstractItemModel_RemoveRow(@ptrCast(self), @bitCast(row));
+    pub fn RemoveRow(self: KRearrangeColumnsProxyModel, row: i32) bool {
+        return qtc.QAbstractItemModel_RemoveRow(@ptrCast(self.ptr), @bitCast(row));
     }
 
     /// Inherited from QAbstractItemModel
@@ -770,12 +817,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` column: i32 `
     ///
-    pub fn RemoveColumn(self: ?*anyopaque, column: i32) bool {
-        return qtc.QAbstractItemModel_RemoveColumn(@ptrCast(self), @bitCast(column));
+    pub fn RemoveColumn(self: KRearrangeColumnsProxyModel, column: i32) bool {
+        return qtc.QAbstractItemModel_RemoveColumn(@ptrCast(self.ptr), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemModel
@@ -784,18 +831,20 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceRow: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn MoveRow(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.QAbstractItemModel_MoveRow(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceRow), @ptrCast(destinationParent), @bitCast(destinationChild));
+    pub fn MoveRow(self: KRearrangeColumnsProxyModel, sourceParent: anytype, sourceRow: i32, destinationParent: anytype, destinationChild: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_MoveRow(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceRow), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -804,18 +853,20 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceColumn: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn MoveColumn(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.QAbstractItemModel_MoveColumn(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @ptrCast(destinationParent), @bitCast(destinationChild));
+    pub fn MoveColumn(self: KRearrangeColumnsProxyModel, sourceParent: anytype, sourceColumn: i32, destinationParent: anytype, destinationChild: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_MoveColumn(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceColumn), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -824,12 +875,13 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn CheckIndex(self: ?*anyopaque, index: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_CheckIndex(@ptrCast(self), @ptrCast(index));
+    pub fn CheckIndex(self: KRearrangeColumnsProxyModel, index: anytype) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.QAbstractItemModel_CheckIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -838,14 +890,16 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` topLeft: QtC.QModelIndex `
+    /// ` topLeft: QModelIndex `
     ///
-    /// ` bottomRight: QtC.QModelIndex `
+    /// ` bottomRight: QModelIndex `
     ///
-    pub fn DataChanged(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque) void {
-        qtc.QAbstractItemModel_DataChanged(@ptrCast(self), @ptrCast(topLeft), @ptrCast(bottomRight));
+    pub fn DataChanged(self: KRearrangeColumnsProxyModel, topLeft: anytype, bottomRight: anytype) void {
+        comptime _ = @TypeOf(topLeft)._is_QModelIndex;
+        comptime _ = @TypeOf(bottomRight)._is_QModelIndex;
+        qtc.QAbstractItemModel_DataChanged(@ptrCast(self.ptr), @ptrCast(topLeft.ptr), @ptrCast(bottomRight.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -854,12 +908,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, topLeft: QModelIndex, bottomRight: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_DataChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDataChanged(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex, QModelIndex) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_DataChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -868,7 +922,7 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` orientation: qnamespace_enums.Orientation `
     ///
@@ -876,8 +930,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` last: i32 `
     ///
-    pub fn HeaderDataChanged(self: ?*anyopaque, orientation: i32, first: i32, last: i32) void {
-        qtc.QAbstractItemModel_HeaderDataChanged(@ptrCast(self), @bitCast(orientation), @bitCast(first), @bitCast(last));
+    pub fn HeaderDataChanged(self: KRearrangeColumnsProxyModel, orientation: i32, first: i32, last: i32) void {
+        qtc.QAbstractItemModel_HeaderDataChanged(@ptrCast(self.ptr), @bitCast(orientation), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -886,12 +940,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, orientation: qnamespace_enums.Orientation, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, orientation: qnamespace_enums.Orientation, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnHeaderDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_HeaderDataChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHeaderDataChanged(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, i32, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_HeaderDataChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -900,10 +954,10 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    pub fn LayoutChanged(self: ?*anyopaque) void {
-        qtc.QAbstractItemModel_LayoutChanged(@ptrCast(self));
+    pub fn LayoutChanged(self: KRearrangeColumnsProxyModel) void {
+        qtc.QAbstractItemModel_LayoutChanged(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -912,12 +966,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel) callconv(.c) void `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel) callconv(.c) void `
     ///
-    pub fn OnLayoutChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLayoutChanged(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_LayoutChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -926,10 +980,10 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    pub fn LayoutAboutToBeChanged(self: ?*anyopaque) void {
-        qtc.QAbstractItemModel_LayoutAboutToBeChanged(@ptrCast(self));
+    pub fn LayoutAboutToBeChanged(self: KRearrangeColumnsProxyModel) void {
+        qtc.QAbstractItemModel_LayoutAboutToBeChanged(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -938,12 +992,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel) callconv(.c) void `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel) callconv(.c) void `
     ///
-    pub fn OnLayoutAboutToBeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLayoutAboutToBeChanged(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -952,16 +1006,17 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn HasIndex3(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_HasIndex3(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn HasIndex3(self: KRearrangeColumnsProxyModel, row: i32, column: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_HasIndex3(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -970,14 +1025,15 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` row: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn InsertRow2(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_InsertRow2(@ptrCast(self), @bitCast(row), @ptrCast(parent));
+    pub fn InsertRow2(self: KRearrangeColumnsProxyModel, row: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_InsertRow2(@ptrCast(self.ptr), @bitCast(row), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -986,14 +1042,15 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn InsertColumn2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_InsertColumn2(@ptrCast(self), @bitCast(column), @ptrCast(parent));
+    pub fn InsertColumn2(self: KRearrangeColumnsProxyModel, column: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_InsertColumn2(@ptrCast(self.ptr), @bitCast(column), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1002,14 +1059,15 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` row: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn RemoveRow2(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_RemoveRow2(@ptrCast(self), @bitCast(row), @ptrCast(parent));
+    pub fn RemoveRow2(self: KRearrangeColumnsProxyModel, row: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_RemoveRow2(@ptrCast(self.ptr), @bitCast(row), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1018,14 +1076,15 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn RemoveColumn2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_RemoveColumn2(@ptrCast(self), @bitCast(column), @ptrCast(parent));
+    pub fn RemoveColumn2(self: KRearrangeColumnsProxyModel, column: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_RemoveColumn2(@ptrCast(self.ptr), @bitCast(column), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1034,14 +1093,15 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
     /// ` options: flag of qabstractitemmodel_enums.CheckIndexOption `
     ///
-    pub fn CheckIndex2(self: ?*anyopaque, index: ?*anyopaque, options: i32) bool {
-        return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self), @ptrCast(index), @bitCast(options));
+    pub fn CheckIndex2(self: KRearrangeColumnsProxyModel, index: anytype, options: i32) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(options));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1050,20 +1110,22 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` topLeft: QtC.QModelIndex `
+    /// ` topLeft: QModelIndex `
     ///
-    /// ` bottomRight: QtC.QModelIndex `
+    /// ` bottomRight: QModelIndex `
     ///
     /// ` roles: []i32 `
     ///
-    pub fn DataChanged3(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque, roles: []i32) void {
+    pub fn DataChanged3(self: KRearrangeColumnsProxyModel, topLeft: anytype, bottomRight: anytype, roles: []i32) void {
+        comptime _ = @TypeOf(topLeft)._is_QModelIndex;
+        comptime _ = @TypeOf(bottomRight)._is_QModelIndex;
         const roles_list = qtc.libqt_list{
             .len = roles.len,
             .data = roles.ptr,
         };
-        qtc.QAbstractItemModel_DataChanged3(@ptrCast(self), @ptrCast(topLeft), @ptrCast(bottomRight), roles_list);
+        qtc.QAbstractItemModel_DataChanged3(@ptrCast(self.ptr), @ptrCast(topLeft.ptr), @ptrCast(bottomRight.ptr), roles_list);
     }
 
     /// Inherited from QAbstractItemModel
@@ -1072,12 +1134,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: qtc.libqt_list ([]i32)) callconv(.c) void `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, topLeft: QModelIndex, bottomRight: QModelIndex, roles: qtc.libqt_list ([]i32)) callconv(.c) void `
     ///
-    pub fn OnDataChanged3(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_DataChanged3(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDataChanged3(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex, QModelIndex, qtc.libqt_list) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_DataChanged3(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1086,16 +1148,16 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` parents: []QtC.QPersistentModelIndex `
+    /// ` parents: []QPersistentModelIndex `
     ///
-    pub fn LayoutChanged1(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex) void {
+    pub fn LayoutChanged1(self: KRearrangeColumnsProxyModel, parents: []QPersistentModelIndex) void {
         const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
-        qtc.QAbstractItemModel_LayoutChanged1(@ptrCast(self), parents_list);
+        qtc.QAbstractItemModel_LayoutChanged1(@ptrCast(self.ptr), parents_list);
     }
 
     /// Inherited from QAbstractItemModel
@@ -1104,12 +1166,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex)) callconv(.c) void `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, parents: qtc.libqt_list ([]QPersistentModelIndex)) callconv(.c) void `
     ///
-    pub fn OnLayoutChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutChanged1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLayoutChanged1(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, qtc.libqt_list) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_LayoutChanged1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1118,18 +1180,18 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` parents: []QtC.QPersistentModelIndex `
+    /// ` parents: []QPersistentModelIndex `
     ///
     /// ` hint: qabstractitemmodel_enums.LayoutChangeHint `
     ///
-    pub fn LayoutChanged2(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex, hint: i32) void {
+    pub fn LayoutChanged2(self: KRearrangeColumnsProxyModel, parents: []QPersistentModelIndex, hint: i32) void {
         const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
-        qtc.QAbstractItemModel_LayoutChanged2(@ptrCast(self), parents_list, @bitCast(hint));
+        qtc.QAbstractItemModel_LayoutChanged2(@ptrCast(self.ptr), parents_list, @bitCast(hint));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1138,12 +1200,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, parents: qtc.libqt_list ([]QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
     ///
-    pub fn OnLayoutChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutChanged2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLayoutChanged2(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, qtc.libqt_list, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_LayoutChanged2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1152,16 +1214,16 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` parents: []QtC.QPersistentModelIndex `
+    /// ` parents: []QPersistentModelIndex `
     ///
-    pub fn LayoutAboutToBeChanged1(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex) void {
+    pub fn LayoutAboutToBeChanged1(self: KRearrangeColumnsProxyModel, parents: []QPersistentModelIndex) void {
         const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
-        qtc.QAbstractItemModel_LayoutAboutToBeChanged1(@ptrCast(self), parents_list);
+        qtc.QAbstractItemModel_LayoutAboutToBeChanged1(@ptrCast(self.ptr), parents_list);
     }
 
     /// Inherited from QAbstractItemModel
@@ -1170,12 +1232,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex)) callconv(.c) void `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, parents: qtc.libqt_list ([]QPersistentModelIndex)) callconv(.c) void `
     ///
-    pub fn OnLayoutAboutToBeChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLayoutAboutToBeChanged1(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, qtc.libqt_list) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1184,18 +1246,18 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` parents: []QtC.QPersistentModelIndex `
+    /// ` parents: []QPersistentModelIndex `
     ///
     /// ` hint: qabstractitemmodel_enums.LayoutChangeHint `
     ///
-    pub fn LayoutAboutToBeChanged2(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex, hint: i32) void {
+    pub fn LayoutAboutToBeChanged2(self: KRearrangeColumnsProxyModel, parents: []QPersistentModelIndex, hint: i32) void {
         const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
-        qtc.QAbstractItemModel_LayoutAboutToBeChanged2(@ptrCast(self), parents_list, @bitCast(hint));
+        qtc.QAbstractItemModel_LayoutAboutToBeChanged2(@ptrCast(self.ptr), parents_list, @bitCast(hint));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1204,12 +1266,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, parents: qtc.libqt_list ([]QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
     ///
-    pub fn OnLayoutAboutToBeChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLayoutAboutToBeChanged2(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, qtc.libqt_list, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1218,12 +1280,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: KRearrangeColumnsProxyModel, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("krearrangecolumnsproxymodel.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1236,12 +1298,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: KRearrangeColumnsProxyModel, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -1250,10 +1312,10 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: KRearrangeColumnsProxyModel) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1262,10 +1324,10 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: KRearrangeColumnsProxyModel) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1274,10 +1336,10 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: KRearrangeColumnsProxyModel) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1286,10 +1348,10 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: KRearrangeColumnsProxyModel) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1298,12 +1360,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: KRearrangeColumnsProxyModel, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -1312,10 +1374,10 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: KRearrangeColumnsProxyModel) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1324,12 +1386,13 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: KRearrangeColumnsProxyModel, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -1338,12 +1401,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: KRearrangeColumnsProxyModel, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1352,12 +1415,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: KRearrangeColumnsProxyModel, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1366,12 +1429,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: KRearrangeColumnsProxyModel, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1380,12 +1443,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: KRearrangeColumnsProxyModel, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1394,16 +1457,17 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: KRearrangeColumnsProxyModel, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("krearrangecolumnsproxymodel.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("krearrangecolumnsproxymodel.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1413,12 +1477,13 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: KRearrangeColumnsProxyModel, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -1427,12 +1492,13 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: KRearrangeColumnsProxyModel, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -1441,12 +1507,13 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: KRearrangeColumnsProxyModel, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -1455,18 +1522,20 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1475,16 +1544,20 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1493,18 +1566,19 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: KRearrangeColumnsProxyModel, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1513,18 +1587,20 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1533,16 +1609,20 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -1551,10 +1631,10 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: KRearrangeColumnsProxyModel) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1563,12 +1643,13 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: KRearrangeColumnsProxyModel, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1577,10 +1658,11 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1589,10 +1671,10 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: KRearrangeColumnsProxyModel) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1601,10 +1683,10 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: KRearrangeColumnsProxyModel) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1613,15 +1695,16 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: KRearrangeColumnsProxyModel, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -1630,13 +1713,13 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: KRearrangeColumnsProxyModel, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1645,17 +1728,16 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: KRearrangeColumnsProxyModel, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("krearrangecolumnsproxymodel.DynamicPropertyNames: Memory allocation failed");
@@ -1674,10 +1756,10 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: KRearrangeColumnsProxyModel) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1686,10 +1768,10 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: KRearrangeColumnsProxyModel) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1698,10 +1780,10 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: KRearrangeColumnsProxyModel) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1710,12 +1792,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel) callconv(.c) void `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1724,13 +1806,13 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: KRearrangeColumnsProxyModel, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -1739,10 +1821,10 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: KRearrangeColumnsProxyModel) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1751,14 +1833,14 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: KRearrangeColumnsProxyModel, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1767,14 +1849,14 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: KRearrangeColumnsProxyModel, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1783,20 +1865,22 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -1805,18 +1889,22 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1825,9 +1913,9 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1835,10 +1923,11 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: KRearrangeColumnsProxyModel, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1847,13 +1936,13 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: KRearrangeColumnsProxyModel, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1862,15 +1951,16 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: KRearrangeColumnsProxyModel, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1879,18 +1969,19 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: KRearrangeColumnsProxyModel, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1899,15 +1990,16 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: KRearrangeColumnsProxyModel, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1916,12 +2008,13 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: KRearrangeColumnsProxyModel, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1930,12 +2023,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIdentityProxyModel
@@ -1946,9 +2039,9 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` data: QtC.QMimeData `
+    /// ` data: QMimeData `
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
@@ -1956,10 +2049,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn DropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.KRearrangeColumnsProxyModel_DropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn DropMimeData(self: KRearrangeColumnsProxyModel, data: anytype, action: i32, row: i32, column: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(data)._is_QMimeData;
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KRearrangeColumnsProxyModel_DropMimeData(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDropMimeData` instead
@@ -1974,9 +2069,9 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` data: QtC.QMimeData `
+    /// ` data: QMimeData `
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
@@ -1984,10 +2079,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.KRearrangeColumnsProxyModel_SuperDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn SuperDropMimeData(self: KRearrangeColumnsProxyModel, data: anytype, action: i32, row: i32, column: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(data)._is_QMimeData;
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KRearrangeColumnsProxyModel_SuperDropMimeData(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QIdentityProxyModel
@@ -1998,12 +2095,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, data: QtC.QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, data: QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnDropMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KRearrangeColumnsProxyModel_OnDropMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDropMimeData(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QMimeData, i32, i32, i32, QModelIndex) callconv(.c) bool) void {
+        qtc.KRearrangeColumnsProxyModel_OnDropMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIdentityProxyModel
@@ -2014,12 +2111,13 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` selection: QtC.QItemSelection `
+    /// ` selection: QItemSelection `
     ///
-    pub fn MapSelectionFromSource(self: ?*anyopaque, selection: ?*anyopaque) QtC.QItemSelection {
-        return qtc.KRearrangeColumnsProxyModel_MapSelectionFromSource(@ptrCast(self), @ptrCast(selection));
+    pub fn MapSelectionFromSource(self: KRearrangeColumnsProxyModel, selection: anytype) QItemSelection {
+        comptime _ = @TypeOf(selection)._is_QItemSelection;
+        return .{ .ptr = qtc.KRearrangeColumnsProxyModel_MapSelectionFromSource(@ptrCast(self.ptr), @ptrCast(selection.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperMapSelectionFromSource` instead
@@ -2034,12 +2132,13 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` selection: QtC.QItemSelection `
+    /// ` selection: QItemSelection `
     ///
-    pub fn SuperMapSelectionFromSource(self: ?*anyopaque, selection: ?*anyopaque) QtC.QItemSelection {
-        return qtc.KRearrangeColumnsProxyModel_SuperMapSelectionFromSource(@ptrCast(self), @ptrCast(selection));
+    pub fn SuperMapSelectionFromSource(self: KRearrangeColumnsProxyModel, selection: anytype) QItemSelection {
+        comptime _ = @TypeOf(selection)._is_QItemSelection;
+        return .{ .ptr = qtc.KRearrangeColumnsProxyModel_SuperMapSelectionFromSource(@ptrCast(self.ptr), @ptrCast(selection.ptr)) };
     }
 
     /// Inherited from QIdentityProxyModel
@@ -2050,12 +2149,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, selection: QtC.QItemSelection) callconv(.c) QtC.QItemSelection `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, selection: QItemSelection) callconv(.c) QItemSelection `
     ///
-    pub fn OnMapSelectionFromSource(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QItemSelection) void {
-        qtc.KRearrangeColumnsProxyModel_OnMapSelectionFromSource(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMapSelectionFromSource(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QItemSelection) callconv(.c) QItemSelection) void {
+        qtc.KRearrangeColumnsProxyModel_OnMapSelectionFromSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIdentityProxyModel
@@ -2066,12 +2165,13 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` selection: QtC.QItemSelection `
+    /// ` selection: QItemSelection `
     ///
-    pub fn MapSelectionToSource(self: ?*anyopaque, selection: ?*anyopaque) QtC.QItemSelection {
-        return qtc.KRearrangeColumnsProxyModel_MapSelectionToSource(@ptrCast(self), @ptrCast(selection));
+    pub fn MapSelectionToSource(self: KRearrangeColumnsProxyModel, selection: anytype) QItemSelection {
+        comptime _ = @TypeOf(selection)._is_QItemSelection;
+        return .{ .ptr = qtc.KRearrangeColumnsProxyModel_MapSelectionToSource(@ptrCast(self.ptr), @ptrCast(selection.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperMapSelectionToSource` instead
@@ -2086,12 +2186,13 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` selection: QtC.QItemSelection `
+    /// ` selection: QItemSelection `
     ///
-    pub fn SuperMapSelectionToSource(self: ?*anyopaque, selection: ?*anyopaque) QtC.QItemSelection {
-        return qtc.KRearrangeColumnsProxyModel_SuperMapSelectionToSource(@ptrCast(self), @ptrCast(selection));
+    pub fn SuperMapSelectionToSource(self: KRearrangeColumnsProxyModel, selection: anytype) QItemSelection {
+        comptime _ = @TypeOf(selection)._is_QItemSelection;
+        return .{ .ptr = qtc.KRearrangeColumnsProxyModel_SuperMapSelectionToSource(@ptrCast(self.ptr), @ptrCast(selection.ptr)) };
     }
 
     /// Inherited from QIdentityProxyModel
@@ -2102,12 +2203,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, selection: QtC.QItemSelection) callconv(.c) QtC.QItemSelection `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, selection: QItemSelection) callconv(.c) QItemSelection `
     ///
-    pub fn OnMapSelectionToSource(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QItemSelection) void {
-        qtc.KRearrangeColumnsProxyModel_OnMapSelectionToSource(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMapSelectionToSource(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QItemSelection) callconv(.c) QItemSelection) void {
+        qtc.KRearrangeColumnsProxyModel_OnMapSelectionToSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIdentityProxyModel
@@ -2118,26 +2219,29 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` start: QtC.QModelIndex `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` start: QModelIndex `
     ///
     /// ` role: i32 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
     /// ` hits: i32 `
     ///
     /// ` flags: flag of qnamespace_enums.MatchFlag `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Match(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.KRearrangeColumnsProxyModel_Match(@ptrCast(self), @ptrCast(start), @bitCast(role), @ptrCast(value), @bitCast(hits), @bitCast(flags));
+    pub fn Match(self: KRearrangeColumnsProxyModel, allocator: std.mem.Allocator, start: anytype, role: i32, value: anytype, hits: i32, flags: i32) []QModelIndex {
+        comptime _ = @TypeOf(start)._is_QModelIndex;
+        comptime _ = @TypeOf(value)._is_QVariant;
+        const _arr: qtc.libqt_list = qtc.KRearrangeColumnsProxyModel_Match(@ptrCast(self.ptr), @ptrCast(start.ptr), @bitCast(role), @ptrCast(value.ptr), @bitCast(hits), @bitCast(flags));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("krearrangecolumnsproxymodel.Match: Memory allocation failed");
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("krearrangecolumnsproxymodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -2153,26 +2257,29 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` start: QtC.QModelIndex `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` start: QModelIndex `
     ///
     /// ` role: i32 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
     /// ` hits: i32 `
     ///
     /// ` flags: flag of qnamespace_enums.MatchFlag `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn SuperMatch(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.KRearrangeColumnsProxyModel_SuperMatch(@ptrCast(self), @ptrCast(start), @bitCast(role), @ptrCast(value), @bitCast(hits), @bitCast(flags));
+    pub fn SuperMatch(self: KRearrangeColumnsProxyModel, allocator: std.mem.Allocator, start: anytype, role: i32, value: anytype, hits: i32, flags: i32) []QModelIndex {
+        comptime _ = @TypeOf(start)._is_QModelIndex;
+        comptime _ = @TypeOf(value)._is_QVariant;
+        const _arr: qtc.libqt_list = qtc.KRearrangeColumnsProxyModel_SuperMatch(@ptrCast(self.ptr), @ptrCast(start.ptr), @bitCast(role), @ptrCast(value.ptr), @bitCast(hits), @bitCast(flags));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("krearrangecolumnsproxymodel.Match: Memory allocation failed");
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("krearrangecolumnsproxymodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -2182,20 +2289,20 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag) callconv(.c) qtc.libqt_list `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, start: QModelIndex, role: i32, value: QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag) callconv(.c) qtc.libqt_list `
     ///
     /// ## Callback Returns:
     ///
-    /// ` C ABI representation of []QtC.QModelIndex `
+    /// ` C ABI representation of []QModelIndex `
     ///
-    pub fn OnMatch(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, i32, i32) callconv(.c) qtc.libqt_list) void {
-        qtc.KRearrangeColumnsProxyModel_OnMatch(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMatch(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex, i32, QVariant, i32, i32) callconv(.c) qtc.libqt_list) void {
+        qtc.KRearrangeColumnsProxyModel_OnMatch(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIdentityProxyModel
@@ -2206,12 +2313,13 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` sourceModel: QtC.QAbstractItemModel `
+    /// ` sourceModel: QAbstractItemModel `
     ///
-    pub fn SetSourceModel(self: ?*anyopaque, sourceModel: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_SetSourceModel(@ptrCast(self), @ptrCast(sourceModel));
+    pub fn SetSourceModel(self: KRearrangeColumnsProxyModel, sourceModel: anytype) void {
+        comptime _ = @TypeOf(sourceModel)._is_QAbstractItemModel;
+        qtc.KRearrangeColumnsProxyModel_SetSourceModel(@ptrCast(self.ptr), @ptrCast(sourceModel.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSetSourceModel` instead
@@ -2226,12 +2334,13 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` sourceModel: QtC.QAbstractItemModel `
+    /// ` sourceModel: QAbstractItemModel `
     ///
-    pub fn SuperSetSourceModel(self: ?*anyopaque, sourceModel: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_SuperSetSourceModel(@ptrCast(self), @ptrCast(sourceModel));
+    pub fn SuperSetSourceModel(self: KRearrangeColumnsProxyModel, sourceModel: anytype) void {
+        comptime _ = @TypeOf(sourceModel)._is_QAbstractItemModel;
+        qtc.KRearrangeColumnsProxyModel_SuperSetSourceModel(@ptrCast(self.ptr), @ptrCast(sourceModel.ptr));
     }
 
     /// Inherited from QIdentityProxyModel
@@ -2242,12 +2351,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, sourceModel: QtC.QAbstractItemModel) callconv(.c) void `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, sourceModel: QAbstractItemModel) callconv(.c) void `
     ///
-    pub fn OnSetSourceModel(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRearrangeColumnsProxyModel_OnSetSourceModel(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetSourceModel(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QAbstractItemModel) callconv(.c) void) void {
+        qtc.KRearrangeColumnsProxyModel_OnSetSourceModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIdentityProxyModel
@@ -2258,16 +2367,17 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` column: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn InsertColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KRearrangeColumnsProxyModel_InsertColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
+    pub fn InsertColumns(self: KRearrangeColumnsProxyModel, column: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KRearrangeColumnsProxyModel_InsertColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInsertColumns` instead
@@ -2282,16 +2392,17 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` column: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperInsertColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KRearrangeColumnsProxyModel_SuperInsertColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
+    pub fn SuperInsertColumns(self: KRearrangeColumnsProxyModel, column: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KRearrangeColumnsProxyModel_SuperInsertColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QIdentityProxyModel
@@ -2302,12 +2413,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, column: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, column: i32, count: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnInsertColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KRearrangeColumnsProxyModel_OnInsertColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInsertColumns(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, i32, i32, QModelIndex) callconv(.c) bool) void {
+        qtc.KRearrangeColumnsProxyModel_OnInsertColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIdentityProxyModel
@@ -2318,16 +2429,17 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` row: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn InsertRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KRearrangeColumnsProxyModel_InsertRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
+    pub fn InsertRows(self: KRearrangeColumnsProxyModel, row: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KRearrangeColumnsProxyModel_InsertRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInsertRows` instead
@@ -2342,16 +2454,17 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` row: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperInsertRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KRearrangeColumnsProxyModel_SuperInsertRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
+    pub fn SuperInsertRows(self: KRearrangeColumnsProxyModel, row: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KRearrangeColumnsProxyModel_SuperInsertRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QIdentityProxyModel
@@ -2362,12 +2475,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, row: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, row: i32, count: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnInsertRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KRearrangeColumnsProxyModel_OnInsertRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInsertRows(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, i32, i32, QModelIndex) callconv(.c) bool) void {
+        qtc.KRearrangeColumnsProxyModel_OnInsertRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIdentityProxyModel
@@ -2378,16 +2491,17 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` column: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn RemoveColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KRearrangeColumnsProxyModel_RemoveColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
+    pub fn RemoveColumns(self: KRearrangeColumnsProxyModel, column: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KRearrangeColumnsProxyModel_RemoveColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperRemoveColumns` instead
@@ -2402,16 +2516,17 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` column: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperRemoveColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KRearrangeColumnsProxyModel_SuperRemoveColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
+    pub fn SuperRemoveColumns(self: KRearrangeColumnsProxyModel, column: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KRearrangeColumnsProxyModel_SuperRemoveColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QIdentityProxyModel
@@ -2422,12 +2537,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, column: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, column: i32, count: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnRemoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KRearrangeColumnsProxyModel_OnRemoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRemoveColumns(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, i32, i32, QModelIndex) callconv(.c) bool) void {
+        qtc.KRearrangeColumnsProxyModel_OnRemoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIdentityProxyModel
@@ -2438,16 +2553,17 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` row: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn RemoveRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KRearrangeColumnsProxyModel_RemoveRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
+    pub fn RemoveRows(self: KRearrangeColumnsProxyModel, row: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KRearrangeColumnsProxyModel_RemoveRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperRemoveRows` instead
@@ -2462,16 +2578,17 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` row: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperRemoveRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KRearrangeColumnsProxyModel_SuperRemoveRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
+    pub fn SuperRemoveRows(self: KRearrangeColumnsProxyModel, row: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KRearrangeColumnsProxyModel_SuperRemoveRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QIdentityProxyModel
@@ -2482,12 +2599,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, row: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, row: i32, count: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnRemoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KRearrangeColumnsProxyModel_OnRemoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRemoveRows(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, i32, i32, QModelIndex) callconv(.c) bool) void {
+        qtc.KRearrangeColumnsProxyModel_OnRemoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIdentityProxyModel
@@ -2498,20 +2615,22 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceRow: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn MoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.KRearrangeColumnsProxyModel_MoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
+    pub fn MoveRows(self: KRearrangeColumnsProxyModel, sourceParent: anytype, sourceRow: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KRearrangeColumnsProxyModel_MoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
 
     /// ### DEPRECATED: Use `SuperMoveRows` instead
@@ -2526,20 +2645,22 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceRow: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn SuperMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.KRearrangeColumnsProxyModel_SuperMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
+    pub fn SuperMoveRows(self: KRearrangeColumnsProxyModel, sourceParent: anytype, sourceRow: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KRearrangeColumnsProxyModel_SuperMoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
 
     /// Inherited from QIdentityProxyModel
@@ -2550,12 +2671,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, sourceParent: QtC.QModelIndex, sourceRow: i32, count: i32, destinationParent: QtC.QModelIndex, destinationChild: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, sourceParent: QModelIndex, sourceRow: i32, count: i32, destinationParent: QModelIndex, destinationChild: i32) callconv(.c) bool `
     ///
-    pub fn OnMoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KRearrangeColumnsProxyModel_OnMoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMoveRows(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
+        qtc.KRearrangeColumnsProxyModel_OnMoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIdentityProxyModel
@@ -2566,20 +2687,22 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceColumn: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn MoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.KRearrangeColumnsProxyModel_MoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
+    pub fn MoveColumns(self: KRearrangeColumnsProxyModel, sourceParent: anytype, sourceColumn: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KRearrangeColumnsProxyModel_MoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
 
     /// ### DEPRECATED: Use `SuperMoveColumns` instead
@@ -2594,20 +2717,22 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceColumn: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn SuperMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.KRearrangeColumnsProxyModel_SuperMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
+    pub fn SuperMoveColumns(self: KRearrangeColumnsProxyModel, sourceParent: anytype, sourceColumn: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KRearrangeColumnsProxyModel_SuperMoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
 
     /// Inherited from QIdentityProxyModel
@@ -2618,12 +2743,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, sourceParent: QtC.QModelIndex, sourceColumn: i32, count: i32, destinationParent: QtC.QModelIndex, destinationChild: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, sourceParent: QModelIndex, sourceColumn: i32, count: i32, destinationParent: QModelIndex, destinationChild: i32) callconv(.c) bool `
     ///
-    pub fn OnMoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KRearrangeColumnsProxyModel_OnMoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMoveColumns(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
+        qtc.KRearrangeColumnsProxyModel_OnMoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -2634,10 +2759,10 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    pub fn Submit(self: ?*anyopaque) bool {
-        return qtc.KRearrangeColumnsProxyModel_Submit(@ptrCast(self));
+    pub fn Submit(self: KRearrangeColumnsProxyModel) bool {
+        return qtc.KRearrangeColumnsProxyModel_Submit(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSubmit` instead
@@ -2652,10 +2777,10 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    pub fn SuperSubmit(self: ?*anyopaque) bool {
-        return qtc.KRearrangeColumnsProxyModel_SuperSubmit(@ptrCast(self));
+    pub fn SuperSubmit(self: KRearrangeColumnsProxyModel) bool {
+        return qtc.KRearrangeColumnsProxyModel_SuperSubmit(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -2666,12 +2791,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnSubmit(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KRearrangeColumnsProxyModel_OnSubmit(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSubmit(self: KRearrangeColumnsProxyModel, callback: *const fn () callconv(.c) bool) void {
+        qtc.KRearrangeColumnsProxyModel_OnSubmit(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -2682,10 +2807,10 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    pub fn Revert(self: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_Revert(@ptrCast(self));
+    pub fn Revert(self: KRearrangeColumnsProxyModel) void {
+        qtc.KRearrangeColumnsProxyModel_Revert(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperRevert` instead
@@ -2700,10 +2825,10 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    pub fn SuperRevert(self: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_SuperRevert(@ptrCast(self));
+    pub fn SuperRevert(self: KRearrangeColumnsProxyModel) void {
+        qtc.KRearrangeColumnsProxyModel_SuperRevert(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -2714,12 +2839,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnRevert(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KRearrangeColumnsProxyModel_OnRevert(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRevert(self: KRearrangeColumnsProxyModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KRearrangeColumnsProxyModel_OnRevert(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -2730,14 +2855,15 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` proxyIndex: QtC.QModelIndex `
+    /// ` proxyIndex: QModelIndex `
     ///
     /// ` role: i32 `
     ///
-    pub fn Data(self: ?*anyopaque, proxyIndex: ?*anyopaque, role: i32) QtC.QVariant {
-        return qtc.KRearrangeColumnsProxyModel_Data(@ptrCast(self), @ptrCast(proxyIndex), @bitCast(role));
+    pub fn Data(self: KRearrangeColumnsProxyModel, proxyIndex: anytype, role: i32) QVariant {
+        comptime _ = @TypeOf(proxyIndex)._is_QModelIndex;
+        return .{ .ptr = qtc.KRearrangeColumnsProxyModel_Data(@ptrCast(self.ptr), @ptrCast(proxyIndex.ptr), @bitCast(role)) };
     }
 
     /// ### DEPRECATED: Use `SuperData` instead
@@ -2752,14 +2878,15 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` proxyIndex: QtC.QModelIndex `
+    /// ` proxyIndex: QModelIndex `
     ///
     /// ` role: i32 `
     ///
-    pub fn SuperData(self: ?*anyopaque, proxyIndex: ?*anyopaque, role: i32) QtC.QVariant {
-        return qtc.KRearrangeColumnsProxyModel_SuperData(@ptrCast(self), @ptrCast(proxyIndex), @bitCast(role));
+    pub fn SuperData(self: KRearrangeColumnsProxyModel, proxyIndex: anytype, role: i32) QVariant {
+        comptime _ = @TypeOf(proxyIndex)._is_QModelIndex;
+        return .{ .ptr = qtc.KRearrangeColumnsProxyModel_SuperData(@ptrCast(self.ptr), @ptrCast(proxyIndex.ptr), @bitCast(role)) };
     }
 
     /// Inherited from QAbstractProxyModel
@@ -2770,12 +2897,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, proxyIndex: QtC.QModelIndex, role: i32) callconv(.c) QtC.QVariant `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, proxyIndex: QModelIndex, role: i32) callconv(.c) QVariant `
     ///
-    pub fn OnData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.KRearrangeColumnsProxyModel_OnData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnData(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex, i32) callconv(.c) QVariant) void {
+        qtc.KRearrangeColumnsProxyModel_OnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -2786,15 +2913,16 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
-    ///
-    /// ` index: QtC.QModelIndex `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_qtcqvariant {
-        const _map: qtc.libqt_map = qtc.KRearrangeColumnsProxyModel_ItemData(@ptrCast(self), @ptrCast(index));
-        var _ret: arraymap_i32_qtcqvariant = .empty;
+    /// ` index: QModelIndex `
+    ///
+    pub fn ItemData(self: KRearrangeColumnsProxyModel, allocator: std.mem.Allocator, index: anytype) ArrayMap_i32_QVariant {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        const _map: qtc.libqt_map = qtc.KRearrangeColumnsProxyModel_ItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
+        var _ret: ArrayMap_i32_QVariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -2805,7 +2933,7 @@ pub const krearrangecolumnsproxymodel = struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            _ret.put(allocator, _key, @ptrCast(_value)) catch @panic("krearrangecolumnsproxymodel.ItemData: Memory allocation failed");
+            _ret.put(allocator, _key, .{ .ptr = @ptrCast(_value) }) catch @panic("krearrangecolumnsproxymodel.ItemData: Memory allocation failed");
         }
         return _ret;
     }
@@ -2822,15 +2950,16 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
-    ///
-    /// ` index: QtC.QModelIndex `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_qtcqvariant {
-        const _map: qtc.libqt_map = qtc.KRearrangeColumnsProxyModel_SuperItemData(@ptrCast(self), @ptrCast(index));
-        var _ret: arraymap_i32_qtcqvariant = .empty;
+    /// ` index: QModelIndex `
+    ///
+    pub fn SuperItemData(self: KRearrangeColumnsProxyModel, allocator: std.mem.Allocator, index: anytype) ArrayMap_i32_QVariant {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        const _map: qtc.libqt_map = qtc.KRearrangeColumnsProxyModel_SuperItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
+        var _ret: ArrayMap_i32_QVariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -2841,7 +2970,7 @@ pub const krearrangecolumnsproxymodel = struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            _ret.put(allocator, _key, @ptrCast(_value)) catch @panic("krearrangecolumnsproxymodel.ItemData: Memory allocation failed");
+            _ret.put(allocator, _key, .{ .ptr = @ptrCast(_value) }) catch @panic("krearrangecolumnsproxymodel.ItemData: Memory allocation failed");
         }
         return _ret;
     }
@@ -2854,16 +2983,16 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, index: QtC.QModelIndex) callconv(.c) qtc.libqt_map `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, index: QModelIndex) callconv(.c) qtc.libqt_map `
     ///
     /// ## Callback Returns:
     ///
-    /// ` C ABI representation of arraymap_i32_qtcqvariant `
+    /// ` C ABI representation of ArrayMap_i32_QVariant `
     ///
-    pub fn OnItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) qtc.libqt_map) void {
-        qtc.KRearrangeColumnsProxyModel_OnItemData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnItemData(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex) callconv(.c) qtc.libqt_map) void {
+        qtc.KRearrangeColumnsProxyModel_OnItemData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -2874,16 +3003,17 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.ItemFlag `
     ///
-    pub fn Flags(self: ?*anyopaque, index: ?*anyopaque) i32 {
-        return qtc.KRearrangeColumnsProxyModel_Flags(@ptrCast(self), @ptrCast(index));
+    pub fn Flags(self: KRearrangeColumnsProxyModel, index: anytype) i32 {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.KRearrangeColumnsProxyModel_Flags(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFlags` instead
@@ -2898,16 +3028,17 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.ItemFlag `
     ///
-    pub fn SuperFlags(self: ?*anyopaque, index: ?*anyopaque) i32 {
-        return qtc.KRearrangeColumnsProxyModel_SuperFlags(@ptrCast(self), @ptrCast(index));
+    pub fn SuperFlags(self: KRearrangeColumnsProxyModel, index: anytype) i32 {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.KRearrangeColumnsProxyModel_SuperFlags(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -2918,12 +3049,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, index: QtC.QModelIndex) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, index: QModelIndex) callconv(.c) i32 `
     ///
-    pub fn OnFlags(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KRearrangeColumnsProxyModel_OnFlags(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFlags(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex) callconv(.c) i32) void {
+        qtc.KRearrangeColumnsProxyModel_OnFlags(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -2934,16 +3065,18 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
     /// ` role: i32 `
     ///
-    pub fn SetData(self: ?*anyopaque, index: ?*anyopaque, value: ?*anyopaque, role: i32) bool {
-        return qtc.KRearrangeColumnsProxyModel_SetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @bitCast(role));
+    pub fn SetData(self: KRearrangeColumnsProxyModel, index: anytype, value: anytype, role: i32) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.KRearrangeColumnsProxyModel_SetData(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(value.ptr), @bitCast(role));
     }
 
     /// ### DEPRECATED: Use `SuperSetData` instead
@@ -2958,16 +3091,18 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
     /// ` role: i32 `
     ///
-    pub fn SuperSetData(self: ?*anyopaque, index: ?*anyopaque, value: ?*anyopaque, role: i32) bool {
-        return qtc.KRearrangeColumnsProxyModel_SuperSetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @bitCast(role));
+    pub fn SuperSetData(self: KRearrangeColumnsProxyModel, index: anytype, value: anytype, role: i32) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.KRearrangeColumnsProxyModel_SuperSetData(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(value.ptr), @bitCast(role));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -2978,12 +3113,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, index: QtC.QModelIndex, value: QtC.QVariant, role: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, index: QModelIndex, value: QVariant, role: i32) callconv(.c) bool `
     ///
-    pub fn OnSetData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KRearrangeColumnsProxyModel_OnSetData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetData(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex, QVariant, i32) callconv(.c) bool) void {
+        qtc.KRearrangeColumnsProxyModel_OnSetData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -2994,15 +3129,16 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
-    ///
-    /// ` index: QtC.QModelIndex `
-    ///
-    /// ` roles: arraymap_i32_qtcqvariant `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetItemData(self: ?*anyopaque, index: ?*anyopaque, roles: arraymap_i32_qtcqvariant, allocator: std.mem.Allocator) bool {
+    /// ` index: QModelIndex `
+    ///
+    /// ` roles: ArrayMap_i32_QVariant `
+    ///
+    pub fn SetItemData(self: KRearrangeColumnsProxyModel, allocator: std.mem.Allocator, index: anytype, roles: ArrayMap_i32_QVariant) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
         const roles_count = roles.count();
         const roles_keys = allocator.alloc(i32, roles_count) catch @panic("krearrangecolumnsproxymodel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_keys);
@@ -3013,14 +3149,14 @@ pub const krearrangecolumnsproxymodel = struct {
         while (roles_it.next()) |it_entry| : (i += 1) {
             const roles_key = it_entry.key_ptr.*;
             roles_keys[i] = @bitCast(roles_key);
-            roles_values[i] = @ptrCast(it_entry.value_ptr.*);
+            roles_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const roles_map = qtc.libqt_map{
             .len = roles_count,
             .keys = @ptrCast(roles_keys.ptr),
             .values = @ptrCast(roles_values.ptr),
         };
-        return qtc.KRearrangeColumnsProxyModel_SetItemData(@ptrCast(self), @ptrCast(index), roles_map);
+        return qtc.KRearrangeColumnsProxyModel_SetItemData(@ptrCast(self.ptr), @ptrCast(index.ptr), roles_map);
     }
 
     /// ### DEPRECATED: Use `SuperSetItemData` instead
@@ -3035,15 +3171,16 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
-    ///
-    /// ` index: QtC.QModelIndex `
-    ///
-    /// ` roles: arraymap_i32_qtcqvariant `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperSetItemData(self: ?*anyopaque, index: ?*anyopaque, roles: arraymap_i32_qtcqvariant, allocator: std.mem.Allocator) bool {
+    /// ` index: QModelIndex `
+    ///
+    /// ` roles: ArrayMap_i32_QVariant `
+    ///
+    pub fn SuperSetItemData(self: KRearrangeColumnsProxyModel, allocator: std.mem.Allocator, index: anytype, roles: ArrayMap_i32_QVariant) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
         const roles_count = roles.count();
         const roles_keys = allocator.alloc(i32, roles_count) catch @panic("krearrangecolumnsproxymodel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_keys);
@@ -3054,14 +3191,14 @@ pub const krearrangecolumnsproxymodel = struct {
         while (roles_it.next()) |it_entry| : (i += 1) {
             const roles_key = it_entry.key_ptr.*;
             roles_keys[i] = @bitCast(roles_key);
-            roles_values[i] = @ptrCast(it_entry.value_ptr.*);
+            roles_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const roles_map = qtc.libqt_map{
             .len = roles_count,
             .keys = @ptrCast(roles_keys.ptr),
             .values = @ptrCast(roles_values.ptr),
         };
-        return qtc.KRearrangeColumnsProxyModel_SuperSetItemData(@ptrCast(self), @ptrCast(index), roles_map);
+        return qtc.KRearrangeColumnsProxyModel_SuperSetItemData(@ptrCast(self.ptr), @ptrCast(index.ptr), roles_map);
     }
 
     /// Inherited from QAbstractProxyModel
@@ -3072,12 +3209,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, index: QtC.QModelIndex, roles: qtc.libqt_map (arraymap_i32_qtcqvariant)) callconv(.c) bool `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, index: QModelIndex, roles: qtc.libqt_map (ArrayMap_i32_QVariant)) callconv(.c) bool `
     ///
-    pub fn OnSetItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, qtc.libqt_map) callconv(.c) bool) void {
-        qtc.KRearrangeColumnsProxyModel_OnSetItemData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetItemData(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex, qtc.libqt_map) callconv(.c) bool) void {
+        qtc.KRearrangeColumnsProxyModel_OnSetItemData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -3088,18 +3225,19 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` section: i32 `
     ///
     /// ` orientation: qnamespace_enums.Orientation `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
     /// ` role: i32 `
     ///
-    pub fn SetHeaderData(self: ?*anyopaque, section: i32, orientation: i32, value: ?*anyopaque, role: i32) bool {
-        return qtc.KRearrangeColumnsProxyModel_SetHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @ptrCast(value), @bitCast(role));
+    pub fn SetHeaderData(self: KRearrangeColumnsProxyModel, section: i32, orientation: i32, value: anytype, role: i32) bool {
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.KRearrangeColumnsProxyModel_SetHeaderData(@ptrCast(self.ptr), @bitCast(section), @bitCast(orientation), @ptrCast(value.ptr), @bitCast(role));
     }
 
     /// ### DEPRECATED: Use `SuperSetHeaderData` instead
@@ -3114,18 +3252,19 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` section: i32 `
     ///
     /// ` orientation: qnamespace_enums.Orientation `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
     /// ` role: i32 `
     ///
-    pub fn SuperSetHeaderData(self: ?*anyopaque, section: i32, orientation: i32, value: ?*anyopaque, role: i32) bool {
-        return qtc.KRearrangeColumnsProxyModel_SuperSetHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @ptrCast(value), @bitCast(role));
+    pub fn SuperSetHeaderData(self: KRearrangeColumnsProxyModel, section: i32, orientation: i32, value: anytype, role: i32) bool {
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.KRearrangeColumnsProxyModel_SuperSetHeaderData(@ptrCast(self.ptr), @bitCast(section), @bitCast(orientation), @ptrCast(value.ptr), @bitCast(role));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -3136,12 +3275,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, section: i32, orientation: qnamespace_enums.Orientation, value: QtC.QVariant, role: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, section: i32, orientation: qnamespace_enums.Orientation, value: QVariant, role: i32) callconv(.c) bool `
     ///
-    pub fn OnSetHeaderData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KRearrangeColumnsProxyModel_OnSetHeaderData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetHeaderData(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, i32, i32, QVariant, i32) callconv(.c) bool) void {
+        qtc.KRearrangeColumnsProxyModel_OnSetHeaderData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -3152,12 +3291,13 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn ClearItemData(self: ?*anyopaque, index: ?*anyopaque) bool {
-        return qtc.KRearrangeColumnsProxyModel_ClearItemData(@ptrCast(self), @ptrCast(index));
+    pub fn ClearItemData(self: KRearrangeColumnsProxyModel, index: anytype) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.KRearrangeColumnsProxyModel_ClearItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperClearItemData` instead
@@ -3172,12 +3312,13 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SuperClearItemData(self: ?*anyopaque, index: ?*anyopaque) bool {
-        return qtc.KRearrangeColumnsProxyModel_SuperClearItemData(@ptrCast(self), @ptrCast(index));
+    pub fn SuperClearItemData(self: KRearrangeColumnsProxyModel, index: anytype) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.KRearrangeColumnsProxyModel_SuperClearItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -3188,12 +3329,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, index: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, index: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnClearItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KRearrangeColumnsProxyModel_OnClearItemData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnClearItemData(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex) callconv(.c) bool) void {
+        qtc.KRearrangeColumnsProxyModel_OnClearItemData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -3204,12 +3345,13 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn Buddy(self: ?*anyopaque, index: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KRearrangeColumnsProxyModel_Buddy(@ptrCast(self), @ptrCast(index));
+    pub fn Buddy(self: KRearrangeColumnsProxyModel, index: anytype) QModelIndex {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.KRearrangeColumnsProxyModel_Buddy(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperBuddy` instead
@@ -3224,12 +3366,13 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SuperBuddy(self: ?*anyopaque, index: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KRearrangeColumnsProxyModel_SuperBuddy(@ptrCast(self), @ptrCast(index));
+    pub fn SuperBuddy(self: KRearrangeColumnsProxyModel, index: anytype) QModelIndex {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.KRearrangeColumnsProxyModel_SuperBuddy(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// Inherited from QAbstractProxyModel
@@ -3240,12 +3383,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, index: QtC.QModelIndex) callconv(.c) QtC.QModelIndex `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, index: QModelIndex) callconv(.c) QModelIndex `
     ///
-    pub fn OnBuddy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.KRearrangeColumnsProxyModel_OnBuddy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBuddy(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
+        qtc.KRearrangeColumnsProxyModel_OnBuddy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -3256,12 +3399,13 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn CanFetchMore(self: ?*anyopaque, parent: ?*anyopaque) bool {
-        return qtc.KRearrangeColumnsProxyModel_CanFetchMore(@ptrCast(self), @ptrCast(parent));
+    pub fn CanFetchMore(self: KRearrangeColumnsProxyModel, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KRearrangeColumnsProxyModel_CanFetchMore(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCanFetchMore` instead
@@ -3276,12 +3420,13 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperCanFetchMore(self: ?*anyopaque, parent: ?*anyopaque) bool {
-        return qtc.KRearrangeColumnsProxyModel_SuperCanFetchMore(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperCanFetchMore(self: KRearrangeColumnsProxyModel, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KRearrangeColumnsProxyModel_SuperCanFetchMore(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -3292,12 +3437,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnCanFetchMore(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KRearrangeColumnsProxyModel_OnCanFetchMore(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCanFetchMore(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex) callconv(.c) bool) void {
+        qtc.KRearrangeColumnsProxyModel_OnCanFetchMore(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -3308,12 +3453,13 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn FetchMore(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_FetchMore(@ptrCast(self), @ptrCast(parent));
+    pub fn FetchMore(self: KRearrangeColumnsProxyModel, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KRearrangeColumnsProxyModel_FetchMore(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFetchMore` instead
@@ -3328,12 +3474,13 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperFetchMore(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_SuperFetchMore(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperFetchMore(self: KRearrangeColumnsProxyModel, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KRearrangeColumnsProxyModel_SuperFetchMore(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -3344,12 +3491,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, parent: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, parent: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnFetchMore(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRearrangeColumnsProxyModel_OnFetchMore(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFetchMore(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex) callconv(.c) void) void {
+        qtc.KRearrangeColumnsProxyModel_OnFetchMore(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -3360,14 +3507,14 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` column: i32 `
     ///
     /// ` order: qnamespace_enums.SortOrder `
     ///
-    pub fn Sort(self: ?*anyopaque, column: i32, order: i32) void {
-        qtc.KRearrangeColumnsProxyModel_Sort(@ptrCast(self), @bitCast(column), @bitCast(order));
+    pub fn Sort(self: KRearrangeColumnsProxyModel, column: i32, order: i32) void {
+        qtc.KRearrangeColumnsProxyModel_Sort(@ptrCast(self.ptr), @bitCast(column), @bitCast(order));
     }
 
     /// ### DEPRECATED: Use `SuperSort` instead
@@ -3382,14 +3529,14 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` column: i32 `
     ///
     /// ` order: qnamespace_enums.SortOrder `
     ///
-    pub fn SuperSort(self: ?*anyopaque, column: i32, order: i32) void {
-        qtc.KRearrangeColumnsProxyModel_SuperSort(@ptrCast(self), @bitCast(column), @bitCast(order));
+    pub fn SuperSort(self: KRearrangeColumnsProxyModel, column: i32, order: i32) void {
+        qtc.KRearrangeColumnsProxyModel_SuperSort(@ptrCast(self.ptr), @bitCast(column), @bitCast(order));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -3400,12 +3547,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, column: i32, order: qnamespace_enums.SortOrder) callconv(.c) void `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, column: i32, order: qnamespace_enums.SortOrder) callconv(.c) void `
     ///
-    pub fn OnSort(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KRearrangeColumnsProxyModel_OnSort(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSort(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, i32, i32) callconv(.c) void) void {
+        qtc.KRearrangeColumnsProxyModel_OnSort(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -3416,12 +3563,13 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn Span(self: ?*anyopaque, index: ?*anyopaque) QtC.QSize {
-        return qtc.KRearrangeColumnsProxyModel_Span(@ptrCast(self), @ptrCast(index));
+    pub fn Span(self: KRearrangeColumnsProxyModel, index: anytype) QSize {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.KRearrangeColumnsProxyModel_Span(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSpan` instead
@@ -3436,12 +3584,13 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SuperSpan(self: ?*anyopaque, index: ?*anyopaque) QtC.QSize {
-        return qtc.KRearrangeColumnsProxyModel_SuperSpan(@ptrCast(self), @ptrCast(index));
+    pub fn SuperSpan(self: KRearrangeColumnsProxyModel, index: anytype) QSize {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.KRearrangeColumnsProxyModel_SuperSpan(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// Inherited from QAbstractProxyModel
@@ -3452,12 +3601,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, index: QtC.QModelIndex) callconv(.c) QtC.QSize `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, index: QModelIndex) callconv(.c) QSize `
     ///
-    pub fn OnSpan(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QSize) void {
-        qtc.KRearrangeColumnsProxyModel_OnSpan(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSpan(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex) callconv(.c) QSize) void {
+        qtc.KRearrangeColumnsProxyModel_OnSpan(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -3468,16 +3617,16 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` indexes: []QtC.QModelIndex `
+    /// ` indexes: []QModelIndex `
     ///
-    pub fn MimeData(self: ?*anyopaque, indexes: []QtC.QModelIndex) QtC.QMimeData {
+    pub fn MimeData(self: KRearrangeColumnsProxyModel, indexes: []QModelIndex) QMimeData {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
-        return qtc.KRearrangeColumnsProxyModel_MimeData(@ptrCast(self), indexes_list);
+        return .{ .ptr = qtc.KRearrangeColumnsProxyModel_MimeData(@ptrCast(self.ptr), indexes_list) };
     }
 
     /// ### DEPRECATED: Use `SuperMimeData` instead
@@ -3492,16 +3641,16 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` indexes: []QtC.QModelIndex `
+    /// ` indexes: []QModelIndex `
     ///
-    pub fn SuperMimeData(self: ?*anyopaque, indexes: []QtC.QModelIndex) QtC.QMimeData {
+    pub fn SuperMimeData(self: KRearrangeColumnsProxyModel, indexes: []QModelIndex) QMimeData {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
-        return qtc.KRearrangeColumnsProxyModel_SuperMimeData(@ptrCast(self), indexes_list);
+        return .{ .ptr = qtc.KRearrangeColumnsProxyModel_SuperMimeData(@ptrCast(self.ptr), indexes_list) };
     }
 
     /// Inherited from QAbstractProxyModel
@@ -3512,12 +3661,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, indexes: qtc.libqt_list ([]QtC.QModelIndex)) callconv(.c) QtC.QMimeData `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, indexes: qtc.libqt_list ([]QModelIndex)) callconv(.c) QMimeData `
     ///
-    pub fn OnMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) QtC.QMimeData) void {
-        qtc.KRearrangeColumnsProxyModel_OnMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMimeData(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, qtc.libqt_list) callconv(.c) QMimeData) void {
+        qtc.KRearrangeColumnsProxyModel_OnMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -3528,9 +3677,9 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` data: QtC.QMimeData `
+    /// ` data: QMimeData `
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
@@ -3538,10 +3687,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn CanDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.KRearrangeColumnsProxyModel_CanDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn CanDropMimeData(self: KRearrangeColumnsProxyModel, data: anytype, action: i32, row: i32, column: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(data)._is_QMimeData;
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KRearrangeColumnsProxyModel_CanDropMimeData(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCanDropMimeData` instead
@@ -3556,9 +3707,9 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` data: QtC.QMimeData `
+    /// ` data: QMimeData `
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
@@ -3566,10 +3717,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperCanDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.KRearrangeColumnsProxyModel_SuperCanDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn SuperCanDropMimeData(self: KRearrangeColumnsProxyModel, data: anytype, action: i32, row: i32, column: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(data)._is_QMimeData;
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KRearrangeColumnsProxyModel_SuperCanDropMimeData(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -3580,12 +3733,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, data: QtC.QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, data: QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnCanDropMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KRearrangeColumnsProxyModel_OnCanDropMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCanDropMimeData(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QMimeData, i32, i32, i32, QModelIndex) callconv(.c) bool) void {
+        qtc.KRearrangeColumnsProxyModel_OnCanDropMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -3596,17 +3749,16 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KRearrangeColumnsProxyModel_MimeTypes(@ptrCast(self));
+    pub fn MimeTypes(self: KRearrangeColumnsProxyModel, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.KRearrangeColumnsProxyModel_MimeTypes(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("krearrangecolumnsproxymodel.MimeTypes: Memory allocation failed");
@@ -3631,17 +3783,16 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KRearrangeColumnsProxyModel_SuperMimeTypes(@ptrCast(self));
+    pub fn SuperMimeTypes(self: KRearrangeColumnsProxyModel, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.KRearrangeColumnsProxyModel_SuperMimeTypes(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("krearrangecolumnsproxymodel.MimeTypes: Memory allocation failed");
@@ -3660,16 +3811,16 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
     /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnMimeTypes(self: ?*anyopaque, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
-        qtc.KRearrangeColumnsProxyModel_OnMimeTypes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMimeTypes(self: KRearrangeColumnsProxyModel, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
+        qtc.KRearrangeColumnsProxyModel_OnMimeTypes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -3680,14 +3831,14 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SupportedDragActions(self: ?*anyopaque) i32 {
-        return qtc.KRearrangeColumnsProxyModel_SupportedDragActions(@ptrCast(self));
+    pub fn SupportedDragActions(self: KRearrangeColumnsProxyModel) i32 {
+        return qtc.KRearrangeColumnsProxyModel_SupportedDragActions(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSupportedDragActions` instead
@@ -3702,14 +3853,14 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SuperSupportedDragActions(self: ?*anyopaque) i32 {
-        return qtc.KRearrangeColumnsProxyModel_SuperSupportedDragActions(@ptrCast(self));
+    pub fn SuperSupportedDragActions(self: KRearrangeColumnsProxyModel) i32 {
+        return qtc.KRearrangeColumnsProxyModel_SuperSupportedDragActions(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -3720,12 +3871,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSupportedDragActions(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KRearrangeColumnsProxyModel_OnSupportedDragActions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSupportedDragActions(self: KRearrangeColumnsProxyModel, callback: *const fn () callconv(.c) i32) void {
+        qtc.KRearrangeColumnsProxyModel_OnSupportedDragActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -3736,14 +3887,14 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SupportedDropActions(self: ?*anyopaque) i32 {
-        return qtc.KRearrangeColumnsProxyModel_SupportedDropActions(@ptrCast(self));
+    pub fn SupportedDropActions(self: KRearrangeColumnsProxyModel) i32 {
+        return qtc.KRearrangeColumnsProxyModel_SupportedDropActions(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSupportedDropActions` instead
@@ -3758,14 +3909,14 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SuperSupportedDropActions(self: ?*anyopaque) i32 {
-        return qtc.KRearrangeColumnsProxyModel_SuperSupportedDropActions(@ptrCast(self));
+    pub fn SuperSupportedDropActions(self: KRearrangeColumnsProxyModel) i32 {
+        return qtc.KRearrangeColumnsProxyModel_SuperSupportedDropActions(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -3776,12 +3927,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSupportedDropActions(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KRearrangeColumnsProxyModel_OnSupportedDropActions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSupportedDropActions(self: KRearrangeColumnsProxyModel, callback: *const fn () callconv(.c) i32) void {
+        qtc.KRearrangeColumnsProxyModel_OnSupportedDropActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -3792,13 +3943,13 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn RoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
-        const _map: qtc.libqt_map = qtc.KRearrangeColumnsProxyModel_RoleNames(@ptrCast(self));
-        var _ret: map_i32_u8 = .empty;
+    pub fn RoleNames(self: KRearrangeColumnsProxyModel, allocator: std.mem.Allocator) Map_i32_u8 {
+        const _map: qtc.libqt_map = qtc.KRearrangeColumnsProxyModel_RoleNames(@ptrCast(self.ptr));
+        var _ret: Map_i32_u8 = .empty;
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -3832,13 +3983,13 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperRoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
-        const _map: qtc.libqt_map = qtc.KRearrangeColumnsProxyModel_SuperRoleNames(@ptrCast(self));
-        var _ret: map_i32_u8 = .empty;
+    pub fn SuperRoleNames(self: KRearrangeColumnsProxyModel, allocator: std.mem.Allocator) Map_i32_u8 {
+        const _map: qtc.libqt_map = qtc.KRearrangeColumnsProxyModel_SuperRoleNames(@ptrCast(self.ptr));
+        var _ret: Map_i32_u8 = .empty;
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -3868,16 +4019,16 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
     /// ` callback: *const fn () callconv(.c) qtc.libqt_map `
     ///
     /// ## Callback Returns:
     ///
-    /// ` C ABI representation of map_i32_u8 `
+    /// ` C ABI representation of Map_i32_u8 `
     ///
-    pub fn OnRoleNames(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_map) void {
-        qtc.KRearrangeColumnsProxyModel_OnRoleNames(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRoleNames(self: KRearrangeColumnsProxyModel, callback: *const fn () callconv(.c) qtc.libqt_map) void {
+        qtc.KRearrangeColumnsProxyModel_OnRoleNames(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3888,14 +4039,16 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    /// ` roleDataSpan: QtC.QModelRoleDataSpan `
+    /// ` roleDataSpan: QModelRoleDataSpan `
     ///
-    pub fn MultiData(self: ?*anyopaque, index: ?*anyopaque, roleDataSpan: QtC.QModelRoleDataSpan) void {
-        qtc.KRearrangeColumnsProxyModel_MultiData(@ptrCast(self), @ptrCast(index), @ptrCast(roleDataSpan));
+    pub fn MultiData(self: KRearrangeColumnsProxyModel, index: anytype, roleDataSpan: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        comptime _ = @TypeOf(roleDataSpan)._is_QModelRoleDataSpan;
+        qtc.KRearrangeColumnsProxyModel_MultiData(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(roleDataSpan.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMultiData` instead
@@ -3910,14 +4063,16 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    /// ` roleDataSpan: QtC.QModelRoleDataSpan `
+    /// ` roleDataSpan: QModelRoleDataSpan `
     ///
-    pub fn SuperMultiData(self: ?*anyopaque, index: ?*anyopaque, roleDataSpan: QtC.QModelRoleDataSpan) void {
-        qtc.KRearrangeColumnsProxyModel_SuperMultiData(@ptrCast(self), @ptrCast(index), @ptrCast(roleDataSpan));
+    pub fn SuperMultiData(self: KRearrangeColumnsProxyModel, index: anytype, roleDataSpan: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        comptime _ = @TypeOf(roleDataSpan)._is_QModelRoleDataSpan;
+        qtc.KRearrangeColumnsProxyModel_SuperMultiData(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(roleDataSpan.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3928,12 +4083,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, index: QtC.QModelIndex, roleDataSpan: QtC.QModelRoleDataSpan) callconv(.c) void `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, index: QModelIndex, roleDataSpan: QModelRoleDataSpan) callconv(.c) void `
     ///
-    pub fn OnMultiData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, QtC.QModelRoleDataSpan) callconv(.c) void) void {
-        qtc.KRearrangeColumnsProxyModel_OnMultiData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMultiData(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex, QModelRoleDataSpan) callconv(.c) void) void {
+        qtc.KRearrangeColumnsProxyModel_OnMultiData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3944,10 +4099,10 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    pub fn ResetInternalData(self: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_ResetInternalData(@ptrCast(self));
+    pub fn ResetInternalData(self: KRearrangeColumnsProxyModel) void {
+        qtc.KRearrangeColumnsProxyModel_ResetInternalData(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperResetInternalData` instead
@@ -3962,10 +4117,10 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    pub fn SuperResetInternalData(self: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_SuperResetInternalData(@ptrCast(self));
+    pub fn SuperResetInternalData(self: KRearrangeColumnsProxyModel) void {
+        qtc.KRearrangeColumnsProxyModel_SuperResetInternalData(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3976,12 +4131,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnResetInternalData(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KRearrangeColumnsProxyModel_OnResetInternalData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResetInternalData(self: KRearrangeColumnsProxyModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KRearrangeColumnsProxyModel_OnResetInternalData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3992,12 +4147,13 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KRearrangeColumnsProxyModel_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: KRearrangeColumnsProxyModel, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KRearrangeColumnsProxyModel_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -4012,12 +4168,13 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KRearrangeColumnsProxyModel_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: KRearrangeColumnsProxyModel, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KRearrangeColumnsProxyModel_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -4028,12 +4185,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KRearrangeColumnsProxyModel_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QEvent) callconv(.c) bool) void {
+        qtc.KRearrangeColumnsProxyModel_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4044,14 +4201,16 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KRearrangeColumnsProxyModel_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: KRearrangeColumnsProxyModel, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KRearrangeColumnsProxyModel_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -4066,14 +4225,16 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KRearrangeColumnsProxyModel_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: KRearrangeColumnsProxyModel, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KRearrangeColumnsProxyModel_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -4084,12 +4245,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KRearrangeColumnsProxyModel_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QObject, QEvent) callconv(.c) bool) void {
+        qtc.KRearrangeColumnsProxyModel_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4100,12 +4261,13 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: KRearrangeColumnsProxyModel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KRearrangeColumnsProxyModel_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -4120,12 +4282,13 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: KRearrangeColumnsProxyModel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KRearrangeColumnsProxyModel_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -4136,12 +4299,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRearrangeColumnsProxyModel_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QTimerEvent) callconv(.c) void) void {
+        qtc.KRearrangeColumnsProxyModel_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4152,12 +4315,13 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: KRearrangeColumnsProxyModel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KRearrangeColumnsProxyModel_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -4172,12 +4336,13 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: KRearrangeColumnsProxyModel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KRearrangeColumnsProxyModel_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -4188,12 +4353,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRearrangeColumnsProxyModel_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QChildEvent) callconv(.c) void) void {
+        qtc.KRearrangeColumnsProxyModel_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4204,12 +4369,13 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: KRearrangeColumnsProxyModel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KRearrangeColumnsProxyModel_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -4224,12 +4390,13 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: KRearrangeColumnsProxyModel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KRearrangeColumnsProxyModel_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -4240,12 +4407,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRearrangeColumnsProxyModel_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QEvent) callconv(.c) void) void {
+        qtc.KRearrangeColumnsProxyModel_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4256,12 +4423,13 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: KRearrangeColumnsProxyModel, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KRearrangeColumnsProxyModel_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -4276,12 +4444,13 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: KRearrangeColumnsProxyModel, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KRearrangeColumnsProxyModel_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -4292,12 +4461,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRearrangeColumnsProxyModel_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QMetaMethod) callconv(.c) void) void {
+        qtc.KRearrangeColumnsProxyModel_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4308,12 +4477,13 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: KRearrangeColumnsProxyModel, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KRearrangeColumnsProxyModel_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -4328,12 +4498,13 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: KRearrangeColumnsProxyModel, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KRearrangeColumnsProxyModel_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -4344,12 +4515,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRearrangeColumnsProxyModel_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QMetaMethod) callconv(.c) void) void {
+        qtc.KRearrangeColumnsProxyModel_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIdentityProxyModel
@@ -4360,12 +4531,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` handleSourceLayoutChanges: bool `
     ///
-    pub fn SetHandleSourceLayoutChanges(self: ?*anyopaque, handleSourceLayoutChanges: bool) void {
-        qtc.KRearrangeColumnsProxyModel_SetHandleSourceLayoutChanges(@ptrCast(self), handleSourceLayoutChanges);
+    pub fn SetHandleSourceLayoutChanges(self: KRearrangeColumnsProxyModel, handleSourceLayoutChanges: bool) void {
+        qtc.KRearrangeColumnsProxyModel_SetHandleSourceLayoutChanges(@ptrCast(self.ptr), handleSourceLayoutChanges);
     }
 
     /// ### DEPRECATED: Use `SuperSetHandleSourceLayoutChanges` instead
@@ -4380,12 +4551,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` handleSourceLayoutChanges: bool `
     ///
-    pub fn SuperSetHandleSourceLayoutChanges(self: ?*anyopaque, handleSourceLayoutChanges: bool) void {
-        qtc.KRearrangeColumnsProxyModel_SuperSetHandleSourceLayoutChanges(@ptrCast(self), handleSourceLayoutChanges);
+    pub fn SuperSetHandleSourceLayoutChanges(self: KRearrangeColumnsProxyModel, handleSourceLayoutChanges: bool) void {
+        qtc.KRearrangeColumnsProxyModel_SuperSetHandleSourceLayoutChanges(@ptrCast(self.ptr), handleSourceLayoutChanges);
     }
 
     /// Inherited from QIdentityProxyModel
@@ -4396,12 +4567,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, handleSourceLayoutChanges: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, handleSourceLayoutChanges: bool) callconv(.c) void `
     ///
-    pub fn OnSetHandleSourceLayoutChanges(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KRearrangeColumnsProxyModel_OnSetHandleSourceLayoutChanges(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetHandleSourceLayoutChanges(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, bool) callconv(.c) void) void {
+        qtc.KRearrangeColumnsProxyModel_OnSetHandleSourceLayoutChanges(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIdentityProxyModel
@@ -4412,12 +4583,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` handleSourceDataChanges: bool `
     ///
-    pub fn SetHandleSourceDataChanges(self: ?*anyopaque, handleSourceDataChanges: bool) void {
-        qtc.KRearrangeColumnsProxyModel_SetHandleSourceDataChanges(@ptrCast(self), handleSourceDataChanges);
+    pub fn SetHandleSourceDataChanges(self: KRearrangeColumnsProxyModel, handleSourceDataChanges: bool) void {
+        qtc.KRearrangeColumnsProxyModel_SetHandleSourceDataChanges(@ptrCast(self.ptr), handleSourceDataChanges);
     }
 
     /// ### DEPRECATED: Use `SuperSetHandleSourceDataChanges` instead
@@ -4432,12 +4603,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` handleSourceDataChanges: bool `
     ///
-    pub fn SuperSetHandleSourceDataChanges(self: ?*anyopaque, handleSourceDataChanges: bool) void {
-        qtc.KRearrangeColumnsProxyModel_SuperSetHandleSourceDataChanges(@ptrCast(self), handleSourceDataChanges);
+    pub fn SuperSetHandleSourceDataChanges(self: KRearrangeColumnsProxyModel, handleSourceDataChanges: bool) void {
+        qtc.KRearrangeColumnsProxyModel_SuperSetHandleSourceDataChanges(@ptrCast(self.ptr), handleSourceDataChanges);
     }
 
     /// Inherited from QIdentityProxyModel
@@ -4448,12 +4619,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, handleSourceDataChanges: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, handleSourceDataChanges: bool) callconv(.c) void `
     ///
-    pub fn OnSetHandleSourceDataChanges(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KRearrangeColumnsProxyModel_OnSetHandleSourceDataChanges(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetHandleSourceDataChanges(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, bool) callconv(.c) void) void {
+        qtc.KRearrangeColumnsProxyModel_OnSetHandleSourceDataChanges(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -4464,7 +4635,7 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` row: i32 `
     ///
@@ -4472,8 +4643,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` internalPtr: ?*anyopaque `
     ///
-    pub fn CreateSourceIndex(self: ?*anyopaque, row: i32, col: i32, internalPtr: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KRearrangeColumnsProxyModel_CreateSourceIndex(@ptrCast(self), @bitCast(row), @bitCast(col), @ptrCast(internalPtr));
+    pub fn CreateSourceIndex(self: KRearrangeColumnsProxyModel, row: i32, col: i32, internalPtr: ?*anyopaque) QModelIndex {
+        return .{ .ptr = qtc.KRearrangeColumnsProxyModel_CreateSourceIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(col), @ptrCast(internalPtr)) };
     }
 
     /// ### DEPRECATED: Use `SuperCreateSourceIndex` instead
@@ -4488,7 +4659,7 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` row: i32 `
     ///
@@ -4496,8 +4667,8 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ` internalPtr: ?*anyopaque `
     ///
-    pub fn SuperCreateSourceIndex(self: ?*anyopaque, row: i32, col: i32, internalPtr: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KRearrangeColumnsProxyModel_SuperCreateSourceIndex(@ptrCast(self), @bitCast(row), @bitCast(col), @ptrCast(internalPtr));
+    pub fn SuperCreateSourceIndex(self: KRearrangeColumnsProxyModel, row: i32, col: i32, internalPtr: ?*anyopaque) QModelIndex {
+        return .{ .ptr = qtc.KRearrangeColumnsProxyModel_SuperCreateSourceIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(col), @ptrCast(internalPtr)) };
     }
 
     /// Inherited from QAbstractProxyModel
@@ -4508,12 +4679,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, row: i32, col: i32, internalPtr: ?*anyopaque) callconv(.c) QtC.QModelIndex `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, row: i32, col: i32, internalPtr: ?*anyopaque) callconv(.c) QModelIndex `
     ///
-    pub fn OnCreateSourceIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.KRearrangeColumnsProxyModel_OnCreateSourceIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreateSourceIndex(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, i32, i32, ?*anyopaque) callconv(.c) QModelIndex) void {
+        qtc.KRearrangeColumnsProxyModel_OnCreateSourceIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4524,14 +4695,14 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    pub fn CreateIndex(self: ?*anyopaque, row: i32, column: i32) QtC.QModelIndex {
-        return qtc.KRearrangeColumnsProxyModel_CreateIndex(@ptrCast(self), @bitCast(row), @bitCast(column));
+    pub fn CreateIndex(self: KRearrangeColumnsProxyModel, row: i32, column: i32) QModelIndex {
+        return .{ .ptr = qtc.KRearrangeColumnsProxyModel_CreateIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column)) };
     }
 
     /// ### DEPRECATED: Use `SuperCreateIndex` instead
@@ -4546,14 +4717,14 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    pub fn SuperCreateIndex(self: ?*anyopaque, row: i32, column: i32) QtC.QModelIndex {
-        return qtc.KRearrangeColumnsProxyModel_SuperCreateIndex(@ptrCast(self), @bitCast(row), @bitCast(column));
+    pub fn SuperCreateIndex(self: KRearrangeColumnsProxyModel, row: i32, column: i32) QModelIndex {
+        return .{ .ptr = qtc.KRearrangeColumnsProxyModel_SuperCreateIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column)) };
     }
 
     /// Inherited from QAbstractItemModel
@@ -4564,12 +4735,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, row: i32, column: i32) callconv(.c) QtC.QModelIndex `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, row: i32, column: i32) callconv(.c) QModelIndex `
     ///
-    pub fn OnCreateIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) QtC.QModelIndex) void {
-        qtc.KRearrangeColumnsProxyModel_OnCreateIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreateIndex(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, i32, i32) callconv(.c) QModelIndex) void {
+        qtc.KRearrangeColumnsProxyModel_OnCreateIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4580,18 +4751,19 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` indexes: []QtC.QModelIndex `
+    /// ` indexes: []QModelIndex `
     ///
-    /// ` stream: QtC.QDataStream `
+    /// ` stream: QDataStream `
     ///
-    pub fn EncodeData(self: ?*anyopaque, indexes: []QtC.QModelIndex, stream: ?*anyopaque) void {
+    pub fn EncodeData(self: KRearrangeColumnsProxyModel, indexes: []QModelIndex, stream: anytype) void {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
-        qtc.KRearrangeColumnsProxyModel_EncodeData(@ptrCast(self), indexes_list, @ptrCast(stream));
+        comptime _ = @TypeOf(stream)._is_QDataStream;
+        qtc.KRearrangeColumnsProxyModel_EncodeData(@ptrCast(self.ptr), indexes_list, @ptrCast(stream.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEncodeData` instead
@@ -4606,18 +4778,19 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` indexes: []QtC.QModelIndex `
+    /// ` indexes: []QModelIndex `
     ///
-    /// ` stream: QtC.QDataStream `
+    /// ` stream: QDataStream `
     ///
-    pub fn SuperEncodeData(self: ?*anyopaque, indexes: []QtC.QModelIndex, stream: ?*anyopaque) void {
+    pub fn SuperEncodeData(self: KRearrangeColumnsProxyModel, indexes: []QModelIndex, stream: anytype) void {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
-        qtc.KRearrangeColumnsProxyModel_SuperEncodeData(@ptrCast(self), indexes_list, @ptrCast(stream));
+        comptime _ = @TypeOf(stream)._is_QDataStream;
+        qtc.KRearrangeColumnsProxyModel_SuperEncodeData(@ptrCast(self.ptr), indexes_list, @ptrCast(stream.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4628,12 +4801,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, indexes: qtc.libqt_list ([]QtC.QModelIndex), stream: QtC.QDataStream) callconv(.c) void `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, indexes: qtc.libqt_list ([]QModelIndex), stream: QDataStream) callconv(.c) void `
     ///
-    pub fn OnEncodeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRearrangeColumnsProxyModel_OnEncodeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEncodeData(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, qtc.libqt_list, QDataStream) callconv(.c) void) void {
+        qtc.KRearrangeColumnsProxyModel_OnEncodeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4644,18 +4817,20 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    /// ` stream: QtC.QDataStream `
+    /// ` stream: QDataStream `
     ///
-    pub fn DecodeData(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque, stream: ?*anyopaque) bool {
-        return qtc.KRearrangeColumnsProxyModel_DecodeData(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent), @ptrCast(stream));
+    pub fn DecodeData(self: KRearrangeColumnsProxyModel, row: i32, column: i32, parent: anytype, stream: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        comptime _ = @TypeOf(stream)._is_QDataStream;
+        return qtc.KRearrangeColumnsProxyModel_DecodeData(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr), @ptrCast(stream.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDecodeData` instead
@@ -4670,18 +4845,20 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    /// ` stream: QtC.QDataStream `
+    /// ` stream: QDataStream `
     ///
-    pub fn SuperDecodeData(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque, stream: ?*anyopaque) bool {
-        return qtc.KRearrangeColumnsProxyModel_SuperDecodeData(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent), @ptrCast(stream));
+    pub fn SuperDecodeData(self: KRearrangeColumnsProxyModel, row: i32, column: i32, parent: anytype, stream: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        comptime _ = @TypeOf(stream)._is_QDataStream;
+        return qtc.KRearrangeColumnsProxyModel_SuperDecodeData(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr), @ptrCast(stream.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4692,12 +4869,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, row: i32, column: i32, parent: QtC.QModelIndex, stream: QtC.QDataStream) callconv(.c) bool `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, row: i32, column: i32, parent: QModelIndex, stream: QDataStream) callconv(.c) bool `
     ///
-    pub fn OnDecodeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KRearrangeColumnsProxyModel_OnDecodeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDecodeData(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, i32, i32, QModelIndex, QDataStream) callconv(.c) bool) void {
+        qtc.KRearrangeColumnsProxyModel_OnDecodeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4708,16 +4885,17 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn BeginInsertRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KRearrangeColumnsProxyModel_BeginInsertRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn BeginInsertRows(self: KRearrangeColumnsProxyModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KRearrangeColumnsProxyModel_BeginInsertRows(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// ### DEPRECATED: Use `SuperBeginInsertRows` instead
@@ -4732,16 +4910,17 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn SuperBeginInsertRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KRearrangeColumnsProxyModel_SuperBeginInsertRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn SuperBeginInsertRows(self: KRearrangeColumnsProxyModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KRearrangeColumnsProxyModel_SuperBeginInsertRows(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4752,12 +4931,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnBeginInsertRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KRearrangeColumnsProxyModel_OnBeginInsertRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBeginInsertRows(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.KRearrangeColumnsProxyModel_OnBeginInsertRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4768,10 +4947,10 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    pub fn EndInsertRows(self: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_EndInsertRows(@ptrCast(self));
+    pub fn EndInsertRows(self: KRearrangeColumnsProxyModel) void {
+        qtc.KRearrangeColumnsProxyModel_EndInsertRows(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEndInsertRows` instead
@@ -4786,10 +4965,10 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    pub fn SuperEndInsertRows(self: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_SuperEndInsertRows(@ptrCast(self));
+    pub fn SuperEndInsertRows(self: KRearrangeColumnsProxyModel) void {
+        qtc.KRearrangeColumnsProxyModel_SuperEndInsertRows(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4800,12 +4979,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndInsertRows(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KRearrangeColumnsProxyModel_OnEndInsertRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEndInsertRows(self: KRearrangeColumnsProxyModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KRearrangeColumnsProxyModel_OnEndInsertRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4816,16 +4995,17 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn BeginRemoveRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KRearrangeColumnsProxyModel_BeginRemoveRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn BeginRemoveRows(self: KRearrangeColumnsProxyModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KRearrangeColumnsProxyModel_BeginRemoveRows(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// ### DEPRECATED: Use `SuperBeginRemoveRows` instead
@@ -4840,16 +5020,17 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn SuperBeginRemoveRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KRearrangeColumnsProxyModel_SuperBeginRemoveRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn SuperBeginRemoveRows(self: KRearrangeColumnsProxyModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KRearrangeColumnsProxyModel_SuperBeginRemoveRows(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4860,12 +5041,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnBeginRemoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KRearrangeColumnsProxyModel_OnBeginRemoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBeginRemoveRows(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.KRearrangeColumnsProxyModel_OnBeginRemoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4876,10 +5057,10 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    pub fn EndRemoveRows(self: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_EndRemoveRows(@ptrCast(self));
+    pub fn EndRemoveRows(self: KRearrangeColumnsProxyModel) void {
+        qtc.KRearrangeColumnsProxyModel_EndRemoveRows(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEndRemoveRows` instead
@@ -4894,10 +5075,10 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    pub fn SuperEndRemoveRows(self: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_SuperEndRemoveRows(@ptrCast(self));
+    pub fn SuperEndRemoveRows(self: KRearrangeColumnsProxyModel) void {
+        qtc.KRearrangeColumnsProxyModel_SuperEndRemoveRows(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4908,12 +5089,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndRemoveRows(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KRearrangeColumnsProxyModel_OnEndRemoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEndRemoveRows(self: KRearrangeColumnsProxyModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KRearrangeColumnsProxyModel_OnEndRemoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4924,20 +5105,22 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceFirst: i32 `
     ///
     /// ` sourceLast: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationRow: i32 `
     ///
-    pub fn BeginMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationRow: i32) bool {
-        return qtc.KRearrangeColumnsProxyModel_BeginMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationRow));
+    pub fn BeginMoveRows(self: KRearrangeColumnsProxyModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationRow: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KRearrangeColumnsProxyModel_BeginMoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationRow));
     }
 
     /// ### DEPRECATED: Use `SuperBeginMoveRows` instead
@@ -4952,20 +5135,22 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceFirst: i32 `
     ///
     /// ` sourceLast: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationRow: i32 `
     ///
-    pub fn SuperBeginMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationRow: i32) bool {
-        return qtc.KRearrangeColumnsProxyModel_SuperBeginMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationRow));
+    pub fn SuperBeginMoveRows(self: KRearrangeColumnsProxyModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationRow: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KRearrangeColumnsProxyModel_SuperBeginMoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationRow));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4976,12 +5161,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, sourceParent: QtC.QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, sourceParent: QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QModelIndex, destinationRow: i32) callconv(.c) bool `
     ///
-    pub fn OnBeginMoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KRearrangeColumnsProxyModel_OnBeginMoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBeginMoveRows(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
+        qtc.KRearrangeColumnsProxyModel_OnBeginMoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4992,10 +5177,10 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    pub fn EndMoveRows(self: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_EndMoveRows(@ptrCast(self));
+    pub fn EndMoveRows(self: KRearrangeColumnsProxyModel) void {
+        qtc.KRearrangeColumnsProxyModel_EndMoveRows(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEndMoveRows` instead
@@ -5010,10 +5195,10 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    pub fn SuperEndMoveRows(self: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_SuperEndMoveRows(@ptrCast(self));
+    pub fn SuperEndMoveRows(self: KRearrangeColumnsProxyModel) void {
+        qtc.KRearrangeColumnsProxyModel_SuperEndMoveRows(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5024,12 +5209,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndMoveRows(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KRearrangeColumnsProxyModel_OnEndMoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEndMoveRows(self: KRearrangeColumnsProxyModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KRearrangeColumnsProxyModel_OnEndMoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5040,16 +5225,17 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn BeginInsertColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KRearrangeColumnsProxyModel_BeginInsertColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn BeginInsertColumns(self: KRearrangeColumnsProxyModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KRearrangeColumnsProxyModel_BeginInsertColumns(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// ### DEPRECATED: Use `SuperBeginInsertColumns` instead
@@ -5064,16 +5250,17 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn SuperBeginInsertColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KRearrangeColumnsProxyModel_SuperBeginInsertColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn SuperBeginInsertColumns(self: KRearrangeColumnsProxyModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KRearrangeColumnsProxyModel_SuperBeginInsertColumns(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5084,12 +5271,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnBeginInsertColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KRearrangeColumnsProxyModel_OnBeginInsertColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBeginInsertColumns(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.KRearrangeColumnsProxyModel_OnBeginInsertColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5100,10 +5287,10 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    pub fn EndInsertColumns(self: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_EndInsertColumns(@ptrCast(self));
+    pub fn EndInsertColumns(self: KRearrangeColumnsProxyModel) void {
+        qtc.KRearrangeColumnsProxyModel_EndInsertColumns(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEndInsertColumns` instead
@@ -5118,10 +5305,10 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    pub fn SuperEndInsertColumns(self: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_SuperEndInsertColumns(@ptrCast(self));
+    pub fn SuperEndInsertColumns(self: KRearrangeColumnsProxyModel) void {
+        qtc.KRearrangeColumnsProxyModel_SuperEndInsertColumns(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5132,12 +5319,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndInsertColumns(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KRearrangeColumnsProxyModel_OnEndInsertColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEndInsertColumns(self: KRearrangeColumnsProxyModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KRearrangeColumnsProxyModel_OnEndInsertColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5148,16 +5335,17 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn BeginRemoveColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KRearrangeColumnsProxyModel_BeginRemoveColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn BeginRemoveColumns(self: KRearrangeColumnsProxyModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KRearrangeColumnsProxyModel_BeginRemoveColumns(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// ### DEPRECATED: Use `SuperBeginRemoveColumns` instead
@@ -5172,16 +5360,17 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn SuperBeginRemoveColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KRearrangeColumnsProxyModel_SuperBeginRemoveColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn SuperBeginRemoveColumns(self: KRearrangeColumnsProxyModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KRearrangeColumnsProxyModel_SuperBeginRemoveColumns(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5192,12 +5381,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnBeginRemoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KRearrangeColumnsProxyModel_OnBeginRemoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBeginRemoveColumns(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.KRearrangeColumnsProxyModel_OnBeginRemoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5208,10 +5397,10 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    pub fn EndRemoveColumns(self: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_EndRemoveColumns(@ptrCast(self));
+    pub fn EndRemoveColumns(self: KRearrangeColumnsProxyModel) void {
+        qtc.KRearrangeColumnsProxyModel_EndRemoveColumns(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEndRemoveColumns` instead
@@ -5226,10 +5415,10 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    pub fn SuperEndRemoveColumns(self: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_SuperEndRemoveColumns(@ptrCast(self));
+    pub fn SuperEndRemoveColumns(self: KRearrangeColumnsProxyModel) void {
+        qtc.KRearrangeColumnsProxyModel_SuperEndRemoveColumns(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5240,12 +5429,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndRemoveColumns(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KRearrangeColumnsProxyModel_OnEndRemoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEndRemoveColumns(self: KRearrangeColumnsProxyModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KRearrangeColumnsProxyModel_OnEndRemoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5256,20 +5445,22 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceFirst: i32 `
     ///
     /// ` sourceLast: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationColumn: i32 `
     ///
-    pub fn BeginMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationColumn: i32) bool {
-        return qtc.KRearrangeColumnsProxyModel_BeginMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationColumn));
+    pub fn BeginMoveColumns(self: KRearrangeColumnsProxyModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationColumn: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KRearrangeColumnsProxyModel_BeginMoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationColumn));
     }
 
     /// ### DEPRECATED: Use `SuperBeginMoveColumns` instead
@@ -5284,20 +5475,22 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceFirst: i32 `
     ///
     /// ` sourceLast: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationColumn: i32 `
     ///
-    pub fn SuperBeginMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationColumn: i32) bool {
-        return qtc.KRearrangeColumnsProxyModel_SuperBeginMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationColumn));
+    pub fn SuperBeginMoveColumns(self: KRearrangeColumnsProxyModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationColumn: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KRearrangeColumnsProxyModel_SuperBeginMoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationColumn));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5308,12 +5501,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, sourceParent: QtC.QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, sourceParent: QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QModelIndex, destinationColumn: i32) callconv(.c) bool `
     ///
-    pub fn OnBeginMoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KRearrangeColumnsProxyModel_OnBeginMoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBeginMoveColumns(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
+        qtc.KRearrangeColumnsProxyModel_OnBeginMoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5324,10 +5517,10 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    pub fn EndMoveColumns(self: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_EndMoveColumns(@ptrCast(self));
+    pub fn EndMoveColumns(self: KRearrangeColumnsProxyModel) void {
+        qtc.KRearrangeColumnsProxyModel_EndMoveColumns(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEndMoveColumns` instead
@@ -5342,10 +5535,10 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    pub fn SuperEndMoveColumns(self: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_SuperEndMoveColumns(@ptrCast(self));
+    pub fn SuperEndMoveColumns(self: KRearrangeColumnsProxyModel) void {
+        qtc.KRearrangeColumnsProxyModel_SuperEndMoveColumns(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5356,12 +5549,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndMoveColumns(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KRearrangeColumnsProxyModel_OnEndMoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEndMoveColumns(self: KRearrangeColumnsProxyModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KRearrangeColumnsProxyModel_OnEndMoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5372,10 +5565,10 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    pub fn BeginResetModel(self: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_BeginResetModel(@ptrCast(self));
+    pub fn BeginResetModel(self: KRearrangeColumnsProxyModel) void {
+        qtc.KRearrangeColumnsProxyModel_BeginResetModel(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperBeginResetModel` instead
@@ -5390,10 +5583,10 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    pub fn SuperBeginResetModel(self: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_SuperBeginResetModel(@ptrCast(self));
+    pub fn SuperBeginResetModel(self: KRearrangeColumnsProxyModel) void {
+        qtc.KRearrangeColumnsProxyModel_SuperBeginResetModel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5404,12 +5597,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnBeginResetModel(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KRearrangeColumnsProxyModel_OnBeginResetModel(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBeginResetModel(self: KRearrangeColumnsProxyModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KRearrangeColumnsProxyModel_OnBeginResetModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5420,10 +5613,10 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    pub fn EndResetModel(self: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_EndResetModel(@ptrCast(self));
+    pub fn EndResetModel(self: KRearrangeColumnsProxyModel) void {
+        qtc.KRearrangeColumnsProxyModel_EndResetModel(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEndResetModel` instead
@@ -5438,10 +5631,10 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    pub fn SuperEndResetModel(self: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_SuperEndResetModel(@ptrCast(self));
+    pub fn SuperEndResetModel(self: KRearrangeColumnsProxyModel) void {
+        qtc.KRearrangeColumnsProxyModel_SuperEndResetModel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5452,12 +5645,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndResetModel(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KRearrangeColumnsProxyModel_OnEndResetModel(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEndResetModel(self: KRearrangeColumnsProxyModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KRearrangeColumnsProxyModel_OnEndResetModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5468,14 +5661,16 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` from: QtC.QModelIndex `
+    /// ` from: QModelIndex `
     ///
-    /// ` to: QtC.QModelIndex `
+    /// ` to: QModelIndex `
     ///
-    pub fn ChangePersistentIndex(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_ChangePersistentIndex(@ptrCast(self), @ptrCast(from), @ptrCast(to));
+    pub fn ChangePersistentIndex(self: KRearrangeColumnsProxyModel, from: anytype, to: anytype) void {
+        comptime _ = @TypeOf(from)._is_QModelIndex;
+        comptime _ = @TypeOf(to)._is_QModelIndex;
+        qtc.KRearrangeColumnsProxyModel_ChangePersistentIndex(@ptrCast(self.ptr), @ptrCast(from.ptr), @ptrCast(to.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChangePersistentIndex` instead
@@ -5490,14 +5685,16 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` from: QtC.QModelIndex `
+    /// ` from: QModelIndex `
     ///
-    /// ` to: QtC.QModelIndex `
+    /// ` to: QModelIndex `
     ///
-    pub fn SuperChangePersistentIndex(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_SuperChangePersistentIndex(@ptrCast(self), @ptrCast(from), @ptrCast(to));
+    pub fn SuperChangePersistentIndex(self: KRearrangeColumnsProxyModel, from: anytype, to: anytype) void {
+        comptime _ = @TypeOf(from)._is_QModelIndex;
+        comptime _ = @TypeOf(to)._is_QModelIndex;
+        qtc.KRearrangeColumnsProxyModel_SuperChangePersistentIndex(@ptrCast(self.ptr), @ptrCast(from.ptr), @ptrCast(to.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5508,12 +5705,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, from: QtC.QModelIndex, to: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, from: QModelIndex, to: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnChangePersistentIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRearrangeColumnsProxyModel_OnChangePersistentIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChangePersistentIndex(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex, QModelIndex) callconv(.c) void) void {
+        qtc.KRearrangeColumnsProxyModel_OnChangePersistentIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5524,13 +5721,13 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` from: []QtC.QModelIndex `
+    /// ` from: []QModelIndex `
     ///
-    /// ` to: []QtC.QModelIndex `
+    /// ` to: []QModelIndex `
     ///
-    pub fn ChangePersistentIndexList(self: ?*anyopaque, from: []QtC.QModelIndex, to: []QtC.QModelIndex) void {
+    pub fn ChangePersistentIndexList(self: KRearrangeColumnsProxyModel, from: []QModelIndex, to: []QModelIndex) void {
         const from_list = qtc.libqt_list{
             .len = from.len,
             .data = @ptrCast(from.ptr),
@@ -5539,7 +5736,7 @@ pub const krearrangecolumnsproxymodel = struct {
             .len = to.len,
             .data = @ptrCast(to.ptr),
         };
-        qtc.KRearrangeColumnsProxyModel_ChangePersistentIndexList(@ptrCast(self), from_list, to_list);
+        qtc.KRearrangeColumnsProxyModel_ChangePersistentIndexList(@ptrCast(self.ptr), from_list, to_list);
     }
 
     /// ### DEPRECATED: Use `SuperChangePersistentIndexList` instead
@@ -5554,13 +5751,13 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` from: []QtC.QModelIndex `
+    /// ` from: []QModelIndex `
     ///
-    /// ` to: []QtC.QModelIndex `
+    /// ` to: []QModelIndex `
     ///
-    pub fn SuperChangePersistentIndexList(self: ?*anyopaque, from: []QtC.QModelIndex, to: []QtC.QModelIndex) void {
+    pub fn SuperChangePersistentIndexList(self: KRearrangeColumnsProxyModel, from: []QModelIndex, to: []QModelIndex) void {
         const from_list = qtc.libqt_list{
             .len = from.len,
             .data = @ptrCast(from.ptr),
@@ -5569,7 +5766,7 @@ pub const krearrangecolumnsproxymodel = struct {
             .len = to.len,
             .data = @ptrCast(to.ptr),
         };
-        qtc.KRearrangeColumnsProxyModel_SuperChangePersistentIndexList(@ptrCast(self), from_list, to_list);
+        qtc.KRearrangeColumnsProxyModel_SuperChangePersistentIndexList(@ptrCast(self.ptr), from_list, to_list);
     }
 
     /// Inherited from QAbstractItemModel
@@ -5580,12 +5777,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, from: qtc.libqt_list ([]QtC.QModelIndex), to: qtc.libqt_list ([]QtC.QModelIndex)) callconv(.c) void `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, from: qtc.libqt_list ([]QModelIndex), to: qtc.libqt_list ([]QModelIndex)) callconv(.c) void `
     ///
-    pub fn OnChangePersistentIndexList(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, qtc.libqt_list) callconv(.c) void) void {
-        qtc.KRearrangeColumnsProxyModel_OnChangePersistentIndexList(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChangePersistentIndexList(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, qtc.libqt_list, qtc.libqt_list) callconv(.c) void) void {
+        qtc.KRearrangeColumnsProxyModel_OnChangePersistentIndexList(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5596,16 +5793,17 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PersistentIndexList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.KRearrangeColumnsProxyModel_PersistentIndexList(@ptrCast(self));
+    pub fn PersistentIndexList(self: KRearrangeColumnsProxyModel, allocator: std.mem.Allocator) []QModelIndex {
+        const _arr: qtc.libqt_list = qtc.KRearrangeColumnsProxyModel_PersistentIndexList(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("krearrangecolumnsproxymodel.PersistentIndexList: Memory allocation failed");
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("krearrangecolumnsproxymodel.PersistentIndexList: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -5621,16 +5819,17 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperPersistentIndexList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.KRearrangeColumnsProxyModel_SuperPersistentIndexList(@ptrCast(self));
+    pub fn SuperPersistentIndexList(self: KRearrangeColumnsProxyModel, allocator: std.mem.Allocator) []QModelIndex {
+        const _arr: qtc.libqt_list = qtc.KRearrangeColumnsProxyModel_SuperPersistentIndexList(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("krearrangecolumnsproxymodel.PersistentIndexList: Memory allocation failed");
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("krearrangecolumnsproxymodel.PersistentIndexList: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -5640,20 +5839,20 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
     /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
     ///
     /// ## Callback Returns:
     ///
-    /// ` C ABI representation of []QtC.QModelIndex `
+    /// ` C ABI representation of []QModelIndex `
     ///
-    pub fn OnPersistentIndexList(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
-        qtc.KRearrangeColumnsProxyModel_OnPersistentIndexList(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPersistentIndexList(self: KRearrangeColumnsProxyModel, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+        qtc.KRearrangeColumnsProxyModel_OnPersistentIndexList(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5664,10 +5863,10 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KRearrangeColumnsProxyModel_Sender(@ptrCast(self));
+    pub fn Sender(self: KRearrangeColumnsProxyModel) QObject {
+        return .{ .ptr = qtc.KRearrangeColumnsProxyModel_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -5682,10 +5881,10 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KRearrangeColumnsProxyModel_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: KRearrangeColumnsProxyModel) QObject {
+        return .{ .ptr = qtc.KRearrangeColumnsProxyModel_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5696,12 +5895,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.KRearrangeColumnsProxyModel_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: KRearrangeColumnsProxyModel, callback: *const fn () callconv(.c) QObject) void {
+        qtc.KRearrangeColumnsProxyModel_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5712,10 +5911,10 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KRearrangeColumnsProxyModel_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: KRearrangeColumnsProxyModel) i32 {
+        return qtc.KRearrangeColumnsProxyModel_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -5730,10 +5929,10 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KRearrangeColumnsProxyModel_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: KRearrangeColumnsProxyModel) i32 {
+        return qtc.KRearrangeColumnsProxyModel_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5744,12 +5943,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KRearrangeColumnsProxyModel_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: KRearrangeColumnsProxyModel, callback: *const fn () callconv(.c) i32) void {
+        qtc.KRearrangeColumnsProxyModel_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5760,13 +5959,13 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: KRearrangeColumnsProxyModel, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KRearrangeColumnsProxyModel_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.KRearrangeColumnsProxyModel_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -5781,13 +5980,13 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: KRearrangeColumnsProxyModel, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KRearrangeColumnsProxyModel_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KRearrangeColumnsProxyModel_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -5798,12 +5997,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KRearrangeColumnsProxyModel_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KRearrangeColumnsProxyModel_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5814,12 +6013,13 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KRearrangeColumnsProxyModel_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: KRearrangeColumnsProxyModel, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KRearrangeColumnsProxyModel_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -5834,12 +6034,13 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KRearrangeColumnsProxyModel_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: KRearrangeColumnsProxyModel, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KRearrangeColumnsProxyModel_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -5850,12 +6051,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel`
+    /// ` self: KRearrangeColumnsProxyModel`
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KRearrangeColumnsProxyModel_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QMetaMethod) callconv(.c) bool) void {
+        qtc.KRearrangeColumnsProxyModel_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -5866,12 +6067,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel) callconv(.c) void `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel) callconv(.c) void `
     ///
-    pub fn OnSourceModelChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractProxyModel_Connect_SourceModelChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSourceModelChanged(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel) callconv(.c) void) void {
+        qtc.QAbstractProxyModel_Connect_SourceModelChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5882,12 +6083,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnRowsAboutToBeInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsAboutToBeInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowsAboutToBeInserted(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_RowsAboutToBeInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5898,12 +6099,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnRowsInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowsInserted(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_RowsInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5914,12 +6115,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnRowsAboutToBeRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsAboutToBeRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowsAboutToBeRemoved(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_RowsAboutToBeRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5930,12 +6131,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnRowsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowsRemoved(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_RowsRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5946,12 +6147,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsAboutToBeInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnsAboutToBeInserted(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5962,12 +6163,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnsInserted(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ColumnsInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5978,12 +6179,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsAboutToBeRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnsAboutToBeRemoved(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5994,12 +6195,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnsRemoved(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ColumnsRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6010,12 +6211,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel) callconv(.c) void `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel) callconv(.c) void `
     ///
-    pub fn OnModelAboutToBeReset(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ModelAboutToBeReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnModelAboutToBeReset(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ModelAboutToBeReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6026,12 +6227,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel) callconv(.c) void `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel) callconv(.c) void `
     ///
-    pub fn OnModelReset(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ModelReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnModelReset(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ModelReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6042,12 +6243,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, sourceParent: QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QModelIndex, destinationRow: i32) callconv(.c) void `
     ///
-    pub fn OnRowsAboutToBeMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsAboutToBeMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowsAboutToBeMoved(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_RowsAboutToBeMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6058,12 +6259,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, sourceParent: QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QModelIndex, destinationRow: i32) callconv(.c) void `
     ///
-    pub fn OnRowsMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowsMoved(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_RowsMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6074,12 +6275,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, sourceParent: QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QModelIndex, destinationColumn: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsAboutToBeMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnsAboutToBeMoved(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -6090,12 +6291,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, sourceParent: QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QModelIndex, destinationColumn: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnsMoved(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ColumnsMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6106,12 +6307,12 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    /// ` callback: *const fn (self: QtC.KRearrangeColumnsProxyModel, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -6124,9 +6325,9 @@ pub const krearrangecolumnsproxymodel = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KRearrangeColumnsProxyModel `
+    /// ` self: KRearrangeColumnsProxyModel `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KRearrangeColumnsProxyModel_Delete(@ptrCast(self));
+    pub fn Delete(self: KRearrangeColumnsProxyModel) void {
+        qtc.KRearrangeColumnsProxyModel_Delete(@ptrCast(self.ptr));
     }
 };

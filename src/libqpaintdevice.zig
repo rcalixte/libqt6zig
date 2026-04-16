@@ -1,157 +1,166 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QPaintEngine = @import("libqt6").QPaintEngine;
 const qpaintdevice_enums = enums;
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html)
-pub const qpaintdevice = struct {
+pub const QPaintDevice = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QPaintDevice,
+
+    pub const _is_QPaintDevice = {};
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devType)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPaintDevice `
+    /// ` self: QPaintDevice `
     ///
-    pub fn DevType(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_DevType(@ptrCast(self));
+    pub fn DevType(self: QPaintDevice) i32 {
+        return qtc.QPaintDevice_DevType(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#paintingActive)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPaintDevice `
+    /// ` self: QPaintDevice `
     ///
-    pub fn PaintingActive(self: ?*anyopaque) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self));
+    pub fn PaintingActive(self: QPaintDevice) bool {
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#paintEngine)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPaintDevice `
+    /// ` self: QPaintDevice `
     ///
-    pub fn PaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QPaintDevice_PaintEngine(@ptrCast(self));
+    pub fn PaintEngine(self: QPaintDevice) QPaintEngine {
+        return .{ .ptr = qtc.QPaintDevice_PaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#width)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPaintDevice `
+    /// ` self: QPaintDevice `
     ///
-    pub fn Width(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_Width(@ptrCast(self));
+    pub fn Width(self: QPaintDevice) i32 {
+        return qtc.QPaintDevice_Width(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#height)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPaintDevice `
+    /// ` self: QPaintDevice `
     ///
-    pub fn Height(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_Height(@ptrCast(self));
+    pub fn Height(self: QPaintDevice) i32 {
+        return qtc.QPaintDevice_Height(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#widthMM)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPaintDevice `
+    /// ` self: QPaintDevice `
     ///
-    pub fn WidthMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self));
+    pub fn WidthMM(self: QPaintDevice) i32 {
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#heightMM)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPaintDevice `
+    /// ` self: QPaintDevice `
     ///
-    pub fn HeightMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self));
+    pub fn HeightMM(self: QPaintDevice) i32 {
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiX)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPaintDevice `
+    /// ` self: QPaintDevice `
     ///
-    pub fn LogicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self));
+    pub fn LogicalDpiX(self: QPaintDevice) i32 {
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#logicalDpiY)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPaintDevice `
+    /// ` self: QPaintDevice `
     ///
-    pub fn LogicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self));
+    pub fn LogicalDpiY(self: QPaintDevice) i32 {
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiX)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPaintDevice `
+    /// ` self: QPaintDevice `
     ///
-    pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self));
+    pub fn PhysicalDpiX(self: QPaintDevice) i32 {
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#physicalDpiY)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPaintDevice `
+    /// ` self: QPaintDevice `
     ///
-    pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self));
+    pub fn PhysicalDpiY(self: QPaintDevice) i32 {
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatio)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPaintDevice `
+    /// ` self: QPaintDevice `
     ///
-    pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self));
+    pub fn DevicePixelRatio(self: QPaintDevice) f64 {
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioF)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPaintDevice `
+    /// ` self: QPaintDevice `
     ///
-    pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self));
+    pub fn DevicePixelRatioF(self: QPaintDevice) f64 {
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#colorCount)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPaintDevice `
+    /// ` self: QPaintDevice `
     ///
-    pub fn ColorCount(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self));
+    pub fn ColorCount(self: QPaintDevice) i32 {
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#depth)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPaintDevice `
+    /// ` self: QPaintDevice `
     ///
-    pub fn Depth(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self));
+    pub fn Depth(self: QPaintDevice) i32 {
+        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
@@ -182,10 +191,10 @@ pub const qpaintdevice = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QPaintDevice `
+    /// ` self: QPaintDevice `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QPaintDevice_Delete(@ptrCast(self));
+    pub fn Delete(self: QPaintDevice) void {
+        qtc.QPaintDevice_Delete(@ptrCast(self.ptr));
     }
 };
 

@@ -1,5 +1,63 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QAction = @import("libqt6").QAction;
+const QActionEvent = @import("libqt6").QActionEvent;
+const QBackingStore = @import("libqt6").QBackingStore;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QBitmap = @import("libqt6").QBitmap;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QCloseEvent = @import("libqt6").QCloseEvent;
+const QContextMenuEvent = @import("libqt6").QContextMenuEvent;
+const QCursor = @import("libqt6").QCursor;
+const QDragEnterEvent = @import("libqt6").QDragEnterEvent;
+const QDragLeaveEvent = @import("libqt6").QDragLeaveEvent;
+const QDragMoveEvent = @import("libqt6").QDragMoveEvent;
+const QDropEvent = @import("libqt6").QDropEvent;
+const QEnterEvent = @import("libqt6").QEnterEvent;
+const QEvent = @import("libqt6").QEvent;
+const QFocusEvent = @import("libqt6").QFocusEvent;
+const QFont = @import("libqt6").QFont;
+const QFontInfo = @import("libqt6").QFontInfo;
+const QFontMetrics = @import("libqt6").QFontMetrics;
+const QGraphicsEffect = @import("libqt6").QGraphicsEffect;
+const QGraphicsProxyWidget = @import("libqt6").QGraphicsProxyWidget;
+const QHideEvent = @import("libqt6").QHideEvent;
+const QIcon = @import("libqt6").QIcon;
+const QInputMethodEvent = @import("libqt6").QInputMethodEvent;
+const QKeyEvent = @import("libqt6").QKeyEvent;
+const QKeySequence = @import("libqt6").QKeySequence;
+const QLayout = @import("libqt6").QLayout;
+const QLocale = @import("libqt6").QLocale;
+const QMargins = @import("libqt6").QMargins;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QMouseEvent = @import("libqt6").QMouseEvent;
+const QMoveEvent = @import("libqt6").QMoveEvent;
+const QObject = @import("libqt6").QObject;
+const QPaintDevice = @import("libqt6").QPaintDevice;
+const QPaintEngine = @import("libqt6").QPaintEngine;
+const QPaintEvent = @import("libqt6").QPaintEvent;
+const QPainter = @import("libqt6").QPainter;
+const QPalette = @import("libqt6").QPalette;
+const QPixmap = @import("libqt6").QPixmap;
+const QPoint = @import("libqt6").QPoint;
+const QPointF = @import("libqt6").QPointF;
+const QRect = @import("libqt6").QRect;
+const QRegion = @import("libqt6").QRegion;
+const QResizeEvent = @import("libqt6").QResizeEvent;
+const QScreen = @import("libqt6").QScreen;
+const QShowEvent = @import("libqt6").QShowEvent;
+const QSize = @import("libqt6").QSize;
+const QSizePolicy = @import("libqt6").QSizePolicy;
+const QStyle = @import("libqt6").QStyle;
+const QTabletEvent = @import("libqt6").QTabletEvent;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
+const QWheelEvent = @import("libqt6").QWheelEvent;
+const QWidget = @import("libqt6").QWidget;
+const QWindow = @import("libqt6").QWindow;
 const qinputdialog_enums = enums;
 const qlineedit_enums = @import("libqlineedit.zig").enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
@@ -11,43 +69,57 @@ const qwidget_enums = @import("libqwidget.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html)
-pub const qinputdialog = struct {
+pub const QInputDialog = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QInputDialog,
+
+    pub const _is_QInputDialog = {};
+    pub const _is_QDialog = {};
+    pub const _is_QWidget = {};
+    pub const _is_QObject = {};
+    pub const _is_QPaintDevice = {};
+
     /// New constructs a new QInputDialog object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn New(parent: ?*anyopaque) QtC.QInputDialog {
-        return qtc.QInputDialog_new(@ptrCast(parent));
+    pub fn New(parent: anytype) QInputDialog {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QInputDialog_new(@ptrCast(parent.ptr)) };
     }
 
     /// New2 constructs a new QInputDialog object.
     ///
-    pub fn New2() QtC.QInputDialog {
-        return qtc.QInputDialog_new2();
+    pub fn New2() QInputDialog {
+        return .{ .ptr = qtc.QInputDialog_new2() };
     }
 
     /// New3 constructs a new QInputDialog object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn New3(parent: ?*anyopaque, flags: i32) QtC.QInputDialog {
-        return qtc.QInputDialog_new3(@ptrCast(parent), @bitCast(flags));
+    pub fn New3(parent: anytype, flags: i32) QInputDialog {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QInputDialog_new3(@ptrCast(parent.ptr), @bitCast(flags)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QInputDialog_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QInputDialog) QMetaObject {
+        return .{ .ptr = qtc.QInputDialog_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -56,12 +128,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QInputDialog_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QInputDialog, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QInputDialog_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -74,33 +146,33 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QInputDialog_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QInputDialog) QMetaObject {
+        return .{ .ptr = qtc.QInputDialog_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QInputDialog, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QInputDialog_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QInputDialog_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QInputDialog, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QInputDialog_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QInputDialog, callback: *const fn (QInputDialog, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QInputDialog_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -111,18 +183,18 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QInputDialog, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QInputDialog_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QInputDialog_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -130,20 +202,20 @@ pub const qinputdialog = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QInputDialog_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QInputDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QInputDialog_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QInputDialog, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QInputDialog_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QInputDialog, callback: *const fn (QInputDialog, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QInputDialog_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -154,7 +226,7 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -162,19 +234,19 @@ pub const qinputdialog = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QInputDialog_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QInputDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QInputDialog_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -187,54 +259,54 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` mode: qinputdialog_enums.InputMode `
     ///
-    pub fn SetInputMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QInputDialog_SetInputMode(@ptrCast(self), @bitCast(mode));
+    pub fn SetInputMode(self: QInputDialog, mode: i32) void {
+        qtc.QInputDialog_SetInputMode(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#inputMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ## Returns:
     ///
     /// ` qinputdialog_enums.InputMode `
     ///
-    pub fn InputMode(self: ?*anyopaque) i32 {
-        return qtc.QInputDialog_InputMode(@ptrCast(self));
+    pub fn InputMode(self: QInputDialog) i32 {
+        return qtc.QInputDialog_InputMode(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#setLabelText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetLabelText(self: ?*anyopaque, text: []const u8) void {
+    pub fn SetLabelText(self: QInputDialog, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QInputDialog_SetLabelText(@ptrCast(self), text_str);
+        qtc.QInputDialog_SetLabelText(@ptrCast(self.ptr), text_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#labelText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LabelText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QInputDialog_LabelText(@ptrCast(self));
+    pub fn LabelText(self: QInputDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QInputDialog_LabelText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.LabelText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -245,78 +317,78 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` option: qinputdialog_enums.InputDialogOption `
     ///
-    pub fn SetOption(self: ?*anyopaque, option: i32) void {
-        qtc.QInputDialog_SetOption(@ptrCast(self), @bitCast(option));
+    pub fn SetOption(self: QInputDialog, option: i32) void {
+        qtc.QInputDialog_SetOption(@ptrCast(self.ptr), @bitCast(option));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#testOption)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` option: qinputdialog_enums.InputDialogOption `
     ///
-    pub fn TestOption(self: ?*anyopaque, option: i32) bool {
-        return qtc.QInputDialog_TestOption(@ptrCast(self), @bitCast(option));
+    pub fn TestOption(self: QInputDialog, option: i32) bool {
+        return qtc.QInputDialog_TestOption(@ptrCast(self.ptr), @bitCast(option));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#setOptions)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` options: flag of qinputdialog_enums.InputDialogOption `
     ///
-    pub fn SetOptions(self: ?*anyopaque, options: i32) void {
-        qtc.QInputDialog_SetOptions(@ptrCast(self), @bitCast(options));
+    pub fn SetOptions(self: QInputDialog, options: i32) void {
+        qtc.QInputDialog_SetOptions(@ptrCast(self.ptr), @bitCast(options));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#options)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ## Returns:
     ///
     /// ` flag of qinputdialog_enums.InputDialogOption `
     ///
-    pub fn Options(self: ?*anyopaque) i32 {
-        return qtc.QInputDialog_Options(@ptrCast(self));
+    pub fn Options(self: QInputDialog) i32 {
+        return qtc.QInputDialog_Options(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#setTextValue)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetTextValue(self: ?*anyopaque, text: []const u8) void {
+    pub fn SetTextValue(self: QInputDialog, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QInputDialog_SetTextValue(@ptrCast(self), text_str);
+        qtc.QInputDialog_SetTextValue(@ptrCast(self.ptr), text_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#textValue)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TextValue(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QInputDialog_TextValue(@ptrCast(self));
+    pub fn TextValue(self: QInputDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QInputDialog_TextValue(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.TextValue: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -327,91 +399,89 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` mode: qlineedit_enums.EchoMode `
     ///
-    pub fn SetTextEchoMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QInputDialog_SetTextEchoMode(@ptrCast(self), @bitCast(mode));
+    pub fn SetTextEchoMode(self: QInputDialog, mode: i32) void {
+        qtc.QInputDialog_SetTextEchoMode(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#textEchoMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ## Returns:
     ///
     /// ` qlineedit_enums.EchoMode `
     ///
-    pub fn TextEchoMode(self: ?*anyopaque) i32 {
-        return qtc.QInputDialog_TextEchoMode(@ptrCast(self));
+    pub fn TextEchoMode(self: QInputDialog) i32 {
+        return qtc.QInputDialog_TextEchoMode(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#setComboBoxEditable)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` editable: bool `
     ///
-    pub fn SetComboBoxEditable(self: ?*anyopaque, editable: bool) void {
-        qtc.QInputDialog_SetComboBoxEditable(@ptrCast(self), editable);
+    pub fn SetComboBoxEditable(self: QInputDialog, editable: bool) void {
+        qtc.QInputDialog_SetComboBoxEditable(@ptrCast(self.ptr), editable);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#isComboBoxEditable)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn IsComboBoxEditable(self: ?*anyopaque) bool {
-        return qtc.QInputDialog_IsComboBoxEditable(@ptrCast(self));
+    pub fn IsComboBoxEditable(self: QInputDialog) bool {
+        return qtc.QInputDialog_IsComboBoxEditable(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#setComboBoxItems)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
-    ///
-    /// ` items: []const []const u8 `
+    /// ` self: QInputDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetComboBoxItems(self: ?*anyopaque, items: []const []const u8, allocator: std.mem.Allocator) void {
+    /// ` items: []const []const u8 `
+    ///
+    pub fn SetComboBoxItems(self: QInputDialog, allocator: std.mem.Allocator, items: []const []const u8) void {
         const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("qinputdialog.SetComboBoxItems: Memory allocation failed");
         defer allocator.free(items_arr);
-        for (items, 0..items.len) |item, i| {
+        for (items, 0..items.len) |item, i|
             items_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const items_list = qtc.libqt_list{
             .len = items.len,
             .data = items_arr.ptr,
         };
-        qtc.QInputDialog_SetComboBoxItems(@ptrCast(self), items_list);
+        qtc.QInputDialog_SetComboBoxItems(@ptrCast(self.ptr), items_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#comboBoxItems)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ComboBoxItems(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QInputDialog_ComboBoxItems(@ptrCast(self));
+    pub fn ComboBoxItems(self: QInputDialog, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.QInputDialog_ComboBoxItems(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qinputdialog.ComboBoxItems: Memory allocation failed");
@@ -428,232 +498,232 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` value: i32 `
     ///
-    pub fn SetIntValue(self: ?*anyopaque, value: i32) void {
-        qtc.QInputDialog_SetIntValue(@ptrCast(self), @bitCast(value));
+    pub fn SetIntValue(self: QInputDialog, value: i32) void {
+        qtc.QInputDialog_SetIntValue(@ptrCast(self.ptr), @bitCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#intValue)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn IntValue(self: ?*anyopaque) i32 {
-        return qtc.QInputDialog_IntValue(@ptrCast(self));
+    pub fn IntValue(self: QInputDialog) i32 {
+        return qtc.QInputDialog_IntValue(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#setIntMinimum)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` min: i32 `
     ///
-    pub fn SetIntMinimum(self: ?*anyopaque, min: i32) void {
-        qtc.QInputDialog_SetIntMinimum(@ptrCast(self), @bitCast(min));
+    pub fn SetIntMinimum(self: QInputDialog, min: i32) void {
+        qtc.QInputDialog_SetIntMinimum(@ptrCast(self.ptr), @bitCast(min));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#intMinimum)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn IntMinimum(self: ?*anyopaque) i32 {
-        return qtc.QInputDialog_IntMinimum(@ptrCast(self));
+    pub fn IntMinimum(self: QInputDialog) i32 {
+        return qtc.QInputDialog_IntMinimum(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#setIntMaximum)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` max: i32 `
     ///
-    pub fn SetIntMaximum(self: ?*anyopaque, max: i32) void {
-        qtc.QInputDialog_SetIntMaximum(@ptrCast(self), @bitCast(max));
+    pub fn SetIntMaximum(self: QInputDialog, max: i32) void {
+        qtc.QInputDialog_SetIntMaximum(@ptrCast(self.ptr), @bitCast(max));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#intMaximum)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn IntMaximum(self: ?*anyopaque) i32 {
-        return qtc.QInputDialog_IntMaximum(@ptrCast(self));
+    pub fn IntMaximum(self: QInputDialog) i32 {
+        return qtc.QInputDialog_IntMaximum(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#setIntRange)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` min: i32 `
     ///
     /// ` max: i32 `
     ///
-    pub fn SetIntRange(self: ?*anyopaque, min: i32, max: i32) void {
-        qtc.QInputDialog_SetIntRange(@ptrCast(self), @bitCast(min), @bitCast(max));
+    pub fn SetIntRange(self: QInputDialog, min: i32, max: i32) void {
+        qtc.QInputDialog_SetIntRange(@ptrCast(self.ptr), @bitCast(min), @bitCast(max));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#setIntStep)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` step: i32 `
     ///
-    pub fn SetIntStep(self: ?*anyopaque, step: i32) void {
-        qtc.QInputDialog_SetIntStep(@ptrCast(self), @bitCast(step));
+    pub fn SetIntStep(self: QInputDialog, step: i32) void {
+        qtc.QInputDialog_SetIntStep(@ptrCast(self.ptr), @bitCast(step));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#intStep)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn IntStep(self: ?*anyopaque) i32 {
-        return qtc.QInputDialog_IntStep(@ptrCast(self));
+    pub fn IntStep(self: QInputDialog) i32 {
+        return qtc.QInputDialog_IntStep(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#setDoubleValue)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` value: f64 `
     ///
-    pub fn SetDoubleValue(self: ?*anyopaque, value: f64) void {
-        qtc.QInputDialog_SetDoubleValue(@ptrCast(self), @bitCast(value));
+    pub fn SetDoubleValue(self: QInputDialog, value: f64) void {
+        qtc.QInputDialog_SetDoubleValue(@ptrCast(self.ptr), @bitCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#doubleValue)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn DoubleValue(self: ?*anyopaque) f64 {
-        return qtc.QInputDialog_DoubleValue(@ptrCast(self));
+    pub fn DoubleValue(self: QInputDialog) f64 {
+        return qtc.QInputDialog_DoubleValue(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#setDoubleMinimum)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` min: f64 `
     ///
-    pub fn SetDoubleMinimum(self: ?*anyopaque, min: f64) void {
-        qtc.QInputDialog_SetDoubleMinimum(@ptrCast(self), @bitCast(min));
+    pub fn SetDoubleMinimum(self: QInputDialog, min: f64) void {
+        qtc.QInputDialog_SetDoubleMinimum(@ptrCast(self.ptr), @bitCast(min));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#doubleMinimum)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn DoubleMinimum(self: ?*anyopaque) f64 {
-        return qtc.QInputDialog_DoubleMinimum(@ptrCast(self));
+    pub fn DoubleMinimum(self: QInputDialog) f64 {
+        return qtc.QInputDialog_DoubleMinimum(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#setDoubleMaximum)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` max: f64 `
     ///
-    pub fn SetDoubleMaximum(self: ?*anyopaque, max: f64) void {
-        qtc.QInputDialog_SetDoubleMaximum(@ptrCast(self), @bitCast(max));
+    pub fn SetDoubleMaximum(self: QInputDialog, max: f64) void {
+        qtc.QInputDialog_SetDoubleMaximum(@ptrCast(self.ptr), @bitCast(max));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#doubleMaximum)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn DoubleMaximum(self: ?*anyopaque) f64 {
-        return qtc.QInputDialog_DoubleMaximum(@ptrCast(self));
+    pub fn DoubleMaximum(self: QInputDialog) f64 {
+        return qtc.QInputDialog_DoubleMaximum(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#setDoubleRange)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` min: f64 `
     ///
     /// ` max: f64 `
     ///
-    pub fn SetDoubleRange(self: ?*anyopaque, min: f64, max: f64) void {
-        qtc.QInputDialog_SetDoubleRange(@ptrCast(self), @bitCast(min), @bitCast(max));
+    pub fn SetDoubleRange(self: QInputDialog, min: f64, max: f64) void {
+        qtc.QInputDialog_SetDoubleRange(@ptrCast(self.ptr), @bitCast(min), @bitCast(max));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#setDoubleDecimals)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` decimals: i32 `
     ///
-    pub fn SetDoubleDecimals(self: ?*anyopaque, decimals: i32) void {
-        qtc.QInputDialog_SetDoubleDecimals(@ptrCast(self), @bitCast(decimals));
+    pub fn SetDoubleDecimals(self: QInputDialog, decimals: i32) void {
+        qtc.QInputDialog_SetDoubleDecimals(@ptrCast(self.ptr), @bitCast(decimals));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#doubleDecimals)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn DoubleDecimals(self: ?*anyopaque) i32 {
-        return qtc.QInputDialog_DoubleDecimals(@ptrCast(self));
+    pub fn DoubleDecimals(self: QInputDialog) i32 {
+        return qtc.QInputDialog_DoubleDecimals(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#setOkButtonText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetOkButtonText(self: ?*anyopaque, text: []const u8) void {
+    pub fn SetOkButtonText(self: QInputDialog, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QInputDialog_SetOkButtonText(@ptrCast(self), text_str);
+        qtc.QInputDialog_SetOkButtonText(@ptrCast(self.ptr), text_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#okButtonText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn OkButtonText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QInputDialog_OkButtonText(@ptrCast(self));
+    pub fn OkButtonText(self: QInputDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QInputDialog_OkButtonText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.OkButtonText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -664,28 +734,28 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetCancelButtonText(self: ?*anyopaque, text: []const u8) void {
+    pub fn SetCancelButtonText(self: QInputDialog, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QInputDialog_SetCancelButtonText(@ptrCast(self), text_str);
+        qtc.QInputDialog_SetCancelButtonText(@ptrCast(self.ptr), text_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#cancelButtonText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CancelButtonText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QInputDialog_CancelButtonText(@ptrCast(self));
+    pub fn CancelButtonText(self: QInputDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QInputDialog_CancelButtonText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.CancelButtonText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -696,10 +766,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn MinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QInputDialog_MinimumSizeHint(@ptrCast(self));
+    pub fn MinimumSizeHint(self: QInputDialog) QSize {
+        return .{ .ptr = qtc.QInputDialog_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#minimumSizeHint)
@@ -708,12 +778,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnMinimumSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QInputDialog_OnMinimumSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMinimumSizeHint(self: QInputDialog, callback: *const fn () callconv(.c) QSize) void {
+        qtc.QInputDialog_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
@@ -726,20 +796,20 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn SuperMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QInputDialog_SuperMinimumSizeHint(@ptrCast(self));
+    pub fn SuperMinimumSizeHint(self: QInputDialog) QSize {
+        return .{ .ptr = qtc.QInputDialog_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#sizeHint)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QInputDialog_SizeHint(@ptrCast(self));
+    pub fn SizeHint(self: QInputDialog) QSize {
+        return .{ .ptr = qtc.QInputDialog_SizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#sizeHint)
@@ -748,12 +818,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QInputDialog_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSizeHint(self: QInputDialog, callback: *const fn () callconv(.c) QSize) void {
+        qtc.QInputDialog_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSizeHint` instead
@@ -766,22 +836,22 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QInputDialog_SuperSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: QInputDialog) QSize {
+        return .{ .ptr = qtc.QInputDialog_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#setVisible)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.QInputDialog_SetVisible(@ptrCast(self), visible);
+    pub fn SetVisible(self: QInputDialog, visible: bool) void {
+        qtc.QInputDialog_SetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#setVisible)
@@ -790,12 +860,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, visible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QInputDialog_OnSetVisible(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetVisible(self: QInputDialog, callback: *const fn (QInputDialog, bool) callconv(.c) void) void {
+        qtc.QInputDialog_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetVisible` instead
@@ -808,27 +878,28 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.QInputDialog_SuperSetVisible(@ptrCast(self), visible);
+    pub fn SuperSetVisible(self: QInputDialog, visible: bool) void {
+        qtc.QInputDialog_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#getText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` parent: QWidget `
     ///
     /// ` title: []const u8 `
     ///
     /// ` label: []const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn GetText(parent: ?*anyopaque, title: []const u8, label: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetText(allocator: std.mem.Allocator, parent: anytype, title: []const u8, label: []const u8) []const u8 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -837,7 +908,7 @@ pub const qinputdialog = struct {
             .len = label.len,
             .data = label.ptr,
         };
-        var _str = qtc.QInputDialog_GetText(@ptrCast(parent), title_str, label_str);
+        var _str = qtc.QInputDialog_GetText(@ptrCast(parent.ptr), title_str, label_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.GetText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -848,15 +919,16 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` parent: QWidget `
     ///
     /// ` title: []const u8 `
     ///
     /// ` label: []const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn GetMultiLineText(parent: ?*anyopaque, title: []const u8, label: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetMultiLineText(allocator: std.mem.Allocator, parent: anytype, title: []const u8, label: []const u8) []const u8 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -865,7 +937,7 @@ pub const qinputdialog = struct {
             .len = label.len,
             .data = label.ptr,
         };
-        var _str = qtc.QInputDialog_GetMultiLineText(@ptrCast(parent), title_str, label_str);
+        var _str = qtc.QInputDialog_GetMultiLineText(@ptrCast(parent.ptr), title_str, label_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.GetMultiLineText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -876,7 +948,9 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` parent: QWidget `
     ///
     /// ` title: []const u8 `
     ///
@@ -884,9 +958,8 @@ pub const qinputdialog = struct {
     ///
     /// ` items: []const []const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn GetItem(parent: ?*anyopaque, title: []const u8, label: []const u8, items: []const []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetItem(allocator: std.mem.Allocator, parent: anytype, title: []const u8, label: []const u8, items: []const []const u8) []const u8 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -897,17 +970,16 @@ pub const qinputdialog = struct {
         };
         const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("qinputdialog.GetItem: Memory allocation failed");
         defer allocator.free(items_arr);
-        for (items, 0..items.len) |item, i| {
+        for (items, 0..items.len) |item, i|
             items_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const items_list = qtc.libqt_list{
             .len = items.len,
             .data = items_arr.ptr,
         };
-        var _str = qtc.QInputDialog_GetItem(@ptrCast(parent), title_str, label_str, items_list);
+        var _str = qtc.QInputDialog_GetItem(@ptrCast(parent.ptr), title_str, label_str, items_list);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.GetItem: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -918,13 +990,14 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` title: []const u8 `
     ///
     /// ` label: []const u8 `
     ///
-    pub fn GetInt(parent: ?*anyopaque, title: []const u8, label: []const u8) i32 {
+    pub fn GetInt(parent: anytype, title: []const u8, label: []const u8) i32 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -933,20 +1006,21 @@ pub const qinputdialog = struct {
             .len = label.len,
             .data = label.ptr,
         };
-        return qtc.QInputDialog_GetInt(@ptrCast(parent), title_str, label_str);
+        return qtc.QInputDialog_GetInt(@ptrCast(parent.ptr), title_str, label_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#getDouble)
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` title: []const u8 `
     ///
     /// ` label: []const u8 `
     ///
-    pub fn GetDouble(parent: ?*anyopaque, title: []const u8, label: []const u8) f64 {
+    pub fn GetDouble(parent: anytype, title: []const u8, label: []const u8) f64 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -955,193 +1029,193 @@ pub const qinputdialog = struct {
             .len = label.len,
             .data = label.ptr,
         };
-        return qtc.QInputDialog_GetDouble(@ptrCast(parent), title_str, label_str);
+        return qtc.QInputDialog_GetDouble(@ptrCast(parent.ptr), title_str, label_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#setDoubleStep)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` step: f64 `
     ///
-    pub fn SetDoubleStep(self: ?*anyopaque, step: f64) void {
-        qtc.QInputDialog_SetDoubleStep(@ptrCast(self), @bitCast(step));
+    pub fn SetDoubleStep(self: QInputDialog, step: f64) void {
+        qtc.QInputDialog_SetDoubleStep(@ptrCast(self.ptr), @bitCast(step));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#doubleStep)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn DoubleStep(self: ?*anyopaque) f64 {
-        return qtc.QInputDialog_DoubleStep(@ptrCast(self));
+    pub fn DoubleStep(self: QInputDialog) f64 {
+        return qtc.QInputDialog_DoubleStep(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#textValueChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn TextValueChanged(self: ?*anyopaque, text: []const u8) void {
+    pub fn TextValueChanged(self: QInputDialog, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QInputDialog_TextValueChanged(@ptrCast(self), text_str);
+        qtc.QInputDialog_TextValueChanged(@ptrCast(self.ptr), text_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#textValueChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, text: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, text: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnTextValueChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QInputDialog_Connect_TextValueChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTextValueChanged(self: QInputDialog, callback: *const fn (QInputDialog, [*:0]const u8) callconv(.c) void) void {
+        qtc.QInputDialog_Connect_TextValueChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#textValueSelected)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn TextValueSelected(self: ?*anyopaque, text: []const u8) void {
+    pub fn TextValueSelected(self: QInputDialog, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QInputDialog_TextValueSelected(@ptrCast(self), text_str);
+        qtc.QInputDialog_TextValueSelected(@ptrCast(self.ptr), text_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#textValueSelected)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, text: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, text: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnTextValueSelected(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QInputDialog_Connect_TextValueSelected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTextValueSelected(self: QInputDialog, callback: *const fn (QInputDialog, [*:0]const u8) callconv(.c) void) void {
+        qtc.QInputDialog_Connect_TextValueSelected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#intValueChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` value: i32 `
     ///
-    pub fn IntValueChanged(self: ?*anyopaque, value: i32) void {
-        qtc.QInputDialog_IntValueChanged(@ptrCast(self), @bitCast(value));
+    pub fn IntValueChanged(self: QInputDialog, value: i32) void {
+        qtc.QInputDialog_IntValueChanged(@ptrCast(self.ptr), @bitCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#intValueChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, value: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, value: i32) callconv(.c) void `
     ///
-    pub fn OnIntValueChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QInputDialog_Connect_IntValueChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIntValueChanged(self: QInputDialog, callback: *const fn (QInputDialog, i32) callconv(.c) void) void {
+        qtc.QInputDialog_Connect_IntValueChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#intValueSelected)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` value: i32 `
     ///
-    pub fn IntValueSelected(self: ?*anyopaque, value: i32) void {
-        qtc.QInputDialog_IntValueSelected(@ptrCast(self), @bitCast(value));
+    pub fn IntValueSelected(self: QInputDialog, value: i32) void {
+        qtc.QInputDialog_IntValueSelected(@ptrCast(self.ptr), @bitCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#intValueSelected)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, value: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, value: i32) callconv(.c) void `
     ///
-    pub fn OnIntValueSelected(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QInputDialog_Connect_IntValueSelected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIntValueSelected(self: QInputDialog, callback: *const fn (QInputDialog, i32) callconv(.c) void) void {
+        qtc.QInputDialog_Connect_IntValueSelected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#doubleValueChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` value: f64 `
     ///
-    pub fn DoubleValueChanged(self: ?*anyopaque, value: f64) void {
-        qtc.QInputDialog_DoubleValueChanged(@ptrCast(self), @bitCast(value));
+    pub fn DoubleValueChanged(self: QInputDialog, value: f64) void {
+        qtc.QInputDialog_DoubleValueChanged(@ptrCast(self.ptr), @bitCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#doubleValueChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, value: f64) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, value: f64) callconv(.c) void `
     ///
-    pub fn OnDoubleValueChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
-        qtc.QInputDialog_Connect_DoubleValueChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDoubleValueChanged(self: QInputDialog, callback: *const fn (QInputDialog, f64) callconv(.c) void) void {
+        qtc.QInputDialog_Connect_DoubleValueChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#doubleValueSelected)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` value: f64 `
     ///
-    pub fn DoubleValueSelected(self: ?*anyopaque, value: f64) void {
-        qtc.QInputDialog_DoubleValueSelected(@ptrCast(self), @bitCast(value));
+    pub fn DoubleValueSelected(self: QInputDialog, value: f64) void {
+        qtc.QInputDialog_DoubleValueSelected(@ptrCast(self.ptr), @bitCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#doubleValueSelected)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, value: f64) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, value: f64) callconv(.c) void `
     ///
-    pub fn OnDoubleValueSelected(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
-        qtc.QInputDialog_Connect_DoubleValueSelected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDoubleValueSelected(self: QInputDialog, callback: *const fn (QInputDialog, f64) callconv(.c) void) void {
+        qtc.QInputDialog_Connect_DoubleValueSelected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#done)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` result: i32 `
     ///
-    pub fn Done(self: ?*anyopaque, result: i32) void {
-        qtc.QInputDialog_Done(@ptrCast(self), @bitCast(result));
+    pub fn Done(self: QInputDialog, result: i32) void {
+        qtc.QInputDialog_Done(@ptrCast(self.ptr), @bitCast(result));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#done)
@@ -1150,12 +1224,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, result: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, result: i32) callconv(.c) void `
     ///
-    pub fn OnDone(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QInputDialog_OnDone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDone(self: QInputDialog, callback: *const fn (QInputDialog, i32) callconv(.c) void) void {
+        qtc.QInputDialog_OnDone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperDone` instead
@@ -1168,25 +1242,25 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` result: i32 `
     ///
-    pub fn SuperDone(self: ?*anyopaque, result: i32) void {
-        qtc.QInputDialog_SuperDone(@ptrCast(self), @bitCast(result));
+    pub fn SuperDone(self: QInputDialog, result: i32) void {
+        qtc.QInputDialog_SuperDone(@ptrCast(self.ptr), @bitCast(result));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -1200,15 +1274,15 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -1222,21 +1296,23 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` option: qinputdialog_enums.InputDialogOption `
     ///
     /// ` on: bool `
     ///
-    pub fn SetOption2(self: ?*anyopaque, option: i32, on: bool) void {
-        qtc.QInputDialog_SetOption2(@ptrCast(self), @bitCast(option), on);
+    pub fn SetOption2(self: QInputDialog, option: i32, on: bool) void {
+        qtc.QInputDialog_SetOption2(@ptrCast(self.ptr), @bitCast(option), on);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#getText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` parent: QWidget `
     ///
     /// ` title: []const u8 `
     ///
@@ -1244,9 +1320,8 @@ pub const qinputdialog = struct {
     ///
     /// ` echo: qlineedit_enums.EchoMode `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn GetText4(parent: ?*anyopaque, title: []const u8, label: []const u8, echo: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetText4(allocator: std.mem.Allocator, parent: anytype, title: []const u8, label: []const u8, echo: i32) []const u8 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -1255,7 +1330,7 @@ pub const qinputdialog = struct {
             .len = label.len,
             .data = label.ptr,
         };
-        var _str = qtc.QInputDialog_GetText4(@ptrCast(parent), title_str, label_str, @bitCast(echo));
+        var _str = qtc.QInputDialog_GetText4(@ptrCast(parent.ptr), title_str, label_str, @bitCast(echo));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.GetText4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1266,7 +1341,9 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` parent: QWidget `
     ///
     /// ` title: []const u8 `
     ///
@@ -1276,9 +1353,8 @@ pub const qinputdialog = struct {
     ///
     /// ` text: []const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn GetText5(parent: ?*anyopaque, title: []const u8, label: []const u8, echo: i32, text: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetText5(allocator: std.mem.Allocator, parent: anytype, title: []const u8, label: []const u8, echo: i32, text: []const u8) []const u8 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -1291,7 +1367,7 @@ pub const qinputdialog = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        var _str = qtc.QInputDialog_GetText5(@ptrCast(parent), title_str, label_str, @bitCast(echo), text_str);
+        var _str = qtc.QInputDialog_GetText5(@ptrCast(parent.ptr), title_str, label_str, @bitCast(echo), text_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.GetText5: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1302,7 +1378,9 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` parent: QWidget `
     ///
     /// ` title: []const u8 `
     ///
@@ -1314,9 +1392,8 @@ pub const qinputdialog = struct {
     ///
     /// ` ok: *bool `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn GetText6(parent: ?*anyopaque, title: []const u8, label: []const u8, echo: i32, text: []const u8, ok: *bool, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetText6(allocator: std.mem.Allocator, parent: anytype, title: []const u8, label: []const u8, echo: i32, text: []const u8, ok: *bool) []const u8 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -1329,7 +1406,7 @@ pub const qinputdialog = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        var _str = qtc.QInputDialog_GetText6(@ptrCast(parent), title_str, label_str, @bitCast(echo), text_str, @ptrCast(ok));
+        var _str = qtc.QInputDialog_GetText6(@ptrCast(parent.ptr), title_str, label_str, @bitCast(echo), text_str, @ptrCast(ok));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.GetText6: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1340,7 +1417,9 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` parent: QWidget `
     ///
     /// ` title: []const u8 `
     ///
@@ -1354,9 +1433,8 @@ pub const qinputdialog = struct {
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn GetText7(parent: ?*anyopaque, title: []const u8, label: []const u8, echo: i32, text: []const u8, ok: *bool, flags: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetText7(allocator: std.mem.Allocator, parent: anytype, title: []const u8, label: []const u8, echo: i32, text: []const u8, ok: *bool, flags: i32) []const u8 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -1369,7 +1447,7 @@ pub const qinputdialog = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        var _str = qtc.QInputDialog_GetText7(@ptrCast(parent), title_str, label_str, @bitCast(echo), text_str, @ptrCast(ok), @bitCast(flags));
+        var _str = qtc.QInputDialog_GetText7(@ptrCast(parent.ptr), title_str, label_str, @bitCast(echo), text_str, @ptrCast(ok), @bitCast(flags));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.GetText7: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1380,7 +1458,9 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` parent: QWidget `
     ///
     /// ` title: []const u8 `
     ///
@@ -1396,9 +1476,8 @@ pub const qinputdialog = struct {
     ///
     /// ` inputMethodHints: flag of qnamespace_enums.InputMethodHint `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn GetText8(parent: ?*anyopaque, title: []const u8, label: []const u8, echo: i32, text: []const u8, ok: *bool, flags: i32, inputMethodHints: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetText8(allocator: std.mem.Allocator, parent: anytype, title: []const u8, label: []const u8, echo: i32, text: []const u8, ok: *bool, flags: i32, inputMethodHints: i32) []const u8 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -1411,7 +1490,7 @@ pub const qinputdialog = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        var _str = qtc.QInputDialog_GetText8(@ptrCast(parent), title_str, label_str, @bitCast(echo), text_str, @ptrCast(ok), @bitCast(flags), @bitCast(inputMethodHints));
+        var _str = qtc.QInputDialog_GetText8(@ptrCast(parent.ptr), title_str, label_str, @bitCast(echo), text_str, @ptrCast(ok), @bitCast(flags), @bitCast(inputMethodHints));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.GetText8: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1422,7 +1501,9 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` parent: QWidget `
     ///
     /// ` title: []const u8 `
     ///
@@ -1430,9 +1511,8 @@ pub const qinputdialog = struct {
     ///
     /// ` text: []const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn GetMultiLineText4(parent: ?*anyopaque, title: []const u8, label: []const u8, text: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetMultiLineText4(allocator: std.mem.Allocator, parent: anytype, title: []const u8, label: []const u8, text: []const u8) []const u8 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -1445,7 +1525,7 @@ pub const qinputdialog = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        var _str = qtc.QInputDialog_GetMultiLineText4(@ptrCast(parent), title_str, label_str, text_str);
+        var _str = qtc.QInputDialog_GetMultiLineText4(@ptrCast(parent.ptr), title_str, label_str, text_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.GetMultiLineText4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1456,7 +1536,9 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` parent: QWidget `
     ///
     /// ` title: []const u8 `
     ///
@@ -1466,9 +1548,8 @@ pub const qinputdialog = struct {
     ///
     /// ` ok: *bool `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn GetMultiLineText5(parent: ?*anyopaque, title: []const u8, label: []const u8, text: []const u8, ok: *bool, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetMultiLineText5(allocator: std.mem.Allocator, parent: anytype, title: []const u8, label: []const u8, text: []const u8, ok: *bool) []const u8 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -1481,7 +1562,7 @@ pub const qinputdialog = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        var _str = qtc.QInputDialog_GetMultiLineText5(@ptrCast(parent), title_str, label_str, text_str, @ptrCast(ok));
+        var _str = qtc.QInputDialog_GetMultiLineText5(@ptrCast(parent.ptr), title_str, label_str, text_str, @ptrCast(ok));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.GetMultiLineText5: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1492,7 +1573,9 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` parent: QWidget `
     ///
     /// ` title: []const u8 `
     ///
@@ -1504,9 +1587,8 @@ pub const qinputdialog = struct {
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn GetMultiLineText6(parent: ?*anyopaque, title: []const u8, label: []const u8, text: []const u8, ok: *bool, flags: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetMultiLineText6(allocator: std.mem.Allocator, parent: anytype, title: []const u8, label: []const u8, text: []const u8, ok: *bool, flags: i32) []const u8 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -1519,7 +1601,7 @@ pub const qinputdialog = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        var _str = qtc.QInputDialog_GetMultiLineText6(@ptrCast(parent), title_str, label_str, text_str, @ptrCast(ok), @bitCast(flags));
+        var _str = qtc.QInputDialog_GetMultiLineText6(@ptrCast(parent.ptr), title_str, label_str, text_str, @ptrCast(ok), @bitCast(flags));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.GetMultiLineText6: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1530,7 +1612,9 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` parent: QWidget `
     ///
     /// ` title: []const u8 `
     ///
@@ -1544,9 +1628,8 @@ pub const qinputdialog = struct {
     ///
     /// ` inputMethodHints: flag of qnamespace_enums.InputMethodHint `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn GetMultiLineText7(parent: ?*anyopaque, title: []const u8, label: []const u8, text: []const u8, ok: *bool, flags: i32, inputMethodHints: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetMultiLineText7(allocator: std.mem.Allocator, parent: anytype, title: []const u8, label: []const u8, text: []const u8, ok: *bool, flags: i32, inputMethodHints: i32) []const u8 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -1559,7 +1642,7 @@ pub const qinputdialog = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        var _str = qtc.QInputDialog_GetMultiLineText7(@ptrCast(parent), title_str, label_str, text_str, @ptrCast(ok), @bitCast(flags), @bitCast(inputMethodHints));
+        var _str = qtc.QInputDialog_GetMultiLineText7(@ptrCast(parent.ptr), title_str, label_str, text_str, @ptrCast(ok), @bitCast(flags), @bitCast(inputMethodHints));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.GetMultiLineText7: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1570,7 +1653,9 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` parent: QWidget `
     ///
     /// ` title: []const u8 `
     ///
@@ -1580,9 +1665,8 @@ pub const qinputdialog = struct {
     ///
     /// ` current: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn GetItem5(parent: ?*anyopaque, title: []const u8, label: []const u8, items: []const []const u8, current: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetItem5(allocator: std.mem.Allocator, parent: anytype, title: []const u8, label: []const u8, items: []const []const u8, current: i32) []const u8 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -1593,17 +1677,16 @@ pub const qinputdialog = struct {
         };
         const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("qinputdialog.GetItem5: Memory allocation failed");
         defer allocator.free(items_arr);
-        for (items, 0..items.len) |item, i| {
+        for (items, 0..items.len) |item, i|
             items_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const items_list = qtc.libqt_list{
             .len = items.len,
             .data = items_arr.ptr,
         };
-        var _str = qtc.QInputDialog_GetItem5(@ptrCast(parent), title_str, label_str, items_list, @bitCast(current));
+        var _str = qtc.QInputDialog_GetItem5(@ptrCast(parent.ptr), title_str, label_str, items_list, @bitCast(current));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.GetItem5: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1614,7 +1697,9 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` parent: QWidget `
     ///
     /// ` title: []const u8 `
     ///
@@ -1626,9 +1711,8 @@ pub const qinputdialog = struct {
     ///
     /// ` editable: bool `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn GetItem6(parent: ?*anyopaque, title: []const u8, label: []const u8, items: []const []const u8, current: i32, editable: bool, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetItem6(allocator: std.mem.Allocator, parent: anytype, title: []const u8, label: []const u8, items: []const []const u8, current: i32, editable: bool) []const u8 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -1639,17 +1723,16 @@ pub const qinputdialog = struct {
         };
         const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("qinputdialog.GetItem6: Memory allocation failed");
         defer allocator.free(items_arr);
-        for (items, 0..items.len) |item, i| {
+        for (items, 0..items.len) |item, i|
             items_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const items_list = qtc.libqt_list{
             .len = items.len,
             .data = items_arr.ptr,
         };
-        var _str = qtc.QInputDialog_GetItem6(@ptrCast(parent), title_str, label_str, items_list, @bitCast(current), editable);
+        var _str = qtc.QInputDialog_GetItem6(@ptrCast(parent.ptr), title_str, label_str, items_list, @bitCast(current), editable);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.GetItem6: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1660,7 +1743,9 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` parent: QWidget `
     ///
     /// ` title: []const u8 `
     ///
@@ -1674,9 +1759,8 @@ pub const qinputdialog = struct {
     ///
     /// ` ok: *bool `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn GetItem7(parent: ?*anyopaque, title: []const u8, label: []const u8, items: []const []const u8, current: i32, editable: bool, ok: *bool, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetItem7(allocator: std.mem.Allocator, parent: anytype, title: []const u8, label: []const u8, items: []const []const u8, current: i32, editable: bool, ok: *bool) []const u8 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -1687,17 +1771,16 @@ pub const qinputdialog = struct {
         };
         const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("qinputdialog.GetItem7: Memory allocation failed");
         defer allocator.free(items_arr);
-        for (items, 0..items.len) |item, i| {
+        for (items, 0..items.len) |item, i|
             items_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const items_list = qtc.libqt_list{
             .len = items.len,
             .data = items_arr.ptr,
         };
-        var _str = qtc.QInputDialog_GetItem7(@ptrCast(parent), title_str, label_str, items_list, @bitCast(current), editable, @ptrCast(ok));
+        var _str = qtc.QInputDialog_GetItem7(@ptrCast(parent.ptr), title_str, label_str, items_list, @bitCast(current), editable, @ptrCast(ok));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.GetItem7: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1708,7 +1791,9 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` parent: QWidget `
     ///
     /// ` title: []const u8 `
     ///
@@ -1724,9 +1809,8 @@ pub const qinputdialog = struct {
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn GetItem8(parent: ?*anyopaque, title: []const u8, label: []const u8, items: []const []const u8, current: i32, editable: bool, ok: *bool, flags: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetItem8(allocator: std.mem.Allocator, parent: anytype, title: []const u8, label: []const u8, items: []const []const u8, current: i32, editable: bool, ok: *bool, flags: i32) []const u8 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -1737,17 +1821,16 @@ pub const qinputdialog = struct {
         };
         const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("qinputdialog.GetItem8: Memory allocation failed");
         defer allocator.free(items_arr);
-        for (items, 0..items.len) |item, i| {
+        for (items, 0..items.len) |item, i|
             items_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const items_list = qtc.libqt_list{
             .len = items.len,
             .data = items_arr.ptr,
         };
-        var _str = qtc.QInputDialog_GetItem8(@ptrCast(parent), title_str, label_str, items_list, @bitCast(current), editable, @ptrCast(ok), @bitCast(flags));
+        var _str = qtc.QInputDialog_GetItem8(@ptrCast(parent.ptr), title_str, label_str, items_list, @bitCast(current), editable, @ptrCast(ok), @bitCast(flags));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.GetItem8: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1758,7 +1841,9 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` parent: QWidget `
     ///
     /// ` title: []const u8 `
     ///
@@ -1776,9 +1861,8 @@ pub const qinputdialog = struct {
     ///
     /// ` inputMethodHints: flag of qnamespace_enums.InputMethodHint `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn GetItem9(parent: ?*anyopaque, title: []const u8, label: []const u8, items: []const []const u8, current: i32, editable: bool, ok: *bool, flags: i32, inputMethodHints: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetItem9(allocator: std.mem.Allocator, parent: anytype, title: []const u8, label: []const u8, items: []const []const u8, current: i32, editable: bool, ok: *bool, flags: i32, inputMethodHints: i32) []const u8 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -1789,17 +1873,16 @@ pub const qinputdialog = struct {
         };
         const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("qinputdialog.GetItem9: Memory allocation failed");
         defer allocator.free(items_arr);
-        for (items, 0..items.len) |item, i| {
+        for (items, 0..items.len) |item, i|
             items_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const items_list = qtc.libqt_list{
             .len = items.len,
             .data = items_arr.ptr,
         };
-        var _str = qtc.QInputDialog_GetItem9(@ptrCast(parent), title_str, label_str, items_list, @bitCast(current), editable, @ptrCast(ok), @bitCast(flags), @bitCast(inputMethodHints));
+        var _str = qtc.QInputDialog_GetItem9(@ptrCast(parent.ptr), title_str, label_str, items_list, @bitCast(current), editable, @ptrCast(ok), @bitCast(flags), @bitCast(inputMethodHints));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.GetItem9: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1810,7 +1893,7 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` title: []const u8 `
     ///
@@ -1818,7 +1901,8 @@ pub const qinputdialog = struct {
     ///
     /// ` value: i32 `
     ///
-    pub fn GetInt4(parent: ?*anyopaque, title: []const u8, label: []const u8, value: i32) i32 {
+    pub fn GetInt4(parent: anytype, title: []const u8, label: []const u8, value: i32) i32 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -1827,14 +1911,14 @@ pub const qinputdialog = struct {
             .len = label.len,
             .data = label.ptr,
         };
-        return qtc.QInputDialog_GetInt4(@ptrCast(parent), title_str, label_str, @bitCast(value));
+        return qtc.QInputDialog_GetInt4(@ptrCast(parent.ptr), title_str, label_str, @bitCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#getInt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` title: []const u8 `
     ///
@@ -1844,7 +1928,8 @@ pub const qinputdialog = struct {
     ///
     /// ` minValue: i32 `
     ///
-    pub fn GetInt5(parent: ?*anyopaque, title: []const u8, label: []const u8, value: i32, minValue: i32) i32 {
+    pub fn GetInt5(parent: anytype, title: []const u8, label: []const u8, value: i32, minValue: i32) i32 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -1853,14 +1938,14 @@ pub const qinputdialog = struct {
             .len = label.len,
             .data = label.ptr,
         };
-        return qtc.QInputDialog_GetInt5(@ptrCast(parent), title_str, label_str, @bitCast(value), @bitCast(minValue));
+        return qtc.QInputDialog_GetInt5(@ptrCast(parent.ptr), title_str, label_str, @bitCast(value), @bitCast(minValue));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#getInt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` title: []const u8 `
     ///
@@ -1872,7 +1957,8 @@ pub const qinputdialog = struct {
     ///
     /// ` maxValue: i32 `
     ///
-    pub fn GetInt6(parent: ?*anyopaque, title: []const u8, label: []const u8, value: i32, minValue: i32, maxValue: i32) i32 {
+    pub fn GetInt6(parent: anytype, title: []const u8, label: []const u8, value: i32, minValue: i32, maxValue: i32) i32 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -1881,14 +1967,14 @@ pub const qinputdialog = struct {
             .len = label.len,
             .data = label.ptr,
         };
-        return qtc.QInputDialog_GetInt6(@ptrCast(parent), title_str, label_str, @bitCast(value), @bitCast(minValue), @bitCast(maxValue));
+        return qtc.QInputDialog_GetInt6(@ptrCast(parent.ptr), title_str, label_str, @bitCast(value), @bitCast(minValue), @bitCast(maxValue));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#getInt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` title: []const u8 `
     ///
@@ -1902,7 +1988,8 @@ pub const qinputdialog = struct {
     ///
     /// ` step: i32 `
     ///
-    pub fn GetInt7(parent: ?*anyopaque, title: []const u8, label: []const u8, value: i32, minValue: i32, maxValue: i32, step: i32) i32 {
+    pub fn GetInt7(parent: anytype, title: []const u8, label: []const u8, value: i32, minValue: i32, maxValue: i32, step: i32) i32 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -1911,14 +1998,14 @@ pub const qinputdialog = struct {
             .len = label.len,
             .data = label.ptr,
         };
-        return qtc.QInputDialog_GetInt7(@ptrCast(parent), title_str, label_str, @bitCast(value), @bitCast(minValue), @bitCast(maxValue), @bitCast(step));
+        return qtc.QInputDialog_GetInt7(@ptrCast(parent.ptr), title_str, label_str, @bitCast(value), @bitCast(minValue), @bitCast(maxValue), @bitCast(step));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#getInt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` title: []const u8 `
     ///
@@ -1934,7 +2021,8 @@ pub const qinputdialog = struct {
     ///
     /// ` ok: *bool `
     ///
-    pub fn GetInt8(parent: ?*anyopaque, title: []const u8, label: []const u8, value: i32, minValue: i32, maxValue: i32, step: i32, ok: *bool) i32 {
+    pub fn GetInt8(parent: anytype, title: []const u8, label: []const u8, value: i32, minValue: i32, maxValue: i32, step: i32, ok: *bool) i32 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -1943,14 +2031,14 @@ pub const qinputdialog = struct {
             .len = label.len,
             .data = label.ptr,
         };
-        return qtc.QInputDialog_GetInt8(@ptrCast(parent), title_str, label_str, @bitCast(value), @bitCast(minValue), @bitCast(maxValue), @bitCast(step), @ptrCast(ok));
+        return qtc.QInputDialog_GetInt8(@ptrCast(parent.ptr), title_str, label_str, @bitCast(value), @bitCast(minValue), @bitCast(maxValue), @bitCast(step), @ptrCast(ok));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#getInt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` title: []const u8 `
     ///
@@ -1968,7 +2056,8 @@ pub const qinputdialog = struct {
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn GetInt9(parent: ?*anyopaque, title: []const u8, label: []const u8, value: i32, minValue: i32, maxValue: i32, step: i32, ok: *bool, flags: i32) i32 {
+    pub fn GetInt9(parent: anytype, title: []const u8, label: []const u8, value: i32, minValue: i32, maxValue: i32, step: i32, ok: *bool, flags: i32) i32 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -1977,14 +2066,14 @@ pub const qinputdialog = struct {
             .len = label.len,
             .data = label.ptr,
         };
-        return qtc.QInputDialog_GetInt9(@ptrCast(parent), title_str, label_str, @bitCast(value), @bitCast(minValue), @bitCast(maxValue), @bitCast(step), @ptrCast(ok), @bitCast(flags));
+        return qtc.QInputDialog_GetInt9(@ptrCast(parent.ptr), title_str, label_str, @bitCast(value), @bitCast(minValue), @bitCast(maxValue), @bitCast(step), @ptrCast(ok), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#getDouble)
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` title: []const u8 `
     ///
@@ -1992,7 +2081,8 @@ pub const qinputdialog = struct {
     ///
     /// ` value: f64 `
     ///
-    pub fn GetDouble4(parent: ?*anyopaque, title: []const u8, label: []const u8, value: f64) f64 {
+    pub fn GetDouble4(parent: anytype, title: []const u8, label: []const u8, value: f64) f64 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -2001,14 +2091,14 @@ pub const qinputdialog = struct {
             .len = label.len,
             .data = label.ptr,
         };
-        return qtc.QInputDialog_GetDouble4(@ptrCast(parent), title_str, label_str, @bitCast(value));
+        return qtc.QInputDialog_GetDouble4(@ptrCast(parent.ptr), title_str, label_str, @bitCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#getDouble)
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` title: []const u8 `
     ///
@@ -2018,7 +2108,8 @@ pub const qinputdialog = struct {
     ///
     /// ` minValue: f64 `
     ///
-    pub fn GetDouble5(parent: ?*anyopaque, title: []const u8, label: []const u8, value: f64, minValue: f64) f64 {
+    pub fn GetDouble5(parent: anytype, title: []const u8, label: []const u8, value: f64, minValue: f64) f64 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -2027,14 +2118,14 @@ pub const qinputdialog = struct {
             .len = label.len,
             .data = label.ptr,
         };
-        return qtc.QInputDialog_GetDouble5(@ptrCast(parent), title_str, label_str, @bitCast(value), @bitCast(minValue));
+        return qtc.QInputDialog_GetDouble5(@ptrCast(parent.ptr), title_str, label_str, @bitCast(value), @bitCast(minValue));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#getDouble)
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` title: []const u8 `
     ///
@@ -2046,7 +2137,8 @@ pub const qinputdialog = struct {
     ///
     /// ` maxValue: f64 `
     ///
-    pub fn GetDouble6(parent: ?*anyopaque, title: []const u8, label: []const u8, value: f64, minValue: f64, maxValue: f64) f64 {
+    pub fn GetDouble6(parent: anytype, title: []const u8, label: []const u8, value: f64, minValue: f64, maxValue: f64) f64 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -2055,14 +2147,14 @@ pub const qinputdialog = struct {
             .len = label.len,
             .data = label.ptr,
         };
-        return qtc.QInputDialog_GetDouble6(@ptrCast(parent), title_str, label_str, @bitCast(value), @bitCast(minValue), @bitCast(maxValue));
+        return qtc.QInputDialog_GetDouble6(@ptrCast(parent.ptr), title_str, label_str, @bitCast(value), @bitCast(minValue), @bitCast(maxValue));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#getDouble)
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` title: []const u8 `
     ///
@@ -2076,7 +2168,8 @@ pub const qinputdialog = struct {
     ///
     /// ` decimals: i32 `
     ///
-    pub fn GetDouble7(parent: ?*anyopaque, title: []const u8, label: []const u8, value: f64, minValue: f64, maxValue: f64, decimals: i32) f64 {
+    pub fn GetDouble7(parent: anytype, title: []const u8, label: []const u8, value: f64, minValue: f64, maxValue: f64, decimals: i32) f64 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -2085,14 +2178,14 @@ pub const qinputdialog = struct {
             .len = label.len,
             .data = label.ptr,
         };
-        return qtc.QInputDialog_GetDouble7(@ptrCast(parent), title_str, label_str, @bitCast(value), @bitCast(minValue), @bitCast(maxValue), @bitCast(decimals));
+        return qtc.QInputDialog_GetDouble7(@ptrCast(parent.ptr), title_str, label_str, @bitCast(value), @bitCast(minValue), @bitCast(maxValue), @bitCast(decimals));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#getDouble)
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` title: []const u8 `
     ///
@@ -2108,7 +2201,8 @@ pub const qinputdialog = struct {
     ///
     /// ` ok: *bool `
     ///
-    pub fn GetDouble8(parent: ?*anyopaque, title: []const u8, label: []const u8, value: f64, minValue: f64, maxValue: f64, decimals: i32, ok: *bool) f64 {
+    pub fn GetDouble8(parent: anytype, title: []const u8, label: []const u8, value: f64, minValue: f64, maxValue: f64, decimals: i32, ok: *bool) f64 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -2117,14 +2211,14 @@ pub const qinputdialog = struct {
             .len = label.len,
             .data = label.ptr,
         };
-        return qtc.QInputDialog_GetDouble8(@ptrCast(parent), title_str, label_str, @bitCast(value), @bitCast(minValue), @bitCast(maxValue), @bitCast(decimals), @ptrCast(ok));
+        return qtc.QInputDialog_GetDouble8(@ptrCast(parent.ptr), title_str, label_str, @bitCast(value), @bitCast(minValue), @bitCast(maxValue), @bitCast(decimals), @ptrCast(ok));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#getDouble)
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` title: []const u8 `
     ///
@@ -2142,7 +2236,8 @@ pub const qinputdialog = struct {
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn GetDouble9(parent: ?*anyopaque, title: []const u8, label: []const u8, value: f64, minValue: f64, maxValue: f64, decimals: i32, ok: *bool, flags: i32) f64 {
+    pub fn GetDouble9(parent: anytype, title: []const u8, label: []const u8, value: f64, minValue: f64, maxValue: f64, decimals: i32, ok: *bool, flags: i32) f64 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -2151,14 +2246,14 @@ pub const qinputdialog = struct {
             .len = label.len,
             .data = label.ptr,
         };
-        return qtc.QInputDialog_GetDouble9(@ptrCast(parent), title_str, label_str, @bitCast(value), @bitCast(minValue), @bitCast(maxValue), @bitCast(decimals), @ptrCast(ok), @bitCast(flags));
+        return qtc.QInputDialog_GetDouble9(@ptrCast(parent.ptr), title_str, label_str, @bitCast(value), @bitCast(minValue), @bitCast(maxValue), @bitCast(decimals), @ptrCast(ok), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qinputdialog.html#getDouble)
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` title: []const u8 `
     ///
@@ -2178,7 +2273,8 @@ pub const qinputdialog = struct {
     ///
     /// ` step: f64 `
     ///
-    pub fn GetDouble10(parent: ?*anyopaque, title: []const u8, label: []const u8, value: f64, minValue: f64, maxValue: f64, decimals: i32, ok: *bool, flags: i32, step: f64) f64 {
+    pub fn GetDouble10(parent: anytype, title: []const u8, label: []const u8, value: f64, minValue: f64, maxValue: f64, decimals: i32, ok: *bool, flags: i32, step: f64) f64 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -2187,7 +2283,7 @@ pub const qinputdialog = struct {
             .len = label.len,
             .data = label.ptr,
         };
-        return qtc.QInputDialog_GetDouble10(@ptrCast(parent), title_str, label_str, @bitCast(value), @bitCast(minValue), @bitCast(maxValue), @bitCast(decimals), @ptrCast(ok), @bitCast(flags), @bitCast(step));
+        return qtc.QInputDialog_GetDouble10(@ptrCast(parent.ptr), title_str, label_str, @bitCast(value), @bitCast(minValue), @bitCast(maxValue), @bitCast(decimals), @ptrCast(ok), @bitCast(flags), @bitCast(step));
     }
 
     /// Inherited from QDialog
@@ -2196,10 +2292,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn Result(self: ?*anyopaque) i32 {
-        return qtc.QDialog_Result(@ptrCast(self));
+    pub fn Result(self: QInputDialog) i32 {
+        return qtc.QDialog_Result(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -2208,12 +2304,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` sizeGripEnabled: bool `
     ///
-    pub fn SetSizeGripEnabled(self: ?*anyopaque, sizeGripEnabled: bool) void {
-        qtc.QDialog_SetSizeGripEnabled(@ptrCast(self), sizeGripEnabled);
+    pub fn SetSizeGripEnabled(self: QInputDialog, sizeGripEnabled: bool) void {
+        qtc.QDialog_SetSizeGripEnabled(@ptrCast(self.ptr), sizeGripEnabled);
     }
 
     /// Inherited from QDialog
@@ -2222,10 +2318,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn IsSizeGripEnabled(self: ?*anyopaque) bool {
-        return qtc.QDialog_IsSizeGripEnabled(@ptrCast(self));
+    pub fn IsSizeGripEnabled(self: QInputDialog) bool {
+        return qtc.QDialog_IsSizeGripEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -2234,12 +2330,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` modal: bool `
     ///
-    pub fn SetModal(self: ?*anyopaque, modal: bool) void {
-        qtc.QDialog_SetModal(@ptrCast(self), modal);
+    pub fn SetModal(self: QInputDialog, modal: bool) void {
+        qtc.QDialog_SetModal(@ptrCast(self.ptr), modal);
     }
 
     /// Inherited from QDialog
@@ -2248,12 +2344,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` r: i32 `
     ///
-    pub fn SetResult(self: ?*anyopaque, r: i32) void {
-        qtc.QDialog_SetResult(@ptrCast(self), @bitCast(r));
+    pub fn SetResult(self: QInputDialog, r: i32) void {
+        qtc.QDialog_SetResult(@ptrCast(self.ptr), @bitCast(r));
     }
 
     /// Inherited from QDialog
@@ -2262,12 +2358,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` result: i32 `
     ///
-    pub fn Finished(self: ?*anyopaque, result: i32) void {
-        qtc.QDialog_Finished(@ptrCast(self), @bitCast(result));
+    pub fn Finished(self: QInputDialog, result: i32) void {
+        qtc.QDialog_Finished(@ptrCast(self.ptr), @bitCast(result));
     }
 
     /// Inherited from QDialog
@@ -2276,12 +2372,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, result: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, result: i32) callconv(.c) void `
     ///
-    pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QDialog_Connect_Finished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFinished(self: QInputDialog, callback: *const fn (QInputDialog, i32) callconv(.c) void) void {
+        qtc.QDialog_Connect_Finished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -2290,10 +2386,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn Accepted(self: ?*anyopaque) void {
-        qtc.QDialog_Accepted(@ptrCast(self));
+    pub fn Accepted(self: QInputDialog) void {
+        qtc.QDialog_Accepted(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -2302,12 +2398,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog) callconv(.c) void `
     ///
-    pub fn OnAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QDialog_Connect_Accepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAccepted(self: QInputDialog, callback: *const fn (QInputDialog) callconv(.c) void) void {
+        qtc.QDialog_Connect_Accepted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -2316,10 +2412,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn Rejected(self: ?*anyopaque) void {
-        qtc.QDialog_Rejected(@ptrCast(self));
+    pub fn Rejected(self: QInputDialog) void {
+        qtc.QDialog_Rejected(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -2328,12 +2424,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog) callconv(.c) void `
     ///
-    pub fn OnRejected(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QDialog_Connect_Rejected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRejected(self: QInputDialog, callback: *const fn (QInputDialog) callconv(.c) void) void {
+        qtc.QDialog_Connect_Rejected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -2342,10 +2438,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn WinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_WinId(@ptrCast(self));
+    pub fn WinId(self: QInputDialog) usize {
+        return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2354,10 +2450,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn CreateWinId(self: ?*anyopaque) void {
-        qtc.QWidget_CreateWinId(@ptrCast(self));
+    pub fn CreateWinId(self: QInputDialog) void {
+        qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2366,10 +2462,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn InternalWinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_InternalWinId(@ptrCast(self));
+    pub fn InternalWinId(self: QInputDialog) usize {
+        return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2378,10 +2474,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn EffectiveWinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_EffectiveWinId(@ptrCast(self));
+    pub fn EffectiveWinId(self: QInputDialog) usize {
+        return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2390,10 +2486,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn Style(self: ?*anyopaque) QtC.QStyle {
-        return qtc.QWidget_Style(@ptrCast(self));
+    pub fn Style(self: QInputDialog) QStyle {
+        return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2402,12 +2498,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` style: QtC.QStyle `
+    /// ` style: QStyle `
     ///
-    pub fn SetStyle(self: ?*anyopaque, style: ?*anyopaque) void {
-        qtc.QWidget_SetStyle(@ptrCast(self), @ptrCast(style));
+    pub fn SetStyle(self: QInputDialog, style: anytype) void {
+        comptime _ = @TypeOf(style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
     }
 
     /// Inherited from QWidget
@@ -2416,10 +2513,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn IsTopLevel(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsTopLevel(@ptrCast(self));
+    pub fn IsTopLevel(self: QInputDialog) bool {
+        return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2428,10 +2525,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn IsWindow(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsWindow(@ptrCast(self));
+    pub fn IsWindow(self: QInputDialog) bool {
+        return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2440,10 +2537,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn IsModal(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsModal(@ptrCast(self));
+    pub fn IsModal(self: QInputDialog) bool {
+        return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2452,14 +2549,14 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowModality(@ptrCast(self));
+    pub fn WindowModality(self: QInputDialog) i32 {
+        return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2468,12 +2565,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self), @bitCast(windowModality));
+    pub fn SetWindowModality(self: QInputDialog, windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
     }
 
     /// Inherited from QWidget
@@ -2482,10 +2579,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn IsEnabled(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsEnabled(@ptrCast(self));
+    pub fn IsEnabled(self: QInputDialog) bool {
+        return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2494,12 +2591,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidget_IsEnabledTo(@ptrCast(self), @ptrCast(param1));
+    pub fn IsEnabledTo(self: QInputDialog, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -2508,12 +2606,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
-        qtc.QWidget_SetEnabled(@ptrCast(self), enabled);
+    pub fn SetEnabled(self: QInputDialog, enabled: bool) void {
+        qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QWidget
@@ -2522,12 +2620,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: ?*anyopaque, disabled: bool) void {
-        qtc.QWidget_SetDisabled(@ptrCast(self), disabled);
+    pub fn SetDisabled(self: QInputDialog, disabled: bool) void {
+        qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
 
     /// Inherited from QWidget
@@ -2536,12 +2634,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: ?*anyopaque, windowModified: bool) void {
-        qtc.QWidget_SetWindowModified(@ptrCast(self), windowModified);
+    pub fn SetWindowModified(self: QInputDialog, windowModified: bool) void {
+        qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
 
     /// Inherited from QWidget
@@ -2550,10 +2648,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn FrameGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_FrameGeometry(@ptrCast(self));
+    pub fn FrameGeometry(self: QInputDialog) QRect {
+        return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2562,10 +2660,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn Geometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_Geometry(@ptrCast(self));
+    pub fn Geometry(self: QInputDialog) QRect {
+        return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2574,10 +2672,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn NormalGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_NormalGeometry(@ptrCast(self));
+    pub fn NormalGeometry(self: QInputDialog) QRect {
+        return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2586,10 +2684,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn X(self: ?*anyopaque) i32 {
-        return qtc.QWidget_X(@ptrCast(self));
+    pub fn X(self: QInputDialog) i32 {
+        return qtc.QWidget_X(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2598,10 +2696,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn Y(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Y(@ptrCast(self));
+    pub fn Y(self: QInputDialog) i32 {
+        return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2610,10 +2708,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn Pos(self: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_Pos(@ptrCast(self));
+    pub fn Pos(self: QInputDialog) QPoint {
+        return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2622,10 +2720,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_FrameSize(@ptrCast(self));
+    pub fn FrameSize(self: QInputDialog) QSize {
+        return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2634,10 +2732,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn Size(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_Size(@ptrCast(self));
+    pub fn Size(self: QInputDialog) QSize {
+        return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2646,10 +2744,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn Width(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Width(@ptrCast(self));
+    pub fn Width(self: QInputDialog) i32 {
+        return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2658,10 +2756,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn Height(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Height(@ptrCast(self));
+    pub fn Height(self: QInputDialog) i32 {
+        return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2670,10 +2768,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn Rect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_Rect(@ptrCast(self));
+    pub fn Rect(self: QInputDialog) QRect {
+        return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2682,10 +2780,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn ChildrenRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_ChildrenRect(@ptrCast(self));
+    pub fn ChildrenRect(self: QInputDialog) QRect {
+        return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2694,10 +2792,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn ChildrenRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_ChildrenRegion(@ptrCast(self));
+    pub fn ChildrenRegion(self: QInputDialog) QRegion {
+        return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2706,10 +2804,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MinimumSize(@ptrCast(self));
+    pub fn MinimumSize(self: QInputDialog) QSize {
+        return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2718,10 +2816,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MaximumSize(@ptrCast(self));
+    pub fn MaximumSize(self: QInputDialog) QSize {
+        return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2730,10 +2828,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn MinimumWidth(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MinimumWidth(@ptrCast(self));
+    pub fn MinimumWidth(self: QInputDialog) i32 {
+        return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2742,10 +2840,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn MinimumHeight(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MinimumHeight(@ptrCast(self));
+    pub fn MinimumHeight(self: QInputDialog) i32 {
+        return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2754,10 +2852,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn MaximumWidth(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MaximumWidth(@ptrCast(self));
+    pub fn MaximumWidth(self: QInputDialog) i32 {
+        return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2766,10 +2864,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn MaximumHeight(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MaximumHeight(@ptrCast(self));
+    pub fn MaximumHeight(self: QInputDialog) i32 {
+        return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2778,12 +2876,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` minimumSize: QtC.QSize `
+    /// ` minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: ?*anyopaque, minimumSize: ?*anyopaque) void {
-        qtc.QWidget_SetMinimumSize(@ptrCast(self), @ptrCast(minimumSize));
+    pub fn SetMinimumSize(self: QInputDialog, minimumSize: anytype) void {
+        comptime _ = @TypeOf(minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -2792,14 +2891,14 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` minw: i32 `
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
-        qtc.QWidget_SetMinimumSize2(@ptrCast(self), @bitCast(minw), @bitCast(minh));
+    pub fn SetMinimumSize2(self: QInputDialog, minw: i32, minh: i32) void {
+        qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -2808,12 +2907,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` maximumSize: QtC.QSize `
+    /// ` maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: ?*anyopaque, maximumSize: ?*anyopaque) void {
-        qtc.QWidget_SetMaximumSize(@ptrCast(self), @ptrCast(maximumSize));
+    pub fn SetMaximumSize(self: QInputDialog, maximumSize: anytype) void {
+        comptime _ = @TypeOf(maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -2822,14 +2922,14 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` maxw: i32 `
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
-        qtc.QWidget_SetMaximumSize2(@ptrCast(self), @bitCast(maxw), @bitCast(maxh));
+    pub fn SetMaximumSize2(self: QInputDialog, maxw: i32, maxh: i32) void {
+        qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -2838,12 +2938,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
-        qtc.QWidget_SetMinimumWidth(@ptrCast(self), @bitCast(minw));
+    pub fn SetMinimumWidth(self: QInputDialog, minw: i32) void {
+        qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
 
     /// Inherited from QWidget
@@ -2852,12 +2952,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
-        qtc.QWidget_SetMinimumHeight(@ptrCast(self), @bitCast(minh));
+    pub fn SetMinimumHeight(self: QInputDialog, minh: i32) void {
+        qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -2866,12 +2966,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
-        qtc.QWidget_SetMaximumWidth(@ptrCast(self), @bitCast(maxw));
+    pub fn SetMaximumWidth(self: QInputDialog, maxw: i32) void {
+        qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
 
     /// Inherited from QWidget
@@ -2880,12 +2980,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
-        qtc.QWidget_SetMaximumHeight(@ptrCast(self), @bitCast(maxh));
+    pub fn SetMaximumHeight(self: QInputDialog, maxh: i32) void {
+        qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -2894,10 +2994,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn SizeIncrement(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_SizeIncrement(@ptrCast(self));
+    pub fn SizeIncrement(self: QInputDialog) QSize {
+        return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2906,12 +3006,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` sizeIncrement: QtC.QSize `
+    /// ` sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: ?*anyopaque, sizeIncrement: ?*anyopaque) void {
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self), @ptrCast(sizeIncrement));
+    pub fn SetSizeIncrement(self: QInputDialog, sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
     }
 
     /// Inherited from QWidget
@@ -2920,14 +3021,14 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetSizeIncrement2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetSizeIncrement2(self: QInputDialog, w: i32, h: i32) void {
+        qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -2936,10 +3037,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn BaseSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_BaseSize(@ptrCast(self));
+    pub fn BaseSize(self: QInputDialog) QSize {
+        return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2948,12 +3049,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` baseSize: QtC.QSize `
+    /// ` baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: ?*anyopaque, baseSize: ?*anyopaque) void {
-        qtc.QWidget_SetBaseSize(@ptrCast(self), @ptrCast(baseSize));
+    pub fn SetBaseSize(self: QInputDialog, baseSize: anytype) void {
+        comptime _ = @TypeOf(baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -2962,14 +3064,14 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` basew: i32 `
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
-        qtc.QWidget_SetBaseSize2(@ptrCast(self), @bitCast(basew), @bitCast(baseh));
+    pub fn SetBaseSize2(self: QInputDialog, basew: i32, baseh: i32) void {
+        qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
 
     /// Inherited from QWidget
@@ -2978,12 +3080,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` fixedSize: QtC.QSize `
+    /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: ?*anyopaque, fixedSize: ?*anyopaque) void {
-        qtc.QWidget_SetFixedSize(@ptrCast(self), @ptrCast(fixedSize));
+    pub fn SetFixedSize(self: QInputDialog, fixedSize: anytype) void {
+        comptime _ = @TypeOf(fixedSize)._is_QSize;
+        qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -2992,14 +3095,14 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetFixedSize2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetFixedSize2(self: QInputDialog, w: i32, h: i32) void {
+        qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3008,12 +3111,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
-        qtc.QWidget_SetFixedWidth(@ptrCast(self), @bitCast(w));
+    pub fn SetFixedWidth(self: QInputDialog, w: i32) void {
+        qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
 
     /// Inherited from QWidget
@@ -3022,12 +3125,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
-        qtc.QWidget_SetFixedHeight(@ptrCast(self), @bitCast(h));
+    pub fn SetFixedHeight(self: QInputDialog, h: i32) void {
+        qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3036,12 +3139,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapToGlobal(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal(self: QInputDialog, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3050,12 +3154,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToGlobal2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal2(self: QInputDialog, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3064,12 +3169,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFromGlobal(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal(self: QInputDialog, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3078,12 +3184,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromGlobal2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal2(self: QInputDialog, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3092,12 +3199,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapToParent(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent(self: QInputDialog, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3106,12 +3214,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToParent2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent2(self: QInputDialog, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3120,12 +3229,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFromParent(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent(self: QInputDialog, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3134,12 +3244,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromParent2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent2(self: QInputDialog, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3148,14 +3259,16 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPointF `
+    /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapTo(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapTo(self: QInputDialog, param1: anytype, param2: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3164,14 +3277,16 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPoint `
+    /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapTo2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapTo2(self: QInputDialog, param1: anytype, param2: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3180,14 +3295,16 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPointF `
+    /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFrom(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapFrom(self: QInputDialog, param1: anytype, param2: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3196,14 +3313,16 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPoint `
+    /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFrom2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapFrom2(self: QInputDialog, param1: anytype, param2: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3212,10 +3331,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn Window(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_Window(@ptrCast(self));
+    pub fn Window(self: QInputDialog) QWidget {
+        return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3224,10 +3343,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn NativeParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_NativeParentWidget(@ptrCast(self));
+    pub fn NativeParentWidget(self: QInputDialog) QWidget {
+        return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3236,10 +3355,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn TopLevelWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_TopLevelWidget(@ptrCast(self));
+    pub fn TopLevelWidget(self: QInputDialog) QWidget {
+        return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3248,10 +3367,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn Palette(self: ?*anyopaque) QtC.QPalette {
-        return qtc.QWidget_Palette(@ptrCast(self));
+    pub fn Palette(self: QInputDialog) QPalette {
+        return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3260,12 +3379,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` palette: QtC.QPalette `
+    /// ` palette: QPalette `
     ///
-    pub fn SetPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
-        qtc.QWidget_SetPalette(@ptrCast(self), @ptrCast(palette));
+    pub fn SetPalette(self: QInputDialog, palette: anytype) void {
+        comptime _ = @TypeOf(palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
     }
 
     /// Inherited from QWidget
@@ -3274,12 +3394,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self), @bitCast(backgroundRole));
+    pub fn SetBackgroundRole(self: QInputDialog, backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
     }
 
     /// Inherited from QWidget
@@ -3288,14 +3408,14 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: ?*anyopaque) i32 {
-        return qtc.QWidget_BackgroundRole(@ptrCast(self));
+    pub fn BackgroundRole(self: QInputDialog) i32 {
+        return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3304,12 +3424,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self), @bitCast(foregroundRole));
+    pub fn SetForegroundRole(self: QInputDialog, foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
     }
 
     /// Inherited from QWidget
@@ -3318,14 +3438,14 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ForegroundRole(@ptrCast(self));
+    pub fn ForegroundRole(self: QInputDialog) i32 {
+        return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3334,10 +3454,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn Font(self: ?*anyopaque) QtC.QFont {
-        return qtc.QWidget_Font(@ptrCast(self));
+    pub fn Font(self: QInputDialog) QFont {
+        return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3346,12 +3466,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` font: QtC.QFont `
+    /// ` font: QFont `
     ///
-    pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
-        qtc.QWidget_SetFont(@ptrCast(self), @ptrCast(font));
+    pub fn SetFont(self: QInputDialog, font: anytype) void {
+        comptime _ = @TypeOf(font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
     }
 
     /// Inherited from QWidget
@@ -3360,10 +3481,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn FontMetrics(self: ?*anyopaque) QtC.QFontMetrics {
-        return qtc.QWidget_FontMetrics(@ptrCast(self));
+    pub fn FontMetrics(self: QInputDialog) QFontMetrics {
+        return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3372,10 +3493,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn FontInfo(self: ?*anyopaque) QtC.QFontInfo {
-        return qtc.QWidget_FontInfo(@ptrCast(self));
+    pub fn FontInfo(self: QInputDialog) QFontInfo {
+        return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3384,10 +3505,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
-        return qtc.QWidget_Cursor(@ptrCast(self));
+    pub fn Cursor(self: QInputDialog) QCursor {
+        return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3396,12 +3517,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` cursor: QtC.QCursor `
+    /// ` cursor: QCursor `
     ///
-    pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
-        qtc.QWidget_SetCursor(@ptrCast(self), @ptrCast(cursor));
+    pub fn SetCursor(self: QInputDialog, cursor: anytype) void {
+        comptime _ = @TypeOf(cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
     }
 
     /// Inherited from QWidget
@@ -3410,10 +3532,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn UnsetCursor(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetCursor(@ptrCast(self));
+    pub fn UnsetCursor(self: QInputDialog) void {
+        qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3422,12 +3544,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetMouseTracking(@ptrCast(self), enable);
+    pub fn SetMouseTracking(self: QInputDialog, enable: bool) void {
+        qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -3436,10 +3558,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn HasMouseTracking(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasMouseTracking(@ptrCast(self));
+    pub fn HasMouseTracking(self: QInputDialog) bool {
+        return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3448,10 +3570,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn UnderMouse(self: ?*anyopaque) bool {
-        return qtc.QWidget_UnderMouse(@ptrCast(self));
+    pub fn UnderMouse(self: QInputDialog) bool {
+        return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3460,12 +3582,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetTabletTracking(@ptrCast(self), enable);
+    pub fn SetTabletTracking(self: QInputDialog, enable: bool) void {
+        qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -3474,10 +3596,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn HasTabletTracking(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasTabletTracking(@ptrCast(self));
+    pub fn HasTabletTracking(self: QInputDialog) bool {
+        return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3486,12 +3608,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` mask: QtC.QBitmap `
+    /// ` mask: QBitmap `
     ///
-    pub fn SetMask(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMask(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask(self: QInputDialog, mask: anytype) void {
+        comptime _ = @TypeOf(mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
 
     /// Inherited from QWidget
@@ -3500,12 +3623,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` mask: QtC.QRegion `
+    /// ` mask: QRegion `
     ///
-    pub fn SetMask2(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMask2(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask2(self: QInputDialog, mask: anytype) void {
+        comptime _ = @TypeOf(mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
 
     /// Inherited from QWidget
@@ -3514,10 +3638,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn Mask(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_Mask(@ptrCast(self));
+    pub fn Mask(self: QInputDialog) QRegion {
+        return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3526,10 +3650,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn ClearMask(self: ?*anyopaque) void {
-        qtc.QWidget_ClearMask(@ptrCast(self));
+    pub fn ClearMask(self: QInputDialog) void {
+        qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3538,12 +3662,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: ?*anyopaque, target: ?*anyopaque) void {
-        qtc.QWidget_Render(@ptrCast(self), @ptrCast(target));
+    pub fn Render(self: QInputDialog, target: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
 
     /// Inherited from QWidget
@@ -3552,12 +3677,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn Render2(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QWidget_Render2(@ptrCast(self), @ptrCast(painter));
+    pub fn Render2(self: QInputDialog, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// Inherited from QWidget
@@ -3566,10 +3692,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn Grab(self: ?*anyopaque) QtC.QPixmap {
-        return qtc.QWidget_Grab(@ptrCast(self));
+    pub fn Grab(self: QInputDialog) QPixmap {
+        return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3578,10 +3704,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
-        return qtc.QWidget_GraphicsEffect(@ptrCast(self));
+    pub fn GraphicsEffect(self: QInputDialog) QGraphicsEffect {
+        return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3590,12 +3716,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` effect: QtC.QGraphicsEffect `
+    /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
-        qtc.QWidget_SetGraphicsEffect(@ptrCast(self), @ptrCast(effect));
+    pub fn SetGraphicsEffect(self: QInputDialog, effect: anytype) void {
+        comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
+        qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
 
     /// Inherited from QWidget
@@ -3604,12 +3731,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_GrabGesture(@ptrCast(self), @bitCast(typeVal));
+    pub fn GrabGesture(self: QInputDialog, typeVal: i32) void {
+        qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -3618,12 +3745,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_UngrabGesture(@ptrCast(self), @bitCast(typeVal));
+    pub fn UngrabGesture(self: QInputDialog, typeVal: i32) void {
+        qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -3632,16 +3759,16 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
+    pub fn SetWindowTitle(self: QInputDialog, windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
             .len = windowTitle.len,
             .data = windowTitle.ptr,
         };
-        qtc.QWidget_SetWindowTitle(@ptrCast(self), windowTitle_str);
+        qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
 
     /// Inherited from QWidget
@@ -3650,16 +3777,16 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
+    pub fn SetStyleSheet(self: QInputDialog, styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
             .len = styleSheet.len,
             .data = styleSheet.ptr,
         };
-        qtc.QWidget_SetStyleSheet(@ptrCast(self), styleSheet_str);
+        qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
 
     /// Inherited from QWidget
@@ -3668,12 +3795,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_StyleSheet(@ptrCast(self));
+    pub fn StyleSheet(self: QInputDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3686,12 +3813,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowTitle(@ptrCast(self));
+    pub fn WindowTitle(self: QInputDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3704,12 +3831,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QWidget_SetWindowIcon(@ptrCast(self), @ptrCast(icon));
+    pub fn SetWindowIcon(self: QInputDialog, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QWidget
@@ -3718,10 +3846,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn WindowIcon(self: ?*anyopaque) QtC.QIcon {
-        return qtc.QWidget_WindowIcon(@ptrCast(self));
+    pub fn WindowIcon(self: QInputDialog) QIcon {
+        return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3730,16 +3858,16 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
+    pub fn SetWindowIconText(self: QInputDialog, windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
             .len = windowIconText.len,
             .data = windowIconText.ptr,
         };
-        qtc.QWidget_SetWindowIconText(@ptrCast(self), windowIconText_str);
+        qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
 
     /// Inherited from QWidget
@@ -3748,12 +3876,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowIconText(@ptrCast(self));
+    pub fn WindowIconText(self: QInputDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3766,16 +3894,16 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
+    pub fn SetWindowRole(self: QInputDialog, windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
             .len = windowRole.len,
             .data = windowRole.ptr,
         };
-        qtc.QWidget_SetWindowRole(@ptrCast(self), windowRole_str);
+        qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
 
     /// Inherited from QWidget
@@ -3784,12 +3912,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowRole(@ptrCast(self));
+    pub fn WindowRole(self: QInputDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3802,16 +3930,16 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
+    pub fn SetWindowFilePath(self: QInputDialog, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
-        qtc.QWidget_SetWindowFilePath(@ptrCast(self), filePath_str);
+        qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
 
     /// Inherited from QWidget
@@ -3820,12 +3948,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
+    pub fn WindowFilePath(self: QInputDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3838,12 +3966,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
-        qtc.QWidget_SetWindowOpacity(@ptrCast(self), @bitCast(level));
+    pub fn SetWindowOpacity(self: QInputDialog, level: f64) void {
+        qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
 
     /// Inherited from QWidget
@@ -3852,10 +3980,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn WindowOpacity(self: ?*anyopaque) f64 {
-        return qtc.QWidget_WindowOpacity(@ptrCast(self));
+    pub fn WindowOpacity(self: QInputDialog) f64 {
+        return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3864,10 +3992,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn IsWindowModified(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsWindowModified(@ptrCast(self));
+    pub fn IsWindowModified(self: QInputDialog) bool {
+        return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3876,16 +4004,16 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
+    pub fn SetToolTip(self: QInputDialog, toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
             .len = toolTip.len,
             .data = toolTip.ptr,
         };
-        qtc.QWidget_SetToolTip(@ptrCast(self), toolTip_str);
+        qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
 
     /// Inherited from QWidget
@@ -3894,12 +4022,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_ToolTip(@ptrCast(self));
+    pub fn ToolTip(self: QInputDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3912,12 +4040,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
-        qtc.QWidget_SetToolTipDuration(@ptrCast(self), @bitCast(msec));
+    pub fn SetToolTipDuration(self: QInputDialog, msec: i32) void {
+        qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
 
     /// Inherited from QWidget
@@ -3926,10 +4054,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn ToolTipDuration(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ToolTipDuration(@ptrCast(self));
+    pub fn ToolTipDuration(self: QInputDialog) i32 {
+        return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3938,16 +4066,16 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
+    pub fn SetStatusTip(self: QInputDialog, statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
             .len = statusTip.len,
             .data = statusTip.ptr,
         };
-        qtc.QWidget_SetStatusTip(@ptrCast(self), statusTip_str);
+        qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
 
     /// Inherited from QWidget
@@ -3956,12 +4084,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_StatusTip(@ptrCast(self));
+    pub fn StatusTip(self: QInputDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3974,16 +4102,16 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
+    pub fn SetWhatsThis(self: QInputDialog, whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
             .len = whatsThis.len,
             .data = whatsThis.ptr,
         };
-        qtc.QWidget_SetWhatsThis(@ptrCast(self), whatsThis_str);
+        qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
 
     /// Inherited from QWidget
@@ -3992,12 +4120,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WhatsThis(@ptrCast(self));
+    pub fn WhatsThis(self: QInputDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4010,12 +4138,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_AccessibleName(@ptrCast(self));
+    pub fn AccessibleName(self: QInputDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4028,16 +4156,16 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
+    pub fn SetAccessibleName(self: QInputDialog, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QWidget_SetAccessibleName(@ptrCast(self), name_str);
+        qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QWidget
@@ -4046,12 +4174,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
+    pub fn AccessibleDescription(self: QInputDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4064,16 +4192,16 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
+    pub fn SetAccessibleDescription(self: QInputDialog, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
-        qtc.QWidget_SetAccessibleDescription(@ptrCast(self), description_str);
+        qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
 
     /// Inherited from QWidget
@@ -4082,12 +4210,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QWidget_SetLayoutDirection(@ptrCast(self), @bitCast(direction));
+    pub fn SetLayoutDirection(self: QInputDialog, direction: i32) void {
+        qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
 
     /// Inherited from QWidget
@@ -4096,14 +4224,14 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: ?*anyopaque) i32 {
-        return qtc.QWidget_LayoutDirection(@ptrCast(self));
+    pub fn LayoutDirection(self: QInputDialog) i32 {
+        return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4112,10 +4240,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn UnsetLayoutDirection(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self));
+    pub fn UnsetLayoutDirection(self: QInputDialog) void {
+        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4124,12 +4252,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` locale: QtC.QLocale `
+    /// ` locale: QLocale `
     ///
-    pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
-        qtc.QWidget_SetLocale(@ptrCast(self), @ptrCast(locale));
+    pub fn SetLocale(self: QInputDialog, locale: anytype) void {
+        comptime _ = @TypeOf(locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
     }
 
     /// Inherited from QWidget
@@ -4138,10 +4267,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn Locale(self: ?*anyopaque) QtC.QLocale {
-        return qtc.QWidget_Locale(@ptrCast(self));
+    pub fn Locale(self: QInputDialog) QLocale {
+        return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4150,10 +4279,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn UnsetLocale(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetLocale(@ptrCast(self));
+    pub fn UnsetLocale(self: QInputDialog) void {
+        qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4162,10 +4291,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn IsRightToLeft(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsRightToLeft(@ptrCast(self));
+    pub fn IsRightToLeft(self: QInputDialog) bool {
+        return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4174,10 +4303,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn IsLeftToRight(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsLeftToRight(@ptrCast(self));
+    pub fn IsLeftToRight(self: QInputDialog) bool {
+        return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4186,10 +4315,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn SetFocus(self: ?*anyopaque) void {
-        qtc.QWidget_SetFocus(@ptrCast(self));
+    pub fn SetFocus(self: QInputDialog) void {
+        qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4198,10 +4327,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn IsActiveWindow(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsActiveWindow(@ptrCast(self));
+    pub fn IsActiveWindow(self: QInputDialog) bool {
+        return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4210,10 +4339,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn ActivateWindow(self: ?*anyopaque) void {
-        qtc.QWidget_ActivateWindow(@ptrCast(self));
+    pub fn ActivateWindow(self: QInputDialog) void {
+        qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4222,10 +4351,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn ClearFocus(self: ?*anyopaque) void {
-        qtc.QWidget_ClearFocus(@ptrCast(self));
+    pub fn ClearFocus(self: QInputDialog) void {
+        qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4234,12 +4363,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
-        qtc.QWidget_SetFocus2(@ptrCast(self), @bitCast(reason));
+    pub fn SetFocus2(self: QInputDialog, reason: i32) void {
+        qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
 
     /// Inherited from QWidget
@@ -4248,14 +4377,14 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: ?*anyopaque) i32 {
-        return qtc.QWidget_FocusPolicy(@ptrCast(self));
+    pub fn FocusPolicy(self: QInputDialog) i32 {
+        return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4264,12 +4393,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetFocusPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetFocusPolicy(self: QInputDialog, policy: i32) void {
+        qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -4278,10 +4407,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn HasFocus(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasFocus(@ptrCast(self));
+    pub fn HasFocus(self: QInputDialog) bool {
+        return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4290,12 +4419,14 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QWidget `
+    /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: ?*anyopaque, param2: ?*anyopaque) void {
-        qtc.QWidget_SetTabOrder(@ptrCast(param1), @ptrCast(param2));
+    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QWidget;
+        qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
     /// Inherited from QWidget
@@ -4304,12 +4435,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` focusProxy: QtC.QWidget `
+    /// ` focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: ?*anyopaque, focusProxy: ?*anyopaque) void {
-        qtc.QWidget_SetFocusProxy(@ptrCast(self), @ptrCast(focusProxy));
+    pub fn SetFocusProxy(self: QInputDialog, focusProxy: anytype) void {
+        comptime _ = @TypeOf(focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
     }
 
     /// Inherited from QWidget
@@ -4318,10 +4450,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn FocusProxy(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_FocusProxy(@ptrCast(self));
+    pub fn FocusProxy(self: QInputDialog) QWidget {
+        return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4330,14 +4462,14 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
+    pub fn ContextMenuPolicy(self: QInputDialog) i32 {
+        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4346,12 +4478,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetContextMenuPolicy(self: QInputDialog, policy: i32) void {
+        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -4360,10 +4492,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn GrabMouse(self: ?*anyopaque) void {
-        qtc.QWidget_GrabMouse(@ptrCast(self));
+    pub fn GrabMouse(self: QInputDialog) void {
+        qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4372,12 +4504,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` param1: QtC.QCursor `
+    /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_GrabMouse2(@ptrCast(self), @ptrCast(param1));
+    pub fn GrabMouse2(self: QInputDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QCursor;
+        qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -4386,10 +4519,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn ReleaseMouse(self: ?*anyopaque) void {
-        qtc.QWidget_ReleaseMouse(@ptrCast(self));
+    pub fn ReleaseMouse(self: QInputDialog) void {
+        qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4398,10 +4531,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn GrabKeyboard(self: ?*anyopaque) void {
-        qtc.QWidget_GrabKeyboard(@ptrCast(self));
+    pub fn GrabKeyboard(self: QInputDialog) void {
+        qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4410,10 +4543,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn ReleaseKeyboard(self: ?*anyopaque) void {
-        qtc.QWidget_ReleaseKeyboard(@ptrCast(self));
+    pub fn ReleaseKeyboard(self: QInputDialog) void {
+        qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4422,12 +4555,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` key: QtC.QKeySequence `
+    /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: ?*anyopaque, key: ?*anyopaque) i32 {
-        return qtc.QWidget_GrabShortcut(@ptrCast(self), @ptrCast(key));
+    pub fn GrabShortcut(self: QInputDialog, key: anytype) i32 {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
 
     /// Inherited from QWidget
@@ -4436,12 +4570,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_ReleaseShortcut(@ptrCast(self), @bitCast(id));
+    pub fn ReleaseShortcut(self: QInputDialog, id: i32) void {
+        qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -4450,12 +4584,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutEnabled(@ptrCast(self), @bitCast(id));
+    pub fn SetShortcutEnabled(self: QInputDialog, id: i32) void {
+        qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -4464,28 +4598,28 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self), @bitCast(id));
+    pub fn SetShortcutAutoRepeat(self: QInputDialog, id: i32) void {
+        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QtC.QWidget {
-        return qtc.QWidget_MouseGrabber();
+    pub fn MouseGrabber() QWidget {
+        return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QtC.QWidget {
-        return qtc.QWidget_KeyboardGrabber();
+    pub fn KeyboardGrabber() QWidget {
+        return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
 
     /// Inherited from QWidget
@@ -4494,10 +4628,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn UpdatesEnabled(self: ?*anyopaque) bool {
-        return qtc.QWidget_UpdatesEnabled(@ptrCast(self));
+    pub fn UpdatesEnabled(self: QInputDialog) bool {
+        return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4506,12 +4640,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self), enable);
+    pub fn SetUpdatesEnabled(self: QInputDialog, enable: bool) void {
+        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -4520,10 +4654,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn GraphicsProxyWidget(self: ?*anyopaque) QtC.QGraphicsProxyWidget {
-        return qtc.QWidget_GraphicsProxyWidget(@ptrCast(self));
+    pub fn GraphicsProxyWidget(self: QInputDialog) QGraphicsProxyWidget {
+        return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4532,10 +4666,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn Update(self: ?*anyopaque) void {
-        qtc.QWidget_Update(@ptrCast(self));
+    pub fn Update(self: QInputDialog) void {
+        qtc.QWidget_Update(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4544,10 +4678,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn Repaint(self: ?*anyopaque) void {
-        qtc.QWidget_Repaint(@ptrCast(self));
+    pub fn Repaint(self: QInputDialog) void {
+        qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4556,7 +4690,7 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` x: i32 `
     ///
@@ -4566,8 +4700,8 @@ pub const qinputdialog = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn Update2(self: QInputDialog, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -4576,12 +4710,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn Update3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Update3(@ptrCast(self), @ptrCast(param1));
+    pub fn Update3(self: QInputDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -4590,12 +4725,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn Update4(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Update4(@ptrCast(self), @ptrCast(param1));
+    pub fn Update4(self: QInputDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -4604,7 +4740,7 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` x: i32 `
     ///
@@ -4614,8 +4750,8 @@ pub const qinputdialog = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn Repaint2(self: QInputDialog, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -4624,12 +4760,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Repaint3(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint3(self: QInputDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -4638,12 +4775,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Repaint4(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint4(self: QInputDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -4652,12 +4790,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: ?*anyopaque, hidden: bool) void {
-        qtc.QWidget_SetHidden(@ptrCast(self), hidden);
+    pub fn SetHidden(self: QInputDialog, hidden: bool) void {
+        qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
 
     /// Inherited from QWidget
@@ -4666,10 +4804,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn Show(self: ?*anyopaque) void {
-        qtc.QWidget_Show(@ptrCast(self));
+    pub fn Show(self: QInputDialog) void {
+        qtc.QWidget_Show(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4678,10 +4816,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn Hide(self: ?*anyopaque) void {
-        qtc.QWidget_Hide(@ptrCast(self));
+    pub fn Hide(self: QInputDialog) void {
+        qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4690,10 +4828,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn ShowMinimized(self: ?*anyopaque) void {
-        qtc.QWidget_ShowMinimized(@ptrCast(self));
+    pub fn ShowMinimized(self: QInputDialog) void {
+        qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4702,10 +4840,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn ShowMaximized(self: ?*anyopaque) void {
-        qtc.QWidget_ShowMaximized(@ptrCast(self));
+    pub fn ShowMaximized(self: QInputDialog) void {
+        qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4714,10 +4852,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn ShowFullScreen(self: ?*anyopaque) void {
-        qtc.QWidget_ShowFullScreen(@ptrCast(self));
+    pub fn ShowFullScreen(self: QInputDialog) void {
+        qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4726,10 +4864,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn ShowNormal(self: ?*anyopaque) void {
-        qtc.QWidget_ShowNormal(@ptrCast(self));
+    pub fn ShowNormal(self: QInputDialog) void {
+        qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4738,10 +4876,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn Close(self: ?*anyopaque) bool {
-        return qtc.QWidget_Close(@ptrCast(self));
+    pub fn Close(self: QInputDialog) bool {
+        return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4750,10 +4888,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn Raise(self: ?*anyopaque) void {
-        qtc.QWidget_Raise(@ptrCast(self));
+    pub fn Raise(self: QInputDialog) void {
+        qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4762,10 +4900,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn Lower(self: ?*anyopaque) void {
-        qtc.QWidget_Lower(@ptrCast(self));
+    pub fn Lower(self: QInputDialog) void {
+        qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4774,12 +4912,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_StackUnder(@ptrCast(self), @ptrCast(param1));
+    pub fn StackUnder(self: QInputDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -4788,14 +4927,14 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn Move(self: QInputDialog, x: i32, y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QWidget
@@ -4804,12 +4943,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn Move2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Move2(@ptrCast(self), @ptrCast(param1));
+    pub fn Move2(self: QInputDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -4818,14 +4958,14 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_Resize(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn Resize(self: QInputDialog, w: i32, h: i32) void {
+        qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -4834,12 +4974,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` param1: QtC.QSize `
+    /// ` param1: QSize `
     ///
-    pub fn Resize2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Resize2(@ptrCast(self), @ptrCast(param1));
+    pub fn Resize2(self: QInputDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QSize;
+        qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -4848,7 +4989,7 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` x: i32 `
     ///
@@ -4858,8 +4999,8 @@ pub const qinputdialog = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn SetGeometry(self: QInputDialog, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -4868,12 +5009,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` geometry: QtC.QRect `
+    /// ` geometry: QRect `
     ///
-    pub fn SetGeometry2(self: ?*anyopaque, geometry: ?*anyopaque) void {
-        qtc.QWidget_SetGeometry2(@ptrCast(self), @ptrCast(geometry));
+    pub fn SetGeometry2(self: QInputDialog, geometry: anytype) void {
+        comptime _ = @TypeOf(geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
     }
 
     /// Inherited from QWidget
@@ -4882,12 +5024,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
+    pub fn SaveGeometry(self: QInputDialog, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qinputdialog.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -4900,16 +5042,16 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
+    pub fn RestoreGeometry(self: QInputDialog, geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
             .len = geometry.len,
             .data = geometry.ptr,
         };
-        return qtc.QWidget_RestoreGeometry(@ptrCast(self), geometry_str);
+        return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
 
     /// Inherited from QWidget
@@ -4918,10 +5060,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn AdjustSize(self: ?*anyopaque) void {
-        qtc.QWidget_AdjustSize(@ptrCast(self));
+    pub fn AdjustSize(self: QInputDialog) void {
+        qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4930,10 +5072,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn IsVisible(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsVisible(@ptrCast(self));
+    pub fn IsVisible(self: QInputDialog) bool {
+        return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4942,12 +5084,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidget_IsVisibleTo(@ptrCast(self), @ptrCast(param1));
+    pub fn IsVisibleTo(self: QInputDialog, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -4956,10 +5099,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn IsHidden(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsHidden(@ptrCast(self));
+    pub fn IsHidden(self: QInputDialog) bool {
+        return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4968,10 +5111,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn IsMinimized(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsMinimized(@ptrCast(self));
+    pub fn IsMinimized(self: QInputDialog) bool {
+        return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4980,10 +5123,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn IsMaximized(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsMaximized(@ptrCast(self));
+    pub fn IsMaximized(self: QInputDialog) bool {
+        return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4992,10 +5135,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn IsFullScreen(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsFullScreen(@ptrCast(self));
+    pub fn IsFullScreen(self: QInputDialog) bool {
+        return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5004,14 +5147,14 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowState(@ptrCast(self));
+    pub fn WindowState(self: QInputDialog) i32 {
+        return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5020,12 +5163,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_SetWindowState(@ptrCast(self), @bitCast(state));
+    pub fn SetWindowState(self: QInputDialog, state: i32) void {
+        qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -5034,12 +5177,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_OverrideWindowState(@ptrCast(self), @bitCast(state));
+    pub fn OverrideWindowState(self: QInputDialog, state: i32) void {
+        qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -5048,10 +5191,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
-        return qtc.QWidget_SizePolicy(@ptrCast(self));
+    pub fn SizePolicy(self: QInputDialog) QSizePolicy {
+        return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5060,12 +5203,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` sizePolicy: QtC.QSizePolicy `
+    /// ` sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: QtC.QSizePolicy) void {
-        qtc.QWidget_SetSizePolicy(@ptrCast(self), @ptrCast(sizePolicy));
+    pub fn SetSizePolicy(self: QInputDialog, sizePolicy: anytype) void {
+        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
     }
 
     /// Inherited from QWidget
@@ -5074,14 +5218,14 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` horizontal: qsizepolicy_enums.Policy `
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
-        qtc.QWidget_SetSizePolicy2(@ptrCast(self), @bitCast(horizontal), @bitCast(vertical));
+    pub fn SetSizePolicy2(self: QInputDialog, horizontal: i32, vertical: i32) void {
+        qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
 
     /// Inherited from QWidget
@@ -5090,10 +5234,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn VisibleRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_VisibleRegion(@ptrCast(self));
+    pub fn VisibleRegion(self: QInputDialog) QRegion {
+        return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5102,7 +5246,7 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` left: i32 `
     ///
@@ -5112,8 +5256,8 @@ pub const qinputdialog = struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QWidget_SetContentsMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
+    pub fn SetContentsMargins(self: QInputDialog, left: i32, top: i32, right: i32, bottom: i32) void {
+        qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QWidget
@@ -5122,12 +5266,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` margins: QtC.QMargins `
+    /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
-        qtc.QWidget_SetContentsMargins2(@ptrCast(self), @ptrCast(margins));
+    pub fn SetContentsMargins2(self: QInputDialog, margins: anytype) void {
+        comptime _ = @TypeOf(margins)._is_QMargins;
+        qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
 
     /// Inherited from QWidget
@@ -5136,10 +5281,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
-        return qtc.QWidget_ContentsMargins(@ptrCast(self));
+    pub fn ContentsMargins(self: QInputDialog) QMargins {
+        return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5148,10 +5293,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_ContentsRect(@ptrCast(self));
+    pub fn ContentsRect(self: QInputDialog) QRect {
+        return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5160,10 +5305,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn Layout(self: ?*anyopaque) QtC.QLayout {
-        return qtc.QWidget_Layout(@ptrCast(self));
+    pub fn Layout(self: QInputDialog) QLayout {
+        return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5172,12 +5317,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` layout: QtC.QLayout `
+    /// ` layout: QLayout `
     ///
-    pub fn SetLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
-        qtc.QWidget_SetLayout(@ptrCast(self), @ptrCast(layout));
+    pub fn SetLayout(self: QInputDialog, layout: anytype) void {
+        comptime _ = @TypeOf(layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
     }
 
     /// Inherited from QWidget
@@ -5186,10 +5332,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn UpdateGeometry(self: ?*anyopaque) void {
-        qtc.QWidget_UpdateGeometry(@ptrCast(self));
+    pub fn UpdateGeometry(self: QInputDialog) void {
+        qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5198,12 +5344,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QWidget_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QInputDialog, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QWidget
@@ -5212,14 +5359,15 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i32) void {
-        qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @bitCast(f));
+    pub fn SetParent2(self: QInputDialog, parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
     }
 
     /// Inherited from QWidget
@@ -5228,14 +5376,14 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QWidget_Scroll(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn Scroll(self: QInputDialog, dx: i32, dy: i32) void {
+        qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QWidget
@@ -5244,16 +5392,17 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    /// ` param3: QtC.QRect `
+    /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
-        qtc.QWidget_Scroll2(@ptrCast(self), @bitCast(dx), @bitCast(dy), @ptrCast(param3));
+    pub fn Scroll2(self: QInputDialog, dx: i32, dy: i32, param3: anytype) void {
+        comptime _ = @TypeOf(param3)._is_QRect;
+        qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
 
     /// Inherited from QWidget
@@ -5262,10 +5411,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn FocusWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_FocusWidget(@ptrCast(self));
+    pub fn FocusWidget(self: QInputDialog) QWidget {
+        return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5274,10 +5423,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn NextInFocusChain(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_NextInFocusChain(@ptrCast(self));
+    pub fn NextInFocusChain(self: QInputDialog) QWidget {
+        return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5286,10 +5435,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn PreviousInFocusChain(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_PreviousInFocusChain(@ptrCast(self));
+    pub fn PreviousInFocusChain(self: QInputDialog) QWidget {
+        return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5298,10 +5447,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn AcceptDrops(self: ?*anyopaque) bool {
-        return qtc.QWidget_AcceptDrops(@ptrCast(self));
+    pub fn AcceptDrops(self: QInputDialog) bool {
+        return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5310,12 +5459,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
-        qtc.QWidget_SetAcceptDrops(@ptrCast(self), on);
+    pub fn SetAcceptDrops(self: QInputDialog, on: bool) void {
+        qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
 
     /// Inherited from QWidget
@@ -5324,12 +5473,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_AddAction(@ptrCast(self), @ptrCast(action));
+    pub fn AddAction(self: QInputDialog, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -5338,16 +5488,16 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn AddActions(self: QInputDialog, actions: []QAction) void {
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.QWidget_AddActions(@ptrCast(self), actions_list);
+        qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
 
     /// Inherited from QWidget
@@ -5356,18 +5506,19 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` before: QtC.QAction `
+    /// ` before: QAction `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn InsertActions(self: QInputDialog, before: anytype, actions: []QAction) void {
+        comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.QWidget_InsertActions(@ptrCast(self), @ptrCast(before), actions_list);
+        qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
 
     /// Inherited from QWidget
@@ -5376,14 +5527,16 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` before: QtC.QAction `
+    /// ` before: QAction `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_InsertAction(@ptrCast(self), @ptrCast(before), @ptrCast(action));
+    pub fn InsertAction(self: QInputDialog, before: anytype, action: anytype) void {
+        comptime _ = @TypeOf(before)._is_QAction;
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -5392,12 +5545,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_RemoveAction(@ptrCast(self), @ptrCast(action));
+    pub fn RemoveAction(self: QInputDialog, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -5406,16 +5560,17 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
-        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self));
+    pub fn Actions(self: QInputDialog, allocator: std.mem.Allocator) []QAction {
+        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("qinputdialog.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("qinputdialog.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -5425,16 +5580,16 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction2(self: QInputDialog, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction2(@ptrCast(self), text_str);
+        return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
 
     /// Inherited from QWidget
@@ -5443,18 +5598,19 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction3(self: QInputDialog, icon: anytype, text: []const u8) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction3(@ptrCast(self), @ptrCast(icon), text_str);
+        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
     /// Inherited from QWidget
@@ -5463,18 +5619,19 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction4(self: QInputDialog, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction4(@ptrCast(self), text_str, @ptrCast(shortcut));
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5483,20 +5640,22 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction5(self: QInputDialog, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction5(@ptrCast(self), @ptrCast(icon), text_str, @ptrCast(shortcut));
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5505,10 +5664,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ParentWidget(@ptrCast(self));
+    pub fn ParentWidget(self: QInputDialog) QWidget {
+        return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5517,12 +5676,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_SetWindowFlags(@ptrCast(self), @bitCast(typeVal));
+    pub fn SetWindowFlags(self: QInputDialog, typeVal: i32) void {
+        qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -5531,14 +5690,14 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowFlags(@ptrCast(self));
+    pub fn WindowFlags(self: QInputDialog) i32 {
+        return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5547,12 +5706,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetWindowFlag(@ptrCast(self), @bitCast(param1));
+    pub fn SetWindowFlag(self: QInputDialog, param1: i32) void {
+        qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -5561,12 +5720,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @bitCast(typeVal));
+    pub fn OverrideWindowFlags(self: QInputDialog, typeVal: i32) void {
+        qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -5575,14 +5734,14 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowType(@ptrCast(self));
+    pub fn WindowType(self: QInputDialog) i32 {
+        return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5593,8 +5752,8 @@ pub const qinputdialog = struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QtC.QWidget {
-        return qtc.QWidget_Find(@bitCast(param1));
+    pub fn Find(param1: usize) QWidget {
+        return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
 
     /// Inherited from QWidget
@@ -5603,14 +5762,14 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
-        return qtc.QWidget_ChildAt(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn ChildAt(self: QInputDialog, x: i32, y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
     }
 
     /// Inherited from QWidget
@@ -5619,12 +5778,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` p: QtC.QPoint `
+    /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAt2(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt2(self: QInputDialog, p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5633,12 +5793,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` p: QtC.QPointF `
+    /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAt3(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt3(self: QInputDialog, p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5647,12 +5808,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetAttribute(@ptrCast(self), @bitCast(param1));
+    pub fn SetAttribute(self: QInputDialog, param1: i32) void {
+        qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -5661,12 +5822,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
-        return qtc.QWidget_TestAttribute(@ptrCast(self), @bitCast(param1));
+    pub fn TestAttribute(self: QInputDialog, param1: i32) bool {
+        return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -5675,10 +5836,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn EnsurePolished(self: ?*anyopaque) void {
-        qtc.QWidget_EnsurePolished(@ptrCast(self));
+    pub fn EnsurePolished(self: QInputDialog) void {
+        qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5687,12 +5848,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` child: QtC.QWidget `
+    /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
-        return qtc.QWidget_IsAncestorOf(@ptrCast(self), @ptrCast(child));
+    pub fn IsAncestorOf(self: QInputDialog, child: anytype) bool {
+        comptime _ = @TypeOf(child)._is_QWidget;
+        return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
 
     /// Inherited from QWidget
@@ -5701,10 +5863,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn AutoFillBackground(self: ?*anyopaque) bool {
-        return qtc.QWidget_AutoFillBackground(@ptrCast(self));
+    pub fn AutoFillBackground(self: QInputDialog) bool {
+        return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5713,12 +5875,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: ?*anyopaque, enabled: bool) void {
-        qtc.QWidget_SetAutoFillBackground(@ptrCast(self), enabled);
+    pub fn SetAutoFillBackground(self: QInputDialog, enabled: bool) void {
+        qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QWidget
@@ -5727,10 +5889,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn BackingStore(self: ?*anyopaque) QtC.QBackingStore {
-        return qtc.QWidget_BackingStore(@ptrCast(self));
+    pub fn BackingStore(self: QInputDialog) QBackingStore {
+        return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5739,10 +5901,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn WindowHandle(self: ?*anyopaque) QtC.QWindow {
-        return qtc.QWidget_WindowHandle(@ptrCast(self));
+    pub fn WindowHandle(self: QInputDialog) QWindow {
+        return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5751,10 +5913,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn Screen(self: ?*anyopaque) QtC.QScreen {
-        return qtc.QWidget_Screen(@ptrCast(self));
+    pub fn Screen(self: QInputDialog) QScreen {
+        return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5763,12 +5925,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` screen: QtC.QScreen `
+    /// ` screen: QScreen `
     ///
-    pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
-        qtc.QWidget_SetScreen(@ptrCast(self), @ptrCast(screen));
+    pub fn SetScreen(self: QInputDialog, screen: anytype) void {
+        comptime _ = @TypeOf(screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
     }
 
     /// Inherited from QWidget
@@ -5777,10 +5940,11 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer(@ptrCast(window));
+    pub fn CreateWindowContainer(window: anytype) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5789,16 +5953,16 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
+    pub fn WindowTitleChanged(self: QInputDialog, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        qtc.QWidget_WindowTitleChanged(@ptrCast(self), title_str);
+        qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
 
     /// Inherited from QWidget
@@ -5807,12 +5971,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, title: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowTitleChanged(self: QInputDialog, callback: *const fn (QInputDialog, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5821,12 +5985,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QWidget_WindowIconChanged(@ptrCast(self), @ptrCast(icon));
+    pub fn WindowIconChanged(self: QInputDialog, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QWidget
@@ -5835,12 +6000,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, icon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowIconChanged(self: QInputDialog, callback: *const fn (QInputDialog, QIcon) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5849,16 +6014,16 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
+    pub fn WindowIconTextChanged(self: QInputDialog, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
-        qtc.QWidget_WindowIconTextChanged(@ptrCast(self), iconText_str);
+        qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
 
     /// Inherited from QWidget
@@ -5867,12 +6032,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, iconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowIconTextChanged(self: QInputDialog, callback: *const fn (QInputDialog, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5881,12 +6046,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` pos: QtC.QPoint `
+    /// ` pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: ?*anyopaque, pos: ?*anyopaque) void {
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self), @ptrCast(pos));
+    pub fn CustomContextMenuRequested(self: QInputDialog, pos: anytype) void {
+        comptime _ = @TypeOf(pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
     }
 
     /// Inherited from QWidget
@@ -5895,12 +6061,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, pos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomContextMenuRequested(self: QInputDialog, callback: *const fn (QInputDialog, QPoint) callconv(.c) void) void {
+        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5909,14 +6075,14 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: ?*anyopaque) i32 {
-        return qtc.QWidget_InputMethodHints(@ptrCast(self));
+    pub fn InputMethodHints(self: QInputDialog) i32 {
+        return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5925,12 +6091,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
-        qtc.QWidget_SetInputMethodHints(@ptrCast(self), @bitCast(hints));
+    pub fn SetInputMethodHints(self: QInputDialog, hints: i32) void {
+        qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
 
     /// Inherited from QWidget
@@ -5939,14 +6105,16 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render22(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset));
+    pub fn Render22(self: QInputDialog, target: anytype, targetOffset: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// Inherited from QWidget
@@ -5955,16 +6123,19 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        qtc.QWidget_Render3(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+    pub fn Render3(self: QInputDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// Inherited from QWidget
@@ -5973,18 +6144,21 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
+    pub fn Render4(self: QInputDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -5993,14 +6167,16 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render23(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset));
+    pub fn Render23(self: QInputDialog, painter: anytype, targetOffset: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// Inherited from QWidget
@@ -6009,16 +6185,19 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        qtc.QWidget_Render32(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+    pub fn Render32(self: QInputDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// Inherited from QWidget
@@ -6027,18 +6206,21 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
+    pub fn Render42(self: QInputDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -6047,12 +6229,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` rectangle: QtC.QRect `
+    /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) QtC.QPixmap {
-        return qtc.QWidget_Grab1(@ptrCast(self), @ptrCast(rectangle));
+    pub fn Grab1(self: QInputDialog, rectangle: anytype) QPixmap {
+        comptime _ = @TypeOf(rectangle)._is_QRect;
+        return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -6061,14 +6244,14 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i32, flags: i32) void {
-        qtc.QWidget_GrabGesture2(@ptrCast(self), @bitCast(typeVal), @bitCast(flags));
+    pub fn GrabGesture2(self: QInputDialog, typeVal: i32, flags: i32) void {
+        qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
 
     /// Inherited from QWidget
@@ -6077,14 +6260,15 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` key: QtC.QKeySequence `
+    /// ` key: QKeySequence `
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
-        return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @bitCast(context));
+    pub fn GrabShortcut2(self: QInputDialog, key: anytype, context: i32) i32 {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
 
     /// Inherited from QWidget
@@ -6093,14 +6277,14 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self), @bitCast(id), enable);
+    pub fn SetShortcutEnabled2(self: QInputDialog, id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -6109,14 +6293,14 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self), @bitCast(id), enable);
+    pub fn SetShortcutAutoRepeat2(self: QInputDialog, id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -6125,14 +6309,14 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetWindowFlag2(@ptrCast(self), @bitCast(param1), on);
+    pub fn SetWindowFlag2(self: QInputDialog, param1: i32, on: bool) void {
+        qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -6141,14 +6325,14 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetAttribute2(@ptrCast(self), @bitCast(param1), on);
+    pub fn SetAttribute2(self: QInputDialog, param1: i32, on: bool) void {
+        qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -6157,12 +6341,14 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer2(@ptrCast(window), @ptrCast(parent));
+    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -6171,14 +6357,16 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i32) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @bitCast(flags));
+    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
     }
 
     /// Inherited from QObject
@@ -6187,12 +6375,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QInputDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputdialog.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6205,12 +6393,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QInputDialog, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -6219,10 +6407,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QInputDialog) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -6231,10 +6419,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QInputDialog) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -6243,10 +6431,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QInputDialog) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -6255,10 +6443,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QInputDialog) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -6267,12 +6455,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QInputDialog, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -6281,10 +6469,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QInputDialog) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -6293,12 +6481,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QInputDialog, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -6307,12 +6496,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QInputDialog, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -6321,12 +6510,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QInputDialog, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -6335,12 +6524,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QInputDialog, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -6349,12 +6538,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QInputDialog, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -6363,16 +6552,17 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QInputDialog, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qinputdialog.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qinputdialog.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -6382,12 +6572,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QInputDialog, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -6396,12 +6587,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QInputDialog, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -6410,18 +6602,20 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -6430,16 +6624,20 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -6448,18 +6646,19 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QInputDialog, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -6468,18 +6667,20 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -6488,16 +6689,20 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -6506,10 +6711,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QInputDialog) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -6518,12 +6723,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QInputDialog, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -6532,10 +6738,11 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -6544,10 +6751,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QInputDialog) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -6556,10 +6763,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QInputDialog) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -6568,15 +6775,16 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QInputDialog, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -6585,13 +6793,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QInputDialog, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -6600,17 +6808,16 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QInputDialog, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qinputdialog.DynamicPropertyNames: Memory allocation failed");
@@ -6629,10 +6836,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QInputDialog) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -6641,10 +6848,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QInputDialog) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -6653,10 +6860,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QInputDialog) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -6665,12 +6872,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QInputDialog, callback: *const fn (QInputDialog) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6679,10 +6886,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QInputDialog) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -6691,13 +6898,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QInputDialog, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -6706,10 +6913,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QInputDialog) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -6718,14 +6925,14 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QInputDialog, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -6734,14 +6941,14 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QInputDialog, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -6750,20 +6957,22 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -6772,18 +6981,22 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -6792,9 +7005,9 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6802,10 +7015,11 @@ pub const qinputdialog = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QInputDialog, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -6814,13 +7028,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QInputDialog, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -6829,15 +7043,16 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QInputDialog, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -6846,18 +7061,19 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QInputDialog, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -6866,15 +7082,16 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QInputDialog, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -6883,12 +7100,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QInputDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -6897,12 +7115,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QInputDialog, callback: *const fn (QInputDialog, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -6911,10 +7129,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn PaintingActive(self: ?*anyopaque) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self));
+    pub fn PaintingActive(self: QInputDialog) bool {
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6923,10 +7141,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn WidthMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self));
+    pub fn WidthMM(self: QInputDialog) i32 {
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6935,10 +7153,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn HeightMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self));
+    pub fn HeightMM(self: QInputDialog) i32 {
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6947,10 +7165,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn LogicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self));
+    pub fn LogicalDpiX(self: QInputDialog) i32 {
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6959,10 +7177,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn LogicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self));
+    pub fn LogicalDpiY(self: QInputDialog) i32 {
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6971,10 +7189,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self));
+    pub fn PhysicalDpiX(self: QInputDialog) i32 {
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6983,10 +7201,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self));
+    pub fn PhysicalDpiY(self: QInputDialog) i32 {
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6995,10 +7213,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self));
+    pub fn DevicePixelRatio(self: QInputDialog) f64 {
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -7007,10 +7225,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self));
+    pub fn DevicePixelRatioF(self: QInputDialog) f64 {
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -7019,10 +7237,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn ColorCount(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self));
+    pub fn ColorCount(self: QInputDialog) i32 {
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -7031,10 +7249,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn Depth(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self));
+    pub fn Depth(self: QInputDialog) i32 {
+        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -7067,10 +7285,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn Open(self: ?*anyopaque) void {
-        qtc.QInputDialog_Open(@ptrCast(self));
+    pub fn Open(self: QInputDialog) void {
+        qtc.QInputDialog_Open(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperOpen` instead
@@ -7085,10 +7303,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn SuperOpen(self: ?*anyopaque) void {
-        qtc.QInputDialog_SuperOpen(@ptrCast(self));
+    pub fn SuperOpen(self: QInputDialog) void {
+        qtc.QInputDialog_SuperOpen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -7099,12 +7317,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnOpen(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QInputDialog_OnOpen(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnOpen(self: QInputDialog, callback: *const fn () callconv(.c) void) void {
+        qtc.QInputDialog_OnOpen(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -7115,10 +7333,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn Exec(self: ?*anyopaque) i32 {
-        return qtc.QInputDialog_Exec(@ptrCast(self));
+    pub fn Exec(self: QInputDialog) i32 {
+        return qtc.QInputDialog_Exec(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperExec` instead
@@ -7133,10 +7351,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn SuperExec(self: ?*anyopaque) i32 {
-        return qtc.QInputDialog_SuperExec(@ptrCast(self));
+    pub fn SuperExec(self: QInputDialog) i32 {
+        return qtc.QInputDialog_SuperExec(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -7147,12 +7365,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnExec(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QInputDialog_OnExec(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnExec(self: QInputDialog, callback: *const fn () callconv(.c) i32) void {
+        qtc.QInputDialog_OnExec(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -7163,10 +7381,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn Accept(self: ?*anyopaque) void {
-        qtc.QInputDialog_Accept(@ptrCast(self));
+    pub fn Accept(self: QInputDialog) void {
+        qtc.QInputDialog_Accept(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperAccept` instead
@@ -7181,10 +7399,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn SuperAccept(self: ?*anyopaque) void {
-        qtc.QInputDialog_SuperAccept(@ptrCast(self));
+    pub fn SuperAccept(self: QInputDialog) void {
+        qtc.QInputDialog_SuperAccept(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -7195,12 +7413,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnAccept(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QInputDialog_OnAccept(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAccept(self: QInputDialog, callback: *const fn () callconv(.c) void) void {
+        qtc.QInputDialog_OnAccept(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -7211,10 +7429,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn Reject(self: ?*anyopaque) void {
-        qtc.QInputDialog_Reject(@ptrCast(self));
+    pub fn Reject(self: QInputDialog) void {
+        qtc.QInputDialog_Reject(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperReject` instead
@@ -7229,10 +7447,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn SuperReject(self: ?*anyopaque) void {
-        qtc.QInputDialog_SuperReject(@ptrCast(self));
+    pub fn SuperReject(self: QInputDialog) void {
+        qtc.QInputDialog_SuperReject(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -7243,12 +7461,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnReject(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QInputDialog_OnReject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReject(self: QInputDialog, callback: *const fn () callconv(.c) void) void {
+        qtc.QInputDialog_OnReject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -7259,12 +7477,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` param1: QtC.QKeyEvent `
+    /// ` param1: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QInputDialog_KeyPressEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn KeyPressEvent(self: QInputDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QKeyEvent;
+        qtc.QInputDialog_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
@@ -7279,12 +7498,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` param1: QtC.QKeyEvent `
+    /// ` param1: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QInputDialog_SuperKeyPressEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperKeyPressEvent(self: QInputDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QKeyEvent;
+        qtc.QInputDialog_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QDialog
@@ -7295,12 +7515,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, param1: QtC.QKeyEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, param1: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QInputDialog_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyPressEvent(self: QInputDialog, callback: *const fn (QInputDialog, QKeyEvent) callconv(.c) void) void {
+        qtc.QInputDialog_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -7311,12 +7531,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` param1: QtC.QCloseEvent `
+    /// ` param1: QCloseEvent `
     ///
-    pub fn CloseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QInputDialog_CloseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn CloseEvent(self: QInputDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QCloseEvent;
+        qtc.QInputDialog_CloseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCloseEvent` instead
@@ -7331,12 +7552,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` param1: QtC.QCloseEvent `
+    /// ` param1: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QInputDialog_SuperCloseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperCloseEvent(self: QInputDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QCloseEvent;
+        qtc.QInputDialog_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QDialog
@@ -7347,12 +7569,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, param1: QtC.QCloseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, param1: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QInputDialog_OnCloseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCloseEvent(self: QInputDialog, callback: *const fn (QInputDialog, QCloseEvent) callconv(.c) void) void {
+        qtc.QInputDialog_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -7363,12 +7585,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` param1: QtC.QShowEvent `
+    /// ` param1: QShowEvent `
     ///
-    pub fn ShowEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QInputDialog_ShowEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn ShowEvent(self: QInputDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QShowEvent;
+        qtc.QInputDialog_ShowEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperShowEvent` instead
@@ -7383,12 +7606,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` param1: QtC.QShowEvent `
+    /// ` param1: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QInputDialog_SuperShowEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperShowEvent(self: QInputDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QShowEvent;
+        qtc.QInputDialog_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QDialog
@@ -7399,12 +7623,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, param1: QtC.QShowEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, param1: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QInputDialog_OnShowEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnShowEvent(self: QInputDialog, callback: *const fn (QInputDialog, QShowEvent) callconv(.c) void) void {
+        qtc.QInputDialog_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -7415,12 +7639,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` param1: QtC.QResizeEvent `
+    /// ` param1: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QInputDialog_ResizeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn ResizeEvent(self: QInputDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QResizeEvent;
+        qtc.QInputDialog_ResizeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperResizeEvent` instead
@@ -7435,12 +7660,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` param1: QtC.QResizeEvent `
+    /// ` param1: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QInputDialog_SuperResizeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperResizeEvent(self: QInputDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QResizeEvent;
+        qtc.QInputDialog_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QDialog
@@ -7451,12 +7677,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, param1: QtC.QResizeEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, param1: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QInputDialog_OnResizeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResizeEvent(self: QInputDialog, callback: *const fn (QInputDialog, QResizeEvent) callconv(.c) void) void {
+        qtc.QInputDialog_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -7467,12 +7693,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` param1: QtC.QContextMenuEvent `
+    /// ` param1: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QInputDialog_ContextMenuEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn ContextMenuEvent(self: QInputDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
+        qtc.QInputDialog_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
@@ -7487,12 +7714,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` param1: QtC.QContextMenuEvent `
+    /// ` param1: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QInputDialog_SuperContextMenuEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperContextMenuEvent(self: QInputDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
+        qtc.QInputDialog_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QDialog
@@ -7503,12 +7731,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, param1: QtC.QContextMenuEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, param1: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QInputDialog_OnContextMenuEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnContextMenuEvent(self: QInputDialog, callback: *const fn (QInputDialog, QContextMenuEvent) callconv(.c) void) void {
+        qtc.QInputDialog_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -7519,14 +7747,16 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    /// ` param2: QtC.QEvent `
+    /// ` param2: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) bool {
-        return qtc.QInputDialog_EventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn EventFilter(self: QInputDialog, param1: anytype, param2: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        comptime _ = @TypeOf(param2)._is_QEvent;
+        return qtc.QInputDialog_EventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -7541,14 +7771,16 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    /// ` param2: QtC.QEvent `
+    /// ` param2: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) bool {
-        return qtc.QInputDialog_SuperEventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn SuperEventFilter(self: QInputDialog, param1: anytype, param2: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        comptime _ = @TypeOf(param2)._is_QEvent;
+        return qtc.QInputDialog_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
     /// Inherited from QDialog
@@ -7559,12 +7791,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, param1: QtC.QObject, param2: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QInputDialog, param1: QObject, param2: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QInputDialog_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QInputDialog, callback: *const fn (QInputDialog, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QInputDialog_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7575,10 +7807,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn DevType(self: ?*anyopaque) i32 {
-        return qtc.QInputDialog_DevType(@ptrCast(self));
+    pub fn DevType(self: QInputDialog) i32 {
+        return qtc.QInputDialog_DevType(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDevType` instead
@@ -7593,10 +7825,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn SuperDevType(self: ?*anyopaque) i32 {
-        return qtc.QInputDialog_SuperDevType(@ptrCast(self));
+    pub fn SuperDevType(self: QInputDialog) i32 {
+        return qtc.QInputDialog_SuperDevType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7607,12 +7839,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QInputDialog_OnDevType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDevType(self: QInputDialog, callback: *const fn () callconv(.c) i32) void {
+        qtc.QInputDialog_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7623,12 +7855,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QInputDialog_HeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn HeightForWidth(self: QInputDialog, param1: i32) i32 {
+        return qtc.QInputDialog_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### DEPRECATED: Use `SuperHeightForWidth` instead
@@ -7643,12 +7875,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QInputDialog_SuperHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperHeightForWidth(self: QInputDialog, param1: i32) i32 {
+        return qtc.QInputDialog_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7659,12 +7891,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, param1: i32) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QInputDialog, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QInputDialog_OnHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHeightForWidth(self: QInputDialog, callback: *const fn (QInputDialog, i32) callconv(.c) i32) void {
+        qtc.QInputDialog_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7675,10 +7907,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn HasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QInputDialog_HasHeightForWidth(@ptrCast(self));
+    pub fn HasHeightForWidth(self: QInputDialog) bool {
+        return qtc.QInputDialog_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
@@ -7693,10 +7925,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QInputDialog_SuperHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: QInputDialog) bool {
+        return qtc.QInputDialog_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7707,12 +7939,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QInputDialog_OnHasHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHasHeightForWidth(self: QInputDialog, callback: *const fn () callconv(.c) bool) void {
+        qtc.QInputDialog_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7723,10 +7955,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn PaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QInputDialog_PaintEngine(@ptrCast(self));
+    pub fn PaintEngine(self: QInputDialog) QPaintEngine {
+        return .{ .ptr = qtc.QInputDialog_PaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperPaintEngine` instead
@@ -7741,10 +7973,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn SuperPaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QInputDialog_SuperPaintEngine(@ptrCast(self));
+    pub fn SuperPaintEngine(self: QInputDialog) QPaintEngine {
+        return .{ .ptr = qtc.QInputDialog_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7755,12 +7987,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPaintEngine `
+    /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.QInputDialog_OnPaintEngine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaintEngine(self: QInputDialog, callback: *const fn () callconv(.c) QPaintEngine) void {
+        qtc.QInputDialog_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7771,12 +8003,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QInputDialog_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: QInputDialog, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QInputDialog_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -7791,12 +8024,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QInputDialog_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: QInputDialog, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QInputDialog_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7807,12 +8041,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QInputDialog, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QInputDialog_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QInputDialog, callback: *const fn (QInputDialog, QEvent) callconv(.c) bool) void {
+        qtc.QInputDialog_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7823,12 +8057,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QInputDialog_MousePressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MousePressEvent(self: QInputDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QInputDialog_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMousePressEvent` instead
@@ -7843,12 +8078,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QInputDialog_SuperMousePressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMousePressEvent(self: QInputDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QInputDialog_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7859,12 +8095,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QInputDialog_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMousePressEvent(self: QInputDialog, callback: *const fn (QInputDialog, QMouseEvent) callconv(.c) void) void {
+        qtc.QInputDialog_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7875,12 +8111,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QInputDialog_MouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseReleaseEvent(self: QInputDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QInputDialog_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
@@ -7895,12 +8132,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QInputDialog_SuperMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseReleaseEvent(self: QInputDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QInputDialog_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7911,12 +8149,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QInputDialog_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseReleaseEvent(self: QInputDialog, callback: *const fn (QInputDialog, QMouseEvent) callconv(.c) void) void {
+        qtc.QInputDialog_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7927,12 +8165,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QInputDialog_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseDoubleClickEvent(self: QInputDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QInputDialog_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
@@ -7947,12 +8186,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QInputDialog_SuperMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseDoubleClickEvent(self: QInputDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QInputDialog_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7963,12 +8203,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QInputDialog_OnMouseDoubleClickEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseDoubleClickEvent(self: QInputDialog, callback: *const fn (QInputDialog, QMouseEvent) callconv(.c) void) void {
+        qtc.QInputDialog_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7979,12 +8219,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QInputDialog_MouseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseMoveEvent(self: QInputDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QInputDialog_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
@@ -7999,12 +8240,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QInputDialog_SuperMouseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseMoveEvent(self: QInputDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QInputDialog_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8015,12 +8257,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QInputDialog_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseMoveEvent(self: QInputDialog, callback: *const fn (QInputDialog, QMouseEvent) callconv(.c) void) void {
+        qtc.QInputDialog_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8031,12 +8273,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` event: QtC.QWheelEvent `
+    /// ` event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QInputDialog_WheelEvent(@ptrCast(self), @ptrCast(event));
+    pub fn WheelEvent(self: QInputDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QWheelEvent;
+        qtc.QInputDialog_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperWheelEvent` instead
@@ -8051,12 +8294,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` event: QtC.QWheelEvent `
+    /// ` event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QInputDialog_SuperWheelEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperWheelEvent(self: QInputDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QWheelEvent;
+        qtc.QInputDialog_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8067,12 +8311,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, event: QtC.QWheelEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QInputDialog_OnWheelEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWheelEvent(self: QInputDialog, callback: *const fn (QInputDialog, QWheelEvent) callconv(.c) void) void {
+        qtc.QInputDialog_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8083,12 +8327,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QInputDialog_KeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn KeyReleaseEvent(self: QInputDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QInputDialog_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
@@ -8103,12 +8348,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QInputDialog_SuperKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyReleaseEvent(self: QInputDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QInputDialog_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8119,12 +8365,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, event: QtC.QKeyEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QInputDialog_OnKeyReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyReleaseEvent(self: QInputDialog, callback: *const fn (QInputDialog, QKeyEvent) callconv(.c) void) void {
+        qtc.QInputDialog_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8135,12 +8381,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QInputDialog_FocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn FocusInEvent(self: QInputDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QInputDialog_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusInEvent` instead
@@ -8155,12 +8402,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QInputDialog_SuperFocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusInEvent(self: QInputDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QInputDialog_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8171,12 +8419,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, event: QtC.QFocusEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QInputDialog_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusInEvent(self: QInputDialog, callback: *const fn (QInputDialog, QFocusEvent) callconv(.c) void) void {
+        qtc.QInputDialog_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8187,12 +8435,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QInputDialog_FocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn FocusOutEvent(self: QInputDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QInputDialog_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
@@ -8207,12 +8456,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QInputDialog_SuperFocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusOutEvent(self: QInputDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QInputDialog_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8223,12 +8473,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, event: QtC.QFocusEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QInputDialog_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusOutEvent(self: QInputDialog, callback: *const fn (QInputDialog, QFocusEvent) callconv(.c) void) void {
+        qtc.QInputDialog_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8239,12 +8489,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` event: QtC.QEnterEvent `
+    /// ` event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QInputDialog_EnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn EnterEvent(self: QInputDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEnterEvent;
+        qtc.QInputDialog_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEnterEvent` instead
@@ -8259,12 +8510,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` event: QtC.QEnterEvent `
+    /// ` event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QInputDialog_SuperEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEnterEvent(self: QInputDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEnterEvent;
+        qtc.QInputDialog_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8275,12 +8527,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, event: QtC.QEnterEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QInputDialog_OnEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEnterEvent(self: QInputDialog, callback: *const fn (QInputDialog, QEnterEvent) callconv(.c) void) void {
+        qtc.QInputDialog_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8291,12 +8543,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn LeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QInputDialog_LeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn LeaveEvent(self: QInputDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QInputDialog_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperLeaveEvent` instead
@@ -8311,12 +8564,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QInputDialog_SuperLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperLeaveEvent(self: QInputDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QInputDialog_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8327,12 +8581,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QInputDialog_OnLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLeaveEvent(self: QInputDialog, callback: *const fn (QInputDialog, QEvent) callconv(.c) void) void {
+        qtc.QInputDialog_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8343,12 +8597,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` event: QtC.QPaintEvent `
+    /// ` event: QPaintEvent `
     ///
-    pub fn PaintEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QInputDialog_PaintEvent(@ptrCast(self), @ptrCast(event));
+    pub fn PaintEvent(self: QInputDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QPaintEvent;
+        qtc.QInputDialog_PaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperPaintEvent` instead
@@ -8363,12 +8618,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` event: QtC.QPaintEvent `
+    /// ` event: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QInputDialog_SuperPaintEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperPaintEvent(self: QInputDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QPaintEvent;
+        qtc.QInputDialog_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8379,12 +8635,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, event: QtC.QPaintEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, event: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QInputDialog_OnPaintEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaintEvent(self: QInputDialog, callback: *const fn (QInputDialog, QPaintEvent) callconv(.c) void) void {
+        qtc.QInputDialog_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8395,12 +8651,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` event: QtC.QMoveEvent `
+    /// ` event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QInputDialog_MoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MoveEvent(self: QInputDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMoveEvent;
+        qtc.QInputDialog_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMoveEvent` instead
@@ -8415,12 +8672,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` event: QtC.QMoveEvent `
+    /// ` event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QInputDialog_SuperMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMoveEvent(self: QInputDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMoveEvent;
+        qtc.QInputDialog_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8431,12 +8689,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, event: QtC.QMoveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QInputDialog_OnMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMoveEvent(self: QInputDialog, callback: *const fn (QInputDialog, QMoveEvent) callconv(.c) void) void {
+        qtc.QInputDialog_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8447,12 +8705,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` event: QtC.QTabletEvent `
+    /// ` event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QInputDialog_TabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TabletEvent(self: QInputDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTabletEvent;
+        qtc.QInputDialog_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTabletEvent` instead
@@ -8467,12 +8726,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` event: QtC.QTabletEvent `
+    /// ` event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QInputDialog_SuperTabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTabletEvent(self: QInputDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTabletEvent;
+        qtc.QInputDialog_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8483,12 +8743,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, event: QtC.QTabletEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QInputDialog_OnTabletEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTabletEvent(self: QInputDialog, callback: *const fn (QInputDialog, QTabletEvent) callconv(.c) void) void {
+        qtc.QInputDialog_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8499,12 +8759,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` event: QtC.QActionEvent `
+    /// ` event: QActionEvent `
     ///
-    pub fn ActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QInputDialog_ActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ActionEvent(self: QInputDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QActionEvent;
+        qtc.QInputDialog_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperActionEvent` instead
@@ -8519,12 +8780,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` event: QtC.QActionEvent `
+    /// ` event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QInputDialog_SuperActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperActionEvent(self: QInputDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QActionEvent;
+        qtc.QInputDialog_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8535,12 +8797,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, event: QtC.QActionEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QInputDialog_OnActionEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnActionEvent(self: QInputDialog, callback: *const fn (QInputDialog, QActionEvent) callconv(.c) void) void {
+        qtc.QInputDialog_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8551,12 +8813,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` event: QtC.QDragEnterEvent `
+    /// ` event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QInputDialog_DragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragEnterEvent(self: QInputDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
+        qtc.QInputDialog_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
@@ -8571,12 +8834,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` event: QtC.QDragEnterEvent `
+    /// ` event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QInputDialog_SuperDragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragEnterEvent(self: QInputDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
+        qtc.QInputDialog_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8587,12 +8851,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, event: QtC.QDragEnterEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QInputDialog_OnDragEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragEnterEvent(self: QInputDialog, callback: *const fn (QInputDialog, QDragEnterEvent) callconv(.c) void) void {
+        qtc.QInputDialog_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8603,12 +8867,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` event: QtC.QDragMoveEvent `
+    /// ` event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QInputDialog_DragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragMoveEvent(self: QInputDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
+        qtc.QInputDialog_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
@@ -8623,12 +8888,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` event: QtC.QDragMoveEvent `
+    /// ` event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QInputDialog_SuperDragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragMoveEvent(self: QInputDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
+        qtc.QInputDialog_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8639,12 +8905,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, event: QtC.QDragMoveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QInputDialog_OnDragMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragMoveEvent(self: QInputDialog, callback: *const fn (QInputDialog, QDragMoveEvent) callconv(.c) void) void {
+        qtc.QInputDialog_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8655,12 +8921,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` event: QtC.QDragLeaveEvent `
+    /// ` event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QInputDialog_DragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragLeaveEvent(self: QInputDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
+        qtc.QInputDialog_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
@@ -8675,12 +8942,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` event: QtC.QDragLeaveEvent `
+    /// ` event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QInputDialog_SuperDragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragLeaveEvent(self: QInputDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
+        qtc.QInputDialog_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8691,12 +8959,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, event: QtC.QDragLeaveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QInputDialog_OnDragLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragLeaveEvent(self: QInputDialog, callback: *const fn (QInputDialog, QDragLeaveEvent) callconv(.c) void) void {
+        qtc.QInputDialog_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8707,12 +8975,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` event: QtC.QDropEvent `
+    /// ` event: QDropEvent `
     ///
-    pub fn DropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QInputDialog_DropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DropEvent(self: QInputDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDropEvent;
+        qtc.QInputDialog_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDropEvent` instead
@@ -8727,12 +8996,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` event: QtC.QDropEvent `
+    /// ` event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QInputDialog_SuperDropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDropEvent(self: QInputDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDropEvent;
+        qtc.QInputDialog_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8743,12 +9013,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, event: QtC.QDropEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QInputDialog_OnDropEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDropEvent(self: QInputDialog, callback: *const fn (QInputDialog, QDropEvent) callconv(.c) void) void {
+        qtc.QInputDialog_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8759,12 +9029,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` event: QtC.QHideEvent `
+    /// ` event: QHideEvent `
     ///
-    pub fn HideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QInputDialog_HideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn HideEvent(self: QInputDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QHideEvent;
+        qtc.QInputDialog_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHideEvent` instead
@@ -8779,12 +9050,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` event: QtC.QHideEvent `
+    /// ` event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QInputDialog_SuperHideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHideEvent(self: QInputDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QHideEvent;
+        qtc.QInputDialog_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8795,12 +9067,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, event: QtC.QHideEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QInputDialog_OnHideEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHideEvent(self: QInputDialog, callback: *const fn (QInputDialog, QHideEvent) callconv(.c) void) void {
+        qtc.QInputDialog_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8811,7 +9083,7 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` eventType: []u8 `
     ///
@@ -8819,12 +9091,12 @@ pub const qinputdialog = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn NativeEvent(self: QInputDialog, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QInputDialog_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QInputDialog_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// ### DEPRECATED: Use `SuperNativeEvent` instead
@@ -8839,7 +9111,7 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` eventType: []u8 `
     ///
@@ -8847,12 +9119,12 @@ pub const qinputdialog = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn SuperNativeEvent(self: QInputDialog, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QInputDialog_SuperNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QInputDialog_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -8863,12 +9135,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QInputDialog, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
-        qtc.QInputDialog_OnNativeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnNativeEvent(self: QInputDialog, callback: *const fn (QInputDialog, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+        qtc.QInputDialog_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8879,12 +9151,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` param1: QtC.QEvent `
+    /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QInputDialog_ChangeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn ChangeEvent(self: QInputDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QEvent;
+        qtc.QInputDialog_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChangeEvent` instead
@@ -8899,12 +9172,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` param1: QtC.QEvent `
+    /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QInputDialog_SuperChangeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperChangeEvent(self: QInputDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QEvent;
+        qtc.QInputDialog_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -8915,12 +9189,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, param1: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QInputDialog_OnChangeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChangeEvent(self: QInputDialog, callback: *const fn (QInputDialog, QEvent) callconv(.c) void) void {
+        qtc.QInputDialog_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8931,12 +9205,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QInputDialog_Metric(@ptrCast(self), @bitCast(param1));
+    pub fn Metric(self: QInputDialog, param1: i32) i32 {
+        return qtc.QInputDialog_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### DEPRECATED: Use `SuperMetric` instead
@@ -8951,12 +9225,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QInputDialog_SuperMetric(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMetric(self: QInputDialog, param1: i32) i32 {
+        return qtc.QInputDialog_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -8967,12 +9241,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QInputDialog, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QInputDialog_OnMetric(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetric(self: QInputDialog, callback: *const fn (QInputDialog, i32) callconv(.c) i32) void {
+        qtc.QInputDialog_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8983,12 +9257,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QInputDialog_InitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn InitPainter(self: QInputDialog, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QInputDialog_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInitPainter` instead
@@ -9003,12 +9278,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QInputDialog_SuperInitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperInitPainter(self: QInputDialog, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QInputDialog_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// Inherited from QWidget
@@ -9019,12 +9295,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, painter: QtC.QPainter) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QInputDialog_OnInitPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInitPainter(self: QInputDialog, callback: *const fn (QInputDialog, QPainter) callconv(.c) void) void {
+        qtc.QInputDialog_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9035,12 +9311,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QInputDialog_Redirected(@ptrCast(self), @ptrCast(offset));
+    pub fn Redirected(self: QInputDialog, offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        return .{ .ptr = qtc.QInputDialog_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperRedirected` instead
@@ -9055,12 +9332,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QInputDialog_SuperRedirected(@ptrCast(self), @ptrCast(offset));
+    pub fn SuperRedirected(self: QInputDialog, offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        return .{ .ptr = qtc.QInputDialog_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -9071,12 +9349,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice `
+    /// ` callback: *const fn (self: QInputDialog, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.QInputDialog_OnRedirected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRedirected(self: QInputDialog, callback: *const fn (QInputDialog, QPoint) callconv(.c) QPaintDevice) void {
+        qtc.QInputDialog_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9087,10 +9365,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn SharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QInputDialog_SharedPainter(@ptrCast(self));
+    pub fn SharedPainter(self: QInputDialog) QPainter {
+        return .{ .ptr = qtc.QInputDialog_SharedPainter(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSharedPainter` instead
@@ -9105,10 +9383,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn SuperSharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QInputDialog_SuperSharedPainter(@ptrCast(self));
+    pub fn SuperSharedPainter(self: QInputDialog) QPainter {
+        return .{ .ptr = qtc.QInputDialog_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -9119,12 +9397,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPainter `
+    /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
-        qtc.QInputDialog_OnSharedPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSharedPainter(self: QInputDialog, callback: *const fn () callconv(.c) QPainter) void {
+        qtc.QInputDialog_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9135,12 +9413,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` param1: QtC.QInputMethodEvent `
+    /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QInputDialog_InputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn InputMethodEvent(self: QInputDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
+        qtc.QInputDialog_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
@@ -9155,12 +9434,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` param1: QtC.QInputMethodEvent `
+    /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QInputDialog_SuperInputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperInputMethodEvent(self: QInputDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
+        qtc.QInputDialog_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -9171,12 +9451,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, param1: QtC.QInputMethodEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QInputDialog_OnInputMethodEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInputMethodEvent(self: QInputDialog, callback: *const fn (QInputDialog, QInputMethodEvent) callconv(.c) void) void {
+        qtc.QInputDialog_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9187,12 +9467,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.QInputDialog_InputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn InputMethodQuery(self: QInputDialog, param1: i32) QVariant {
+        return .{ .ptr = qtc.QInputDialog_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
     /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
@@ -9207,12 +9487,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.QInputDialog_SuperInputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn SuperInputMethodQuery(self: QInputDialog, param1: i32) QVariant {
+        return .{ .ptr = qtc.QInputDialog_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
     /// Inherited from QWidget
@@ -9223,12 +9503,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
+    /// ` callback: *const fn (self: QInputDialog, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
-    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QInputDialog_OnInputMethodQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInputMethodQuery(self: QInputDialog, callback: *const fn (QInputDialog, i32) callconv(.c) QVariant) void {
+        qtc.QInputDialog_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9239,12 +9519,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.QInputDialog_FocusNextPrevChild(@ptrCast(self), next);
+    pub fn FocusNextPrevChild(self: QInputDialog, next: bool) bool {
+        return qtc.QInputDialog_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
     /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
@@ -9259,12 +9539,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.QInputDialog_SuperFocusNextPrevChild(@ptrCast(self), next);
+    pub fn SuperFocusNextPrevChild(self: QInputDialog, next: bool) bool {
+        return qtc.QInputDialog_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
     /// Inherited from QWidget
@@ -9275,12 +9555,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, next: bool) callconv(.c) bool `
+    /// ` callback: *const fn (self: QInputDialog, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
-        qtc.QInputDialog_OnFocusNextPrevChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusNextPrevChild(self: QInputDialog, callback: *const fn (QInputDialog, bool) callconv(.c) bool) void {
+        qtc.QInputDialog_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9291,12 +9571,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QInputDialog_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: QInputDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QInputDialog_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -9311,12 +9592,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QInputDialog_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: QInputDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QInputDialog_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -9327,12 +9609,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QInputDialog_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QInputDialog, callback: *const fn (QInputDialog, QTimerEvent) callconv(.c) void) void {
+        qtc.QInputDialog_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9343,12 +9625,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QInputDialog_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: QInputDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QInputDialog_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -9363,12 +9646,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QInputDialog_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: QInputDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QInputDialog_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -9379,12 +9663,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QInputDialog_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QInputDialog, callback: *const fn (QInputDialog, QChildEvent) callconv(.c) void) void {
+        qtc.QInputDialog_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9395,12 +9679,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QInputDialog_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QInputDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QInputDialog_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -9415,12 +9700,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QInputDialog_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QInputDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QInputDialog_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -9431,12 +9717,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QInputDialog_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QInputDialog, callback: *const fn (QInputDialog, QEvent) callconv(.c) void) void {
+        qtc.QInputDialog_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9447,12 +9733,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QInputDialog_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QInputDialog, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QInputDialog_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -9467,12 +9754,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QInputDialog_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QInputDialog, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QInputDialog_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -9483,12 +9771,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QInputDialog_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QInputDialog, callback: *const fn (QInputDialog, QMetaMethod) callconv(.c) void) void {
+        qtc.QInputDialog_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9499,12 +9787,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QInputDialog_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QInputDialog, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QInputDialog_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -9519,12 +9808,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QInputDialog_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QInputDialog, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QInputDialog_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -9535,12 +9825,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QInputDialog_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QInputDialog, callback: *const fn (QInputDialog, QMetaMethod) callconv(.c) void) void {
+        qtc.QInputDialog_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -9551,12 +9841,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn AdjustPosition(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QInputDialog_AdjustPosition(@ptrCast(self), @ptrCast(param1));
+    pub fn AdjustPosition(self: QInputDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        qtc.QInputDialog_AdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperAdjustPosition` instead
@@ -9571,12 +9862,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn SuperAdjustPosition(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QInputDialog_SuperAdjustPosition(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperAdjustPosition(self: QInputDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        qtc.QInputDialog_SuperAdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QDialog
@@ -9587,12 +9879,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, param1: QtC.QWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, param1: QWidget) callconv(.c) void `
     ///
-    pub fn OnAdjustPosition(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QInputDialog_OnAdjustPosition(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAdjustPosition(self: QInputDialog, callback: *const fn (QInputDialog, QWidget) callconv(.c) void) void {
+        qtc.QInputDialog_OnAdjustPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9603,10 +9895,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn UpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.QInputDialog_UpdateMicroFocus(@ptrCast(self));
+    pub fn UpdateMicroFocus(self: QInputDialog) void {
+        qtc.QInputDialog_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
@@ -9621,10 +9913,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn SuperUpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.QInputDialog_SuperUpdateMicroFocus(@ptrCast(self));
+    pub fn SuperUpdateMicroFocus(self: QInputDialog) void {
+        qtc.QInputDialog_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -9635,12 +9927,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QInputDialog_OnUpdateMicroFocus(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUpdateMicroFocus(self: QInputDialog, callback: *const fn () callconv(.c) void) void {
+        qtc.QInputDialog_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9651,10 +9943,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn Create(self: ?*anyopaque) void {
-        qtc.QInputDialog_Create(@ptrCast(self));
+    pub fn Create(self: QInputDialog) void {
+        qtc.QInputDialog_Create(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCreate` instead
@@ -9669,10 +9961,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn SuperCreate(self: ?*anyopaque) void {
-        qtc.QInputDialog_SuperCreate(@ptrCast(self));
+    pub fn SuperCreate(self: QInputDialog) void {
+        qtc.QInputDialog_SuperCreate(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -9683,12 +9975,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QInputDialog_OnCreate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreate(self: QInputDialog, callback: *const fn () callconv(.c) void) void {
+        qtc.QInputDialog_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9699,10 +9991,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn Destroy(self: ?*anyopaque) void {
-        qtc.QInputDialog_Destroy(@ptrCast(self));
+    pub fn Destroy(self: QInputDialog) void {
+        qtc.QInputDialog_Destroy(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDestroy` instead
@@ -9717,10 +10009,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn SuperDestroy(self: ?*anyopaque) void {
-        qtc.QInputDialog_SuperDestroy(@ptrCast(self));
+    pub fn SuperDestroy(self: QInputDialog) void {
+        qtc.QInputDialog_SuperDestroy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -9731,12 +10023,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QInputDialog_OnDestroy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroy(self: QInputDialog, callback: *const fn () callconv(.c) void) void {
+        qtc.QInputDialog_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9747,10 +10039,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn FocusNextChild(self: ?*anyopaque) bool {
-        return qtc.QInputDialog_FocusNextChild(@ptrCast(self));
+    pub fn FocusNextChild(self: QInputDialog) bool {
+        return qtc.QInputDialog_FocusNextChild(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusNextChild` instead
@@ -9765,10 +10057,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn SuperFocusNextChild(self: ?*anyopaque) bool {
-        return qtc.QInputDialog_SuperFocusNextChild(@ptrCast(self));
+    pub fn SuperFocusNextChild(self: QInputDialog) bool {
+        return qtc.QInputDialog_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -9779,12 +10071,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QInputDialog_OnFocusNextChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusNextChild(self: QInputDialog, callback: *const fn () callconv(.c) bool) void {
+        qtc.QInputDialog_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9795,10 +10087,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn FocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.QInputDialog_FocusPreviousChild(@ptrCast(self));
+    pub fn FocusPreviousChild(self: QInputDialog) bool {
+        return qtc.QInputDialog_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
@@ -9813,10 +10105,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn SuperFocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.QInputDialog_SuperFocusPreviousChild(@ptrCast(self));
+    pub fn SuperFocusPreviousChild(self: QInputDialog) bool {
+        return qtc.QInputDialog_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -9827,12 +10119,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QInputDialog_OnFocusPreviousChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusPreviousChild(self: QInputDialog, callback: *const fn () callconv(.c) bool) void {
+        qtc.QInputDialog_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9843,10 +10135,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QInputDialog_Sender(@ptrCast(self));
+    pub fn Sender(self: QInputDialog) QObject {
+        return .{ .ptr = qtc.QInputDialog_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -9861,10 +10153,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QInputDialog_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QInputDialog) QObject {
+        return .{ .ptr = qtc.QInputDialog_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -9875,12 +10167,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QInputDialog_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QInputDialog, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QInputDialog_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9891,10 +10183,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QInputDialog_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QInputDialog) i32 {
+        return qtc.QInputDialog_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -9909,10 +10201,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QInputDialog_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QInputDialog) i32 {
+        return qtc.QInputDialog_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -9923,12 +10215,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QInputDialog_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QInputDialog, callback: *const fn () callconv(.c) i32) void {
+        qtc.QInputDialog_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9939,13 +10231,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QInputDialog, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QInputDialog_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QInputDialog_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -9960,13 +10252,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QInputDialog, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QInputDialog_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QInputDialog_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -9977,12 +10269,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QInputDialog, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QInputDialog_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QInputDialog, callback: *const fn (QInputDialog, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QInputDialog_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9993,12 +10285,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QInputDialog_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QInputDialog, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QInputDialog_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -10013,12 +10306,13 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QInputDialog_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QInputDialog, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QInputDialog_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -10029,12 +10323,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QInputDialog, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QInputDialog_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QInputDialog, callback: *const fn (QInputDialog, QMetaMethod) callconv(.c) bool) void {
+        qtc.QInputDialog_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -10045,14 +10339,14 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QInputDialog_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn GetDecodedMetricF(self: QInputDialog, metricA: i32, metricB: i32) f64 {
+        return qtc.QInputDialog_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
@@ -10067,14 +10361,14 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
     /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QInputDialog_SuperGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn SuperGetDecodedMetricF(self: QInputDialog, metricA: i32, metricB: i32) f64 {
+        return qtc.QInputDialog_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -10085,12 +10379,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog`
+    /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
+    /// ` callback: *const fn (self: QInputDialog, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.QInputDialog_OnGetDecodedMetricF(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnGetDecodedMetricF(self: QInputDialog, callback: *const fn (QInputDialog, i32, i32) callconv(.c) f64) void {
+        qtc.QInputDialog_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -10101,12 +10395,12 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QInputDialog, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QInputDialog, callback: *const fn (QInputDialog, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -10119,10 +10413,10 @@ pub const qinputdialog = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QInputDialog `
+    /// ` self: QInputDialog `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QInputDialog_Delete(@ptrCast(self));
+    pub fn Delete(self: QInputDialog) void {
+        qtc.QInputDialog_Delete(@ptrCast(self.ptr));
     }
 };
 

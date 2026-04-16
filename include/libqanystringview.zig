@@ -1,18 +1,27 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QChar = @import("libqt6").QChar;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html)
-pub const qanystringview = struct {
+pub const QAnyStringView = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QAnyStringView,
+
+    pub const _is_QAnyStringView = {};
+
     /// New constructs a new QAnyStringView object.
     ///
     /// ## Parameter(s):
     ///
     /// ` other: []const u8 `
     ///
-    pub fn New(other: []const u8) QtC.QAnyStringView {
-        return qtc.QAnyStringView_new(other.ptr);
+    pub fn New(other: []const u8) QAnyStringView {
+        return .{ .ptr = qtc.QAnyStringView_new(other.ptr) };
     }
 
     /// New2 constructs a new QAnyStringView object and invalidates the source QAnyStringView object.
@@ -21,14 +30,14 @@ pub const qanystringview = struct {
     ///
     /// ` other: []const u8 `
     ///
-    pub fn New2(other: []const u8) QtC.QAnyStringView {
-        return qtc.QAnyStringView_new2(other.ptr);
+    pub fn New2(other: []const u8) QAnyStringView {
+        return .{ .ptr = qtc.QAnyStringView_new2(other.ptr) };
     }
 
     /// New3 constructs a new QAnyStringView object.
     ///
-    pub fn New3() QtC.QAnyStringView {
-        return qtc.QAnyStringView_new3();
+    pub fn New3() QAnyStringView {
+        return .{ .ptr = qtc.QAnyStringView_new3() };
     }
 
     /// New4 constructs a new QAnyStringView object.
@@ -37,13 +46,12 @@ pub const qanystringview = struct {
     ///
     /// ` str: []u8 `
     ///
-    pub fn New4(str: []u8) QtC.QAnyStringView {
+    pub fn New4(str: []u8) QAnyStringView {
         const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
-
-        return qtc.QAnyStringView_new4(str_str);
+        return .{ .ptr = qtc.QAnyStringView_new4(str_str) };
     }
 
     /// New5 constructs a new QAnyStringView object.
@@ -52,13 +60,12 @@ pub const qanystringview = struct {
     ///
     /// ` str: []const u8 `
     ///
-    pub fn New5(str: []const u8) QtC.QAnyStringView {
+    pub fn New5(str: []const u8) QAnyStringView {
         const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
-
-        return qtc.QAnyStringView_new5(str_str);
+        return .{ .ptr = qtc.QAnyStringView_new5(str_str) };
     }
 
     /// New6 constructs a new QAnyStringView object.
@@ -67,44 +74,44 @@ pub const qanystringview = struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn New6(param1: []const u8) QtC.QAnyStringView {
-        return qtc.QAnyStringView_new6(param1.ptr);
+    pub fn New6(param1: []const u8) QAnyStringView {
+        return .{ .ptr = qtc.QAnyStringView_new6(param1.ptr) };
     }
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAnyStringView `
+    /// ` self: QAnyStringView `
     ///
-    /// ` other: QtC.QAnyStringView `
+    /// ` other: QAnyStringView `
     ///
-    pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QAnyStringView_CopyAssign(@ptrCast(self), @ptrCast(other));
+    pub fn CopyAssign(self: QAnyStringView, other: QAnyStringView) void {
+        qtc.QAnyStringView_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAnyStringView `
+    /// ` self: QAnyStringView `
     ///
-    /// ` other: QtC.QAnyStringView `
+    /// ` other: QAnyStringView `
     ///
-    pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QAnyStringView_MoveAssign(@ptrCast(self), @ptrCast(other));
+    pub fn MoveAssign(self: QAnyStringView, other: QAnyStringView) void {
+        qtc.QAnyStringView_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#mid)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAnyStringView `
+    /// ` self: QAnyStringView `
     ///
     /// ` pos: isize `
     ///
-    pub fn Mid(self: ?*anyopaque, pos: isize) []const u8 {
-        const _ret = qtc.QAnyStringView_Mid(@ptrCast(self), @bitCast(pos));
+    pub fn Mid(self: QAnyStringView, pos: isize) []const u8 {
+        const _ret = qtc.QAnyStringView_Mid(@ptrCast(self.ptr), @bitCast(pos));
         return std.mem.span(_ret);
     }
 
@@ -112,12 +119,12 @@ pub const qanystringview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAnyStringView `
+    /// ` self: QAnyStringView `
     ///
     /// ` n: isize `
     ///
-    pub fn Left(self: ?*anyopaque, n: isize) []const u8 {
-        const _ret = qtc.QAnyStringView_Left(@ptrCast(self), @bitCast(n));
+    pub fn Left(self: QAnyStringView, n: isize) []const u8 {
+        const _ret = qtc.QAnyStringView_Left(@ptrCast(self.ptr), @bitCast(n));
         return std.mem.span(_ret);
     }
 
@@ -125,12 +132,12 @@ pub const qanystringview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAnyStringView `
+    /// ` self: QAnyStringView `
     ///
     /// ` n: isize `
     ///
-    pub fn Right(self: ?*anyopaque, n: isize) []const u8 {
-        const _ret = qtc.QAnyStringView_Right(@ptrCast(self), @bitCast(n));
+    pub fn Right(self: QAnyStringView, n: isize) []const u8 {
+        const _ret = qtc.QAnyStringView_Right(@ptrCast(self.ptr), @bitCast(n));
         return std.mem.span(_ret);
     }
 
@@ -138,12 +145,12 @@ pub const qanystringview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAnyStringView `
+    /// ` self: QAnyStringView `
     ///
     /// ` pos: isize `
     ///
-    pub fn Sliced(self: ?*anyopaque, pos: isize) []const u8 {
-        const _ret = qtc.QAnyStringView_Sliced(@ptrCast(self), @bitCast(pos));
+    pub fn Sliced(self: QAnyStringView, pos: isize) []const u8 {
+        const _ret = qtc.QAnyStringView_Sliced(@ptrCast(self.ptr), @bitCast(pos));
         return std.mem.span(_ret);
     }
 
@@ -151,14 +158,14 @@ pub const qanystringview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAnyStringView `
+    /// ` self: QAnyStringView `
     ///
     /// ` pos: isize `
     ///
     /// ` n: isize `
     ///
-    pub fn Sliced2(self: ?*anyopaque, pos: isize, n: isize) []const u8 {
-        const _ret = qtc.QAnyStringView_Sliced2(@ptrCast(self), @bitCast(pos), @bitCast(n));
+    pub fn Sliced2(self: QAnyStringView, pos: isize, n: isize) []const u8 {
+        const _ret = qtc.QAnyStringView_Sliced2(@ptrCast(self.ptr), @bitCast(pos), @bitCast(n));
         return std.mem.span(_ret);
     }
 
@@ -166,12 +173,12 @@ pub const qanystringview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAnyStringView `
+    /// ` self: QAnyStringView `
     ///
     /// ` n: isize `
     ///
-    pub fn First(self: ?*anyopaque, n: isize) []const u8 {
-        const _ret = qtc.QAnyStringView_First(@ptrCast(self), @bitCast(n));
+    pub fn First(self: QAnyStringView, n: isize) []const u8 {
+        const _ret = qtc.QAnyStringView_First(@ptrCast(self.ptr), @bitCast(n));
         return std.mem.span(_ret);
     }
 
@@ -179,12 +186,12 @@ pub const qanystringview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAnyStringView `
+    /// ` self: QAnyStringView `
     ///
     /// ` n: isize `
     ///
-    pub fn Last(self: ?*anyopaque, n: isize) []const u8 {
-        const _ret = qtc.QAnyStringView_Last(@ptrCast(self), @bitCast(n));
+    pub fn Last(self: QAnyStringView, n: isize) []const u8 {
+        const _ret = qtc.QAnyStringView_Last(@ptrCast(self.ptr), @bitCast(n));
         return std.mem.span(_ret);
     }
 
@@ -192,12 +199,12 @@ pub const qanystringview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAnyStringView `
+    /// ` self: QAnyStringView `
     ///
     /// ` n: isize `
     ///
-    pub fn Chopped(self: ?*anyopaque, n: isize) []const u8 {
-        const _ret = qtc.QAnyStringView_Chopped(@ptrCast(self), @bitCast(n));
+    pub fn Chopped(self: QAnyStringView, n: isize) []const u8 {
+        const _ret = qtc.QAnyStringView_Chopped(@ptrCast(self.ptr), @bitCast(n));
         return std.mem.span(_ret);
     }
 
@@ -205,12 +212,12 @@ pub const qanystringview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAnyStringView `
+    /// ` self: QAnyStringView `
     ///
     /// ` pos: isize `
     ///
-    pub fn Slice(self: ?*anyopaque, pos: isize) []const u8 {
-        const _ret = qtc.QAnyStringView_Slice(@ptrCast(self), @bitCast(pos));
+    pub fn Slice(self: QAnyStringView, pos: isize) []const u8 {
+        const _ret = qtc.QAnyStringView_Slice(@ptrCast(self.ptr), @bitCast(pos));
         return std.mem.span(_ret);
     }
 
@@ -218,14 +225,14 @@ pub const qanystringview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAnyStringView `
+    /// ` self: QAnyStringView `
     ///
     /// ` pos: isize `
     ///
     /// ` n: isize `
     ///
-    pub fn Slice2(self: ?*anyopaque, pos: isize, n: isize) []const u8 {
-        const _ret = qtc.QAnyStringView_Slice2(@ptrCast(self), @bitCast(pos), @bitCast(n));
+    pub fn Slice2(self: QAnyStringView, pos: isize, n: isize) []const u8 {
+        const _ret = qtc.QAnyStringView_Slice2(@ptrCast(self.ptr), @bitCast(pos), @bitCast(n));
         return std.mem.span(_ret);
     }
 
@@ -233,36 +240,36 @@ pub const qanystringview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAnyStringView `
+    /// ` self: QAnyStringView `
     ///
     /// ` n: isize `
     ///
-    pub fn Truncate(self: ?*anyopaque, n: isize) void {
-        qtc.QAnyStringView_Truncate(@ptrCast(self), @bitCast(n));
+    pub fn Truncate(self: QAnyStringView, n: isize) void {
+        qtc.QAnyStringView_Truncate(@ptrCast(self.ptr), @bitCast(n));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#chop)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAnyStringView `
+    /// ` self: QAnyStringView `
     ///
     /// ` n: isize `
     ///
-    pub fn Chop(self: ?*anyopaque, n: isize) void {
-        qtc.QAnyStringView_Chop(@ptrCast(self), @bitCast(n));
+    pub fn Chop(self: QAnyStringView, n: isize) void {
+        qtc.QAnyStringView_Chop(@ptrCast(self.ptr), @bitCast(n));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#toString)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAnyStringView `
+    /// ` self: QAnyStringView `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QAnyStringView_ToString(@ptrCast(self));
+    pub fn ToString(self: QAnyStringView, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QAnyStringView_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qanystringview.ToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -273,20 +280,20 @@ pub const qanystringview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAnyStringView `
+    /// ` self: QAnyStringView `
     ///
-    pub fn Size(self: ?*anyopaque) isize {
-        return qtc.QAnyStringView_Size(@ptrCast(self));
+    pub fn Size(self: QAnyStringView) isize {
+        return qtc.QAnyStringView_Size(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#data)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAnyStringView `
+    /// ` self: QAnyStringView `
     ///
-    pub fn Data(self: ?*anyopaque) ?*const anyopaque {
-        return qtc.QAnyStringView_Data(@ptrCast(self));
+    pub fn Data(self: QAnyStringView) ?*const anyopaque {
+        return qtc.QAnyStringView_Data(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#compare)
@@ -317,94 +324,94 @@ pub const qanystringview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAnyStringView `
+    /// ` self: QAnyStringView `
     ///
-    pub fn Front(self: ?*anyopaque) QtC.QChar {
-        return qtc.QAnyStringView_Front(@ptrCast(self));
+    pub fn Front(self: QAnyStringView) QChar {
+        return .{ .ptr = qtc.QAnyStringView_Front(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#back)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAnyStringView `
+    /// ` self: QAnyStringView `
     ///
-    pub fn Back(self: ?*anyopaque) QtC.QChar {
-        return qtc.QAnyStringView_Back(@ptrCast(self));
+    pub fn Back(self: QAnyStringView) QChar {
+        return .{ .ptr = qtc.QAnyStringView_Back(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#empty)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAnyStringView `
+    /// ` self: QAnyStringView `
     ///
-    pub fn Empty(self: ?*anyopaque) bool {
-        return qtc.QAnyStringView_Empty(@ptrCast(self));
+    pub fn Empty(self: QAnyStringView) bool {
+        return qtc.QAnyStringView_Empty(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#size_bytes)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAnyStringView `
+    /// ` self: QAnyStringView `
     ///
-    pub fn SizeBytes(self: ?*anyopaque) isize {
-        return qtc.QAnyStringView_SizeBytes(@ptrCast(self));
+    pub fn SizeBytes(self: QAnyStringView) isize {
+        return qtc.QAnyStringView_SizeBytes(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#max_size)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAnyStringView `
+    /// ` self: QAnyStringView `
     ///
-    pub fn MaxSize(self: ?*anyopaque) isize {
-        return qtc.QAnyStringView_MaxSize(@ptrCast(self));
+    pub fn MaxSize(self: QAnyStringView) isize {
+        return qtc.QAnyStringView_MaxSize(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#isNull)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAnyStringView `
+    /// ` self: QAnyStringView `
     ///
-    pub fn IsNull(self: ?*anyopaque) bool {
-        return qtc.QAnyStringView_IsNull(@ptrCast(self));
+    pub fn IsNull(self: QAnyStringView) bool {
+        return qtc.QAnyStringView_IsNull(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#isEmpty)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAnyStringView `
+    /// ` self: QAnyStringView `
     ///
-    pub fn IsEmpty(self: ?*anyopaque) bool {
-        return qtc.QAnyStringView_IsEmpty(@ptrCast(self));
+    pub fn IsEmpty(self: QAnyStringView) bool {
+        return qtc.QAnyStringView_IsEmpty(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#length)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAnyStringView `
+    /// ` self: QAnyStringView `
     ///
-    pub fn Length(self: ?*anyopaque) isize {
-        return qtc.QAnyStringView_Length(@ptrCast(self));
+    pub fn Length(self: QAnyStringView) isize {
+        return qtc.QAnyStringView_Length(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#mid)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAnyStringView `
+    /// ` self: QAnyStringView `
     ///
     /// ` pos: isize `
     ///
     /// ` n: isize `
     ///
-    pub fn Mid2(self: ?*anyopaque, pos: isize, n: isize) []const u8 {
-        const _ret = qtc.QAnyStringView_Mid2(@ptrCast(self), @bitCast(pos), @bitCast(n));
+    pub fn Mid2(self: QAnyStringView, pos: isize, n: isize) []const u8 {
+        const _ret = qtc.QAnyStringView_Mid2(@ptrCast(self.ptr), @bitCast(pos), @bitCast(n));
         return std.mem.span(_ret);
     }
 
@@ -432,9 +439,9 @@ pub const qanystringview = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QAnyStringView `
+    /// ` self: QAnyStringView `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QAnyStringView_Delete(@ptrCast(self));
+    pub fn Delete(self: QAnyStringView) void {
+        qtc.QAnyStringView_Delete(@ptrCast(self.ptr));
     }
 };

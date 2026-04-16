@@ -1,36 +1,56 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const KActionCollection = @import("libqt6").KActionCollection;
+const KXMLGUIBuilder = @import("libqt6").KXMLGUIBuilder;
+const KXMLGUIClient = @import("libqt6").KXMLGUIClient;
+const KXMLGUIClient__StateChange = @import("libqt6").KXMLGUIClient__StateChange;
+const KXMLGUIFactory = @import("libqt6").KXMLGUIFactory;
+const QAction = @import("libqt6").QAction;
+const QDomDocument = @import("libqt6").QDomDocument;
+const QDomElement = @import("libqt6").QDomElement;
+const QObject = @import("libqt6").QObject;
+const QWidget = @import("libqt6").QWidget;
 const kxmlguiclient_enums = @import("../extras-kxmlgui/libkxmlguiclient.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/kparts-partbase.html)
-pub const kparts__partbase = struct {
+pub const KParts__PartBase = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kparts-partbase.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KParts__PartBase,
+
+    pub const _is_KParts__PartBase = {};
+    pub const _is_KXMLGUIClient = {};
+
     /// New constructs a new KParts::PartBase object.
     ///
-    pub fn New() QtC.KParts__PartBase {
-        return qtc.KParts__PartBase_new();
+    pub fn New() KParts__PartBase {
+        return .{ .ptr = qtc.KParts__PartBase_new() };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-partbase.html#setPartObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
-    /// ` object: QtC.QObject `
+    /// ` object: QObject `
     ///
-    pub fn SetPartObject(self: ?*anyopaque, object: ?*anyopaque) void {
-        qtc.KParts__PartBase_SetPartObject(@ptrCast(self), @ptrCast(object));
+    pub fn SetPartObject(self: KParts__PartBase, object: anytype) void {
+        comptime _ = @TypeOf(object)._is_QObject;
+        qtc.KParts__PartBase_SetPartObject(@ptrCast(self.ptr), @ptrCast(object.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-partbase.html#partObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
-    pub fn PartObject(self: ?*anyopaque) QtC.QObject {
-        return qtc.KParts__PartBase_PartObject(@ptrCast(self));
+    pub fn PartObject(self: KParts__PartBase) QObject {
+        return .{ .ptr = qtc.KParts__PartBase_PartObject(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from KXMLGUIClient
@@ -39,16 +59,16 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn Action(self: ?*anyopaque, name: []const u8) QtC.QAction {
+    pub fn Action(self: KParts__PartBase, name: []const u8) QAction {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.KXMLGUIClient_Action(@ptrCast(self), name_str);
+        return .{ .ptr = qtc.KXMLGUIClient_Action(@ptrCast(self.ptr), name_str) };
     }
 
     /// Inherited from KXMLGUIClient
@@ -57,12 +77,13 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
-    /// ` doc: QtC.QDomDocument `
+    /// ` doc: QDomDocument `
     ///
-    pub fn SetXMLGUIBuildDocument(self: ?*anyopaque, doc: ?*anyopaque) void {
-        qtc.KXMLGUIClient_SetXMLGUIBuildDocument(@ptrCast(self), @ptrCast(doc));
+    pub fn SetXMLGUIBuildDocument(self: KParts__PartBase, doc: anytype) void {
+        comptime _ = @TypeOf(doc)._is_QDomDocument;
+        qtc.KXMLGUIClient_SetXMLGUIBuildDocument(@ptrCast(self.ptr), @ptrCast(doc.ptr));
     }
 
     /// Inherited from KXMLGUIClient
@@ -71,10 +92,10 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
-    pub fn XmlguiBuildDocument(self: ?*anyopaque) QtC.QDomDocument {
-        return qtc.KXMLGUIClient_XmlguiBuildDocument(@ptrCast(self));
+    pub fn XmlguiBuildDocument(self: KParts__PartBase) QDomDocument {
+        return .{ .ptr = qtc.KXMLGUIClient_XmlguiBuildDocument(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from KXMLGUIClient
@@ -83,12 +104,13 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
-    /// ` factory: QtC.KXMLGUIFactory `
+    /// ` factory: KXMLGUIFactory `
     ///
-    pub fn SetFactory(self: ?*anyopaque, factory: ?*anyopaque) void {
-        qtc.KXMLGUIClient_SetFactory(@ptrCast(self), @ptrCast(factory));
+    pub fn SetFactory(self: KParts__PartBase, factory: anytype) void {
+        comptime _ = @TypeOf(factory)._is_KXMLGUIFactory;
+        qtc.KXMLGUIClient_SetFactory(@ptrCast(self.ptr), @ptrCast(factory.ptr));
     }
 
     /// Inherited from KXMLGUIClient
@@ -97,10 +119,10 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
-    pub fn Factory(self: ?*anyopaque) QtC.KXMLGUIFactory {
-        return qtc.KXMLGUIClient_Factory(@ptrCast(self));
+    pub fn Factory(self: KParts__PartBase) KXMLGUIFactory {
+        return .{ .ptr = qtc.KXMLGUIClient_Factory(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from KXMLGUIClient
@@ -109,10 +131,10 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
-    pub fn ParentClient(self: ?*anyopaque) QtC.KXMLGUIClient {
-        return qtc.KXMLGUIClient_ParentClient(@ptrCast(self));
+    pub fn ParentClient(self: KParts__PartBase) KXMLGUIClient {
+        return .{ .ptr = qtc.KXMLGUIClient_ParentClient(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from KXMLGUIClient
@@ -121,12 +143,13 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
-    /// ` child: QtC.KXMLGUIClient `
+    /// ` child: KXMLGUIClient `
     ///
-    pub fn InsertChildClient(self: ?*anyopaque, child: ?*anyopaque) void {
-        qtc.KXMLGUIClient_InsertChildClient(@ptrCast(self), @ptrCast(child));
+    pub fn InsertChildClient(self: KParts__PartBase, child: anytype) void {
+        comptime _ = @TypeOf(child)._is_KXMLGUIClient;
+        qtc.KXMLGUIClient_InsertChildClient(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
 
     /// Inherited from KXMLGUIClient
@@ -135,12 +158,13 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
-    /// ` child: QtC.KXMLGUIClient `
+    /// ` child: KXMLGUIClient `
     ///
-    pub fn RemoveChildClient(self: ?*anyopaque, child: ?*anyopaque) void {
-        qtc.KXMLGUIClient_RemoveChildClient(@ptrCast(self), @ptrCast(child));
+    pub fn RemoveChildClient(self: KParts__PartBase, child: anytype) void {
+        comptime _ = @TypeOf(child)._is_KXMLGUIClient;
+        qtc.KXMLGUIClient_RemoveChildClient(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
 
     /// Inherited from KXMLGUIClient
@@ -149,16 +173,17 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ChildClients(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KXMLGUIClient {
-        const _arr: qtc.libqt_list = qtc.KXMLGUIClient_ChildClients(@ptrCast(self));
+    pub fn ChildClients(self: KParts__PartBase, allocator: std.mem.Allocator) []KXMLGUIClient {
+        const _arr: qtc.libqt_list = qtc.KXMLGUIClient_ChildClients(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.KXMLGUIClient, _arr.len) catch @panic("kparts__partbase.ChildClients: Memory allocation failed");
+        const _ret = allocator.alloc(KXMLGUIClient, _arr.len) catch @panic("kparts__partbase.ChildClients: Memory allocation failed");
         const _data: [*]QtC.KXMLGUIClient = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -168,12 +193,13 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
-    /// ` builder: QtC.KXMLGUIBuilder `
+    /// ` builder: KXMLGUIBuilder `
     ///
-    pub fn SetClientBuilder(self: ?*anyopaque, builder: ?*anyopaque) void {
-        qtc.KXMLGUIClient_SetClientBuilder(@ptrCast(self), @ptrCast(builder));
+    pub fn SetClientBuilder(self: KParts__PartBase, builder: anytype) void {
+        comptime _ = @TypeOf(builder)._is_KXMLGUIBuilder;
+        qtc.KXMLGUIClient_SetClientBuilder(@ptrCast(self.ptr), @ptrCast(builder.ptr));
     }
 
     /// Inherited from KXMLGUIClient
@@ -182,10 +208,10 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
-    pub fn ClientBuilder(self: ?*anyopaque) QtC.KXMLGUIBuilder {
-        return qtc.KXMLGUIClient_ClientBuilder(@ptrCast(self));
+    pub fn ClientBuilder(self: KParts__PartBase) KXMLGUIBuilder {
+        return .{ .ptr = qtc.KXMLGUIClient_ClientBuilder(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from KXMLGUIClient
@@ -194,10 +220,10 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
-    pub fn ReloadXML(self: ?*anyopaque) void {
-        qtc.KXMLGUIClient_ReloadXML(@ptrCast(self));
+    pub fn ReloadXML(self: KParts__PartBase) void {
+        qtc.KXMLGUIClient_ReloadXML(@ptrCast(self.ptr));
     }
 
     /// Inherited from KXMLGUIClient
@@ -206,13 +232,13 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
     /// ` name: []const u8 `
     ///
-    /// ` actionList: []QtC.QAction `
+    /// ` actionList: []QAction `
     ///
-    pub fn PlugActionList(self: ?*anyopaque, name: []const u8, actionList: []?*anyopaque) void {
+    pub fn PlugActionList(self: KParts__PartBase, name: []const u8, actionList: []QAction) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -221,7 +247,7 @@ pub const kparts__partbase = struct {
             .len = actionList.len,
             .data = @ptrCast(actionList.ptr),
         };
-        qtc.KXMLGUIClient_PlugActionList(@ptrCast(self), name_str, actionList_list);
+        qtc.KXMLGUIClient_PlugActionList(@ptrCast(self.ptr), name_str, actionList_list);
     }
 
     /// Inherited from KXMLGUIClient
@@ -230,16 +256,16 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn UnplugActionList(self: ?*anyopaque, name: []const u8) void {
+    pub fn UnplugActionList(self: KParts__PartBase, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.KXMLGUIClient_UnplugActionList(@ptrCast(self), name_str);
+        qtc.KXMLGUIClient_UnplugActionList(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from KXMLGUIClient
@@ -248,21 +274,20 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` files: []const []const u8 `
     ///
     /// ` doc: []const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn FindMostRecentXMLFile(files: []const []const u8, doc: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn FindMostRecentXMLFile(allocator: std.mem.Allocator, files: []const []const u8, doc: []const u8) []const u8 {
         const files_arr = allocator.alloc(qtc.libqt_string, files.len) catch @panic("kparts__partbase.FindMostRecentXMLFile: Memory allocation failed");
         defer allocator.free(files_arr);
-        for (files, 0..files.len) |item, i| {
+        for (files, 0..files.len) |item, i|
             files_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const files_list = qtc.libqt_list{
             .len = files.len,
             .data = files_arr.ptr,
@@ -284,13 +309,13 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
     /// ` state: []const u8 `
     ///
     /// ` action: []const u8 `
     ///
-    pub fn AddStateActionEnabled(self: ?*anyopaque, state: []const u8, action: []const u8) void {
+    pub fn AddStateActionEnabled(self: KParts__PartBase, state: []const u8, action: []const u8) void {
         const state_str = qtc.libqt_string{
             .len = state.len,
             .data = state.ptr,
@@ -299,7 +324,7 @@ pub const kparts__partbase = struct {
             .len = action.len,
             .data = action.ptr,
         };
-        qtc.KXMLGUIClient_AddStateActionEnabled(@ptrCast(self), state_str, action_str);
+        qtc.KXMLGUIClient_AddStateActionEnabled(@ptrCast(self.ptr), state_str, action_str);
     }
 
     /// Inherited from KXMLGUIClient
@@ -308,13 +333,13 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
     /// ` state: []const u8 `
     ///
     /// ` action: []const u8 `
     ///
-    pub fn AddStateActionDisabled(self: ?*anyopaque, state: []const u8, action: []const u8) void {
+    pub fn AddStateActionDisabled(self: KParts__PartBase, state: []const u8, action: []const u8) void {
         const state_str = qtc.libqt_string{
             .len = state.len,
             .data = state.ptr,
@@ -323,7 +348,7 @@ pub const kparts__partbase = struct {
             .len = action.len,
             .data = action.ptr,
         };
-        qtc.KXMLGUIClient_AddStateActionDisabled(@ptrCast(self), state_str, action_str);
+        qtc.KXMLGUIClient_AddStateActionDisabled(@ptrCast(self.ptr), state_str, action_str);
     }
 
     /// Inherited from KXMLGUIClient
@@ -332,16 +357,16 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
     /// ` state: []const u8 `
     ///
-    pub fn GetActionsToChangeForState(self: ?*anyopaque, state: []const u8) QtC.KXMLGUIClient__StateChange {
+    pub fn GetActionsToChangeForState(self: KParts__PartBase, state: []const u8) KXMLGUIClient__StateChange {
         const state_str = qtc.libqt_string{
             .len = state.len,
             .data = state.ptr,
         };
-        return qtc.KXMLGUIClient_GetActionsToChangeForState(@ptrCast(self), state_str);
+        return .{ .ptr = qtc.KXMLGUIClient_GetActionsToChangeForState(@ptrCast(self.ptr), state_str) };
     }
 
     /// Inherited from KXMLGUIClient
@@ -350,12 +375,13 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn BeginXMLPlug(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KXMLGUIClient_BeginXMLPlug(@ptrCast(self), @ptrCast(param1));
+    pub fn BeginXMLPlug(self: KParts__PartBase, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        qtc.KXMLGUIClient_BeginXMLPlug(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from KXMLGUIClient
@@ -364,10 +390,10 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
-    pub fn EndXMLPlug(self: ?*anyopaque) void {
-        qtc.KXMLGUIClient_EndXMLPlug(@ptrCast(self));
+    pub fn EndXMLPlug(self: KParts__PartBase) void {
+        qtc.KXMLGUIClient_EndXMLPlug(@ptrCast(self.ptr));
     }
 
     /// Inherited from KXMLGUIClient
@@ -376,12 +402,13 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn PrepareXMLUnplug(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KXMLGUIClient_PrepareXMLUnplug(@ptrCast(self), @ptrCast(param1));
+    pub fn PrepareXMLUnplug(self: KParts__PartBase, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        qtc.KXMLGUIClient_PrepareXMLUnplug(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from KXMLGUIClient
@@ -390,13 +417,13 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
     /// ` xmlfile: []const u8 `
     ///
     /// ` localxmlfile: []const u8 `
     ///
-    pub fn ReplaceXMLFile(self: ?*anyopaque, xmlfile: []const u8, localxmlfile: []const u8) void {
+    pub fn ReplaceXMLFile(self: KParts__PartBase, xmlfile: []const u8, localxmlfile: []const u8) void {
         const xmlfile_str = qtc.libqt_string{
             .len = xmlfile.len,
             .data = xmlfile.ptr,
@@ -405,7 +432,7 @@ pub const kparts__partbase = struct {
             .len = localxmlfile.len,
             .data = localxmlfile.ptr,
         };
-        qtc.KXMLGUIClient_ReplaceXMLFile(@ptrCast(self), xmlfile_str, localxmlfile_str);
+        qtc.KXMLGUIClient_ReplaceXMLFile(@ptrCast(self.ptr), xmlfile_str, localxmlfile_str);
     }
 
     /// Inherited from KXMLGUIClient
@@ -414,11 +441,11 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` xml: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FindVersionNumber(xml: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` xml: []const u8 `
+    ///
+    pub fn FindVersionNumber(allocator: std.mem.Allocator, xml: []const u8) []const u8 {
         const xml_str = qtc.libqt_string{
             .len = xml.len,
             .data = xml.ptr,
@@ -436,7 +463,7 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
     /// ` xmlfile: []const u8 `
     ///
@@ -444,7 +471,7 @@ pub const kparts__partbase = struct {
     ///
     /// ` merge: bool `
     ///
-    pub fn ReplaceXMLFile3(self: ?*anyopaque, xmlfile: []const u8, localxmlfile: []const u8, merge: bool) void {
+    pub fn ReplaceXMLFile3(self: KParts__PartBase, xmlfile: []const u8, localxmlfile: []const u8, merge: bool) void {
         const xmlfile_str = qtc.libqt_string{
             .len = xmlfile.len,
             .data = xmlfile.ptr,
@@ -453,7 +480,7 @@ pub const kparts__partbase = struct {
             .len = localxmlfile.len,
             .data = localxmlfile.ptr,
         };
-        qtc.KXMLGUIClient_ReplaceXMLFile3(@ptrCast(self), xmlfile_str, localxmlfile_str, merge);
+        qtc.KXMLGUIClient_ReplaceXMLFile3(@ptrCast(self.ptr), xmlfile_str, localxmlfile_str, merge);
     }
 
     /// Inherited from KXMLGUIClient
@@ -464,12 +491,13 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
-    /// ` element: QtC.QDomElement `
+    /// ` element: QDomElement `
     ///
-    pub fn Action2(self: ?*anyopaque, element: ?*anyopaque) QtC.QAction {
-        return qtc.KParts__PartBase_Action2(@ptrCast(self), @ptrCast(element));
+    pub fn Action2(self: KParts__PartBase, element: anytype) QAction {
+        comptime _ = @TypeOf(element)._is_QDomElement;
+        return .{ .ptr = qtc.KParts__PartBase_Action2(@ptrCast(self.ptr), @ptrCast(element.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperAction2` instead
@@ -484,12 +512,13 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
-    /// ` element: QtC.QDomElement `
+    /// ` element: QDomElement `
     ///
-    pub fn SuperAction2(self: ?*anyopaque, element: ?*anyopaque) QtC.QAction {
-        return qtc.KParts__PartBase_SuperAction2(@ptrCast(self), @ptrCast(element));
+    pub fn SuperAction2(self: KParts__PartBase, element: anytype) QAction {
+        comptime _ = @TypeOf(element)._is_QDomElement;
+        return .{ .ptr = qtc.KParts__PartBase_SuperAction2(@ptrCast(self.ptr), @ptrCast(element.ptr)) };
     }
 
     /// Inherited from KXMLGUIClient
@@ -500,12 +529,12 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__PartBase`
+    /// ` self: KParts__PartBase`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__PartBase, element: QtC.QDomElement) callconv(.c) QtC.QAction `
+    /// ` callback: *const fn (self: KParts__PartBase, element: QDomElement) callconv(.c) QAction `
     ///
-    pub fn OnAction2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QAction) void {
-        qtc.KParts__PartBase_OnAction2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAction2(self: KParts__PartBase, callback: *const fn (KParts__PartBase, QDomElement) callconv(.c) QAction) void {
+        qtc.KParts__PartBase_OnAction2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -516,10 +545,10 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
-    pub fn ActionCollection(self: ?*anyopaque) QtC.KActionCollection {
-        return qtc.KParts__PartBase_ActionCollection(@ptrCast(self));
+    pub fn ActionCollection(self: KParts__PartBase) KActionCollection {
+        return .{ .ptr = qtc.KParts__PartBase_ActionCollection(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperActionCollection` instead
@@ -534,10 +563,10 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
-    pub fn SuperActionCollection(self: ?*anyopaque) QtC.KActionCollection {
-        return qtc.KParts__PartBase_SuperActionCollection(@ptrCast(self));
+    pub fn SuperActionCollection(self: KParts__PartBase) KActionCollection {
+        return .{ .ptr = qtc.KParts__PartBase_SuperActionCollection(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from KXMLGUIClient
@@ -548,12 +577,12 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__PartBase`
+    /// ` self: KParts__PartBase`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.KActionCollection `
+    /// ` callback: *const fn () callconv(.c) KActionCollection `
     ///
-    pub fn OnActionCollection(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.KActionCollection) void {
-        qtc.KParts__PartBase_OnActionCollection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnActionCollection(self: KParts__PartBase, callback: *const fn () callconv(.c) KActionCollection) void {
+        qtc.KParts__PartBase_OnActionCollection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -564,12 +593,12 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ComponentName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KParts__PartBase_ComponentName(@ptrCast(self));
+    pub fn ComponentName(self: KParts__PartBase, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KParts__PartBase_ComponentName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__partbase.ComponentName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -588,12 +617,12 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperComponentName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KParts__PartBase_SuperComponentName(@ptrCast(self));
+    pub fn SuperComponentName(self: KParts__PartBase, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KParts__PartBase_SuperComponentName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__partbase.ComponentName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -606,16 +635,16 @@ pub const kparts__partbase = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__PartBase`
+    /// ` self: KParts__PartBase`
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnComponentName(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.KParts__PartBase_OnComponentName(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnComponentName(self: KParts__PartBase, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.KParts__PartBase_OnComponentName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -626,10 +655,10 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
-    pub fn DomDocument(self: ?*anyopaque) QtC.QDomDocument {
-        return qtc.KParts__PartBase_DomDocument(@ptrCast(self));
+    pub fn DomDocument(self: KParts__PartBase) QDomDocument {
+        return .{ .ptr = qtc.KParts__PartBase_DomDocument(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperDomDocument` instead
@@ -644,10 +673,10 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
-    pub fn SuperDomDocument(self: ?*anyopaque) QtC.QDomDocument {
-        return qtc.KParts__PartBase_SuperDomDocument(@ptrCast(self));
+    pub fn SuperDomDocument(self: KParts__PartBase) QDomDocument {
+        return .{ .ptr = qtc.KParts__PartBase_SuperDomDocument(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from KXMLGUIClient
@@ -658,12 +687,12 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__PartBase`
+    /// ` self: KParts__PartBase`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QDomDocument `
+    /// ` callback: *const fn () callconv(.c) QDomDocument `
     ///
-    pub fn OnDomDocument(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QDomDocument) void {
-        qtc.KParts__PartBase_OnDomDocument(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDomDocument(self: KParts__PartBase, callback: *const fn () callconv(.c) QDomDocument) void {
+        qtc.KParts__PartBase_OnDomDocument(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -674,12 +703,12 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn XmlFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KParts__PartBase_XmlFile(@ptrCast(self));
+    pub fn XmlFile(self: KParts__PartBase, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KParts__PartBase_XmlFile(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__partbase.XmlFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -698,12 +727,12 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperXmlFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KParts__PartBase_SuperXmlFile(@ptrCast(self));
+    pub fn SuperXmlFile(self: KParts__PartBase, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KParts__PartBase_SuperXmlFile(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__partbase.XmlFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -716,16 +745,16 @@ pub const kparts__partbase = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__PartBase`
+    /// ` self: KParts__PartBase`
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnXmlFile(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.KParts__PartBase_OnXmlFile(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnXmlFile(self: KParts__PartBase, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.KParts__PartBase_OnXmlFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -736,12 +765,12 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LocalXMLFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KParts__PartBase_LocalXMLFile(@ptrCast(self));
+    pub fn LocalXMLFile(self: KParts__PartBase, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KParts__PartBase_LocalXMLFile(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__partbase.LocalXMLFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -760,12 +789,12 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperLocalXMLFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KParts__PartBase_SuperLocalXMLFile(@ptrCast(self));
+    pub fn SuperLocalXMLFile(self: KParts__PartBase, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KParts__PartBase_SuperLocalXMLFile(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__partbase.LocalXMLFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -778,16 +807,16 @@ pub const kparts__partbase = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__PartBase`
+    /// ` self: KParts__PartBase`
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnLocalXMLFile(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.KParts__PartBase_OnLocalXMLFile(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLocalXMLFile(self: KParts__PartBase, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.KParts__PartBase_OnLocalXMLFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -798,13 +827,13 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
     /// ` componentName: []const u8 `
     ///
     /// ` componentDisplayName: []const u8 `
     ///
-    pub fn SetComponentName(self: ?*anyopaque, componentName: []const u8, componentDisplayName: []const u8) void {
+    pub fn SetComponentName(self: KParts__PartBase, componentName: []const u8, componentDisplayName: []const u8) void {
         const componentName_str = qtc.libqt_string{
             .len = componentName.len,
             .data = componentName.ptr,
@@ -813,7 +842,7 @@ pub const kparts__partbase = struct {
             .len = componentDisplayName.len,
             .data = componentDisplayName.ptr,
         };
-        qtc.KParts__PartBase_SetComponentName(@ptrCast(self), componentName_str, componentDisplayName_str);
+        qtc.KParts__PartBase_SetComponentName(@ptrCast(self.ptr), componentName_str, componentDisplayName_str);
     }
 
     /// ### DEPRECATED: Use `SuperSetComponentName` instead
@@ -828,13 +857,13 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
     /// ` componentName: []const u8 `
     ///
     /// ` componentDisplayName: []const u8 `
     ///
-    pub fn SuperSetComponentName(self: ?*anyopaque, componentName: []const u8, componentDisplayName: []const u8) void {
+    pub fn SuperSetComponentName(self: KParts__PartBase, componentName: []const u8, componentDisplayName: []const u8) void {
         const componentName_str = qtc.libqt_string{
             .len = componentName.len,
             .data = componentName.ptr,
@@ -843,7 +872,7 @@ pub const kparts__partbase = struct {
             .len = componentDisplayName.len,
             .data = componentDisplayName.ptr,
         };
-        qtc.KParts__PartBase_SuperSetComponentName(@ptrCast(self), componentName_str, componentDisplayName_str);
+        qtc.KParts__PartBase_SuperSetComponentName(@ptrCast(self.ptr), componentName_str, componentDisplayName_str);
     }
 
     /// Inherited from KXMLGUIClient
@@ -854,12 +883,12 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__PartBase`
+    /// ` self: KParts__PartBase`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__PartBase, componentName: [*:0]const u8, componentDisplayName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__PartBase, componentName: [*:0]const u8, componentDisplayName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetComponentName(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
-        qtc.KParts__PartBase_OnSetComponentName(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetComponentName(self: KParts__PartBase, callback: *const fn (KParts__PartBase, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
+        qtc.KParts__PartBase_OnSetComponentName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -870,7 +899,7 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
     /// ` file: []const u8 `
     ///
@@ -878,12 +907,12 @@ pub const kparts__partbase = struct {
     ///
     /// ` setXMLDoc: bool `
     ///
-    pub fn SetXMLFile(self: ?*anyopaque, file: []const u8, merge: bool, setXMLDoc: bool) void {
+    pub fn SetXMLFile(self: KParts__PartBase, file: []const u8, merge: bool, setXMLDoc: bool) void {
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
         };
-        qtc.KParts__PartBase_SetXMLFile(@ptrCast(self), file_str, merge, setXMLDoc);
+        qtc.KParts__PartBase_SetXMLFile(@ptrCast(self.ptr), file_str, merge, setXMLDoc);
     }
 
     /// ### DEPRECATED: Use `SuperSetXMLFile` instead
@@ -898,7 +927,7 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
     /// ` file: []const u8 `
     ///
@@ -906,12 +935,12 @@ pub const kparts__partbase = struct {
     ///
     /// ` setXMLDoc: bool `
     ///
-    pub fn SuperSetXMLFile(self: ?*anyopaque, file: []const u8, merge: bool, setXMLDoc: bool) void {
+    pub fn SuperSetXMLFile(self: KParts__PartBase, file: []const u8, merge: bool, setXMLDoc: bool) void {
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
         };
-        qtc.KParts__PartBase_SuperSetXMLFile(@ptrCast(self), file_str, merge, setXMLDoc);
+        qtc.KParts__PartBase_SuperSetXMLFile(@ptrCast(self.ptr), file_str, merge, setXMLDoc);
     }
 
     /// Inherited from KXMLGUIClient
@@ -922,12 +951,12 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__PartBase`
+    /// ` self: KParts__PartBase`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__PartBase, file: [*:0]const u8, merge: bool, setXMLDoc: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__PartBase, file: [*:0]const u8, merge: bool, setXMLDoc: bool) callconv(.c) void `
     ///
-    pub fn OnSetXMLFile(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, bool, bool) callconv(.c) void) void {
-        qtc.KParts__PartBase_OnSetXMLFile(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetXMLFile(self: KParts__PartBase, callback: *const fn (KParts__PartBase, [*:0]const u8, bool, bool) callconv(.c) void) void {
+        qtc.KParts__PartBase_OnSetXMLFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -938,16 +967,16 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
     /// ` file: []const u8 `
     ///
-    pub fn SetLocalXMLFile(self: ?*anyopaque, file: []const u8) void {
+    pub fn SetLocalXMLFile(self: KParts__PartBase, file: []const u8) void {
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
         };
-        qtc.KParts__PartBase_SetLocalXMLFile(@ptrCast(self), file_str);
+        qtc.KParts__PartBase_SetLocalXMLFile(@ptrCast(self.ptr), file_str);
     }
 
     /// ### DEPRECATED: Use `SuperSetLocalXMLFile` instead
@@ -962,16 +991,16 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
     /// ` file: []const u8 `
     ///
-    pub fn SuperSetLocalXMLFile(self: ?*anyopaque, file: []const u8) void {
+    pub fn SuperSetLocalXMLFile(self: KParts__PartBase, file: []const u8) void {
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
         };
-        qtc.KParts__PartBase_SuperSetLocalXMLFile(@ptrCast(self), file_str);
+        qtc.KParts__PartBase_SuperSetLocalXMLFile(@ptrCast(self.ptr), file_str);
     }
 
     /// Inherited from KXMLGUIClient
@@ -982,12 +1011,12 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__PartBase`
+    /// ` self: KParts__PartBase`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__PartBase, file: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__PartBase, file: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetLocalXMLFile(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KParts__PartBase_OnSetLocalXMLFile(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetLocalXMLFile(self: KParts__PartBase, callback: *const fn (KParts__PartBase, [*:0]const u8) callconv(.c) void) void {
+        qtc.KParts__PartBase_OnSetLocalXMLFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -998,18 +1027,18 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
     /// ` document: []const u8 `
     ///
     /// ` merge: bool `
     ///
-    pub fn SetXML(self: ?*anyopaque, document: []const u8, merge: bool) void {
+    pub fn SetXML(self: KParts__PartBase, document: []const u8, merge: bool) void {
         const document_str = qtc.libqt_string{
             .len = document.len,
             .data = document.ptr,
         };
-        qtc.KParts__PartBase_SetXML(@ptrCast(self), document_str, merge);
+        qtc.KParts__PartBase_SetXML(@ptrCast(self.ptr), document_str, merge);
     }
 
     /// ### DEPRECATED: Use `SuperSetXML` instead
@@ -1024,18 +1053,18 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
     /// ` document: []const u8 `
     ///
     /// ` merge: bool `
     ///
-    pub fn SuperSetXML(self: ?*anyopaque, document: []const u8, merge: bool) void {
+    pub fn SuperSetXML(self: KParts__PartBase, document: []const u8, merge: bool) void {
         const document_str = qtc.libqt_string{
             .len = document.len,
             .data = document.ptr,
         };
-        qtc.KParts__PartBase_SuperSetXML(@ptrCast(self), document_str, merge);
+        qtc.KParts__PartBase_SuperSetXML(@ptrCast(self.ptr), document_str, merge);
     }
 
     /// Inherited from KXMLGUIClient
@@ -1046,12 +1075,12 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__PartBase`
+    /// ` self: KParts__PartBase`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__PartBase, document: [*:0]const u8, merge: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__PartBase, document: [*:0]const u8, merge: bool) callconv(.c) void `
     ///
-    pub fn OnSetXML(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, bool) callconv(.c) void) void {
-        qtc.KParts__PartBase_OnSetXML(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetXML(self: KParts__PartBase, callback: *const fn (KParts__PartBase, [*:0]const u8, bool) callconv(.c) void) void {
+        qtc.KParts__PartBase_OnSetXML(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -1062,14 +1091,15 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
-    /// ` document: QtC.QDomDocument `
+    /// ` document: QDomDocument `
     ///
     /// ` merge: bool `
     ///
-    pub fn SetDOMDocument(self: ?*anyopaque, document: ?*anyopaque, merge: bool) void {
-        qtc.KParts__PartBase_SetDOMDocument(@ptrCast(self), @ptrCast(document), merge);
+    pub fn SetDOMDocument(self: KParts__PartBase, document: anytype, merge: bool) void {
+        comptime _ = @TypeOf(document)._is_QDomDocument;
+        qtc.KParts__PartBase_SetDOMDocument(@ptrCast(self.ptr), @ptrCast(document.ptr), merge);
     }
 
     /// ### DEPRECATED: Use `SuperSetDOMDocument` instead
@@ -1084,14 +1114,15 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
-    /// ` document: QtC.QDomDocument `
+    /// ` document: QDomDocument `
     ///
     /// ` merge: bool `
     ///
-    pub fn SuperSetDOMDocument(self: ?*anyopaque, document: ?*anyopaque, merge: bool) void {
-        qtc.KParts__PartBase_SuperSetDOMDocument(@ptrCast(self), @ptrCast(document), merge);
+    pub fn SuperSetDOMDocument(self: KParts__PartBase, document: anytype, merge: bool) void {
+        comptime _ = @TypeOf(document)._is_QDomDocument;
+        qtc.KParts__PartBase_SuperSetDOMDocument(@ptrCast(self.ptr), @ptrCast(document.ptr), merge);
     }
 
     /// Inherited from KXMLGUIClient
@@ -1102,12 +1133,12 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__PartBase`
+    /// ` self: KParts__PartBase`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__PartBase, document: QtC.QDomDocument, merge: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__PartBase, document: QDomDocument, merge: bool) callconv(.c) void `
     ///
-    pub fn OnSetDOMDocument(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KParts__PartBase_OnSetDOMDocument(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetDOMDocument(self: KParts__PartBase, callback: *const fn (KParts__PartBase, QDomDocument, bool) callconv(.c) void) void {
+        qtc.KParts__PartBase_OnSetDOMDocument(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -1118,18 +1149,18 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
     /// ` newstate: []const u8 `
     ///
     /// ` reverse: kxmlguiclient_enums.ReverseStateChange `
     ///
-    pub fn StateChanged(self: ?*anyopaque, newstate: []const u8, reverse: i32) void {
+    pub fn StateChanged(self: KParts__PartBase, newstate: []const u8, reverse: i32) void {
         const newstate_str = qtc.libqt_string{
             .len = newstate.len,
             .data = newstate.ptr,
         };
-        qtc.KParts__PartBase_StateChanged(@ptrCast(self), newstate_str, @bitCast(reverse));
+        qtc.KParts__PartBase_StateChanged(@ptrCast(self.ptr), newstate_str, @bitCast(reverse));
     }
 
     /// ### DEPRECATED: Use `SuperStateChanged` instead
@@ -1144,18 +1175,18 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
     /// ` newstate: []const u8 `
     ///
     /// ` reverse: kxmlguiclient_enums.ReverseStateChange `
     ///
-    pub fn SuperStateChanged(self: ?*anyopaque, newstate: []const u8, reverse: i32) void {
+    pub fn SuperStateChanged(self: KParts__PartBase, newstate: []const u8, reverse: i32) void {
         const newstate_str = qtc.libqt_string{
             .len = newstate.len,
             .data = newstate.ptr,
         };
-        qtc.KParts__PartBase_SuperStateChanged(@ptrCast(self), newstate_str, @bitCast(reverse));
+        qtc.KParts__PartBase_SuperStateChanged(@ptrCast(self.ptr), newstate_str, @bitCast(reverse));
     }
 
     /// Inherited from KXMLGUIClient
@@ -1166,12 +1197,12 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__PartBase`
+    /// ` self: KParts__PartBase`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__PartBase, newstate: [*:0]const u8, reverse: kxmlguiclient_enums.ReverseStateChange) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__PartBase, newstate: [*:0]const u8, reverse: kxmlguiclient_enums.ReverseStateChange) callconv(.c) void `
     ///
-    pub fn OnStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) void) void {
-        qtc.KParts__PartBase_OnStateChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnStateChanged(self: KParts__PartBase, callback: *const fn (KParts__PartBase, [*:0]const u8, i32) callconv(.c) void) void {
+        qtc.KParts__PartBase_OnStateChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -1182,12 +1213,12 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StandardsXmlFileLocation(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KParts__PartBase_StandardsXmlFileLocation(@ptrCast(self));
+    pub fn StandardsXmlFileLocation(self: KParts__PartBase, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KParts__PartBase_StandardsXmlFileLocation(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__partbase.StandardsXmlFileLocation: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1206,12 +1237,12 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperStandardsXmlFileLocation(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KParts__PartBase_SuperStandardsXmlFileLocation(@ptrCast(self));
+    pub fn SuperStandardsXmlFileLocation(self: KParts__PartBase, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KParts__PartBase_SuperStandardsXmlFileLocation(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__partbase.StandardsXmlFileLocation: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1224,16 +1255,16 @@ pub const kparts__partbase = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__PartBase`
+    /// ` self: KParts__PartBase`
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnStandardsXmlFileLocation(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.KParts__PartBase_OnStandardsXmlFileLocation(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnStandardsXmlFileLocation(self: KParts__PartBase, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.KParts__PartBase_OnStandardsXmlFileLocation(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -1244,10 +1275,10 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
-    pub fn LoadStandardsXmlFile(self: ?*anyopaque) void {
-        qtc.KParts__PartBase_LoadStandardsXmlFile(@ptrCast(self));
+    pub fn LoadStandardsXmlFile(self: KParts__PartBase) void {
+        qtc.KParts__PartBase_LoadStandardsXmlFile(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperLoadStandardsXmlFile` instead
@@ -1262,10 +1293,10 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
-    pub fn SuperLoadStandardsXmlFile(self: ?*anyopaque) void {
-        qtc.KParts__PartBase_SuperLoadStandardsXmlFile(@ptrCast(self));
+    pub fn SuperLoadStandardsXmlFile(self: KParts__PartBase) void {
+        qtc.KParts__PartBase_SuperLoadStandardsXmlFile(@ptrCast(self.ptr));
     }
 
     /// Inherited from KXMLGUIClient
@@ -1276,12 +1307,12 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__PartBase`
+    /// ` self: KParts__PartBase`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnLoadStandardsXmlFile(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KParts__PartBase_OnLoadStandardsXmlFile(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLoadStandardsXmlFile(self: KParts__PartBase, callback: *const fn () callconv(.c) void) void {
+        qtc.KParts__PartBase_OnLoadStandardsXmlFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -1292,9 +1323,9 @@ pub const kparts__partbase = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KParts__PartBase `
+    /// ` self: KParts__PartBase `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KParts__PartBase_Delete(@ptrCast(self));
+    pub fn Delete(self: KParts__PartBase) void {
+        qtc.KParts__PartBase_Delete(@ptrCast(self.ptr));
     }
 };

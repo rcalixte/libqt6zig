@@ -3,16 +3,24 @@ const qtc = @import("qt6c");
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/krecentdirs.html)
-pub const krecentdirs = struct {
+pub const KRecentDirs = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/krecentdirs.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KRecentDirs,
+
+    pub const _is_KRecentDirs = {};
+
     /// ### [Upstream resources](https://api.kde.org/krecentdirs.html#list)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn List(param1: []const u8, allocator: std.mem.Allocator) []const []const u8 {
+    /// ` param1: []const u8 `
+    ///
+    pub fn List(allocator: std.mem.Allocator, param1: []const u8) []const []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -20,9 +28,8 @@ pub const krecentdirs = struct {
         const _arr: qtc.libqt_list = qtc.KRecentDirs_List(param1_str);
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("krecentdirs.List: Memory allocation failed");
@@ -39,11 +46,11 @@ pub const krecentdirs = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Dir(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` param1: []const u8 `
+    ///
+    pub fn Dir(allocator: std.mem.Allocator, param1: []const u8) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,

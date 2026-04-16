@@ -4,73 +4,81 @@ const qscicommand_enums = enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
-pub const qscicommand = struct {
+pub const QsciCommand = extern struct {
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QsciCommand,
+
+    pub const _is_QsciCommand = {};
+
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciCommand `
+    /// ` self: QsciCommand `
     ///
     /// ## Returns:
     ///
     /// ` qscicommand_enums.Command `
     ///
-    pub fn Command(self: ?*anyopaque) i32 {
-        return qtc.QsciCommand_Command(@ptrCast(self));
+    pub fn Command(self: QsciCommand) i32 {
+        return qtc.QsciCommand_Command(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciCommand `
+    /// ` self: QsciCommand `
     ///
-    pub fn Execute(self: ?*anyopaque) void {
-        qtc.QsciCommand_Execute(@ptrCast(self));
+    pub fn Execute(self: QsciCommand) void {
+        qtc.QsciCommand_Execute(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciCommand `
+    /// ` self: QsciCommand `
     ///
     /// ` key: i32 `
     ///
-    pub fn SetKey(self: ?*anyopaque, key: i32) void {
-        qtc.QsciCommand_SetKey(@ptrCast(self), @bitCast(key));
+    pub fn SetKey(self: QsciCommand, key: i32) void {
+        qtc.QsciCommand_SetKey(@ptrCast(self.ptr), @bitCast(key));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciCommand `
+    /// ` self: QsciCommand `
     ///
     /// ` altkey: i32 `
     ///
-    pub fn SetAlternateKey(self: ?*anyopaque, altkey: i32) void {
-        qtc.QsciCommand_SetAlternateKey(@ptrCast(self), @bitCast(altkey));
+    pub fn SetAlternateKey(self: QsciCommand, altkey: i32) void {
+        qtc.QsciCommand_SetAlternateKey(@ptrCast(self.ptr), @bitCast(altkey));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciCommand `
+    /// ` self: QsciCommand `
     ///
-    pub fn Key(self: ?*anyopaque) i32 {
-        return qtc.QsciCommand_Key(@ptrCast(self));
+    pub fn Key(self: QsciCommand) i32 {
+        return qtc.QsciCommand_Key(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciCommand `
+    /// ` self: QsciCommand `
     ///
-    pub fn AlternateKey(self: ?*anyopaque) i32 {
-        return qtc.QsciCommand_AlternateKey(@ptrCast(self));
+    pub fn AlternateKey(self: QsciCommand) i32 {
+        return qtc.QsciCommand_AlternateKey(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
@@ -87,12 +95,12 @@ pub const qscicommand = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciCommand `
+    /// ` self: QsciCommand `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QsciCommand_Description(@ptrCast(self));
+    pub fn Description(self: QsciCommand, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QsciCommand_Description(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qscicommand.Description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -109,10 +117,10 @@ pub const qscicommand = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QsciCommand `
+    /// ` self: QsciCommand `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QsciCommand_Delete(@ptrCast(self));
+    pub fn Delete(self: QsciCommand) void {
+        qtc.QsciCommand_Delete(@ptrCast(self.ptr));
     }
 };
 

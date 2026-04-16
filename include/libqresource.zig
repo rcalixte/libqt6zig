@@ -1,14 +1,24 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QDateTime = @import("libqt6").QDateTime;
+const QLocale = @import("libqt6").QLocale;
 const qresource_enums = enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qresource.html)
-pub const qresource = struct {
+pub const QResource = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qresource.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QResource,
+
+    pub const _is_QResource = {};
+
     /// New constructs a new QResource object.
     ///
-    pub fn New() QtC.QResource {
-        return qtc.QResource_new();
+    pub fn New() QResource {
+        return .{ .ptr = qtc.QResource_new() };
     }
 
     /// New2 constructs a new QResource object.
@@ -17,13 +27,12 @@ pub const qresource = struct {
     ///
     /// ` file: []const u8 `
     ///
-    pub fn New2(file: []const u8) QtC.QResource {
+    pub fn New2(file: []const u8) QResource {
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
         };
-
-        return qtc.QResource_new2(file_str);
+        return .{ .ptr = qtc.QResource_new2(file_str) };
     }
 
     /// New3 constructs a new QResource object.
@@ -32,43 +41,43 @@ pub const qresource = struct {
     ///
     /// ` file: []const u8 `
     ///
-    /// ` locale: QtC.QLocale `
+    /// ` locale: QLocale `
     ///
-    pub fn New3(file: []const u8, locale: ?*anyopaque) QtC.QResource {
+    pub fn New3(file: []const u8, locale: anytype) QResource {
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
         };
-
-        return qtc.QResource_new3(file_str, @ptrCast(locale));
+        comptime _ = @TypeOf(locale)._is_QLocale;
+        return .{ .ptr = qtc.QResource_new3(file_str, @ptrCast(locale.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qresource.html#setFileName)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QResource `
+    /// ` self: QResource `
     ///
     /// ` file: []const u8 `
     ///
-    pub fn SetFileName(self: ?*anyopaque, file: []const u8) void {
+    pub fn SetFileName(self: QResource, file: []const u8) void {
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
         };
-        qtc.QResource_SetFileName(@ptrCast(self), file_str);
+        qtc.QResource_SetFileName(@ptrCast(self.ptr), file_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qresource.html#fileName)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QResource `
+    /// ` self: QResource `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QResource_FileName(@ptrCast(self));
+    pub fn FileName(self: QResource, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QResource_FileName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qresource.FileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -79,12 +88,12 @@ pub const qresource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QResource `
+    /// ` self: QResource `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AbsoluteFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QResource_AbsoluteFilePath(@ptrCast(self));
+    pub fn AbsoluteFilePath(self: QResource, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QResource_AbsoluteFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qresource.AbsoluteFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -95,88 +104,89 @@ pub const qresource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QResource `
+    /// ` self: QResource `
     ///
-    /// ` locale: QtC.QLocale `
+    /// ` locale: QLocale `
     ///
-    pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
-        qtc.QResource_SetLocale(@ptrCast(self), @ptrCast(locale));
+    pub fn SetLocale(self: QResource, locale: anytype) void {
+        comptime _ = @TypeOf(locale)._is_QLocale;
+        qtc.QResource_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qresource.html#locale)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QResource `
+    /// ` self: QResource `
     ///
-    pub fn Locale(self: ?*anyopaque) QtC.QLocale {
-        return qtc.QResource_Locale(@ptrCast(self));
+    pub fn Locale(self: QResource) QLocale {
+        return .{ .ptr = qtc.QResource_Locale(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qresource.html#isValid)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QResource `
+    /// ` self: QResource `
     ///
-    pub fn IsValid(self: ?*anyopaque) bool {
-        return qtc.QResource_IsValid(@ptrCast(self));
+    pub fn IsValid(self: QResource) bool {
+        return qtc.QResource_IsValid(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qresource.html#compressionAlgorithm)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QResource `
+    /// ` self: QResource `
     ///
     /// ## Returns:
     ///
     /// ` qresource_enums.Compression `
     ///
-    pub fn CompressionAlgorithm(self: ?*anyopaque) i32 {
-        return qtc.QResource_CompressionAlgorithm(@ptrCast(self));
+    pub fn CompressionAlgorithm(self: QResource) i32 {
+        return qtc.QResource_CompressionAlgorithm(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qresource.html#size)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QResource `
+    /// ` self: QResource `
     ///
-    pub fn Size(self: ?*anyopaque) i64 {
-        return qtc.QResource_Size(@ptrCast(self));
+    pub fn Size(self: QResource) i64 {
+        return qtc.QResource_Size(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qresource.html#data)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QResource `
+    /// ` self: QResource `
     ///
-    pub fn Data(self: ?*anyopaque) ?*const u8 {
-        return @ptrCast(qtc.QResource_Data(@ptrCast(self)));
+    pub fn Data(self: QResource) ?*const u8 {
+        return @ptrCast(qtc.QResource_Data(@ptrCast(self.ptr)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qresource.html#uncompressedSize)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QResource `
+    /// ` self: QResource `
     ///
-    pub fn UncompressedSize(self: ?*anyopaque) i64 {
-        return qtc.QResource_UncompressedSize(@ptrCast(self));
+    pub fn UncompressedSize(self: QResource) i64 {
+        return qtc.QResource_UncompressedSize(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qresource.html#uncompressedData)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QResource `
+    /// ` self: QResource `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UncompressedData(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QResource_UncompressedData(@ptrCast(self));
+    pub fn UncompressedData(self: QResource, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QResource_UncompressedData(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qresource.UncompressedData: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -187,10 +197,10 @@ pub const qresource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QResource `
+    /// ` self: QResource `
     ///
-    pub fn LastModified(self: ?*anyopaque) QtC.QDateTime {
-        return qtc.QResource_LastModified(@ptrCast(self));
+    pub fn LastModified(self: QResource) QDateTime {
+        return .{ .ptr = qtc.QResource_LastModified(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qresource.html#registerResource)
@@ -323,10 +333,10 @@ pub const qresource = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QResource `
+    /// ` self: QResource `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QResource_Delete(@ptrCast(self));
+    pub fn Delete(self: QResource) void {
+        qtc.QResource_Delete(@ptrCast(self.ptr));
     }
 };
 

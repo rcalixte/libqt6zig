@@ -2,7 +2,15 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 
 /// ### [Upstream resources](https://api.kde.org/khelpclient.html)
-pub const khelpclient = struct {
+pub const KHelpClient = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/khelpclient.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KHelpClient,
+
+    pub const _is_KHelpClient = {};
+
     /// ### [Upstream resources](https://api.kde.org/khelpclient.html#invokeHelp)
     ///
     /// ## Parameter(s):

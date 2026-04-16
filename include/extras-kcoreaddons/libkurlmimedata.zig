@@ -1,22 +1,32 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QMimeData = @import("libqt6").QMimeData;
+const QUrl = @import("libqt6").QUrl;
 const kurlmimedata_enums = enums;
 const std = @import("std");
-const arraymap_constu8_constu8 = std.array_hash_map.String([]const u8);
+const ArrayMap_constu8_constu8 = std.array_hash_map.String([]const u8);
 
 /// ### [Upstream resources](https://api.kde.org/kurlmimedata.html)
-pub const kurlmimedata = struct {
+pub const KUrlMimeData = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kurlmimedata.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KUrlMimeData,
+
+    pub const _is_KUrlMimeData = {};
+
     /// ### [Upstream resources](https://api.kde.org/kurlmimedata.html#setUrls)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []QtC.QUrl `
+    /// ` param1: []QUrl `
     ///
-    /// ` param2: []QtC.QUrl `
+    /// ` param2: []QUrl `
     ///
-    /// ` param3: QtC.QMimeData `
+    /// ` param3: QMimeData `
     ///
-    pub fn SetUrls(param1: []QtC.QUrl, param2: []QtC.QUrl, param3: ?*anyopaque) void {
+    pub fn SetUrls(param1: []QUrl, param2: []QUrl, param3: anytype) void {
         const param1_list = qtc.libqt_list{
             .len = param1.len,
             .data = @ptrCast(param1.ptr),
@@ -25,30 +35,32 @@ pub const kurlmimedata = struct {
             .len = param2.len,
             .data = @ptrCast(param2.ptr),
         };
-        qtc.KUrlMimeData_SetUrls(param1_list, param2_list, @ptrCast(param3));
+        comptime _ = @TypeOf(param3)._is_QMimeData;
+        qtc.KUrlMimeData_SetUrls(param1_list, param2_list, @ptrCast(param3.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurlmimedata.html#exportUrlsToPortal)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMimeData `
+    /// ` param1: QMimeData `
     ///
-    pub fn ExportUrlsToPortal(param1: ?*anyopaque) bool {
-        return qtc.KUrlMimeData_ExportUrlsToPortal(@ptrCast(param1));
+    pub fn ExportUrlsToPortal(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMimeData;
+        return qtc.KUrlMimeData_ExportUrlsToPortal(@ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurlmimedata.html#setMetaData)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: arraymap_constu8_constu8 `
-    ///
-    /// ` param2: QtC.QMimeData `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetMetaData(param1: arraymap_constu8_constu8, param2: ?*anyopaque, allocator: std.mem.Allocator) void {
+    /// ` param1: ArrayMap_constu8_constu8 `
+    ///
+    /// ` param2: QMimeData `
+    ///
+    pub fn SetMetaData(allocator: std.mem.Allocator, param1: ArrayMap_constu8_constu8, param2: anytype) void {
         const param1_count = param1.count();
         const param1_keys = allocator.alloc(qtc.libqt_string, param1_count) catch @panic("kurlmimedata.SetMetaData: Memory allocation failed");
         defer allocator.free(param1_keys);
@@ -73,7 +85,8 @@ pub const kurlmimedata = struct {
             .keys = @ptrCast(param1_keys.ptr),
             .values = @ptrCast(param1_values.ptr),
         };
-        qtc.KUrlMimeData_SetMetaData(param1_map, @ptrCast(param2));
+        comptime _ = @TypeOf(param2)._is_QMimeData;
+        qtc.KUrlMimeData_SetMetaData(param1_map, @ptrCast(param2.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurlmimedata.html#mimeDataTypes)
@@ -86,9 +99,8 @@ pub const kurlmimedata = struct {
         const _arr: qtc.libqt_list = qtc.KUrlMimeData_MimeDataTypes();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kurlmimedata.MimeDataTypes: Memory allocation failed");
@@ -105,15 +117,16 @@ pub const kurlmimedata = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMimeData `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` param1: QMimeData `
     ///
     /// ` param2: flag of kurlmimedata_enums.DecodeOption `
     ///
-    /// ` param3: arraymap_constu8_constu8 `
+    /// ` param3: ArrayMap_constu8_constu8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn UrlsFromMimeData(param1: ?*anyopaque, param2: i32, param3: arraymap_constu8_constu8, allocator: std.mem.Allocator) []QtC.QUrl {
+    pub fn UrlsFromMimeData(allocator: std.mem.Allocator, param1: anytype, param2: i32, param3: ArrayMap_constu8_constu8) []QUrl {
+        comptime _ = @TypeOf(param1)._is_QMimeData;
         const param3_count = param3.count();
         const param3_keys = allocator.alloc(qtc.libqt_string, param3_count) catch @panic("kurlmimedata.UrlsFromMimeData: Memory allocation failed");
         defer allocator.free(param3_keys);
@@ -138,11 +151,12 @@ pub const kurlmimedata = struct {
             .keys = @ptrCast(param3_keys.ptr),
             .values = @ptrCast(param3_values.ptr),
         };
-        const _arr: qtc.libqt_list = qtc.KUrlMimeData_UrlsFromMimeData(@ptrCast(param1), @bitCast(param2), &param3_map);
+        const _arr: qtc.libqt_list = qtc.KUrlMimeData_UrlsFromMimeData(@ptrCast(param1.ptr), @bitCast(param2), &param3_map);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QUrl, _arr.len) catch @panic("kurlmimedata.UrlsFromMimeData: Memory allocation failed");
+        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("kurlmimedata.UrlsFromMimeData: Memory allocation failed");
         const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 };

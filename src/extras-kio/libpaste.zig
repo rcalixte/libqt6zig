@@ -1,33 +1,46 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const KFileItem = @import("libqt6").KFileItem;
+const QMimeData = @import("libqt6").QMimeData;
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/kio.html)
-pub const kio = struct {
+pub const KIO = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kio.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KIO,
+
+    pub const _is_KIO = {};
+
     /// ### [Upstream resources](https://api.kde.org/kio.html#canPasteMimeData)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMimeData `
+    /// ` param1: QMimeData `
     ///
-    pub fn CanPasteMimeData(param1: ?*anyopaque) bool {
-        return qtc.KIO_CanPasteMimeData(@ptrCast(param1));
+    pub fn CanPasteMimeData(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMimeData;
+        return qtc.KIO_CanPasteMimeData(@ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#pasteActionText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMimeData `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` param1: QMimeData `
     ///
     /// ` param2: *bool `
     ///
-    /// ` param3: QtC.KFileItem `
+    /// ` param3: KFileItem `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn PasteActionText(param1: ?*anyopaque, param2: *bool, param3: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KIO_PasteActionText(@ptrCast(param1), @ptrCast(param2), @ptrCast(param3));
+    pub fn PasteActionText(allocator: std.mem.Allocator, param1: anytype, param2: *bool, param3: anytype) []const u8 {
+        comptime _ = @TypeOf(param1)._is_QMimeData;
+        comptime _ = @TypeOf(param3)._is_KFileItem;
+        var _str = qtc.KIO_PasteActionText(@ptrCast(param1.ptr), @ptrCast(param2), @ptrCast(param3.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kio.PasteActionText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -38,21 +51,23 @@ pub const kio = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMimeData `
+    /// ` param1: QMimeData `
     ///
     /// ` param2: bool `
     ///
-    pub fn SetClipboardDataCut(param1: ?*anyopaque, param2: bool) void {
-        qtc.KIO_SetClipboardDataCut(@ptrCast(param1), param2);
+    pub fn SetClipboardDataCut(param1: anytype, param2: bool) void {
+        comptime _ = @TypeOf(param1)._is_QMimeData;
+        qtc.KIO_SetClipboardDataCut(@ptrCast(param1.ptr), param2);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#isClipboardDataCut)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMimeData `
+    /// ` param1: QMimeData `
     ///
-    pub fn IsClipboardDataCut(param1: ?*anyopaque) bool {
-        return qtc.KIO_IsClipboardDataCut(@ptrCast(param1));
+    pub fn IsClipboardDataCut(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMimeData;
+        return qtc.KIO_IsClipboardDataCut(@ptrCast(param1.ptr));
     }
 };

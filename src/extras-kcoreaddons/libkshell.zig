@@ -4,10 +4,20 @@ const kshell_enums = enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/kshell.html)
-pub const kshell = struct {
+pub const KShell = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kshell.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KShell,
+
+    pub const _is_KShell = {};
+
     /// ### [Upstream resources](https://api.kde.org/kshell.html#splitArgs)
     ///
     /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` param1: []const u8 `
     ///
@@ -15,9 +25,7 @@ pub const kshell = struct {
     ///
     /// ` param3: *kshell_enums.Errors `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn SplitArgs(param1: []const u8, param2: i32, param3: *i32, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn SplitArgs(allocator: std.mem.Allocator, param1: []const u8, param2: i32, param3: *i32) []const []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -25,9 +33,8 @@ pub const kshell = struct {
         const _arr: qtc.libqt_list = qtc.KShell_SplitArgs(param1_str, @bitCast(param2), @ptrCast(param3));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kshell.SplitArgs: Memory allocation failed");
@@ -44,19 +51,18 @@ pub const kshell = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn JoinArgs(param1: []const []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` param1: []const []const u8 `
+    ///
+    pub fn JoinArgs(allocator: std.mem.Allocator, param1: []const []const u8) []const u8 {
         const param1_arr = allocator.alloc(qtc.libqt_string, param1.len) catch @panic("kshell.JoinArgs: Memory allocation failed");
         defer allocator.free(param1_arr);
-        for (param1, 0..param1.len) |item, i| {
+        for (param1, 0..param1.len) |item, i|
             param1_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const param1_list = qtc.libqt_list{
             .len = param1.len,
             .data = param1_arr.ptr,
@@ -72,11 +78,11 @@ pub const kshell = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QuoteArg(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` param1: []const u8 `
+    ///
+    pub fn QuoteArg(allocator: std.mem.Allocator, param1: []const u8) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -92,11 +98,11 @@ pub const kshell = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TildeExpand(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` param1: []const u8 `
+    ///
+    pub fn TildeExpand(allocator: std.mem.Allocator, param1: []const u8) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -112,11 +118,11 @@ pub const kshell = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TildeCollapse(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` param1: []const u8 `
+    ///
+    pub fn TildeCollapse(allocator: std.mem.Allocator, param1: []const u8) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,

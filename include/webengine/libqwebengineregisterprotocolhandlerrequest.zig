@@ -1,65 +1,75 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QUrl = @import("libqt6").QUrl;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineregisterprotocolhandlerrequest.html)
-pub const qwebengineregisterprotocolhandlerrequest = struct {
+pub const QWebEngineRegisterProtocolHandlerRequest = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineregisterprotocolhandlerrequest.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QWebEngineRegisterProtocolHandlerRequest,
+
+    pub const _is_QWebEngineRegisterProtocolHandlerRequest = {};
+
     /// New constructs a new QWebEngineRegisterProtocolHandlerRequest object.
     ///
-    pub fn New() QtC.QWebEngineRegisterProtocolHandlerRequest {
-        return qtc.QWebEngineRegisterProtocolHandlerRequest_new();
+    pub fn New() QWebEngineRegisterProtocolHandlerRequest {
+        return .{ .ptr = qtc.QWebEngineRegisterProtocolHandlerRequest_new() };
     }
 
     /// New2 constructs a new QWebEngineRegisterProtocolHandlerRequest object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QWebEngineRegisterProtocolHandlerRequest `
+    /// ` param1: QWebEngineRegisterProtocolHandlerRequest `
     ///
-    pub fn New2(param1: ?*anyopaque) QtC.QWebEngineRegisterProtocolHandlerRequest {
-        return qtc.QWebEngineRegisterProtocolHandlerRequest_new2(@ptrCast(param1));
+    pub fn New2(param1: anytype) QWebEngineRegisterProtocolHandlerRequest {
+        comptime _ = @TypeOf(param1)._is_QWebEngineRegisterProtocolHandlerRequest;
+        return .{ .ptr = qtc.QWebEngineRegisterProtocolHandlerRequest_new2(@ptrCast(param1.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineregisterprotocolhandlerrequest.html#accept)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineRegisterProtocolHandlerRequest `
+    /// ` self: QWebEngineRegisterProtocolHandlerRequest `
     ///
-    pub fn Accept(self: ?*anyopaque) void {
-        qtc.QWebEngineRegisterProtocolHandlerRequest_Accept(@ptrCast(self));
+    pub fn Accept(self: QWebEngineRegisterProtocolHandlerRequest) void {
+        qtc.QWebEngineRegisterProtocolHandlerRequest_Accept(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineregisterprotocolhandlerrequest.html#reject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineRegisterProtocolHandlerRequest `
+    /// ` self: QWebEngineRegisterProtocolHandlerRequest `
     ///
-    pub fn Reject(self: ?*anyopaque) void {
-        qtc.QWebEngineRegisterProtocolHandlerRequest_Reject(@ptrCast(self));
+    pub fn Reject(self: QWebEngineRegisterProtocolHandlerRequest) void {
+        qtc.QWebEngineRegisterProtocolHandlerRequest_Reject(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineregisterprotocolhandlerrequest.html#origin)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineRegisterProtocolHandlerRequest `
+    /// ` self: QWebEngineRegisterProtocolHandlerRequest `
     ///
-    pub fn Origin(self: ?*anyopaque) QtC.QUrl {
-        return qtc.QWebEngineRegisterProtocolHandlerRequest_Origin(@ptrCast(self));
+    pub fn Origin(self: QWebEngineRegisterProtocolHandlerRequest) QUrl {
+        return .{ .ptr = qtc.QWebEngineRegisterProtocolHandlerRequest_Origin(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineregisterprotocolhandlerrequest.html#scheme)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineRegisterProtocolHandlerRequest `
+    /// ` self: QWebEngineRegisterProtocolHandlerRequest `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Scheme(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWebEngineRegisterProtocolHandlerRequest_Scheme(@ptrCast(self));
+    pub fn Scheme(self: QWebEngineRegisterProtocolHandlerRequest, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWebEngineRegisterProtocolHandlerRequest_Scheme(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebengineregisterprotocolhandlerrequest.Scheme: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -70,24 +80,26 @@ pub const qwebengineregisterprotocolhandlerrequest = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineRegisterProtocolHandlerRequest `
+    /// ` self: QWebEngineRegisterProtocolHandlerRequest `
     ///
-    /// ` that: QtC.QWebEngineRegisterProtocolHandlerRequest `
+    /// ` that: QWebEngineRegisterProtocolHandlerRequest `
     ///
-    pub fn OperatorEqual(self: ?*anyopaque, that: ?*anyopaque) bool {
-        return qtc.QWebEngineRegisterProtocolHandlerRequest_OperatorEqual(@ptrCast(self), @ptrCast(that));
+    pub fn OperatorEqual(self: QWebEngineRegisterProtocolHandlerRequest, that: anytype) bool {
+        comptime _ = @TypeOf(that)._is_QWebEngineRegisterProtocolHandlerRequest;
+        return qtc.QWebEngineRegisterProtocolHandlerRequest_OperatorEqual(@ptrCast(self.ptr), @ptrCast(that.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineregisterprotocolhandlerrequest.html#operator-not-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineRegisterProtocolHandlerRequest `
+    /// ` self: QWebEngineRegisterProtocolHandlerRequest `
     ///
-    /// ` that: QtC.QWebEngineRegisterProtocolHandlerRequest `
+    /// ` that: QWebEngineRegisterProtocolHandlerRequest `
     ///
-    pub fn OperatorNotEqual(self: ?*anyopaque, that: ?*anyopaque) bool {
-        return qtc.QWebEngineRegisterProtocolHandlerRequest_OperatorNotEqual(@ptrCast(self), @ptrCast(that));
+    pub fn OperatorNotEqual(self: QWebEngineRegisterProtocolHandlerRequest, that: anytype) bool {
+        comptime _ = @TypeOf(that)._is_QWebEngineRegisterProtocolHandlerRequest;
+        return qtc.QWebEngineRegisterProtocolHandlerRequest_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(that.ptr));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -100,9 +112,9 @@ pub const qwebengineregisterprotocolhandlerrequest = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QWebEngineRegisterProtocolHandlerRequest `
+    /// ` self: QWebEngineRegisterProtocolHandlerRequest `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QWebEngineRegisterProtocolHandlerRequest_Delete(@ptrCast(self));
+    pub fn Delete(self: QWebEngineRegisterProtocolHandlerRequest) void {
+        qtc.QWebEngineRegisterProtocolHandlerRequest_Delete(@ptrCast(self.ptr));
     }
 };

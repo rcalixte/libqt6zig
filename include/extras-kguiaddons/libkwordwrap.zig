@@ -1,59 +1,73 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QFontMetrics = @import("libqt6").QFontMetrics;
+const QPainter = @import("libqt6").QPainter;
+const QRect = @import("libqt6").QRect;
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/kwordwrap.html)
-pub const kwordwrap = struct {
+pub const KWordWrap = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kwordwrap.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KWordWrap,
+
+    pub const _is_KWordWrap = {};
+
     /// New constructs a new KWordWrap object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.KWordWrap `
+    /// ` other: KWordWrap `
     ///
-    pub fn New(other: ?*anyopaque) QtC.KWordWrap {
-        return qtc.KWordWrap_new(@ptrCast(other));
+    pub fn New(other: anytype) KWordWrap {
+        comptime _ = @TypeOf(other)._is_KWordWrap;
+        return .{ .ptr = qtc.KWordWrap_new(@ptrCast(other.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kwordwrap.html#formatText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` fm: QtC.QFontMetrics `
+    /// ` fm: QFontMetrics `
     ///
-    /// ` r: QtC.QRect `
+    /// ` r: QRect `
     ///
     /// ` flags: i32 `
     ///
     /// ` str: []const u8 `
     ///
-    pub fn FormatText(fm: ?*anyopaque, r: ?*anyopaque, flags: i32, str: []const u8) QtC.KWordWrap {
+    pub fn FormatText(fm: anytype, r: anytype, flags: i32, str: []const u8) KWordWrap {
+        comptime _ = @TypeOf(fm)._is_QFontMetrics;
+        comptime _ = @TypeOf(r)._is_QRect;
         const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
-        return qtc.KWordWrap_FormatText(@ptrCast(fm), @ptrCast(r), @bitCast(flags), str_str);
+        return .{ .ptr = qtc.KWordWrap_FormatText(@ptrCast(fm.ptr), @ptrCast(r.ptr), @bitCast(flags), str_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kwordwrap.html#boundingRect)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KWordWrap `
+    /// ` self: KWordWrap `
     ///
-    pub fn BoundingRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.KWordWrap_BoundingRect(@ptrCast(self));
+    pub fn BoundingRect(self: KWordWrap) QRect {
+        return .{ .ptr = qtc.KWordWrap_BoundingRect(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kwordwrap.html#wrappedString)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KWordWrap `
+    /// ` self: KWordWrap `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WrappedString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KWordWrap_WrappedString(@ptrCast(self));
+    pub fn WrappedString(self: KWordWrap, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KWordWrap_WrappedString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kwordwrap.WrappedString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -64,12 +78,12 @@ pub const kwordwrap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KWordWrap `
+    /// ` self: KWordWrap `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TruncatedString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KWordWrap_TruncatedString(@ptrCast(self));
+    pub fn TruncatedString(self: KWordWrap, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KWordWrap_TruncatedString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kwordwrap.TruncatedString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -80,35 +94,37 @@ pub const kwordwrap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KWordWrap `
+    /// ` self: KWordWrap `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn DrawText(self: ?*anyopaque, painter: ?*anyopaque, x: i32, y: i32) void {
-        qtc.KWordWrap_DrawText(@ptrCast(self), @ptrCast(painter), @bitCast(x), @bitCast(y));
+    pub fn DrawText(self: KWordWrap, painter: anytype, x: i32, y: i32) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.KWordWrap_DrawText(@ptrCast(self.ptr), @ptrCast(painter.ptr), @bitCast(x), @bitCast(y));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kwordwrap.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KWordWrap `
+    /// ` self: KWordWrap `
     ///
-    /// ` other: QtC.KWordWrap `
+    /// ` other: KWordWrap `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.KWordWrap_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorAssign(self: KWordWrap, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_KWordWrap;
+        qtc.KWordWrap_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kwordwrap.html#drawFadeoutText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` p: QtC.QPainter `
+    /// ` p: QPainter `
     ///
     /// ` x: i32 `
     ///
@@ -118,19 +134,20 @@ pub const kwordwrap = struct {
     ///
     /// ` t: []const u8 `
     ///
-    pub fn DrawFadeoutText(p: ?*anyopaque, x: i32, y: i32, maxW: i32, t: []const u8) void {
+    pub fn DrawFadeoutText(p: anytype, x: i32, y: i32, maxW: i32, t: []const u8) void {
+        comptime _ = @TypeOf(p)._is_QPainter;
         const t_str = qtc.libqt_string{
             .len = t.len,
             .data = t.ptr,
         };
-        qtc.KWordWrap_DrawFadeoutText(@ptrCast(p), @bitCast(x), @bitCast(y), @bitCast(maxW), t_str);
+        qtc.KWordWrap_DrawFadeoutText(@ptrCast(p.ptr), @bitCast(x), @bitCast(y), @bitCast(maxW), t_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kwordwrap.html#drawTruncateText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` p: QtC.QPainter `
+    /// ` p: QPainter `
     ///
     /// ` x: i32 `
     ///
@@ -140,21 +157,22 @@ pub const kwordwrap = struct {
     ///
     /// ` t: []const u8 `
     ///
-    pub fn DrawTruncateText(p: ?*anyopaque, x: i32, y: i32, maxW: i32, t: []const u8) void {
+    pub fn DrawTruncateText(p: anytype, x: i32, y: i32, maxW: i32, t: []const u8) void {
+        comptime _ = @TypeOf(p)._is_QPainter;
         const t_str = qtc.libqt_string{
             .len = t.len,
             .data = t.ptr,
         };
-        qtc.KWordWrap_DrawTruncateText(@ptrCast(p), @bitCast(x), @bitCast(y), @bitCast(maxW), t_str);
+        qtc.KWordWrap_DrawTruncateText(@ptrCast(p.ptr), @bitCast(x), @bitCast(y), @bitCast(maxW), t_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kwordwrap.html#formatText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` fm: QtC.QFontMetrics `
+    /// ` fm: QFontMetrics `
     ///
-    /// ` r: QtC.QRect `
+    /// ` r: QRect `
     ///
     /// ` flags: i32 `
     ///
@@ -162,26 +180,28 @@ pub const kwordwrap = struct {
     ///
     /// ` lenVal: i32 `
     ///
-    pub fn FormatText5(fm: ?*anyopaque, r: ?*anyopaque, flags: i32, str: []const u8, lenVal: i32) QtC.KWordWrap {
+    pub fn FormatText5(fm: anytype, r: anytype, flags: i32, str: []const u8, lenVal: i32) KWordWrap {
+        comptime _ = @TypeOf(fm)._is_QFontMetrics;
+        comptime _ = @TypeOf(r)._is_QRect;
         const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
-        return qtc.KWordWrap_FormatText5(@ptrCast(fm), @ptrCast(r), @bitCast(flags), str_str, @bitCast(lenVal));
+        return .{ .ptr = qtc.KWordWrap_FormatText5(@ptrCast(fm.ptr), @ptrCast(r.ptr), @bitCast(flags), str_str, @bitCast(lenVal)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kwordwrap.html#truncatedString)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KWordWrap `
-    ///
-    /// ` dots: bool `
+    /// ` self: KWordWrap `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TruncatedString1(self: ?*anyopaque, dots: bool, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KWordWrap_TruncatedString1(@ptrCast(self), dots);
+    /// ` dots: bool `
+    ///
+    pub fn TruncatedString1(self: KWordWrap, allocator: std.mem.Allocator, dots: bool) []const u8 {
+        var _str = qtc.KWordWrap_TruncatedString1(@ptrCast(self.ptr), dots);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kwordwrap.TruncatedString1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -192,9 +212,9 @@ pub const kwordwrap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KWordWrap `
+    /// ` self: KWordWrap `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
     /// ` x: i32 `
     ///
@@ -202,8 +222,9 @@ pub const kwordwrap = struct {
     ///
     /// ` flags: i32 `
     ///
-    pub fn DrawText4(self: ?*anyopaque, painter: ?*anyopaque, x: i32, y: i32, flags: i32) void {
-        qtc.KWordWrap_DrawText4(@ptrCast(self), @ptrCast(painter), @bitCast(x), @bitCast(y), @bitCast(flags));
+    pub fn DrawText4(self: KWordWrap, painter: anytype, x: i32, y: i32, flags: i32) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.KWordWrap_DrawText4(@ptrCast(self.ptr), @ptrCast(painter.ptr), @bitCast(x), @bitCast(y), @bitCast(flags));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -216,10 +237,10 @@ pub const kwordwrap = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KWordWrap `
+    /// ` self: KWordWrap `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KWordWrap_Delete(@ptrCast(self));
+    pub fn Delete(self: KWordWrap) void {
+        qtc.KWordWrap_Delete(@ptrCast(self.ptr));
     }
 };
 

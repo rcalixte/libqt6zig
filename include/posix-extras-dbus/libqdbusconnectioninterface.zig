@@ -1,36 +1,59 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QDBusConnection = @import("libqt6").QDBusConnection;
+const QDBusError = @import("libqt6").QDBusError;
+const QDBusMessage = @import("libqt6").QDBusMessage;
+const QDBusPendingCall = @import("libqt6").QDBusPendingCall;
+const QEvent = @import("libqt6").QEvent;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QThread = @import("libqt6").QThread;
+const QVariant = @import("libqt6").QVariant;
 const qdbusconnection_enums = @import("libqdbusconnection.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnectioninterface.html)
-pub const qdbusconnectioninterface = struct {
+pub const QDBusConnectionInterface = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnectioninterface.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QDBusConnectionInterface,
+
+    pub const _is_QDBusConnectionInterface = {};
+    pub const _is_QDBusAbstractInterface = {};
+    pub const _is_QDBusAbstractInterfaceBase = {};
+    pub const _is_QObject = {};
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QDBusConnectionInterface_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QDBusConnectionInterface) QMetaObject {
+        return .{ .ptr = qtc.QDBusConnectionInterface_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QDBusConnectionInterface, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QDBusConnectionInterface_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QDBusConnectionInterface_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -38,19 +61,19 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QDBusConnectionInterface_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QDBusConnectionInterface, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QDBusConnectionInterface_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -63,63 +86,63 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
     /// ` service: []const u8 `
     ///
-    pub fn ServiceRegistered(self: ?*anyopaque, service: []const u8) void {
+    pub fn ServiceRegistered(self: QDBusConnectionInterface, service: []const u8) void {
         const service_str = qtc.libqt_string{
             .len = service.len,
             .data = service.ptr,
         };
-        qtc.QDBusConnectionInterface_ServiceRegistered(@ptrCast(self), service_str);
+        qtc.QDBusConnectionInterface_ServiceRegistered(@ptrCast(self.ptr), service_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnectioninterface.html#serviceRegistered)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDBusConnectionInterface, service: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QDBusConnectionInterface, service: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnServiceRegistered(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QDBusConnectionInterface_Connect_ServiceRegistered(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnServiceRegistered(self: QDBusConnectionInterface, callback: *const fn (QDBusConnectionInterface, [*:0]const u8) callconv(.c) void) void {
+        qtc.QDBusConnectionInterface_Connect_ServiceRegistered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnectioninterface.html#serviceUnregistered)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
     /// ` service: []const u8 `
     ///
-    pub fn ServiceUnregistered(self: ?*anyopaque, service: []const u8) void {
+    pub fn ServiceUnregistered(self: QDBusConnectionInterface, service: []const u8) void {
         const service_str = qtc.libqt_string{
             .len = service.len,
             .data = service.ptr,
         };
-        qtc.QDBusConnectionInterface_ServiceUnregistered(@ptrCast(self), service_str);
+        qtc.QDBusConnectionInterface_ServiceUnregistered(@ptrCast(self.ptr), service_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnectioninterface.html#serviceUnregistered)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDBusConnectionInterface, service: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QDBusConnectionInterface, service: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnServiceUnregistered(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QDBusConnectionInterface_Connect_ServiceUnregistered(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnServiceUnregistered(self: QDBusConnectionInterface, callback: *const fn (QDBusConnectionInterface, [*:0]const u8) callconv(.c) void) void {
+        qtc.QDBusConnectionInterface_Connect_ServiceUnregistered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnectioninterface.html#serviceOwnerChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
     /// ` name: []const u8 `
     ///
@@ -127,7 +150,7 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ` newOwner: []const u8 `
     ///
-    pub fn ServiceOwnerChanged(self: ?*anyopaque, name: []const u8, oldOwner: []const u8, newOwner: []const u8) void {
+    pub fn ServiceOwnerChanged(self: QDBusConnectionInterface, name: []const u8, oldOwner: []const u8, newOwner: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -140,108 +163,110 @@ pub const qdbusconnectioninterface = struct {
             .len = newOwner.len,
             .data = newOwner.ptr,
         };
-        qtc.QDBusConnectionInterface_ServiceOwnerChanged(@ptrCast(self), name_str, oldOwner_str, newOwner_str);
+        qtc.QDBusConnectionInterface_ServiceOwnerChanged(@ptrCast(self.ptr), name_str, oldOwner_str, newOwner_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnectioninterface.html#serviceOwnerChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDBusConnectionInterface, name: [*:0]const u8, oldOwner: [*:0]const u8, newOwner: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QDBusConnectionInterface, name: [*:0]const u8, oldOwner: [*:0]const u8, newOwner: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnServiceOwnerChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
-        qtc.QDBusConnectionInterface_Connect_ServiceOwnerChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnServiceOwnerChanged(self: QDBusConnectionInterface, callback: *const fn (QDBusConnectionInterface, [*:0]const u8, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
+        qtc.QDBusConnectionInterface_Connect_ServiceOwnerChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnectioninterface.html#callWithCallbackFailed)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
-    /// ` errorVal: QtC.QDBusError `
+    /// ` errorVal: QDBusError `
     ///
-    /// ` call: QtC.QDBusMessage `
+    /// ` call: QDBusMessage `
     ///
-    pub fn CallWithCallbackFailed(self: ?*anyopaque, errorVal: ?*anyopaque, call: ?*anyopaque) void {
-        qtc.QDBusConnectionInterface_CallWithCallbackFailed(@ptrCast(self), @ptrCast(errorVal), @ptrCast(call));
+    pub fn CallWithCallbackFailed(self: QDBusConnectionInterface, errorVal: anytype, call: anytype) void {
+        comptime _ = @TypeOf(errorVal)._is_QDBusError;
+        comptime _ = @TypeOf(call)._is_QDBusMessage;
+        qtc.QDBusConnectionInterface_CallWithCallbackFailed(@ptrCast(self.ptr), @ptrCast(errorVal.ptr), @ptrCast(call.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnectioninterface.html#callWithCallbackFailed)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDBusConnectionInterface, errorVal: QtC.QDBusError, call: QtC.QDBusMessage) callconv(.c) void `
+    /// ` callback: *const fn (self: QDBusConnectionInterface, errorVal: QDBusError, call: QDBusMessage) callconv(.c) void `
     ///
-    pub fn OnCallWithCallbackFailed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDBusConnectionInterface_Connect_CallWithCallbackFailed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCallWithCallbackFailed(self: QDBusConnectionInterface, callback: *const fn (QDBusConnectionInterface, QDBusError, QDBusMessage) callconv(.c) void) void {
+        qtc.QDBusConnectionInterface_Connect_CallWithCallbackFailed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnectioninterface.html#NameAcquired)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn NameAcquired(self: ?*anyopaque, param1: []const u8) void {
+    pub fn NameAcquired(self: QDBusConnectionInterface, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
-        qtc.QDBusConnectionInterface_NameAcquired(@ptrCast(self), param1_str);
+        qtc.QDBusConnectionInterface_NameAcquired(@ptrCast(self.ptr), param1_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnectioninterface.html#NameAcquired)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDBusConnectionInterface, param1: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QDBusConnectionInterface, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnNameAcquired(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QDBusConnectionInterface_Connect_NameAcquired(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnNameAcquired(self: QDBusConnectionInterface, callback: *const fn (QDBusConnectionInterface, [*:0]const u8) callconv(.c) void) void {
+        qtc.QDBusConnectionInterface_Connect_NameAcquired(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnectioninterface.html#NameLost)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn NameLost(self: ?*anyopaque, param1: []const u8) void {
+    pub fn NameLost(self: QDBusConnectionInterface, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
-        qtc.QDBusConnectionInterface_NameLost(@ptrCast(self), param1_str);
+        qtc.QDBusConnectionInterface_NameLost(@ptrCast(self.ptr), param1_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnectioninterface.html#NameLost)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDBusConnectionInterface, param1: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QDBusConnectionInterface, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnNameLost(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QDBusConnectionInterface_Connect_NameLost(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnNameLost(self: QDBusConnectionInterface, callback: *const fn (QDBusConnectionInterface, [*:0]const u8) callconv(.c) void) void {
+        qtc.QDBusConnectionInterface_Connect_NameLost(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnectioninterface.html#NameOwnerChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
     /// ` param1: []const u8 `
     ///
@@ -249,7 +274,7 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ` param3: []const u8 `
     ///
-    pub fn NameOwnerChanged(self: ?*anyopaque, param1: []const u8, param2: []const u8, param3: []const u8) void {
+    pub fn NameOwnerChanged(self: QDBusConnectionInterface, param1: []const u8, param2: []const u8, param3: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -262,32 +287,32 @@ pub const qdbusconnectioninterface = struct {
             .len = param3.len,
             .data = param3.ptr,
         };
-        qtc.QDBusConnectionInterface_NameOwnerChanged(@ptrCast(self), param1_str, param2_str, param3_str);
+        qtc.QDBusConnectionInterface_NameOwnerChanged(@ptrCast(self.ptr), param1_str, param2_str, param3_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnectioninterface.html#NameOwnerChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDBusConnectionInterface, param1: [*:0]const u8, param2: [*:0]const u8, param3: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QDBusConnectionInterface, param1: [*:0]const u8, param2: [*:0]const u8, param3: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnNameOwnerChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
-        qtc.QDBusConnectionInterface_Connect_NameOwnerChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnNameOwnerChanged(self: QDBusConnectionInterface, callback: *const fn (QDBusConnectionInterface, [*:0]const u8, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
+        qtc.QDBusConnectionInterface_Connect_NameOwnerChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -301,15 +326,15 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -325,10 +350,10 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
-    pub fn IsValid(self: ?*anyopaque) bool {
-        return qtc.QDBusAbstractInterface_IsValid(@ptrCast(self));
+    pub fn IsValid(self: QDBusConnectionInterface) bool {
+        return qtc.QDBusAbstractInterface_IsValid(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDBusAbstractInterface
@@ -337,10 +362,10 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
-    pub fn Connection(self: ?*anyopaque) QtC.QDBusConnection {
-        return qtc.QDBusAbstractInterface_Connection(@ptrCast(self));
+    pub fn Connection(self: QDBusConnectionInterface) QDBusConnection {
+        return .{ .ptr = qtc.QDBusAbstractInterface_Connection(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QDBusAbstractInterface
@@ -349,12 +374,12 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Service(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDBusAbstractInterface_Service(@ptrCast(self));
+    pub fn Service(self: QDBusConnectionInterface, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDBusAbstractInterface_Service(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdbusconnectioninterface.Service: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -367,12 +392,12 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Path(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDBusAbstractInterface_Path(@ptrCast(self));
+    pub fn Path(self: QDBusConnectionInterface, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDBusAbstractInterface_Path(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdbusconnectioninterface.Path: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -385,12 +410,12 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Interface(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDBusAbstractInterface_Interface(@ptrCast(self));
+    pub fn Interface(self: QDBusConnectionInterface, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDBusAbstractInterface_Interface(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdbusconnectioninterface.Interface: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -403,10 +428,10 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
-    pub fn LastError(self: ?*anyopaque) QtC.QDBusError {
-        return qtc.QDBusAbstractInterface_LastError(@ptrCast(self));
+    pub fn LastError(self: QDBusConnectionInterface) QDBusError {
+        return .{ .ptr = qtc.QDBusAbstractInterface_LastError(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QDBusAbstractInterface
@@ -415,12 +440,12 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
     /// ` timeout: i32 `
     ///
-    pub fn SetTimeout(self: ?*anyopaque, timeout: i32) void {
-        qtc.QDBusAbstractInterface_SetTimeout(@ptrCast(self), @bitCast(timeout));
+    pub fn SetTimeout(self: QDBusConnectionInterface, timeout: i32) void {
+        qtc.QDBusAbstractInterface_SetTimeout(@ptrCast(self.ptr), @bitCast(timeout));
     }
 
     /// Inherited from QDBusAbstractInterface
@@ -429,10 +454,10 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
-    pub fn Timeout(self: ?*anyopaque) i32 {
-        return qtc.QDBusAbstractInterface_Timeout(@ptrCast(self));
+    pub fn Timeout(self: QDBusConnectionInterface) i32 {
+        return qtc.QDBusAbstractInterface_Timeout(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDBusAbstractInterface
@@ -441,12 +466,12 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetInteractiveAuthorizationAllowed(self: ?*anyopaque, enable: bool) void {
-        qtc.QDBusAbstractInterface_SetInteractiveAuthorizationAllowed(@ptrCast(self), enable);
+    pub fn SetInteractiveAuthorizationAllowed(self: QDBusConnectionInterface, enable: bool) void {
+        qtc.QDBusAbstractInterface_SetInteractiveAuthorizationAllowed(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QDBusAbstractInterface
@@ -455,10 +480,10 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
-    pub fn IsInteractiveAuthorizationAllowed(self: ?*anyopaque) bool {
-        return qtc.QDBusAbstractInterface_IsInteractiveAuthorizationAllowed(@ptrCast(self));
+    pub fn IsInteractiveAuthorizationAllowed(self: QDBusConnectionInterface) bool {
+        return qtc.QDBusAbstractInterface_IsInteractiveAuthorizationAllowed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDBusAbstractInterface
@@ -467,16 +492,16 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
     /// ` method: []const u8 `
     ///
-    pub fn Call(self: ?*anyopaque, method: []const u8) QtC.QDBusMessage {
+    pub fn Call(self: QDBusConnectionInterface, method: []const u8) QDBusMessage {
         const method_str = qtc.libqt_string{
             .len = method.len,
             .data = method.ptr,
         };
-        return qtc.QDBusAbstractInterface_Call(@ptrCast(self), method_str);
+        return .{ .ptr = qtc.QDBusAbstractInterface_Call(@ptrCast(self.ptr), method_str) };
     }
 
     /// Inherited from QDBusAbstractInterface
@@ -485,18 +510,18 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
     /// ` mode: qdbusconnection_enums.CallMode `
     ///
     /// ` method: []const u8 `
     ///
-    pub fn Call2(self: ?*anyopaque, mode: i32, method: []const u8) QtC.QDBusMessage {
+    pub fn Call2(self: QDBusConnectionInterface, mode: i32, method: []const u8) QDBusMessage {
         const method_str = qtc.libqt_string{
             .len = method.len,
             .data = method.ptr,
         };
-        return qtc.QDBusAbstractInterface_Call2(@ptrCast(self), @bitCast(mode), method_str);
+        return .{ .ptr = qtc.QDBusAbstractInterface_Call2(@ptrCast(self.ptr), @bitCast(mode), method_str) };
     }
 
     /// Inherited from QDBusAbstractInterface
@@ -505,15 +530,15 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
     /// ` mode: qdbusconnection_enums.CallMode `
     ///
     /// ` method: []const u8 `
     ///
-    /// ` args: []QtC.QVariant `
+    /// ` args: []QVariant `
     ///
-    pub fn CallWithArgumentList(self: ?*anyopaque, mode: i32, method: []const u8, args: []QtC.QVariant) QtC.QDBusMessage {
+    pub fn CallWithArgumentList(self: QDBusConnectionInterface, mode: i32, method: []const u8, args: []QVariant) QDBusMessage {
         const method_str = qtc.libqt_string{
             .len = method.len,
             .data = method.ptr,
@@ -522,7 +547,7 @@ pub const qdbusconnectioninterface = struct {
             .len = args.len,
             .data = @ptrCast(args.ptr),
         };
-        return qtc.QDBusAbstractInterface_CallWithArgumentList(@ptrCast(self), @bitCast(mode), method_str, args_list);
+        return .{ .ptr = qtc.QDBusAbstractInterface_CallWithArgumentList(@ptrCast(self.ptr), @bitCast(mode), method_str, args_list) };
     }
 
     /// Inherited from QDBusAbstractInterface
@@ -531,19 +556,19 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
     /// ` method: []const u8 `
     ///
-    /// ` args: []QtC.QVariant `
+    /// ` args: []QVariant `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` errorSlot: [:0]const u8 `
     ///
-    pub fn CallWithCallback(self: ?*anyopaque, method: []const u8, args: []QtC.QVariant, receiver: ?*anyopaque, member: [:0]const u8, errorSlot: [:0]const u8) bool {
+    pub fn CallWithCallback(self: QDBusConnectionInterface, method: []const u8, args: []QVariant, receiver: anytype, member: [:0]const u8, errorSlot: [:0]const u8) bool {
         const method_str = qtc.libqt_string{
             .len = method.len,
             .data = method.ptr,
@@ -552,9 +577,10 @@ pub const qdbusconnectioninterface = struct {
             .len = args.len,
             .data = @ptrCast(args.ptr),
         };
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         const errorSlot_Cstring = errorSlot.ptr;
-        return qtc.QDBusAbstractInterface_CallWithCallback(@ptrCast(self), method_str, args_list, @ptrCast(receiver), member_Cstring, errorSlot_Cstring);
+        return qtc.QDBusAbstractInterface_CallWithCallback(@ptrCast(self.ptr), method_str, args_list, @ptrCast(receiver.ptr), member_Cstring, errorSlot_Cstring);
     }
 
     /// Inherited from QDBusAbstractInterface
@@ -563,17 +589,17 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
     /// ` method: []const u8 `
     ///
-    /// ` args: []QtC.QVariant `
+    /// ` args: []QVariant `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn CallWithCallback2(self: ?*anyopaque, method: []const u8, args: []QtC.QVariant, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn CallWithCallback2(self: QDBusConnectionInterface, method: []const u8, args: []QVariant, receiver: anytype, member: [:0]const u8) bool {
         const method_str = qtc.libqt_string{
             .len = method.len,
             .data = method.ptr,
@@ -582,8 +608,9 @@ pub const qdbusconnectioninterface = struct {
             .len = args.len,
             .data = @ptrCast(args.ptr),
         };
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QDBusAbstractInterface_CallWithCallback2(@ptrCast(self), method_str, args_list, @ptrCast(receiver), member_Cstring);
+        return qtc.QDBusAbstractInterface_CallWithCallback2(@ptrCast(self.ptr), method_str, args_list, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QDBusAbstractInterface
@@ -592,16 +619,16 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
     /// ` method: []const u8 `
     ///
-    pub fn AsyncCall(self: ?*anyopaque, method: []const u8) QtC.QDBusPendingCall {
+    pub fn AsyncCall(self: QDBusConnectionInterface, method: []const u8) QDBusPendingCall {
         const method_str = qtc.libqt_string{
             .len = method.len,
             .data = method.ptr,
         };
-        return qtc.QDBusAbstractInterface_AsyncCall(@ptrCast(self), method_str);
+        return .{ .ptr = qtc.QDBusAbstractInterface_AsyncCall(@ptrCast(self.ptr), method_str) };
     }
 
     /// Inherited from QDBusAbstractInterface
@@ -610,13 +637,13 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
     /// ` method: []const u8 `
     ///
-    /// ` args: []QtC.QVariant `
+    /// ` args: []QVariant `
     ///
-    pub fn AsyncCallWithArgumentList(self: ?*anyopaque, method: []const u8, args: []QtC.QVariant) QtC.QDBusPendingCall {
+    pub fn AsyncCallWithArgumentList(self: QDBusConnectionInterface, method: []const u8, args: []QVariant) QDBusPendingCall {
         const method_str = qtc.libqt_string{
             .len = method.len,
             .data = method.ptr,
@@ -625,7 +652,7 @@ pub const qdbusconnectioninterface = struct {
             .len = args.len,
             .data = @ptrCast(args.ptr),
         };
-        return qtc.QDBusAbstractInterface_AsyncCallWithArgumentList(@ptrCast(self), method_str, args_list);
+        return .{ .ptr = qtc.QDBusAbstractInterface_AsyncCallWithArgumentList(@ptrCast(self.ptr), method_str, args_list) };
     }
 
     /// Inherited from QObject
@@ -634,12 +661,13 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QObject_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: QDBusConnectionInterface, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QObject_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -648,14 +676,16 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QObject_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: QDBusConnectionInterface, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -664,12 +694,12 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QDBusConnectionInterface, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdbusconnectioninterface.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -682,12 +712,12 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QDBusConnectionInterface, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -696,10 +726,10 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QDBusConnectionInterface) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -708,10 +738,10 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QDBusConnectionInterface) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -720,10 +750,10 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QDBusConnectionInterface) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -732,10 +762,10 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QDBusConnectionInterface) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -744,12 +774,12 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QDBusConnectionInterface, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -758,10 +788,10 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QDBusConnectionInterface) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -770,12 +800,13 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QDBusConnectionInterface, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -784,12 +815,12 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QDBusConnectionInterface, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -798,12 +829,12 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QDBusConnectionInterface, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -812,12 +843,12 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QDBusConnectionInterface, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -826,12 +857,12 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QDBusConnectionInterface, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -840,16 +871,17 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QDBusConnectionInterface, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qdbusconnectioninterface.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qdbusconnectioninterface.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -859,12 +891,13 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QDBusConnectionInterface, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -873,12 +906,13 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QDBusConnectionInterface, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -887,12 +921,13 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QDBusConnectionInterface, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -901,18 +936,20 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -921,16 +958,20 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -939,18 +980,19 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QDBusConnectionInterface, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -959,18 +1001,20 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -979,16 +1023,20 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -997,10 +1045,10 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QDBusConnectionInterface) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1009,12 +1057,13 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QDBusConnectionInterface, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1023,10 +1072,11 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1035,10 +1085,10 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QDBusConnectionInterface) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1047,10 +1097,10 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QDBusConnectionInterface) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1059,15 +1109,16 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QDBusConnectionInterface, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -1076,13 +1127,13 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QDBusConnectionInterface, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1091,17 +1142,16 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QDBusConnectionInterface, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qdbusconnectioninterface.DynamicPropertyNames: Memory allocation failed");
@@ -1120,10 +1170,10 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QDBusConnectionInterface) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1132,10 +1182,10 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QDBusConnectionInterface) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1144,10 +1194,10 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QDBusConnectionInterface) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1156,12 +1206,12 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDBusConnectionInterface) callconv(.c) void `
+    /// ` callback: *const fn (self: QDBusConnectionInterface) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QDBusConnectionInterface, callback: *const fn (QDBusConnectionInterface) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1170,10 +1220,10 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QDBusConnectionInterface) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1182,13 +1232,13 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QDBusConnectionInterface, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -1197,10 +1247,10 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QDBusConnectionInterface) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1209,14 +1259,14 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QDBusConnectionInterface, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1225,14 +1275,14 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QDBusConnectionInterface, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1241,20 +1291,22 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -1263,18 +1315,22 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1283,9 +1339,9 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1293,10 +1349,11 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QDBusConnectionInterface, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1305,13 +1362,13 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QDBusConnectionInterface, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1320,15 +1377,16 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QDBusConnectionInterface, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1337,18 +1395,19 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QDBusConnectionInterface, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1357,15 +1416,16 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QDBusConnectionInterface, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1374,12 +1434,13 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QDBusConnectionInterface, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1388,12 +1449,12 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDBusConnectionInterface, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QDBusConnectionInterface, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QDBusConnectionInterface, callback: *const fn (QDBusConnectionInterface, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1404,12 +1465,12 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDBusConnectionInterface `
+    /// ` self: QDBusConnectionInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDBusConnectionInterface, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QDBusConnectionInterface, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QDBusConnectionInterface, callback: *const fn (QDBusConnectionInterface, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 };
 

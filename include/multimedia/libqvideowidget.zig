@@ -1,5 +1,64 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QAction = @import("libqt6").QAction;
+const QActionEvent = @import("libqt6").QActionEvent;
+const QBackingStore = @import("libqt6").QBackingStore;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QBitmap = @import("libqt6").QBitmap;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QCloseEvent = @import("libqt6").QCloseEvent;
+const QContextMenuEvent = @import("libqt6").QContextMenuEvent;
+const QCursor = @import("libqt6").QCursor;
+const QDragEnterEvent = @import("libqt6").QDragEnterEvent;
+const QDragLeaveEvent = @import("libqt6").QDragLeaveEvent;
+const QDragMoveEvent = @import("libqt6").QDragMoveEvent;
+const QDropEvent = @import("libqt6").QDropEvent;
+const QEnterEvent = @import("libqt6").QEnterEvent;
+const QEvent = @import("libqt6").QEvent;
+const QFocusEvent = @import("libqt6").QFocusEvent;
+const QFont = @import("libqt6").QFont;
+const QFontInfo = @import("libqt6").QFontInfo;
+const QFontMetrics = @import("libqt6").QFontMetrics;
+const QGraphicsEffect = @import("libqt6").QGraphicsEffect;
+const QGraphicsProxyWidget = @import("libqt6").QGraphicsProxyWidget;
+const QHideEvent = @import("libqt6").QHideEvent;
+const QIcon = @import("libqt6").QIcon;
+const QInputMethodEvent = @import("libqt6").QInputMethodEvent;
+const QKeyEvent = @import("libqt6").QKeyEvent;
+const QKeySequence = @import("libqt6").QKeySequence;
+const QLayout = @import("libqt6").QLayout;
+const QLocale = @import("libqt6").QLocale;
+const QMargins = @import("libqt6").QMargins;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QMouseEvent = @import("libqt6").QMouseEvent;
+const QMoveEvent = @import("libqt6").QMoveEvent;
+const QObject = @import("libqt6").QObject;
+const QPaintDevice = @import("libqt6").QPaintDevice;
+const QPaintEngine = @import("libqt6").QPaintEngine;
+const QPaintEvent = @import("libqt6").QPaintEvent;
+const QPainter = @import("libqt6").QPainter;
+const QPalette = @import("libqt6").QPalette;
+const QPixmap = @import("libqt6").QPixmap;
+const QPoint = @import("libqt6").QPoint;
+const QPointF = @import("libqt6").QPointF;
+const QRect = @import("libqt6").QRect;
+const QRegion = @import("libqt6").QRegion;
+const QResizeEvent = @import("libqt6").QResizeEvent;
+const QScreen = @import("libqt6").QScreen;
+const QShowEvent = @import("libqt6").QShowEvent;
+const QSize = @import("libqt6").QSize;
+const QSizePolicy = @import("libqt6").QSizePolicy;
+const QStyle = @import("libqt6").QStyle;
+const QTabletEvent = @import("libqt6").QTabletEvent;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
+const QVideoSink = @import("libqt6").QVideoSink;
+const QWheelEvent = @import("libqt6").QWheelEvent;
+const QWidget = @import("libqt6").QWidget;
+const QWindow = @import("libqt6").QWindow;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const qpaintdevice_enums = @import("../libqpaintdevice.zig").enums;
@@ -9,31 +68,43 @@ const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideowidget.html)
-pub const qvideowidget = struct {
+pub const QVideoWidget = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideowidget.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QVideoWidget,
+
+    pub const _is_QVideoWidget = {};
+    pub const _is_QWidget = {};
+    pub const _is_QObject = {};
+    pub const _is_QPaintDevice = {};
+
     /// New constructs a new QVideoWidget object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn New(parent: ?*anyopaque) QtC.QVideoWidget {
-        return qtc.QVideoWidget_new(@ptrCast(parent));
+    pub fn New(parent: anytype) QVideoWidget {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QVideoWidget_new(@ptrCast(parent.ptr)) };
     }
 
     /// New2 constructs a new QVideoWidget object.
     ///
-    pub fn New2() QtC.QVideoWidget {
-        return qtc.QVideoWidget_new2();
+    pub fn New2() QVideoWidget {
+        return .{ .ptr = qtc.QVideoWidget_new2() };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QVideoWidget_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QVideoWidget) QMetaObject {
+        return .{ .ptr = qtc.QVideoWidget_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -42,12 +113,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QVideoWidget_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QVideoWidget, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QVideoWidget_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -60,33 +131,33 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QVideoWidget_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QVideoWidget) QMetaObject {
+        return .{ .ptr = qtc.QVideoWidget_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QVideoWidget, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QVideoWidget_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QVideoWidget_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QVideoWidget, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QVideoWidget_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QVideoWidget, callback: *const fn (QVideoWidget, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QVideoWidget_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -97,18 +168,18 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QVideoWidget, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QVideoWidget_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QVideoWidget_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -116,20 +187,20 @@ pub const qvideowidget = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QVideoWidget_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QVideoWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QVideoWidget_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QVideoWidget, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QVideoWidget_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QVideoWidget, callback: *const fn (QVideoWidget, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QVideoWidget_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -140,7 +211,7 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -148,19 +219,19 @@ pub const qvideowidget = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QVideoWidget_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QVideoWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QVideoWidget_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -173,34 +244,34 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn VideoSink(self: ?*anyopaque) QtC.QVideoSink {
-        return qtc.QVideoWidget_VideoSink(@ptrCast(self));
+    pub fn VideoSink(self: QVideoWidget) QVideoSink {
+        return .{ .ptr = qtc.QVideoWidget_VideoSink(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideowidget.html#aspectRatioMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.AspectRatioMode `
     ///
-    pub fn AspectRatioMode(self: ?*anyopaque) i32 {
-        return qtc.QVideoWidget_AspectRatioMode(@ptrCast(self));
+    pub fn AspectRatioMode(self: QVideoWidget) i32 {
+        return qtc.QVideoWidget_AspectRatioMode(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideowidget.html#sizeHint)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QVideoWidget_SizeHint(@ptrCast(self));
+    pub fn SizeHint(self: QVideoWidget) QSize {
+        return .{ .ptr = qtc.QVideoWidget_SizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideowidget.html#sizeHint)
@@ -209,12 +280,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QVideoWidget_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSizeHint(self: QVideoWidget, callback: *const fn () callconv(.c) QSize) void {
+        qtc.QVideoWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSizeHint` instead
@@ -227,94 +298,95 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QVideoWidget_SuperSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: QVideoWidget) QSize {
+        return .{ .ptr = qtc.QVideoWidget_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideowidget.html#setFullScreen)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` fullScreen: bool `
     ///
-    pub fn SetFullScreen(self: ?*anyopaque, fullScreen: bool) void {
-        qtc.QVideoWidget_SetFullScreen(@ptrCast(self), fullScreen);
+    pub fn SetFullScreen(self: QVideoWidget, fullScreen: bool) void {
+        qtc.QVideoWidget_SetFullScreen(@ptrCast(self.ptr), fullScreen);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideowidget.html#setAspectRatioMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` mode: qnamespace_enums.AspectRatioMode `
     ///
-    pub fn SetAspectRatioMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QVideoWidget_SetAspectRatioMode(@ptrCast(self), @bitCast(mode));
+    pub fn SetAspectRatioMode(self: QVideoWidget, mode: i32) void {
+        qtc.QVideoWidget_SetAspectRatioMode(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideowidget.html#fullScreenChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` fullScreen: bool `
     ///
-    pub fn FullScreenChanged(self: ?*anyopaque, fullScreen: bool) void {
-        qtc.QVideoWidget_FullScreenChanged(@ptrCast(self), fullScreen);
+    pub fn FullScreenChanged(self: QVideoWidget, fullScreen: bool) void {
+        qtc.QVideoWidget_FullScreenChanged(@ptrCast(self.ptr), fullScreen);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideowidget.html#fullScreenChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, fullScreen: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QVideoWidget, fullScreen: bool) callconv(.c) void `
     ///
-    pub fn OnFullScreenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QVideoWidget_Connect_FullScreenChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFullScreenChanged(self: QVideoWidget, callback: *const fn (QVideoWidget, bool) callconv(.c) void) void {
+        qtc.QVideoWidget_Connect_FullScreenChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideowidget.html#aspectRatioModeChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` mode: qnamespace_enums.AspectRatioMode `
     ///
-    pub fn AspectRatioModeChanged(self: ?*anyopaque, mode: i32) void {
-        qtc.QVideoWidget_AspectRatioModeChanged(@ptrCast(self), @bitCast(mode));
+    pub fn AspectRatioModeChanged(self: QVideoWidget, mode: i32) void {
+        qtc.QVideoWidget_AspectRatioModeChanged(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideowidget.html#aspectRatioModeChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, mode: qnamespace_enums.AspectRatioMode) callconv(.c) void `
+    /// ` callback: *const fn (self: QVideoWidget, mode: qnamespace_enums.AspectRatioMode) callconv(.c) void `
     ///
-    pub fn OnAspectRatioModeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QVideoWidget_Connect_AspectRatioModeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAspectRatioModeChanged(self: QVideoWidget, callback: *const fn (QVideoWidget, i32) callconv(.c) void) void {
+        qtc.QVideoWidget_Connect_AspectRatioModeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideowidget.html#event)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QVideoWidget_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: QVideoWidget, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QVideoWidget_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideowidget.html#event)
@@ -323,12 +395,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QVideoWidget, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QVideoWidget_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QVideoWidget, callback: *const fn (QVideoWidget, QEvent) callconv(.c) bool) void {
+        qtc.QVideoWidget_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -341,24 +413,26 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QVideoWidget_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: QVideoWidget, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QVideoWidget_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideowidget.html#showEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QShowEvent `
+    /// ` event: QShowEvent `
     ///
-    pub fn ShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_ShowEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ShowEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QShowEvent;
+        qtc.QVideoWidget_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideowidget.html#showEvent)
@@ -367,12 +441,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, event: QtC.QShowEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QVideoWidget, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVideoWidget_OnShowEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnShowEvent(self: QVideoWidget, callback: *const fn (QVideoWidget, QShowEvent) callconv(.c) void) void {
+        qtc.QVideoWidget_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperShowEvent` instead
@@ -385,24 +459,26 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QShowEvent `
+    /// ` event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_SuperShowEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperShowEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QShowEvent;
+        qtc.QVideoWidget_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideowidget.html#hideEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QHideEvent `
+    /// ` event: QHideEvent `
     ///
-    pub fn HideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_HideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn HideEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QHideEvent;
+        qtc.QVideoWidget_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideowidget.html#hideEvent)
@@ -411,12 +487,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, event: QtC.QHideEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QVideoWidget, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVideoWidget_OnHideEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHideEvent(self: QVideoWidget, callback: *const fn (QVideoWidget, QHideEvent) callconv(.c) void) void {
+        qtc.QVideoWidget_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperHideEvent` instead
@@ -429,24 +505,26 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QHideEvent `
+    /// ` event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_SuperHideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHideEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QHideEvent;
+        qtc.QVideoWidget_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideowidget.html#resizeEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QResizeEvent `
+    /// ` event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_ResizeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ResizeEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QResizeEvent;
+        qtc.QVideoWidget_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideowidget.html#resizeEvent)
@@ -455,12 +533,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, event: QtC.QResizeEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QVideoWidget, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVideoWidget_OnResizeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResizeEvent(self: QVideoWidget, callback: *const fn (QVideoWidget, QResizeEvent) callconv(.c) void) void {
+        qtc.QVideoWidget_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperResizeEvent` instead
@@ -473,24 +551,26 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QResizeEvent `
+    /// ` event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_SuperResizeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperResizeEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QResizeEvent;
+        qtc.QVideoWidget_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideowidget.html#moveEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QMoveEvent `
+    /// ` event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_MoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MoveEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMoveEvent;
+        qtc.QVideoWidget_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideowidget.html#moveEvent)
@@ -499,12 +579,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, event: QtC.QMoveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QVideoWidget, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVideoWidget_OnMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMoveEvent(self: QVideoWidget, callback: *const fn (QVideoWidget, QMoveEvent) callconv(.c) void) void {
+        qtc.QVideoWidget_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMoveEvent` instead
@@ -517,25 +597,26 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QMoveEvent `
+    /// ` event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_SuperMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMoveEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMoveEvent;
+        qtc.QVideoWidget_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -549,15 +630,15 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -573,10 +654,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn WinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_WinId(@ptrCast(self));
+    pub fn WinId(self: QVideoWidget) usize {
+        return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -585,10 +666,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn CreateWinId(self: ?*anyopaque) void {
-        qtc.QWidget_CreateWinId(@ptrCast(self));
+    pub fn CreateWinId(self: QVideoWidget) void {
+        qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -597,10 +678,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn InternalWinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_InternalWinId(@ptrCast(self));
+    pub fn InternalWinId(self: QVideoWidget) usize {
+        return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -609,10 +690,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn EffectiveWinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_EffectiveWinId(@ptrCast(self));
+    pub fn EffectiveWinId(self: QVideoWidget) usize {
+        return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -621,10 +702,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn Style(self: ?*anyopaque) QtC.QStyle {
-        return qtc.QWidget_Style(@ptrCast(self));
+    pub fn Style(self: QVideoWidget) QStyle {
+        return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -633,12 +714,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` style: QtC.QStyle `
+    /// ` style: QStyle `
     ///
-    pub fn SetStyle(self: ?*anyopaque, style: ?*anyopaque) void {
-        qtc.QWidget_SetStyle(@ptrCast(self), @ptrCast(style));
+    pub fn SetStyle(self: QVideoWidget, style: anytype) void {
+        comptime _ = @TypeOf(style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
     }
 
     /// Inherited from QWidget
@@ -647,10 +729,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn IsTopLevel(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsTopLevel(@ptrCast(self));
+    pub fn IsTopLevel(self: QVideoWidget) bool {
+        return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -659,10 +741,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn IsWindow(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsWindow(@ptrCast(self));
+    pub fn IsWindow(self: QVideoWidget) bool {
+        return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -671,10 +753,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn IsModal(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsModal(@ptrCast(self));
+    pub fn IsModal(self: QVideoWidget) bool {
+        return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -683,14 +765,14 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowModality(@ptrCast(self));
+    pub fn WindowModality(self: QVideoWidget) i32 {
+        return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -699,12 +781,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self), @bitCast(windowModality));
+    pub fn SetWindowModality(self: QVideoWidget, windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
     }
 
     /// Inherited from QWidget
@@ -713,10 +795,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn IsEnabled(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsEnabled(@ptrCast(self));
+    pub fn IsEnabled(self: QVideoWidget) bool {
+        return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -725,12 +807,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidget_IsEnabledTo(@ptrCast(self), @ptrCast(param1));
+    pub fn IsEnabledTo(self: QVideoWidget, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -739,12 +822,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
-        qtc.QWidget_SetEnabled(@ptrCast(self), enabled);
+    pub fn SetEnabled(self: QVideoWidget, enabled: bool) void {
+        qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QWidget
@@ -753,12 +836,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: ?*anyopaque, disabled: bool) void {
-        qtc.QWidget_SetDisabled(@ptrCast(self), disabled);
+    pub fn SetDisabled(self: QVideoWidget, disabled: bool) void {
+        qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
 
     /// Inherited from QWidget
@@ -767,12 +850,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: ?*anyopaque, windowModified: bool) void {
-        qtc.QWidget_SetWindowModified(@ptrCast(self), windowModified);
+    pub fn SetWindowModified(self: QVideoWidget, windowModified: bool) void {
+        qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
 
     /// Inherited from QWidget
@@ -781,10 +864,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn FrameGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_FrameGeometry(@ptrCast(self));
+    pub fn FrameGeometry(self: QVideoWidget) QRect {
+        return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -793,10 +876,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn Geometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_Geometry(@ptrCast(self));
+    pub fn Geometry(self: QVideoWidget) QRect {
+        return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -805,10 +888,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn NormalGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_NormalGeometry(@ptrCast(self));
+    pub fn NormalGeometry(self: QVideoWidget) QRect {
+        return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -817,10 +900,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn X(self: ?*anyopaque) i32 {
-        return qtc.QWidget_X(@ptrCast(self));
+    pub fn X(self: QVideoWidget) i32 {
+        return qtc.QWidget_X(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -829,10 +912,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn Y(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Y(@ptrCast(self));
+    pub fn Y(self: QVideoWidget) i32 {
+        return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -841,10 +924,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn Pos(self: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_Pos(@ptrCast(self));
+    pub fn Pos(self: QVideoWidget) QPoint {
+        return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -853,10 +936,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_FrameSize(@ptrCast(self));
+    pub fn FrameSize(self: QVideoWidget) QSize {
+        return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -865,10 +948,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn Size(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_Size(@ptrCast(self));
+    pub fn Size(self: QVideoWidget) QSize {
+        return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -877,10 +960,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn Width(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Width(@ptrCast(self));
+    pub fn Width(self: QVideoWidget) i32 {
+        return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -889,10 +972,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn Height(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Height(@ptrCast(self));
+    pub fn Height(self: QVideoWidget) i32 {
+        return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -901,10 +984,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn Rect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_Rect(@ptrCast(self));
+    pub fn Rect(self: QVideoWidget) QRect {
+        return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -913,10 +996,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn ChildrenRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_ChildrenRect(@ptrCast(self));
+    pub fn ChildrenRect(self: QVideoWidget) QRect {
+        return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -925,10 +1008,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn ChildrenRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_ChildrenRegion(@ptrCast(self));
+    pub fn ChildrenRegion(self: QVideoWidget) QRegion {
+        return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -937,10 +1020,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MinimumSize(@ptrCast(self));
+    pub fn MinimumSize(self: QVideoWidget) QSize {
+        return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -949,10 +1032,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MaximumSize(@ptrCast(self));
+    pub fn MaximumSize(self: QVideoWidget) QSize {
+        return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -961,10 +1044,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn MinimumWidth(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MinimumWidth(@ptrCast(self));
+    pub fn MinimumWidth(self: QVideoWidget) i32 {
+        return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -973,10 +1056,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn MinimumHeight(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MinimumHeight(@ptrCast(self));
+    pub fn MinimumHeight(self: QVideoWidget) i32 {
+        return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -985,10 +1068,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn MaximumWidth(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MaximumWidth(@ptrCast(self));
+    pub fn MaximumWidth(self: QVideoWidget) i32 {
+        return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -997,10 +1080,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn MaximumHeight(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MaximumHeight(@ptrCast(self));
+    pub fn MaximumHeight(self: QVideoWidget) i32 {
+        return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1009,12 +1092,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` minimumSize: QtC.QSize `
+    /// ` minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: ?*anyopaque, minimumSize: ?*anyopaque) void {
-        qtc.QWidget_SetMinimumSize(@ptrCast(self), @ptrCast(minimumSize));
+    pub fn SetMinimumSize(self: QVideoWidget, minimumSize: anytype) void {
+        comptime _ = @TypeOf(minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -1023,14 +1107,14 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` minw: i32 `
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
-        qtc.QWidget_SetMinimumSize2(@ptrCast(self), @bitCast(minw), @bitCast(minh));
+    pub fn SetMinimumSize2(self: QVideoWidget, minw: i32, minh: i32) void {
+        qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -1039,12 +1123,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` maximumSize: QtC.QSize `
+    /// ` maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: ?*anyopaque, maximumSize: ?*anyopaque) void {
-        qtc.QWidget_SetMaximumSize(@ptrCast(self), @ptrCast(maximumSize));
+    pub fn SetMaximumSize(self: QVideoWidget, maximumSize: anytype) void {
+        comptime _ = @TypeOf(maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -1053,14 +1138,14 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` maxw: i32 `
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
-        qtc.QWidget_SetMaximumSize2(@ptrCast(self), @bitCast(maxw), @bitCast(maxh));
+    pub fn SetMaximumSize2(self: QVideoWidget, maxw: i32, maxh: i32) void {
+        qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -1069,12 +1154,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
-        qtc.QWidget_SetMinimumWidth(@ptrCast(self), @bitCast(minw));
+    pub fn SetMinimumWidth(self: QVideoWidget, minw: i32) void {
+        qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
 
     /// Inherited from QWidget
@@ -1083,12 +1168,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
-        qtc.QWidget_SetMinimumHeight(@ptrCast(self), @bitCast(minh));
+    pub fn SetMinimumHeight(self: QVideoWidget, minh: i32) void {
+        qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -1097,12 +1182,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
-        qtc.QWidget_SetMaximumWidth(@ptrCast(self), @bitCast(maxw));
+    pub fn SetMaximumWidth(self: QVideoWidget, maxw: i32) void {
+        qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
 
     /// Inherited from QWidget
@@ -1111,12 +1196,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
-        qtc.QWidget_SetMaximumHeight(@ptrCast(self), @bitCast(maxh));
+    pub fn SetMaximumHeight(self: QVideoWidget, maxh: i32) void {
+        qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -1125,10 +1210,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn SizeIncrement(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_SizeIncrement(@ptrCast(self));
+    pub fn SizeIncrement(self: QVideoWidget) QSize {
+        return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1137,12 +1222,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` sizeIncrement: QtC.QSize `
+    /// ` sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: ?*anyopaque, sizeIncrement: ?*anyopaque) void {
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self), @ptrCast(sizeIncrement));
+    pub fn SetSizeIncrement(self: QVideoWidget, sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
     }
 
     /// Inherited from QWidget
@@ -1151,14 +1237,14 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetSizeIncrement2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetSizeIncrement2(self: QVideoWidget, w: i32, h: i32) void {
+        qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -1167,10 +1253,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn BaseSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_BaseSize(@ptrCast(self));
+    pub fn BaseSize(self: QVideoWidget) QSize {
+        return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1179,12 +1265,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` baseSize: QtC.QSize `
+    /// ` baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: ?*anyopaque, baseSize: ?*anyopaque) void {
-        qtc.QWidget_SetBaseSize(@ptrCast(self), @ptrCast(baseSize));
+    pub fn SetBaseSize(self: QVideoWidget, baseSize: anytype) void {
+        comptime _ = @TypeOf(baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -1193,14 +1280,14 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` basew: i32 `
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
-        qtc.QWidget_SetBaseSize2(@ptrCast(self), @bitCast(basew), @bitCast(baseh));
+    pub fn SetBaseSize2(self: QVideoWidget, basew: i32, baseh: i32) void {
+        qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
 
     /// Inherited from QWidget
@@ -1209,12 +1296,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` fixedSize: QtC.QSize `
+    /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: ?*anyopaque, fixedSize: ?*anyopaque) void {
-        qtc.QWidget_SetFixedSize(@ptrCast(self), @ptrCast(fixedSize));
+    pub fn SetFixedSize(self: QVideoWidget, fixedSize: anytype) void {
+        comptime _ = @TypeOf(fixedSize)._is_QSize;
+        qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -1223,14 +1311,14 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetFixedSize2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetFixedSize2(self: QVideoWidget, w: i32, h: i32) void {
+        qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -1239,12 +1327,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
-        qtc.QWidget_SetFixedWidth(@ptrCast(self), @bitCast(w));
+    pub fn SetFixedWidth(self: QVideoWidget, w: i32) void {
+        qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
 
     /// Inherited from QWidget
@@ -1253,12 +1341,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
-        qtc.QWidget_SetFixedHeight(@ptrCast(self), @bitCast(h));
+    pub fn SetFixedHeight(self: QVideoWidget, h: i32) void {
+        qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -1267,12 +1355,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapToGlobal(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal(self: QVideoWidget, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1281,12 +1370,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToGlobal2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal2(self: QVideoWidget, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1295,12 +1385,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFromGlobal(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal(self: QVideoWidget, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1309,12 +1400,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromGlobal2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal2(self: QVideoWidget, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1323,12 +1415,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapToParent(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent(self: QVideoWidget, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1337,12 +1430,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToParent2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent2(self: QVideoWidget, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1351,12 +1445,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFromParent(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent(self: QVideoWidget, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1365,12 +1460,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromParent2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent2(self: QVideoWidget, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1379,14 +1475,16 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPointF `
+    /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapTo(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapTo(self: QVideoWidget, param1: anytype, param2: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1395,14 +1493,16 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPoint `
+    /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapTo2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapTo2(self: QVideoWidget, param1: anytype, param2: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1411,14 +1511,16 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPointF `
+    /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFrom(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapFrom(self: QVideoWidget, param1: anytype, param2: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1427,14 +1529,16 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPoint `
+    /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFrom2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapFrom2(self: QVideoWidget, param1: anytype, param2: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1443,10 +1547,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn Window(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_Window(@ptrCast(self));
+    pub fn Window(self: QVideoWidget) QWidget {
+        return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1455,10 +1559,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn NativeParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_NativeParentWidget(@ptrCast(self));
+    pub fn NativeParentWidget(self: QVideoWidget) QWidget {
+        return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1467,10 +1571,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn TopLevelWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_TopLevelWidget(@ptrCast(self));
+    pub fn TopLevelWidget(self: QVideoWidget) QWidget {
+        return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1479,10 +1583,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn Palette(self: ?*anyopaque) QtC.QPalette {
-        return qtc.QWidget_Palette(@ptrCast(self));
+    pub fn Palette(self: QVideoWidget) QPalette {
+        return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1491,12 +1595,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` palette: QtC.QPalette `
+    /// ` palette: QPalette `
     ///
-    pub fn SetPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
-        qtc.QWidget_SetPalette(@ptrCast(self), @ptrCast(palette));
+    pub fn SetPalette(self: QVideoWidget, palette: anytype) void {
+        comptime _ = @TypeOf(palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
     }
 
     /// Inherited from QWidget
@@ -1505,12 +1610,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self), @bitCast(backgroundRole));
+    pub fn SetBackgroundRole(self: QVideoWidget, backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
     }
 
     /// Inherited from QWidget
@@ -1519,14 +1624,14 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: ?*anyopaque) i32 {
-        return qtc.QWidget_BackgroundRole(@ptrCast(self));
+    pub fn BackgroundRole(self: QVideoWidget) i32 {
+        return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1535,12 +1640,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self), @bitCast(foregroundRole));
+    pub fn SetForegroundRole(self: QVideoWidget, foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
     }
 
     /// Inherited from QWidget
@@ -1549,14 +1654,14 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ForegroundRole(@ptrCast(self));
+    pub fn ForegroundRole(self: QVideoWidget) i32 {
+        return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1565,10 +1670,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn Font(self: ?*anyopaque) QtC.QFont {
-        return qtc.QWidget_Font(@ptrCast(self));
+    pub fn Font(self: QVideoWidget) QFont {
+        return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1577,12 +1682,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` font: QtC.QFont `
+    /// ` font: QFont `
     ///
-    pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
-        qtc.QWidget_SetFont(@ptrCast(self), @ptrCast(font));
+    pub fn SetFont(self: QVideoWidget, font: anytype) void {
+        comptime _ = @TypeOf(font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
     }
 
     /// Inherited from QWidget
@@ -1591,10 +1697,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn FontMetrics(self: ?*anyopaque) QtC.QFontMetrics {
-        return qtc.QWidget_FontMetrics(@ptrCast(self));
+    pub fn FontMetrics(self: QVideoWidget) QFontMetrics {
+        return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1603,10 +1709,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn FontInfo(self: ?*anyopaque) QtC.QFontInfo {
-        return qtc.QWidget_FontInfo(@ptrCast(self));
+    pub fn FontInfo(self: QVideoWidget) QFontInfo {
+        return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1615,10 +1721,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
-        return qtc.QWidget_Cursor(@ptrCast(self));
+    pub fn Cursor(self: QVideoWidget) QCursor {
+        return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1627,12 +1733,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` cursor: QtC.QCursor `
+    /// ` cursor: QCursor `
     ///
-    pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
-        qtc.QWidget_SetCursor(@ptrCast(self), @ptrCast(cursor));
+    pub fn SetCursor(self: QVideoWidget, cursor: anytype) void {
+        comptime _ = @TypeOf(cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
     }
 
     /// Inherited from QWidget
@@ -1641,10 +1748,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn UnsetCursor(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetCursor(@ptrCast(self));
+    pub fn UnsetCursor(self: QVideoWidget) void {
+        qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1653,12 +1760,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetMouseTracking(@ptrCast(self), enable);
+    pub fn SetMouseTracking(self: QVideoWidget, enable: bool) void {
+        qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -1667,10 +1774,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn HasMouseTracking(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasMouseTracking(@ptrCast(self));
+    pub fn HasMouseTracking(self: QVideoWidget) bool {
+        return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1679,10 +1786,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn UnderMouse(self: ?*anyopaque) bool {
-        return qtc.QWidget_UnderMouse(@ptrCast(self));
+    pub fn UnderMouse(self: QVideoWidget) bool {
+        return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1691,12 +1798,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetTabletTracking(@ptrCast(self), enable);
+    pub fn SetTabletTracking(self: QVideoWidget, enable: bool) void {
+        qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -1705,10 +1812,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn HasTabletTracking(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasTabletTracking(@ptrCast(self));
+    pub fn HasTabletTracking(self: QVideoWidget) bool {
+        return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1717,12 +1824,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` mask: QtC.QBitmap `
+    /// ` mask: QBitmap `
     ///
-    pub fn SetMask(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMask(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask(self: QVideoWidget, mask: anytype) void {
+        comptime _ = @TypeOf(mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
 
     /// Inherited from QWidget
@@ -1731,12 +1839,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` mask: QtC.QRegion `
+    /// ` mask: QRegion `
     ///
-    pub fn SetMask2(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMask2(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask2(self: QVideoWidget, mask: anytype) void {
+        comptime _ = @TypeOf(mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
 
     /// Inherited from QWidget
@@ -1745,10 +1854,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn Mask(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_Mask(@ptrCast(self));
+    pub fn Mask(self: QVideoWidget) QRegion {
+        return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1757,10 +1866,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn ClearMask(self: ?*anyopaque) void {
-        qtc.QWidget_ClearMask(@ptrCast(self));
+    pub fn ClearMask(self: QVideoWidget) void {
+        qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1769,12 +1878,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: ?*anyopaque, target: ?*anyopaque) void {
-        qtc.QWidget_Render(@ptrCast(self), @ptrCast(target));
+    pub fn Render(self: QVideoWidget, target: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
 
     /// Inherited from QWidget
@@ -1783,12 +1893,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn Render2(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QWidget_Render2(@ptrCast(self), @ptrCast(painter));
+    pub fn Render2(self: QVideoWidget, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// Inherited from QWidget
@@ -1797,10 +1908,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn Grab(self: ?*anyopaque) QtC.QPixmap {
-        return qtc.QWidget_Grab(@ptrCast(self));
+    pub fn Grab(self: QVideoWidget) QPixmap {
+        return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1809,10 +1920,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
-        return qtc.QWidget_GraphicsEffect(@ptrCast(self));
+    pub fn GraphicsEffect(self: QVideoWidget) QGraphicsEffect {
+        return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1821,12 +1932,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` effect: QtC.QGraphicsEffect `
+    /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
-        qtc.QWidget_SetGraphicsEffect(@ptrCast(self), @ptrCast(effect));
+    pub fn SetGraphicsEffect(self: QVideoWidget, effect: anytype) void {
+        comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
+        qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
 
     /// Inherited from QWidget
@@ -1835,12 +1947,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_GrabGesture(@ptrCast(self), @bitCast(typeVal));
+    pub fn GrabGesture(self: QVideoWidget, typeVal: i32) void {
+        qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -1849,12 +1961,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_UngrabGesture(@ptrCast(self), @bitCast(typeVal));
+    pub fn UngrabGesture(self: QVideoWidget, typeVal: i32) void {
+        qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -1863,16 +1975,16 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
+    pub fn SetWindowTitle(self: QVideoWidget, windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
             .len = windowTitle.len,
             .data = windowTitle.ptr,
         };
-        qtc.QWidget_SetWindowTitle(@ptrCast(self), windowTitle_str);
+        qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
 
     /// Inherited from QWidget
@@ -1881,16 +1993,16 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
+    pub fn SetStyleSheet(self: QVideoWidget, styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
             .len = styleSheet.len,
             .data = styleSheet.ptr,
         };
-        qtc.QWidget_SetStyleSheet(@ptrCast(self), styleSheet_str);
+        qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
 
     /// Inherited from QWidget
@@ -1899,12 +2011,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_StyleSheet(@ptrCast(self));
+    pub fn StyleSheet(self: QVideoWidget, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qvideowidget.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1917,12 +2029,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowTitle(@ptrCast(self));
+    pub fn WindowTitle(self: QVideoWidget, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qvideowidget.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1935,12 +2047,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QWidget_SetWindowIcon(@ptrCast(self), @ptrCast(icon));
+    pub fn SetWindowIcon(self: QVideoWidget, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QWidget
@@ -1949,10 +2062,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn WindowIcon(self: ?*anyopaque) QtC.QIcon {
-        return qtc.QWidget_WindowIcon(@ptrCast(self));
+    pub fn WindowIcon(self: QVideoWidget) QIcon {
+        return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1961,16 +2074,16 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
+    pub fn SetWindowIconText(self: QVideoWidget, windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
             .len = windowIconText.len,
             .data = windowIconText.ptr,
         };
-        qtc.QWidget_SetWindowIconText(@ptrCast(self), windowIconText_str);
+        qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
 
     /// Inherited from QWidget
@@ -1979,12 +2092,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowIconText(@ptrCast(self));
+    pub fn WindowIconText(self: QVideoWidget, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qvideowidget.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1997,16 +2110,16 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
+    pub fn SetWindowRole(self: QVideoWidget, windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
             .len = windowRole.len,
             .data = windowRole.ptr,
         };
-        qtc.QWidget_SetWindowRole(@ptrCast(self), windowRole_str);
+        qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
 
     /// Inherited from QWidget
@@ -2015,12 +2128,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowRole(@ptrCast(self));
+    pub fn WindowRole(self: QVideoWidget, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qvideowidget.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2033,16 +2146,16 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
+    pub fn SetWindowFilePath(self: QVideoWidget, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
-        qtc.QWidget_SetWindowFilePath(@ptrCast(self), filePath_str);
+        qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
 
     /// Inherited from QWidget
@@ -2051,12 +2164,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
+    pub fn WindowFilePath(self: QVideoWidget, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qvideowidget.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2069,12 +2182,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
-        qtc.QWidget_SetWindowOpacity(@ptrCast(self), @bitCast(level));
+    pub fn SetWindowOpacity(self: QVideoWidget, level: f64) void {
+        qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
 
     /// Inherited from QWidget
@@ -2083,10 +2196,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn WindowOpacity(self: ?*anyopaque) f64 {
-        return qtc.QWidget_WindowOpacity(@ptrCast(self));
+    pub fn WindowOpacity(self: QVideoWidget) f64 {
+        return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2095,10 +2208,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn IsWindowModified(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsWindowModified(@ptrCast(self));
+    pub fn IsWindowModified(self: QVideoWidget) bool {
+        return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2107,16 +2220,16 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
+    pub fn SetToolTip(self: QVideoWidget, toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
             .len = toolTip.len,
             .data = toolTip.ptr,
         };
-        qtc.QWidget_SetToolTip(@ptrCast(self), toolTip_str);
+        qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
 
     /// Inherited from QWidget
@@ -2125,12 +2238,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_ToolTip(@ptrCast(self));
+    pub fn ToolTip(self: QVideoWidget, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qvideowidget.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2143,12 +2256,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
-        qtc.QWidget_SetToolTipDuration(@ptrCast(self), @bitCast(msec));
+    pub fn SetToolTipDuration(self: QVideoWidget, msec: i32) void {
+        qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
 
     /// Inherited from QWidget
@@ -2157,10 +2270,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn ToolTipDuration(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ToolTipDuration(@ptrCast(self));
+    pub fn ToolTipDuration(self: QVideoWidget) i32 {
+        return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2169,16 +2282,16 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
+    pub fn SetStatusTip(self: QVideoWidget, statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
             .len = statusTip.len,
             .data = statusTip.ptr,
         };
-        qtc.QWidget_SetStatusTip(@ptrCast(self), statusTip_str);
+        qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
 
     /// Inherited from QWidget
@@ -2187,12 +2300,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_StatusTip(@ptrCast(self));
+    pub fn StatusTip(self: QVideoWidget, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qvideowidget.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2205,16 +2318,16 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
+    pub fn SetWhatsThis(self: QVideoWidget, whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
             .len = whatsThis.len,
             .data = whatsThis.ptr,
         };
-        qtc.QWidget_SetWhatsThis(@ptrCast(self), whatsThis_str);
+        qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
 
     /// Inherited from QWidget
@@ -2223,12 +2336,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WhatsThis(@ptrCast(self));
+    pub fn WhatsThis(self: QVideoWidget, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qvideowidget.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2241,12 +2354,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_AccessibleName(@ptrCast(self));
+    pub fn AccessibleName(self: QVideoWidget, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qvideowidget.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2259,16 +2372,16 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
+    pub fn SetAccessibleName(self: QVideoWidget, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QWidget_SetAccessibleName(@ptrCast(self), name_str);
+        qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QWidget
@@ -2277,12 +2390,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
+    pub fn AccessibleDescription(self: QVideoWidget, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qvideowidget.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2295,16 +2408,16 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
+    pub fn SetAccessibleDescription(self: QVideoWidget, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
-        qtc.QWidget_SetAccessibleDescription(@ptrCast(self), description_str);
+        qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
 
     /// Inherited from QWidget
@@ -2313,12 +2426,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QWidget_SetLayoutDirection(@ptrCast(self), @bitCast(direction));
+    pub fn SetLayoutDirection(self: QVideoWidget, direction: i32) void {
+        qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
 
     /// Inherited from QWidget
@@ -2327,14 +2440,14 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: ?*anyopaque) i32 {
-        return qtc.QWidget_LayoutDirection(@ptrCast(self));
+    pub fn LayoutDirection(self: QVideoWidget) i32 {
+        return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2343,10 +2456,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn UnsetLayoutDirection(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self));
+    pub fn UnsetLayoutDirection(self: QVideoWidget) void {
+        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2355,12 +2468,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` locale: QtC.QLocale `
+    /// ` locale: QLocale `
     ///
-    pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
-        qtc.QWidget_SetLocale(@ptrCast(self), @ptrCast(locale));
+    pub fn SetLocale(self: QVideoWidget, locale: anytype) void {
+        comptime _ = @TypeOf(locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
     }
 
     /// Inherited from QWidget
@@ -2369,10 +2483,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn Locale(self: ?*anyopaque) QtC.QLocale {
-        return qtc.QWidget_Locale(@ptrCast(self));
+    pub fn Locale(self: QVideoWidget) QLocale {
+        return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2381,10 +2495,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn UnsetLocale(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetLocale(@ptrCast(self));
+    pub fn UnsetLocale(self: QVideoWidget) void {
+        qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2393,10 +2507,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn IsRightToLeft(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsRightToLeft(@ptrCast(self));
+    pub fn IsRightToLeft(self: QVideoWidget) bool {
+        return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2405,10 +2519,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn IsLeftToRight(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsLeftToRight(@ptrCast(self));
+    pub fn IsLeftToRight(self: QVideoWidget) bool {
+        return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2417,10 +2531,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn SetFocus(self: ?*anyopaque) void {
-        qtc.QWidget_SetFocus(@ptrCast(self));
+    pub fn SetFocus(self: QVideoWidget) void {
+        qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2429,10 +2543,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn IsActiveWindow(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsActiveWindow(@ptrCast(self));
+    pub fn IsActiveWindow(self: QVideoWidget) bool {
+        return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2441,10 +2555,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn ActivateWindow(self: ?*anyopaque) void {
-        qtc.QWidget_ActivateWindow(@ptrCast(self));
+    pub fn ActivateWindow(self: QVideoWidget) void {
+        qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2453,10 +2567,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn ClearFocus(self: ?*anyopaque) void {
-        qtc.QWidget_ClearFocus(@ptrCast(self));
+    pub fn ClearFocus(self: QVideoWidget) void {
+        qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2465,12 +2579,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
-        qtc.QWidget_SetFocus2(@ptrCast(self), @bitCast(reason));
+    pub fn SetFocus2(self: QVideoWidget, reason: i32) void {
+        qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
 
     /// Inherited from QWidget
@@ -2479,14 +2593,14 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: ?*anyopaque) i32 {
-        return qtc.QWidget_FocusPolicy(@ptrCast(self));
+    pub fn FocusPolicy(self: QVideoWidget) i32 {
+        return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2495,12 +2609,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetFocusPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetFocusPolicy(self: QVideoWidget, policy: i32) void {
+        qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -2509,10 +2623,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn HasFocus(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasFocus(@ptrCast(self));
+    pub fn HasFocus(self: QVideoWidget) bool {
+        return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2521,12 +2635,14 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QWidget `
+    /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: ?*anyopaque, param2: ?*anyopaque) void {
-        qtc.QWidget_SetTabOrder(@ptrCast(param1), @ptrCast(param2));
+    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QWidget;
+        qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
     /// Inherited from QWidget
@@ -2535,12 +2651,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` focusProxy: QtC.QWidget `
+    /// ` focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: ?*anyopaque, focusProxy: ?*anyopaque) void {
-        qtc.QWidget_SetFocusProxy(@ptrCast(self), @ptrCast(focusProxy));
+    pub fn SetFocusProxy(self: QVideoWidget, focusProxy: anytype) void {
+        comptime _ = @TypeOf(focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
     }
 
     /// Inherited from QWidget
@@ -2549,10 +2666,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn FocusProxy(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_FocusProxy(@ptrCast(self));
+    pub fn FocusProxy(self: QVideoWidget) QWidget {
+        return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2561,14 +2678,14 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
+    pub fn ContextMenuPolicy(self: QVideoWidget) i32 {
+        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2577,12 +2694,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetContextMenuPolicy(self: QVideoWidget, policy: i32) void {
+        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -2591,10 +2708,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn GrabMouse(self: ?*anyopaque) void {
-        qtc.QWidget_GrabMouse(@ptrCast(self));
+    pub fn GrabMouse(self: QVideoWidget) void {
+        qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2603,12 +2720,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` param1: QtC.QCursor `
+    /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_GrabMouse2(@ptrCast(self), @ptrCast(param1));
+    pub fn GrabMouse2(self: QVideoWidget, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QCursor;
+        qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -2617,10 +2735,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn ReleaseMouse(self: ?*anyopaque) void {
-        qtc.QWidget_ReleaseMouse(@ptrCast(self));
+    pub fn ReleaseMouse(self: QVideoWidget) void {
+        qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2629,10 +2747,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn GrabKeyboard(self: ?*anyopaque) void {
-        qtc.QWidget_GrabKeyboard(@ptrCast(self));
+    pub fn GrabKeyboard(self: QVideoWidget) void {
+        qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2641,10 +2759,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn ReleaseKeyboard(self: ?*anyopaque) void {
-        qtc.QWidget_ReleaseKeyboard(@ptrCast(self));
+    pub fn ReleaseKeyboard(self: QVideoWidget) void {
+        qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2653,12 +2771,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` key: QtC.QKeySequence `
+    /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: ?*anyopaque, key: ?*anyopaque) i32 {
-        return qtc.QWidget_GrabShortcut(@ptrCast(self), @ptrCast(key));
+    pub fn GrabShortcut(self: QVideoWidget, key: anytype) i32 {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
 
     /// Inherited from QWidget
@@ -2667,12 +2786,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_ReleaseShortcut(@ptrCast(self), @bitCast(id));
+    pub fn ReleaseShortcut(self: QVideoWidget, id: i32) void {
+        qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -2681,12 +2800,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutEnabled(@ptrCast(self), @bitCast(id));
+    pub fn SetShortcutEnabled(self: QVideoWidget, id: i32) void {
+        qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -2695,28 +2814,28 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self), @bitCast(id));
+    pub fn SetShortcutAutoRepeat(self: QVideoWidget, id: i32) void {
+        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QtC.QWidget {
-        return qtc.QWidget_MouseGrabber();
+    pub fn MouseGrabber() QWidget {
+        return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QtC.QWidget {
-        return qtc.QWidget_KeyboardGrabber();
+    pub fn KeyboardGrabber() QWidget {
+        return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
 
     /// Inherited from QWidget
@@ -2725,10 +2844,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn UpdatesEnabled(self: ?*anyopaque) bool {
-        return qtc.QWidget_UpdatesEnabled(@ptrCast(self));
+    pub fn UpdatesEnabled(self: QVideoWidget) bool {
+        return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2737,12 +2856,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self), enable);
+    pub fn SetUpdatesEnabled(self: QVideoWidget, enable: bool) void {
+        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -2751,10 +2870,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn GraphicsProxyWidget(self: ?*anyopaque) QtC.QGraphicsProxyWidget {
-        return qtc.QWidget_GraphicsProxyWidget(@ptrCast(self));
+    pub fn GraphicsProxyWidget(self: QVideoWidget) QGraphicsProxyWidget {
+        return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2763,10 +2882,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn Update(self: ?*anyopaque) void {
-        qtc.QWidget_Update(@ptrCast(self));
+    pub fn Update(self: QVideoWidget) void {
+        qtc.QWidget_Update(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2775,10 +2894,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn Repaint(self: ?*anyopaque) void {
-        qtc.QWidget_Repaint(@ptrCast(self));
+    pub fn Repaint(self: QVideoWidget) void {
+        qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2787,7 +2906,7 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` x: i32 `
     ///
@@ -2797,8 +2916,8 @@ pub const qvideowidget = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn Update2(self: QVideoWidget, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -2807,12 +2926,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn Update3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Update3(@ptrCast(self), @ptrCast(param1));
+    pub fn Update3(self: QVideoWidget, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -2821,12 +2941,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn Update4(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Update4(@ptrCast(self), @ptrCast(param1));
+    pub fn Update4(self: QVideoWidget, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -2835,7 +2956,7 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` x: i32 `
     ///
@@ -2845,8 +2966,8 @@ pub const qvideowidget = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn Repaint2(self: QVideoWidget, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -2855,12 +2976,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Repaint3(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint3(self: QVideoWidget, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -2869,12 +2991,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Repaint4(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint4(self: QVideoWidget, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -2883,12 +3006,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: ?*anyopaque, hidden: bool) void {
-        qtc.QWidget_SetHidden(@ptrCast(self), hidden);
+    pub fn SetHidden(self: QVideoWidget, hidden: bool) void {
+        qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
 
     /// Inherited from QWidget
@@ -2897,10 +3020,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn Show(self: ?*anyopaque) void {
-        qtc.QWidget_Show(@ptrCast(self));
+    pub fn Show(self: QVideoWidget) void {
+        qtc.QWidget_Show(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2909,10 +3032,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn Hide(self: ?*anyopaque) void {
-        qtc.QWidget_Hide(@ptrCast(self));
+    pub fn Hide(self: QVideoWidget) void {
+        qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2921,10 +3044,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn ShowMinimized(self: ?*anyopaque) void {
-        qtc.QWidget_ShowMinimized(@ptrCast(self));
+    pub fn ShowMinimized(self: QVideoWidget) void {
+        qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2933,10 +3056,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn ShowMaximized(self: ?*anyopaque) void {
-        qtc.QWidget_ShowMaximized(@ptrCast(self));
+    pub fn ShowMaximized(self: QVideoWidget) void {
+        qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2945,10 +3068,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn ShowFullScreen(self: ?*anyopaque) void {
-        qtc.QWidget_ShowFullScreen(@ptrCast(self));
+    pub fn ShowFullScreen(self: QVideoWidget) void {
+        qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2957,10 +3080,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn ShowNormal(self: ?*anyopaque) void {
-        qtc.QWidget_ShowNormal(@ptrCast(self));
+    pub fn ShowNormal(self: QVideoWidget) void {
+        qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2969,10 +3092,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn Close(self: ?*anyopaque) bool {
-        return qtc.QWidget_Close(@ptrCast(self));
+    pub fn Close(self: QVideoWidget) bool {
+        return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2981,10 +3104,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn Raise(self: ?*anyopaque) void {
-        qtc.QWidget_Raise(@ptrCast(self));
+    pub fn Raise(self: QVideoWidget) void {
+        qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2993,10 +3116,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn Lower(self: ?*anyopaque) void {
-        qtc.QWidget_Lower(@ptrCast(self));
+    pub fn Lower(self: QVideoWidget) void {
+        qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3005,12 +3128,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_StackUnder(@ptrCast(self), @ptrCast(param1));
+    pub fn StackUnder(self: QVideoWidget, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3019,14 +3143,14 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn Move(self: QVideoWidget, x: i32, y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QWidget
@@ -3035,12 +3159,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn Move2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Move2(@ptrCast(self), @ptrCast(param1));
+    pub fn Move2(self: QVideoWidget, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3049,14 +3174,14 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_Resize(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn Resize(self: QVideoWidget, w: i32, h: i32) void {
+        qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3065,12 +3190,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` param1: QtC.QSize `
+    /// ` param1: QSize `
     ///
-    pub fn Resize2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Resize2(@ptrCast(self), @ptrCast(param1));
+    pub fn Resize2(self: QVideoWidget, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QSize;
+        qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3079,7 +3205,7 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` x: i32 `
     ///
@@ -3089,8 +3215,8 @@ pub const qvideowidget = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn SetGeometry(self: QVideoWidget, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3099,12 +3225,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` geometry: QtC.QRect `
+    /// ` geometry: QRect `
     ///
-    pub fn SetGeometry2(self: ?*anyopaque, geometry: ?*anyopaque) void {
-        qtc.QWidget_SetGeometry2(@ptrCast(self), @ptrCast(geometry));
+    pub fn SetGeometry2(self: QVideoWidget, geometry: anytype) void {
+        comptime _ = @TypeOf(geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
     }
 
     /// Inherited from QWidget
@@ -3113,12 +3240,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
+    pub fn SaveGeometry(self: QVideoWidget, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qvideowidget.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -3131,16 +3258,16 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
+    pub fn RestoreGeometry(self: QVideoWidget, geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
             .len = geometry.len,
             .data = geometry.ptr,
         };
-        return qtc.QWidget_RestoreGeometry(@ptrCast(self), geometry_str);
+        return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
 
     /// Inherited from QWidget
@@ -3149,10 +3276,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn AdjustSize(self: ?*anyopaque) void {
-        qtc.QWidget_AdjustSize(@ptrCast(self));
+    pub fn AdjustSize(self: QVideoWidget) void {
+        qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3161,10 +3288,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn IsVisible(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsVisible(@ptrCast(self));
+    pub fn IsVisible(self: QVideoWidget) bool {
+        return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3173,12 +3300,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidget_IsVisibleTo(@ptrCast(self), @ptrCast(param1));
+    pub fn IsVisibleTo(self: QVideoWidget, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3187,10 +3315,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn IsHidden(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsHidden(@ptrCast(self));
+    pub fn IsHidden(self: QVideoWidget) bool {
+        return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3199,10 +3327,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn IsMinimized(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsMinimized(@ptrCast(self));
+    pub fn IsMinimized(self: QVideoWidget) bool {
+        return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3211,10 +3339,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn IsMaximized(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsMaximized(@ptrCast(self));
+    pub fn IsMaximized(self: QVideoWidget) bool {
+        return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3223,10 +3351,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn IsFullScreen(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsFullScreen(@ptrCast(self));
+    pub fn IsFullScreen(self: QVideoWidget) bool {
+        return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3235,14 +3363,14 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowState(@ptrCast(self));
+    pub fn WindowState(self: QVideoWidget) i32 {
+        return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3251,12 +3379,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_SetWindowState(@ptrCast(self), @bitCast(state));
+    pub fn SetWindowState(self: QVideoWidget, state: i32) void {
+        qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -3265,12 +3393,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_OverrideWindowState(@ptrCast(self), @bitCast(state));
+    pub fn OverrideWindowState(self: QVideoWidget, state: i32) void {
+        qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -3279,10 +3407,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
-        return qtc.QWidget_SizePolicy(@ptrCast(self));
+    pub fn SizePolicy(self: QVideoWidget) QSizePolicy {
+        return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3291,12 +3419,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` sizePolicy: QtC.QSizePolicy `
+    /// ` sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: QtC.QSizePolicy) void {
-        qtc.QWidget_SetSizePolicy(@ptrCast(self), @ptrCast(sizePolicy));
+    pub fn SetSizePolicy(self: QVideoWidget, sizePolicy: anytype) void {
+        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
     }
 
     /// Inherited from QWidget
@@ -3305,14 +3434,14 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` horizontal: qsizepolicy_enums.Policy `
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
-        qtc.QWidget_SetSizePolicy2(@ptrCast(self), @bitCast(horizontal), @bitCast(vertical));
+    pub fn SetSizePolicy2(self: QVideoWidget, horizontal: i32, vertical: i32) void {
+        qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
 
     /// Inherited from QWidget
@@ -3321,10 +3450,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn VisibleRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_VisibleRegion(@ptrCast(self));
+    pub fn VisibleRegion(self: QVideoWidget) QRegion {
+        return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3333,7 +3462,7 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` left: i32 `
     ///
@@ -3343,8 +3472,8 @@ pub const qvideowidget = struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QWidget_SetContentsMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
+    pub fn SetContentsMargins(self: QVideoWidget, left: i32, top: i32, right: i32, bottom: i32) void {
+        qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QWidget
@@ -3353,12 +3482,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` margins: QtC.QMargins `
+    /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
-        qtc.QWidget_SetContentsMargins2(@ptrCast(self), @ptrCast(margins));
+    pub fn SetContentsMargins2(self: QVideoWidget, margins: anytype) void {
+        comptime _ = @TypeOf(margins)._is_QMargins;
+        qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
 
     /// Inherited from QWidget
@@ -3367,10 +3497,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
-        return qtc.QWidget_ContentsMargins(@ptrCast(self));
+    pub fn ContentsMargins(self: QVideoWidget) QMargins {
+        return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3379,10 +3509,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_ContentsRect(@ptrCast(self));
+    pub fn ContentsRect(self: QVideoWidget) QRect {
+        return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3391,10 +3521,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn Layout(self: ?*anyopaque) QtC.QLayout {
-        return qtc.QWidget_Layout(@ptrCast(self));
+    pub fn Layout(self: QVideoWidget) QLayout {
+        return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3403,12 +3533,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` layout: QtC.QLayout `
+    /// ` layout: QLayout `
     ///
-    pub fn SetLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
-        qtc.QWidget_SetLayout(@ptrCast(self), @ptrCast(layout));
+    pub fn SetLayout(self: QVideoWidget, layout: anytype) void {
+        comptime _ = @TypeOf(layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
     }
 
     /// Inherited from QWidget
@@ -3417,10 +3548,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn UpdateGeometry(self: ?*anyopaque) void {
-        qtc.QWidget_UpdateGeometry(@ptrCast(self));
+    pub fn UpdateGeometry(self: QVideoWidget) void {
+        qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3429,12 +3560,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QWidget_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QVideoWidget, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QWidget
@@ -3443,14 +3575,15 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i32) void {
-        qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @bitCast(f));
+    pub fn SetParent2(self: QVideoWidget, parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
     }
 
     /// Inherited from QWidget
@@ -3459,14 +3592,14 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QWidget_Scroll(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn Scroll(self: QVideoWidget, dx: i32, dy: i32) void {
+        qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QWidget
@@ -3475,16 +3608,17 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    /// ` param3: QtC.QRect `
+    /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
-        qtc.QWidget_Scroll2(@ptrCast(self), @bitCast(dx), @bitCast(dy), @ptrCast(param3));
+    pub fn Scroll2(self: QVideoWidget, dx: i32, dy: i32, param3: anytype) void {
+        comptime _ = @TypeOf(param3)._is_QRect;
+        qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
 
     /// Inherited from QWidget
@@ -3493,10 +3627,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn FocusWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_FocusWidget(@ptrCast(self));
+    pub fn FocusWidget(self: QVideoWidget) QWidget {
+        return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3505,10 +3639,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn NextInFocusChain(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_NextInFocusChain(@ptrCast(self));
+    pub fn NextInFocusChain(self: QVideoWidget) QWidget {
+        return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3517,10 +3651,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn PreviousInFocusChain(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_PreviousInFocusChain(@ptrCast(self));
+    pub fn PreviousInFocusChain(self: QVideoWidget) QWidget {
+        return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3529,10 +3663,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn AcceptDrops(self: ?*anyopaque) bool {
-        return qtc.QWidget_AcceptDrops(@ptrCast(self));
+    pub fn AcceptDrops(self: QVideoWidget) bool {
+        return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3541,12 +3675,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
-        qtc.QWidget_SetAcceptDrops(@ptrCast(self), on);
+    pub fn SetAcceptDrops(self: QVideoWidget, on: bool) void {
+        qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
 
     /// Inherited from QWidget
@@ -3555,12 +3689,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_AddAction(@ptrCast(self), @ptrCast(action));
+    pub fn AddAction(self: QVideoWidget, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -3569,16 +3704,16 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn AddActions(self: QVideoWidget, actions: []QAction) void {
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.QWidget_AddActions(@ptrCast(self), actions_list);
+        qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
 
     /// Inherited from QWidget
@@ -3587,18 +3722,19 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` before: QtC.QAction `
+    /// ` before: QAction `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn InsertActions(self: QVideoWidget, before: anytype, actions: []QAction) void {
+        comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.QWidget_InsertActions(@ptrCast(self), @ptrCast(before), actions_list);
+        qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
 
     /// Inherited from QWidget
@@ -3607,14 +3743,16 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` before: QtC.QAction `
+    /// ` before: QAction `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_InsertAction(@ptrCast(self), @ptrCast(before), @ptrCast(action));
+    pub fn InsertAction(self: QVideoWidget, before: anytype, action: anytype) void {
+        comptime _ = @TypeOf(before)._is_QAction;
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -3623,12 +3761,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_RemoveAction(@ptrCast(self), @ptrCast(action));
+    pub fn RemoveAction(self: QVideoWidget, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -3637,16 +3776,17 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
-        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self));
+    pub fn Actions(self: QVideoWidget, allocator: std.mem.Allocator) []QAction {
+        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("qvideowidget.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("qvideowidget.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -3656,16 +3796,16 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction2(self: QVideoWidget, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction2(@ptrCast(self), text_str);
+        return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
 
     /// Inherited from QWidget
@@ -3674,18 +3814,19 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction3(self: QVideoWidget, icon: anytype, text: []const u8) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction3(@ptrCast(self), @ptrCast(icon), text_str);
+        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
     /// Inherited from QWidget
@@ -3694,18 +3835,19 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction4(self: QVideoWidget, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction4(@ptrCast(self), text_str, @ptrCast(shortcut));
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3714,20 +3856,22 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction5(self: QVideoWidget, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction5(@ptrCast(self), @ptrCast(icon), text_str, @ptrCast(shortcut));
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3736,10 +3880,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ParentWidget(@ptrCast(self));
+    pub fn ParentWidget(self: QVideoWidget) QWidget {
+        return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3748,12 +3892,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_SetWindowFlags(@ptrCast(self), @bitCast(typeVal));
+    pub fn SetWindowFlags(self: QVideoWidget, typeVal: i32) void {
+        qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -3762,14 +3906,14 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowFlags(@ptrCast(self));
+    pub fn WindowFlags(self: QVideoWidget) i32 {
+        return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3778,12 +3922,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetWindowFlag(@ptrCast(self), @bitCast(param1));
+    pub fn SetWindowFlag(self: QVideoWidget, param1: i32) void {
+        qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -3792,12 +3936,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @bitCast(typeVal));
+    pub fn OverrideWindowFlags(self: QVideoWidget, typeVal: i32) void {
+        qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -3806,14 +3950,14 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowType(@ptrCast(self));
+    pub fn WindowType(self: QVideoWidget) i32 {
+        return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3824,8 +3968,8 @@ pub const qvideowidget = struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QtC.QWidget {
-        return qtc.QWidget_Find(@bitCast(param1));
+    pub fn Find(param1: usize) QWidget {
+        return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
 
     /// Inherited from QWidget
@@ -3834,14 +3978,14 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
-        return qtc.QWidget_ChildAt(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn ChildAt(self: QVideoWidget, x: i32, y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
     }
 
     /// Inherited from QWidget
@@ -3850,12 +3994,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` p: QtC.QPoint `
+    /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAt2(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt2(self: QVideoWidget, p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3864,12 +4009,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` p: QtC.QPointF `
+    /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAt3(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt3(self: QVideoWidget, p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3878,12 +4024,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetAttribute(@ptrCast(self), @bitCast(param1));
+    pub fn SetAttribute(self: QVideoWidget, param1: i32) void {
+        qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -3892,12 +4038,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
-        return qtc.QWidget_TestAttribute(@ptrCast(self), @bitCast(param1));
+    pub fn TestAttribute(self: QVideoWidget, param1: i32) bool {
+        return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -3906,10 +4052,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn EnsurePolished(self: ?*anyopaque) void {
-        qtc.QWidget_EnsurePolished(@ptrCast(self));
+    pub fn EnsurePolished(self: QVideoWidget) void {
+        qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3918,12 +4064,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` child: QtC.QWidget `
+    /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
-        return qtc.QWidget_IsAncestorOf(@ptrCast(self), @ptrCast(child));
+    pub fn IsAncestorOf(self: QVideoWidget, child: anytype) bool {
+        comptime _ = @TypeOf(child)._is_QWidget;
+        return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
 
     /// Inherited from QWidget
@@ -3932,10 +4079,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn AutoFillBackground(self: ?*anyopaque) bool {
-        return qtc.QWidget_AutoFillBackground(@ptrCast(self));
+    pub fn AutoFillBackground(self: QVideoWidget) bool {
+        return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3944,12 +4091,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: ?*anyopaque, enabled: bool) void {
-        qtc.QWidget_SetAutoFillBackground(@ptrCast(self), enabled);
+    pub fn SetAutoFillBackground(self: QVideoWidget, enabled: bool) void {
+        qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QWidget
@@ -3958,10 +4105,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn BackingStore(self: ?*anyopaque) QtC.QBackingStore {
-        return qtc.QWidget_BackingStore(@ptrCast(self));
+    pub fn BackingStore(self: QVideoWidget) QBackingStore {
+        return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3970,10 +4117,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn WindowHandle(self: ?*anyopaque) QtC.QWindow {
-        return qtc.QWidget_WindowHandle(@ptrCast(self));
+    pub fn WindowHandle(self: QVideoWidget) QWindow {
+        return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3982,10 +4129,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn Screen(self: ?*anyopaque) QtC.QScreen {
-        return qtc.QWidget_Screen(@ptrCast(self));
+    pub fn Screen(self: QVideoWidget) QScreen {
+        return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3994,12 +4141,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` screen: QtC.QScreen `
+    /// ` screen: QScreen `
     ///
-    pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
-        qtc.QWidget_SetScreen(@ptrCast(self), @ptrCast(screen));
+    pub fn SetScreen(self: QVideoWidget, screen: anytype) void {
+        comptime _ = @TypeOf(screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
     }
 
     /// Inherited from QWidget
@@ -4008,10 +4156,11 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer(@ptrCast(window));
+    pub fn CreateWindowContainer(window: anytype) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4020,16 +4169,16 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
+    pub fn WindowTitleChanged(self: QVideoWidget, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        qtc.QWidget_WindowTitleChanged(@ptrCast(self), title_str);
+        qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
 
     /// Inherited from QWidget
@@ -4038,12 +4187,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, title: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QVideoWidget, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowTitleChanged(self: QVideoWidget, callback: *const fn (QVideoWidget, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4052,12 +4201,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QWidget_WindowIconChanged(@ptrCast(self), @ptrCast(icon));
+    pub fn WindowIconChanged(self: QVideoWidget, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QWidget
@@ -4066,12 +4216,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, icon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QVideoWidget, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowIconChanged(self: QVideoWidget, callback: *const fn (QVideoWidget, QIcon) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4080,16 +4230,16 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
+    pub fn WindowIconTextChanged(self: QVideoWidget, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
-        qtc.QWidget_WindowIconTextChanged(@ptrCast(self), iconText_str);
+        qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
 
     /// Inherited from QWidget
@@ -4098,12 +4248,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, iconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QVideoWidget, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowIconTextChanged(self: QVideoWidget, callback: *const fn (QVideoWidget, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4112,12 +4262,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` pos: QtC.QPoint `
+    /// ` pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: ?*anyopaque, pos: ?*anyopaque) void {
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self), @ptrCast(pos));
+    pub fn CustomContextMenuRequested(self: QVideoWidget, pos: anytype) void {
+        comptime _ = @TypeOf(pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
     }
 
     /// Inherited from QWidget
@@ -4126,12 +4277,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, pos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QVideoWidget, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomContextMenuRequested(self: QVideoWidget, callback: *const fn (QVideoWidget, QPoint) callconv(.c) void) void {
+        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4140,14 +4291,14 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: ?*anyopaque) i32 {
-        return qtc.QWidget_InputMethodHints(@ptrCast(self));
+    pub fn InputMethodHints(self: QVideoWidget) i32 {
+        return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4156,12 +4307,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
-        qtc.QWidget_SetInputMethodHints(@ptrCast(self), @bitCast(hints));
+    pub fn SetInputMethodHints(self: QVideoWidget, hints: i32) void {
+        qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
 
     /// Inherited from QWidget
@@ -4170,14 +4321,16 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render22(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset));
+    pub fn Render22(self: QVideoWidget, target: anytype, targetOffset: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// Inherited from QWidget
@@ -4186,16 +4339,19 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        qtc.QWidget_Render3(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+    pub fn Render3(self: QVideoWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// Inherited from QWidget
@@ -4204,18 +4360,21 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
+    pub fn Render4(self: QVideoWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -4224,14 +4383,16 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render23(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset));
+    pub fn Render23(self: QVideoWidget, painter: anytype, targetOffset: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// Inherited from QWidget
@@ -4240,16 +4401,19 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        qtc.QWidget_Render32(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+    pub fn Render32(self: QVideoWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// Inherited from QWidget
@@ -4258,18 +4422,21 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
+    pub fn Render42(self: QVideoWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -4278,12 +4445,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` rectangle: QtC.QRect `
+    /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) QtC.QPixmap {
-        return qtc.QWidget_Grab1(@ptrCast(self), @ptrCast(rectangle));
+    pub fn Grab1(self: QVideoWidget, rectangle: anytype) QPixmap {
+        comptime _ = @TypeOf(rectangle)._is_QRect;
+        return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4292,14 +4460,14 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i32, flags: i32) void {
-        qtc.QWidget_GrabGesture2(@ptrCast(self), @bitCast(typeVal), @bitCast(flags));
+    pub fn GrabGesture2(self: QVideoWidget, typeVal: i32, flags: i32) void {
+        qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
 
     /// Inherited from QWidget
@@ -4308,14 +4476,15 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` key: QtC.QKeySequence `
+    /// ` key: QKeySequence `
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
-        return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @bitCast(context));
+    pub fn GrabShortcut2(self: QVideoWidget, key: anytype, context: i32) i32 {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
 
     /// Inherited from QWidget
@@ -4324,14 +4493,14 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self), @bitCast(id), enable);
+    pub fn SetShortcutEnabled2(self: QVideoWidget, id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -4340,14 +4509,14 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self), @bitCast(id), enable);
+    pub fn SetShortcutAutoRepeat2(self: QVideoWidget, id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -4356,14 +4525,14 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetWindowFlag2(@ptrCast(self), @bitCast(param1), on);
+    pub fn SetWindowFlag2(self: QVideoWidget, param1: i32, on: bool) void {
+        qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -4372,14 +4541,14 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetAttribute2(@ptrCast(self), @bitCast(param1), on);
+    pub fn SetAttribute2(self: QVideoWidget, param1: i32, on: bool) void {
+        qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -4388,12 +4557,14 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer2(@ptrCast(window), @ptrCast(parent));
+    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4402,14 +4573,16 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i32) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @bitCast(flags));
+    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
     }
 
     /// Inherited from QObject
@@ -4418,12 +4591,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QVideoWidget, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qvideowidget.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4436,12 +4609,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QVideoWidget, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -4450,10 +4623,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QVideoWidget) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4462,10 +4635,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QVideoWidget) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4474,10 +4647,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QVideoWidget) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4486,10 +4659,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QVideoWidget) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4498,12 +4671,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QVideoWidget, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -4512,10 +4685,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QVideoWidget) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -4524,12 +4697,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QVideoWidget, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -4538,12 +4712,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QVideoWidget, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -4552,12 +4726,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QVideoWidget, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -4566,12 +4740,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QVideoWidget, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -4580,12 +4754,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QVideoWidget, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -4594,16 +4768,17 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QVideoWidget, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qvideowidget.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qvideowidget.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -4613,12 +4788,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QVideoWidget, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -4627,12 +4803,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QVideoWidget, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -4641,18 +4818,20 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -4661,16 +4840,20 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -4679,18 +4862,19 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QVideoWidget, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -4699,18 +4883,20 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -4719,16 +4905,20 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -4737,10 +4927,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QVideoWidget) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4749,12 +4939,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QVideoWidget, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -4763,10 +4954,11 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -4775,10 +4967,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QVideoWidget) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4787,10 +4979,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QVideoWidget) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4799,15 +4991,16 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QVideoWidget, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -4816,13 +5009,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QVideoWidget, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -4831,17 +5024,16 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QVideoWidget, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qvideowidget.DynamicPropertyNames: Memory allocation failed");
@@ -4860,10 +5052,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QVideoWidget) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -4872,10 +5064,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QVideoWidget) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -4884,10 +5076,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QVideoWidget) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4896,12 +5088,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: QVideoWidget) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QVideoWidget, callback: *const fn (QVideoWidget) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4910,10 +5102,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QVideoWidget) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -4922,13 +5114,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QVideoWidget, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -4937,10 +5129,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QVideoWidget) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4949,14 +5141,14 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QVideoWidget, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -4965,14 +5157,14 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QVideoWidget, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -4981,20 +5173,22 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -5003,18 +5197,22 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -5023,9 +5221,9 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5033,10 +5231,11 @@ pub const qvideowidget = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QVideoWidget, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -5045,13 +5244,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QVideoWidget, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -5060,15 +5259,16 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QVideoWidget, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -5077,18 +5277,19 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QVideoWidget, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -5097,15 +5298,16 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QVideoWidget, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -5114,12 +5316,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QVideoWidget, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -5128,12 +5331,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QVideoWidget, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QVideoWidget, callback: *const fn (QVideoWidget, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -5142,10 +5345,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn PaintingActive(self: ?*anyopaque) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self));
+    pub fn PaintingActive(self: QVideoWidget) bool {
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5154,10 +5357,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn WidthMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self));
+    pub fn WidthMM(self: QVideoWidget) i32 {
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5166,10 +5369,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn HeightMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self));
+    pub fn HeightMM(self: QVideoWidget) i32 {
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5178,10 +5381,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn LogicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self));
+    pub fn LogicalDpiX(self: QVideoWidget) i32 {
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5190,10 +5393,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn LogicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self));
+    pub fn LogicalDpiY(self: QVideoWidget) i32 {
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5202,10 +5405,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self));
+    pub fn PhysicalDpiX(self: QVideoWidget) i32 {
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5214,10 +5417,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self));
+    pub fn PhysicalDpiY(self: QVideoWidget) i32 {
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5226,10 +5429,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self));
+    pub fn DevicePixelRatio(self: QVideoWidget) f64 {
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5238,10 +5441,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self));
+    pub fn DevicePixelRatioF(self: QVideoWidget) f64 {
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5250,10 +5453,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn ColorCount(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self));
+    pub fn ColorCount(self: QVideoWidget) i32 {
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5262,10 +5465,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn Depth(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self));
+    pub fn Depth(self: QVideoWidget) i32 {
+        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5298,10 +5501,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn DevType(self: ?*anyopaque) i32 {
-        return qtc.QVideoWidget_DevType(@ptrCast(self));
+    pub fn DevType(self: QVideoWidget) i32 {
+        return qtc.QVideoWidget_DevType(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDevType` instead
@@ -5316,10 +5519,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn SuperDevType(self: ?*anyopaque) i32 {
-        return qtc.QVideoWidget_SuperDevType(@ptrCast(self));
+    pub fn SuperDevType(self: QVideoWidget) i32 {
+        return qtc.QVideoWidget_SuperDevType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5330,12 +5533,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QVideoWidget_OnDevType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDevType(self: QVideoWidget, callback: *const fn () callconv(.c) i32) void {
+        qtc.QVideoWidget_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5346,12 +5549,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.QVideoWidget_SetVisible(@ptrCast(self), visible);
+    pub fn SetVisible(self: QVideoWidget, visible: bool) void {
+        qtc.QVideoWidget_SetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// ### DEPRECATED: Use `SuperSetVisible` instead
@@ -5366,12 +5569,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.QVideoWidget_SuperSetVisible(@ptrCast(self), visible);
+    pub fn SuperSetVisible(self: QVideoWidget, visible: bool) void {
+        qtc.QVideoWidget_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// Inherited from QWidget
@@ -5382,12 +5585,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, visible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QVideoWidget, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QVideoWidget_OnSetVisible(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetVisible(self: QVideoWidget, callback: *const fn (QVideoWidget, bool) callconv(.c) void) void {
+        qtc.QVideoWidget_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5398,10 +5601,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn MinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QVideoWidget_MinimumSizeHint(@ptrCast(self));
+    pub fn MinimumSizeHint(self: QVideoWidget) QSize {
+        return .{ .ptr = qtc.QVideoWidget_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
@@ -5416,10 +5619,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn SuperMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QVideoWidget_SuperMinimumSizeHint(@ptrCast(self));
+    pub fn SuperMinimumSizeHint(self: QVideoWidget) QSize {
+        return .{ .ptr = qtc.QVideoWidget_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5430,12 +5633,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnMinimumSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QVideoWidget_OnMinimumSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMinimumSizeHint(self: QVideoWidget, callback: *const fn () callconv(.c) QSize) void {
+        qtc.QVideoWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5446,12 +5649,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QVideoWidget_HeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn HeightForWidth(self: QVideoWidget, param1: i32) i32 {
+        return qtc.QVideoWidget_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### DEPRECATED: Use `SuperHeightForWidth` instead
@@ -5466,12 +5669,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QVideoWidget_SuperHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperHeightForWidth(self: QVideoWidget, param1: i32) i32 {
+        return qtc.QVideoWidget_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -5482,12 +5685,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, param1: i32) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QVideoWidget, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QVideoWidget_OnHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHeightForWidth(self: QVideoWidget, callback: *const fn (QVideoWidget, i32) callconv(.c) i32) void {
+        qtc.QVideoWidget_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5498,10 +5701,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn HasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QVideoWidget_HasHeightForWidth(@ptrCast(self));
+    pub fn HasHeightForWidth(self: QVideoWidget) bool {
+        return qtc.QVideoWidget_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
@@ -5516,10 +5719,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QVideoWidget_SuperHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: QVideoWidget) bool {
+        return qtc.QVideoWidget_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5530,12 +5733,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QVideoWidget_OnHasHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHasHeightForWidth(self: QVideoWidget, callback: *const fn () callconv(.c) bool) void {
+        qtc.QVideoWidget_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5546,10 +5749,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn PaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QVideoWidget_PaintEngine(@ptrCast(self));
+    pub fn PaintEngine(self: QVideoWidget) QPaintEngine {
+        return .{ .ptr = qtc.QVideoWidget_PaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperPaintEngine` instead
@@ -5564,10 +5767,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn SuperPaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QVideoWidget_SuperPaintEngine(@ptrCast(self));
+    pub fn SuperPaintEngine(self: QVideoWidget) QPaintEngine {
+        return .{ .ptr = qtc.QVideoWidget_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5578,12 +5781,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPaintEngine `
+    /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.QVideoWidget_OnPaintEngine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaintEngine(self: QVideoWidget, callback: *const fn () callconv(.c) QPaintEngine) void {
+        qtc.QVideoWidget_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5594,12 +5797,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_MousePressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MousePressEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QVideoWidget_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMousePressEvent` instead
@@ -5614,12 +5818,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_SuperMousePressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMousePressEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QVideoWidget_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -5630,12 +5835,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QVideoWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVideoWidget_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMousePressEvent(self: QVideoWidget, callback: *const fn (QVideoWidget, QMouseEvent) callconv(.c) void) void {
+        qtc.QVideoWidget_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5646,12 +5851,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_MouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseReleaseEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QVideoWidget_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
@@ -5666,12 +5872,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_SuperMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseReleaseEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QVideoWidget_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -5682,12 +5889,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QVideoWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVideoWidget_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseReleaseEvent(self: QVideoWidget, callback: *const fn (QVideoWidget, QMouseEvent) callconv(.c) void) void {
+        qtc.QVideoWidget_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5698,12 +5905,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseDoubleClickEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QVideoWidget_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
@@ -5718,12 +5926,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_SuperMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseDoubleClickEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QVideoWidget_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -5734,12 +5943,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QVideoWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVideoWidget_OnMouseDoubleClickEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseDoubleClickEvent(self: QVideoWidget, callback: *const fn (QVideoWidget, QMouseEvent) callconv(.c) void) void {
+        qtc.QVideoWidget_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5750,12 +5959,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_MouseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseMoveEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QVideoWidget_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
@@ -5770,12 +5980,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_SuperMouseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseMoveEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QVideoWidget_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -5786,12 +5997,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QVideoWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVideoWidget_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseMoveEvent(self: QVideoWidget, callback: *const fn (QVideoWidget, QMouseEvent) callconv(.c) void) void {
+        qtc.QVideoWidget_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5802,12 +6013,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QWheelEvent `
+    /// ` event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_WheelEvent(@ptrCast(self), @ptrCast(event));
+    pub fn WheelEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QWheelEvent;
+        qtc.QVideoWidget_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperWheelEvent` instead
@@ -5822,12 +6034,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QWheelEvent `
+    /// ` event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_SuperWheelEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperWheelEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QWheelEvent;
+        qtc.QVideoWidget_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -5838,12 +6051,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, event: QtC.QWheelEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QVideoWidget, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVideoWidget_OnWheelEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWheelEvent(self: QVideoWidget, callback: *const fn (QVideoWidget, QWheelEvent) callconv(.c) void) void {
+        qtc.QVideoWidget_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5854,12 +6067,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_KeyPressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn KeyPressEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QVideoWidget_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
@@ -5874,12 +6088,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_SuperKeyPressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyPressEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QVideoWidget_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -5890,12 +6105,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, event: QtC.QKeyEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QVideoWidget, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVideoWidget_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyPressEvent(self: QVideoWidget, callback: *const fn (QVideoWidget, QKeyEvent) callconv(.c) void) void {
+        qtc.QVideoWidget_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5906,12 +6121,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_KeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn KeyReleaseEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QVideoWidget_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
@@ -5926,12 +6142,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_SuperKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyReleaseEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QVideoWidget_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -5942,12 +6159,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, event: QtC.QKeyEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QVideoWidget, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVideoWidget_OnKeyReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyReleaseEvent(self: QVideoWidget, callback: *const fn (QVideoWidget, QKeyEvent) callconv(.c) void) void {
+        qtc.QVideoWidget_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5958,12 +6175,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_FocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn FocusInEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QVideoWidget_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusInEvent` instead
@@ -5978,12 +6196,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_SuperFocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusInEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QVideoWidget_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -5994,12 +6213,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, event: QtC.QFocusEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QVideoWidget, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVideoWidget_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusInEvent(self: QVideoWidget, callback: *const fn (QVideoWidget, QFocusEvent) callconv(.c) void) void {
+        qtc.QVideoWidget_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6010,12 +6229,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_FocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn FocusOutEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QVideoWidget_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
@@ -6030,12 +6250,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_SuperFocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusOutEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QVideoWidget_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6046,12 +6267,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, event: QtC.QFocusEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QVideoWidget, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVideoWidget_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusOutEvent(self: QVideoWidget, callback: *const fn (QVideoWidget, QFocusEvent) callconv(.c) void) void {
+        qtc.QVideoWidget_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6062,12 +6283,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QEnterEvent `
+    /// ` event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_EnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn EnterEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEnterEvent;
+        qtc.QVideoWidget_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEnterEvent` instead
@@ -6082,12 +6304,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QEnterEvent `
+    /// ` event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_SuperEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEnterEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEnterEvent;
+        qtc.QVideoWidget_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6098,12 +6321,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, event: QtC.QEnterEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QVideoWidget, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVideoWidget_OnEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEnterEvent(self: QVideoWidget, callback: *const fn (QVideoWidget, QEnterEvent) callconv(.c) void) void {
+        qtc.QVideoWidget_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6114,12 +6337,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn LeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_LeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn LeaveEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QVideoWidget_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperLeaveEvent` instead
@@ -6134,12 +6358,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_SuperLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperLeaveEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QVideoWidget_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6150,12 +6375,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QVideoWidget, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVideoWidget_OnLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLeaveEvent(self: QVideoWidget, callback: *const fn (QVideoWidget, QEvent) callconv(.c) void) void {
+        qtc.QVideoWidget_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6166,12 +6391,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QPaintEvent `
+    /// ` event: QPaintEvent `
     ///
-    pub fn PaintEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_PaintEvent(@ptrCast(self), @ptrCast(event));
+    pub fn PaintEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QPaintEvent;
+        qtc.QVideoWidget_PaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperPaintEvent` instead
@@ -6186,12 +6412,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QPaintEvent `
+    /// ` event: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_SuperPaintEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperPaintEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QPaintEvent;
+        qtc.QVideoWidget_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6202,12 +6429,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, event: QtC.QPaintEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QVideoWidget, event: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVideoWidget_OnPaintEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaintEvent(self: QVideoWidget, callback: *const fn (QVideoWidget, QPaintEvent) callconv(.c) void) void {
+        qtc.QVideoWidget_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6218,12 +6445,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QCloseEvent `
+    /// ` event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_CloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CloseEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QCloseEvent;
+        qtc.QVideoWidget_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCloseEvent` instead
@@ -6238,12 +6466,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QCloseEvent `
+    /// ` event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_SuperCloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCloseEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QCloseEvent;
+        qtc.QVideoWidget_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6254,12 +6483,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, event: QtC.QCloseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QVideoWidget, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVideoWidget_OnCloseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCloseEvent(self: QVideoWidget, callback: *const fn (QVideoWidget, QCloseEvent) callconv(.c) void) void {
+        qtc.QVideoWidget_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6270,12 +6499,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QContextMenuEvent `
+    /// ` event: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_ContextMenuEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ContextMenuEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
+        qtc.QVideoWidget_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
@@ -6290,12 +6520,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QContextMenuEvent `
+    /// ` event: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_SuperContextMenuEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperContextMenuEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
+        qtc.QVideoWidget_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6306,12 +6537,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, event: QtC.QContextMenuEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QVideoWidget, event: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVideoWidget_OnContextMenuEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnContextMenuEvent(self: QVideoWidget, callback: *const fn (QVideoWidget, QContextMenuEvent) callconv(.c) void) void {
+        qtc.QVideoWidget_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6322,12 +6553,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QTabletEvent `
+    /// ` event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_TabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TabletEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTabletEvent;
+        qtc.QVideoWidget_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTabletEvent` instead
@@ -6342,12 +6574,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QTabletEvent `
+    /// ` event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_SuperTabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTabletEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTabletEvent;
+        qtc.QVideoWidget_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6358,12 +6591,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, event: QtC.QTabletEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QVideoWidget, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVideoWidget_OnTabletEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTabletEvent(self: QVideoWidget, callback: *const fn (QVideoWidget, QTabletEvent) callconv(.c) void) void {
+        qtc.QVideoWidget_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6374,12 +6607,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QActionEvent `
+    /// ` event: QActionEvent `
     ///
-    pub fn ActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_ActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ActionEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QActionEvent;
+        qtc.QVideoWidget_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperActionEvent` instead
@@ -6394,12 +6628,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QActionEvent `
+    /// ` event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_SuperActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperActionEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QActionEvent;
+        qtc.QVideoWidget_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6410,12 +6645,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, event: QtC.QActionEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QVideoWidget, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVideoWidget_OnActionEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnActionEvent(self: QVideoWidget, callback: *const fn (QVideoWidget, QActionEvent) callconv(.c) void) void {
+        qtc.QVideoWidget_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6426,12 +6661,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QDragEnterEvent `
+    /// ` event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_DragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragEnterEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
+        qtc.QVideoWidget_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
@@ -6446,12 +6682,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QDragEnterEvent `
+    /// ` event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_SuperDragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragEnterEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
+        qtc.QVideoWidget_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6462,12 +6699,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, event: QtC.QDragEnterEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QVideoWidget, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVideoWidget_OnDragEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragEnterEvent(self: QVideoWidget, callback: *const fn (QVideoWidget, QDragEnterEvent) callconv(.c) void) void {
+        qtc.QVideoWidget_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6478,12 +6715,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QDragMoveEvent `
+    /// ` event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_DragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragMoveEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
+        qtc.QVideoWidget_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
@@ -6498,12 +6736,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QDragMoveEvent `
+    /// ` event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_SuperDragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragMoveEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
+        qtc.QVideoWidget_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6514,12 +6753,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, event: QtC.QDragMoveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QVideoWidget, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVideoWidget_OnDragMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragMoveEvent(self: QVideoWidget, callback: *const fn (QVideoWidget, QDragMoveEvent) callconv(.c) void) void {
+        qtc.QVideoWidget_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6530,12 +6769,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QDragLeaveEvent `
+    /// ` event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_DragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragLeaveEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
+        qtc.QVideoWidget_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
@@ -6550,12 +6790,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QDragLeaveEvent `
+    /// ` event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_SuperDragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragLeaveEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
+        qtc.QVideoWidget_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6566,12 +6807,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, event: QtC.QDragLeaveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QVideoWidget, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVideoWidget_OnDragLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragLeaveEvent(self: QVideoWidget, callback: *const fn (QVideoWidget, QDragLeaveEvent) callconv(.c) void) void {
+        qtc.QVideoWidget_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6582,12 +6823,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QDropEvent `
+    /// ` event: QDropEvent `
     ///
-    pub fn DropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_DropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DropEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDropEvent;
+        qtc.QVideoWidget_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDropEvent` instead
@@ -6602,12 +6844,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QDropEvent `
+    /// ` event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_SuperDropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDropEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDropEvent;
+        qtc.QVideoWidget_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6618,12 +6861,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, event: QtC.QDropEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QVideoWidget, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVideoWidget_OnDropEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDropEvent(self: QVideoWidget, callback: *const fn (QVideoWidget, QDropEvent) callconv(.c) void) void {
+        qtc.QVideoWidget_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6634,7 +6877,7 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` eventType: []u8 `
     ///
@@ -6642,12 +6885,12 @@ pub const qvideowidget = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn NativeEvent(self: QVideoWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QVideoWidget_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QVideoWidget_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// ### DEPRECATED: Use `SuperNativeEvent` instead
@@ -6662,7 +6905,7 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` eventType: []u8 `
     ///
@@ -6670,12 +6913,12 @@ pub const qvideowidget = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn SuperNativeEvent(self: QVideoWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QVideoWidget_SuperNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QVideoWidget_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -6686,12 +6929,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QVideoWidget, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
-        qtc.QVideoWidget_OnNativeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnNativeEvent(self: QVideoWidget, callback: *const fn (QVideoWidget, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+        qtc.QVideoWidget_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6702,12 +6945,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` param1: QtC.QEvent `
+    /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QVideoWidget_ChangeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn ChangeEvent(self: QVideoWidget, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QEvent;
+        qtc.QVideoWidget_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChangeEvent` instead
@@ -6722,12 +6966,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` param1: QtC.QEvent `
+    /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QVideoWidget_SuperChangeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperChangeEvent(self: QVideoWidget, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QEvent;
+        qtc.QVideoWidget_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -6738,12 +6983,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, param1: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QVideoWidget, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVideoWidget_OnChangeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChangeEvent(self: QVideoWidget, callback: *const fn (QVideoWidget, QEvent) callconv(.c) void) void {
+        qtc.QVideoWidget_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6754,12 +6999,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QVideoWidget_Metric(@ptrCast(self), @bitCast(param1));
+    pub fn Metric(self: QVideoWidget, param1: i32) i32 {
+        return qtc.QVideoWidget_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### DEPRECATED: Use `SuperMetric` instead
@@ -6774,12 +7019,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QVideoWidget_SuperMetric(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMetric(self: QVideoWidget, param1: i32) i32 {
+        return qtc.QVideoWidget_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -6790,12 +7035,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QVideoWidget, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QVideoWidget_OnMetric(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetric(self: QVideoWidget, callback: *const fn (QVideoWidget, i32) callconv(.c) i32) void {
+        qtc.QVideoWidget_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6806,12 +7051,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QVideoWidget_InitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn InitPainter(self: QVideoWidget, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QVideoWidget_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInitPainter` instead
@@ -6826,12 +7072,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QVideoWidget_SuperInitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperInitPainter(self: QVideoWidget, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QVideoWidget_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// Inherited from QWidget
@@ -6842,12 +7089,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, painter: QtC.QPainter) callconv(.c) void `
+    /// ` callback: *const fn (self: QVideoWidget, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVideoWidget_OnInitPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInitPainter(self: QVideoWidget, callback: *const fn (QVideoWidget, QPainter) callconv(.c) void) void {
+        qtc.QVideoWidget_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6858,12 +7105,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QVideoWidget_Redirected(@ptrCast(self), @ptrCast(offset));
+    pub fn Redirected(self: QVideoWidget, offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        return .{ .ptr = qtc.QVideoWidget_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperRedirected` instead
@@ -6878,12 +7126,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QVideoWidget_SuperRedirected(@ptrCast(self), @ptrCast(offset));
+    pub fn SuperRedirected(self: QVideoWidget, offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        return .{ .ptr = qtc.QVideoWidget_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -6894,12 +7143,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice `
+    /// ` callback: *const fn (self: QVideoWidget, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.QVideoWidget_OnRedirected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRedirected(self: QVideoWidget, callback: *const fn (QVideoWidget, QPoint) callconv(.c) QPaintDevice) void {
+        qtc.QVideoWidget_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6910,10 +7159,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn SharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QVideoWidget_SharedPainter(@ptrCast(self));
+    pub fn SharedPainter(self: QVideoWidget) QPainter {
+        return .{ .ptr = qtc.QVideoWidget_SharedPainter(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSharedPainter` instead
@@ -6928,10 +7177,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn SuperSharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QVideoWidget_SuperSharedPainter(@ptrCast(self));
+    pub fn SuperSharedPainter(self: QVideoWidget) QPainter {
+        return .{ .ptr = qtc.QVideoWidget_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -6942,12 +7191,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPainter `
+    /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
-        qtc.QVideoWidget_OnSharedPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSharedPainter(self: QVideoWidget, callback: *const fn () callconv(.c) QPainter) void {
+        qtc.QVideoWidget_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6958,12 +7207,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` param1: QtC.QInputMethodEvent `
+    /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QVideoWidget_InputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn InputMethodEvent(self: QVideoWidget, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
+        qtc.QVideoWidget_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
@@ -6978,12 +7228,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` param1: QtC.QInputMethodEvent `
+    /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QVideoWidget_SuperInputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperInputMethodEvent(self: QVideoWidget, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
+        qtc.QVideoWidget_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -6994,12 +7245,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, param1: QtC.QInputMethodEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QVideoWidget, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVideoWidget_OnInputMethodEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInputMethodEvent(self: QVideoWidget, callback: *const fn (QVideoWidget, QInputMethodEvent) callconv(.c) void) void {
+        qtc.QVideoWidget_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7010,12 +7261,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.QVideoWidget_InputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn InputMethodQuery(self: QVideoWidget, param1: i32) QVariant {
+        return .{ .ptr = qtc.QVideoWidget_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
     /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
@@ -7030,12 +7281,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.QVideoWidget_SuperInputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn SuperInputMethodQuery(self: QVideoWidget, param1: i32) QVariant {
+        return .{ .ptr = qtc.QVideoWidget_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
     /// Inherited from QWidget
@@ -7046,12 +7297,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
+    /// ` callback: *const fn (self: QVideoWidget, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
-    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QVideoWidget_OnInputMethodQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInputMethodQuery(self: QVideoWidget, callback: *const fn (QVideoWidget, i32) callconv(.c) QVariant) void {
+        qtc.QVideoWidget_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7062,12 +7313,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.QVideoWidget_FocusNextPrevChild(@ptrCast(self), next);
+    pub fn FocusNextPrevChild(self: QVideoWidget, next: bool) bool {
+        return qtc.QVideoWidget_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
     /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
@@ -7082,12 +7333,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.QVideoWidget_SuperFocusNextPrevChild(@ptrCast(self), next);
+    pub fn SuperFocusNextPrevChild(self: QVideoWidget, next: bool) bool {
+        return qtc.QVideoWidget_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
     /// Inherited from QWidget
@@ -7098,12 +7349,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, next: bool) callconv(.c) bool `
+    /// ` callback: *const fn (self: QVideoWidget, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
-        qtc.QVideoWidget_OnFocusNextPrevChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusNextPrevChild(self: QVideoWidget, callback: *const fn (QVideoWidget, bool) callconv(.c) bool) void {
+        qtc.QVideoWidget_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7114,14 +7365,16 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QVideoWidget_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: QVideoWidget, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QVideoWidget_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -7136,14 +7389,16 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QVideoWidget_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: QVideoWidget, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QVideoWidget_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -7154,12 +7409,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QVideoWidget, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QVideoWidget_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QVideoWidget, callback: *const fn (QVideoWidget, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QVideoWidget_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7170,12 +7425,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QVideoWidget_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -7190,12 +7446,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QVideoWidget_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -7206,12 +7463,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QVideoWidget, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVideoWidget_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QVideoWidget, callback: *const fn (QVideoWidget, QTimerEvent) callconv(.c) void) void {
+        qtc.QVideoWidget_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7222,12 +7479,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QVideoWidget_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -7242,12 +7500,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QVideoWidget_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -7258,12 +7517,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QVideoWidget, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVideoWidget_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QVideoWidget, callback: *const fn (QVideoWidget, QChildEvent) callconv(.c) void) void {
+        qtc.QVideoWidget_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7274,12 +7533,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QVideoWidget_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -7294,12 +7554,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QVideoWidget_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QVideoWidget, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QVideoWidget_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -7310,12 +7571,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QVideoWidget, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVideoWidget_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QVideoWidget, callback: *const fn (QVideoWidget, QEvent) callconv(.c) void) void {
+        qtc.QVideoWidget_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7326,12 +7587,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QVideoWidget_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QVideoWidget, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QVideoWidget_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -7346,12 +7608,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QVideoWidget_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QVideoWidget, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QVideoWidget_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -7362,12 +7625,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QVideoWidget, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVideoWidget_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QVideoWidget, callback: *const fn (QVideoWidget, QMetaMethod) callconv(.c) void) void {
+        qtc.QVideoWidget_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7378,12 +7641,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QVideoWidget_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QVideoWidget, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QVideoWidget_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -7398,12 +7662,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QVideoWidget_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QVideoWidget, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QVideoWidget_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -7414,12 +7679,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QVideoWidget, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVideoWidget_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QVideoWidget, callback: *const fn (QVideoWidget, QMetaMethod) callconv(.c) void) void {
+        qtc.QVideoWidget_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7430,10 +7695,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn UpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.QVideoWidget_UpdateMicroFocus(@ptrCast(self));
+    pub fn UpdateMicroFocus(self: QVideoWidget) void {
+        qtc.QVideoWidget_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
@@ -7448,10 +7713,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn SuperUpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.QVideoWidget_SuperUpdateMicroFocus(@ptrCast(self));
+    pub fn SuperUpdateMicroFocus(self: QVideoWidget) void {
+        qtc.QVideoWidget_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7462,12 +7727,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QVideoWidget_OnUpdateMicroFocus(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUpdateMicroFocus(self: QVideoWidget, callback: *const fn () callconv(.c) void) void {
+        qtc.QVideoWidget_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7478,10 +7743,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn Create(self: ?*anyopaque) void {
-        qtc.QVideoWidget_Create(@ptrCast(self));
+    pub fn Create(self: QVideoWidget) void {
+        qtc.QVideoWidget_Create(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCreate` instead
@@ -7496,10 +7761,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn SuperCreate(self: ?*anyopaque) void {
-        qtc.QVideoWidget_SuperCreate(@ptrCast(self));
+    pub fn SuperCreate(self: QVideoWidget) void {
+        qtc.QVideoWidget_SuperCreate(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7510,12 +7775,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QVideoWidget_OnCreate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreate(self: QVideoWidget, callback: *const fn () callconv(.c) void) void {
+        qtc.QVideoWidget_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7526,10 +7791,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn Destroy(self: ?*anyopaque) void {
-        qtc.QVideoWidget_Destroy(@ptrCast(self));
+    pub fn Destroy(self: QVideoWidget) void {
+        qtc.QVideoWidget_Destroy(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDestroy` instead
@@ -7544,10 +7809,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn SuperDestroy(self: ?*anyopaque) void {
-        qtc.QVideoWidget_SuperDestroy(@ptrCast(self));
+    pub fn SuperDestroy(self: QVideoWidget) void {
+        qtc.QVideoWidget_SuperDestroy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7558,12 +7823,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QVideoWidget_OnDestroy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroy(self: QVideoWidget, callback: *const fn () callconv(.c) void) void {
+        qtc.QVideoWidget_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7574,10 +7839,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn FocusNextChild(self: ?*anyopaque) bool {
-        return qtc.QVideoWidget_FocusNextChild(@ptrCast(self));
+    pub fn FocusNextChild(self: QVideoWidget) bool {
+        return qtc.QVideoWidget_FocusNextChild(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusNextChild` instead
@@ -7592,10 +7857,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn SuperFocusNextChild(self: ?*anyopaque) bool {
-        return qtc.QVideoWidget_SuperFocusNextChild(@ptrCast(self));
+    pub fn SuperFocusNextChild(self: QVideoWidget) bool {
+        return qtc.QVideoWidget_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7606,12 +7871,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QVideoWidget_OnFocusNextChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusNextChild(self: QVideoWidget, callback: *const fn () callconv(.c) bool) void {
+        qtc.QVideoWidget_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7622,10 +7887,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn FocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.QVideoWidget_FocusPreviousChild(@ptrCast(self));
+    pub fn FocusPreviousChild(self: QVideoWidget) bool {
+        return qtc.QVideoWidget_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
@@ -7640,10 +7905,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn SuperFocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.QVideoWidget_SuperFocusPreviousChild(@ptrCast(self));
+    pub fn SuperFocusPreviousChild(self: QVideoWidget) bool {
+        return qtc.QVideoWidget_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7654,12 +7919,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QVideoWidget_OnFocusPreviousChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusPreviousChild(self: QVideoWidget, callback: *const fn () callconv(.c) bool) void {
+        qtc.QVideoWidget_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7670,10 +7935,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QVideoWidget_Sender(@ptrCast(self));
+    pub fn Sender(self: QVideoWidget) QObject {
+        return .{ .ptr = qtc.QVideoWidget_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -7688,10 +7953,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QVideoWidget_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QVideoWidget) QObject {
+        return .{ .ptr = qtc.QVideoWidget_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -7702,12 +7967,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QVideoWidget_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QVideoWidget, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QVideoWidget_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7718,10 +7983,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QVideoWidget_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QVideoWidget) i32 {
+        return qtc.QVideoWidget_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -7736,10 +8001,10 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QVideoWidget_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QVideoWidget) i32 {
+        return qtc.QVideoWidget_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -7750,12 +8015,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QVideoWidget_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QVideoWidget, callback: *const fn () callconv(.c) i32) void {
+        qtc.QVideoWidget_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7766,13 +8031,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QVideoWidget, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QVideoWidget_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QVideoWidget_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -7787,13 +8052,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QVideoWidget, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QVideoWidget_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QVideoWidget_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -7804,12 +8069,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QVideoWidget, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QVideoWidget_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QVideoWidget, callback: *const fn (QVideoWidget, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QVideoWidget_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7820,12 +8085,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QVideoWidget_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QVideoWidget, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QVideoWidget_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -7840,12 +8106,13 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QVideoWidget_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QVideoWidget, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QVideoWidget_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -7856,12 +8123,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QVideoWidget, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QVideoWidget_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QVideoWidget, callback: *const fn (QVideoWidget, QMetaMethod) callconv(.c) bool) void {
+        qtc.QVideoWidget_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -7872,14 +8139,14 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QVideoWidget_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn GetDecodedMetricF(self: QVideoWidget, metricA: i32, metricB: i32) f64 {
+        return qtc.QVideoWidget_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
@@ -7894,14 +8161,14 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
     /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QVideoWidget_SuperGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn SuperGetDecodedMetricF(self: QVideoWidget, metricA: i32, metricB: i32) f64 {
+        return qtc.QVideoWidget_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -7912,12 +8179,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget`
+    /// ` self: QVideoWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
+    /// ` callback: *const fn (self: QVideoWidget, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.QVideoWidget_OnGetDecodedMetricF(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnGetDecodedMetricF(self: QVideoWidget, callback: *const fn (QVideoWidget, i32, i32) callconv(.c) f64) void {
+        qtc.QVideoWidget_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7928,12 +8195,12 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QVideoWidget, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QVideoWidget, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QVideoWidget, callback: *const fn (QVideoWidget, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -7946,9 +8213,9 @@ pub const qvideowidget = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QVideoWidget `
+    /// ` self: QVideoWidget `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QVideoWidget_Delete(@ptrCast(self));
+    pub fn Delete(self: QVideoWidget) void {
+        qtc.QVideoWidget_Delete(@ptrCast(self.ptr));
     }
 };

@@ -1,24 +1,35 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QHostAddress = @import("libqt6").QHostAddress;
+const QObject = @import("libqt6").QObject;
 const qhostinfo_enums = enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html)
-pub const qhostinfo = struct {
+pub const QHostInfo = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QHostInfo,
+
+    pub const _is_QHostInfo = {};
+
     /// New constructs a new QHostInfo object.
     ///
-    pub fn New() QtC.QHostInfo {
-        return qtc.QHostInfo_new();
+    pub fn New() QHostInfo {
+        return .{ .ptr = qtc.QHostInfo_new() };
     }
 
     /// New2 constructs a new QHostInfo object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` d: QtC.QHostInfo `
+    /// ` d: QHostInfo `
     ///
-    pub fn New2(d: ?*anyopaque) QtC.QHostInfo {
-        return qtc.QHostInfo_new2(@ptrCast(d));
+    pub fn New2(d: anytype) QHostInfo {
+        comptime _ = @TypeOf(d)._is_QHostInfo;
+        return .{ .ptr = qtc.QHostInfo_new2(@ptrCast(d.ptr)) };
     }
 
     /// New3 constructs a new QHostInfo object.
@@ -27,44 +38,46 @@ pub const qhostinfo = struct {
     ///
     /// ` lookupId: i32 `
     ///
-    pub fn New3(lookupId: i32) QtC.QHostInfo {
-        return qtc.QHostInfo_new3(@bitCast(lookupId));
+    pub fn New3(lookupId: i32) QHostInfo {
+        return .{ .ptr = qtc.QHostInfo_new3(@bitCast(lookupId)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QHostInfo `
+    /// ` self: QHostInfo `
     ///
-    /// ` d: QtC.QHostInfo `
+    /// ` d: QHostInfo `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, d: ?*anyopaque) void {
-        qtc.QHostInfo_OperatorAssign(@ptrCast(self), @ptrCast(d));
+    pub fn OperatorAssign(self: QHostInfo, d: anytype) void {
+        comptime _ = @TypeOf(d)._is_QHostInfo;
+        qtc.QHostInfo_OperatorAssign(@ptrCast(self.ptr), @ptrCast(d.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#swap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QHostInfo `
+    /// ` self: QHostInfo `
     ///
-    /// ` other: QtC.QHostInfo `
+    /// ` other: QHostInfo `
     ///
-    pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QHostInfo_Swap(@ptrCast(self), @ptrCast(other));
+    pub fn Swap(self: QHostInfo, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QHostInfo;
+        qtc.QHostInfo_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#hostName)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QHostInfo `
+    /// ` self: QHostInfo `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn HostName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QHostInfo_HostName(@ptrCast(self));
+    pub fn HostName(self: QHostInfo, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QHostInfo_HostName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qhostinfo.HostName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -75,32 +88,33 @@ pub const qhostinfo = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QHostInfo `
+    /// ` self: QHostInfo `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetHostName(self: ?*anyopaque, name: []const u8) void {
+    pub fn SetHostName(self: QHostInfo, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QHostInfo_SetHostName(@ptrCast(self), name_str);
+        qtc.QHostInfo_SetHostName(@ptrCast(self.ptr), name_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#addresses)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QHostInfo `
+    /// ` self: QHostInfo `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Addresses(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QHostAddress {
-        const _arr: qtc.libqt_list = qtc.QHostInfo_Addresses(@ptrCast(self));
+    pub fn Addresses(self: QHostInfo, allocator: std.mem.Allocator) []QHostAddress {
+        const _arr: qtc.libqt_list = qtc.QHostInfo_Addresses(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QHostAddress, _arr.len) catch @panic("qhostinfo.Addresses: Memory allocation failed");
+        const _ret = allocator.alloc(QHostAddress, _arr.len) catch @panic("qhostinfo.Addresses: Memory allocation failed");
         const _data: [*]QtC.QHostAddress = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -108,54 +122,54 @@ pub const qhostinfo = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QHostInfo `
+    /// ` self: QHostInfo `
     ///
-    /// ` addresses: []QtC.QHostAddress `
+    /// ` addresses: []QHostAddress `
     ///
-    pub fn SetAddresses(self: ?*anyopaque, addresses: []QtC.QHostAddress) void {
+    pub fn SetAddresses(self: QHostInfo, addresses: []QHostAddress) void {
         const addresses_list = qtc.libqt_list{
             .len = addresses.len,
             .data = @ptrCast(addresses.ptr),
         };
-        qtc.QHostInfo_SetAddresses(@ptrCast(self), addresses_list);
+        qtc.QHostInfo_SetAddresses(@ptrCast(self.ptr), addresses_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#error)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QHostInfo `
+    /// ` self: QHostInfo `
     ///
     /// ## Returns:
     ///
     /// ` qhostinfo_enums.HostInfoError `
     ///
-    pub fn Error(self: ?*anyopaque) i32 {
-        return qtc.QHostInfo_Error(@ptrCast(self));
+    pub fn Error(self: QHostInfo) i32 {
+        return qtc.QHostInfo_Error(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#setError)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QHostInfo `
+    /// ` self: QHostInfo `
     ///
     /// ` errorVal: qhostinfo_enums.HostInfoError `
     ///
-    pub fn SetError(self: ?*anyopaque, errorVal: i32) void {
-        qtc.QHostInfo_SetError(@ptrCast(self), @bitCast(errorVal));
+    pub fn SetError(self: QHostInfo, errorVal: i32) void {
+        qtc.QHostInfo_SetError(@ptrCast(self.ptr), @bitCast(errorVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#errorString)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QHostInfo `
+    /// ` self: QHostInfo `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QHostInfo_ErrorString(@ptrCast(self));
+    pub fn ErrorString(self: QHostInfo, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QHostInfo_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qhostinfo.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -166,38 +180,38 @@ pub const qhostinfo = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QHostInfo `
+    /// ` self: QHostInfo `
     ///
     /// ` errorString: []const u8 `
     ///
-    pub fn SetErrorString(self: ?*anyopaque, errorString: []const u8) void {
+    pub fn SetErrorString(self: QHostInfo, errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
             .len = errorString.len,
             .data = errorString.ptr,
         };
-        qtc.QHostInfo_SetErrorString(@ptrCast(self), errorString_str);
+        qtc.QHostInfo_SetErrorString(@ptrCast(self.ptr), errorString_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#setLookupId)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QHostInfo `
+    /// ` self: QHostInfo `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetLookupId(self: ?*anyopaque, id: i32) void {
-        qtc.QHostInfo_SetLookupId(@ptrCast(self), @bitCast(id));
+    pub fn SetLookupId(self: QHostInfo, id: i32) void {
+        qtc.QHostInfo_SetLookupId(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#lookupId)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QHostInfo `
+    /// ` self: QHostInfo `
     ///
-    pub fn LookupId(self: ?*anyopaque) i32 {
-        return qtc.QHostInfo_LookupId(@ptrCast(self));
+    pub fn LookupId(self: QHostInfo) i32 {
+        return qtc.QHostInfo_LookupId(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#lookupHost)
@@ -206,17 +220,18 @@ pub const qhostinfo = struct {
     ///
     /// ` name: []const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn LookupHost(name: []const u8, receiver: ?*anyopaque, member: [:0]const u8) i32 {
+    pub fn LookupHost(name: []const u8, receiver: anytype, member: [:0]const u8) i32 {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QHostInfo_LookupHost(name_str, @ptrCast(receiver), member_Cstring);
+        return qtc.QHostInfo_LookupHost(name_str, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#abortHostLookup)
@@ -235,12 +250,12 @@ pub const qhostinfo = struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn FromName(name: []const u8) QtC.QHostInfo {
+    pub fn FromName(name: []const u8) QHostInfo {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.QHostInfo_FromName(name_str);
+        return .{ .ptr = qtc.QHostInfo_FromName(name_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#localHostName)
@@ -281,10 +296,10 @@ pub const qhostinfo = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QHostInfo `
+    /// ` self: QHostInfo `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QHostInfo_Delete(@ptrCast(self));
+    pub fn Delete(self: QHostInfo) void {
+        qtc.QHostInfo_Delete(@ptrCast(self.ptr));
     }
 };
 

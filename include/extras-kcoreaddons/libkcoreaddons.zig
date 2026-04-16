@@ -3,7 +3,15 @@ const qtc = @import("qt6c");
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/kcoreaddons.html)
-pub const kcoreaddons = struct {
+pub const KCoreAddons = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kcoreaddons.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KCoreAddons,
+
+    pub const _is_KCoreAddons = {};
+
     /// ### [Upstream resources](https://api.kde.org/kcoreaddons.html#versionString)
     ///
     /// ## Parameter(s):

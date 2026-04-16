@@ -1,5 +1,63 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QAction = @import("libqt6").QAction;
+const QActionEvent = @import("libqt6").QActionEvent;
+const QBackingStore = @import("libqt6").QBackingStore;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QBitmap = @import("libqt6").QBitmap;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QCloseEvent = @import("libqt6").QCloseEvent;
+const QContextMenuEvent = @import("libqt6").QContextMenuEvent;
+const QCursor = @import("libqt6").QCursor;
+const QDragEnterEvent = @import("libqt6").QDragEnterEvent;
+const QDragLeaveEvent = @import("libqt6").QDragLeaveEvent;
+const QDragMoveEvent = @import("libqt6").QDragMoveEvent;
+const QDropEvent = @import("libqt6").QDropEvent;
+const QEnterEvent = @import("libqt6").QEnterEvent;
+const QEvent = @import("libqt6").QEvent;
+const QFocusEvent = @import("libqt6").QFocusEvent;
+const QFont = @import("libqt6").QFont;
+const QFontInfo = @import("libqt6").QFontInfo;
+const QFontMetrics = @import("libqt6").QFontMetrics;
+const QGraphicsEffect = @import("libqt6").QGraphicsEffect;
+const QGraphicsProxyWidget = @import("libqt6").QGraphicsProxyWidget;
+const QHideEvent = @import("libqt6").QHideEvent;
+const QIcon = @import("libqt6").QIcon;
+const QInputMethodEvent = @import("libqt6").QInputMethodEvent;
+const QKeyEvent = @import("libqt6").QKeyEvent;
+const QKeySequence = @import("libqt6").QKeySequence;
+const QLayout = @import("libqt6").QLayout;
+const QLocale = @import("libqt6").QLocale;
+const QMargins = @import("libqt6").QMargins;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QMouseEvent = @import("libqt6").QMouseEvent;
+const QMoveEvent = @import("libqt6").QMoveEvent;
+const QObject = @import("libqt6").QObject;
+const QPaintDevice = @import("libqt6").QPaintDevice;
+const QPaintEngine = @import("libqt6").QPaintEngine;
+const QPaintEvent = @import("libqt6").QPaintEvent;
+const QPainter = @import("libqt6").QPainter;
+const QPalette = @import("libqt6").QPalette;
+const QPixmap = @import("libqt6").QPixmap;
+const QPoint = @import("libqt6").QPoint;
+const QPointF = @import("libqt6").QPointF;
+const QRect = @import("libqt6").QRect;
+const QRegion = @import("libqt6").QRegion;
+const QResizeEvent = @import("libqt6").QResizeEvent;
+const QScreen = @import("libqt6").QScreen;
+const QShowEvent = @import("libqt6").QShowEvent;
+const QSize = @import("libqt6").QSize;
+const QSizePolicy = @import("libqt6").QSizePolicy;
+const QStyle = @import("libqt6").QStyle;
+const QTabletEvent = @import("libqt6").QTabletEvent;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
+const QWheelEvent = @import("libqt6").QWheelEvent;
+const QWidget = @import("libqt6").QWidget;
+const QWindow = @import("libqt6").QWindow;
 const kiconloader_enums = @import("libkiconloader.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
@@ -10,31 +68,44 @@ const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/kicondialog.html)
-pub const kicondialog = struct {
+pub const KIconDialog = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kicondialog.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KIconDialog,
+
+    pub const _is_KIconDialog = {};
+    pub const _is_QDialog = {};
+    pub const _is_QWidget = {};
+    pub const _is_QObject = {};
+    pub const _is_QPaintDevice = {};
+
     /// New constructs a new KIconDialog object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn New(parent: ?*anyopaque) QtC.KIconDialog {
-        return qtc.KIconDialog_new(@ptrCast(parent));
+    pub fn New(parent: anytype) KIconDialog {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.KIconDialog_new(@ptrCast(parent.ptr)) };
     }
 
     /// New2 constructs a new KIconDialog object.
     ///
-    pub fn New2() QtC.KIconDialog {
-        return qtc.KIconDialog_new2();
+    pub fn New2() KIconDialog {
+        return .{ .ptr = qtc.KIconDialog_new2() };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KIconDialog_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: KIconDialog) QMetaObject {
+        return .{ .ptr = qtc.KIconDialog_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -43,12 +114,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.KIconDialog_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: KIconDialog, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.KIconDialog_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -61,33 +132,33 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KIconDialog_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: KIconDialog) QMetaObject {
+        return .{ .ptr = qtc.KIconDialog_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: KIconDialog, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KIconDialog_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.KIconDialog_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: KIconDialog, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.KIconDialog_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: KIconDialog, callback: *const fn (KIconDialog, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.KIconDialog_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -98,18 +169,18 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: KIconDialog, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KIconDialog_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KIconDialog_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -117,20 +188,20 @@ pub const kicondialog = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KIconDialog_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: KIconDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KIconDialog_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KIconDialog, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.KIconDialog_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: KIconDialog, callback: *const fn (KIconDialog, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.KIconDialog_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -141,7 +212,7 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -149,19 +220,19 @@ pub const kicondialog = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KIconDialog_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: KIconDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KIconDialog_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -174,100 +245,100 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` policy: bool `
     ///
-    pub fn SetStrictIconSize(self: ?*anyopaque, policy: bool) void {
-        qtc.KIconDialog_SetStrictIconSize(@ptrCast(self), policy);
+    pub fn SetStrictIconSize(self: KIconDialog, policy: bool) void {
+        qtc.KIconDialog_SetStrictIconSize(@ptrCast(self.ptr), policy);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kicondialog.html#strictIconSize)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn StrictIconSize(self: ?*anyopaque) bool {
-        return qtc.KIconDialog_StrictIconSize(@ptrCast(self));
+    pub fn StrictIconSize(self: KIconDialog) bool {
+        return qtc.KIconDialog_StrictIconSize(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kicondialog.html#setCustomLocation)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` location: []const u8 `
     ///
-    pub fn SetCustomLocation(self: ?*anyopaque, location: []const u8) void {
+    pub fn SetCustomLocation(self: KIconDialog, location: []const u8) void {
         const location_str = qtc.libqt_string{
             .len = location.len,
             .data = location.ptr,
         };
-        qtc.KIconDialog_SetCustomLocation(@ptrCast(self), location_str);
+        qtc.KIconDialog_SetCustomLocation(@ptrCast(self.ptr), location_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kicondialog.html#setIconSize)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` size: i32 `
     ///
-    pub fn SetIconSize(self: ?*anyopaque, size: i32) void {
-        qtc.KIconDialog_SetIconSize(@ptrCast(self), @bitCast(size));
+    pub fn SetIconSize(self: KIconDialog, size: i32) void {
+        qtc.KIconDialog_SetIconSize(@ptrCast(self.ptr), @bitCast(size));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kicondialog.html#iconSize)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn IconSize(self: ?*anyopaque) i32 {
-        return qtc.KIconDialog_IconSize(@ptrCast(self));
+    pub fn IconSize(self: KIconDialog) i32 {
+        return qtc.KIconDialog_IconSize(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kicondialog.html#setSelectedIcon)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` iconName: []const u8 `
     ///
-    pub fn SetSelectedIcon(self: ?*anyopaque, iconName: []const u8) void {
+    pub fn SetSelectedIcon(self: KIconDialog, iconName: []const u8) void {
         const iconName_str = qtc.libqt_string{
             .len = iconName.len,
             .data = iconName.ptr,
         };
-        qtc.KIconDialog_SetSelectedIcon(@ptrCast(self), iconName_str);
+        qtc.KIconDialog_SetSelectedIcon(@ptrCast(self.ptr), iconName_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kicondialog.html#setup)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` group: kiconloader_enums.Group `
     ///
-    pub fn Setup(self: ?*anyopaque, group: i32) void {
-        qtc.KIconDialog_Setup(@ptrCast(self), @bitCast(group));
+    pub fn Setup(self: KIconDialog, group: i32) void {
+        qtc.KIconDialog_Setup(@ptrCast(self.ptr), @bitCast(group));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kicondialog.html#openDialog)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn OpenDialog(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KIconDialog_OpenDialog(@ptrCast(self));
+    pub fn OpenDialog(self: KIconDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KIconDialog_OpenDialog(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.OpenDialog: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -278,10 +349,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn ShowDialog(self: ?*anyopaque) void {
-        qtc.KIconDialog_ShowDialog(@ptrCast(self));
+    pub fn ShowDialog(self: KIconDialog) void {
+        qtc.KIconDialog_ShowDialog(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kicondialog.html#getIcon)
@@ -302,40 +373,41 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` iconName: []const u8 `
     ///
-    pub fn NewIconName(self: ?*anyopaque, iconName: []const u8) void {
+    pub fn NewIconName(self: KIconDialog, iconName: []const u8) void {
         const iconName_str = qtc.libqt_string{
             .len = iconName.len,
             .data = iconName.ptr,
         };
-        qtc.KIconDialog_NewIconName(@ptrCast(self), iconName_str);
+        qtc.KIconDialog_NewIconName(@ptrCast(self.ptr), iconName_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kicondialog.html#newIconName)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, iconName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconDialog, iconName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnNewIconName(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KIconDialog_Connect_NewIconName(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnNewIconName(self: KIconDialog, callback: *const fn (KIconDialog, [*:0]const u8) callconv(.c) void) void {
+        qtc.KIconDialog_Connect_NewIconName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kicondialog.html#showEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QShowEvent `
+    /// ` event: QShowEvent `
     ///
-    pub fn ShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIconDialog_ShowEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ShowEvent(self: KIconDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QShowEvent;
+        qtc.KIconDialog_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kicondialog.html#showEvent)
@@ -344,12 +416,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, event: QtC.QShowEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconDialog, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIconDialog_OnShowEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnShowEvent(self: KIconDialog, callback: *const fn (KIconDialog, QShowEvent) callconv(.c) void) void {
+        qtc.KIconDialog_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperShowEvent` instead
@@ -362,22 +434,23 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QShowEvent `
+    /// ` event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIconDialog_SuperShowEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperShowEvent(self: KIconDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QShowEvent;
+        qtc.KIconDialog_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kicondialog.html#slotOk)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn SlotOk(self: ?*anyopaque) void {
-        qtc.KIconDialog_SlotOk(@ptrCast(self));
+    pub fn SlotOk(self: KIconDialog) void {
+        qtc.KIconDialog_SlotOk(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kicondialog.html#slotOk)
@@ -386,12 +459,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnSlotOk(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KIconDialog_OnSlotOk(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSlotOk(self: KIconDialog, callback: *const fn () callconv(.c) void) void {
+        qtc.KIconDialog_OnSlotOk(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSlotOk` instead
@@ -404,23 +477,23 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn SuperSlotOk(self: ?*anyopaque) void {
-        qtc.KIconDialog_SuperSlotOk(@ptrCast(self));
+    pub fn SuperSlotOk(self: KIconDialog) void {
+        qtc.KIconDialog_SuperSlotOk(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -434,15 +507,15 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -456,21 +529,21 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` group: kiconloader_enums.Group `
     ///
     /// ` context: kiconloader_enums.Context `
     ///
-    pub fn Setup2(self: ?*anyopaque, group: i32, context: i32) void {
-        qtc.KIconDialog_Setup2(@ptrCast(self), @bitCast(group), @bitCast(context));
+    pub fn Setup2(self: KIconDialog, group: i32, context: i32) void {
+        qtc.KIconDialog_Setup2(@ptrCast(self.ptr), @bitCast(group), @bitCast(context));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kicondialog.html#setup)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` group: kiconloader_enums.Group `
     ///
@@ -478,15 +551,15 @@ pub const kicondialog = struct {
     ///
     /// ` strictIconSize: bool `
     ///
-    pub fn Setup3(self: ?*anyopaque, group: i32, context: i32, strictIconSize: bool) void {
-        qtc.KIconDialog_Setup3(@ptrCast(self), @bitCast(group), @bitCast(context), strictIconSize);
+    pub fn Setup3(self: KIconDialog, group: i32, context: i32, strictIconSize: bool) void {
+        qtc.KIconDialog_Setup3(@ptrCast(self.ptr), @bitCast(group), @bitCast(context), strictIconSize);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kicondialog.html#setup)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` group: kiconloader_enums.Group `
     ///
@@ -496,15 +569,15 @@ pub const kicondialog = struct {
     ///
     /// ` iconSize: i32 `
     ///
-    pub fn Setup4(self: ?*anyopaque, group: i32, context: i32, strictIconSize: bool, iconSize: i32) void {
-        qtc.KIconDialog_Setup4(@ptrCast(self), @bitCast(group), @bitCast(context), strictIconSize, @bitCast(iconSize));
+    pub fn Setup4(self: KIconDialog, group: i32, context: i32, strictIconSize: bool, iconSize: i32) void {
+        qtc.KIconDialog_Setup4(@ptrCast(self.ptr), @bitCast(group), @bitCast(context), strictIconSize, @bitCast(iconSize));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kicondialog.html#setup)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` group: kiconloader_enums.Group `
     ///
@@ -516,15 +589,15 @@ pub const kicondialog = struct {
     ///
     /// ` user: bool `
     ///
-    pub fn Setup5(self: ?*anyopaque, group: i32, context: i32, strictIconSize: bool, iconSize: i32, user: bool) void {
-        qtc.KIconDialog_Setup5(@ptrCast(self), @bitCast(group), @bitCast(context), strictIconSize, @bitCast(iconSize), user);
+    pub fn Setup5(self: KIconDialog, group: i32, context: i32, strictIconSize: bool, iconSize: i32, user: bool) void {
+        qtc.KIconDialog_Setup5(@ptrCast(self.ptr), @bitCast(group), @bitCast(context), strictIconSize, @bitCast(iconSize), user);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kicondialog.html#setup)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` group: kiconloader_enums.Group `
     ///
@@ -538,15 +611,15 @@ pub const kicondialog = struct {
     ///
     /// ` lockUser: bool `
     ///
-    pub fn Setup6(self: ?*anyopaque, group: i32, context: i32, strictIconSize: bool, iconSize: i32, user: bool, lockUser: bool) void {
-        qtc.KIconDialog_Setup6(@ptrCast(self), @bitCast(group), @bitCast(context), strictIconSize, @bitCast(iconSize), user, lockUser);
+    pub fn Setup6(self: KIconDialog, group: i32, context: i32, strictIconSize: bool, iconSize: i32, user: bool, lockUser: bool) void {
+        qtc.KIconDialog_Setup6(@ptrCast(self.ptr), @bitCast(group), @bitCast(context), strictIconSize, @bitCast(iconSize), user, lockUser);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kicondialog.html#setup)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` group: kiconloader_enums.Group `
     ///
@@ -562,19 +635,19 @@ pub const kicondialog = struct {
     ///
     /// ` lockCustomDir: bool `
     ///
-    pub fn Setup7(self: ?*anyopaque, group: i32, context: i32, strictIconSize: bool, iconSize: i32, user: bool, lockUser: bool, lockCustomDir: bool) void {
-        qtc.KIconDialog_Setup7(@ptrCast(self), @bitCast(group), @bitCast(context), strictIconSize, @bitCast(iconSize), user, lockUser, lockCustomDir);
+    pub fn Setup7(self: KIconDialog, group: i32, context: i32, strictIconSize: bool, iconSize: i32, user: bool, lockUser: bool, lockCustomDir: bool) void {
+        qtc.KIconDialog_Setup7(@ptrCast(self.ptr), @bitCast(group), @bitCast(context), strictIconSize, @bitCast(iconSize), user, lockUser, lockCustomDir);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kicondialog.html#getIcon)
     ///
     /// ## Parameter(s):
     ///
-    /// ` group: kiconloader_enums.Group `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GetIcon1(group: i32, allocator: std.mem.Allocator) []const u8 {
+    /// ` group: kiconloader_enums.Group `
+    ///
+    pub fn GetIcon1(allocator: std.mem.Allocator, group: i32) []const u8 {
         var _str = qtc.KIconDialog_GetIcon1(@bitCast(group));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.GetIcon1: Memory allocation failed");
@@ -586,13 +659,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` group: kiconloader_enums.Group `
     ///
     /// ` context: kiconloader_enums.Context `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn GetIcon2(group: i32, context: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetIcon2(allocator: std.mem.Allocator, group: i32, context: i32) []const u8 {
         var _str = qtc.KIconDialog_GetIcon2(@bitCast(group), @bitCast(context));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.GetIcon2: Memory allocation failed");
@@ -604,15 +677,15 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` group: kiconloader_enums.Group `
     ///
     /// ` context: kiconloader_enums.Context `
     ///
     /// ` strictIconSize: bool `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn GetIcon3(group: i32, context: i32, strictIconSize: bool, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetIcon3(allocator: std.mem.Allocator, group: i32, context: i32, strictIconSize: bool) []const u8 {
         var _str = qtc.KIconDialog_GetIcon3(@bitCast(group), @bitCast(context), strictIconSize);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.GetIcon3: Memory allocation failed");
@@ -624,6 +697,8 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` group: kiconloader_enums.Group `
     ///
     /// ` context: kiconloader_enums.Context `
@@ -632,9 +707,7 @@ pub const kicondialog = struct {
     ///
     /// ` iconSize: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn GetIcon4(group: i32, context: i32, strictIconSize: bool, iconSize: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetIcon4(allocator: std.mem.Allocator, group: i32, context: i32, strictIconSize: bool, iconSize: i32) []const u8 {
         var _str = qtc.KIconDialog_GetIcon4(@bitCast(group), @bitCast(context), strictIconSize, @bitCast(iconSize));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.GetIcon4: Memory allocation failed");
@@ -646,6 +719,8 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` group: kiconloader_enums.Group `
     ///
     /// ` context: kiconloader_enums.Context `
@@ -656,9 +731,7 @@ pub const kicondialog = struct {
     ///
     /// ` user: bool `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn GetIcon5(group: i32, context: i32, strictIconSize: bool, iconSize: i32, user: bool, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetIcon5(allocator: std.mem.Allocator, group: i32, context: i32, strictIconSize: bool, iconSize: i32, user: bool) []const u8 {
         var _str = qtc.KIconDialog_GetIcon5(@bitCast(group), @bitCast(context), strictIconSize, @bitCast(iconSize), user);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.GetIcon5: Memory allocation failed");
@@ -670,6 +743,8 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` group: kiconloader_enums.Group `
     ///
     /// ` context: kiconloader_enums.Context `
@@ -680,12 +755,11 @@ pub const kicondialog = struct {
     ///
     /// ` user: bool `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn GetIcon6(group: i32, context: i32, strictIconSize: bool, iconSize: i32, user: bool, parent: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KIconDialog_GetIcon6(@bitCast(group), @bitCast(context), strictIconSize, @bitCast(iconSize), user, @ptrCast(parent));
+    pub fn GetIcon6(allocator: std.mem.Allocator, group: i32, context: i32, strictIconSize: bool, iconSize: i32, user: bool, parent: anytype) []const u8 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        var _str = qtc.KIconDialog_GetIcon6(@bitCast(group), @bitCast(context), strictIconSize, @bitCast(iconSize), user, @ptrCast(parent.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.GetIcon6: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -696,6 +770,8 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` group: kiconloader_enums.Group `
     ///
     /// ` context: kiconloader_enums.Context `
@@ -706,18 +782,17 @@ pub const kicondialog = struct {
     ///
     /// ` user: bool `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` title: []const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn GetIcon7(group: i32, context: i32, strictIconSize: bool, iconSize: i32, user: bool, parent: ?*anyopaque, title: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetIcon7(allocator: std.mem.Allocator, group: i32, context: i32, strictIconSize: bool, iconSize: i32, user: bool, parent: anytype, title: []const u8) []const u8 {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        var _str = qtc.KIconDialog_GetIcon7(@bitCast(group), @bitCast(context), strictIconSize, @bitCast(iconSize), user, @ptrCast(parent), title_str);
+        var _str = qtc.KIconDialog_GetIcon7(@bitCast(group), @bitCast(context), strictIconSize, @bitCast(iconSize), user, @ptrCast(parent.ptr), title_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.GetIcon7: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -730,10 +805,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn Result(self: ?*anyopaque) i32 {
-        return qtc.QDialog_Result(@ptrCast(self));
+    pub fn Result(self: KIconDialog) i32 {
+        return qtc.QDialog_Result(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -742,12 +817,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` sizeGripEnabled: bool `
     ///
-    pub fn SetSizeGripEnabled(self: ?*anyopaque, sizeGripEnabled: bool) void {
-        qtc.QDialog_SetSizeGripEnabled(@ptrCast(self), sizeGripEnabled);
+    pub fn SetSizeGripEnabled(self: KIconDialog, sizeGripEnabled: bool) void {
+        qtc.QDialog_SetSizeGripEnabled(@ptrCast(self.ptr), sizeGripEnabled);
     }
 
     /// Inherited from QDialog
@@ -756,10 +831,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn IsSizeGripEnabled(self: ?*anyopaque) bool {
-        return qtc.QDialog_IsSizeGripEnabled(@ptrCast(self));
+    pub fn IsSizeGripEnabled(self: KIconDialog) bool {
+        return qtc.QDialog_IsSizeGripEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -768,12 +843,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` modal: bool `
     ///
-    pub fn SetModal(self: ?*anyopaque, modal: bool) void {
-        qtc.QDialog_SetModal(@ptrCast(self), modal);
+    pub fn SetModal(self: KIconDialog, modal: bool) void {
+        qtc.QDialog_SetModal(@ptrCast(self.ptr), modal);
     }
 
     /// Inherited from QDialog
@@ -782,12 +857,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` r: i32 `
     ///
-    pub fn SetResult(self: ?*anyopaque, r: i32) void {
-        qtc.QDialog_SetResult(@ptrCast(self), @bitCast(r));
+    pub fn SetResult(self: KIconDialog, r: i32) void {
+        qtc.QDialog_SetResult(@ptrCast(self.ptr), @bitCast(r));
     }
 
     /// Inherited from QDialog
@@ -796,12 +871,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` result: i32 `
     ///
-    pub fn Finished(self: ?*anyopaque, result: i32) void {
-        qtc.QDialog_Finished(@ptrCast(self), @bitCast(result));
+    pub fn Finished(self: KIconDialog, result: i32) void {
+        qtc.QDialog_Finished(@ptrCast(self.ptr), @bitCast(result));
     }
 
     /// Inherited from QDialog
@@ -810,12 +885,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, result: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconDialog, result: i32) callconv(.c) void `
     ///
-    pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QDialog_Connect_Finished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFinished(self: KIconDialog, callback: *const fn (KIconDialog, i32) callconv(.c) void) void {
+        qtc.QDialog_Connect_Finished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -824,10 +899,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn Accepted(self: ?*anyopaque) void {
-        qtc.QDialog_Accepted(@ptrCast(self));
+    pub fn Accepted(self: KIconDialog) void {
+        qtc.QDialog_Accepted(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -836,12 +911,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconDialog) callconv(.c) void `
     ///
-    pub fn OnAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QDialog_Connect_Accepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAccepted(self: KIconDialog, callback: *const fn (KIconDialog) callconv(.c) void) void {
+        qtc.QDialog_Connect_Accepted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -850,10 +925,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn Rejected(self: ?*anyopaque) void {
-        qtc.QDialog_Rejected(@ptrCast(self));
+    pub fn Rejected(self: KIconDialog) void {
+        qtc.QDialog_Rejected(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -862,12 +937,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconDialog) callconv(.c) void `
     ///
-    pub fn OnRejected(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QDialog_Connect_Rejected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRejected(self: KIconDialog, callback: *const fn (KIconDialog) callconv(.c) void) void {
+        qtc.QDialog_Connect_Rejected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -876,10 +951,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn WinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_WinId(@ptrCast(self));
+    pub fn WinId(self: KIconDialog) usize {
+        return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -888,10 +963,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn CreateWinId(self: ?*anyopaque) void {
-        qtc.QWidget_CreateWinId(@ptrCast(self));
+    pub fn CreateWinId(self: KIconDialog) void {
+        qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -900,10 +975,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn InternalWinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_InternalWinId(@ptrCast(self));
+    pub fn InternalWinId(self: KIconDialog) usize {
+        return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -912,10 +987,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn EffectiveWinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_EffectiveWinId(@ptrCast(self));
+    pub fn EffectiveWinId(self: KIconDialog) usize {
+        return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -924,10 +999,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn Style(self: ?*anyopaque) QtC.QStyle {
-        return qtc.QWidget_Style(@ptrCast(self));
+    pub fn Style(self: KIconDialog) QStyle {
+        return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -936,12 +1011,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` style: QtC.QStyle `
+    /// ` style: QStyle `
     ///
-    pub fn SetStyle(self: ?*anyopaque, style: ?*anyopaque) void {
-        qtc.QWidget_SetStyle(@ptrCast(self), @ptrCast(style));
+    pub fn SetStyle(self: KIconDialog, style: anytype) void {
+        comptime _ = @TypeOf(style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
     }
 
     /// Inherited from QWidget
@@ -950,10 +1026,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn IsTopLevel(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsTopLevel(@ptrCast(self));
+    pub fn IsTopLevel(self: KIconDialog) bool {
+        return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -962,10 +1038,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn IsWindow(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsWindow(@ptrCast(self));
+    pub fn IsWindow(self: KIconDialog) bool {
+        return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -974,10 +1050,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn IsModal(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsModal(@ptrCast(self));
+    pub fn IsModal(self: KIconDialog) bool {
+        return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -986,14 +1062,14 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowModality(@ptrCast(self));
+    pub fn WindowModality(self: KIconDialog) i32 {
+        return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1002,12 +1078,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self), @bitCast(windowModality));
+    pub fn SetWindowModality(self: KIconDialog, windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
     }
 
     /// Inherited from QWidget
@@ -1016,10 +1092,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn IsEnabled(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsEnabled(@ptrCast(self));
+    pub fn IsEnabled(self: KIconDialog) bool {
+        return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1028,12 +1104,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidget_IsEnabledTo(@ptrCast(self), @ptrCast(param1));
+    pub fn IsEnabledTo(self: KIconDialog, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -1042,12 +1119,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
-        qtc.QWidget_SetEnabled(@ptrCast(self), enabled);
+    pub fn SetEnabled(self: KIconDialog, enabled: bool) void {
+        qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QWidget
@@ -1056,12 +1133,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: ?*anyopaque, disabled: bool) void {
-        qtc.QWidget_SetDisabled(@ptrCast(self), disabled);
+    pub fn SetDisabled(self: KIconDialog, disabled: bool) void {
+        qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
 
     /// Inherited from QWidget
@@ -1070,12 +1147,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: ?*anyopaque, windowModified: bool) void {
-        qtc.QWidget_SetWindowModified(@ptrCast(self), windowModified);
+    pub fn SetWindowModified(self: KIconDialog, windowModified: bool) void {
+        qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
 
     /// Inherited from QWidget
@@ -1084,10 +1161,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn FrameGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_FrameGeometry(@ptrCast(self));
+    pub fn FrameGeometry(self: KIconDialog) QRect {
+        return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1096,10 +1173,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn Geometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_Geometry(@ptrCast(self));
+    pub fn Geometry(self: KIconDialog) QRect {
+        return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1108,10 +1185,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn NormalGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_NormalGeometry(@ptrCast(self));
+    pub fn NormalGeometry(self: KIconDialog) QRect {
+        return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1120,10 +1197,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn X(self: ?*anyopaque) i32 {
-        return qtc.QWidget_X(@ptrCast(self));
+    pub fn X(self: KIconDialog) i32 {
+        return qtc.QWidget_X(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1132,10 +1209,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn Y(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Y(@ptrCast(self));
+    pub fn Y(self: KIconDialog) i32 {
+        return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1144,10 +1221,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn Pos(self: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_Pos(@ptrCast(self));
+    pub fn Pos(self: KIconDialog) QPoint {
+        return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1156,10 +1233,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_FrameSize(@ptrCast(self));
+    pub fn FrameSize(self: KIconDialog) QSize {
+        return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1168,10 +1245,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn Size(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_Size(@ptrCast(self));
+    pub fn Size(self: KIconDialog) QSize {
+        return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1180,10 +1257,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn Width(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Width(@ptrCast(self));
+    pub fn Width(self: KIconDialog) i32 {
+        return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1192,10 +1269,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn Height(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Height(@ptrCast(self));
+    pub fn Height(self: KIconDialog) i32 {
+        return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1204,10 +1281,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn Rect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_Rect(@ptrCast(self));
+    pub fn Rect(self: KIconDialog) QRect {
+        return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1216,10 +1293,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn ChildrenRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_ChildrenRect(@ptrCast(self));
+    pub fn ChildrenRect(self: KIconDialog) QRect {
+        return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1228,10 +1305,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn ChildrenRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_ChildrenRegion(@ptrCast(self));
+    pub fn ChildrenRegion(self: KIconDialog) QRegion {
+        return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1240,10 +1317,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MinimumSize(@ptrCast(self));
+    pub fn MinimumSize(self: KIconDialog) QSize {
+        return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1252,10 +1329,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MaximumSize(@ptrCast(self));
+    pub fn MaximumSize(self: KIconDialog) QSize {
+        return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1264,10 +1341,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn MinimumWidth(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MinimumWidth(@ptrCast(self));
+    pub fn MinimumWidth(self: KIconDialog) i32 {
+        return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1276,10 +1353,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn MinimumHeight(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MinimumHeight(@ptrCast(self));
+    pub fn MinimumHeight(self: KIconDialog) i32 {
+        return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1288,10 +1365,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn MaximumWidth(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MaximumWidth(@ptrCast(self));
+    pub fn MaximumWidth(self: KIconDialog) i32 {
+        return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1300,10 +1377,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn MaximumHeight(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MaximumHeight(@ptrCast(self));
+    pub fn MaximumHeight(self: KIconDialog) i32 {
+        return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1312,12 +1389,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` minimumSize: QtC.QSize `
+    /// ` minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: ?*anyopaque, minimumSize: ?*anyopaque) void {
-        qtc.QWidget_SetMinimumSize(@ptrCast(self), @ptrCast(minimumSize));
+    pub fn SetMinimumSize(self: KIconDialog, minimumSize: anytype) void {
+        comptime _ = @TypeOf(minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -1326,14 +1404,14 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` minw: i32 `
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
-        qtc.QWidget_SetMinimumSize2(@ptrCast(self), @bitCast(minw), @bitCast(minh));
+    pub fn SetMinimumSize2(self: KIconDialog, minw: i32, minh: i32) void {
+        qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -1342,12 +1420,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` maximumSize: QtC.QSize `
+    /// ` maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: ?*anyopaque, maximumSize: ?*anyopaque) void {
-        qtc.QWidget_SetMaximumSize(@ptrCast(self), @ptrCast(maximumSize));
+    pub fn SetMaximumSize(self: KIconDialog, maximumSize: anytype) void {
+        comptime _ = @TypeOf(maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -1356,14 +1435,14 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` maxw: i32 `
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
-        qtc.QWidget_SetMaximumSize2(@ptrCast(self), @bitCast(maxw), @bitCast(maxh));
+    pub fn SetMaximumSize2(self: KIconDialog, maxw: i32, maxh: i32) void {
+        qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -1372,12 +1451,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
-        qtc.QWidget_SetMinimumWidth(@ptrCast(self), @bitCast(minw));
+    pub fn SetMinimumWidth(self: KIconDialog, minw: i32) void {
+        qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
 
     /// Inherited from QWidget
@@ -1386,12 +1465,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
-        qtc.QWidget_SetMinimumHeight(@ptrCast(self), @bitCast(minh));
+    pub fn SetMinimumHeight(self: KIconDialog, minh: i32) void {
+        qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -1400,12 +1479,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
-        qtc.QWidget_SetMaximumWidth(@ptrCast(self), @bitCast(maxw));
+    pub fn SetMaximumWidth(self: KIconDialog, maxw: i32) void {
+        qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
 
     /// Inherited from QWidget
@@ -1414,12 +1493,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
-        qtc.QWidget_SetMaximumHeight(@ptrCast(self), @bitCast(maxh));
+    pub fn SetMaximumHeight(self: KIconDialog, maxh: i32) void {
+        qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -1428,10 +1507,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn SizeIncrement(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_SizeIncrement(@ptrCast(self));
+    pub fn SizeIncrement(self: KIconDialog) QSize {
+        return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1440,12 +1519,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` sizeIncrement: QtC.QSize `
+    /// ` sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: ?*anyopaque, sizeIncrement: ?*anyopaque) void {
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self), @ptrCast(sizeIncrement));
+    pub fn SetSizeIncrement(self: KIconDialog, sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
     }
 
     /// Inherited from QWidget
@@ -1454,14 +1534,14 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetSizeIncrement2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetSizeIncrement2(self: KIconDialog, w: i32, h: i32) void {
+        qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -1470,10 +1550,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn BaseSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_BaseSize(@ptrCast(self));
+    pub fn BaseSize(self: KIconDialog) QSize {
+        return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1482,12 +1562,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` baseSize: QtC.QSize `
+    /// ` baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: ?*anyopaque, baseSize: ?*anyopaque) void {
-        qtc.QWidget_SetBaseSize(@ptrCast(self), @ptrCast(baseSize));
+    pub fn SetBaseSize(self: KIconDialog, baseSize: anytype) void {
+        comptime _ = @TypeOf(baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -1496,14 +1577,14 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` basew: i32 `
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
-        qtc.QWidget_SetBaseSize2(@ptrCast(self), @bitCast(basew), @bitCast(baseh));
+    pub fn SetBaseSize2(self: KIconDialog, basew: i32, baseh: i32) void {
+        qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
 
     /// Inherited from QWidget
@@ -1512,12 +1593,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` fixedSize: QtC.QSize `
+    /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: ?*anyopaque, fixedSize: ?*anyopaque) void {
-        qtc.QWidget_SetFixedSize(@ptrCast(self), @ptrCast(fixedSize));
+    pub fn SetFixedSize(self: KIconDialog, fixedSize: anytype) void {
+        comptime _ = @TypeOf(fixedSize)._is_QSize;
+        qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -1526,14 +1608,14 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetFixedSize2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetFixedSize2(self: KIconDialog, w: i32, h: i32) void {
+        qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -1542,12 +1624,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
-        qtc.QWidget_SetFixedWidth(@ptrCast(self), @bitCast(w));
+    pub fn SetFixedWidth(self: KIconDialog, w: i32) void {
+        qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
 
     /// Inherited from QWidget
@@ -1556,12 +1638,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
-        qtc.QWidget_SetFixedHeight(@ptrCast(self), @bitCast(h));
+    pub fn SetFixedHeight(self: KIconDialog, h: i32) void {
+        qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -1570,12 +1652,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapToGlobal(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal(self: KIconDialog, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1584,12 +1667,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToGlobal2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal2(self: KIconDialog, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1598,12 +1682,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFromGlobal(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal(self: KIconDialog, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1612,12 +1697,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromGlobal2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal2(self: KIconDialog, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1626,12 +1712,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapToParent(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent(self: KIconDialog, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1640,12 +1727,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToParent2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent2(self: KIconDialog, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1654,12 +1742,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFromParent(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent(self: KIconDialog, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1668,12 +1757,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromParent2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent2(self: KIconDialog, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1682,14 +1772,16 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPointF `
+    /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapTo(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapTo(self: KIconDialog, param1: anytype, param2: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1698,14 +1790,16 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPoint `
+    /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapTo2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapTo2(self: KIconDialog, param1: anytype, param2: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1714,14 +1808,16 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPointF `
+    /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFrom(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapFrom(self: KIconDialog, param1: anytype, param2: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1730,14 +1826,16 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPoint `
+    /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFrom2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapFrom2(self: KIconDialog, param1: anytype, param2: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1746,10 +1844,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn Window(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_Window(@ptrCast(self));
+    pub fn Window(self: KIconDialog) QWidget {
+        return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1758,10 +1856,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn NativeParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_NativeParentWidget(@ptrCast(self));
+    pub fn NativeParentWidget(self: KIconDialog) QWidget {
+        return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1770,10 +1868,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn TopLevelWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_TopLevelWidget(@ptrCast(self));
+    pub fn TopLevelWidget(self: KIconDialog) QWidget {
+        return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1782,10 +1880,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn Palette(self: ?*anyopaque) QtC.QPalette {
-        return qtc.QWidget_Palette(@ptrCast(self));
+    pub fn Palette(self: KIconDialog) QPalette {
+        return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1794,12 +1892,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` palette: QtC.QPalette `
+    /// ` palette: QPalette `
     ///
-    pub fn SetPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
-        qtc.QWidget_SetPalette(@ptrCast(self), @ptrCast(palette));
+    pub fn SetPalette(self: KIconDialog, palette: anytype) void {
+        comptime _ = @TypeOf(palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
     }
 
     /// Inherited from QWidget
@@ -1808,12 +1907,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self), @bitCast(backgroundRole));
+    pub fn SetBackgroundRole(self: KIconDialog, backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
     }
 
     /// Inherited from QWidget
@@ -1822,14 +1921,14 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: ?*anyopaque) i32 {
-        return qtc.QWidget_BackgroundRole(@ptrCast(self));
+    pub fn BackgroundRole(self: KIconDialog) i32 {
+        return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1838,12 +1937,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self), @bitCast(foregroundRole));
+    pub fn SetForegroundRole(self: KIconDialog, foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
     }
 
     /// Inherited from QWidget
@@ -1852,14 +1951,14 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ForegroundRole(@ptrCast(self));
+    pub fn ForegroundRole(self: KIconDialog) i32 {
+        return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1868,10 +1967,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn Font(self: ?*anyopaque) QtC.QFont {
-        return qtc.QWidget_Font(@ptrCast(self));
+    pub fn Font(self: KIconDialog) QFont {
+        return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1880,12 +1979,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` font: QtC.QFont `
+    /// ` font: QFont `
     ///
-    pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
-        qtc.QWidget_SetFont(@ptrCast(self), @ptrCast(font));
+    pub fn SetFont(self: KIconDialog, font: anytype) void {
+        comptime _ = @TypeOf(font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
     }
 
     /// Inherited from QWidget
@@ -1894,10 +1994,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn FontMetrics(self: ?*anyopaque) QtC.QFontMetrics {
-        return qtc.QWidget_FontMetrics(@ptrCast(self));
+    pub fn FontMetrics(self: KIconDialog) QFontMetrics {
+        return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1906,10 +2006,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn FontInfo(self: ?*anyopaque) QtC.QFontInfo {
-        return qtc.QWidget_FontInfo(@ptrCast(self));
+    pub fn FontInfo(self: KIconDialog) QFontInfo {
+        return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1918,10 +2018,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
-        return qtc.QWidget_Cursor(@ptrCast(self));
+    pub fn Cursor(self: KIconDialog) QCursor {
+        return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1930,12 +2030,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` cursor: QtC.QCursor `
+    /// ` cursor: QCursor `
     ///
-    pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
-        qtc.QWidget_SetCursor(@ptrCast(self), @ptrCast(cursor));
+    pub fn SetCursor(self: KIconDialog, cursor: anytype) void {
+        comptime _ = @TypeOf(cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
     }
 
     /// Inherited from QWidget
@@ -1944,10 +2045,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn UnsetCursor(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetCursor(@ptrCast(self));
+    pub fn UnsetCursor(self: KIconDialog) void {
+        qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1956,12 +2057,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetMouseTracking(@ptrCast(self), enable);
+    pub fn SetMouseTracking(self: KIconDialog, enable: bool) void {
+        qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -1970,10 +2071,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn HasMouseTracking(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasMouseTracking(@ptrCast(self));
+    pub fn HasMouseTracking(self: KIconDialog) bool {
+        return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1982,10 +2083,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn UnderMouse(self: ?*anyopaque) bool {
-        return qtc.QWidget_UnderMouse(@ptrCast(self));
+    pub fn UnderMouse(self: KIconDialog) bool {
+        return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1994,12 +2095,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetTabletTracking(@ptrCast(self), enable);
+    pub fn SetTabletTracking(self: KIconDialog, enable: bool) void {
+        qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -2008,10 +2109,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn HasTabletTracking(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasTabletTracking(@ptrCast(self));
+    pub fn HasTabletTracking(self: KIconDialog) bool {
+        return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2020,12 +2121,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` mask: QtC.QBitmap `
+    /// ` mask: QBitmap `
     ///
-    pub fn SetMask(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMask(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask(self: KIconDialog, mask: anytype) void {
+        comptime _ = @TypeOf(mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
 
     /// Inherited from QWidget
@@ -2034,12 +2136,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` mask: QtC.QRegion `
+    /// ` mask: QRegion `
     ///
-    pub fn SetMask2(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMask2(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask2(self: KIconDialog, mask: anytype) void {
+        comptime _ = @TypeOf(mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
 
     /// Inherited from QWidget
@@ -2048,10 +2151,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn Mask(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_Mask(@ptrCast(self));
+    pub fn Mask(self: KIconDialog) QRegion {
+        return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2060,10 +2163,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn ClearMask(self: ?*anyopaque) void {
-        qtc.QWidget_ClearMask(@ptrCast(self));
+    pub fn ClearMask(self: KIconDialog) void {
+        qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2072,12 +2175,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: ?*anyopaque, target: ?*anyopaque) void {
-        qtc.QWidget_Render(@ptrCast(self), @ptrCast(target));
+    pub fn Render(self: KIconDialog, target: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
 
     /// Inherited from QWidget
@@ -2086,12 +2190,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn Render2(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QWidget_Render2(@ptrCast(self), @ptrCast(painter));
+    pub fn Render2(self: KIconDialog, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// Inherited from QWidget
@@ -2100,10 +2205,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn Grab(self: ?*anyopaque) QtC.QPixmap {
-        return qtc.QWidget_Grab(@ptrCast(self));
+    pub fn Grab(self: KIconDialog) QPixmap {
+        return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2112,10 +2217,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
-        return qtc.QWidget_GraphicsEffect(@ptrCast(self));
+    pub fn GraphicsEffect(self: KIconDialog) QGraphicsEffect {
+        return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2124,12 +2229,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` effect: QtC.QGraphicsEffect `
+    /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
-        qtc.QWidget_SetGraphicsEffect(@ptrCast(self), @ptrCast(effect));
+    pub fn SetGraphicsEffect(self: KIconDialog, effect: anytype) void {
+        comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
+        qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
 
     /// Inherited from QWidget
@@ -2138,12 +2244,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_GrabGesture(@ptrCast(self), @bitCast(typeVal));
+    pub fn GrabGesture(self: KIconDialog, typeVal: i32) void {
+        qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -2152,12 +2258,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_UngrabGesture(@ptrCast(self), @bitCast(typeVal));
+    pub fn UngrabGesture(self: KIconDialog, typeVal: i32) void {
+        qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -2166,16 +2272,16 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
+    pub fn SetWindowTitle(self: KIconDialog, windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
             .len = windowTitle.len,
             .data = windowTitle.ptr,
         };
-        qtc.QWidget_SetWindowTitle(@ptrCast(self), windowTitle_str);
+        qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
 
     /// Inherited from QWidget
@@ -2184,16 +2290,16 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
+    pub fn SetStyleSheet(self: KIconDialog, styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
             .len = styleSheet.len,
             .data = styleSheet.ptr,
         };
-        qtc.QWidget_SetStyleSheet(@ptrCast(self), styleSheet_str);
+        qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
 
     /// Inherited from QWidget
@@ -2202,12 +2308,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_StyleSheet(@ptrCast(self));
+    pub fn StyleSheet(self: KIconDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2220,12 +2326,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowTitle(@ptrCast(self));
+    pub fn WindowTitle(self: KIconDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2238,12 +2344,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QWidget_SetWindowIcon(@ptrCast(self), @ptrCast(icon));
+    pub fn SetWindowIcon(self: KIconDialog, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QWidget
@@ -2252,10 +2359,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn WindowIcon(self: ?*anyopaque) QtC.QIcon {
-        return qtc.QWidget_WindowIcon(@ptrCast(self));
+    pub fn WindowIcon(self: KIconDialog) QIcon {
+        return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2264,16 +2371,16 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
+    pub fn SetWindowIconText(self: KIconDialog, windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
             .len = windowIconText.len,
             .data = windowIconText.ptr,
         };
-        qtc.QWidget_SetWindowIconText(@ptrCast(self), windowIconText_str);
+        qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
 
     /// Inherited from QWidget
@@ -2282,12 +2389,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowIconText(@ptrCast(self));
+    pub fn WindowIconText(self: KIconDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2300,16 +2407,16 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
+    pub fn SetWindowRole(self: KIconDialog, windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
             .len = windowRole.len,
             .data = windowRole.ptr,
         };
-        qtc.QWidget_SetWindowRole(@ptrCast(self), windowRole_str);
+        qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
 
     /// Inherited from QWidget
@@ -2318,12 +2425,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowRole(@ptrCast(self));
+    pub fn WindowRole(self: KIconDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2336,16 +2443,16 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
+    pub fn SetWindowFilePath(self: KIconDialog, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
-        qtc.QWidget_SetWindowFilePath(@ptrCast(self), filePath_str);
+        qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
 
     /// Inherited from QWidget
@@ -2354,12 +2461,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
+    pub fn WindowFilePath(self: KIconDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2372,12 +2479,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
-        qtc.QWidget_SetWindowOpacity(@ptrCast(self), @bitCast(level));
+    pub fn SetWindowOpacity(self: KIconDialog, level: f64) void {
+        qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
 
     /// Inherited from QWidget
@@ -2386,10 +2493,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn WindowOpacity(self: ?*anyopaque) f64 {
-        return qtc.QWidget_WindowOpacity(@ptrCast(self));
+    pub fn WindowOpacity(self: KIconDialog) f64 {
+        return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2398,10 +2505,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn IsWindowModified(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsWindowModified(@ptrCast(self));
+    pub fn IsWindowModified(self: KIconDialog) bool {
+        return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2410,16 +2517,16 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
+    pub fn SetToolTip(self: KIconDialog, toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
             .len = toolTip.len,
             .data = toolTip.ptr,
         };
-        qtc.QWidget_SetToolTip(@ptrCast(self), toolTip_str);
+        qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
 
     /// Inherited from QWidget
@@ -2428,12 +2535,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_ToolTip(@ptrCast(self));
+    pub fn ToolTip(self: KIconDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2446,12 +2553,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
-        qtc.QWidget_SetToolTipDuration(@ptrCast(self), @bitCast(msec));
+    pub fn SetToolTipDuration(self: KIconDialog, msec: i32) void {
+        qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
 
     /// Inherited from QWidget
@@ -2460,10 +2567,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn ToolTipDuration(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ToolTipDuration(@ptrCast(self));
+    pub fn ToolTipDuration(self: KIconDialog) i32 {
+        return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2472,16 +2579,16 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
+    pub fn SetStatusTip(self: KIconDialog, statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
             .len = statusTip.len,
             .data = statusTip.ptr,
         };
-        qtc.QWidget_SetStatusTip(@ptrCast(self), statusTip_str);
+        qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
 
     /// Inherited from QWidget
@@ -2490,12 +2597,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_StatusTip(@ptrCast(self));
+    pub fn StatusTip(self: KIconDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2508,16 +2615,16 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
+    pub fn SetWhatsThis(self: KIconDialog, whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
             .len = whatsThis.len,
             .data = whatsThis.ptr,
         };
-        qtc.QWidget_SetWhatsThis(@ptrCast(self), whatsThis_str);
+        qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
 
     /// Inherited from QWidget
@@ -2526,12 +2633,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WhatsThis(@ptrCast(self));
+    pub fn WhatsThis(self: KIconDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2544,12 +2651,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_AccessibleName(@ptrCast(self));
+    pub fn AccessibleName(self: KIconDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2562,16 +2669,16 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
+    pub fn SetAccessibleName(self: KIconDialog, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QWidget_SetAccessibleName(@ptrCast(self), name_str);
+        qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QWidget
@@ -2580,12 +2687,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
+    pub fn AccessibleDescription(self: KIconDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2598,16 +2705,16 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
+    pub fn SetAccessibleDescription(self: KIconDialog, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
-        qtc.QWidget_SetAccessibleDescription(@ptrCast(self), description_str);
+        qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
 
     /// Inherited from QWidget
@@ -2616,12 +2723,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QWidget_SetLayoutDirection(@ptrCast(self), @bitCast(direction));
+    pub fn SetLayoutDirection(self: KIconDialog, direction: i32) void {
+        qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
 
     /// Inherited from QWidget
@@ -2630,14 +2737,14 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: ?*anyopaque) i32 {
-        return qtc.QWidget_LayoutDirection(@ptrCast(self));
+    pub fn LayoutDirection(self: KIconDialog) i32 {
+        return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2646,10 +2753,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn UnsetLayoutDirection(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self));
+    pub fn UnsetLayoutDirection(self: KIconDialog) void {
+        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2658,12 +2765,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` locale: QtC.QLocale `
+    /// ` locale: QLocale `
     ///
-    pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
-        qtc.QWidget_SetLocale(@ptrCast(self), @ptrCast(locale));
+    pub fn SetLocale(self: KIconDialog, locale: anytype) void {
+        comptime _ = @TypeOf(locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
     }
 
     /// Inherited from QWidget
@@ -2672,10 +2780,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn Locale(self: ?*anyopaque) QtC.QLocale {
-        return qtc.QWidget_Locale(@ptrCast(self));
+    pub fn Locale(self: KIconDialog) QLocale {
+        return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2684,10 +2792,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn UnsetLocale(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetLocale(@ptrCast(self));
+    pub fn UnsetLocale(self: KIconDialog) void {
+        qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2696,10 +2804,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn IsRightToLeft(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsRightToLeft(@ptrCast(self));
+    pub fn IsRightToLeft(self: KIconDialog) bool {
+        return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2708,10 +2816,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn IsLeftToRight(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsLeftToRight(@ptrCast(self));
+    pub fn IsLeftToRight(self: KIconDialog) bool {
+        return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2720,10 +2828,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn SetFocus(self: ?*anyopaque) void {
-        qtc.QWidget_SetFocus(@ptrCast(self));
+    pub fn SetFocus(self: KIconDialog) void {
+        qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2732,10 +2840,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn IsActiveWindow(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsActiveWindow(@ptrCast(self));
+    pub fn IsActiveWindow(self: KIconDialog) bool {
+        return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2744,10 +2852,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn ActivateWindow(self: ?*anyopaque) void {
-        qtc.QWidget_ActivateWindow(@ptrCast(self));
+    pub fn ActivateWindow(self: KIconDialog) void {
+        qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2756,10 +2864,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn ClearFocus(self: ?*anyopaque) void {
-        qtc.QWidget_ClearFocus(@ptrCast(self));
+    pub fn ClearFocus(self: KIconDialog) void {
+        qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2768,12 +2876,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
-        qtc.QWidget_SetFocus2(@ptrCast(self), @bitCast(reason));
+    pub fn SetFocus2(self: KIconDialog, reason: i32) void {
+        qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
 
     /// Inherited from QWidget
@@ -2782,14 +2890,14 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: ?*anyopaque) i32 {
-        return qtc.QWidget_FocusPolicy(@ptrCast(self));
+    pub fn FocusPolicy(self: KIconDialog) i32 {
+        return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2798,12 +2906,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetFocusPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetFocusPolicy(self: KIconDialog, policy: i32) void {
+        qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -2812,10 +2920,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn HasFocus(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasFocus(@ptrCast(self));
+    pub fn HasFocus(self: KIconDialog) bool {
+        return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2824,12 +2932,14 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QWidget `
+    /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: ?*anyopaque, param2: ?*anyopaque) void {
-        qtc.QWidget_SetTabOrder(@ptrCast(param1), @ptrCast(param2));
+    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QWidget;
+        qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
     /// Inherited from QWidget
@@ -2838,12 +2948,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` focusProxy: QtC.QWidget `
+    /// ` focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: ?*anyopaque, focusProxy: ?*anyopaque) void {
-        qtc.QWidget_SetFocusProxy(@ptrCast(self), @ptrCast(focusProxy));
+    pub fn SetFocusProxy(self: KIconDialog, focusProxy: anytype) void {
+        comptime _ = @TypeOf(focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
     }
 
     /// Inherited from QWidget
@@ -2852,10 +2963,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn FocusProxy(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_FocusProxy(@ptrCast(self));
+    pub fn FocusProxy(self: KIconDialog) QWidget {
+        return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2864,14 +2975,14 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
+    pub fn ContextMenuPolicy(self: KIconDialog) i32 {
+        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2880,12 +2991,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetContextMenuPolicy(self: KIconDialog, policy: i32) void {
+        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -2894,10 +3005,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn GrabMouse(self: ?*anyopaque) void {
-        qtc.QWidget_GrabMouse(@ptrCast(self));
+    pub fn GrabMouse(self: KIconDialog) void {
+        qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2906,12 +3017,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` param1: QtC.QCursor `
+    /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_GrabMouse2(@ptrCast(self), @ptrCast(param1));
+    pub fn GrabMouse2(self: KIconDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QCursor;
+        qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -2920,10 +3032,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn ReleaseMouse(self: ?*anyopaque) void {
-        qtc.QWidget_ReleaseMouse(@ptrCast(self));
+    pub fn ReleaseMouse(self: KIconDialog) void {
+        qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2932,10 +3044,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn GrabKeyboard(self: ?*anyopaque) void {
-        qtc.QWidget_GrabKeyboard(@ptrCast(self));
+    pub fn GrabKeyboard(self: KIconDialog) void {
+        qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2944,10 +3056,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn ReleaseKeyboard(self: ?*anyopaque) void {
-        qtc.QWidget_ReleaseKeyboard(@ptrCast(self));
+    pub fn ReleaseKeyboard(self: KIconDialog) void {
+        qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2956,12 +3068,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` key: QtC.QKeySequence `
+    /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: ?*anyopaque, key: ?*anyopaque) i32 {
-        return qtc.QWidget_GrabShortcut(@ptrCast(self), @ptrCast(key));
+    pub fn GrabShortcut(self: KIconDialog, key: anytype) i32 {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
 
     /// Inherited from QWidget
@@ -2970,12 +3083,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_ReleaseShortcut(@ptrCast(self), @bitCast(id));
+    pub fn ReleaseShortcut(self: KIconDialog, id: i32) void {
+        qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -2984,12 +3097,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutEnabled(@ptrCast(self), @bitCast(id));
+    pub fn SetShortcutEnabled(self: KIconDialog, id: i32) void {
+        qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -2998,28 +3111,28 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self), @bitCast(id));
+    pub fn SetShortcutAutoRepeat(self: KIconDialog, id: i32) void {
+        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QtC.QWidget {
-        return qtc.QWidget_MouseGrabber();
+    pub fn MouseGrabber() QWidget {
+        return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QtC.QWidget {
-        return qtc.QWidget_KeyboardGrabber();
+    pub fn KeyboardGrabber() QWidget {
+        return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
 
     /// Inherited from QWidget
@@ -3028,10 +3141,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn UpdatesEnabled(self: ?*anyopaque) bool {
-        return qtc.QWidget_UpdatesEnabled(@ptrCast(self));
+    pub fn UpdatesEnabled(self: KIconDialog) bool {
+        return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3040,12 +3153,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self), enable);
+    pub fn SetUpdatesEnabled(self: KIconDialog, enable: bool) void {
+        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -3054,10 +3167,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn GraphicsProxyWidget(self: ?*anyopaque) QtC.QGraphicsProxyWidget {
-        return qtc.QWidget_GraphicsProxyWidget(@ptrCast(self));
+    pub fn GraphicsProxyWidget(self: KIconDialog) QGraphicsProxyWidget {
+        return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3066,10 +3179,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn Update(self: ?*anyopaque) void {
-        qtc.QWidget_Update(@ptrCast(self));
+    pub fn Update(self: KIconDialog) void {
+        qtc.QWidget_Update(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3078,10 +3191,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn Repaint(self: ?*anyopaque) void {
-        qtc.QWidget_Repaint(@ptrCast(self));
+    pub fn Repaint(self: KIconDialog) void {
+        qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3090,7 +3203,7 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` x: i32 `
     ///
@@ -3100,8 +3213,8 @@ pub const kicondialog = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn Update2(self: KIconDialog, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3110,12 +3223,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn Update3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Update3(@ptrCast(self), @ptrCast(param1));
+    pub fn Update3(self: KIconDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3124,12 +3238,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn Update4(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Update4(@ptrCast(self), @ptrCast(param1));
+    pub fn Update4(self: KIconDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3138,7 +3253,7 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` x: i32 `
     ///
@@ -3148,8 +3263,8 @@ pub const kicondialog = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn Repaint2(self: KIconDialog, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3158,12 +3273,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Repaint3(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint3(self: KIconDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3172,12 +3288,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Repaint4(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint4(self: KIconDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3186,12 +3303,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: ?*anyopaque, hidden: bool) void {
-        qtc.QWidget_SetHidden(@ptrCast(self), hidden);
+    pub fn SetHidden(self: KIconDialog, hidden: bool) void {
+        qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
 
     /// Inherited from QWidget
@@ -3200,10 +3317,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn Show(self: ?*anyopaque) void {
-        qtc.QWidget_Show(@ptrCast(self));
+    pub fn Show(self: KIconDialog) void {
+        qtc.QWidget_Show(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3212,10 +3329,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn Hide(self: ?*anyopaque) void {
-        qtc.QWidget_Hide(@ptrCast(self));
+    pub fn Hide(self: KIconDialog) void {
+        qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3224,10 +3341,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn ShowMinimized(self: ?*anyopaque) void {
-        qtc.QWidget_ShowMinimized(@ptrCast(self));
+    pub fn ShowMinimized(self: KIconDialog) void {
+        qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3236,10 +3353,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn ShowMaximized(self: ?*anyopaque) void {
-        qtc.QWidget_ShowMaximized(@ptrCast(self));
+    pub fn ShowMaximized(self: KIconDialog) void {
+        qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3248,10 +3365,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn ShowFullScreen(self: ?*anyopaque) void {
-        qtc.QWidget_ShowFullScreen(@ptrCast(self));
+    pub fn ShowFullScreen(self: KIconDialog) void {
+        qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3260,10 +3377,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn ShowNormal(self: ?*anyopaque) void {
-        qtc.QWidget_ShowNormal(@ptrCast(self));
+    pub fn ShowNormal(self: KIconDialog) void {
+        qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3272,10 +3389,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn Close(self: ?*anyopaque) bool {
-        return qtc.QWidget_Close(@ptrCast(self));
+    pub fn Close(self: KIconDialog) bool {
+        return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3284,10 +3401,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn Raise(self: ?*anyopaque) void {
-        qtc.QWidget_Raise(@ptrCast(self));
+    pub fn Raise(self: KIconDialog) void {
+        qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3296,10 +3413,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn Lower(self: ?*anyopaque) void {
-        qtc.QWidget_Lower(@ptrCast(self));
+    pub fn Lower(self: KIconDialog) void {
+        qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3308,12 +3425,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_StackUnder(@ptrCast(self), @ptrCast(param1));
+    pub fn StackUnder(self: KIconDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3322,14 +3440,14 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn Move(self: KIconDialog, x: i32, y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QWidget
@@ -3338,12 +3456,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn Move2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Move2(@ptrCast(self), @ptrCast(param1));
+    pub fn Move2(self: KIconDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3352,14 +3471,14 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_Resize(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn Resize(self: KIconDialog, w: i32, h: i32) void {
+        qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3368,12 +3487,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` param1: QtC.QSize `
+    /// ` param1: QSize `
     ///
-    pub fn Resize2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Resize2(@ptrCast(self), @ptrCast(param1));
+    pub fn Resize2(self: KIconDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QSize;
+        qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3382,7 +3502,7 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` x: i32 `
     ///
@@ -3392,8 +3512,8 @@ pub const kicondialog = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn SetGeometry(self: KIconDialog, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3402,12 +3522,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` geometry: QtC.QRect `
+    /// ` geometry: QRect `
     ///
-    pub fn SetGeometry2(self: ?*anyopaque, geometry: ?*anyopaque) void {
-        qtc.QWidget_SetGeometry2(@ptrCast(self), @ptrCast(geometry));
+    pub fn SetGeometry2(self: KIconDialog, geometry: anytype) void {
+        comptime _ = @TypeOf(geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
     }
 
     /// Inherited from QWidget
@@ -3416,12 +3537,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
+    pub fn SaveGeometry(self: KIconDialog, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kicondialog.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -3434,16 +3555,16 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
+    pub fn RestoreGeometry(self: KIconDialog, geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
             .len = geometry.len,
             .data = geometry.ptr,
         };
-        return qtc.QWidget_RestoreGeometry(@ptrCast(self), geometry_str);
+        return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
 
     /// Inherited from QWidget
@@ -3452,10 +3573,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn AdjustSize(self: ?*anyopaque) void {
-        qtc.QWidget_AdjustSize(@ptrCast(self));
+    pub fn AdjustSize(self: KIconDialog) void {
+        qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3464,10 +3585,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn IsVisible(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsVisible(@ptrCast(self));
+    pub fn IsVisible(self: KIconDialog) bool {
+        return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3476,12 +3597,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidget_IsVisibleTo(@ptrCast(self), @ptrCast(param1));
+    pub fn IsVisibleTo(self: KIconDialog, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3490,10 +3612,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn IsHidden(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsHidden(@ptrCast(self));
+    pub fn IsHidden(self: KIconDialog) bool {
+        return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3502,10 +3624,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn IsMinimized(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsMinimized(@ptrCast(self));
+    pub fn IsMinimized(self: KIconDialog) bool {
+        return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3514,10 +3636,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn IsMaximized(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsMaximized(@ptrCast(self));
+    pub fn IsMaximized(self: KIconDialog) bool {
+        return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3526,10 +3648,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn IsFullScreen(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsFullScreen(@ptrCast(self));
+    pub fn IsFullScreen(self: KIconDialog) bool {
+        return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3538,14 +3660,14 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowState(@ptrCast(self));
+    pub fn WindowState(self: KIconDialog) i32 {
+        return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3554,12 +3676,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_SetWindowState(@ptrCast(self), @bitCast(state));
+    pub fn SetWindowState(self: KIconDialog, state: i32) void {
+        qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -3568,12 +3690,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_OverrideWindowState(@ptrCast(self), @bitCast(state));
+    pub fn OverrideWindowState(self: KIconDialog, state: i32) void {
+        qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -3582,10 +3704,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
-        return qtc.QWidget_SizePolicy(@ptrCast(self));
+    pub fn SizePolicy(self: KIconDialog) QSizePolicy {
+        return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3594,12 +3716,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` sizePolicy: QtC.QSizePolicy `
+    /// ` sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: QtC.QSizePolicy) void {
-        qtc.QWidget_SetSizePolicy(@ptrCast(self), @ptrCast(sizePolicy));
+    pub fn SetSizePolicy(self: KIconDialog, sizePolicy: anytype) void {
+        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
     }
 
     /// Inherited from QWidget
@@ -3608,14 +3731,14 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` horizontal: qsizepolicy_enums.Policy `
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
-        qtc.QWidget_SetSizePolicy2(@ptrCast(self), @bitCast(horizontal), @bitCast(vertical));
+    pub fn SetSizePolicy2(self: KIconDialog, horizontal: i32, vertical: i32) void {
+        qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
 
     /// Inherited from QWidget
@@ -3624,10 +3747,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn VisibleRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_VisibleRegion(@ptrCast(self));
+    pub fn VisibleRegion(self: KIconDialog) QRegion {
+        return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3636,7 +3759,7 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` left: i32 `
     ///
@@ -3646,8 +3769,8 @@ pub const kicondialog = struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QWidget_SetContentsMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
+    pub fn SetContentsMargins(self: KIconDialog, left: i32, top: i32, right: i32, bottom: i32) void {
+        qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QWidget
@@ -3656,12 +3779,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` margins: QtC.QMargins `
+    /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
-        qtc.QWidget_SetContentsMargins2(@ptrCast(self), @ptrCast(margins));
+    pub fn SetContentsMargins2(self: KIconDialog, margins: anytype) void {
+        comptime _ = @TypeOf(margins)._is_QMargins;
+        qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
 
     /// Inherited from QWidget
@@ -3670,10 +3794,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
-        return qtc.QWidget_ContentsMargins(@ptrCast(self));
+    pub fn ContentsMargins(self: KIconDialog) QMargins {
+        return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3682,10 +3806,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_ContentsRect(@ptrCast(self));
+    pub fn ContentsRect(self: KIconDialog) QRect {
+        return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3694,10 +3818,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn Layout(self: ?*anyopaque) QtC.QLayout {
-        return qtc.QWidget_Layout(@ptrCast(self));
+    pub fn Layout(self: KIconDialog) QLayout {
+        return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3706,12 +3830,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` layout: QtC.QLayout `
+    /// ` layout: QLayout `
     ///
-    pub fn SetLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
-        qtc.QWidget_SetLayout(@ptrCast(self), @ptrCast(layout));
+    pub fn SetLayout(self: KIconDialog, layout: anytype) void {
+        comptime _ = @TypeOf(layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
     }
 
     /// Inherited from QWidget
@@ -3720,10 +3845,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn UpdateGeometry(self: ?*anyopaque) void {
-        qtc.QWidget_UpdateGeometry(@ptrCast(self));
+    pub fn UpdateGeometry(self: KIconDialog) void {
+        qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3732,12 +3857,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QWidget_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: KIconDialog, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QWidget
@@ -3746,14 +3872,15 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i32) void {
-        qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @bitCast(f));
+    pub fn SetParent2(self: KIconDialog, parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
     }
 
     /// Inherited from QWidget
@@ -3762,14 +3889,14 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QWidget_Scroll(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn Scroll(self: KIconDialog, dx: i32, dy: i32) void {
+        qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QWidget
@@ -3778,16 +3905,17 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    /// ` param3: QtC.QRect `
+    /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
-        qtc.QWidget_Scroll2(@ptrCast(self), @bitCast(dx), @bitCast(dy), @ptrCast(param3));
+    pub fn Scroll2(self: KIconDialog, dx: i32, dy: i32, param3: anytype) void {
+        comptime _ = @TypeOf(param3)._is_QRect;
+        qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
 
     /// Inherited from QWidget
@@ -3796,10 +3924,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn FocusWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_FocusWidget(@ptrCast(self));
+    pub fn FocusWidget(self: KIconDialog) QWidget {
+        return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3808,10 +3936,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn NextInFocusChain(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_NextInFocusChain(@ptrCast(self));
+    pub fn NextInFocusChain(self: KIconDialog) QWidget {
+        return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3820,10 +3948,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn PreviousInFocusChain(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_PreviousInFocusChain(@ptrCast(self));
+    pub fn PreviousInFocusChain(self: KIconDialog) QWidget {
+        return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3832,10 +3960,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn AcceptDrops(self: ?*anyopaque) bool {
-        return qtc.QWidget_AcceptDrops(@ptrCast(self));
+    pub fn AcceptDrops(self: KIconDialog) bool {
+        return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3844,12 +3972,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
-        qtc.QWidget_SetAcceptDrops(@ptrCast(self), on);
+    pub fn SetAcceptDrops(self: KIconDialog, on: bool) void {
+        qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
 
     /// Inherited from QWidget
@@ -3858,12 +3986,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_AddAction(@ptrCast(self), @ptrCast(action));
+    pub fn AddAction(self: KIconDialog, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -3872,16 +4001,16 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn AddActions(self: KIconDialog, actions: []QAction) void {
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.QWidget_AddActions(@ptrCast(self), actions_list);
+        qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
 
     /// Inherited from QWidget
@@ -3890,18 +4019,19 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` before: QtC.QAction `
+    /// ` before: QAction `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn InsertActions(self: KIconDialog, before: anytype, actions: []QAction) void {
+        comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.QWidget_InsertActions(@ptrCast(self), @ptrCast(before), actions_list);
+        qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
 
     /// Inherited from QWidget
@@ -3910,14 +4040,16 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` before: QtC.QAction `
+    /// ` before: QAction `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_InsertAction(@ptrCast(self), @ptrCast(before), @ptrCast(action));
+    pub fn InsertAction(self: KIconDialog, before: anytype, action: anytype) void {
+        comptime _ = @TypeOf(before)._is_QAction;
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -3926,12 +4058,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_RemoveAction(@ptrCast(self), @ptrCast(action));
+    pub fn RemoveAction(self: KIconDialog, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -3940,16 +4073,17 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
-        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self));
+    pub fn Actions(self: KIconDialog, allocator: std.mem.Allocator) []QAction {
+        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("kicondialog.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("kicondialog.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -3959,16 +4093,16 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction2(self: KIconDialog, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction2(@ptrCast(self), text_str);
+        return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
 
     /// Inherited from QWidget
@@ -3977,18 +4111,19 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction3(self: KIconDialog, icon: anytype, text: []const u8) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction3(@ptrCast(self), @ptrCast(icon), text_str);
+        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
     /// Inherited from QWidget
@@ -3997,18 +4132,19 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction4(self: KIconDialog, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction4(@ptrCast(self), text_str, @ptrCast(shortcut));
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4017,20 +4153,22 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction5(self: KIconDialog, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction5(@ptrCast(self), @ptrCast(icon), text_str, @ptrCast(shortcut));
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4039,10 +4177,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ParentWidget(@ptrCast(self));
+    pub fn ParentWidget(self: KIconDialog) QWidget {
+        return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4051,12 +4189,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_SetWindowFlags(@ptrCast(self), @bitCast(typeVal));
+    pub fn SetWindowFlags(self: KIconDialog, typeVal: i32) void {
+        qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -4065,14 +4203,14 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowFlags(@ptrCast(self));
+    pub fn WindowFlags(self: KIconDialog) i32 {
+        return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4081,12 +4219,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetWindowFlag(@ptrCast(self), @bitCast(param1));
+    pub fn SetWindowFlag(self: KIconDialog, param1: i32) void {
+        qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -4095,12 +4233,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @bitCast(typeVal));
+    pub fn OverrideWindowFlags(self: KIconDialog, typeVal: i32) void {
+        qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -4109,14 +4247,14 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowType(@ptrCast(self));
+    pub fn WindowType(self: KIconDialog) i32 {
+        return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4127,8 +4265,8 @@ pub const kicondialog = struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QtC.QWidget {
-        return qtc.QWidget_Find(@bitCast(param1));
+    pub fn Find(param1: usize) QWidget {
+        return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
 
     /// Inherited from QWidget
@@ -4137,14 +4275,14 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
-        return qtc.QWidget_ChildAt(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn ChildAt(self: KIconDialog, x: i32, y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
     }
 
     /// Inherited from QWidget
@@ -4153,12 +4291,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` p: QtC.QPoint `
+    /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAt2(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt2(self: KIconDialog, p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4167,12 +4306,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` p: QtC.QPointF `
+    /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAt3(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt3(self: KIconDialog, p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4181,12 +4321,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetAttribute(@ptrCast(self), @bitCast(param1));
+    pub fn SetAttribute(self: KIconDialog, param1: i32) void {
+        qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -4195,12 +4335,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
-        return qtc.QWidget_TestAttribute(@ptrCast(self), @bitCast(param1));
+    pub fn TestAttribute(self: KIconDialog, param1: i32) bool {
+        return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -4209,10 +4349,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn EnsurePolished(self: ?*anyopaque) void {
-        qtc.QWidget_EnsurePolished(@ptrCast(self));
+    pub fn EnsurePolished(self: KIconDialog) void {
+        qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4221,12 +4361,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` child: QtC.QWidget `
+    /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
-        return qtc.QWidget_IsAncestorOf(@ptrCast(self), @ptrCast(child));
+    pub fn IsAncestorOf(self: KIconDialog, child: anytype) bool {
+        comptime _ = @TypeOf(child)._is_QWidget;
+        return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
 
     /// Inherited from QWidget
@@ -4235,10 +4376,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn AutoFillBackground(self: ?*anyopaque) bool {
-        return qtc.QWidget_AutoFillBackground(@ptrCast(self));
+    pub fn AutoFillBackground(self: KIconDialog) bool {
+        return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4247,12 +4388,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: ?*anyopaque, enabled: bool) void {
-        qtc.QWidget_SetAutoFillBackground(@ptrCast(self), enabled);
+    pub fn SetAutoFillBackground(self: KIconDialog, enabled: bool) void {
+        qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QWidget
@@ -4261,10 +4402,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn BackingStore(self: ?*anyopaque) QtC.QBackingStore {
-        return qtc.QWidget_BackingStore(@ptrCast(self));
+    pub fn BackingStore(self: KIconDialog) QBackingStore {
+        return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4273,10 +4414,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn WindowHandle(self: ?*anyopaque) QtC.QWindow {
-        return qtc.QWidget_WindowHandle(@ptrCast(self));
+    pub fn WindowHandle(self: KIconDialog) QWindow {
+        return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4285,10 +4426,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn Screen(self: ?*anyopaque) QtC.QScreen {
-        return qtc.QWidget_Screen(@ptrCast(self));
+    pub fn Screen(self: KIconDialog) QScreen {
+        return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4297,12 +4438,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` screen: QtC.QScreen `
+    /// ` screen: QScreen `
     ///
-    pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
-        qtc.QWidget_SetScreen(@ptrCast(self), @ptrCast(screen));
+    pub fn SetScreen(self: KIconDialog, screen: anytype) void {
+        comptime _ = @TypeOf(screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
     }
 
     /// Inherited from QWidget
@@ -4311,10 +4453,11 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer(@ptrCast(window));
+    pub fn CreateWindowContainer(window: anytype) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4323,16 +4466,16 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
+    pub fn WindowTitleChanged(self: KIconDialog, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        qtc.QWidget_WindowTitleChanged(@ptrCast(self), title_str);
+        qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
 
     /// Inherited from QWidget
@@ -4341,12 +4484,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, title: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconDialog, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowTitleChanged(self: KIconDialog, callback: *const fn (KIconDialog, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4355,12 +4498,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QWidget_WindowIconChanged(@ptrCast(self), @ptrCast(icon));
+    pub fn WindowIconChanged(self: KIconDialog, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QWidget
@@ -4369,12 +4513,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, icon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconDialog, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowIconChanged(self: KIconDialog, callback: *const fn (KIconDialog, QIcon) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4383,16 +4527,16 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
+    pub fn WindowIconTextChanged(self: KIconDialog, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
-        qtc.QWidget_WindowIconTextChanged(@ptrCast(self), iconText_str);
+        qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
 
     /// Inherited from QWidget
@@ -4401,12 +4545,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, iconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconDialog, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowIconTextChanged(self: KIconDialog, callback: *const fn (KIconDialog, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4415,12 +4559,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` pos: QtC.QPoint `
+    /// ` pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: ?*anyopaque, pos: ?*anyopaque) void {
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self), @ptrCast(pos));
+    pub fn CustomContextMenuRequested(self: KIconDialog, pos: anytype) void {
+        comptime _ = @TypeOf(pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
     }
 
     /// Inherited from QWidget
@@ -4429,12 +4574,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, pos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconDialog, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomContextMenuRequested(self: KIconDialog, callback: *const fn (KIconDialog, QPoint) callconv(.c) void) void {
+        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4443,14 +4588,14 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: ?*anyopaque) i32 {
-        return qtc.QWidget_InputMethodHints(@ptrCast(self));
+    pub fn InputMethodHints(self: KIconDialog) i32 {
+        return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4459,12 +4604,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
-        qtc.QWidget_SetInputMethodHints(@ptrCast(self), @bitCast(hints));
+    pub fn SetInputMethodHints(self: KIconDialog, hints: i32) void {
+        qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
 
     /// Inherited from QWidget
@@ -4473,14 +4618,16 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render22(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset));
+    pub fn Render22(self: KIconDialog, target: anytype, targetOffset: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// Inherited from QWidget
@@ -4489,16 +4636,19 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        qtc.QWidget_Render3(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+    pub fn Render3(self: KIconDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// Inherited from QWidget
@@ -4507,18 +4657,21 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
+    pub fn Render4(self: KIconDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -4527,14 +4680,16 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render23(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset));
+    pub fn Render23(self: KIconDialog, painter: anytype, targetOffset: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// Inherited from QWidget
@@ -4543,16 +4698,19 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        qtc.QWidget_Render32(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+    pub fn Render32(self: KIconDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// Inherited from QWidget
@@ -4561,18 +4719,21 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
+    pub fn Render42(self: KIconDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -4581,12 +4742,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` rectangle: QtC.QRect `
+    /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) QtC.QPixmap {
-        return qtc.QWidget_Grab1(@ptrCast(self), @ptrCast(rectangle));
+    pub fn Grab1(self: KIconDialog, rectangle: anytype) QPixmap {
+        comptime _ = @TypeOf(rectangle)._is_QRect;
+        return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4595,14 +4757,14 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i32, flags: i32) void {
-        qtc.QWidget_GrabGesture2(@ptrCast(self), @bitCast(typeVal), @bitCast(flags));
+    pub fn GrabGesture2(self: KIconDialog, typeVal: i32, flags: i32) void {
+        qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
 
     /// Inherited from QWidget
@@ -4611,14 +4773,15 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` key: QtC.QKeySequence `
+    /// ` key: QKeySequence `
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
-        return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @bitCast(context));
+    pub fn GrabShortcut2(self: KIconDialog, key: anytype, context: i32) i32 {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
 
     /// Inherited from QWidget
@@ -4627,14 +4790,14 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self), @bitCast(id), enable);
+    pub fn SetShortcutEnabled2(self: KIconDialog, id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -4643,14 +4806,14 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self), @bitCast(id), enable);
+    pub fn SetShortcutAutoRepeat2(self: KIconDialog, id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -4659,14 +4822,14 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetWindowFlag2(@ptrCast(self), @bitCast(param1), on);
+    pub fn SetWindowFlag2(self: KIconDialog, param1: i32, on: bool) void {
+        qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -4675,14 +4838,14 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetAttribute2(@ptrCast(self), @bitCast(param1), on);
+    pub fn SetAttribute2(self: KIconDialog, param1: i32, on: bool) void {
+        qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -4691,12 +4854,14 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer2(@ptrCast(window), @ptrCast(parent));
+    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4705,14 +4870,16 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i32) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @bitCast(flags));
+    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
     }
 
     /// Inherited from QObject
@@ -4721,12 +4888,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: KIconDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4739,12 +4906,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: KIconDialog, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -4753,10 +4920,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: KIconDialog) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4765,10 +4932,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: KIconDialog) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4777,10 +4944,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: KIconDialog) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4789,10 +4956,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: KIconDialog) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4801,12 +4968,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: KIconDialog, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -4815,10 +4982,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: KIconDialog) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -4827,12 +4994,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: KIconDialog, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -4841,12 +5009,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: KIconDialog, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -4855,12 +5023,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: KIconDialog, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -4869,12 +5037,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: KIconDialog, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -4883,12 +5051,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: KIconDialog, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -4897,16 +5065,17 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: KIconDialog, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("kicondialog.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kicondialog.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -4916,12 +5085,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: KIconDialog, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -4930,12 +5100,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: KIconDialog, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -4944,18 +5115,20 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -4964,16 +5137,20 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -4982,18 +5159,19 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: KIconDialog, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -5002,18 +5180,20 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -5022,16 +5202,20 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -5040,10 +5224,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: KIconDialog) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5052,12 +5236,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: KIconDialog, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -5066,10 +5251,11 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -5078,10 +5264,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: KIconDialog) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5090,10 +5276,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: KIconDialog) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5102,15 +5288,16 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: KIconDialog, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -5119,13 +5306,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: KIconDialog, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -5134,17 +5321,16 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: KIconDialog, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kicondialog.DynamicPropertyNames: Memory allocation failed");
@@ -5163,10 +5349,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: KIconDialog) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5175,10 +5361,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: KIconDialog) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5187,10 +5373,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: KIconDialog) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5199,12 +5385,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconDialog) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: KIconDialog, callback: *const fn (KIconDialog) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5213,10 +5399,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: KIconDialog) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5225,13 +5411,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: KIconDialog, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -5240,10 +5426,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: KIconDialog) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5252,14 +5438,14 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: KIconDialog, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -5268,14 +5454,14 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: KIconDialog, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -5284,20 +5470,22 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -5306,18 +5494,22 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -5326,9 +5518,9 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5336,10 +5528,11 @@ pub const kicondialog = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: KIconDialog, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -5348,13 +5541,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: KIconDialog, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -5363,15 +5556,16 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: KIconDialog, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -5380,18 +5574,19 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: KIconDialog, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -5400,15 +5595,16 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: KIconDialog, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -5417,12 +5613,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: KIconDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -5431,12 +5628,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconDialog, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: KIconDialog, callback: *const fn (KIconDialog, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -5445,10 +5642,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn PaintingActive(self: ?*anyopaque) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self));
+    pub fn PaintingActive(self: KIconDialog) bool {
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5457,10 +5654,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn WidthMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self));
+    pub fn WidthMM(self: KIconDialog) i32 {
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5469,10 +5666,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn HeightMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self));
+    pub fn HeightMM(self: KIconDialog) i32 {
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5481,10 +5678,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn LogicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self));
+    pub fn LogicalDpiX(self: KIconDialog) i32 {
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5493,10 +5690,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn LogicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self));
+    pub fn LogicalDpiY(self: KIconDialog) i32 {
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5505,10 +5702,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self));
+    pub fn PhysicalDpiX(self: KIconDialog) i32 {
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5517,10 +5714,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self));
+    pub fn PhysicalDpiY(self: KIconDialog) i32 {
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5529,10 +5726,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self));
+    pub fn DevicePixelRatio(self: KIconDialog) f64 {
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5541,10 +5738,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self));
+    pub fn DevicePixelRatioF(self: KIconDialog) f64 {
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5553,10 +5750,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn ColorCount(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self));
+    pub fn ColorCount(self: KIconDialog) i32 {
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5565,10 +5762,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn Depth(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self));
+    pub fn Depth(self: KIconDialog) i32 {
+        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5601,12 +5798,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.KIconDialog_SetVisible(@ptrCast(self), visible);
+    pub fn SetVisible(self: KIconDialog, visible: bool) void {
+        qtc.KIconDialog_SetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// ### DEPRECATED: Use `SuperSetVisible` instead
@@ -5621,12 +5818,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.KIconDialog_SuperSetVisible(@ptrCast(self), visible);
+    pub fn SuperSetVisible(self: KIconDialog, visible: bool) void {
+        qtc.KIconDialog_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// Inherited from QDialog
@@ -5637,12 +5834,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, visible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconDialog, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KIconDialog_OnSetVisible(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetVisible(self: KIconDialog, callback: *const fn (KIconDialog, bool) callconv(.c) void) void {
+        qtc.KIconDialog_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -5653,10 +5850,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.KIconDialog_SizeHint(@ptrCast(self));
+    pub fn SizeHint(self: KIconDialog) QSize {
+        return .{ .ptr = qtc.KIconDialog_SizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSizeHint` instead
@@ -5671,10 +5868,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.KIconDialog_SuperSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: KIconDialog) QSize {
+        return .{ .ptr = qtc.KIconDialog_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QDialog
@@ -5685,12 +5882,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.KIconDialog_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSizeHint(self: KIconDialog, callback: *const fn () callconv(.c) QSize) void {
+        qtc.KIconDialog_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -5701,10 +5898,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn MinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.KIconDialog_MinimumSizeHint(@ptrCast(self));
+    pub fn MinimumSizeHint(self: KIconDialog) QSize {
+        return .{ .ptr = qtc.KIconDialog_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
@@ -5719,10 +5916,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn SuperMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.KIconDialog_SuperMinimumSizeHint(@ptrCast(self));
+    pub fn SuperMinimumSizeHint(self: KIconDialog) QSize {
+        return .{ .ptr = qtc.KIconDialog_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QDialog
@@ -5733,12 +5930,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnMinimumSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.KIconDialog_OnMinimumSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMinimumSizeHint(self: KIconDialog, callback: *const fn () callconv(.c) QSize) void {
+        qtc.KIconDialog_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -5749,10 +5946,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn Open(self: ?*anyopaque) void {
-        qtc.KIconDialog_Open(@ptrCast(self));
+    pub fn Open(self: KIconDialog) void {
+        qtc.KIconDialog_Open(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperOpen` instead
@@ -5767,10 +5964,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn SuperOpen(self: ?*anyopaque) void {
-        qtc.KIconDialog_SuperOpen(@ptrCast(self));
+    pub fn SuperOpen(self: KIconDialog) void {
+        qtc.KIconDialog_SuperOpen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -5781,12 +5978,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnOpen(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KIconDialog_OnOpen(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnOpen(self: KIconDialog, callback: *const fn () callconv(.c) void) void {
+        qtc.KIconDialog_OnOpen(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -5797,10 +5994,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn Exec(self: ?*anyopaque) i32 {
-        return qtc.KIconDialog_Exec(@ptrCast(self));
+    pub fn Exec(self: KIconDialog) i32 {
+        return qtc.KIconDialog_Exec(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperExec` instead
@@ -5815,10 +6012,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn SuperExec(self: ?*anyopaque) i32 {
-        return qtc.KIconDialog_SuperExec(@ptrCast(self));
+    pub fn SuperExec(self: KIconDialog) i32 {
+        return qtc.KIconDialog_SuperExec(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -5829,12 +6026,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnExec(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KIconDialog_OnExec(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnExec(self: KIconDialog, callback: *const fn () callconv(.c) i32) void {
+        qtc.KIconDialog_OnExec(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -5845,12 +6042,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` param1: i32 `
     ///
-    pub fn Done(self: ?*anyopaque, param1: i32) void {
-        qtc.KIconDialog_Done(@ptrCast(self), @bitCast(param1));
+    pub fn Done(self: KIconDialog, param1: i32) void {
+        qtc.KIconDialog_Done(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### DEPRECATED: Use `SuperDone` instead
@@ -5865,12 +6062,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperDone(self: ?*anyopaque, param1: i32) void {
-        qtc.KIconDialog_SuperDone(@ptrCast(self), @bitCast(param1));
+    pub fn SuperDone(self: KIconDialog, param1: i32) void {
+        qtc.KIconDialog_SuperDone(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QDialog
@@ -5881,12 +6078,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, param1: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconDialog, param1: i32) callconv(.c) void `
     ///
-    pub fn OnDone(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KIconDialog_OnDone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDone(self: KIconDialog, callback: *const fn (KIconDialog, i32) callconv(.c) void) void {
+        qtc.KIconDialog_OnDone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -5897,10 +6094,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn Accept(self: ?*anyopaque) void {
-        qtc.KIconDialog_Accept(@ptrCast(self));
+    pub fn Accept(self: KIconDialog) void {
+        qtc.KIconDialog_Accept(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperAccept` instead
@@ -5915,10 +6112,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn SuperAccept(self: ?*anyopaque) void {
-        qtc.KIconDialog_SuperAccept(@ptrCast(self));
+    pub fn SuperAccept(self: KIconDialog) void {
+        qtc.KIconDialog_SuperAccept(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -5929,12 +6126,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnAccept(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KIconDialog_OnAccept(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAccept(self: KIconDialog, callback: *const fn () callconv(.c) void) void {
+        qtc.KIconDialog_OnAccept(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -5945,10 +6142,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn Reject(self: ?*anyopaque) void {
-        qtc.KIconDialog_Reject(@ptrCast(self));
+    pub fn Reject(self: KIconDialog) void {
+        qtc.KIconDialog_Reject(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperReject` instead
@@ -5963,10 +6160,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn SuperReject(self: ?*anyopaque) void {
-        qtc.KIconDialog_SuperReject(@ptrCast(self));
+    pub fn SuperReject(self: KIconDialog) void {
+        qtc.KIconDialog_SuperReject(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -5977,12 +6174,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnReject(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KIconDialog_OnReject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReject(self: KIconDialog, callback: *const fn () callconv(.c) void) void {
+        qtc.KIconDialog_OnReject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -5993,12 +6190,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` param1: QtC.QKeyEvent `
+    /// ` param1: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KIconDialog_KeyPressEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn KeyPressEvent(self: KIconDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QKeyEvent;
+        qtc.KIconDialog_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
@@ -6013,12 +6211,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` param1: QtC.QKeyEvent `
+    /// ` param1: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KIconDialog_SuperKeyPressEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperKeyPressEvent(self: KIconDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QKeyEvent;
+        qtc.KIconDialog_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QDialog
@@ -6029,12 +6228,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, param1: QtC.QKeyEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconDialog, param1: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIconDialog_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyPressEvent(self: KIconDialog, callback: *const fn (KIconDialog, QKeyEvent) callconv(.c) void) void {
+        qtc.KIconDialog_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -6045,12 +6244,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` param1: QtC.QCloseEvent `
+    /// ` param1: QCloseEvent `
     ///
-    pub fn CloseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KIconDialog_CloseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn CloseEvent(self: KIconDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QCloseEvent;
+        qtc.KIconDialog_CloseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCloseEvent` instead
@@ -6065,12 +6265,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` param1: QtC.QCloseEvent `
+    /// ` param1: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KIconDialog_SuperCloseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperCloseEvent(self: KIconDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QCloseEvent;
+        qtc.KIconDialog_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QDialog
@@ -6081,12 +6282,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, param1: QtC.QCloseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconDialog, param1: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIconDialog_OnCloseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCloseEvent(self: KIconDialog, callback: *const fn (KIconDialog, QCloseEvent) callconv(.c) void) void {
+        qtc.KIconDialog_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -6097,12 +6298,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` param1: QtC.QResizeEvent `
+    /// ` param1: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KIconDialog_ResizeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn ResizeEvent(self: KIconDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QResizeEvent;
+        qtc.KIconDialog_ResizeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperResizeEvent` instead
@@ -6117,12 +6319,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` param1: QtC.QResizeEvent `
+    /// ` param1: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KIconDialog_SuperResizeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperResizeEvent(self: KIconDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QResizeEvent;
+        qtc.KIconDialog_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QDialog
@@ -6133,12 +6336,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, param1: QtC.QResizeEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconDialog, param1: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIconDialog_OnResizeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResizeEvent(self: KIconDialog, callback: *const fn (KIconDialog, QResizeEvent) callconv(.c) void) void {
+        qtc.KIconDialog_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -6149,12 +6352,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` param1: QtC.QContextMenuEvent `
+    /// ` param1: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KIconDialog_ContextMenuEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn ContextMenuEvent(self: KIconDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
+        qtc.KIconDialog_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
@@ -6169,12 +6373,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` param1: QtC.QContextMenuEvent `
+    /// ` param1: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KIconDialog_SuperContextMenuEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperContextMenuEvent(self: KIconDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
+        qtc.KIconDialog_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QDialog
@@ -6185,12 +6390,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, param1: QtC.QContextMenuEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconDialog, param1: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIconDialog_OnContextMenuEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnContextMenuEvent(self: KIconDialog, callback: *const fn (KIconDialog, QContextMenuEvent) callconv(.c) void) void {
+        qtc.KIconDialog_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -6201,14 +6406,16 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    /// ` param2: QtC.QEvent `
+    /// ` param2: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) bool {
-        return qtc.KIconDialog_EventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn EventFilter(self: KIconDialog, param1: anytype, param2: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        comptime _ = @TypeOf(param2)._is_QEvent;
+        return qtc.KIconDialog_EventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -6223,14 +6430,16 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    /// ` param2: QtC.QEvent `
+    /// ` param2: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) bool {
-        return qtc.KIconDialog_SuperEventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn SuperEventFilter(self: KIconDialog, param1: anytype, param2: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        comptime _ = @TypeOf(param2)._is_QEvent;
+        return qtc.KIconDialog_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
     /// Inherited from QDialog
@@ -6241,12 +6450,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, param1: QtC.QObject, param2: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KIconDialog, param1: QObject, param2: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KIconDialog_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: KIconDialog, callback: *const fn (KIconDialog, QObject, QEvent) callconv(.c) bool) void {
+        qtc.KIconDialog_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6257,10 +6466,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn DevType(self: ?*anyopaque) i32 {
-        return qtc.KIconDialog_DevType(@ptrCast(self));
+    pub fn DevType(self: KIconDialog) i32 {
+        return qtc.KIconDialog_DevType(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDevType` instead
@@ -6275,10 +6484,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn SuperDevType(self: ?*anyopaque) i32 {
-        return qtc.KIconDialog_SuperDevType(@ptrCast(self));
+    pub fn SuperDevType(self: KIconDialog) i32 {
+        return qtc.KIconDialog_SuperDevType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6289,12 +6498,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KIconDialog_OnDevType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDevType(self: KIconDialog, callback: *const fn () callconv(.c) i32) void {
+        qtc.KIconDialog_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6305,12 +6514,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KIconDialog_HeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn HeightForWidth(self: KIconDialog, param1: i32) i32 {
+        return qtc.KIconDialog_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### DEPRECATED: Use `SuperHeightForWidth` instead
@@ -6325,12 +6534,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KIconDialog_SuperHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperHeightForWidth(self: KIconDialog, param1: i32) i32 {
+        return qtc.KIconDialog_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -6341,12 +6550,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, param1: i32) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KIconDialog, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.KIconDialog_OnHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHeightForWidth(self: KIconDialog, callback: *const fn (KIconDialog, i32) callconv(.c) i32) void {
+        qtc.KIconDialog_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6357,10 +6566,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn HasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.KIconDialog_HasHeightForWidth(@ptrCast(self));
+    pub fn HasHeightForWidth(self: KIconDialog) bool {
+        return qtc.KIconDialog_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
@@ -6375,10 +6584,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.KIconDialog_SuperHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: KIconDialog) bool {
+        return qtc.KIconDialog_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6389,12 +6598,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KIconDialog_OnHasHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHasHeightForWidth(self: KIconDialog, callback: *const fn () callconv(.c) bool) void {
+        qtc.KIconDialog_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6405,10 +6614,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn PaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.KIconDialog_PaintEngine(@ptrCast(self));
+    pub fn PaintEngine(self: KIconDialog) QPaintEngine {
+        return .{ .ptr = qtc.KIconDialog_PaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperPaintEngine` instead
@@ -6423,10 +6632,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn SuperPaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.KIconDialog_SuperPaintEngine(@ptrCast(self));
+    pub fn SuperPaintEngine(self: KIconDialog) QPaintEngine {
+        return .{ .ptr = qtc.KIconDialog_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -6437,12 +6646,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPaintEngine `
+    /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.KIconDialog_OnPaintEngine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaintEngine(self: KIconDialog, callback: *const fn () callconv(.c) QPaintEngine) void {
+        qtc.KIconDialog_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6453,12 +6662,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KIconDialog_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: KIconDialog, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KIconDialog_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -6473,12 +6683,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KIconDialog_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: KIconDialog, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KIconDialog_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6489,12 +6700,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KIconDialog, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KIconDialog_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: KIconDialog, callback: *const fn (KIconDialog, QEvent) callconv(.c) bool) void {
+        qtc.KIconDialog_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6505,12 +6716,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIconDialog_MousePressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MousePressEvent(self: KIconDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.KIconDialog_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMousePressEvent` instead
@@ -6525,12 +6737,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIconDialog_SuperMousePressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMousePressEvent(self: KIconDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.KIconDialog_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6541,12 +6754,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIconDialog_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMousePressEvent(self: KIconDialog, callback: *const fn (KIconDialog, QMouseEvent) callconv(.c) void) void {
+        qtc.KIconDialog_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6557,12 +6770,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIconDialog_MouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseReleaseEvent(self: KIconDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.KIconDialog_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
@@ -6577,12 +6791,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIconDialog_SuperMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseReleaseEvent(self: KIconDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.KIconDialog_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6593,12 +6808,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIconDialog_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseReleaseEvent(self: KIconDialog, callback: *const fn (KIconDialog, QMouseEvent) callconv(.c) void) void {
+        qtc.KIconDialog_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6609,12 +6824,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIconDialog_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseDoubleClickEvent(self: KIconDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.KIconDialog_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
@@ -6629,12 +6845,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIconDialog_SuperMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseDoubleClickEvent(self: KIconDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.KIconDialog_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6645,12 +6862,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIconDialog_OnMouseDoubleClickEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseDoubleClickEvent(self: KIconDialog, callback: *const fn (KIconDialog, QMouseEvent) callconv(.c) void) void {
+        qtc.KIconDialog_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6661,12 +6878,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIconDialog_MouseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseMoveEvent(self: KIconDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.KIconDialog_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
@@ -6681,12 +6899,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIconDialog_SuperMouseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseMoveEvent(self: KIconDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.KIconDialog_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6697,12 +6916,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIconDialog_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseMoveEvent(self: KIconDialog, callback: *const fn (KIconDialog, QMouseEvent) callconv(.c) void) void {
+        qtc.KIconDialog_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6713,12 +6932,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QWheelEvent `
+    /// ` event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIconDialog_WheelEvent(@ptrCast(self), @ptrCast(event));
+    pub fn WheelEvent(self: KIconDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QWheelEvent;
+        qtc.KIconDialog_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperWheelEvent` instead
@@ -6733,12 +6953,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QWheelEvent `
+    /// ` event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIconDialog_SuperWheelEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperWheelEvent(self: KIconDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QWheelEvent;
+        qtc.KIconDialog_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6749,12 +6970,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, event: QtC.QWheelEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconDialog, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIconDialog_OnWheelEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWheelEvent(self: KIconDialog, callback: *const fn (KIconDialog, QWheelEvent) callconv(.c) void) void {
+        qtc.KIconDialog_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6765,12 +6986,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIconDialog_KeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn KeyReleaseEvent(self: KIconDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.KIconDialog_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
@@ -6785,12 +7007,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIconDialog_SuperKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyReleaseEvent(self: KIconDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.KIconDialog_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6801,12 +7024,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, event: QtC.QKeyEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconDialog, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIconDialog_OnKeyReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyReleaseEvent(self: KIconDialog, callback: *const fn (KIconDialog, QKeyEvent) callconv(.c) void) void {
+        qtc.KIconDialog_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6817,12 +7040,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIconDialog_FocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn FocusInEvent(self: KIconDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.KIconDialog_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusInEvent` instead
@@ -6837,12 +7061,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIconDialog_SuperFocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusInEvent(self: KIconDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.KIconDialog_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6853,12 +7078,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, event: QtC.QFocusEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconDialog, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIconDialog_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusInEvent(self: KIconDialog, callback: *const fn (KIconDialog, QFocusEvent) callconv(.c) void) void {
+        qtc.KIconDialog_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6869,12 +7094,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIconDialog_FocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn FocusOutEvent(self: KIconDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.KIconDialog_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
@@ -6889,12 +7115,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIconDialog_SuperFocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusOutEvent(self: KIconDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.KIconDialog_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6905,12 +7132,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, event: QtC.QFocusEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconDialog, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIconDialog_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusOutEvent(self: KIconDialog, callback: *const fn (KIconDialog, QFocusEvent) callconv(.c) void) void {
+        qtc.KIconDialog_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6921,12 +7148,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QEnterEvent `
+    /// ` event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIconDialog_EnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn EnterEvent(self: KIconDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEnterEvent;
+        qtc.KIconDialog_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEnterEvent` instead
@@ -6941,12 +7169,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QEnterEvent `
+    /// ` event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIconDialog_SuperEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEnterEvent(self: KIconDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEnterEvent;
+        qtc.KIconDialog_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6957,12 +7186,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, event: QtC.QEnterEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconDialog, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIconDialog_OnEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEnterEvent(self: KIconDialog, callback: *const fn (KIconDialog, QEnterEvent) callconv(.c) void) void {
+        qtc.KIconDialog_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6973,12 +7202,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn LeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIconDialog_LeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn LeaveEvent(self: KIconDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KIconDialog_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperLeaveEvent` instead
@@ -6993,12 +7223,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIconDialog_SuperLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperLeaveEvent(self: KIconDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KIconDialog_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7009,12 +7240,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconDialog, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIconDialog_OnLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLeaveEvent(self: KIconDialog, callback: *const fn (KIconDialog, QEvent) callconv(.c) void) void {
+        qtc.KIconDialog_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7025,12 +7256,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QPaintEvent `
+    /// ` event: QPaintEvent `
     ///
-    pub fn PaintEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIconDialog_PaintEvent(@ptrCast(self), @ptrCast(event));
+    pub fn PaintEvent(self: KIconDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QPaintEvent;
+        qtc.KIconDialog_PaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperPaintEvent` instead
@@ -7045,12 +7277,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QPaintEvent `
+    /// ` event: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIconDialog_SuperPaintEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperPaintEvent(self: KIconDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QPaintEvent;
+        qtc.KIconDialog_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7061,12 +7294,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, event: QtC.QPaintEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconDialog, event: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIconDialog_OnPaintEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaintEvent(self: KIconDialog, callback: *const fn (KIconDialog, QPaintEvent) callconv(.c) void) void {
+        qtc.KIconDialog_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7077,12 +7310,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QMoveEvent `
+    /// ` event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIconDialog_MoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MoveEvent(self: KIconDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMoveEvent;
+        qtc.KIconDialog_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMoveEvent` instead
@@ -7097,12 +7331,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QMoveEvent `
+    /// ` event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIconDialog_SuperMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMoveEvent(self: KIconDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMoveEvent;
+        qtc.KIconDialog_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7113,12 +7348,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, event: QtC.QMoveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconDialog, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIconDialog_OnMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMoveEvent(self: KIconDialog, callback: *const fn (KIconDialog, QMoveEvent) callconv(.c) void) void {
+        qtc.KIconDialog_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7129,12 +7364,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QTabletEvent `
+    /// ` event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIconDialog_TabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TabletEvent(self: KIconDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTabletEvent;
+        qtc.KIconDialog_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTabletEvent` instead
@@ -7149,12 +7385,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QTabletEvent `
+    /// ` event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIconDialog_SuperTabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTabletEvent(self: KIconDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTabletEvent;
+        qtc.KIconDialog_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7165,12 +7402,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, event: QtC.QTabletEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconDialog, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIconDialog_OnTabletEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTabletEvent(self: KIconDialog, callback: *const fn (KIconDialog, QTabletEvent) callconv(.c) void) void {
+        qtc.KIconDialog_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7181,12 +7418,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QActionEvent `
+    /// ` event: QActionEvent `
     ///
-    pub fn ActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIconDialog_ActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ActionEvent(self: KIconDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QActionEvent;
+        qtc.KIconDialog_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperActionEvent` instead
@@ -7201,12 +7439,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QActionEvent `
+    /// ` event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIconDialog_SuperActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperActionEvent(self: KIconDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QActionEvent;
+        qtc.KIconDialog_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7217,12 +7456,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, event: QtC.QActionEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconDialog, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIconDialog_OnActionEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnActionEvent(self: KIconDialog, callback: *const fn (KIconDialog, QActionEvent) callconv(.c) void) void {
+        qtc.KIconDialog_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7233,12 +7472,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QDragEnterEvent `
+    /// ` event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIconDialog_DragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragEnterEvent(self: KIconDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
+        qtc.KIconDialog_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
@@ -7253,12 +7493,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QDragEnterEvent `
+    /// ` event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIconDialog_SuperDragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragEnterEvent(self: KIconDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
+        qtc.KIconDialog_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7269,12 +7510,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, event: QtC.QDragEnterEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconDialog, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIconDialog_OnDragEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragEnterEvent(self: KIconDialog, callback: *const fn (KIconDialog, QDragEnterEvent) callconv(.c) void) void {
+        qtc.KIconDialog_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7285,12 +7526,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QDragMoveEvent `
+    /// ` event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIconDialog_DragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragMoveEvent(self: KIconDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
+        qtc.KIconDialog_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
@@ -7305,12 +7547,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QDragMoveEvent `
+    /// ` event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIconDialog_SuperDragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragMoveEvent(self: KIconDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
+        qtc.KIconDialog_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7321,12 +7564,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, event: QtC.QDragMoveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconDialog, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIconDialog_OnDragMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragMoveEvent(self: KIconDialog, callback: *const fn (KIconDialog, QDragMoveEvent) callconv(.c) void) void {
+        qtc.KIconDialog_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7337,12 +7580,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QDragLeaveEvent `
+    /// ` event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIconDialog_DragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragLeaveEvent(self: KIconDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
+        qtc.KIconDialog_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
@@ -7357,12 +7601,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QDragLeaveEvent `
+    /// ` event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIconDialog_SuperDragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragLeaveEvent(self: KIconDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
+        qtc.KIconDialog_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7373,12 +7618,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, event: QtC.QDragLeaveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconDialog, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIconDialog_OnDragLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragLeaveEvent(self: KIconDialog, callback: *const fn (KIconDialog, QDragLeaveEvent) callconv(.c) void) void {
+        qtc.KIconDialog_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7389,12 +7634,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QDropEvent `
+    /// ` event: QDropEvent `
     ///
-    pub fn DropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIconDialog_DropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DropEvent(self: KIconDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDropEvent;
+        qtc.KIconDialog_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDropEvent` instead
@@ -7409,12 +7655,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QDropEvent `
+    /// ` event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIconDialog_SuperDropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDropEvent(self: KIconDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDropEvent;
+        qtc.KIconDialog_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7425,12 +7672,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, event: QtC.QDropEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconDialog, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIconDialog_OnDropEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDropEvent(self: KIconDialog, callback: *const fn (KIconDialog, QDropEvent) callconv(.c) void) void {
+        qtc.KIconDialog_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7441,12 +7688,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QHideEvent `
+    /// ` event: QHideEvent `
     ///
-    pub fn HideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIconDialog_HideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn HideEvent(self: KIconDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QHideEvent;
+        qtc.KIconDialog_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHideEvent` instead
@@ -7461,12 +7709,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QHideEvent `
+    /// ` event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIconDialog_SuperHideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHideEvent(self: KIconDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QHideEvent;
+        qtc.KIconDialog_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7477,12 +7726,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, event: QtC.QHideEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconDialog, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIconDialog_OnHideEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHideEvent(self: KIconDialog, callback: *const fn (KIconDialog, QHideEvent) callconv(.c) void) void {
+        qtc.KIconDialog_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7493,7 +7742,7 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` eventType: []u8 `
     ///
@@ -7501,12 +7750,12 @@ pub const kicondialog = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn NativeEvent(self: KIconDialog, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.KIconDialog_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.KIconDialog_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// ### DEPRECATED: Use `SuperNativeEvent` instead
@@ -7521,7 +7770,7 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` eventType: []u8 `
     ///
@@ -7529,12 +7778,12 @@ pub const kicondialog = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn SuperNativeEvent(self: KIconDialog, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.KIconDialog_SuperNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.KIconDialog_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -7545,12 +7794,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KIconDialog, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
-        qtc.KIconDialog_OnNativeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnNativeEvent(self: KIconDialog, callback: *const fn (KIconDialog, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+        qtc.KIconDialog_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7561,12 +7810,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` param1: QtC.QEvent `
+    /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KIconDialog_ChangeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn ChangeEvent(self: KIconDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QEvent;
+        qtc.KIconDialog_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChangeEvent` instead
@@ -7581,12 +7831,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` param1: QtC.QEvent `
+    /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KIconDialog_SuperChangeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperChangeEvent(self: KIconDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QEvent;
+        qtc.KIconDialog_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -7597,12 +7848,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, param1: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconDialog, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIconDialog_OnChangeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChangeEvent(self: KIconDialog, callback: *const fn (KIconDialog, QEvent) callconv(.c) void) void {
+        qtc.KIconDialog_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7613,12 +7864,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KIconDialog_Metric(@ptrCast(self), @bitCast(param1));
+    pub fn Metric(self: KIconDialog, param1: i32) i32 {
+        return qtc.KIconDialog_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### DEPRECATED: Use `SuperMetric` instead
@@ -7633,12 +7884,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KIconDialog_SuperMetric(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMetric(self: KIconDialog, param1: i32) i32 {
+        return qtc.KIconDialog_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7649,12 +7900,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KIconDialog, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.KIconDialog_OnMetric(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetric(self: KIconDialog, callback: *const fn (KIconDialog, i32) callconv(.c) i32) void {
+        qtc.KIconDialog_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7665,12 +7916,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.KIconDialog_InitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn InitPainter(self: KIconDialog, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.KIconDialog_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInitPainter` instead
@@ -7685,12 +7937,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.KIconDialog_SuperInitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperInitPainter(self: KIconDialog, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.KIconDialog_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// Inherited from QWidget
@@ -7701,12 +7954,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, painter: QtC.QPainter) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconDialog, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIconDialog_OnInitPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInitPainter(self: KIconDialog, callback: *const fn (KIconDialog, QPainter) callconv(.c) void) void {
+        qtc.KIconDialog_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7717,12 +7970,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.KIconDialog_Redirected(@ptrCast(self), @ptrCast(offset));
+    pub fn Redirected(self: KIconDialog, offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        return .{ .ptr = qtc.KIconDialog_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperRedirected` instead
@@ -7737,12 +7991,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.KIconDialog_SuperRedirected(@ptrCast(self), @ptrCast(offset));
+    pub fn SuperRedirected(self: KIconDialog, offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        return .{ .ptr = qtc.KIconDialog_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7753,12 +8008,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice `
+    /// ` callback: *const fn (self: KIconDialog, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.KIconDialog_OnRedirected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRedirected(self: KIconDialog, callback: *const fn (KIconDialog, QPoint) callconv(.c) QPaintDevice) void {
+        qtc.KIconDialog_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7769,10 +8024,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn SharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.KIconDialog_SharedPainter(@ptrCast(self));
+    pub fn SharedPainter(self: KIconDialog) QPainter {
+        return .{ .ptr = qtc.KIconDialog_SharedPainter(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSharedPainter` instead
@@ -7787,10 +8042,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn SuperSharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.KIconDialog_SuperSharedPainter(@ptrCast(self));
+    pub fn SuperSharedPainter(self: KIconDialog) QPainter {
+        return .{ .ptr = qtc.KIconDialog_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7801,12 +8056,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPainter `
+    /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
-        qtc.KIconDialog_OnSharedPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSharedPainter(self: KIconDialog, callback: *const fn () callconv(.c) QPainter) void {
+        qtc.KIconDialog_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7817,12 +8072,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` param1: QtC.QInputMethodEvent `
+    /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KIconDialog_InputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn InputMethodEvent(self: KIconDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
+        qtc.KIconDialog_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
@@ -7837,12 +8093,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` param1: QtC.QInputMethodEvent `
+    /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KIconDialog_SuperInputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperInputMethodEvent(self: KIconDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
+        qtc.KIconDialog_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -7853,12 +8110,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, param1: QtC.QInputMethodEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconDialog, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIconDialog_OnInputMethodEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInputMethodEvent(self: KIconDialog, callback: *const fn (KIconDialog, QInputMethodEvent) callconv(.c) void) void {
+        qtc.KIconDialog_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7869,12 +8126,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.KIconDialog_InputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn InputMethodQuery(self: KIconDialog, param1: i32) QVariant {
+        return .{ .ptr = qtc.KIconDialog_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
     /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
@@ -7889,12 +8146,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.KIconDialog_SuperInputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn SuperInputMethodQuery(self: KIconDialog, param1: i32) QVariant {
+        return .{ .ptr = qtc.KIconDialog_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
     /// Inherited from QWidget
@@ -7905,12 +8162,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
+    /// ` callback: *const fn (self: KIconDialog, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
-    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.KIconDialog_OnInputMethodQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInputMethodQuery(self: KIconDialog, callback: *const fn (KIconDialog, i32) callconv(.c) QVariant) void {
+        qtc.KIconDialog_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7921,12 +8178,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.KIconDialog_FocusNextPrevChild(@ptrCast(self), next);
+    pub fn FocusNextPrevChild(self: KIconDialog, next: bool) bool {
+        return qtc.KIconDialog_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
     /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
@@ -7941,12 +8198,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.KIconDialog_SuperFocusNextPrevChild(@ptrCast(self), next);
+    pub fn SuperFocusNextPrevChild(self: KIconDialog, next: bool) bool {
+        return qtc.KIconDialog_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
     /// Inherited from QWidget
@@ -7957,12 +8214,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, next: bool) callconv(.c) bool `
+    /// ` callback: *const fn (self: KIconDialog, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
-        qtc.KIconDialog_OnFocusNextPrevChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusNextPrevChild(self: KIconDialog, callback: *const fn (KIconDialog, bool) callconv(.c) bool) void {
+        qtc.KIconDialog_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7973,12 +8230,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIconDialog_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: KIconDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KIconDialog_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -7993,12 +8251,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIconDialog_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: KIconDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KIconDialog_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -8009,12 +8268,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconDialog, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIconDialog_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: KIconDialog, callback: *const fn (KIconDialog, QTimerEvent) callconv(.c) void) void {
+        qtc.KIconDialog_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8025,12 +8284,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIconDialog_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: KIconDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KIconDialog_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -8045,12 +8305,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIconDialog_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: KIconDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KIconDialog_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -8061,12 +8322,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconDialog, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIconDialog_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: KIconDialog, callback: *const fn (KIconDialog, QChildEvent) callconv(.c) void) void {
+        qtc.KIconDialog_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8077,12 +8338,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIconDialog_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: KIconDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KIconDialog_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -8097,12 +8359,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIconDialog_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: KIconDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KIconDialog_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -8113,12 +8376,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconDialog, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIconDialog_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: KIconDialog, callback: *const fn (KIconDialog, QEvent) callconv(.c) void) void {
+        qtc.KIconDialog_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8129,12 +8392,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KIconDialog_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: KIconDialog, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KIconDialog_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -8149,12 +8413,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KIconDialog_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: KIconDialog, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KIconDialog_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -8165,12 +8430,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconDialog, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIconDialog_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: KIconDialog, callback: *const fn (KIconDialog, QMetaMethod) callconv(.c) void) void {
+        qtc.KIconDialog_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8181,12 +8446,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KIconDialog_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: KIconDialog, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KIconDialog_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -8201,12 +8467,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KIconDialog_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: KIconDialog, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KIconDialog_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -8217,12 +8484,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconDialog, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIconDialog_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: KIconDialog, callback: *const fn (KIconDialog, QMetaMethod) callconv(.c) void) void {
+        qtc.KIconDialog_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -8233,12 +8500,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn AdjustPosition(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KIconDialog_AdjustPosition(@ptrCast(self), @ptrCast(param1));
+    pub fn AdjustPosition(self: KIconDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        qtc.KIconDialog_AdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperAdjustPosition` instead
@@ -8253,12 +8521,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn SuperAdjustPosition(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KIconDialog_SuperAdjustPosition(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperAdjustPosition(self: KIconDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        qtc.KIconDialog_SuperAdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QDialog
@@ -8269,12 +8538,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, param1: QtC.QWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconDialog, param1: QWidget) callconv(.c) void `
     ///
-    pub fn OnAdjustPosition(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIconDialog_OnAdjustPosition(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAdjustPosition(self: KIconDialog, callback: *const fn (KIconDialog, QWidget) callconv(.c) void) void {
+        qtc.KIconDialog_OnAdjustPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8285,10 +8554,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn UpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.KIconDialog_UpdateMicroFocus(@ptrCast(self));
+    pub fn UpdateMicroFocus(self: KIconDialog) void {
+        qtc.KIconDialog_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
@@ -8303,10 +8572,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn SuperUpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.KIconDialog_SuperUpdateMicroFocus(@ptrCast(self));
+    pub fn SuperUpdateMicroFocus(self: KIconDialog) void {
+        qtc.KIconDialog_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8317,12 +8586,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KIconDialog_OnUpdateMicroFocus(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUpdateMicroFocus(self: KIconDialog, callback: *const fn () callconv(.c) void) void {
+        qtc.KIconDialog_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8333,10 +8602,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn Create(self: ?*anyopaque) void {
-        qtc.KIconDialog_Create(@ptrCast(self));
+    pub fn Create(self: KIconDialog) void {
+        qtc.KIconDialog_Create(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCreate` instead
@@ -8351,10 +8620,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn SuperCreate(self: ?*anyopaque) void {
-        qtc.KIconDialog_SuperCreate(@ptrCast(self));
+    pub fn SuperCreate(self: KIconDialog) void {
+        qtc.KIconDialog_SuperCreate(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8365,12 +8634,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KIconDialog_OnCreate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreate(self: KIconDialog, callback: *const fn () callconv(.c) void) void {
+        qtc.KIconDialog_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8381,10 +8650,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn Destroy(self: ?*anyopaque) void {
-        qtc.KIconDialog_Destroy(@ptrCast(self));
+    pub fn Destroy(self: KIconDialog) void {
+        qtc.KIconDialog_Destroy(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDestroy` instead
@@ -8399,10 +8668,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn SuperDestroy(self: ?*anyopaque) void {
-        qtc.KIconDialog_SuperDestroy(@ptrCast(self));
+    pub fn SuperDestroy(self: KIconDialog) void {
+        qtc.KIconDialog_SuperDestroy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8413,12 +8682,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KIconDialog_OnDestroy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroy(self: KIconDialog, callback: *const fn () callconv(.c) void) void {
+        qtc.KIconDialog_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8429,10 +8698,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn FocusNextChild(self: ?*anyopaque) bool {
-        return qtc.KIconDialog_FocusNextChild(@ptrCast(self));
+    pub fn FocusNextChild(self: KIconDialog) bool {
+        return qtc.KIconDialog_FocusNextChild(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusNextChild` instead
@@ -8447,10 +8716,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn SuperFocusNextChild(self: ?*anyopaque) bool {
-        return qtc.KIconDialog_SuperFocusNextChild(@ptrCast(self));
+    pub fn SuperFocusNextChild(self: KIconDialog) bool {
+        return qtc.KIconDialog_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8461,12 +8730,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KIconDialog_OnFocusNextChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusNextChild(self: KIconDialog, callback: *const fn () callconv(.c) bool) void {
+        qtc.KIconDialog_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8477,10 +8746,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn FocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.KIconDialog_FocusPreviousChild(@ptrCast(self));
+    pub fn FocusPreviousChild(self: KIconDialog) bool {
+        return qtc.KIconDialog_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
@@ -8495,10 +8764,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn SuperFocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.KIconDialog_SuperFocusPreviousChild(@ptrCast(self));
+    pub fn SuperFocusPreviousChild(self: KIconDialog) bool {
+        return qtc.KIconDialog_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8509,12 +8778,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KIconDialog_OnFocusPreviousChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusPreviousChild(self: KIconDialog, callback: *const fn () callconv(.c) bool) void {
+        qtc.KIconDialog_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8525,10 +8794,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KIconDialog_Sender(@ptrCast(self));
+    pub fn Sender(self: KIconDialog) QObject {
+        return .{ .ptr = qtc.KIconDialog_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -8543,10 +8812,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KIconDialog_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: KIconDialog) QObject {
+        return .{ .ptr = qtc.KIconDialog_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -8557,12 +8826,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.KIconDialog_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: KIconDialog, callback: *const fn () callconv(.c) QObject) void {
+        qtc.KIconDialog_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8573,10 +8842,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KIconDialog_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: KIconDialog) i32 {
+        return qtc.KIconDialog_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -8591,10 +8860,10 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KIconDialog_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: KIconDialog) i32 {
+        return qtc.KIconDialog_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -8605,12 +8874,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KIconDialog_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: KIconDialog, callback: *const fn () callconv(.c) i32) void {
+        qtc.KIconDialog_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8621,13 +8890,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: KIconDialog, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KIconDialog_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.KIconDialog_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -8642,13 +8911,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: KIconDialog, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KIconDialog_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KIconDialog_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -8659,12 +8928,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KIconDialog, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KIconDialog_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: KIconDialog, callback: *const fn (KIconDialog, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KIconDialog_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8675,12 +8944,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KIconDialog_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: KIconDialog, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KIconDialog_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -8695,12 +8965,13 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KIconDialog_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: KIconDialog, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KIconDialog_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -8711,12 +8982,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: KIconDialog, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KIconDialog_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: KIconDialog, callback: *const fn (KIconDialog, QMetaMethod) callconv(.c) bool) void {
+        qtc.KIconDialog_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -8727,14 +8998,14 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.KIconDialog_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn GetDecodedMetricF(self: KIconDialog, metricA: i32, metricB: i32) f64 {
+        return qtc.KIconDialog_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
@@ -8749,14 +9020,14 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
     /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.KIconDialog_SuperGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn SuperGetDecodedMetricF(self: KIconDialog, metricA: i32, metricB: i32) f64 {
+        return qtc.KIconDialog_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -8767,12 +9038,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog`
+    /// ` self: KIconDialog`
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
+    /// ` callback: *const fn (self: KIconDialog, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.KIconDialog_OnGetDecodedMetricF(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnGetDecodedMetricF(self: KIconDialog, callback: *const fn (KIconDialog, i32, i32) callconv(.c) f64) void {
+        qtc.KIconDialog_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8783,12 +9054,12 @@ pub const kicondialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KIconDialog, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconDialog, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: KIconDialog, callback: *const fn (KIconDialog, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -8801,9 +9072,9 @@ pub const kicondialog = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KIconDialog `
+    /// ` self: KIconDialog `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KIconDialog_Delete(@ptrCast(self));
+    pub fn Delete(self: KIconDialog) void {
+        qtc.KIconDialog_Delete(@ptrCast(self.ptr));
     }
 };

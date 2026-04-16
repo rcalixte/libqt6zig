@@ -1,109 +1,121 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QUrl = @import("libqt6").QUrl;
 const qwebenginefilesystemaccessrequest_enums = enums;
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginefilesystemaccessrequest.html)
-pub const qwebenginefilesystemaccessrequest = struct {
+pub const QWebEngineFileSystemAccessRequest = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginefilesystemaccessrequest.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QWebEngineFileSystemAccessRequest,
+
+    pub const _is_QWebEngineFileSystemAccessRequest = {};
+
     /// New constructs a new QWebEngineFileSystemAccessRequest object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QWebEngineFileSystemAccessRequest `
+    /// ` other: QWebEngineFileSystemAccessRequest `
     ///
-    pub fn New(other: ?*anyopaque) QtC.QWebEngineFileSystemAccessRequest {
-        return qtc.QWebEngineFileSystemAccessRequest_new(@ptrCast(other));
+    pub fn New(other: anytype) QWebEngineFileSystemAccessRequest {
+        comptime _ = @TypeOf(other)._is_QWebEngineFileSystemAccessRequest;
+        return .{ .ptr = qtc.QWebEngineFileSystemAccessRequest_new(@ptrCast(other.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginefilesystemaccessrequest.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineFileSystemAccessRequest `
+    /// ` self: QWebEngineFileSystemAccessRequest `
     ///
-    /// ` other: QtC.QWebEngineFileSystemAccessRequest `
+    /// ` other: QWebEngineFileSystemAccessRequest `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QWebEngineFileSystemAccessRequest_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorAssign(self: QWebEngineFileSystemAccessRequest, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QWebEngineFileSystemAccessRequest;
+        qtc.QWebEngineFileSystemAccessRequest_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginefilesystemaccessrequest.html#swap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineFileSystemAccessRequest `
+    /// ` self: QWebEngineFileSystemAccessRequest `
     ///
-    /// ` other: QtC.QWebEngineFileSystemAccessRequest `
+    /// ` other: QWebEngineFileSystemAccessRequest `
     ///
-    pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QWebEngineFileSystemAccessRequest_Swap(@ptrCast(self), @ptrCast(other));
+    pub fn Swap(self: QWebEngineFileSystemAccessRequest, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QWebEngineFileSystemAccessRequest;
+        qtc.QWebEngineFileSystemAccessRequest_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginefilesystemaccessrequest.html#accept)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineFileSystemAccessRequest `
+    /// ` self: QWebEngineFileSystemAccessRequest `
     ///
-    pub fn Accept(self: ?*anyopaque) void {
-        qtc.QWebEngineFileSystemAccessRequest_Accept(@ptrCast(self));
+    pub fn Accept(self: QWebEngineFileSystemAccessRequest) void {
+        qtc.QWebEngineFileSystemAccessRequest_Accept(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginefilesystemaccessrequest.html#reject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineFileSystemAccessRequest `
+    /// ` self: QWebEngineFileSystemAccessRequest `
     ///
-    pub fn Reject(self: ?*anyopaque) void {
-        qtc.QWebEngineFileSystemAccessRequest_Reject(@ptrCast(self));
+    pub fn Reject(self: QWebEngineFileSystemAccessRequest) void {
+        qtc.QWebEngineFileSystemAccessRequest_Reject(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginefilesystemaccessrequest.html#origin)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineFileSystemAccessRequest `
+    /// ` self: QWebEngineFileSystemAccessRequest `
     ///
-    pub fn Origin(self: ?*anyopaque) QtC.QUrl {
-        return qtc.QWebEngineFileSystemAccessRequest_Origin(@ptrCast(self));
+    pub fn Origin(self: QWebEngineFileSystemAccessRequest) QUrl {
+        return .{ .ptr = qtc.QWebEngineFileSystemAccessRequest_Origin(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginefilesystemaccessrequest.html#filePath)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineFileSystemAccessRequest `
+    /// ` self: QWebEngineFileSystemAccessRequest `
     ///
-    pub fn FilePath(self: ?*anyopaque) QtC.QUrl {
-        return qtc.QWebEngineFileSystemAccessRequest_FilePath(@ptrCast(self));
+    pub fn FilePath(self: QWebEngineFileSystemAccessRequest) QUrl {
+        return .{ .ptr = qtc.QWebEngineFileSystemAccessRequest_FilePath(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginefilesystemaccessrequest.html#handleType)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineFileSystemAccessRequest `
+    /// ` self: QWebEngineFileSystemAccessRequest `
     ///
     /// ## Returns:
     ///
     /// ` qwebenginefilesystemaccessrequest_enums.HandleType `
     ///
-    pub fn HandleType(self: ?*anyopaque) i32 {
-        return qtc.QWebEngineFileSystemAccessRequest_HandleType(@ptrCast(self));
+    pub fn HandleType(self: QWebEngineFileSystemAccessRequest) i32 {
+        return qtc.QWebEngineFileSystemAccessRequest_HandleType(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginefilesystemaccessrequest.html#accessFlags)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineFileSystemAccessRequest `
+    /// ` self: QWebEngineFileSystemAccessRequest `
     ///
     /// ## Returns:
     ///
     /// ` flag of qwebenginefilesystemaccessrequest_enums.AccessFlag `
     ///
-    pub fn AccessFlags(self: ?*anyopaque) i32 {
-        return qtc.QWebEngineFileSystemAccessRequest_AccessFlags(@ptrCast(self));
+    pub fn AccessFlags(self: QWebEngineFileSystemAccessRequest) i32 {
+        return qtc.QWebEngineFileSystemAccessRequest_AccessFlags(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -116,10 +128,10 @@ pub const qwebenginefilesystemaccessrequest = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QWebEngineFileSystemAccessRequest `
+    /// ` self: QWebEngineFileSystemAccessRequest `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QWebEngineFileSystemAccessRequest_Delete(@ptrCast(self));
+    pub fn Delete(self: QWebEngineFileSystemAccessRequest) void {
+        qtc.QWebEngineFileSystemAccessRequest_Delete(@ptrCast(self.ptr));
     }
 };
 

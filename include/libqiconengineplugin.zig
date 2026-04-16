@@ -1,35 +1,56 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QEvent = @import("libqt6").QEvent;
+const QIconEngine = @import("libqt6").QIconEngine;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengineplugin.html)
-pub const qiconengineplugin = struct {
+pub const QIconEnginePlugin = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengineplugin.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QIconEnginePlugin,
+
+    pub const _is_QIconEnginePlugin = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new QIconEnginePlugin object.
     ///
-    pub fn New() QtC.QIconEnginePlugin {
-        return qtc.QIconEnginePlugin_new();
+    pub fn New() QIconEnginePlugin {
+        return .{ .ptr = qtc.QIconEnginePlugin_new() };
     }
 
     /// New2 constructs a new QIconEnginePlugin object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New2(parent: ?*anyopaque) QtC.QIconEnginePlugin {
-        return qtc.QIconEnginePlugin_new2(@ptrCast(parent));
+    pub fn New2(parent: anytype) QIconEnginePlugin {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.QIconEnginePlugin_new2(@ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QIconEnginePlugin_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QIconEnginePlugin) QMetaObject {
+        return .{ .ptr = qtc.QIconEnginePlugin_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -38,12 +59,12 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QIconEnginePlugin_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QIconEnginePlugin, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QIconEnginePlugin_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -56,33 +77,33 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QIconEnginePlugin_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QIconEnginePlugin) QMetaObject {
+        return .{ .ptr = qtc.QIconEnginePlugin_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QIconEnginePlugin, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QIconEnginePlugin_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QIconEnginePlugin_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    /// ` callback: *const fn (self: QtC.QIconEnginePlugin, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QIconEnginePlugin, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QIconEnginePlugin_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QIconEnginePlugin, callback: *const fn (QIconEnginePlugin, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QIconEnginePlugin_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -93,18 +114,18 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QIconEnginePlugin, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QIconEnginePlugin_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QIconEnginePlugin_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -112,20 +133,20 @@ pub const qiconengineplugin = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QIconEnginePlugin_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QIconEnginePlugin, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QIconEnginePlugin_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    /// ` callback: *const fn (self: QtC.QIconEnginePlugin, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QIconEnginePlugin, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QIconEnginePlugin_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QIconEnginePlugin, callback: *const fn (QIconEnginePlugin, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QIconEnginePlugin_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -136,7 +157,7 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -144,19 +165,19 @@ pub const qiconengineplugin = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QIconEnginePlugin_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QIconEnginePlugin, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QIconEnginePlugin_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -169,16 +190,16 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
     /// ` filename: []const u8 `
     ///
-    pub fn Create(self: ?*anyopaque, filename: []const u8) QtC.QIconEngine {
+    pub fn Create(self: QIconEnginePlugin, filename: []const u8) QIconEngine {
         const filename_str = qtc.libqt_string{
             .len = filename.len,
             .data = filename.ptr,
         };
-        return qtc.QIconEnginePlugin_Create(@ptrCast(self), filename_str);
+        return .{ .ptr = qtc.QIconEnginePlugin_Create(@ptrCast(self.ptr), filename_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengineplugin.html#create)
@@ -187,12 +208,12 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    /// ` callback: *const fn (self: QtC.QIconEnginePlugin, filename: [*:0]const u8) callconv(.c) QtC.QIconEngine `
+    /// ` callback: *const fn (self: QIconEnginePlugin, filename: [*:0]const u8) callconv(.c) QIconEngine `
     ///
-    pub fn OnCreate(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) QtC.QIconEngine) void {
-        qtc.QIconEnginePlugin_OnCreate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreate(self: QIconEnginePlugin, callback: *const fn (QIconEnginePlugin, [*:0]const u8) callconv(.c) QIconEngine) void {
+        qtc.QIconEnginePlugin_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperCreate` instead
@@ -205,29 +226,29 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
     /// ` filename: []const u8 `
     ///
-    pub fn SuperCreate(self: ?*anyopaque, filename: []const u8) QtC.QIconEngine {
+    pub fn SuperCreate(self: QIconEnginePlugin, filename: []const u8) QIconEngine {
         const filename_str = qtc.libqt_string{
             .len = filename.len,
             .data = filename.ptr,
         };
-        return qtc.QIconEnginePlugin_SuperCreate(@ptrCast(self), filename_str);
+        return .{ .ptr = qtc.QIconEnginePlugin_SuperCreate(@ptrCast(self.ptr), filename_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -241,15 +262,15 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -265,12 +286,12 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QIconEnginePlugin, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qiconengineplugin.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -283,12 +304,12 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QIconEnginePlugin, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -297,10 +318,10 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QIconEnginePlugin) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -309,10 +330,10 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QIconEnginePlugin) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -321,10 +342,10 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QIconEnginePlugin) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -333,10 +354,10 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QIconEnginePlugin) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -345,12 +366,12 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QIconEnginePlugin, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -359,10 +380,10 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QIconEnginePlugin) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -371,12 +392,13 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QIconEnginePlugin, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -385,12 +407,12 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QIconEnginePlugin, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -399,12 +421,12 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QIconEnginePlugin, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -413,12 +435,12 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QIconEnginePlugin, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -427,12 +449,12 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QIconEnginePlugin, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -441,16 +463,17 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QIconEnginePlugin, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qiconengineplugin.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qiconengineplugin.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -460,12 +483,13 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QIconEnginePlugin, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -474,12 +498,13 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QIconEnginePlugin, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -488,12 +513,13 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QIconEnginePlugin, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -502,18 +528,20 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -522,16 +550,20 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -540,18 +572,19 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QIconEnginePlugin, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -560,18 +593,20 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -580,16 +615,20 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -598,10 +637,10 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QIconEnginePlugin) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -610,12 +649,13 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QIconEnginePlugin, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -624,10 +664,11 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -636,10 +677,10 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QIconEnginePlugin) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -648,10 +689,10 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QIconEnginePlugin) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -660,15 +701,16 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QIconEnginePlugin, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -677,13 +719,13 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QIconEnginePlugin, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -692,17 +734,16 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QIconEnginePlugin, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qiconengineplugin.DynamicPropertyNames: Memory allocation failed");
@@ -721,10 +762,10 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QIconEnginePlugin) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -733,10 +774,10 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QIconEnginePlugin) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -745,10 +786,10 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QIconEnginePlugin) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -757,12 +798,12 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    /// ` callback: *const fn (self: QtC.QIconEnginePlugin) callconv(.c) void `
+    /// ` callback: *const fn (self: QIconEnginePlugin) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QIconEnginePlugin, callback: *const fn (QIconEnginePlugin) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -771,10 +812,10 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QIconEnginePlugin) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -783,13 +824,13 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QIconEnginePlugin, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -798,10 +839,10 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QIconEnginePlugin) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -810,14 +851,14 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QIconEnginePlugin, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -826,14 +867,14 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QIconEnginePlugin, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -842,20 +883,22 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -864,18 +907,22 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -884,9 +931,9 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -894,10 +941,11 @@ pub const qiconengineplugin = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QIconEnginePlugin, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -906,13 +954,13 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QIconEnginePlugin, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -921,15 +969,16 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QIconEnginePlugin, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -938,18 +987,19 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QIconEnginePlugin, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -958,15 +1008,16 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QIconEnginePlugin, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -975,12 +1026,13 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QIconEnginePlugin, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -989,12 +1041,12 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    /// ` callback: *const fn (self: QtC.QIconEnginePlugin, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QIconEnginePlugin, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QIconEnginePlugin, callback: *const fn (QIconEnginePlugin, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1005,12 +1057,13 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QIconEnginePlugin_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: QIconEnginePlugin, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QIconEnginePlugin_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -1025,12 +1078,13 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QIconEnginePlugin_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: QIconEnginePlugin, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QIconEnginePlugin_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1041,12 +1095,12 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QIconEnginePlugin`
+    /// ` self: QIconEnginePlugin`
     ///
-    /// ` callback: *const fn (self: QtC.QIconEnginePlugin, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QIconEnginePlugin, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QIconEnginePlugin_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QIconEnginePlugin, callback: *const fn (QIconEnginePlugin, QEvent) callconv(.c) bool) void {
+        qtc.QIconEnginePlugin_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1057,14 +1111,16 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QIconEnginePlugin_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: QIconEnginePlugin, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QIconEnginePlugin_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -1079,14 +1135,16 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QIconEnginePlugin_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: QIconEnginePlugin, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QIconEnginePlugin_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1097,12 +1155,12 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QIconEnginePlugin`
+    /// ` self: QIconEnginePlugin`
     ///
-    /// ` callback: *const fn (self: QtC.QIconEnginePlugin, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QIconEnginePlugin, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QIconEnginePlugin_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QIconEnginePlugin, callback: *const fn (QIconEnginePlugin, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QIconEnginePlugin_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1113,12 +1171,13 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QIconEnginePlugin_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: QIconEnginePlugin, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QIconEnginePlugin_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -1133,12 +1192,13 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QIconEnginePlugin_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: QIconEnginePlugin, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QIconEnginePlugin_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1149,12 +1209,12 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QIconEnginePlugin`
+    /// ` self: QIconEnginePlugin`
     ///
-    /// ` callback: *const fn (self: QtC.QIconEnginePlugin, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QIconEnginePlugin, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QIconEnginePlugin_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QIconEnginePlugin, callback: *const fn (QIconEnginePlugin, QTimerEvent) callconv(.c) void) void {
+        qtc.QIconEnginePlugin_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1165,12 +1225,13 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QIconEnginePlugin_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: QIconEnginePlugin, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QIconEnginePlugin_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -1185,12 +1246,13 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QIconEnginePlugin_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: QIconEnginePlugin, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QIconEnginePlugin_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1201,12 +1263,12 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QIconEnginePlugin`
+    /// ` self: QIconEnginePlugin`
     ///
-    /// ` callback: *const fn (self: QtC.QIconEnginePlugin, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QIconEnginePlugin, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QIconEnginePlugin_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QIconEnginePlugin, callback: *const fn (QIconEnginePlugin, QChildEvent) callconv(.c) void) void {
+        qtc.QIconEnginePlugin_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1217,12 +1279,13 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QIconEnginePlugin_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QIconEnginePlugin, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QIconEnginePlugin_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -1237,12 +1300,13 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QIconEnginePlugin_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QIconEnginePlugin, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QIconEnginePlugin_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1253,12 +1317,12 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QIconEnginePlugin`
+    /// ` self: QIconEnginePlugin`
     ///
-    /// ` callback: *const fn (self: QtC.QIconEnginePlugin, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QIconEnginePlugin, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QIconEnginePlugin_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QIconEnginePlugin, callback: *const fn (QIconEnginePlugin, QEvent) callconv(.c) void) void {
+        qtc.QIconEnginePlugin_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1269,12 +1333,13 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QIconEnginePlugin_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QIconEnginePlugin, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QIconEnginePlugin_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -1289,12 +1354,13 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QIconEnginePlugin_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QIconEnginePlugin, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QIconEnginePlugin_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1305,12 +1371,12 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QIconEnginePlugin`
+    /// ` self: QIconEnginePlugin`
     ///
-    /// ` callback: *const fn (self: QtC.QIconEnginePlugin, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QIconEnginePlugin, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QIconEnginePlugin_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QIconEnginePlugin, callback: *const fn (QIconEnginePlugin, QMetaMethod) callconv(.c) void) void {
+        qtc.QIconEnginePlugin_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1321,12 +1387,13 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QIconEnginePlugin_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QIconEnginePlugin, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QIconEnginePlugin_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -1341,12 +1408,13 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QIconEnginePlugin_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QIconEnginePlugin, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QIconEnginePlugin_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1357,12 +1425,12 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QIconEnginePlugin`
+    /// ` self: QIconEnginePlugin`
     ///
-    /// ` callback: *const fn (self: QtC.QIconEnginePlugin, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QIconEnginePlugin, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QIconEnginePlugin_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QIconEnginePlugin, callback: *const fn (QIconEnginePlugin, QMetaMethod) callconv(.c) void) void {
+        qtc.QIconEnginePlugin_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1373,10 +1441,10 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QIconEnginePlugin_Sender(@ptrCast(self));
+    pub fn Sender(self: QIconEnginePlugin) QObject {
+        return .{ .ptr = qtc.QIconEnginePlugin_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -1391,10 +1459,10 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QIconEnginePlugin_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QIconEnginePlugin) QObject {
+        return .{ .ptr = qtc.QIconEnginePlugin_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1405,12 +1473,12 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QIconEnginePlugin`
+    /// ` self: QIconEnginePlugin`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QIconEnginePlugin_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QIconEnginePlugin, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QIconEnginePlugin_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1421,10 +1489,10 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QIconEnginePlugin_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QIconEnginePlugin) i32 {
+        return qtc.QIconEnginePlugin_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -1439,10 +1507,10 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QIconEnginePlugin_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QIconEnginePlugin) i32 {
+        return qtc.QIconEnginePlugin_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1453,12 +1521,12 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QIconEnginePlugin`
+    /// ` self: QIconEnginePlugin`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QIconEnginePlugin_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QIconEnginePlugin, callback: *const fn () callconv(.c) i32) void {
+        qtc.QIconEnginePlugin_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1469,13 +1537,13 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QIconEnginePlugin, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QIconEnginePlugin_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QIconEnginePlugin_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -1490,13 +1558,13 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QIconEnginePlugin, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QIconEnginePlugin_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QIconEnginePlugin_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1507,12 +1575,12 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QIconEnginePlugin`
+    /// ` self: QIconEnginePlugin`
     ///
-    /// ` callback: *const fn (self: QtC.QIconEnginePlugin, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QIconEnginePlugin, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QIconEnginePlugin_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QIconEnginePlugin, callback: *const fn (QIconEnginePlugin, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QIconEnginePlugin_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1523,12 +1591,13 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QIconEnginePlugin_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QIconEnginePlugin, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QIconEnginePlugin_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -1543,12 +1612,13 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QIconEnginePlugin_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QIconEnginePlugin, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QIconEnginePlugin_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1559,12 +1629,12 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QIconEnginePlugin`
+    /// ` self: QIconEnginePlugin`
     ///
-    /// ` callback: *const fn (self: QtC.QIconEnginePlugin, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QIconEnginePlugin, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QIconEnginePlugin_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QIconEnginePlugin, callback: *const fn (QIconEnginePlugin, QMetaMethod) callconv(.c) bool) void {
+        qtc.QIconEnginePlugin_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1575,12 +1645,12 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    /// ` callback: *const fn (self: QtC.QIconEnginePlugin, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QIconEnginePlugin, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QIconEnginePlugin, callback: *const fn (QIconEnginePlugin, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -1593,9 +1663,9 @@ pub const qiconengineplugin = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QIconEnginePlugin `
+    /// ` self: QIconEnginePlugin `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QIconEnginePlugin_Delete(@ptrCast(self));
+    pub fn Delete(self: QIconEnginePlugin) void {
+        qtc.QIconEnginePlugin_Delete(@ptrCast(self.ptr));
     }
 };

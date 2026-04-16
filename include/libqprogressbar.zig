@@ -1,5 +1,64 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QAction = @import("libqt6").QAction;
+const QActionEvent = @import("libqt6").QActionEvent;
+const QBackingStore = @import("libqt6").QBackingStore;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QBitmap = @import("libqt6").QBitmap;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QCloseEvent = @import("libqt6").QCloseEvent;
+const QContextMenuEvent = @import("libqt6").QContextMenuEvent;
+const QCursor = @import("libqt6").QCursor;
+const QDragEnterEvent = @import("libqt6").QDragEnterEvent;
+const QDragLeaveEvent = @import("libqt6").QDragLeaveEvent;
+const QDragMoveEvent = @import("libqt6").QDragMoveEvent;
+const QDropEvent = @import("libqt6").QDropEvent;
+const QEnterEvent = @import("libqt6").QEnterEvent;
+const QEvent = @import("libqt6").QEvent;
+const QFocusEvent = @import("libqt6").QFocusEvent;
+const QFont = @import("libqt6").QFont;
+const QFontInfo = @import("libqt6").QFontInfo;
+const QFontMetrics = @import("libqt6").QFontMetrics;
+const QGraphicsEffect = @import("libqt6").QGraphicsEffect;
+const QGraphicsProxyWidget = @import("libqt6").QGraphicsProxyWidget;
+const QHideEvent = @import("libqt6").QHideEvent;
+const QIcon = @import("libqt6").QIcon;
+const QInputMethodEvent = @import("libqt6").QInputMethodEvent;
+const QKeyEvent = @import("libqt6").QKeyEvent;
+const QKeySequence = @import("libqt6").QKeySequence;
+const QLayout = @import("libqt6").QLayout;
+const QLocale = @import("libqt6").QLocale;
+const QMargins = @import("libqt6").QMargins;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QMouseEvent = @import("libqt6").QMouseEvent;
+const QMoveEvent = @import("libqt6").QMoveEvent;
+const QObject = @import("libqt6").QObject;
+const QPaintDevice = @import("libqt6").QPaintDevice;
+const QPaintEngine = @import("libqt6").QPaintEngine;
+const QPaintEvent = @import("libqt6").QPaintEvent;
+const QPainter = @import("libqt6").QPainter;
+const QPalette = @import("libqt6").QPalette;
+const QPixmap = @import("libqt6").QPixmap;
+const QPoint = @import("libqt6").QPoint;
+const QPointF = @import("libqt6").QPointF;
+const QRect = @import("libqt6").QRect;
+const QRegion = @import("libqt6").QRegion;
+const QResizeEvent = @import("libqt6").QResizeEvent;
+const QScreen = @import("libqt6").QScreen;
+const QShowEvent = @import("libqt6").QShowEvent;
+const QSize = @import("libqt6").QSize;
+const QSizePolicy = @import("libqt6").QSizePolicy;
+const QStyle = @import("libqt6").QStyle;
+const QStyleOptionProgressBar = @import("libqt6").QStyleOptionProgressBar;
+const QTabletEvent = @import("libqt6").QTabletEvent;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
+const QWheelEvent = @import("libqt6").QWheelEvent;
+const QWidget = @import("libqt6").QWidget;
+const QWindow = @import("libqt6").QWindow;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const qpaintdevice_enums = @import("libqpaintdevice.zig").enums;
@@ -10,31 +69,43 @@ const qwidget_enums = @import("libqwidget.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressbar.html)
-pub const qprogressbar = struct {
+pub const QProgressBar = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressbar.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QProgressBar,
+
+    pub const _is_QProgressBar = {};
+    pub const _is_QWidget = {};
+    pub const _is_QObject = {};
+    pub const _is_QPaintDevice = {};
+
     /// New constructs a new QProgressBar object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn New(parent: ?*anyopaque) QtC.QProgressBar {
-        return qtc.QProgressBar_new(@ptrCast(parent));
+    pub fn New(parent: anytype) QProgressBar {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QProgressBar_new(@ptrCast(parent.ptr)) };
     }
 
     /// New2 constructs a new QProgressBar object.
     ///
-    pub fn New2() QtC.QProgressBar {
-        return qtc.QProgressBar_new2();
+    pub fn New2() QProgressBar {
+        return .{ .ptr = qtc.QProgressBar_new2() };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QProgressBar_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QProgressBar) QMetaObject {
+        return .{ .ptr = qtc.QProgressBar_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -43,12 +114,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QProgressBar_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QProgressBar, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QProgressBar_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -61,33 +132,33 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QProgressBar_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QProgressBar) QMetaObject {
+        return .{ .ptr = qtc.QProgressBar_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QProgressBar, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QProgressBar_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QProgressBar_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QProgressBar, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QProgressBar_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QProgressBar, callback: *const fn (QProgressBar, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QProgressBar_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -98,18 +169,18 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QProgressBar, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QProgressBar_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QProgressBar_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -117,20 +188,20 @@ pub const qprogressbar = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QProgressBar_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QProgressBar, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QProgressBar_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QProgressBar, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QProgressBar_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QProgressBar, callback: *const fn (QProgressBar, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QProgressBar_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -141,7 +212,7 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -149,19 +220,19 @@ pub const qprogressbar = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QProgressBar_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QProgressBar, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QProgressBar_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -174,42 +245,42 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn Minimum(self: ?*anyopaque) i32 {
-        return qtc.QProgressBar_Minimum(@ptrCast(self));
+    pub fn Minimum(self: QProgressBar) i32 {
+        return qtc.QProgressBar_Minimum(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressbar.html#maximum)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn Maximum(self: ?*anyopaque) i32 {
-        return qtc.QProgressBar_Maximum(@ptrCast(self));
+    pub fn Maximum(self: QProgressBar) i32 {
+        return qtc.QProgressBar_Maximum(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressbar.html#value)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn Value(self: ?*anyopaque) i32 {
-        return qtc.QProgressBar_Value(@ptrCast(self));
+    pub fn Value(self: QProgressBar) i32 {
+        return qtc.QProgressBar_Value(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressbar.html#text)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QProgressBar_Text(@ptrCast(self));
+    pub fn Text(self: QProgressBar, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QProgressBar_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qprogressbar.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -220,16 +291,16 @@ pub const qprogressbar = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnText(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.QProgressBar_OnText(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnText(self: QProgressBar, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.QProgressBar_OnText(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperText` instead
@@ -242,12 +313,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QProgressBar_SuperText(@ptrCast(self));
+    pub fn SuperText(self: QProgressBar, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QProgressBar_SuperText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qprogressbar.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -258,58 +329,58 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` visible: bool `
     ///
-    pub fn SetTextVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.QProgressBar_SetTextVisible(@ptrCast(self), visible);
+    pub fn SetTextVisible(self: QProgressBar, visible: bool) void {
+        qtc.QProgressBar_SetTextVisible(@ptrCast(self.ptr), visible);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressbar.html#isTextVisible)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn IsTextVisible(self: ?*anyopaque) bool {
-        return qtc.QProgressBar_IsTextVisible(@ptrCast(self));
+    pub fn IsTextVisible(self: QProgressBar) bool {
+        return qtc.QProgressBar_IsTextVisible(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressbar.html#alignment)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn Alignment(self: ?*anyopaque) i32 {
-        return qtc.QProgressBar_Alignment(@ptrCast(self));
+    pub fn Alignment(self: QProgressBar) i32 {
+        return qtc.QProgressBar_Alignment(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressbar.html#setAlignment)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn SetAlignment(self: ?*anyopaque, alignment: i32) void {
-        qtc.QProgressBar_SetAlignment(@ptrCast(self), @bitCast(alignment));
+    pub fn SetAlignment(self: QProgressBar, alignment: i32) void {
+        qtc.QProgressBar_SetAlignment(@ptrCast(self.ptr), @bitCast(alignment));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressbar.html#sizeHint)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QProgressBar_SizeHint(@ptrCast(self));
+    pub fn SizeHint(self: QProgressBar) QSize {
+        return .{ .ptr = qtc.QProgressBar_SizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressbar.html#sizeHint)
@@ -318,12 +389,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QProgressBar_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSizeHint(self: QProgressBar, callback: *const fn () callconv(.c) QSize) void {
+        qtc.QProgressBar_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSizeHint` instead
@@ -336,20 +407,20 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QProgressBar_SuperSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: QProgressBar) QSize {
+        return .{ .ptr = qtc.QProgressBar_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressbar.html#minimumSizeHint)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn MinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QProgressBar_MinimumSizeHint(@ptrCast(self));
+    pub fn MinimumSizeHint(self: QProgressBar) QSize {
+        return .{ .ptr = qtc.QProgressBar_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressbar.html#minimumSizeHint)
@@ -358,12 +429,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnMinimumSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QProgressBar_OnMinimumSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMinimumSizeHint(self: QProgressBar, callback: *const fn () callconv(.c) QSize) void {
+        qtc.QProgressBar_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
@@ -376,110 +447,110 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn SuperMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QProgressBar_SuperMinimumSizeHint(@ptrCast(self));
+    pub fn SuperMinimumSizeHint(self: QProgressBar) QSize {
+        return .{ .ptr = qtc.QProgressBar_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressbar.html#orientation)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.Orientation `
     ///
-    pub fn Orientation(self: ?*anyopaque) i32 {
-        return qtc.QProgressBar_Orientation(@ptrCast(self));
+    pub fn Orientation(self: QProgressBar) i32 {
+        return qtc.QProgressBar_Orientation(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressbar.html#setInvertedAppearance)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` invert: bool `
     ///
-    pub fn SetInvertedAppearance(self: ?*anyopaque, invert: bool) void {
-        qtc.QProgressBar_SetInvertedAppearance(@ptrCast(self), invert);
+    pub fn SetInvertedAppearance(self: QProgressBar, invert: bool) void {
+        qtc.QProgressBar_SetInvertedAppearance(@ptrCast(self.ptr), invert);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressbar.html#invertedAppearance)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn InvertedAppearance(self: ?*anyopaque) bool {
-        return qtc.QProgressBar_InvertedAppearance(@ptrCast(self));
+    pub fn InvertedAppearance(self: QProgressBar) bool {
+        return qtc.QProgressBar_InvertedAppearance(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressbar.html#setTextDirection)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` textDirection: qprogressbar_enums.Direction `
     ///
-    pub fn SetTextDirection(self: ?*anyopaque, textDirection: i32) void {
-        qtc.QProgressBar_SetTextDirection(@ptrCast(self), @bitCast(textDirection));
+    pub fn SetTextDirection(self: QProgressBar, textDirection: i32) void {
+        qtc.QProgressBar_SetTextDirection(@ptrCast(self.ptr), @bitCast(textDirection));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressbar.html#textDirection)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ## Returns:
     ///
     /// ` qprogressbar_enums.Direction `
     ///
-    pub fn TextDirection(self: ?*anyopaque) i32 {
-        return qtc.QProgressBar_TextDirection(@ptrCast(self));
+    pub fn TextDirection(self: QProgressBar) i32 {
+        return qtc.QProgressBar_TextDirection(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressbar.html#setFormat)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` format: []const u8 `
     ///
-    pub fn SetFormat(self: ?*anyopaque, format: []const u8) void {
+    pub fn SetFormat(self: QProgressBar, format: []const u8) void {
         const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
-        qtc.QProgressBar_SetFormat(@ptrCast(self), format_str);
+        qtc.QProgressBar_SetFormat(@ptrCast(self.ptr), format_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressbar.html#resetFormat)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn ResetFormat(self: ?*anyopaque) void {
-        qtc.QProgressBar_ResetFormat(@ptrCast(self));
+    pub fn ResetFormat(self: QProgressBar) void {
+        qtc.QProgressBar_ResetFormat(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressbar.html#format)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Format(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QProgressBar_Format(@ptrCast(self));
+    pub fn Format(self: QProgressBar, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QProgressBar_Format(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qprogressbar.Format: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -490,108 +561,109 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn Reset(self: ?*anyopaque) void {
-        qtc.QProgressBar_Reset(@ptrCast(self));
+    pub fn Reset(self: QProgressBar) void {
+        qtc.QProgressBar_Reset(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressbar.html#setRange)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` minimum: i32 `
     ///
     /// ` maximum: i32 `
     ///
-    pub fn SetRange(self: ?*anyopaque, minimum: i32, maximum: i32) void {
-        qtc.QProgressBar_SetRange(@ptrCast(self), @bitCast(minimum), @bitCast(maximum));
+    pub fn SetRange(self: QProgressBar, minimum: i32, maximum: i32) void {
+        qtc.QProgressBar_SetRange(@ptrCast(self.ptr), @bitCast(minimum), @bitCast(maximum));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressbar.html#setMinimum)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` minimum: i32 `
     ///
-    pub fn SetMinimum(self: ?*anyopaque, minimum: i32) void {
-        qtc.QProgressBar_SetMinimum(@ptrCast(self), @bitCast(minimum));
+    pub fn SetMinimum(self: QProgressBar, minimum: i32) void {
+        qtc.QProgressBar_SetMinimum(@ptrCast(self.ptr), @bitCast(minimum));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressbar.html#setMaximum)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` maximum: i32 `
     ///
-    pub fn SetMaximum(self: ?*anyopaque, maximum: i32) void {
-        qtc.QProgressBar_SetMaximum(@ptrCast(self), @bitCast(maximum));
+    pub fn SetMaximum(self: QProgressBar, maximum: i32) void {
+        qtc.QProgressBar_SetMaximum(@ptrCast(self.ptr), @bitCast(maximum));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressbar.html#setValue)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` value: i32 `
     ///
-    pub fn SetValue(self: ?*anyopaque, value: i32) void {
-        qtc.QProgressBar_SetValue(@ptrCast(self), @bitCast(value));
+    pub fn SetValue(self: QProgressBar, value: i32) void {
+        qtc.QProgressBar_SetValue(@ptrCast(self.ptr), @bitCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressbar.html#setOrientation)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` orientation: qnamespace_enums.Orientation `
     ///
-    pub fn SetOrientation(self: ?*anyopaque, orientation: i32) void {
-        qtc.QProgressBar_SetOrientation(@ptrCast(self), @bitCast(orientation));
+    pub fn SetOrientation(self: QProgressBar, orientation: i32) void {
+        qtc.QProgressBar_SetOrientation(@ptrCast(self.ptr), @bitCast(orientation));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressbar.html#valueChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` value: i32 `
     ///
-    pub fn ValueChanged(self: ?*anyopaque, value: i32) void {
-        qtc.QProgressBar_ValueChanged(@ptrCast(self), @bitCast(value));
+    pub fn ValueChanged(self: QProgressBar, value: i32) void {
+        qtc.QProgressBar_ValueChanged(@ptrCast(self.ptr), @bitCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressbar.html#valueChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, value: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QProgressBar, value: i32) callconv(.c) void `
     ///
-    pub fn OnValueChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QProgressBar_Connect_ValueChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnValueChanged(self: QProgressBar, callback: *const fn (QProgressBar, i32) callconv(.c) void) void {
+        qtc.QProgressBar_Connect_ValueChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressbar.html#event)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` e: QtC.QEvent `
+    /// ` e: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, e: ?*anyopaque) bool {
-        return qtc.QProgressBar_Event(@ptrCast(self), @ptrCast(e));
+    pub fn Event(self: QProgressBar, e: anytype) bool {
+        comptime _ = @TypeOf(e)._is_QEvent;
+        return qtc.QProgressBar_Event(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressbar.html#event)
@@ -600,12 +672,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, e: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QProgressBar, e: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QProgressBar_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QProgressBar, callback: *const fn (QProgressBar, QEvent) callconv(.c) bool) void {
+        qtc.QProgressBar_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -618,24 +690,26 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` e: QtC.QEvent `
+    /// ` e: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, e: ?*anyopaque) bool {
-        return qtc.QProgressBar_SuperEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperEvent(self: QProgressBar, e: anytype) bool {
+        comptime _ = @TypeOf(e)._is_QEvent;
+        return qtc.QProgressBar_SuperEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressbar.html#paintEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` param1: QtC.QPaintEvent `
+    /// ` param1: QPaintEvent `
     ///
-    pub fn PaintEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QProgressBar_PaintEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn PaintEvent(self: QProgressBar, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPaintEvent;
+        qtc.QProgressBar_PaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressbar.html#paintEvent)
@@ -644,12 +718,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, param1: QtC.QPaintEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QProgressBar, param1: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProgressBar_OnPaintEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaintEvent(self: QProgressBar, callback: *const fn (QProgressBar, QPaintEvent) callconv(.c) void) void {
+        qtc.QProgressBar_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperPaintEvent` instead
@@ -662,24 +736,26 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` param1: QtC.QPaintEvent `
+    /// ` param1: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QProgressBar_SuperPaintEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperPaintEvent(self: QProgressBar, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPaintEvent;
+        qtc.QProgressBar_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressbar.html#initStyleOption)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` option: QtC.QStyleOptionProgressBar `
+    /// ` option: QStyleOptionProgressBar `
     ///
-    pub fn InitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        qtc.QProgressBar_InitStyleOption(@ptrCast(self), @ptrCast(option));
+    pub fn InitStyleOption(self: QProgressBar, option: anytype) void {
+        comptime _ = @TypeOf(option)._is_QStyleOptionProgressBar;
+        qtc.QProgressBar_InitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressbar.html#initStyleOption)
@@ -688,12 +764,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, option: QtC.QStyleOptionProgressBar) callconv(.c) void `
+    /// ` callback: *const fn (self: QProgressBar, option: QStyleOptionProgressBar) callconv(.c) void `
     ///
-    pub fn OnInitStyleOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProgressBar_OnInitStyleOption(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInitStyleOption(self: QProgressBar, callback: *const fn (QProgressBar, QStyleOptionProgressBar) callconv(.c) void) void {
+        qtc.QProgressBar_OnInitStyleOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperInitStyleOption` instead
@@ -706,25 +782,26 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` option: QtC.QStyleOptionProgressBar `
+    /// ` option: QStyleOptionProgressBar `
     ///
-    pub fn SuperInitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        qtc.QProgressBar_SuperInitStyleOption(@ptrCast(self), @ptrCast(option));
+    pub fn SuperInitStyleOption(self: QProgressBar, option: anytype) void {
+        comptime _ = @TypeOf(option)._is_QStyleOptionProgressBar;
+        qtc.QProgressBar_SuperInitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -738,15 +815,15 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -762,10 +839,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn WinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_WinId(@ptrCast(self));
+    pub fn WinId(self: QProgressBar) usize {
+        return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -774,10 +851,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn CreateWinId(self: ?*anyopaque) void {
-        qtc.QWidget_CreateWinId(@ptrCast(self));
+    pub fn CreateWinId(self: QProgressBar) void {
+        qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -786,10 +863,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn InternalWinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_InternalWinId(@ptrCast(self));
+    pub fn InternalWinId(self: QProgressBar) usize {
+        return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -798,10 +875,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn EffectiveWinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_EffectiveWinId(@ptrCast(self));
+    pub fn EffectiveWinId(self: QProgressBar) usize {
+        return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -810,10 +887,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn Style(self: ?*anyopaque) QtC.QStyle {
-        return qtc.QWidget_Style(@ptrCast(self));
+    pub fn Style(self: QProgressBar) QStyle {
+        return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -822,12 +899,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` style: QtC.QStyle `
+    /// ` style: QStyle `
     ///
-    pub fn SetStyle(self: ?*anyopaque, style: ?*anyopaque) void {
-        qtc.QWidget_SetStyle(@ptrCast(self), @ptrCast(style));
+    pub fn SetStyle(self: QProgressBar, style: anytype) void {
+        comptime _ = @TypeOf(style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
     }
 
     /// Inherited from QWidget
@@ -836,10 +914,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn IsTopLevel(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsTopLevel(@ptrCast(self));
+    pub fn IsTopLevel(self: QProgressBar) bool {
+        return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -848,10 +926,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn IsWindow(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsWindow(@ptrCast(self));
+    pub fn IsWindow(self: QProgressBar) bool {
+        return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -860,10 +938,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn IsModal(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsModal(@ptrCast(self));
+    pub fn IsModal(self: QProgressBar) bool {
+        return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -872,14 +950,14 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowModality(@ptrCast(self));
+    pub fn WindowModality(self: QProgressBar) i32 {
+        return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -888,12 +966,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self), @bitCast(windowModality));
+    pub fn SetWindowModality(self: QProgressBar, windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
     }
 
     /// Inherited from QWidget
@@ -902,10 +980,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn IsEnabled(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsEnabled(@ptrCast(self));
+    pub fn IsEnabled(self: QProgressBar) bool {
+        return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -914,12 +992,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidget_IsEnabledTo(@ptrCast(self), @ptrCast(param1));
+    pub fn IsEnabledTo(self: QProgressBar, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -928,12 +1007,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
-        qtc.QWidget_SetEnabled(@ptrCast(self), enabled);
+    pub fn SetEnabled(self: QProgressBar, enabled: bool) void {
+        qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QWidget
@@ -942,12 +1021,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: ?*anyopaque, disabled: bool) void {
-        qtc.QWidget_SetDisabled(@ptrCast(self), disabled);
+    pub fn SetDisabled(self: QProgressBar, disabled: bool) void {
+        qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
 
     /// Inherited from QWidget
@@ -956,12 +1035,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: ?*anyopaque, windowModified: bool) void {
-        qtc.QWidget_SetWindowModified(@ptrCast(self), windowModified);
+    pub fn SetWindowModified(self: QProgressBar, windowModified: bool) void {
+        qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
 
     /// Inherited from QWidget
@@ -970,10 +1049,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn FrameGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_FrameGeometry(@ptrCast(self));
+    pub fn FrameGeometry(self: QProgressBar) QRect {
+        return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -982,10 +1061,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn Geometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_Geometry(@ptrCast(self));
+    pub fn Geometry(self: QProgressBar) QRect {
+        return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -994,10 +1073,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn NormalGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_NormalGeometry(@ptrCast(self));
+    pub fn NormalGeometry(self: QProgressBar) QRect {
+        return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1006,10 +1085,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn X(self: ?*anyopaque) i32 {
-        return qtc.QWidget_X(@ptrCast(self));
+    pub fn X(self: QProgressBar) i32 {
+        return qtc.QWidget_X(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1018,10 +1097,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn Y(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Y(@ptrCast(self));
+    pub fn Y(self: QProgressBar) i32 {
+        return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1030,10 +1109,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn Pos(self: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_Pos(@ptrCast(self));
+    pub fn Pos(self: QProgressBar) QPoint {
+        return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1042,10 +1121,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_FrameSize(@ptrCast(self));
+    pub fn FrameSize(self: QProgressBar) QSize {
+        return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1054,10 +1133,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn Size(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_Size(@ptrCast(self));
+    pub fn Size(self: QProgressBar) QSize {
+        return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1066,10 +1145,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn Width(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Width(@ptrCast(self));
+    pub fn Width(self: QProgressBar) i32 {
+        return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1078,10 +1157,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn Height(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Height(@ptrCast(self));
+    pub fn Height(self: QProgressBar) i32 {
+        return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1090,10 +1169,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn Rect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_Rect(@ptrCast(self));
+    pub fn Rect(self: QProgressBar) QRect {
+        return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1102,10 +1181,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn ChildrenRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_ChildrenRect(@ptrCast(self));
+    pub fn ChildrenRect(self: QProgressBar) QRect {
+        return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1114,10 +1193,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn ChildrenRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_ChildrenRegion(@ptrCast(self));
+    pub fn ChildrenRegion(self: QProgressBar) QRegion {
+        return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1126,10 +1205,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MinimumSize(@ptrCast(self));
+    pub fn MinimumSize(self: QProgressBar) QSize {
+        return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1138,10 +1217,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MaximumSize(@ptrCast(self));
+    pub fn MaximumSize(self: QProgressBar) QSize {
+        return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1150,10 +1229,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn MinimumWidth(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MinimumWidth(@ptrCast(self));
+    pub fn MinimumWidth(self: QProgressBar) i32 {
+        return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1162,10 +1241,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn MinimumHeight(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MinimumHeight(@ptrCast(self));
+    pub fn MinimumHeight(self: QProgressBar) i32 {
+        return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1174,10 +1253,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn MaximumWidth(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MaximumWidth(@ptrCast(self));
+    pub fn MaximumWidth(self: QProgressBar) i32 {
+        return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1186,10 +1265,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn MaximumHeight(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MaximumHeight(@ptrCast(self));
+    pub fn MaximumHeight(self: QProgressBar) i32 {
+        return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1198,12 +1277,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` minimumSize: QtC.QSize `
+    /// ` minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: ?*anyopaque, minimumSize: ?*anyopaque) void {
-        qtc.QWidget_SetMinimumSize(@ptrCast(self), @ptrCast(minimumSize));
+    pub fn SetMinimumSize(self: QProgressBar, minimumSize: anytype) void {
+        comptime _ = @TypeOf(minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -1212,14 +1292,14 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` minw: i32 `
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
-        qtc.QWidget_SetMinimumSize2(@ptrCast(self), @bitCast(minw), @bitCast(minh));
+    pub fn SetMinimumSize2(self: QProgressBar, minw: i32, minh: i32) void {
+        qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -1228,12 +1308,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` maximumSize: QtC.QSize `
+    /// ` maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: ?*anyopaque, maximumSize: ?*anyopaque) void {
-        qtc.QWidget_SetMaximumSize(@ptrCast(self), @ptrCast(maximumSize));
+    pub fn SetMaximumSize(self: QProgressBar, maximumSize: anytype) void {
+        comptime _ = @TypeOf(maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -1242,14 +1323,14 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` maxw: i32 `
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
-        qtc.QWidget_SetMaximumSize2(@ptrCast(self), @bitCast(maxw), @bitCast(maxh));
+    pub fn SetMaximumSize2(self: QProgressBar, maxw: i32, maxh: i32) void {
+        qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -1258,12 +1339,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
-        qtc.QWidget_SetMinimumWidth(@ptrCast(self), @bitCast(minw));
+    pub fn SetMinimumWidth(self: QProgressBar, minw: i32) void {
+        qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
 
     /// Inherited from QWidget
@@ -1272,12 +1353,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
-        qtc.QWidget_SetMinimumHeight(@ptrCast(self), @bitCast(minh));
+    pub fn SetMinimumHeight(self: QProgressBar, minh: i32) void {
+        qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -1286,12 +1367,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
-        qtc.QWidget_SetMaximumWidth(@ptrCast(self), @bitCast(maxw));
+    pub fn SetMaximumWidth(self: QProgressBar, maxw: i32) void {
+        qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
 
     /// Inherited from QWidget
@@ -1300,12 +1381,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
-        qtc.QWidget_SetMaximumHeight(@ptrCast(self), @bitCast(maxh));
+    pub fn SetMaximumHeight(self: QProgressBar, maxh: i32) void {
+        qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -1314,10 +1395,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn SizeIncrement(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_SizeIncrement(@ptrCast(self));
+    pub fn SizeIncrement(self: QProgressBar) QSize {
+        return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1326,12 +1407,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` sizeIncrement: QtC.QSize `
+    /// ` sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: ?*anyopaque, sizeIncrement: ?*anyopaque) void {
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self), @ptrCast(sizeIncrement));
+    pub fn SetSizeIncrement(self: QProgressBar, sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
     }
 
     /// Inherited from QWidget
@@ -1340,14 +1422,14 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetSizeIncrement2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetSizeIncrement2(self: QProgressBar, w: i32, h: i32) void {
+        qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -1356,10 +1438,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn BaseSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_BaseSize(@ptrCast(self));
+    pub fn BaseSize(self: QProgressBar) QSize {
+        return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1368,12 +1450,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` baseSize: QtC.QSize `
+    /// ` baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: ?*anyopaque, baseSize: ?*anyopaque) void {
-        qtc.QWidget_SetBaseSize(@ptrCast(self), @ptrCast(baseSize));
+    pub fn SetBaseSize(self: QProgressBar, baseSize: anytype) void {
+        comptime _ = @TypeOf(baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -1382,14 +1465,14 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` basew: i32 `
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
-        qtc.QWidget_SetBaseSize2(@ptrCast(self), @bitCast(basew), @bitCast(baseh));
+    pub fn SetBaseSize2(self: QProgressBar, basew: i32, baseh: i32) void {
+        qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
 
     /// Inherited from QWidget
@@ -1398,12 +1481,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` fixedSize: QtC.QSize `
+    /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: ?*anyopaque, fixedSize: ?*anyopaque) void {
-        qtc.QWidget_SetFixedSize(@ptrCast(self), @ptrCast(fixedSize));
+    pub fn SetFixedSize(self: QProgressBar, fixedSize: anytype) void {
+        comptime _ = @TypeOf(fixedSize)._is_QSize;
+        qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -1412,14 +1496,14 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetFixedSize2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetFixedSize2(self: QProgressBar, w: i32, h: i32) void {
+        qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -1428,12 +1512,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
-        qtc.QWidget_SetFixedWidth(@ptrCast(self), @bitCast(w));
+    pub fn SetFixedWidth(self: QProgressBar, w: i32) void {
+        qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
 
     /// Inherited from QWidget
@@ -1442,12 +1526,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
-        qtc.QWidget_SetFixedHeight(@ptrCast(self), @bitCast(h));
+    pub fn SetFixedHeight(self: QProgressBar, h: i32) void {
+        qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -1456,12 +1540,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapToGlobal(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal(self: QProgressBar, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1470,12 +1555,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToGlobal2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal2(self: QProgressBar, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1484,12 +1570,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFromGlobal(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal(self: QProgressBar, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1498,12 +1585,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromGlobal2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal2(self: QProgressBar, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1512,12 +1600,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapToParent(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent(self: QProgressBar, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1526,12 +1615,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToParent2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent2(self: QProgressBar, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1540,12 +1630,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFromParent(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent(self: QProgressBar, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1554,12 +1645,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromParent2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent2(self: QProgressBar, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1568,14 +1660,16 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPointF `
+    /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapTo(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapTo(self: QProgressBar, param1: anytype, param2: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1584,14 +1678,16 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPoint `
+    /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapTo2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapTo2(self: QProgressBar, param1: anytype, param2: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1600,14 +1696,16 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPointF `
+    /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFrom(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapFrom(self: QProgressBar, param1: anytype, param2: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1616,14 +1714,16 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPoint `
+    /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFrom2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapFrom2(self: QProgressBar, param1: anytype, param2: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1632,10 +1732,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn Window(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_Window(@ptrCast(self));
+    pub fn Window(self: QProgressBar) QWidget {
+        return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1644,10 +1744,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn NativeParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_NativeParentWidget(@ptrCast(self));
+    pub fn NativeParentWidget(self: QProgressBar) QWidget {
+        return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1656,10 +1756,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn TopLevelWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_TopLevelWidget(@ptrCast(self));
+    pub fn TopLevelWidget(self: QProgressBar) QWidget {
+        return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1668,10 +1768,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn Palette(self: ?*anyopaque) QtC.QPalette {
-        return qtc.QWidget_Palette(@ptrCast(self));
+    pub fn Palette(self: QProgressBar) QPalette {
+        return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1680,12 +1780,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` palette: QtC.QPalette `
+    /// ` palette: QPalette `
     ///
-    pub fn SetPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
-        qtc.QWidget_SetPalette(@ptrCast(self), @ptrCast(palette));
+    pub fn SetPalette(self: QProgressBar, palette: anytype) void {
+        comptime _ = @TypeOf(palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
     }
 
     /// Inherited from QWidget
@@ -1694,12 +1795,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self), @bitCast(backgroundRole));
+    pub fn SetBackgroundRole(self: QProgressBar, backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
     }
 
     /// Inherited from QWidget
@@ -1708,14 +1809,14 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: ?*anyopaque) i32 {
-        return qtc.QWidget_BackgroundRole(@ptrCast(self));
+    pub fn BackgroundRole(self: QProgressBar) i32 {
+        return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1724,12 +1825,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self), @bitCast(foregroundRole));
+    pub fn SetForegroundRole(self: QProgressBar, foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
     }
 
     /// Inherited from QWidget
@@ -1738,14 +1839,14 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ForegroundRole(@ptrCast(self));
+    pub fn ForegroundRole(self: QProgressBar) i32 {
+        return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1754,10 +1855,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn Font(self: ?*anyopaque) QtC.QFont {
-        return qtc.QWidget_Font(@ptrCast(self));
+    pub fn Font(self: QProgressBar) QFont {
+        return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1766,12 +1867,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` font: QtC.QFont `
+    /// ` font: QFont `
     ///
-    pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
-        qtc.QWidget_SetFont(@ptrCast(self), @ptrCast(font));
+    pub fn SetFont(self: QProgressBar, font: anytype) void {
+        comptime _ = @TypeOf(font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
     }
 
     /// Inherited from QWidget
@@ -1780,10 +1882,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn FontMetrics(self: ?*anyopaque) QtC.QFontMetrics {
-        return qtc.QWidget_FontMetrics(@ptrCast(self));
+    pub fn FontMetrics(self: QProgressBar) QFontMetrics {
+        return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1792,10 +1894,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn FontInfo(self: ?*anyopaque) QtC.QFontInfo {
-        return qtc.QWidget_FontInfo(@ptrCast(self));
+    pub fn FontInfo(self: QProgressBar) QFontInfo {
+        return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1804,10 +1906,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
-        return qtc.QWidget_Cursor(@ptrCast(self));
+    pub fn Cursor(self: QProgressBar) QCursor {
+        return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1816,12 +1918,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` cursor: QtC.QCursor `
+    /// ` cursor: QCursor `
     ///
-    pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
-        qtc.QWidget_SetCursor(@ptrCast(self), @ptrCast(cursor));
+    pub fn SetCursor(self: QProgressBar, cursor: anytype) void {
+        comptime _ = @TypeOf(cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
     }
 
     /// Inherited from QWidget
@@ -1830,10 +1933,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn UnsetCursor(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetCursor(@ptrCast(self));
+    pub fn UnsetCursor(self: QProgressBar) void {
+        qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1842,12 +1945,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetMouseTracking(@ptrCast(self), enable);
+    pub fn SetMouseTracking(self: QProgressBar, enable: bool) void {
+        qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -1856,10 +1959,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn HasMouseTracking(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasMouseTracking(@ptrCast(self));
+    pub fn HasMouseTracking(self: QProgressBar) bool {
+        return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1868,10 +1971,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn UnderMouse(self: ?*anyopaque) bool {
-        return qtc.QWidget_UnderMouse(@ptrCast(self));
+    pub fn UnderMouse(self: QProgressBar) bool {
+        return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1880,12 +1983,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetTabletTracking(@ptrCast(self), enable);
+    pub fn SetTabletTracking(self: QProgressBar, enable: bool) void {
+        qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -1894,10 +1997,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn HasTabletTracking(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasTabletTracking(@ptrCast(self));
+    pub fn HasTabletTracking(self: QProgressBar) bool {
+        return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1906,12 +2009,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` mask: QtC.QBitmap `
+    /// ` mask: QBitmap `
     ///
-    pub fn SetMask(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMask(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask(self: QProgressBar, mask: anytype) void {
+        comptime _ = @TypeOf(mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
 
     /// Inherited from QWidget
@@ -1920,12 +2024,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` mask: QtC.QRegion `
+    /// ` mask: QRegion `
     ///
-    pub fn SetMask2(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMask2(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask2(self: QProgressBar, mask: anytype) void {
+        comptime _ = @TypeOf(mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
 
     /// Inherited from QWidget
@@ -1934,10 +2039,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn Mask(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_Mask(@ptrCast(self));
+    pub fn Mask(self: QProgressBar) QRegion {
+        return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1946,10 +2051,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn ClearMask(self: ?*anyopaque) void {
-        qtc.QWidget_ClearMask(@ptrCast(self));
+    pub fn ClearMask(self: QProgressBar) void {
+        qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1958,12 +2063,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: ?*anyopaque, target: ?*anyopaque) void {
-        qtc.QWidget_Render(@ptrCast(self), @ptrCast(target));
+    pub fn Render(self: QProgressBar, target: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
 
     /// Inherited from QWidget
@@ -1972,12 +2078,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn Render2(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QWidget_Render2(@ptrCast(self), @ptrCast(painter));
+    pub fn Render2(self: QProgressBar, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// Inherited from QWidget
@@ -1986,10 +2093,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn Grab(self: ?*anyopaque) QtC.QPixmap {
-        return qtc.QWidget_Grab(@ptrCast(self));
+    pub fn Grab(self: QProgressBar) QPixmap {
+        return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1998,10 +2105,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
-        return qtc.QWidget_GraphicsEffect(@ptrCast(self));
+    pub fn GraphicsEffect(self: QProgressBar) QGraphicsEffect {
+        return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2010,12 +2117,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` effect: QtC.QGraphicsEffect `
+    /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
-        qtc.QWidget_SetGraphicsEffect(@ptrCast(self), @ptrCast(effect));
+    pub fn SetGraphicsEffect(self: QProgressBar, effect: anytype) void {
+        comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
+        qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
 
     /// Inherited from QWidget
@@ -2024,12 +2132,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_GrabGesture(@ptrCast(self), @bitCast(typeVal));
+    pub fn GrabGesture(self: QProgressBar, typeVal: i32) void {
+        qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -2038,12 +2146,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_UngrabGesture(@ptrCast(self), @bitCast(typeVal));
+    pub fn UngrabGesture(self: QProgressBar, typeVal: i32) void {
+        qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -2052,16 +2160,16 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
+    pub fn SetWindowTitle(self: QProgressBar, windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
             .len = windowTitle.len,
             .data = windowTitle.ptr,
         };
-        qtc.QWidget_SetWindowTitle(@ptrCast(self), windowTitle_str);
+        qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
 
     /// Inherited from QWidget
@@ -2070,16 +2178,16 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
+    pub fn SetStyleSheet(self: QProgressBar, styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
             .len = styleSheet.len,
             .data = styleSheet.ptr,
         };
-        qtc.QWidget_SetStyleSheet(@ptrCast(self), styleSheet_str);
+        qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
 
     /// Inherited from QWidget
@@ -2088,12 +2196,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_StyleSheet(@ptrCast(self));
+    pub fn StyleSheet(self: QProgressBar, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qprogressbar.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2106,12 +2214,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowTitle(@ptrCast(self));
+    pub fn WindowTitle(self: QProgressBar, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qprogressbar.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2124,12 +2232,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QWidget_SetWindowIcon(@ptrCast(self), @ptrCast(icon));
+    pub fn SetWindowIcon(self: QProgressBar, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QWidget
@@ -2138,10 +2247,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn WindowIcon(self: ?*anyopaque) QtC.QIcon {
-        return qtc.QWidget_WindowIcon(@ptrCast(self));
+    pub fn WindowIcon(self: QProgressBar) QIcon {
+        return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2150,16 +2259,16 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
+    pub fn SetWindowIconText(self: QProgressBar, windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
             .len = windowIconText.len,
             .data = windowIconText.ptr,
         };
-        qtc.QWidget_SetWindowIconText(@ptrCast(self), windowIconText_str);
+        qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
 
     /// Inherited from QWidget
@@ -2168,12 +2277,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowIconText(@ptrCast(self));
+    pub fn WindowIconText(self: QProgressBar, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qprogressbar.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2186,16 +2295,16 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
+    pub fn SetWindowRole(self: QProgressBar, windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
             .len = windowRole.len,
             .data = windowRole.ptr,
         };
-        qtc.QWidget_SetWindowRole(@ptrCast(self), windowRole_str);
+        qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
 
     /// Inherited from QWidget
@@ -2204,12 +2313,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowRole(@ptrCast(self));
+    pub fn WindowRole(self: QProgressBar, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qprogressbar.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2222,16 +2331,16 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
+    pub fn SetWindowFilePath(self: QProgressBar, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
-        qtc.QWidget_SetWindowFilePath(@ptrCast(self), filePath_str);
+        qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
 
     /// Inherited from QWidget
@@ -2240,12 +2349,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
+    pub fn WindowFilePath(self: QProgressBar, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qprogressbar.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2258,12 +2367,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
-        qtc.QWidget_SetWindowOpacity(@ptrCast(self), @bitCast(level));
+    pub fn SetWindowOpacity(self: QProgressBar, level: f64) void {
+        qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
 
     /// Inherited from QWidget
@@ -2272,10 +2381,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn WindowOpacity(self: ?*anyopaque) f64 {
-        return qtc.QWidget_WindowOpacity(@ptrCast(self));
+    pub fn WindowOpacity(self: QProgressBar) f64 {
+        return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2284,10 +2393,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn IsWindowModified(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsWindowModified(@ptrCast(self));
+    pub fn IsWindowModified(self: QProgressBar) bool {
+        return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2296,16 +2405,16 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
+    pub fn SetToolTip(self: QProgressBar, toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
             .len = toolTip.len,
             .data = toolTip.ptr,
         };
-        qtc.QWidget_SetToolTip(@ptrCast(self), toolTip_str);
+        qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
 
     /// Inherited from QWidget
@@ -2314,12 +2423,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_ToolTip(@ptrCast(self));
+    pub fn ToolTip(self: QProgressBar, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qprogressbar.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2332,12 +2441,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
-        qtc.QWidget_SetToolTipDuration(@ptrCast(self), @bitCast(msec));
+    pub fn SetToolTipDuration(self: QProgressBar, msec: i32) void {
+        qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
 
     /// Inherited from QWidget
@@ -2346,10 +2455,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn ToolTipDuration(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ToolTipDuration(@ptrCast(self));
+    pub fn ToolTipDuration(self: QProgressBar) i32 {
+        return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2358,16 +2467,16 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
+    pub fn SetStatusTip(self: QProgressBar, statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
             .len = statusTip.len,
             .data = statusTip.ptr,
         };
-        qtc.QWidget_SetStatusTip(@ptrCast(self), statusTip_str);
+        qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
 
     /// Inherited from QWidget
@@ -2376,12 +2485,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_StatusTip(@ptrCast(self));
+    pub fn StatusTip(self: QProgressBar, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qprogressbar.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2394,16 +2503,16 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
+    pub fn SetWhatsThis(self: QProgressBar, whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
             .len = whatsThis.len,
             .data = whatsThis.ptr,
         };
-        qtc.QWidget_SetWhatsThis(@ptrCast(self), whatsThis_str);
+        qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
 
     /// Inherited from QWidget
@@ -2412,12 +2521,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WhatsThis(@ptrCast(self));
+    pub fn WhatsThis(self: QProgressBar, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qprogressbar.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2430,12 +2539,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_AccessibleName(@ptrCast(self));
+    pub fn AccessibleName(self: QProgressBar, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qprogressbar.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2448,16 +2557,16 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
+    pub fn SetAccessibleName(self: QProgressBar, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QWidget_SetAccessibleName(@ptrCast(self), name_str);
+        qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QWidget
@@ -2466,12 +2575,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
+    pub fn AccessibleDescription(self: QProgressBar, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qprogressbar.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2484,16 +2593,16 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
+    pub fn SetAccessibleDescription(self: QProgressBar, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
-        qtc.QWidget_SetAccessibleDescription(@ptrCast(self), description_str);
+        qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
 
     /// Inherited from QWidget
@@ -2502,12 +2611,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QWidget_SetLayoutDirection(@ptrCast(self), @bitCast(direction));
+    pub fn SetLayoutDirection(self: QProgressBar, direction: i32) void {
+        qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
 
     /// Inherited from QWidget
@@ -2516,14 +2625,14 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: ?*anyopaque) i32 {
-        return qtc.QWidget_LayoutDirection(@ptrCast(self));
+    pub fn LayoutDirection(self: QProgressBar) i32 {
+        return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2532,10 +2641,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn UnsetLayoutDirection(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self));
+    pub fn UnsetLayoutDirection(self: QProgressBar) void {
+        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2544,12 +2653,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` locale: QtC.QLocale `
+    /// ` locale: QLocale `
     ///
-    pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
-        qtc.QWidget_SetLocale(@ptrCast(self), @ptrCast(locale));
+    pub fn SetLocale(self: QProgressBar, locale: anytype) void {
+        comptime _ = @TypeOf(locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
     }
 
     /// Inherited from QWidget
@@ -2558,10 +2668,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn Locale(self: ?*anyopaque) QtC.QLocale {
-        return qtc.QWidget_Locale(@ptrCast(self));
+    pub fn Locale(self: QProgressBar) QLocale {
+        return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2570,10 +2680,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn UnsetLocale(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetLocale(@ptrCast(self));
+    pub fn UnsetLocale(self: QProgressBar) void {
+        qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2582,10 +2692,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn IsRightToLeft(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsRightToLeft(@ptrCast(self));
+    pub fn IsRightToLeft(self: QProgressBar) bool {
+        return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2594,10 +2704,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn IsLeftToRight(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsLeftToRight(@ptrCast(self));
+    pub fn IsLeftToRight(self: QProgressBar) bool {
+        return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2606,10 +2716,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn SetFocus(self: ?*anyopaque) void {
-        qtc.QWidget_SetFocus(@ptrCast(self));
+    pub fn SetFocus(self: QProgressBar) void {
+        qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2618,10 +2728,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn IsActiveWindow(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsActiveWindow(@ptrCast(self));
+    pub fn IsActiveWindow(self: QProgressBar) bool {
+        return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2630,10 +2740,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn ActivateWindow(self: ?*anyopaque) void {
-        qtc.QWidget_ActivateWindow(@ptrCast(self));
+    pub fn ActivateWindow(self: QProgressBar) void {
+        qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2642,10 +2752,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn ClearFocus(self: ?*anyopaque) void {
-        qtc.QWidget_ClearFocus(@ptrCast(self));
+    pub fn ClearFocus(self: QProgressBar) void {
+        qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2654,12 +2764,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
-        qtc.QWidget_SetFocus2(@ptrCast(self), @bitCast(reason));
+    pub fn SetFocus2(self: QProgressBar, reason: i32) void {
+        qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
 
     /// Inherited from QWidget
@@ -2668,14 +2778,14 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: ?*anyopaque) i32 {
-        return qtc.QWidget_FocusPolicy(@ptrCast(self));
+    pub fn FocusPolicy(self: QProgressBar) i32 {
+        return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2684,12 +2794,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetFocusPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetFocusPolicy(self: QProgressBar, policy: i32) void {
+        qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -2698,10 +2808,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn HasFocus(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasFocus(@ptrCast(self));
+    pub fn HasFocus(self: QProgressBar) bool {
+        return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2710,12 +2820,14 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QWidget `
+    /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: ?*anyopaque, param2: ?*anyopaque) void {
-        qtc.QWidget_SetTabOrder(@ptrCast(param1), @ptrCast(param2));
+    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QWidget;
+        qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
     /// Inherited from QWidget
@@ -2724,12 +2836,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` focusProxy: QtC.QWidget `
+    /// ` focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: ?*anyopaque, focusProxy: ?*anyopaque) void {
-        qtc.QWidget_SetFocusProxy(@ptrCast(self), @ptrCast(focusProxy));
+    pub fn SetFocusProxy(self: QProgressBar, focusProxy: anytype) void {
+        comptime _ = @TypeOf(focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
     }
 
     /// Inherited from QWidget
@@ -2738,10 +2851,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn FocusProxy(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_FocusProxy(@ptrCast(self));
+    pub fn FocusProxy(self: QProgressBar) QWidget {
+        return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2750,14 +2863,14 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
+    pub fn ContextMenuPolicy(self: QProgressBar) i32 {
+        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2766,12 +2879,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetContextMenuPolicy(self: QProgressBar, policy: i32) void {
+        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -2780,10 +2893,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn GrabMouse(self: ?*anyopaque) void {
-        qtc.QWidget_GrabMouse(@ptrCast(self));
+    pub fn GrabMouse(self: QProgressBar) void {
+        qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2792,12 +2905,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` param1: QtC.QCursor `
+    /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_GrabMouse2(@ptrCast(self), @ptrCast(param1));
+    pub fn GrabMouse2(self: QProgressBar, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QCursor;
+        qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -2806,10 +2920,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn ReleaseMouse(self: ?*anyopaque) void {
-        qtc.QWidget_ReleaseMouse(@ptrCast(self));
+    pub fn ReleaseMouse(self: QProgressBar) void {
+        qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2818,10 +2932,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn GrabKeyboard(self: ?*anyopaque) void {
-        qtc.QWidget_GrabKeyboard(@ptrCast(self));
+    pub fn GrabKeyboard(self: QProgressBar) void {
+        qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2830,10 +2944,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn ReleaseKeyboard(self: ?*anyopaque) void {
-        qtc.QWidget_ReleaseKeyboard(@ptrCast(self));
+    pub fn ReleaseKeyboard(self: QProgressBar) void {
+        qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2842,12 +2956,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` key: QtC.QKeySequence `
+    /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: ?*anyopaque, key: ?*anyopaque) i32 {
-        return qtc.QWidget_GrabShortcut(@ptrCast(self), @ptrCast(key));
+    pub fn GrabShortcut(self: QProgressBar, key: anytype) i32 {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
 
     /// Inherited from QWidget
@@ -2856,12 +2971,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_ReleaseShortcut(@ptrCast(self), @bitCast(id));
+    pub fn ReleaseShortcut(self: QProgressBar, id: i32) void {
+        qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -2870,12 +2985,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutEnabled(@ptrCast(self), @bitCast(id));
+    pub fn SetShortcutEnabled(self: QProgressBar, id: i32) void {
+        qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -2884,28 +2999,28 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self), @bitCast(id));
+    pub fn SetShortcutAutoRepeat(self: QProgressBar, id: i32) void {
+        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QtC.QWidget {
-        return qtc.QWidget_MouseGrabber();
+    pub fn MouseGrabber() QWidget {
+        return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QtC.QWidget {
-        return qtc.QWidget_KeyboardGrabber();
+    pub fn KeyboardGrabber() QWidget {
+        return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
 
     /// Inherited from QWidget
@@ -2914,10 +3029,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn UpdatesEnabled(self: ?*anyopaque) bool {
-        return qtc.QWidget_UpdatesEnabled(@ptrCast(self));
+    pub fn UpdatesEnabled(self: QProgressBar) bool {
+        return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2926,12 +3041,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self), enable);
+    pub fn SetUpdatesEnabled(self: QProgressBar, enable: bool) void {
+        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -2940,10 +3055,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn GraphicsProxyWidget(self: ?*anyopaque) QtC.QGraphicsProxyWidget {
-        return qtc.QWidget_GraphicsProxyWidget(@ptrCast(self));
+    pub fn GraphicsProxyWidget(self: QProgressBar) QGraphicsProxyWidget {
+        return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2952,10 +3067,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn Update(self: ?*anyopaque) void {
-        qtc.QWidget_Update(@ptrCast(self));
+    pub fn Update(self: QProgressBar) void {
+        qtc.QWidget_Update(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2964,10 +3079,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn Repaint(self: ?*anyopaque) void {
-        qtc.QWidget_Repaint(@ptrCast(self));
+    pub fn Repaint(self: QProgressBar) void {
+        qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2976,7 +3091,7 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` x: i32 `
     ///
@@ -2986,8 +3101,8 @@ pub const qprogressbar = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn Update2(self: QProgressBar, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -2996,12 +3111,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn Update3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Update3(@ptrCast(self), @ptrCast(param1));
+    pub fn Update3(self: QProgressBar, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3010,12 +3126,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn Update4(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Update4(@ptrCast(self), @ptrCast(param1));
+    pub fn Update4(self: QProgressBar, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3024,7 +3141,7 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` x: i32 `
     ///
@@ -3034,8 +3151,8 @@ pub const qprogressbar = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn Repaint2(self: QProgressBar, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3044,12 +3161,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Repaint3(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint3(self: QProgressBar, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3058,12 +3176,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Repaint4(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint4(self: QProgressBar, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3072,12 +3191,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: ?*anyopaque, hidden: bool) void {
-        qtc.QWidget_SetHidden(@ptrCast(self), hidden);
+    pub fn SetHidden(self: QProgressBar, hidden: bool) void {
+        qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
 
     /// Inherited from QWidget
@@ -3086,10 +3205,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn Show(self: ?*anyopaque) void {
-        qtc.QWidget_Show(@ptrCast(self));
+    pub fn Show(self: QProgressBar) void {
+        qtc.QWidget_Show(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3098,10 +3217,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn Hide(self: ?*anyopaque) void {
-        qtc.QWidget_Hide(@ptrCast(self));
+    pub fn Hide(self: QProgressBar) void {
+        qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3110,10 +3229,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn ShowMinimized(self: ?*anyopaque) void {
-        qtc.QWidget_ShowMinimized(@ptrCast(self));
+    pub fn ShowMinimized(self: QProgressBar) void {
+        qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3122,10 +3241,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn ShowMaximized(self: ?*anyopaque) void {
-        qtc.QWidget_ShowMaximized(@ptrCast(self));
+    pub fn ShowMaximized(self: QProgressBar) void {
+        qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3134,10 +3253,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn ShowFullScreen(self: ?*anyopaque) void {
-        qtc.QWidget_ShowFullScreen(@ptrCast(self));
+    pub fn ShowFullScreen(self: QProgressBar) void {
+        qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3146,10 +3265,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn ShowNormal(self: ?*anyopaque) void {
-        qtc.QWidget_ShowNormal(@ptrCast(self));
+    pub fn ShowNormal(self: QProgressBar) void {
+        qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3158,10 +3277,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn Close(self: ?*anyopaque) bool {
-        return qtc.QWidget_Close(@ptrCast(self));
+    pub fn Close(self: QProgressBar) bool {
+        return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3170,10 +3289,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn Raise(self: ?*anyopaque) void {
-        qtc.QWidget_Raise(@ptrCast(self));
+    pub fn Raise(self: QProgressBar) void {
+        qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3182,10 +3301,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn Lower(self: ?*anyopaque) void {
-        qtc.QWidget_Lower(@ptrCast(self));
+    pub fn Lower(self: QProgressBar) void {
+        qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3194,12 +3313,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_StackUnder(@ptrCast(self), @ptrCast(param1));
+    pub fn StackUnder(self: QProgressBar, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3208,14 +3328,14 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn Move(self: QProgressBar, x: i32, y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QWidget
@@ -3224,12 +3344,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn Move2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Move2(@ptrCast(self), @ptrCast(param1));
+    pub fn Move2(self: QProgressBar, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3238,14 +3359,14 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_Resize(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn Resize(self: QProgressBar, w: i32, h: i32) void {
+        qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3254,12 +3375,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` param1: QtC.QSize `
+    /// ` param1: QSize `
     ///
-    pub fn Resize2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Resize2(@ptrCast(self), @ptrCast(param1));
+    pub fn Resize2(self: QProgressBar, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QSize;
+        qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3268,7 +3390,7 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` x: i32 `
     ///
@@ -3278,8 +3400,8 @@ pub const qprogressbar = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn SetGeometry(self: QProgressBar, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3288,12 +3410,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` geometry: QtC.QRect `
+    /// ` geometry: QRect `
     ///
-    pub fn SetGeometry2(self: ?*anyopaque, geometry: ?*anyopaque) void {
-        qtc.QWidget_SetGeometry2(@ptrCast(self), @ptrCast(geometry));
+    pub fn SetGeometry2(self: QProgressBar, geometry: anytype) void {
+        comptime _ = @TypeOf(geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
     }
 
     /// Inherited from QWidget
@@ -3302,12 +3425,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
+    pub fn SaveGeometry(self: QProgressBar, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qprogressbar.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -3320,16 +3443,16 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
+    pub fn RestoreGeometry(self: QProgressBar, geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
             .len = geometry.len,
             .data = geometry.ptr,
         };
-        return qtc.QWidget_RestoreGeometry(@ptrCast(self), geometry_str);
+        return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
 
     /// Inherited from QWidget
@@ -3338,10 +3461,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn AdjustSize(self: ?*anyopaque) void {
-        qtc.QWidget_AdjustSize(@ptrCast(self));
+    pub fn AdjustSize(self: QProgressBar) void {
+        qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3350,10 +3473,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn IsVisible(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsVisible(@ptrCast(self));
+    pub fn IsVisible(self: QProgressBar) bool {
+        return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3362,12 +3485,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidget_IsVisibleTo(@ptrCast(self), @ptrCast(param1));
+    pub fn IsVisibleTo(self: QProgressBar, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3376,10 +3500,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn IsHidden(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsHidden(@ptrCast(self));
+    pub fn IsHidden(self: QProgressBar) bool {
+        return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3388,10 +3512,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn IsMinimized(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsMinimized(@ptrCast(self));
+    pub fn IsMinimized(self: QProgressBar) bool {
+        return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3400,10 +3524,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn IsMaximized(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsMaximized(@ptrCast(self));
+    pub fn IsMaximized(self: QProgressBar) bool {
+        return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3412,10 +3536,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn IsFullScreen(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsFullScreen(@ptrCast(self));
+    pub fn IsFullScreen(self: QProgressBar) bool {
+        return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3424,14 +3548,14 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowState(@ptrCast(self));
+    pub fn WindowState(self: QProgressBar) i32 {
+        return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3440,12 +3564,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_SetWindowState(@ptrCast(self), @bitCast(state));
+    pub fn SetWindowState(self: QProgressBar, state: i32) void {
+        qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -3454,12 +3578,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_OverrideWindowState(@ptrCast(self), @bitCast(state));
+    pub fn OverrideWindowState(self: QProgressBar, state: i32) void {
+        qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -3468,10 +3592,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
-        return qtc.QWidget_SizePolicy(@ptrCast(self));
+    pub fn SizePolicy(self: QProgressBar) QSizePolicy {
+        return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3480,12 +3604,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` sizePolicy: QtC.QSizePolicy `
+    /// ` sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: QtC.QSizePolicy) void {
-        qtc.QWidget_SetSizePolicy(@ptrCast(self), @ptrCast(sizePolicy));
+    pub fn SetSizePolicy(self: QProgressBar, sizePolicy: anytype) void {
+        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
     }
 
     /// Inherited from QWidget
@@ -3494,14 +3619,14 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` horizontal: qsizepolicy_enums.Policy `
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
-        qtc.QWidget_SetSizePolicy2(@ptrCast(self), @bitCast(horizontal), @bitCast(vertical));
+    pub fn SetSizePolicy2(self: QProgressBar, horizontal: i32, vertical: i32) void {
+        qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
 
     /// Inherited from QWidget
@@ -3510,10 +3635,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn VisibleRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_VisibleRegion(@ptrCast(self));
+    pub fn VisibleRegion(self: QProgressBar) QRegion {
+        return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3522,7 +3647,7 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` left: i32 `
     ///
@@ -3532,8 +3657,8 @@ pub const qprogressbar = struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QWidget_SetContentsMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
+    pub fn SetContentsMargins(self: QProgressBar, left: i32, top: i32, right: i32, bottom: i32) void {
+        qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QWidget
@@ -3542,12 +3667,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` margins: QtC.QMargins `
+    /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
-        qtc.QWidget_SetContentsMargins2(@ptrCast(self), @ptrCast(margins));
+    pub fn SetContentsMargins2(self: QProgressBar, margins: anytype) void {
+        comptime _ = @TypeOf(margins)._is_QMargins;
+        qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
 
     /// Inherited from QWidget
@@ -3556,10 +3682,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
-        return qtc.QWidget_ContentsMargins(@ptrCast(self));
+    pub fn ContentsMargins(self: QProgressBar) QMargins {
+        return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3568,10 +3694,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_ContentsRect(@ptrCast(self));
+    pub fn ContentsRect(self: QProgressBar) QRect {
+        return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3580,10 +3706,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn Layout(self: ?*anyopaque) QtC.QLayout {
-        return qtc.QWidget_Layout(@ptrCast(self));
+    pub fn Layout(self: QProgressBar) QLayout {
+        return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3592,12 +3718,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` layout: QtC.QLayout `
+    /// ` layout: QLayout `
     ///
-    pub fn SetLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
-        qtc.QWidget_SetLayout(@ptrCast(self), @ptrCast(layout));
+    pub fn SetLayout(self: QProgressBar, layout: anytype) void {
+        comptime _ = @TypeOf(layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
     }
 
     /// Inherited from QWidget
@@ -3606,10 +3733,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn UpdateGeometry(self: ?*anyopaque) void {
-        qtc.QWidget_UpdateGeometry(@ptrCast(self));
+    pub fn UpdateGeometry(self: QProgressBar) void {
+        qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3618,12 +3745,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QWidget_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QProgressBar, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QWidget
@@ -3632,14 +3760,15 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i32) void {
-        qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @bitCast(f));
+    pub fn SetParent2(self: QProgressBar, parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
     }
 
     /// Inherited from QWidget
@@ -3648,14 +3777,14 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QWidget_Scroll(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn Scroll(self: QProgressBar, dx: i32, dy: i32) void {
+        qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QWidget
@@ -3664,16 +3793,17 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    /// ` param3: QtC.QRect `
+    /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
-        qtc.QWidget_Scroll2(@ptrCast(self), @bitCast(dx), @bitCast(dy), @ptrCast(param3));
+    pub fn Scroll2(self: QProgressBar, dx: i32, dy: i32, param3: anytype) void {
+        comptime _ = @TypeOf(param3)._is_QRect;
+        qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
 
     /// Inherited from QWidget
@@ -3682,10 +3812,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn FocusWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_FocusWidget(@ptrCast(self));
+    pub fn FocusWidget(self: QProgressBar) QWidget {
+        return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3694,10 +3824,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn NextInFocusChain(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_NextInFocusChain(@ptrCast(self));
+    pub fn NextInFocusChain(self: QProgressBar) QWidget {
+        return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3706,10 +3836,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn PreviousInFocusChain(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_PreviousInFocusChain(@ptrCast(self));
+    pub fn PreviousInFocusChain(self: QProgressBar) QWidget {
+        return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3718,10 +3848,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn AcceptDrops(self: ?*anyopaque) bool {
-        return qtc.QWidget_AcceptDrops(@ptrCast(self));
+    pub fn AcceptDrops(self: QProgressBar) bool {
+        return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3730,12 +3860,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
-        qtc.QWidget_SetAcceptDrops(@ptrCast(self), on);
+    pub fn SetAcceptDrops(self: QProgressBar, on: bool) void {
+        qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
 
     /// Inherited from QWidget
@@ -3744,12 +3874,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_AddAction(@ptrCast(self), @ptrCast(action));
+    pub fn AddAction(self: QProgressBar, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -3758,16 +3889,16 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn AddActions(self: QProgressBar, actions: []QAction) void {
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.QWidget_AddActions(@ptrCast(self), actions_list);
+        qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
 
     /// Inherited from QWidget
@@ -3776,18 +3907,19 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` before: QtC.QAction `
+    /// ` before: QAction `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn InsertActions(self: QProgressBar, before: anytype, actions: []QAction) void {
+        comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.QWidget_InsertActions(@ptrCast(self), @ptrCast(before), actions_list);
+        qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
 
     /// Inherited from QWidget
@@ -3796,14 +3928,16 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` before: QtC.QAction `
+    /// ` before: QAction `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_InsertAction(@ptrCast(self), @ptrCast(before), @ptrCast(action));
+    pub fn InsertAction(self: QProgressBar, before: anytype, action: anytype) void {
+        comptime _ = @TypeOf(before)._is_QAction;
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -3812,12 +3946,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_RemoveAction(@ptrCast(self), @ptrCast(action));
+    pub fn RemoveAction(self: QProgressBar, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -3826,16 +3961,17 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
-        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self));
+    pub fn Actions(self: QProgressBar, allocator: std.mem.Allocator) []QAction {
+        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("qprogressbar.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("qprogressbar.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -3845,16 +3981,16 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction2(self: QProgressBar, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction2(@ptrCast(self), text_str);
+        return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
 
     /// Inherited from QWidget
@@ -3863,18 +3999,19 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction3(self: QProgressBar, icon: anytype, text: []const u8) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction3(@ptrCast(self), @ptrCast(icon), text_str);
+        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
     /// Inherited from QWidget
@@ -3883,18 +4020,19 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction4(self: QProgressBar, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction4(@ptrCast(self), text_str, @ptrCast(shortcut));
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3903,20 +4041,22 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction5(self: QProgressBar, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction5(@ptrCast(self), @ptrCast(icon), text_str, @ptrCast(shortcut));
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3925,10 +4065,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ParentWidget(@ptrCast(self));
+    pub fn ParentWidget(self: QProgressBar) QWidget {
+        return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3937,12 +4077,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_SetWindowFlags(@ptrCast(self), @bitCast(typeVal));
+    pub fn SetWindowFlags(self: QProgressBar, typeVal: i32) void {
+        qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -3951,14 +4091,14 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowFlags(@ptrCast(self));
+    pub fn WindowFlags(self: QProgressBar) i32 {
+        return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3967,12 +4107,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetWindowFlag(@ptrCast(self), @bitCast(param1));
+    pub fn SetWindowFlag(self: QProgressBar, param1: i32) void {
+        qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -3981,12 +4121,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @bitCast(typeVal));
+    pub fn OverrideWindowFlags(self: QProgressBar, typeVal: i32) void {
+        qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -3995,14 +4135,14 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowType(@ptrCast(self));
+    pub fn WindowType(self: QProgressBar) i32 {
+        return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4013,8 +4153,8 @@ pub const qprogressbar = struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QtC.QWidget {
-        return qtc.QWidget_Find(@bitCast(param1));
+    pub fn Find(param1: usize) QWidget {
+        return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
 
     /// Inherited from QWidget
@@ -4023,14 +4163,14 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
-        return qtc.QWidget_ChildAt(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn ChildAt(self: QProgressBar, x: i32, y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
     }
 
     /// Inherited from QWidget
@@ -4039,12 +4179,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` p: QtC.QPoint `
+    /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAt2(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt2(self: QProgressBar, p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4053,12 +4194,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` p: QtC.QPointF `
+    /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAt3(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt3(self: QProgressBar, p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4067,12 +4209,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetAttribute(@ptrCast(self), @bitCast(param1));
+    pub fn SetAttribute(self: QProgressBar, param1: i32) void {
+        qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -4081,12 +4223,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
-        return qtc.QWidget_TestAttribute(@ptrCast(self), @bitCast(param1));
+    pub fn TestAttribute(self: QProgressBar, param1: i32) bool {
+        return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -4095,10 +4237,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn EnsurePolished(self: ?*anyopaque) void {
-        qtc.QWidget_EnsurePolished(@ptrCast(self));
+    pub fn EnsurePolished(self: QProgressBar) void {
+        qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4107,12 +4249,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` child: QtC.QWidget `
+    /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
-        return qtc.QWidget_IsAncestorOf(@ptrCast(self), @ptrCast(child));
+    pub fn IsAncestorOf(self: QProgressBar, child: anytype) bool {
+        comptime _ = @TypeOf(child)._is_QWidget;
+        return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
 
     /// Inherited from QWidget
@@ -4121,10 +4264,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn AutoFillBackground(self: ?*anyopaque) bool {
-        return qtc.QWidget_AutoFillBackground(@ptrCast(self));
+    pub fn AutoFillBackground(self: QProgressBar) bool {
+        return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4133,12 +4276,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: ?*anyopaque, enabled: bool) void {
-        qtc.QWidget_SetAutoFillBackground(@ptrCast(self), enabled);
+    pub fn SetAutoFillBackground(self: QProgressBar, enabled: bool) void {
+        qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QWidget
@@ -4147,10 +4290,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn BackingStore(self: ?*anyopaque) QtC.QBackingStore {
-        return qtc.QWidget_BackingStore(@ptrCast(self));
+    pub fn BackingStore(self: QProgressBar) QBackingStore {
+        return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4159,10 +4302,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn WindowHandle(self: ?*anyopaque) QtC.QWindow {
-        return qtc.QWidget_WindowHandle(@ptrCast(self));
+    pub fn WindowHandle(self: QProgressBar) QWindow {
+        return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4171,10 +4314,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn Screen(self: ?*anyopaque) QtC.QScreen {
-        return qtc.QWidget_Screen(@ptrCast(self));
+    pub fn Screen(self: QProgressBar) QScreen {
+        return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4183,12 +4326,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` screen: QtC.QScreen `
+    /// ` screen: QScreen `
     ///
-    pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
-        qtc.QWidget_SetScreen(@ptrCast(self), @ptrCast(screen));
+    pub fn SetScreen(self: QProgressBar, screen: anytype) void {
+        comptime _ = @TypeOf(screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
     }
 
     /// Inherited from QWidget
@@ -4197,10 +4341,11 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer(@ptrCast(window));
+    pub fn CreateWindowContainer(window: anytype) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4209,16 +4354,16 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
+    pub fn WindowTitleChanged(self: QProgressBar, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        qtc.QWidget_WindowTitleChanged(@ptrCast(self), title_str);
+        qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
 
     /// Inherited from QWidget
@@ -4227,12 +4372,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, title: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QProgressBar, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowTitleChanged(self: QProgressBar, callback: *const fn (QProgressBar, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4241,12 +4386,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QWidget_WindowIconChanged(@ptrCast(self), @ptrCast(icon));
+    pub fn WindowIconChanged(self: QProgressBar, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QWidget
@@ -4255,12 +4401,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, icon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QProgressBar, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowIconChanged(self: QProgressBar, callback: *const fn (QProgressBar, QIcon) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4269,16 +4415,16 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
+    pub fn WindowIconTextChanged(self: QProgressBar, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
-        qtc.QWidget_WindowIconTextChanged(@ptrCast(self), iconText_str);
+        qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
 
     /// Inherited from QWidget
@@ -4287,12 +4433,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, iconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QProgressBar, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowIconTextChanged(self: QProgressBar, callback: *const fn (QProgressBar, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4301,12 +4447,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` pos: QtC.QPoint `
+    /// ` pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: ?*anyopaque, pos: ?*anyopaque) void {
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self), @ptrCast(pos));
+    pub fn CustomContextMenuRequested(self: QProgressBar, pos: anytype) void {
+        comptime _ = @TypeOf(pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
     }
 
     /// Inherited from QWidget
@@ -4315,12 +4462,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, pos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QProgressBar, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomContextMenuRequested(self: QProgressBar, callback: *const fn (QProgressBar, QPoint) callconv(.c) void) void {
+        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4329,14 +4476,14 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: ?*anyopaque) i32 {
-        return qtc.QWidget_InputMethodHints(@ptrCast(self));
+    pub fn InputMethodHints(self: QProgressBar) i32 {
+        return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4345,12 +4492,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
-        qtc.QWidget_SetInputMethodHints(@ptrCast(self), @bitCast(hints));
+    pub fn SetInputMethodHints(self: QProgressBar, hints: i32) void {
+        qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
 
     /// Inherited from QWidget
@@ -4359,14 +4506,16 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render22(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset));
+    pub fn Render22(self: QProgressBar, target: anytype, targetOffset: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// Inherited from QWidget
@@ -4375,16 +4524,19 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        qtc.QWidget_Render3(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+    pub fn Render3(self: QProgressBar, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// Inherited from QWidget
@@ -4393,18 +4545,21 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
+    pub fn Render4(self: QProgressBar, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -4413,14 +4568,16 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render23(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset));
+    pub fn Render23(self: QProgressBar, painter: anytype, targetOffset: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// Inherited from QWidget
@@ -4429,16 +4586,19 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        qtc.QWidget_Render32(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+    pub fn Render32(self: QProgressBar, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// Inherited from QWidget
@@ -4447,18 +4607,21 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
+    pub fn Render42(self: QProgressBar, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -4467,12 +4630,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` rectangle: QtC.QRect `
+    /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) QtC.QPixmap {
-        return qtc.QWidget_Grab1(@ptrCast(self), @ptrCast(rectangle));
+    pub fn Grab1(self: QProgressBar, rectangle: anytype) QPixmap {
+        comptime _ = @TypeOf(rectangle)._is_QRect;
+        return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4481,14 +4645,14 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i32, flags: i32) void {
-        qtc.QWidget_GrabGesture2(@ptrCast(self), @bitCast(typeVal), @bitCast(flags));
+    pub fn GrabGesture2(self: QProgressBar, typeVal: i32, flags: i32) void {
+        qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
 
     /// Inherited from QWidget
@@ -4497,14 +4661,15 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` key: QtC.QKeySequence `
+    /// ` key: QKeySequence `
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
-        return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @bitCast(context));
+    pub fn GrabShortcut2(self: QProgressBar, key: anytype, context: i32) i32 {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
 
     /// Inherited from QWidget
@@ -4513,14 +4678,14 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self), @bitCast(id), enable);
+    pub fn SetShortcutEnabled2(self: QProgressBar, id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -4529,14 +4694,14 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self), @bitCast(id), enable);
+    pub fn SetShortcutAutoRepeat2(self: QProgressBar, id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -4545,14 +4710,14 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetWindowFlag2(@ptrCast(self), @bitCast(param1), on);
+    pub fn SetWindowFlag2(self: QProgressBar, param1: i32, on: bool) void {
+        qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -4561,14 +4726,14 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetAttribute2(@ptrCast(self), @bitCast(param1), on);
+    pub fn SetAttribute2(self: QProgressBar, param1: i32, on: bool) void {
+        qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -4577,12 +4742,14 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer2(@ptrCast(window), @ptrCast(parent));
+    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4591,14 +4758,16 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i32) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @bitCast(flags));
+    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
     }
 
     /// Inherited from QObject
@@ -4607,12 +4776,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QProgressBar, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qprogressbar.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4625,12 +4794,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QProgressBar, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -4639,10 +4808,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QProgressBar) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4651,10 +4820,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QProgressBar) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4663,10 +4832,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QProgressBar) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4675,10 +4844,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QProgressBar) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4687,12 +4856,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QProgressBar, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -4701,10 +4870,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QProgressBar) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -4713,12 +4882,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QProgressBar, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -4727,12 +4897,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QProgressBar, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -4741,12 +4911,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QProgressBar, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -4755,12 +4925,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QProgressBar, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -4769,12 +4939,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QProgressBar, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -4783,16 +4953,17 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QProgressBar, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qprogressbar.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qprogressbar.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -4802,12 +4973,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QProgressBar, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -4816,12 +4988,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QProgressBar, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -4830,18 +5003,20 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -4850,16 +5025,20 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -4868,18 +5047,19 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QProgressBar, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -4888,18 +5068,20 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -4908,16 +5090,20 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -4926,10 +5112,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QProgressBar) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4938,12 +5124,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QProgressBar, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -4952,10 +5139,11 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -4964,10 +5152,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QProgressBar) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4976,10 +5164,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QProgressBar) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4988,15 +5176,16 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QProgressBar, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -5005,13 +5194,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QProgressBar, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -5020,17 +5209,16 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QProgressBar, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qprogressbar.DynamicPropertyNames: Memory allocation failed");
@@ -5049,10 +5237,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QProgressBar) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5061,10 +5249,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QProgressBar) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5073,10 +5261,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QProgressBar) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5085,12 +5273,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar) callconv(.c) void `
+    /// ` callback: *const fn (self: QProgressBar) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QProgressBar, callback: *const fn (QProgressBar) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5099,10 +5287,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QProgressBar) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5111,13 +5299,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QProgressBar, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -5126,10 +5314,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QProgressBar) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5138,14 +5326,14 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QProgressBar, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -5154,14 +5342,14 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QProgressBar, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -5170,20 +5358,22 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -5192,18 +5382,22 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -5212,9 +5406,9 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5222,10 +5416,11 @@ pub const qprogressbar = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QProgressBar, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -5234,13 +5429,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QProgressBar, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -5249,15 +5444,16 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QProgressBar, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -5266,18 +5462,19 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QProgressBar, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -5286,15 +5483,16 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QProgressBar, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -5303,12 +5501,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QProgressBar, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -5317,12 +5516,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QProgressBar, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QProgressBar, callback: *const fn (QProgressBar, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -5331,10 +5530,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn PaintingActive(self: ?*anyopaque) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self));
+    pub fn PaintingActive(self: QProgressBar) bool {
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5343,10 +5542,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn WidthMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self));
+    pub fn WidthMM(self: QProgressBar) i32 {
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5355,10 +5554,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn HeightMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self));
+    pub fn HeightMM(self: QProgressBar) i32 {
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5367,10 +5566,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn LogicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self));
+    pub fn LogicalDpiX(self: QProgressBar) i32 {
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5379,10 +5578,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn LogicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self));
+    pub fn LogicalDpiY(self: QProgressBar) i32 {
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5391,10 +5590,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self));
+    pub fn PhysicalDpiX(self: QProgressBar) i32 {
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5403,10 +5602,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self));
+    pub fn PhysicalDpiY(self: QProgressBar) i32 {
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5415,10 +5614,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self));
+    pub fn DevicePixelRatio(self: QProgressBar) f64 {
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5427,10 +5626,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self));
+    pub fn DevicePixelRatioF(self: QProgressBar) f64 {
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5439,10 +5638,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn ColorCount(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self));
+    pub fn ColorCount(self: QProgressBar) i32 {
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5451,10 +5650,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn Depth(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self));
+    pub fn Depth(self: QProgressBar) i32 {
+        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5487,10 +5686,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn DevType(self: ?*anyopaque) i32 {
-        return qtc.QProgressBar_DevType(@ptrCast(self));
+    pub fn DevType(self: QProgressBar) i32 {
+        return qtc.QProgressBar_DevType(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDevType` instead
@@ -5505,10 +5704,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn SuperDevType(self: ?*anyopaque) i32 {
-        return qtc.QProgressBar_SuperDevType(@ptrCast(self));
+    pub fn SuperDevType(self: QProgressBar) i32 {
+        return qtc.QProgressBar_SuperDevType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5519,12 +5718,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QProgressBar_OnDevType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDevType(self: QProgressBar, callback: *const fn () callconv(.c) i32) void {
+        qtc.QProgressBar_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5535,12 +5734,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.QProgressBar_SetVisible(@ptrCast(self), visible);
+    pub fn SetVisible(self: QProgressBar, visible: bool) void {
+        qtc.QProgressBar_SetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// ### DEPRECATED: Use `SuperSetVisible` instead
@@ -5555,12 +5754,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.QProgressBar_SuperSetVisible(@ptrCast(self), visible);
+    pub fn SuperSetVisible(self: QProgressBar, visible: bool) void {
+        qtc.QProgressBar_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// Inherited from QWidget
@@ -5571,12 +5770,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, visible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QProgressBar, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QProgressBar_OnSetVisible(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetVisible(self: QProgressBar, callback: *const fn (QProgressBar, bool) callconv(.c) void) void {
+        qtc.QProgressBar_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5587,12 +5786,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QProgressBar_HeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn HeightForWidth(self: QProgressBar, param1: i32) i32 {
+        return qtc.QProgressBar_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### DEPRECATED: Use `SuperHeightForWidth` instead
@@ -5607,12 +5806,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QProgressBar_SuperHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperHeightForWidth(self: QProgressBar, param1: i32) i32 {
+        return qtc.QProgressBar_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -5623,12 +5822,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, param1: i32) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QProgressBar, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QProgressBar_OnHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHeightForWidth(self: QProgressBar, callback: *const fn (QProgressBar, i32) callconv(.c) i32) void {
+        qtc.QProgressBar_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5639,10 +5838,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn HasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QProgressBar_HasHeightForWidth(@ptrCast(self));
+    pub fn HasHeightForWidth(self: QProgressBar) bool {
+        return qtc.QProgressBar_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
@@ -5657,10 +5856,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QProgressBar_SuperHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: QProgressBar) bool {
+        return qtc.QProgressBar_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5671,12 +5870,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QProgressBar_OnHasHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHasHeightForWidth(self: QProgressBar, callback: *const fn () callconv(.c) bool) void {
+        qtc.QProgressBar_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5687,10 +5886,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn PaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QProgressBar_PaintEngine(@ptrCast(self));
+    pub fn PaintEngine(self: QProgressBar) QPaintEngine {
+        return .{ .ptr = qtc.QProgressBar_PaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperPaintEngine` instead
@@ -5705,10 +5904,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn SuperPaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QProgressBar_SuperPaintEngine(@ptrCast(self));
+    pub fn SuperPaintEngine(self: QProgressBar) QPaintEngine {
+        return .{ .ptr = qtc.QProgressBar_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5719,12 +5918,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPaintEngine `
+    /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.QProgressBar_OnPaintEngine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaintEngine(self: QProgressBar, callback: *const fn () callconv(.c) QPaintEngine) void {
+        qtc.QProgressBar_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5735,12 +5934,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_MousePressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MousePressEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QProgressBar_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMousePressEvent` instead
@@ -5755,12 +5955,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_SuperMousePressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMousePressEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QProgressBar_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -5771,12 +5972,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QProgressBar, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProgressBar_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMousePressEvent(self: QProgressBar, callback: *const fn (QProgressBar, QMouseEvent) callconv(.c) void) void {
+        qtc.QProgressBar_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5787,12 +5988,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_MouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseReleaseEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QProgressBar_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
@@ -5807,12 +6009,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_SuperMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseReleaseEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QProgressBar_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -5823,12 +6026,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QProgressBar, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProgressBar_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseReleaseEvent(self: QProgressBar, callback: *const fn (QProgressBar, QMouseEvent) callconv(.c) void) void {
+        qtc.QProgressBar_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5839,12 +6042,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseDoubleClickEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QProgressBar_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
@@ -5859,12 +6063,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_SuperMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseDoubleClickEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QProgressBar_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -5875,12 +6080,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QProgressBar, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProgressBar_OnMouseDoubleClickEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseDoubleClickEvent(self: QProgressBar, callback: *const fn (QProgressBar, QMouseEvent) callconv(.c) void) void {
+        qtc.QProgressBar_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5891,12 +6096,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_MouseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseMoveEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QProgressBar_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
@@ -5911,12 +6117,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_SuperMouseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseMoveEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QProgressBar_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -5927,12 +6134,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QProgressBar, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProgressBar_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseMoveEvent(self: QProgressBar, callback: *const fn (QProgressBar, QMouseEvent) callconv(.c) void) void {
+        qtc.QProgressBar_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5943,12 +6150,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QWheelEvent `
+    /// ` event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_WheelEvent(@ptrCast(self), @ptrCast(event));
+    pub fn WheelEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QWheelEvent;
+        qtc.QProgressBar_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperWheelEvent` instead
@@ -5963,12 +6171,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QWheelEvent `
+    /// ` event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_SuperWheelEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperWheelEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QWheelEvent;
+        qtc.QProgressBar_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -5979,12 +6188,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, event: QtC.QWheelEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QProgressBar, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProgressBar_OnWheelEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWheelEvent(self: QProgressBar, callback: *const fn (QProgressBar, QWheelEvent) callconv(.c) void) void {
+        qtc.QProgressBar_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5995,12 +6204,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_KeyPressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn KeyPressEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QProgressBar_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
@@ -6015,12 +6225,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_SuperKeyPressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyPressEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QProgressBar_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6031,12 +6242,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, event: QtC.QKeyEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QProgressBar, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProgressBar_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyPressEvent(self: QProgressBar, callback: *const fn (QProgressBar, QKeyEvent) callconv(.c) void) void {
+        qtc.QProgressBar_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6047,12 +6258,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_KeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn KeyReleaseEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QProgressBar_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
@@ -6067,12 +6279,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_SuperKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyReleaseEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QProgressBar_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6083,12 +6296,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, event: QtC.QKeyEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QProgressBar, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProgressBar_OnKeyReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyReleaseEvent(self: QProgressBar, callback: *const fn (QProgressBar, QKeyEvent) callconv(.c) void) void {
+        qtc.QProgressBar_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6099,12 +6312,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_FocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn FocusInEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QProgressBar_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusInEvent` instead
@@ -6119,12 +6333,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_SuperFocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusInEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QProgressBar_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6135,12 +6350,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, event: QtC.QFocusEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QProgressBar, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProgressBar_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusInEvent(self: QProgressBar, callback: *const fn (QProgressBar, QFocusEvent) callconv(.c) void) void {
+        qtc.QProgressBar_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6151,12 +6366,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_FocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn FocusOutEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QProgressBar_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
@@ -6171,12 +6387,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_SuperFocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusOutEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QProgressBar_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6187,12 +6404,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, event: QtC.QFocusEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QProgressBar, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProgressBar_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusOutEvent(self: QProgressBar, callback: *const fn (QProgressBar, QFocusEvent) callconv(.c) void) void {
+        qtc.QProgressBar_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6203,12 +6420,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QEnterEvent `
+    /// ` event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_EnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn EnterEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEnterEvent;
+        qtc.QProgressBar_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEnterEvent` instead
@@ -6223,12 +6441,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QEnterEvent `
+    /// ` event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_SuperEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEnterEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEnterEvent;
+        qtc.QProgressBar_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6239,12 +6458,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, event: QtC.QEnterEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QProgressBar, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProgressBar_OnEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEnterEvent(self: QProgressBar, callback: *const fn (QProgressBar, QEnterEvent) callconv(.c) void) void {
+        qtc.QProgressBar_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6255,12 +6474,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn LeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_LeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn LeaveEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QProgressBar_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperLeaveEvent` instead
@@ -6275,12 +6495,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_SuperLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperLeaveEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QProgressBar_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6291,12 +6512,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QProgressBar, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProgressBar_OnLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLeaveEvent(self: QProgressBar, callback: *const fn (QProgressBar, QEvent) callconv(.c) void) void {
+        qtc.QProgressBar_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6307,12 +6528,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QMoveEvent `
+    /// ` event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_MoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MoveEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMoveEvent;
+        qtc.QProgressBar_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMoveEvent` instead
@@ -6327,12 +6549,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QMoveEvent `
+    /// ` event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_SuperMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMoveEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMoveEvent;
+        qtc.QProgressBar_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6343,12 +6566,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, event: QtC.QMoveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QProgressBar, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProgressBar_OnMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMoveEvent(self: QProgressBar, callback: *const fn (QProgressBar, QMoveEvent) callconv(.c) void) void {
+        qtc.QProgressBar_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6359,12 +6582,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QResizeEvent `
+    /// ` event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_ResizeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ResizeEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QResizeEvent;
+        qtc.QProgressBar_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperResizeEvent` instead
@@ -6379,12 +6603,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QResizeEvent `
+    /// ` event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_SuperResizeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperResizeEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QResizeEvent;
+        qtc.QProgressBar_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6395,12 +6620,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, event: QtC.QResizeEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QProgressBar, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProgressBar_OnResizeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResizeEvent(self: QProgressBar, callback: *const fn (QProgressBar, QResizeEvent) callconv(.c) void) void {
+        qtc.QProgressBar_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6411,12 +6636,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QCloseEvent `
+    /// ` event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_CloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CloseEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QCloseEvent;
+        qtc.QProgressBar_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCloseEvent` instead
@@ -6431,12 +6657,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QCloseEvent `
+    /// ` event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_SuperCloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCloseEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QCloseEvent;
+        qtc.QProgressBar_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6447,12 +6674,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, event: QtC.QCloseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QProgressBar, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProgressBar_OnCloseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCloseEvent(self: QProgressBar, callback: *const fn (QProgressBar, QCloseEvent) callconv(.c) void) void {
+        qtc.QProgressBar_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6463,12 +6690,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QContextMenuEvent `
+    /// ` event: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_ContextMenuEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ContextMenuEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
+        qtc.QProgressBar_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
@@ -6483,12 +6711,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QContextMenuEvent `
+    /// ` event: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_SuperContextMenuEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperContextMenuEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
+        qtc.QProgressBar_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6499,12 +6728,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, event: QtC.QContextMenuEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QProgressBar, event: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProgressBar_OnContextMenuEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnContextMenuEvent(self: QProgressBar, callback: *const fn (QProgressBar, QContextMenuEvent) callconv(.c) void) void {
+        qtc.QProgressBar_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6515,12 +6744,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QTabletEvent `
+    /// ` event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_TabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TabletEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTabletEvent;
+        qtc.QProgressBar_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTabletEvent` instead
@@ -6535,12 +6765,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QTabletEvent `
+    /// ` event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_SuperTabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTabletEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTabletEvent;
+        qtc.QProgressBar_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6551,12 +6782,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, event: QtC.QTabletEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QProgressBar, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProgressBar_OnTabletEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTabletEvent(self: QProgressBar, callback: *const fn (QProgressBar, QTabletEvent) callconv(.c) void) void {
+        qtc.QProgressBar_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6567,12 +6798,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QActionEvent `
+    /// ` event: QActionEvent `
     ///
-    pub fn ActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_ActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ActionEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QActionEvent;
+        qtc.QProgressBar_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperActionEvent` instead
@@ -6587,12 +6819,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QActionEvent `
+    /// ` event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_SuperActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperActionEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QActionEvent;
+        qtc.QProgressBar_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6603,12 +6836,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, event: QtC.QActionEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QProgressBar, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProgressBar_OnActionEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnActionEvent(self: QProgressBar, callback: *const fn (QProgressBar, QActionEvent) callconv(.c) void) void {
+        qtc.QProgressBar_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6619,12 +6852,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QDragEnterEvent `
+    /// ` event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_DragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragEnterEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
+        qtc.QProgressBar_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
@@ -6639,12 +6873,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QDragEnterEvent `
+    /// ` event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_SuperDragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragEnterEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
+        qtc.QProgressBar_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6655,12 +6890,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, event: QtC.QDragEnterEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QProgressBar, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProgressBar_OnDragEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragEnterEvent(self: QProgressBar, callback: *const fn (QProgressBar, QDragEnterEvent) callconv(.c) void) void {
+        qtc.QProgressBar_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6671,12 +6906,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QDragMoveEvent `
+    /// ` event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_DragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragMoveEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
+        qtc.QProgressBar_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
@@ -6691,12 +6927,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QDragMoveEvent `
+    /// ` event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_SuperDragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragMoveEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
+        qtc.QProgressBar_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6707,12 +6944,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, event: QtC.QDragMoveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QProgressBar, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProgressBar_OnDragMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragMoveEvent(self: QProgressBar, callback: *const fn (QProgressBar, QDragMoveEvent) callconv(.c) void) void {
+        qtc.QProgressBar_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6723,12 +6960,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QDragLeaveEvent `
+    /// ` event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_DragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragLeaveEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
+        qtc.QProgressBar_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
@@ -6743,12 +6981,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QDragLeaveEvent `
+    /// ` event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_SuperDragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragLeaveEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
+        qtc.QProgressBar_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6759,12 +6998,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, event: QtC.QDragLeaveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QProgressBar, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProgressBar_OnDragLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragLeaveEvent(self: QProgressBar, callback: *const fn (QProgressBar, QDragLeaveEvent) callconv(.c) void) void {
+        qtc.QProgressBar_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6775,12 +7014,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QDropEvent `
+    /// ` event: QDropEvent `
     ///
-    pub fn DropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_DropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DropEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDropEvent;
+        qtc.QProgressBar_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDropEvent` instead
@@ -6795,12 +7035,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QDropEvent `
+    /// ` event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_SuperDropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDropEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDropEvent;
+        qtc.QProgressBar_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6811,12 +7052,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, event: QtC.QDropEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QProgressBar, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProgressBar_OnDropEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDropEvent(self: QProgressBar, callback: *const fn (QProgressBar, QDropEvent) callconv(.c) void) void {
+        qtc.QProgressBar_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6827,12 +7068,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QShowEvent `
+    /// ` event: QShowEvent `
     ///
-    pub fn ShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_ShowEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ShowEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QShowEvent;
+        qtc.QProgressBar_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperShowEvent` instead
@@ -6847,12 +7089,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QShowEvent `
+    /// ` event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_SuperShowEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperShowEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QShowEvent;
+        qtc.QProgressBar_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6863,12 +7106,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, event: QtC.QShowEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QProgressBar, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProgressBar_OnShowEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnShowEvent(self: QProgressBar, callback: *const fn (QProgressBar, QShowEvent) callconv(.c) void) void {
+        qtc.QProgressBar_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6879,12 +7122,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QHideEvent `
+    /// ` event: QHideEvent `
     ///
-    pub fn HideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_HideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn HideEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QHideEvent;
+        qtc.QProgressBar_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHideEvent` instead
@@ -6899,12 +7143,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QHideEvent `
+    /// ` event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_SuperHideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHideEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QHideEvent;
+        qtc.QProgressBar_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6915,12 +7160,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, event: QtC.QHideEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QProgressBar, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProgressBar_OnHideEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHideEvent(self: QProgressBar, callback: *const fn (QProgressBar, QHideEvent) callconv(.c) void) void {
+        qtc.QProgressBar_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6931,7 +7176,7 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` eventType: []u8 `
     ///
@@ -6939,12 +7184,12 @@ pub const qprogressbar = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn NativeEvent(self: QProgressBar, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QProgressBar_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QProgressBar_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// ### DEPRECATED: Use `SuperNativeEvent` instead
@@ -6959,7 +7204,7 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` eventType: []u8 `
     ///
@@ -6967,12 +7212,12 @@ pub const qprogressbar = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn SuperNativeEvent(self: QProgressBar, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QProgressBar_SuperNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QProgressBar_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -6983,12 +7228,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QProgressBar, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
-        qtc.QProgressBar_OnNativeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnNativeEvent(self: QProgressBar, callback: *const fn (QProgressBar, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+        qtc.QProgressBar_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6999,12 +7244,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` param1: QtC.QEvent `
+    /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QProgressBar_ChangeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn ChangeEvent(self: QProgressBar, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QEvent;
+        qtc.QProgressBar_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChangeEvent` instead
@@ -7019,12 +7265,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` param1: QtC.QEvent `
+    /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QProgressBar_SuperChangeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperChangeEvent(self: QProgressBar, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QEvent;
+        qtc.QProgressBar_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -7035,12 +7282,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, param1: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QProgressBar, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProgressBar_OnChangeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChangeEvent(self: QProgressBar, callback: *const fn (QProgressBar, QEvent) callconv(.c) void) void {
+        qtc.QProgressBar_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7051,12 +7298,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QProgressBar_Metric(@ptrCast(self), @bitCast(param1));
+    pub fn Metric(self: QProgressBar, param1: i32) i32 {
+        return qtc.QProgressBar_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### DEPRECATED: Use `SuperMetric` instead
@@ -7071,12 +7318,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QProgressBar_SuperMetric(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMetric(self: QProgressBar, param1: i32) i32 {
+        return qtc.QProgressBar_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7087,12 +7334,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QProgressBar, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QProgressBar_OnMetric(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetric(self: QProgressBar, callback: *const fn (QProgressBar, i32) callconv(.c) i32) void {
+        qtc.QProgressBar_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7103,12 +7350,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QProgressBar_InitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn InitPainter(self: QProgressBar, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QProgressBar_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInitPainter` instead
@@ -7123,12 +7371,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QProgressBar_SuperInitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperInitPainter(self: QProgressBar, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QProgressBar_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// Inherited from QWidget
@@ -7139,12 +7388,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, painter: QtC.QPainter) callconv(.c) void `
+    /// ` callback: *const fn (self: QProgressBar, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProgressBar_OnInitPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInitPainter(self: QProgressBar, callback: *const fn (QProgressBar, QPainter) callconv(.c) void) void {
+        qtc.QProgressBar_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7155,12 +7404,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QProgressBar_Redirected(@ptrCast(self), @ptrCast(offset));
+    pub fn Redirected(self: QProgressBar, offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        return .{ .ptr = qtc.QProgressBar_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperRedirected` instead
@@ -7175,12 +7425,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QProgressBar_SuperRedirected(@ptrCast(self), @ptrCast(offset));
+    pub fn SuperRedirected(self: QProgressBar, offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        return .{ .ptr = qtc.QProgressBar_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7191,12 +7442,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice `
+    /// ` callback: *const fn (self: QProgressBar, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.QProgressBar_OnRedirected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRedirected(self: QProgressBar, callback: *const fn (QProgressBar, QPoint) callconv(.c) QPaintDevice) void {
+        qtc.QProgressBar_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7207,10 +7458,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn SharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QProgressBar_SharedPainter(@ptrCast(self));
+    pub fn SharedPainter(self: QProgressBar) QPainter {
+        return .{ .ptr = qtc.QProgressBar_SharedPainter(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSharedPainter` instead
@@ -7225,10 +7476,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn SuperSharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QProgressBar_SuperSharedPainter(@ptrCast(self));
+    pub fn SuperSharedPainter(self: QProgressBar) QPainter {
+        return .{ .ptr = qtc.QProgressBar_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7239,12 +7490,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPainter `
+    /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
-        qtc.QProgressBar_OnSharedPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSharedPainter(self: QProgressBar, callback: *const fn () callconv(.c) QPainter) void {
+        qtc.QProgressBar_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7255,12 +7506,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` param1: QtC.QInputMethodEvent `
+    /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QProgressBar_InputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn InputMethodEvent(self: QProgressBar, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
+        qtc.QProgressBar_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
@@ -7275,12 +7527,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` param1: QtC.QInputMethodEvent `
+    /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QProgressBar_SuperInputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperInputMethodEvent(self: QProgressBar, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
+        qtc.QProgressBar_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -7291,12 +7544,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, param1: QtC.QInputMethodEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QProgressBar, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProgressBar_OnInputMethodEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInputMethodEvent(self: QProgressBar, callback: *const fn (QProgressBar, QInputMethodEvent) callconv(.c) void) void {
+        qtc.QProgressBar_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7307,12 +7560,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.QProgressBar_InputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn InputMethodQuery(self: QProgressBar, param1: i32) QVariant {
+        return .{ .ptr = qtc.QProgressBar_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
     /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
@@ -7327,12 +7580,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.QProgressBar_SuperInputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn SuperInputMethodQuery(self: QProgressBar, param1: i32) QVariant {
+        return .{ .ptr = qtc.QProgressBar_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
     /// Inherited from QWidget
@@ -7343,12 +7596,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
+    /// ` callback: *const fn (self: QProgressBar, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
-    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QProgressBar_OnInputMethodQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInputMethodQuery(self: QProgressBar, callback: *const fn (QProgressBar, i32) callconv(.c) QVariant) void {
+        qtc.QProgressBar_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7359,12 +7612,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.QProgressBar_FocusNextPrevChild(@ptrCast(self), next);
+    pub fn FocusNextPrevChild(self: QProgressBar, next: bool) bool {
+        return qtc.QProgressBar_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
     /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
@@ -7379,12 +7632,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.QProgressBar_SuperFocusNextPrevChild(@ptrCast(self), next);
+    pub fn SuperFocusNextPrevChild(self: QProgressBar, next: bool) bool {
+        return qtc.QProgressBar_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
     /// Inherited from QWidget
@@ -7395,12 +7648,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, next: bool) callconv(.c) bool `
+    /// ` callback: *const fn (self: QProgressBar, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
-        qtc.QProgressBar_OnFocusNextPrevChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusNextPrevChild(self: QProgressBar, callback: *const fn (QProgressBar, bool) callconv(.c) bool) void {
+        qtc.QProgressBar_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7411,14 +7664,16 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QProgressBar_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: QProgressBar, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QProgressBar_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -7433,14 +7688,16 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QProgressBar_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: QProgressBar, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QProgressBar_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -7451,12 +7708,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QProgressBar, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QProgressBar_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QProgressBar, callback: *const fn (QProgressBar, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QProgressBar_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7467,12 +7724,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QProgressBar_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -7487,12 +7745,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QProgressBar_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -7503,12 +7762,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QProgressBar, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProgressBar_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QProgressBar, callback: *const fn (QProgressBar, QTimerEvent) callconv(.c) void) void {
+        qtc.QProgressBar_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7519,12 +7778,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QProgressBar_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -7539,12 +7799,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QProgressBar_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -7555,12 +7816,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QProgressBar, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProgressBar_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QProgressBar, callback: *const fn (QProgressBar, QChildEvent) callconv(.c) void) void {
+        qtc.QProgressBar_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7571,12 +7832,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QProgressBar_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -7591,12 +7853,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProgressBar_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QProgressBar, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QProgressBar_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -7607,12 +7870,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QProgressBar, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProgressBar_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QProgressBar, callback: *const fn (QProgressBar, QEvent) callconv(.c) void) void {
+        qtc.QProgressBar_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7623,12 +7886,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QProgressBar_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QProgressBar, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QProgressBar_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -7643,12 +7907,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QProgressBar_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QProgressBar, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QProgressBar_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -7659,12 +7924,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QProgressBar, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProgressBar_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QProgressBar, callback: *const fn (QProgressBar, QMetaMethod) callconv(.c) void) void {
+        qtc.QProgressBar_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7675,12 +7940,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QProgressBar_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QProgressBar, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QProgressBar_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -7695,12 +7961,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QProgressBar_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QProgressBar, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QProgressBar_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -7711,12 +7978,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QProgressBar, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProgressBar_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QProgressBar, callback: *const fn (QProgressBar, QMetaMethod) callconv(.c) void) void {
+        qtc.QProgressBar_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7727,10 +7994,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn UpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.QProgressBar_UpdateMicroFocus(@ptrCast(self));
+    pub fn UpdateMicroFocus(self: QProgressBar) void {
+        qtc.QProgressBar_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
@@ -7745,10 +8012,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn SuperUpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.QProgressBar_SuperUpdateMicroFocus(@ptrCast(self));
+    pub fn SuperUpdateMicroFocus(self: QProgressBar) void {
+        qtc.QProgressBar_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7759,12 +8026,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QProgressBar_OnUpdateMicroFocus(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUpdateMicroFocus(self: QProgressBar, callback: *const fn () callconv(.c) void) void {
+        qtc.QProgressBar_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7775,10 +8042,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn Create(self: ?*anyopaque) void {
-        qtc.QProgressBar_Create(@ptrCast(self));
+    pub fn Create(self: QProgressBar) void {
+        qtc.QProgressBar_Create(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCreate` instead
@@ -7793,10 +8060,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn SuperCreate(self: ?*anyopaque) void {
-        qtc.QProgressBar_SuperCreate(@ptrCast(self));
+    pub fn SuperCreate(self: QProgressBar) void {
+        qtc.QProgressBar_SuperCreate(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7807,12 +8074,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QProgressBar_OnCreate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreate(self: QProgressBar, callback: *const fn () callconv(.c) void) void {
+        qtc.QProgressBar_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7823,10 +8090,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn Destroy(self: ?*anyopaque) void {
-        qtc.QProgressBar_Destroy(@ptrCast(self));
+    pub fn Destroy(self: QProgressBar) void {
+        qtc.QProgressBar_Destroy(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDestroy` instead
@@ -7841,10 +8108,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn SuperDestroy(self: ?*anyopaque) void {
-        qtc.QProgressBar_SuperDestroy(@ptrCast(self));
+    pub fn SuperDestroy(self: QProgressBar) void {
+        qtc.QProgressBar_SuperDestroy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7855,12 +8122,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QProgressBar_OnDestroy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroy(self: QProgressBar, callback: *const fn () callconv(.c) void) void {
+        qtc.QProgressBar_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7871,10 +8138,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn FocusNextChild(self: ?*anyopaque) bool {
-        return qtc.QProgressBar_FocusNextChild(@ptrCast(self));
+    pub fn FocusNextChild(self: QProgressBar) bool {
+        return qtc.QProgressBar_FocusNextChild(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusNextChild` instead
@@ -7889,10 +8156,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn SuperFocusNextChild(self: ?*anyopaque) bool {
-        return qtc.QProgressBar_SuperFocusNextChild(@ptrCast(self));
+    pub fn SuperFocusNextChild(self: QProgressBar) bool {
+        return qtc.QProgressBar_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7903,12 +8170,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QProgressBar_OnFocusNextChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusNextChild(self: QProgressBar, callback: *const fn () callconv(.c) bool) void {
+        qtc.QProgressBar_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7919,10 +8186,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn FocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.QProgressBar_FocusPreviousChild(@ptrCast(self));
+    pub fn FocusPreviousChild(self: QProgressBar) bool {
+        return qtc.QProgressBar_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
@@ -7937,10 +8204,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn SuperFocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.QProgressBar_SuperFocusPreviousChild(@ptrCast(self));
+    pub fn SuperFocusPreviousChild(self: QProgressBar) bool {
+        return qtc.QProgressBar_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7951,12 +8218,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QProgressBar_OnFocusPreviousChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusPreviousChild(self: QProgressBar, callback: *const fn () callconv(.c) bool) void {
+        qtc.QProgressBar_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7967,10 +8234,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QProgressBar_Sender(@ptrCast(self));
+    pub fn Sender(self: QProgressBar) QObject {
+        return .{ .ptr = qtc.QProgressBar_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -7985,10 +8252,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QProgressBar_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QProgressBar) QObject {
+        return .{ .ptr = qtc.QProgressBar_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -7999,12 +8266,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QProgressBar_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QProgressBar, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QProgressBar_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8015,10 +8282,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QProgressBar_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QProgressBar) i32 {
+        return qtc.QProgressBar_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -8033,10 +8300,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QProgressBar_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QProgressBar) i32 {
+        return qtc.QProgressBar_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -8047,12 +8314,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QProgressBar_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QProgressBar, callback: *const fn () callconv(.c) i32) void {
+        qtc.QProgressBar_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8063,13 +8330,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QProgressBar, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QProgressBar_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QProgressBar_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -8084,13 +8351,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QProgressBar, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QProgressBar_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QProgressBar_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -8101,12 +8368,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QProgressBar, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QProgressBar_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QProgressBar, callback: *const fn (QProgressBar, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QProgressBar_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8117,12 +8384,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QProgressBar_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QProgressBar, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QProgressBar_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -8137,12 +8405,13 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QProgressBar_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QProgressBar, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QProgressBar_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -8153,12 +8422,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QProgressBar, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QProgressBar_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QProgressBar, callback: *const fn (QProgressBar, QMetaMethod) callconv(.c) bool) void {
+        qtc.QProgressBar_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -8169,14 +8438,14 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QProgressBar_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn GetDecodedMetricF(self: QProgressBar, metricA: i32, metricB: i32) f64 {
+        return qtc.QProgressBar_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
@@ -8191,14 +8460,14 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
     /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QProgressBar_SuperGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn SuperGetDecodedMetricF(self: QProgressBar, metricA: i32, metricB: i32) f64 {
+        return qtc.QProgressBar_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -8209,12 +8478,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar`
+    /// ` self: QProgressBar`
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
+    /// ` callback: *const fn (self: QProgressBar, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.QProgressBar_OnGetDecodedMetricF(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnGetDecodedMetricF(self: QProgressBar, callback: *const fn (QProgressBar, i32, i32) callconv(.c) f64) void {
+        qtc.QProgressBar_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8225,12 +8494,12 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    /// ` callback: *const fn (self: QtC.QProgressBar, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QProgressBar, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QProgressBar, callback: *const fn (QProgressBar, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -8243,10 +8512,10 @@ pub const qprogressbar = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QProgressBar `
+    /// ` self: QProgressBar `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QProgressBar_Delete(@ptrCast(self));
+    pub fn Delete(self: QProgressBar) void {
+        qtc.QProgressBar_Delete(@ptrCast(self.ptr));
     }
 };
 

@@ -1,26 +1,37 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QFileInfo = @import("libqt6").QFileInfo;
+const QIcon = @import("libqt6").QIcon;
 const qabstractfileiconprovider_enums = @import("libqabstractfileiconprovider.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qfileiconprovider.html)
-pub const qfileiconprovider = struct {
+pub const QFileIconProvider = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfileiconprovider.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QFileIconProvider,
+
+    pub const _is_QFileIconProvider = {};
+    pub const _is_QAbstractFileIconProvider = {};
+
     /// New constructs a new QFileIconProvider object.
     ///
-    pub fn New() QtC.QFileIconProvider {
-        return qtc.QFileIconProvider_new();
+    pub fn New() QFileIconProvider {
+        return .{ .ptr = qtc.QFileIconProvider_new() };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfileiconprovider.html#icon)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileIconProvider `
+    /// ` self: QFileIconProvider `
     ///
     /// ` typeVal: qabstractfileiconprovider_enums.IconType `
     ///
-    pub fn Icon(self: ?*anyopaque, typeVal: i32) QtC.QIcon {
-        return qtc.QFileIconProvider_Icon(@ptrCast(self), @bitCast(typeVal));
+    pub fn Icon(self: QFileIconProvider, typeVal: i32) QIcon {
+        return .{ .ptr = qtc.QFileIconProvider_Icon(@ptrCast(self.ptr), @bitCast(typeVal)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfileiconprovider.html#icon)
@@ -29,12 +40,12 @@ pub const qfileiconprovider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileIconProvider `
+    /// ` self: QFileIconProvider `
     ///
-    /// ` callback: *const fn (self: QtC.QFileIconProvider, typeVal: qabstractfileiconprovider_enums.IconType) callconv(.c) QtC.QIcon `
+    /// ` callback: *const fn (self: QFileIconProvider, typeVal: qabstractfileiconprovider_enums.IconType) callconv(.c) QIcon `
     ///
-    pub fn OnIcon(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QIcon) void {
-        qtc.QFileIconProvider_OnIcon(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIcon(self: QFileIconProvider, callback: *const fn (QFileIconProvider, i32) callconv(.c) QIcon) void {
+        qtc.QFileIconProvider_OnIcon(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperIcon` instead
@@ -47,24 +58,25 @@ pub const qfileiconprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileIconProvider `
+    /// ` self: QFileIconProvider `
     ///
     /// ` typeVal: qabstractfileiconprovider_enums.IconType `
     ///
-    pub fn SuperIcon(self: ?*anyopaque, typeVal: i32) QtC.QIcon {
-        return qtc.QFileIconProvider_SuperIcon(@ptrCast(self), @bitCast(typeVal));
+    pub fn SuperIcon(self: QFileIconProvider, typeVal: i32) QIcon {
+        return .{ .ptr = qtc.QFileIconProvider_SuperIcon(@ptrCast(self.ptr), @bitCast(typeVal)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfileiconprovider.html#icon)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileIconProvider `
+    /// ` self: QFileIconProvider `
     ///
-    /// ` info: QtC.QFileInfo `
+    /// ` info: QFileInfo `
     ///
-    pub fn Icon2(self: ?*anyopaque, info: ?*anyopaque) QtC.QIcon {
-        return qtc.QFileIconProvider_Icon2(@ptrCast(self), @ptrCast(info));
+    pub fn Icon2(self: QFileIconProvider, info: anytype) QIcon {
+        comptime _ = @TypeOf(info)._is_QFileInfo;
+        return .{ .ptr = qtc.QFileIconProvider_Icon2(@ptrCast(self.ptr), @ptrCast(info.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfileiconprovider.html#icon)
@@ -73,12 +85,12 @@ pub const qfileiconprovider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileIconProvider `
+    /// ` self: QFileIconProvider `
     ///
-    /// ` callback: *const fn (self: QtC.QFileIconProvider, info: QtC.QFileInfo) callconv(.c) QtC.QIcon `
+    /// ` callback: *const fn (self: QFileIconProvider, info: QFileInfo) callconv(.c) QIcon `
     ///
-    pub fn OnIcon2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QIcon) void {
-        qtc.QFileIconProvider_OnIcon2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIcon2(self: QFileIconProvider, callback: *const fn (QFileIconProvider, QFileInfo) callconv(.c) QIcon) void {
+        qtc.QFileIconProvider_OnIcon2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperIcon2` instead
@@ -91,12 +103,13 @@ pub const qfileiconprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileIconProvider `
+    /// ` self: QFileIconProvider `
     ///
-    /// ` info: QtC.QFileInfo `
+    /// ` info: QFileInfo `
     ///
-    pub fn SuperIcon2(self: ?*anyopaque, info: ?*anyopaque) QtC.QIcon {
-        return qtc.QFileIconProvider_SuperIcon2(@ptrCast(self), @ptrCast(info));
+    pub fn SuperIcon2(self: QFileIconProvider, info: anytype) QIcon {
+        comptime _ = @TypeOf(info)._is_QFileInfo;
+        return .{ .ptr = qtc.QFileIconProvider_SuperIcon2(@ptrCast(self.ptr), @ptrCast(info.ptr)) };
     }
 
     /// Inherited from QAbstractFileIconProvider
@@ -107,14 +120,15 @@ pub const qfileiconprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileIconProvider `
-    ///
-    /// ` param1: QtC.QFileInfo `
+    /// ` self: QFileIconProvider `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Type(self: ?*anyopaque, param1: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QFileIconProvider_Type(@ptrCast(self), @ptrCast(param1));
+    /// ` param1: QFileInfo `
+    ///
+    pub fn Type(self: QFileIconProvider, allocator: std.mem.Allocator, param1: anytype) []const u8 {
+        comptime _ = @TypeOf(param1)._is_QFileInfo;
+        var _str = qtc.QFileIconProvider_Type(@ptrCast(self.ptr), @ptrCast(param1.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfileiconprovider.Type: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -133,14 +147,15 @@ pub const qfileiconprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileIconProvider `
-    ///
-    /// ` param1: QtC.QFileInfo `
+    /// ` self: QFileIconProvider `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperType(self: ?*anyopaque, param1: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QFileIconProvider_SuperType(@ptrCast(self), @ptrCast(param1));
+    /// ` param1: QFileInfo `
+    ///
+    pub fn SuperType(self: QFileIconProvider, allocator: std.mem.Allocator, param1: anytype) []const u8 {
+        comptime _ = @TypeOf(param1)._is_QFileInfo;
+        var _str = qtc.QFileIconProvider_SuperType(@ptrCast(self.ptr), @ptrCast(param1.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfileiconprovider.Type: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -153,16 +168,16 @@ pub const qfileiconprovider = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileIconProvider`
+    /// ` self: QFileIconProvider`
     ///
-    /// ` callback: *const fn (self: QtC.QFileIconProvider, param1: QtC.QFileInfo) callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: QFileIconProvider, param1: QFileInfo) callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnType(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) [*:0]const u8) void {
-        qtc.QFileIconProvider_OnType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnType(self: QFileIconProvider, callback: *const fn (QFileIconProvider, QFileInfo) callconv(.c) [*:0]const u8) void {
+        qtc.QFileIconProvider_OnType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractFileIconProvider
@@ -173,12 +188,12 @@ pub const qfileiconprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileIconProvider `
+    /// ` self: QFileIconProvider `
     ///
     /// ` options: flag of qabstractfileiconprovider_enums.Option `
     ///
-    pub fn SetOptions(self: ?*anyopaque, options: i32) void {
-        qtc.QFileIconProvider_SetOptions(@ptrCast(self), @bitCast(options));
+    pub fn SetOptions(self: QFileIconProvider, options: i32) void {
+        qtc.QFileIconProvider_SetOptions(@ptrCast(self.ptr), @bitCast(options));
     }
 
     /// ### DEPRECATED: Use `SuperSetOptions` instead
@@ -193,12 +208,12 @@ pub const qfileiconprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileIconProvider `
+    /// ` self: QFileIconProvider `
     ///
     /// ` options: flag of qabstractfileiconprovider_enums.Option `
     ///
-    pub fn SuperSetOptions(self: ?*anyopaque, options: i32) void {
-        qtc.QFileIconProvider_SuperSetOptions(@ptrCast(self), @bitCast(options));
+    pub fn SuperSetOptions(self: QFileIconProvider, options: i32) void {
+        qtc.QFileIconProvider_SuperSetOptions(@ptrCast(self.ptr), @bitCast(options));
     }
 
     /// Inherited from QAbstractFileIconProvider
@@ -209,12 +224,12 @@ pub const qfileiconprovider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileIconProvider`
+    /// ` self: QFileIconProvider`
     ///
-    /// ` callback: *const fn (self: QtC.QFileIconProvider, options: flag of qabstractfileiconprovider_enums.Option) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileIconProvider, options: flag of qabstractfileiconprovider_enums.Option) callconv(.c) void `
     ///
-    pub fn OnSetOptions(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QFileIconProvider_OnSetOptions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetOptions(self: QFileIconProvider, callback: *const fn (QFileIconProvider, i32) callconv(.c) void) void {
+        qtc.QFileIconProvider_OnSetOptions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractFileIconProvider
@@ -225,14 +240,14 @@ pub const qfileiconprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileIconProvider `
+    /// ` self: QFileIconProvider `
     ///
     /// ## Returns:
     ///
     /// ` flag of qabstractfileiconprovider_enums.Option `
     ///
-    pub fn Options(self: ?*anyopaque) i32 {
-        return qtc.QFileIconProvider_Options(@ptrCast(self));
+    pub fn Options(self: QFileIconProvider) i32 {
+        return qtc.QFileIconProvider_Options(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperOptions` instead
@@ -247,14 +262,14 @@ pub const qfileiconprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileIconProvider `
+    /// ` self: QFileIconProvider `
     ///
     /// ## Returns:
     ///
     /// ` flag of qabstractfileiconprovider_enums.Option `
     ///
-    pub fn SuperOptions(self: ?*anyopaque) i32 {
-        return qtc.QFileIconProvider_SuperOptions(@ptrCast(self));
+    pub fn SuperOptions(self: QFileIconProvider) i32 {
+        return qtc.QFileIconProvider_SuperOptions(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractFileIconProvider
@@ -265,12 +280,12 @@ pub const qfileiconprovider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileIconProvider`
+    /// ` self: QFileIconProvider`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnOptions(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QFileIconProvider_OnOptions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnOptions(self: QFileIconProvider, callback: *const fn () callconv(.c) i32) void {
+        qtc.QFileIconProvider_OnOptions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -283,9 +298,9 @@ pub const qfileiconprovider = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QFileIconProvider `
+    /// ` self: QFileIconProvider `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QFileIconProvider_Delete(@ptrCast(self));
+    pub fn Delete(self: QFileIconProvider) void {
+        qtc.QFileIconProvider_Delete(@ptrCast(self.ptr));
     }
 };

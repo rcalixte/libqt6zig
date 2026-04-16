@@ -4,18 +4,26 @@ const kcodecs_enums = enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/kcodecs.html)
-pub const kcodecs = struct {
+pub const KCodecs = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kcodecs.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KCodecs,
+
+    pub const _is_KCodecs = {};
+
     /// ### [Upstream resources](https://api.kde.org/kcodecs.html#quotedPrintableEncode)
     ///
     /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` param1: []u8 `
     ///
     /// ` param2: bool `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn QuotedPrintableEncode(param1: []u8, param2: bool, allocator: std.mem.Allocator) []u8 {
+    pub fn QuotedPrintableEncode(allocator: std.mem.Allocator, param1: []u8, param2: bool) []u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -53,11 +61,11 @@ pub const kcodecs = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QuotedPrintableDecode(param1: []u8, allocator: std.mem.Allocator) []u8 {
+    /// ` param1: []u8 `
+    ///
+    pub fn QuotedPrintableDecode(allocator: std.mem.Allocator, param1: []u8) []u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -93,11 +101,11 @@ pub const kcodecs = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Uudecode(param1: []u8, allocator: std.mem.Allocator) []u8 {
+    /// ` param1: []u8 `
+    ///
+    pub fn Uudecode(allocator: std.mem.Allocator, param1: []u8) []u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -133,11 +141,11 @@ pub const kcodecs = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Base64Encode(param1: []u8, allocator: std.mem.Allocator) []u8 {
+    /// ` param1: []u8 `
+    ///
+    pub fn Base64Encode(allocator: std.mem.Allocator, param1: []u8) []u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -175,11 +183,11 @@ pub const kcodecs = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Base64Decode(param1: []u8, allocator: std.mem.Allocator) []u8 {
+    /// ` param1: []u8 `
+    ///
+    pub fn Base64Decode(allocator: std.mem.Allocator, param1: []u8) []u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -215,11 +223,11 @@ pub const kcodecs = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Base45Decode(param1: []u8, allocator: std.mem.Allocator) []u8 {
+    /// ` param1: []u8 `
+    ///
+    pub fn Base45Decode(allocator: std.mem.Allocator, param1: []u8) []u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -233,78 +241,86 @@ pub const kcodecs = struct {
 };
 
 /// ### [Upstream resources](https://api.kde.org/kcodecs-codec.html)
-pub const kcodecs__codec = struct {
+pub const KCodecs__Codec = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kcodecs-codec.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KCodecs__Codec,
+
+    pub const _is_KCodecs__Codec = {};
+
     /// ### [Upstream resources](https://api.kde.org/kcodecs-codec.html#codecForName)
     ///
     /// ## Parameter(s):
     ///
     /// ` name: []u8 `
     ///
-    pub fn CodecForName(name: []u8) QtC.KCodecs__Codec {
+    pub fn CodecForName(name: []u8) KCodecs__Codec {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.KCodecs__Codec_CodecForName(name_str);
+        return .{ .ptr = qtc.KCodecs__Codec_CodecForName(name_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcodecs-codec.html#maxEncodedSizeFor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCodecs__Codec `
+    /// ` self: KCodecs__Codec `
     ///
     /// ` insize: isize `
     ///
     /// ` newline: kcodecs_enums.NewlineType `
     ///
-    pub fn MaxEncodedSizeFor(self: ?*anyopaque, insize: isize, newline: i32) isize {
-        return qtc.KCodecs__Codec_MaxEncodedSizeFor(@ptrCast(self), @bitCast(insize), @bitCast(newline));
+    pub fn MaxEncodedSizeFor(self: KCodecs__Codec, insize: isize, newline: i32) isize {
+        return qtc.KCodecs__Codec_MaxEncodedSizeFor(@ptrCast(self.ptr), @bitCast(insize), @bitCast(newline));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcodecs-codec.html#maxDecodedSizeFor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCodecs__Codec `
+    /// ` self: KCodecs__Codec `
     ///
     /// ` insize: isize `
     ///
     /// ` newline: kcodecs_enums.NewlineType `
     ///
-    pub fn MaxDecodedSizeFor(self: ?*anyopaque, insize: isize, newline: i32) isize {
-        return qtc.KCodecs__Codec_MaxDecodedSizeFor(@ptrCast(self), @bitCast(insize), @bitCast(newline));
+    pub fn MaxDecodedSizeFor(self: KCodecs__Codec, insize: isize, newline: i32) isize {
+        return qtc.KCodecs__Codec_MaxDecodedSizeFor(@ptrCast(self.ptr), @bitCast(insize), @bitCast(newline));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcodecs-codec.html#makeEncoder)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCodecs__Codec `
+    /// ` self: KCodecs__Codec `
     ///
     /// ` newline: kcodecs_enums.NewlineType `
     ///
-    pub fn MakeEncoder(self: ?*anyopaque, newline: i32) QtC.KCodecs__Encoder {
-        return qtc.KCodecs__Codec_MakeEncoder(@ptrCast(self), @bitCast(newline));
+    pub fn MakeEncoder(self: KCodecs__Codec, newline: i32) KCodecs__Encoder {
+        return .{ .ptr = qtc.KCodecs__Codec_MakeEncoder(@ptrCast(self.ptr), @bitCast(newline)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcodecs-codec.html#makeDecoder)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCodecs__Codec `
+    /// ` self: KCodecs__Codec `
     ///
     /// ` newline: kcodecs_enums.NewlineType `
     ///
-    pub fn MakeDecoder(self: ?*anyopaque, newline: i32) QtC.KCodecs__Decoder {
-        return qtc.KCodecs__Codec_MakeDecoder(@ptrCast(self), @bitCast(newline));
+    pub fn MakeDecoder(self: KCodecs__Codec, newline: i32) KCodecs__Decoder {
+        return .{ .ptr = qtc.KCodecs__Codec_MakeDecoder(@ptrCast(self.ptr), @bitCast(newline)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcodecs-codec.html#encode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCodecs__Codec `
+    /// ` self: KCodecs__Codec `
     ///
     /// ` scursor: [:0]const u8 `
     ///
@@ -316,19 +332,19 @@ pub const kcodecs__codec = struct {
     ///
     /// ` newline: kcodecs_enums.NewlineType `
     ///
-    pub fn Encode(self: ?*anyopaque, scursor: [:0]const u8, send: [:0]const u8, dcursor: [:0]u8, dend: [:0]const u8, newline: i32) bool {
+    pub fn Encode(self: KCodecs__Codec, scursor: [:0]const u8, send: [:0]const u8, dcursor: [:0]u8, dend: [:0]const u8, newline: i32) bool {
         const scursor_Cstring = scursor.ptr;
         const send_Cstring = send.ptr;
         const dcursor_Cstring = dcursor.ptr;
         const dend_Cstring = dend.ptr;
-        return qtc.KCodecs__Codec_Encode(@ptrCast(self), scursor_Cstring, send_Cstring, dcursor_Cstring, dend_Cstring, @bitCast(newline));
+        return qtc.KCodecs__Codec_Encode(@ptrCast(self.ptr), scursor_Cstring, send_Cstring, dcursor_Cstring, dend_Cstring, @bitCast(newline));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcodecs-codec.html#decode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCodecs__Codec `
+    /// ` self: KCodecs__Codec `
     ///
     /// ` scursor: [:0]const u8 `
     ///
@@ -340,30 +356,30 @@ pub const kcodecs__codec = struct {
     ///
     /// ` newline: kcodecs_enums.NewlineType `
     ///
-    pub fn Decode(self: ?*anyopaque, scursor: [:0]const u8, send: [:0]const u8, dcursor: [:0]u8, dend: [:0]const u8, newline: i32) bool {
+    pub fn Decode(self: KCodecs__Codec, scursor: [:0]const u8, send: [:0]const u8, dcursor: [:0]u8, dend: [:0]const u8, newline: i32) bool {
         const scursor_Cstring = scursor.ptr;
         const send_Cstring = send.ptr;
         const dcursor_Cstring = dcursor.ptr;
         const dend_Cstring = dend.ptr;
-        return qtc.KCodecs__Codec_Decode(@ptrCast(self), scursor_Cstring, send_Cstring, dcursor_Cstring, dend_Cstring, @bitCast(newline));
+        return qtc.KCodecs__Codec_Decode(@ptrCast(self.ptr), scursor_Cstring, send_Cstring, dcursor_Cstring, dend_Cstring, @bitCast(newline));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcodecs-codec.html#encode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCodecs__Codec `
-    ///
-    /// ` src: []u8 `
+    /// ` self: KCodecs__Codec `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Encode2(self: ?*anyopaque, src: []u8, allocator: std.mem.Allocator) []u8 {
+    /// ` src: []u8 `
+    ///
+    pub fn Encode2(self: KCodecs__Codec, allocator: std.mem.Allocator, src: []u8) []u8 {
         const src_str = qtc.libqt_string{
             .len = src.len,
             .data = src.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.KCodecs__Codec_Encode2(@ptrCast(self), src_str);
+        var _bytearray: qtc.libqt_string = qtc.KCodecs__Codec_Encode2(@ptrCast(self.ptr), src_str);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kcodecs__codec.Encode2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -374,18 +390,18 @@ pub const kcodecs__codec = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCodecs__Codec `
-    ///
-    /// ` src: []u8 `
+    /// ` self: KCodecs__Codec `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Decode2(self: ?*anyopaque, src: []u8, allocator: std.mem.Allocator) []u8 {
+    /// ` src: []u8 `
+    ///
+    pub fn Decode2(self: KCodecs__Codec, allocator: std.mem.Allocator, src: []u8) []u8 {
         const src_str = qtc.libqt_string{
             .len = src.len,
             .data = src.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.KCodecs__Codec_Decode2(@ptrCast(self), src_str);
+        var _bytearray: qtc.libqt_string = qtc.KCodecs__Codec_Decode2(@ptrCast(self.ptr), src_str);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kcodecs__codec.Decode2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -396,10 +412,10 @@ pub const kcodecs__codec = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCodecs__Codec `
+    /// ` self: KCodecs__Codec `
     ///
-    pub fn Name(self: ?*anyopaque) [:0]const u8 {
-        const _ret = qtc.KCodecs__Codec_Name(@ptrCast(self));
+    pub fn Name(self: KCodecs__Codec) [:0]const u8 {
+        const _ret = qtc.KCodecs__Codec_Name(@ptrCast(self.ptr));
         return std.mem.span(_ret);
     }
 
@@ -407,20 +423,20 @@ pub const kcodecs__codec = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCodecs__Codec `
+    /// ` self: KCodecs__Codec `
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` src: []u8 `
     ///
     /// ` newline: kcodecs_enums.NewlineType `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Encode22(self: ?*anyopaque, src: []u8, newline: i32, allocator: std.mem.Allocator) []u8 {
+    pub fn Encode22(self: KCodecs__Codec, allocator: std.mem.Allocator, src: []u8, newline: i32) []u8 {
         const src_str = qtc.libqt_string{
             .len = src.len,
             .data = src.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.KCodecs__Codec_Encode22(@ptrCast(self), src_str, @bitCast(newline));
+        var _bytearray: qtc.libqt_string = qtc.KCodecs__Codec_Encode22(@ptrCast(self.ptr), src_str, @bitCast(newline));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kcodecs__codec.Encode22: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -431,20 +447,20 @@ pub const kcodecs__codec = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCodecs__Codec `
+    /// ` self: KCodecs__Codec `
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` src: []u8 `
     ///
     /// ` newline: kcodecs_enums.NewlineType `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Decode22(self: ?*anyopaque, src: []u8, newline: i32, allocator: std.mem.Allocator) []u8 {
+    pub fn Decode22(self: KCodecs__Codec, allocator: std.mem.Allocator, src: []u8, newline: i32) []u8 {
         const src_str = qtc.libqt_string{
             .len = src.len,
             .data = src.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.KCodecs__Codec_Decode22(@ptrCast(self), src_str, @bitCast(newline));
+        var _bytearray: qtc.libqt_string = qtc.KCodecs__Codec_Decode22(@ptrCast(self.ptr), src_str, @bitCast(newline));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kcodecs__codec.Decode22: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -459,20 +475,28 @@ pub const kcodecs__codec = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KCodecs__Codec `
+    /// ` self: KCodecs__Codec `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KCodecs__Codec_Delete(@ptrCast(self));
+    pub fn Delete(self: KCodecs__Codec) void {
+        qtc.KCodecs__Codec_Delete(@ptrCast(self.ptr));
     }
 };
 
 /// ### [Upstream resources](https://api.kde.org/kcodecs-decoder.html)
-pub const kcodecs__decoder = struct {
+pub const KCodecs__Decoder = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kcodecs-decoder.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KCodecs__Decoder,
+
+    pub const _is_KCodecs__Decoder = {};
+
     /// ### [Upstream resources](https://api.kde.org/kcodecs-decoder.html#decode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCodecs__Decoder `
+    /// ` self: KCodecs__Decoder `
     ///
     /// ` scursor: [:0]const u8 `
     ///
@@ -482,28 +506,28 @@ pub const kcodecs__decoder = struct {
     ///
     /// ` dend: [:0]const u8 `
     ///
-    pub fn Decode(self: ?*anyopaque, scursor: [:0]const u8, send: [:0]const u8, dcursor: [:0]u8, dend: [:0]const u8) bool {
+    pub fn Decode(self: KCodecs__Decoder, scursor: [:0]const u8, send: [:0]const u8, dcursor: [:0]u8, dend: [:0]const u8) bool {
         const scursor_Cstring = scursor.ptr;
         const send_Cstring = send.ptr;
         const dcursor_Cstring = dcursor.ptr;
         const dend_Cstring = dend.ptr;
-        return qtc.KCodecs__Decoder_Decode(@ptrCast(self), scursor_Cstring, send_Cstring, dcursor_Cstring, dend_Cstring);
+        return qtc.KCodecs__Decoder_Decode(@ptrCast(self.ptr), scursor_Cstring, send_Cstring, dcursor_Cstring, dend_Cstring);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcodecs-decoder.html#finish)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCodecs__Decoder `
+    /// ` self: KCodecs__Decoder `
     ///
     /// ` dcursor: [:0]u8 `
     ///
     /// ` dend: [:0]const u8 `
     ///
-    pub fn Finish(self: ?*anyopaque, dcursor: [:0]u8, dend: [:0]const u8) bool {
+    pub fn Finish(self: KCodecs__Decoder, dcursor: [:0]u8, dend: [:0]const u8) bool {
         const dcursor_Cstring = dcursor.ptr;
         const dend_Cstring = dend.ptr;
-        return qtc.KCodecs__Decoder_Finish(@ptrCast(self), dcursor_Cstring, dend_Cstring);
+        return qtc.KCodecs__Decoder_Finish(@ptrCast(self.ptr), dcursor_Cstring, dend_Cstring);
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -514,20 +538,28 @@ pub const kcodecs__decoder = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KCodecs__Decoder `
+    /// ` self: KCodecs__Decoder `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KCodecs__Decoder_Delete(@ptrCast(self));
+    pub fn Delete(self: KCodecs__Decoder) void {
+        qtc.KCodecs__Decoder_Delete(@ptrCast(self.ptr));
     }
 };
 
 /// ### [Upstream resources](https://api.kde.org/kcodecs-encoder.html)
-pub const kcodecs__encoder = struct {
+pub const KCodecs__Encoder = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kcodecs-encoder.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KCodecs__Encoder,
+
+    pub const _is_KCodecs__Encoder = {};
+
     /// ### [Upstream resources](https://api.kde.org/kcodecs-encoder.html#encode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCodecs__Encoder `
+    /// ` self: KCodecs__Encoder `
     ///
     /// ` scursor: [:0]const u8 `
     ///
@@ -537,28 +569,28 @@ pub const kcodecs__encoder = struct {
     ///
     /// ` dend: [:0]const u8 `
     ///
-    pub fn Encode(self: ?*anyopaque, scursor: [:0]const u8, send: [:0]const u8, dcursor: [:0]u8, dend: [:0]const u8) bool {
+    pub fn Encode(self: KCodecs__Encoder, scursor: [:0]const u8, send: [:0]const u8, dcursor: [:0]u8, dend: [:0]const u8) bool {
         const scursor_Cstring = scursor.ptr;
         const send_Cstring = send.ptr;
         const dcursor_Cstring = dcursor.ptr;
         const dend_Cstring = dend.ptr;
-        return qtc.KCodecs__Encoder_Encode(@ptrCast(self), scursor_Cstring, send_Cstring, dcursor_Cstring, dend_Cstring);
+        return qtc.KCodecs__Encoder_Encode(@ptrCast(self.ptr), scursor_Cstring, send_Cstring, dcursor_Cstring, dend_Cstring);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcodecs-encoder.html#finish)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCodecs__Encoder `
+    /// ` self: KCodecs__Encoder `
     ///
     /// ` dcursor: [:0]u8 `
     ///
     /// ` dend: [:0]const u8 `
     ///
-    pub fn Finish(self: ?*anyopaque, dcursor: [:0]u8, dend: [:0]const u8) bool {
+    pub fn Finish(self: KCodecs__Encoder, dcursor: [:0]u8, dend: [:0]const u8) bool {
         const dcursor_Cstring = dcursor.ptr;
         const dend_Cstring = dend.ptr;
-        return qtc.KCodecs__Encoder_Finish(@ptrCast(self), dcursor_Cstring, dend_Cstring);
+        return qtc.KCodecs__Encoder_Finish(@ptrCast(self.ptr), dcursor_Cstring, dend_Cstring);
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -569,10 +601,10 @@ pub const kcodecs__encoder = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KCodecs__Encoder `
+    /// ` self: KCodecs__Encoder `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KCodecs__Encoder_Delete(@ptrCast(self));
+    pub fn Delete(self: KCodecs__Encoder) void {
+        qtc.KCodecs__Encoder_Delete(@ptrCast(self.ptr));
     }
 };
 

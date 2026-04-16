@@ -1,18 +1,19 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QMetaObject = @import("libqt6").QMetaObject;
 const errorcode_enums = enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/knscore-errorcode.html)
-pub const knscore__errorcode = struct {
+pub const KNSCore__ErrorCode = extern struct {
     /// ### [Upstream resources](https://api.kde.org/knscore-errorcode.html#qt_getEnumMetaObject)
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: errorcode_enums.ErrorCode `
     ///
-    pub fn GetEnumMetaObject(param1: i32) QtC.QMetaObject {
-        return qtc.KNSCore__ErrorCode_GetEnumMetaObject(@bitCast(param1));
+    pub fn GetEnumMetaObject(param1: i32) QMetaObject {
+        return .{ .ptr = qtc.KNSCore__ErrorCode_GetEnumMetaObject(@bitCast(param1)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/knscore-errorcode.html#qt_getEnumName)

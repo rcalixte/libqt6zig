@@ -3,109 +3,119 @@ const qtc = @import("qt6c");
 const poppler_page_transition_enums = enums;
 
 /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PageTransition.html)
-pub const poppler__pagetransition = struct {
+pub const Poppler__PageTransition = extern struct {
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PageTransition.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.Poppler__PageTransition,
+
+    pub const _is_Poppler__PageTransition = {};
+
     /// New constructs a new Poppler::PageTransition object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` pt: QtC.Poppler__PageTransition `
+    /// ` pt: Poppler__PageTransition `
     ///
-    pub fn New(pt: ?*anyopaque) QtC.Poppler__PageTransition {
-        return qtc.Poppler__PageTransition_new(@ptrCast(pt));
+    pub fn New(pt: anytype) Poppler__PageTransition {
+        comptime _ = @TypeOf(pt)._is_Poppler__PageTransition;
+        return .{ .ptr = qtc.Poppler__PageTransition_new(@ptrCast(pt.ptr)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PageTransition.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__PageTransition `
+    /// ` self: Poppler__PageTransition `
     ///
-    /// ` other: QtC.Poppler__PageTransition `
+    /// ` other: Poppler__PageTransition `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.Poppler__PageTransition_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorAssign(self: Poppler__PageTransition, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_Poppler__PageTransition;
+        qtc.Poppler__PageTransition_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PageTransition.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__PageTransition `
+    /// ` self: Poppler__PageTransition `
     ///
     /// ## Returns:
     ///
     /// ` poppler_page_transition_enums.Type `
     ///
-    pub fn Type(self: ?*anyopaque) i32 {
-        return qtc.Poppler__PageTransition_Type(@ptrCast(self));
+    pub fn Type(self: Poppler__PageTransition) i32 {
+        return qtc.Poppler__PageTransition_Type(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PageTransition.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__PageTransition `
+    /// ` self: Poppler__PageTransition `
     ///
-    pub fn DurationReal(self: ?*anyopaque) f64 {
-        return qtc.Poppler__PageTransition_DurationReal(@ptrCast(self));
+    pub fn DurationReal(self: Poppler__PageTransition) f64 {
+        return qtc.Poppler__PageTransition_DurationReal(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PageTransition.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__PageTransition `
+    /// ` self: Poppler__PageTransition `
     ///
     /// ## Returns:
     ///
     /// ` poppler_page_transition_enums.Alignment `
     ///
-    pub fn Alignment(self: ?*anyopaque) i32 {
-        return qtc.Poppler__PageTransition_Alignment(@ptrCast(self));
+    pub fn Alignment(self: Poppler__PageTransition) i32 {
+        return qtc.Poppler__PageTransition_Alignment(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PageTransition.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__PageTransition `
+    /// ` self: Poppler__PageTransition `
     ///
     /// ## Returns:
     ///
     /// ` poppler_page_transition_enums.Direction `
     ///
-    pub fn Direction(self: ?*anyopaque) i32 {
-        return qtc.Poppler__PageTransition_Direction(@ptrCast(self));
+    pub fn Direction(self: Poppler__PageTransition) i32 {
+        return qtc.Poppler__PageTransition_Direction(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PageTransition.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__PageTransition `
+    /// ` self: Poppler__PageTransition `
     ///
-    pub fn Angle(self: ?*anyopaque) i32 {
-        return qtc.Poppler__PageTransition_Angle(@ptrCast(self));
+    pub fn Angle(self: Poppler__PageTransition) i32 {
+        return qtc.Poppler__PageTransition_Angle(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PageTransition.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__PageTransition `
+    /// ` self: Poppler__PageTransition `
     ///
-    pub fn Scale(self: ?*anyopaque) f64 {
-        return qtc.Poppler__PageTransition_Scale(@ptrCast(self));
+    pub fn Scale(self: Poppler__PageTransition) f64 {
+        return qtc.Poppler__PageTransition_Scale(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1PageTransition.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__PageTransition `
+    /// ` self: Poppler__PageTransition `
     ///
-    pub fn IsRectangular(self: ?*anyopaque) bool {
-        return qtc.Poppler__PageTransition_IsRectangular(@ptrCast(self));
+    pub fn IsRectangular(self: Poppler__PageTransition) bool {
+        return qtc.Poppler__PageTransition_IsRectangular(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -118,10 +128,10 @@ pub const poppler__pagetransition = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.Poppler__PageTransition `
+    /// ` self: Poppler__PageTransition `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.Poppler__PageTransition_Delete(@ptrCast(self));
+    pub fn Delete(self: Poppler__PageTransition) void {
+        qtc.Poppler__PageTransition_Delete(@ptrCast(self.ptr));
     }
 };
 

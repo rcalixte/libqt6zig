@@ -190,6 +190,8 @@ pub fn build(b: *std.Build) !void {
         .root_source_file = b.path("include/libqt6.zig"),
     });
 
+    const libqt6zig_internal = libqt6zig;
+
     // Add options
     const options = b.addOptions();
     libqt6zig.addOptions("build_options", options);
@@ -208,6 +210,7 @@ pub fn build(b: *std.Build) !void {
     libqt6zig.addImport("qt6c", qtc_bindings);
     libqt6zig.addImport("qt6zig", qtzig_types);
     libqt6zig.addImport("qtzig", qtzig_types);
+    libqt6zig.addImport("libqt6", libqt6zig_internal);
 
     try b.modules.put(b.allocator, "libqt6zig", libqt6zig);
 

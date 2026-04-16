@@ -1010,7 +1010,7 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 
 	typedefExport := "\n\n/// These are collection types that are used in the Zig API of the library.\n" +
 		"/// They are added here for convenience.\n" +
-		"pub const all_types = struct {\n"
+		"pub const types = struct {\n"
 
 	zigTypesList := make([]string, 0, len(zigTypesMap))
 	for k, v := range zigTypesMap {

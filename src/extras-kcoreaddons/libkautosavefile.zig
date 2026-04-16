@@ -1,5 +1,17 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QDateTime = @import("libqt6").QDateTime;
+const QEvent = @import("libqt6").QEvent;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QUrl = @import("libqt6").QUrl;
+const QVariant = @import("libqt6").QVariant;
 const qfiledevice_enums = @import("../libqfiledevice.zig").enums;
 const qiodevicebase_enums = @import("../libqiodevicebase.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
@@ -7,53 +19,70 @@ const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/kautosavefile.html)
-pub const kautosavefile = struct {
+pub const KAutoSaveFile = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kautosavefile.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KAutoSaveFile,
+
+    pub const _is_KAutoSaveFile = {};
+    pub const _is_QFile = {};
+    pub const _is_QFileDevice = {};
+    pub const _is_QIODevice = {};
+    pub const _is_QObject = {};
+    pub const _is_QIODeviceBase = {};
+
     /// New constructs a new KAutoSaveFile object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` filename: QtC.QUrl `
+    /// ` filename: QUrl `
     ///
-    pub fn New(filename: ?*anyopaque) QtC.KAutoSaveFile {
-        return qtc.KAutoSaveFile_new(@ptrCast(filename));
+    pub fn New(filename: anytype) KAutoSaveFile {
+        comptime _ = @TypeOf(filename)._is_QUrl;
+        return .{ .ptr = qtc.KAutoSaveFile_new(@ptrCast(filename.ptr)) };
     }
 
     /// New2 constructs a new KAutoSaveFile object.
     ///
-    pub fn New2() QtC.KAutoSaveFile {
-        return qtc.KAutoSaveFile_new2();
+    pub fn New2() KAutoSaveFile {
+        return .{ .ptr = qtc.KAutoSaveFile_new2() };
     }
 
     /// New3 constructs a new KAutoSaveFile object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` filename: QtC.QUrl `
+    /// ` filename: QUrl `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New3(filename: ?*anyopaque, parent: ?*anyopaque) QtC.KAutoSaveFile {
-        return qtc.KAutoSaveFile_new3(@ptrCast(filename), @ptrCast(parent));
+    pub fn New3(filename: anytype, parent: anytype) KAutoSaveFile {
+        comptime _ = @TypeOf(filename)._is_QUrl;
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.KAutoSaveFile_new3(@ptrCast(filename.ptr), @ptrCast(parent.ptr)) };
     }
 
     /// New4 constructs a new KAutoSaveFile object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New4(parent: ?*anyopaque) QtC.KAutoSaveFile {
-        return qtc.KAutoSaveFile_new4(@ptrCast(parent));
+    pub fn New4(parent: anytype) KAutoSaveFile {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.KAutoSaveFile_new4(@ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KAutoSaveFile_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: KAutoSaveFile) QMetaObject {
+        return .{ .ptr = qtc.KAutoSaveFile_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -62,12 +91,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.KAutoSaveFile_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: KAutoSaveFile, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.KAutoSaveFile_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -80,33 +109,33 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KAutoSaveFile_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: KAutoSaveFile) QMetaObject {
+        return .{ .ptr = qtc.KAutoSaveFile_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: KAutoSaveFile, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KAutoSaveFile_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.KAutoSaveFile_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    /// ` callback: *const fn (self: QtC.KAutoSaveFile, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: KAutoSaveFile, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.KAutoSaveFile_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.KAutoSaveFile_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -117,18 +146,18 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: KAutoSaveFile, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KAutoSaveFile_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KAutoSaveFile_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -136,20 +165,20 @@ pub const kautosavefile = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KAutoSaveFile_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: KAutoSaveFile, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KAutoSaveFile_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    /// ` callback: *const fn (self: QtC.KAutoSaveFile, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KAutoSaveFile, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.KAutoSaveFile_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.KAutoSaveFile_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -160,7 +189,7 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -168,19 +197,19 @@ pub const kautosavefile = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KAutoSaveFile_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: KAutoSaveFile, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KAutoSaveFile_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -193,32 +222,33 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn ManagedFile(self: ?*anyopaque) QtC.QUrl {
-        return qtc.KAutoSaveFile_ManagedFile(@ptrCast(self));
+    pub fn ManagedFile(self: KAutoSaveFile) QUrl {
+        return .{ .ptr = qtc.KAutoSaveFile_ManagedFile(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kautosavefile.html#setManagedFile)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    /// ` filename: QtC.QUrl `
+    /// ` filename: QUrl `
     ///
-    pub fn SetManagedFile(self: ?*anyopaque, filename: ?*anyopaque) void {
-        qtc.KAutoSaveFile_SetManagedFile(@ptrCast(self), @ptrCast(filename));
+    pub fn SetManagedFile(self: KAutoSaveFile, filename: anytype) void {
+        comptime _ = @TypeOf(filename)._is_QUrl;
+        qtc.KAutoSaveFile_SetManagedFile(@ptrCast(self.ptr), @ptrCast(filename.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kautosavefile.html#releaseLock)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn ReleaseLock(self: ?*anyopaque) void {
-        qtc.KAutoSaveFile_ReleaseLock(@ptrCast(self));
+    pub fn ReleaseLock(self: KAutoSaveFile) void {
+        qtc.KAutoSaveFile_ReleaseLock(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kautosavefile.html#releaseLock)
@@ -227,12 +257,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnReleaseLock(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KAutoSaveFile_OnReleaseLock(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReleaseLock(self: KAutoSaveFile, callback: *const fn () callconv(.c) void) void {
+        qtc.KAutoSaveFile_OnReleaseLock(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperReleaseLock` instead
@@ -245,22 +275,22 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn SuperReleaseLock(self: ?*anyopaque) void {
-        qtc.KAutoSaveFile_SuperReleaseLock(@ptrCast(self));
+    pub fn SuperReleaseLock(self: KAutoSaveFile) void {
+        qtc.KAutoSaveFile_SuperReleaseLock(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kautosavefile.html#open)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` openmode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn Open(self: ?*anyopaque, openmode: i32) bool {
-        return qtc.KAutoSaveFile_Open(@ptrCast(self), @bitCast(openmode));
+    pub fn Open(self: KAutoSaveFile, openmode: i32) bool {
+        return qtc.KAutoSaveFile_Open(@ptrCast(self.ptr), @bitCast(openmode));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kautosavefile.html#open)
@@ -269,12 +299,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    /// ` callback: *const fn (self: QtC.KAutoSaveFile, openmode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool `
+    /// ` callback: *const fn (self: KAutoSaveFile, openmode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool `
     ///
-    pub fn OnOpen(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KAutoSaveFile_OnOpen(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnOpen(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile, i32) callconv(.c) bool) void {
+        qtc.KAutoSaveFile_OnOpen(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperOpen` instead
@@ -287,28 +317,30 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` openmode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn SuperOpen(self: ?*anyopaque, openmode: i32) bool {
-        return qtc.KAutoSaveFile_SuperOpen(@ptrCast(self), @bitCast(openmode));
+    pub fn SuperOpen(self: KAutoSaveFile, openmode: i32) bool {
+        return qtc.KAutoSaveFile_SuperOpen(@ptrCast(self.ptr), @bitCast(openmode));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kautosavefile.html#staleFiles)
     ///
     /// ## Parameter(s):
     ///
-    /// ` url: QtC.QUrl `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StaleFiles(url: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KAutoSaveFile {
-        const _arr: qtc.libqt_list = qtc.KAutoSaveFile_StaleFiles(@ptrCast(url));
+    /// ` url: QUrl `
+    ///
+    pub fn StaleFiles(allocator: std.mem.Allocator, url: anytype) []KAutoSaveFile {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        const _arr: qtc.libqt_list = qtc.KAutoSaveFile_StaleFiles(@ptrCast(url.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.KAutoSaveFile, _arr.len) catch @panic("kautosavefile.StaleFiles: Memory allocation failed");
+        const _ret = allocator.alloc(KAutoSaveFile, _arr.len) catch @panic("kautosavefile.StaleFiles: Memory allocation failed");
         const _data: [*]QtC.KAutoSaveFile = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -318,12 +350,13 @@ pub const kautosavefile = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AllStaleFiles(allocator: std.mem.Allocator) []QtC.KAutoSaveFile {
+    pub fn AllStaleFiles(allocator: std.mem.Allocator) []KAutoSaveFile {
         const _arr: qtc.libqt_list = qtc.KAutoSaveFile_AllStaleFiles();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.KAutoSaveFile, _arr.len) catch @panic("kautosavefile.AllStaleFiles: Memory allocation failed");
+        const _ret = allocator.alloc(KAutoSaveFile, _arr.len) catch @panic("kautosavefile.AllStaleFiles: Memory allocation failed");
         const _data: [*]QtC.KAutoSaveFile = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -331,13 +364,13 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -351,15 +384,15 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -373,22 +406,24 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` url: QtC.QUrl `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` url: QUrl `
     ///
     /// ` applicationName: []const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn StaleFiles2(url: ?*anyopaque, applicationName: []const u8, allocator: std.mem.Allocator) []QtC.KAutoSaveFile {
+    pub fn StaleFiles2(allocator: std.mem.Allocator, url: anytype, applicationName: []const u8) []KAutoSaveFile {
+        comptime _ = @TypeOf(url)._is_QUrl;
         const applicationName_str = qtc.libqt_string{
             .len = applicationName.len,
             .data = applicationName.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.KAutoSaveFile_StaleFiles2(@ptrCast(url), applicationName_str);
+        const _arr: qtc.libqt_list = qtc.KAutoSaveFile_StaleFiles2(@ptrCast(url.ptr), applicationName_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.KAutoSaveFile, _arr.len) catch @panic("kautosavefile.StaleFiles2: Memory allocation failed");
+        const _ret = allocator.alloc(KAutoSaveFile, _arr.len) catch @panic("kautosavefile.StaleFiles2: Memory allocation failed");
         const _data: [*]QtC.KAutoSaveFile = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -396,20 +431,21 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` applicationName: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AllStaleFiles1(applicationName: []const u8, allocator: std.mem.Allocator) []QtC.KAutoSaveFile {
+    /// ` applicationName: []const u8 `
+    ///
+    pub fn AllStaleFiles1(allocator: std.mem.Allocator, applicationName: []const u8) []KAutoSaveFile {
         const applicationName_str = qtc.libqt_string{
             .len = applicationName.len,
             .data = applicationName.ptr,
         };
         const _arr: qtc.libqt_list = qtc.KAutoSaveFile_AllStaleFiles1(applicationName_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.KAutoSaveFile, _arr.len) catch @panic("kautosavefile.AllStaleFiles1: Memory allocation failed");
+        const _ret = allocator.alloc(KAutoSaveFile, _arr.len) catch @panic("kautosavefile.AllStaleFiles1: Memory allocation failed");
         const _data: [*]QtC.KAutoSaveFile = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -419,16 +455,16 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetFileName(self: ?*anyopaque, name: []const u8) void {
+    pub fn SetFileName(self: KAutoSaveFile, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QFile_SetFileName(@ptrCast(self), name_str);
+        qtc.QFile_SetFileName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QFile
@@ -437,11 +473,11 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` fileName: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn EncodeName(fileName: []const u8, allocator: std.mem.Allocator) []u8 {
+    /// ` fileName: []const u8 `
+    ///
+    pub fn EncodeName(allocator: std.mem.Allocator, fileName: []const u8) []u8 {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -459,11 +495,11 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` localFileName: []u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DecodeName(localFileName: []u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` localFileName: []u8 `
+    ///
+    pub fn DecodeName(allocator: std.mem.Allocator, localFileName: []u8) []const u8 {
         const localFileName_str = qtc.libqt_string{
             .len = localFileName.len,
             .data = localFileName.ptr,
@@ -481,11 +517,11 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` localFileName: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DecodeName2(localFileName: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` localFileName: [:0]const u8 `
+    ///
+    pub fn DecodeName2(allocator: std.mem.Allocator, localFileName: [:0]const u8) []const u8 {
         const localFileName_Cstring = localFileName.ptr;
         var _str = qtc.QFile_DecodeName2(localFileName_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -500,10 +536,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn Exists(self: ?*anyopaque) bool {
-        return qtc.QFile_Exists(@ptrCast(self));
+    pub fn Exists(self: KAutoSaveFile) bool {
+        return qtc.QFile_Exists(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFile
@@ -528,12 +564,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SymLinkTarget(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QFile_SymLinkTarget(@ptrCast(self));
+    pub fn SymLinkTarget(self: KAutoSaveFile, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QFile_SymLinkTarget(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kautosavefile.SymLinkTarget: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -546,11 +582,11 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` fileName: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SymLinkTarget2(fileName: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` fileName: []const u8 `
+    ///
+    pub fn SymLinkTarget2(allocator: std.mem.Allocator, fileName: []const u8) []const u8 {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -568,10 +604,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn Remove(self: ?*anyopaque) bool {
-        return qtc.QFile_Remove(@ptrCast(self));
+    pub fn Remove(self: KAutoSaveFile) bool {
+        return qtc.QFile_Remove(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFile
@@ -596,10 +632,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn MoveToTrash(self: ?*anyopaque) bool {
-        return qtc.QFile_MoveToTrash(@ptrCast(self));
+    pub fn MoveToTrash(self: KAutoSaveFile) bool {
+        return qtc.QFile_MoveToTrash(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFile
@@ -624,16 +660,16 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` newName: []const u8 `
     ///
-    pub fn Rename(self: ?*anyopaque, newName: []const u8) bool {
+    pub fn Rename(self: KAutoSaveFile, newName: []const u8) bool {
         const newName_str = qtc.libqt_string{
             .len = newName.len,
             .data = newName.ptr,
         };
-        return qtc.QFile_Rename(@ptrCast(self), newName_str);
+        return qtc.QFile_Rename(@ptrCast(self.ptr), newName_str);
     }
 
     /// Inherited from QFile
@@ -664,16 +700,16 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` newName: []const u8 `
     ///
-    pub fn Link(self: ?*anyopaque, newName: []const u8) bool {
+    pub fn Link(self: KAutoSaveFile, newName: []const u8) bool {
         const newName_str = qtc.libqt_string{
             .len = newName.len,
             .data = newName.ptr,
         };
-        return qtc.QFile_Link(@ptrCast(self), newName_str);
+        return qtc.QFile_Link(@ptrCast(self.ptr), newName_str);
     }
 
     /// Inherited from QFile
@@ -704,16 +740,16 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` newName: []const u8 `
     ///
-    pub fn Copy(self: ?*anyopaque, newName: []const u8) bool {
+    pub fn Copy(self: KAutoSaveFile, newName: []const u8) bool {
         const newName_str = qtc.libqt_string{
             .len = newName.len,
             .data = newName.ptr,
         };
-        return qtc.QFile_Copy(@ptrCast(self), newName_str);
+        return qtc.QFile_Copy(@ptrCast(self.ptr), newName_str);
     }
 
     /// Inherited from QFile
@@ -744,14 +780,14 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` flags: flag of qiodevicebase_enums.OpenModeFlag `
     ///
     /// ` permissions: flag of qfiledevice_enums.Permission `
     ///
-    pub fn Open2(self: ?*anyopaque, flags: i32, permissions: i32) bool {
-        return qtc.QFile_Open2(@ptrCast(self), @bitCast(flags), @bitCast(permissions));
+    pub fn Open2(self: KAutoSaveFile, flags: i32, permissions: i32) bool {
+        return qtc.QFile_Open2(@ptrCast(self.ptr), @bitCast(flags), @bitCast(permissions));
     }
 
     /// Inherited from QFile
@@ -760,14 +796,14 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` fd: i32 `
     ///
     /// ` ioFlags: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn Open4(self: ?*anyopaque, fd: i32, ioFlags: i32) bool {
-        return qtc.QFile_Open4(@ptrCast(self), @bitCast(fd), @bitCast(ioFlags));
+    pub fn Open4(self: KAutoSaveFile, fd: i32, ioFlags: i32) bool {
+        return qtc.QFile_Open4(@ptrCast(self.ptr), @bitCast(fd), @bitCast(ioFlags));
     }
 
     /// Inherited from QFile
@@ -832,7 +868,7 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` fd: i32 `
     ///
@@ -840,8 +876,8 @@ pub const kautosavefile = struct {
     ///
     /// ` handleFlags: flag of qfiledevice_enums.FileHandleFlag `
     ///
-    pub fn Open33(self: ?*anyopaque, fd: i32, ioFlags: i32, handleFlags: i32) bool {
-        return qtc.QFile_Open33(@ptrCast(self), @bitCast(fd), @bitCast(ioFlags), @bitCast(handleFlags));
+    pub fn Open33(self: KAutoSaveFile, fd: i32, ioFlags: i32, handleFlags: i32) bool {
+        return qtc.QFile_Open33(@ptrCast(self.ptr), @bitCast(fd), @bitCast(ioFlags), @bitCast(handleFlags));
     }
 
     /// Inherited from QFileDevice
@@ -850,14 +886,14 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ## Returns:
     ///
     /// ` qfiledevice_enums.FileError `
     ///
-    pub fn Error(self: ?*anyopaque) i32 {
-        return qtc.QFileDevice_Error(@ptrCast(self));
+    pub fn Error(self: KAutoSaveFile) i32 {
+        return qtc.QFileDevice_Error(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFileDevice
@@ -866,10 +902,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn UnsetError(self: ?*anyopaque) void {
-        qtc.QFileDevice_UnsetError(@ptrCast(self));
+    pub fn UnsetError(self: KAutoSaveFile) void {
+        qtc.QFileDevice_UnsetError(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFileDevice
@@ -878,10 +914,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn Handle(self: ?*anyopaque) i32 {
-        return qtc.QFileDevice_Handle(@ptrCast(self));
+    pub fn Handle(self: KAutoSaveFile) i32 {
+        return qtc.QFileDevice_Handle(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFileDevice
@@ -890,10 +926,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn Flush(self: ?*anyopaque) bool {
-        return qtc.QFileDevice_Flush(@ptrCast(self));
+    pub fn Flush(self: KAutoSaveFile) bool {
+        return qtc.QFileDevice_Flush(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFileDevice
@@ -902,14 +938,14 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` offset: i64 `
     ///
     /// ` size: i64 `
     ///
-    pub fn Map(self: ?*anyopaque, offset: i64, size: i64) ?*u8 {
-        return @ptrCast(qtc.QFileDevice_Map(@ptrCast(self), @bitCast(offset), @bitCast(size)));
+    pub fn Map(self: KAutoSaveFile, offset: i64, size: i64) ?*u8 {
+        return @ptrCast(qtc.QFileDevice_Map(@ptrCast(self.ptr), @bitCast(offset), @bitCast(size)));
     }
 
     /// Inherited from QFileDevice
@@ -918,12 +954,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` address: *u8 `
     ///
-    pub fn Unmap(self: ?*anyopaque, address: *u8) bool {
-        return qtc.QFileDevice_Unmap(@ptrCast(self), @ptrCast(address));
+    pub fn Unmap(self: KAutoSaveFile, address: *u8) bool {
+        return qtc.QFileDevice_Unmap(@ptrCast(self.ptr), @ptrCast(address));
     }
 
     /// Inherited from QFileDevice
@@ -932,12 +968,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` time: qfiledevice_enums.FileTime `
     ///
-    pub fn FileTime(self: ?*anyopaque, time: i32) QtC.QDateTime {
-        return qtc.QFileDevice_FileTime(@ptrCast(self), @bitCast(time));
+    pub fn FileTime(self: KAutoSaveFile, time: i32) QDateTime {
+        return .{ .ptr = qtc.QFileDevice_FileTime(@ptrCast(self.ptr), @bitCast(time)) };
     }
 
     /// Inherited from QFileDevice
@@ -946,14 +982,15 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    /// ` newDate: QtC.QDateTime `
+    /// ` newDate: QDateTime `
     ///
     /// ` fileTime: qfiledevice_enums.FileTime `
     ///
-    pub fn SetFileTime(self: ?*anyopaque, newDate: ?*anyopaque, fileTime: i32) bool {
-        return qtc.QFileDevice_SetFileTime(@ptrCast(self), @ptrCast(newDate), @bitCast(fileTime));
+    pub fn SetFileTime(self: KAutoSaveFile, newDate: anytype, fileTime: i32) bool {
+        comptime _ = @TypeOf(newDate)._is_QDateTime;
+        return qtc.QFileDevice_SetFileTime(@ptrCast(self.ptr), @ptrCast(newDate.ptr), @bitCast(fileTime));
     }
 
     /// Inherited from QFileDevice
@@ -962,7 +999,7 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` offset: i64 `
     ///
@@ -970,8 +1007,8 @@ pub const kautosavefile = struct {
     ///
     /// ` flags: flag of qfiledevice_enums.MemoryMapFlag `
     ///
-    pub fn Map3(self: ?*anyopaque, offset: i64, size: i64, flags: i32) ?*u8 {
-        return @ptrCast(qtc.QFileDevice_Map3(@ptrCast(self), @bitCast(offset), @bitCast(size), @bitCast(flags)));
+    pub fn Map3(self: KAutoSaveFile, offset: i64, size: i64, flags: i32) ?*u8 {
+        return @ptrCast(qtc.QFileDevice_Map3(@ptrCast(self.ptr), @bitCast(offset), @bitCast(size), @bitCast(flags)));
     }
 
     /// Inherited from QIODevice
@@ -980,14 +1017,14 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ## Returns:
     ///
     /// ` flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn OpenMode(self: ?*anyopaque) i32 {
-        return qtc.QIODevice_OpenMode(@ptrCast(self));
+    pub fn OpenMode(self: KAutoSaveFile) i32 {
+        return qtc.QIODevice_OpenMode(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -996,12 +1033,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetTextModeEnabled(self: ?*anyopaque, enabled: bool) void {
-        qtc.QIODevice_SetTextModeEnabled(@ptrCast(self), enabled);
+    pub fn SetTextModeEnabled(self: KAutoSaveFile, enabled: bool) void {
+        qtc.QIODevice_SetTextModeEnabled(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QIODevice
@@ -1010,10 +1047,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn IsTextModeEnabled(self: ?*anyopaque) bool {
-        return qtc.QIODevice_IsTextModeEnabled(@ptrCast(self));
+    pub fn IsTextModeEnabled(self: KAutoSaveFile) bool {
+        return qtc.QIODevice_IsTextModeEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1022,10 +1059,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn IsOpen(self: ?*anyopaque) bool {
-        return qtc.QIODevice_IsOpen(@ptrCast(self));
+    pub fn IsOpen(self: KAutoSaveFile) bool {
+        return qtc.QIODevice_IsOpen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1034,10 +1071,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn IsReadable(self: ?*anyopaque) bool {
-        return qtc.QIODevice_IsReadable(@ptrCast(self));
+    pub fn IsReadable(self: KAutoSaveFile) bool {
+        return qtc.QIODevice_IsReadable(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1046,10 +1083,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn IsWritable(self: ?*anyopaque) bool {
-        return qtc.QIODevice_IsWritable(@ptrCast(self));
+    pub fn IsWritable(self: KAutoSaveFile) bool {
+        return qtc.QIODevice_IsWritable(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1058,10 +1095,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn ReadChannelCount(self: ?*anyopaque) i32 {
-        return qtc.QIODevice_ReadChannelCount(@ptrCast(self));
+    pub fn ReadChannelCount(self: KAutoSaveFile) i32 {
+        return qtc.QIODevice_ReadChannelCount(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1070,10 +1107,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn WriteChannelCount(self: ?*anyopaque) i32 {
-        return qtc.QIODevice_WriteChannelCount(@ptrCast(self));
+    pub fn WriteChannelCount(self: KAutoSaveFile) i32 {
+        return qtc.QIODevice_WriteChannelCount(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1082,10 +1119,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn CurrentReadChannel(self: ?*anyopaque) i32 {
-        return qtc.QIODevice_CurrentReadChannel(@ptrCast(self));
+    pub fn CurrentReadChannel(self: KAutoSaveFile) i32 {
+        return qtc.QIODevice_CurrentReadChannel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1094,12 +1131,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` channel: i32 `
     ///
-    pub fn SetCurrentReadChannel(self: ?*anyopaque, channel: i32) void {
-        qtc.QIODevice_SetCurrentReadChannel(@ptrCast(self), @bitCast(channel));
+    pub fn SetCurrentReadChannel(self: KAutoSaveFile, channel: i32) void {
+        qtc.QIODevice_SetCurrentReadChannel(@ptrCast(self.ptr), @bitCast(channel));
     }
 
     /// Inherited from QIODevice
@@ -1108,10 +1145,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn CurrentWriteChannel(self: ?*anyopaque) i32 {
-        return qtc.QIODevice_CurrentWriteChannel(@ptrCast(self));
+    pub fn CurrentWriteChannel(self: KAutoSaveFile) i32 {
+        return qtc.QIODevice_CurrentWriteChannel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1120,12 +1157,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` channel: i32 `
     ///
-    pub fn SetCurrentWriteChannel(self: ?*anyopaque, channel: i32) void {
-        qtc.QIODevice_SetCurrentWriteChannel(@ptrCast(self), @bitCast(channel));
+    pub fn SetCurrentWriteChannel(self: KAutoSaveFile, channel: i32) void {
+        qtc.QIODevice_SetCurrentWriteChannel(@ptrCast(self.ptr), @bitCast(channel));
     }
 
     /// Inherited from QIODevice
@@ -1134,15 +1171,15 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` data: [:0]u8 `
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn Read(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn Read(self: KAutoSaveFile, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_Read(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.QIODevice_Read(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
     /// Inherited from QIODevice
@@ -1151,14 +1188,14 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
-    ///
-    /// ` maxlen: i64 `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Read2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QIODevice_Read2(@ptrCast(self), @bitCast(maxlen));
+    /// ` maxlen: i64 `
+    ///
+    pub fn Read2(self: KAutoSaveFile, allocator: std.mem.Allocator, maxlen: i64) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QIODevice_Read2(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kautosavefile.Read2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1171,12 +1208,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadAll(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadAll(@ptrCast(self));
+    pub fn ReadAll(self: KAutoSaveFile, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadAll(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kautosavefile.ReadAll: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1189,15 +1226,15 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` data: [:0]u8 `
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn ReadLine(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn ReadLine(self: KAutoSaveFile, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_ReadLine(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.QIODevice_ReadLine(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
     /// Inherited from QIODevice
@@ -1206,12 +1243,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadLine2(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine2(@ptrCast(self));
+    pub fn ReadLine2(self: KAutoSaveFile, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine2(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kautosavefile.ReadLine2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1224,10 +1261,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn StartTransaction(self: ?*anyopaque) void {
-        qtc.QIODevice_StartTransaction(@ptrCast(self));
+    pub fn StartTransaction(self: KAutoSaveFile) void {
+        qtc.QIODevice_StartTransaction(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1236,10 +1273,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn CommitTransaction(self: ?*anyopaque) void {
-        qtc.QIODevice_CommitTransaction(@ptrCast(self));
+    pub fn CommitTransaction(self: KAutoSaveFile) void {
+        qtc.QIODevice_CommitTransaction(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1248,10 +1285,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn RollbackTransaction(self: ?*anyopaque) void {
-        qtc.QIODevice_RollbackTransaction(@ptrCast(self));
+    pub fn RollbackTransaction(self: KAutoSaveFile) void {
+        qtc.QIODevice_RollbackTransaction(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1260,10 +1297,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn IsTransactionStarted(self: ?*anyopaque) bool {
-        return qtc.QIODevice_IsTransactionStarted(@ptrCast(self));
+    pub fn IsTransactionStarted(self: KAutoSaveFile) bool {
+        return qtc.QIODevice_IsTransactionStarted(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1272,15 +1309,15 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` data: [:0]const u8 `
     ///
     /// ` lenVal: i64 `
     ///
-    pub fn Write(self: ?*anyopaque, data: [:0]const u8, lenVal: i64) i64 {
+    pub fn Write(self: KAutoSaveFile, data: [:0]const u8, lenVal: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_Write(@ptrCast(self), data_Cstring, @bitCast(lenVal));
+        return qtc.QIODevice_Write(@ptrCast(self.ptr), data_Cstring, @bitCast(lenVal));
     }
 
     /// Inherited from QIODevice
@@ -1289,13 +1326,13 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` data: [:0]const u8 `
     ///
-    pub fn Write2(self: ?*anyopaque, data: [:0]const u8) i64 {
+    pub fn Write2(self: KAutoSaveFile, data: [:0]const u8) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_Write2(@ptrCast(self), data_Cstring);
+        return qtc.QIODevice_Write2(@ptrCast(self.ptr), data_Cstring);
     }
 
     /// Inherited from QIODevice
@@ -1304,16 +1341,16 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` data: []u8 `
     ///
-    pub fn Write3(self: ?*anyopaque, data: []u8) i64 {
+    pub fn Write3(self: KAutoSaveFile, data: []u8) i64 {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
-        return qtc.QIODevice_Write3(@ptrCast(self), data_str);
+        return qtc.QIODevice_Write3(@ptrCast(self.ptr), data_str);
     }
 
     /// Inherited from QIODevice
@@ -1322,15 +1359,15 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` data: [:0]u8 `
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn Peek(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn Peek(self: KAutoSaveFile, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_Peek(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.QIODevice_Peek(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
     /// Inherited from QIODevice
@@ -1339,14 +1376,14 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
-    ///
-    /// ` maxlen: i64 `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Peek2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QIODevice_Peek2(@ptrCast(self), @bitCast(maxlen));
+    /// ` maxlen: i64 `
+    ///
+    pub fn Peek2(self: KAutoSaveFile, allocator: std.mem.Allocator, maxlen: i64) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QIODevice_Peek2(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kautosavefile.Peek2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1359,12 +1396,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` maxSize: i64 `
     ///
-    pub fn Skip(self: ?*anyopaque, maxSize: i64) i64 {
-        return qtc.QIODevice_Skip(@ptrCast(self), @bitCast(maxSize));
+    pub fn Skip(self: KAutoSaveFile, maxSize: i64) i64 {
+        return qtc.QIODevice_Skip(@ptrCast(self.ptr), @bitCast(maxSize));
     }
 
     /// Inherited from QIODevice
@@ -1373,12 +1410,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` c: u8 `
     ///
-    pub fn UngetChar(self: ?*anyopaque, c: u8) void {
-        qtc.QIODevice_UngetChar(@ptrCast(self), @bitCast(c));
+    pub fn UngetChar(self: KAutoSaveFile, c: u8) void {
+        qtc.QIODevice_UngetChar(@ptrCast(self.ptr), @bitCast(c));
     }
 
     /// Inherited from QIODevice
@@ -1387,12 +1424,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` c: u8 `
     ///
-    pub fn PutChar(self: ?*anyopaque, c: u8) bool {
-        return qtc.QIODevice_PutChar(@ptrCast(self), @bitCast(c));
+    pub fn PutChar(self: KAutoSaveFile, c: u8) bool {
+        return qtc.QIODevice_PutChar(@ptrCast(self.ptr), @bitCast(c));
     }
 
     /// Inherited from QIODevice
@@ -1401,13 +1438,13 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` c: [:0]u8 `
     ///
-    pub fn GetChar(self: ?*anyopaque, c: [:0]u8) bool {
+    pub fn GetChar(self: KAutoSaveFile, c: [:0]u8) bool {
         const c_Cstring = c.ptr;
-        return qtc.QIODevice_GetChar(@ptrCast(self), c_Cstring);
+        return qtc.QIODevice_GetChar(@ptrCast(self.ptr), c_Cstring);
     }
 
     /// Inherited from QIODevice
@@ -1416,12 +1453,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QIODevice_ErrorString(@ptrCast(self));
+    pub fn ErrorString(self: KAutoSaveFile, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QIODevice_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kautosavefile.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1434,10 +1471,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn ReadyRead(self: ?*anyopaque) void {
-        qtc.QIODevice_ReadyRead(@ptrCast(self));
+    pub fn ReadyRead(self: KAutoSaveFile) void {
+        qtc.QIODevice_ReadyRead(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1446,12 +1483,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    /// ` callback: *const fn (self: QtC.KAutoSaveFile) callconv(.c) void `
+    /// ` callback: *const fn (self: KAutoSaveFile) callconv(.c) void `
     ///
-    pub fn OnReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ReadyRead(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReadyRead(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile) callconv(.c) void) void {
+        qtc.QIODevice_Connect_ReadyRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1460,12 +1497,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` channel: i32 `
     ///
-    pub fn ChannelReadyRead(self: ?*anyopaque, channel: i32) void {
-        qtc.QIODevice_ChannelReadyRead(@ptrCast(self), @bitCast(channel));
+    pub fn ChannelReadyRead(self: KAutoSaveFile, channel: i32) void {
+        qtc.QIODevice_ChannelReadyRead(@ptrCast(self.ptr), @bitCast(channel));
     }
 
     /// Inherited from QIODevice
@@ -1474,12 +1511,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    /// ` callback: *const fn (self: QtC.KAutoSaveFile, channel: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KAutoSaveFile, channel: i32) callconv(.c) void `
     ///
-    pub fn OnChannelReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ChannelReadyRead(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChannelReadyRead(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile, i32) callconv(.c) void) void {
+        qtc.QIODevice_Connect_ChannelReadyRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1488,12 +1525,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` bytes: i64 `
     ///
-    pub fn BytesWritten(self: ?*anyopaque, bytes: i64) void {
-        qtc.QIODevice_BytesWritten(@ptrCast(self), @bitCast(bytes));
+    pub fn BytesWritten(self: KAutoSaveFile, bytes: i64) void {
+        qtc.QIODevice_BytesWritten(@ptrCast(self.ptr), @bitCast(bytes));
     }
 
     /// Inherited from QIODevice
@@ -1502,12 +1539,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    /// ` callback: *const fn (self: QtC.KAutoSaveFile, bytes: i64) callconv(.c) void `
+    /// ` callback: *const fn (self: KAutoSaveFile, bytes: i64) callconv(.c) void `
     ///
-    pub fn OnBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) void) void {
-        qtc.QIODevice_Connect_BytesWritten(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBytesWritten(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile, i64) callconv(.c) void) void {
+        qtc.QIODevice_Connect_BytesWritten(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1516,14 +1553,14 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` channel: i32 `
     ///
     /// ` bytes: i64 `
     ///
-    pub fn ChannelBytesWritten(self: ?*anyopaque, channel: i32, bytes: i64) void {
-        qtc.QIODevice_ChannelBytesWritten(@ptrCast(self), @bitCast(channel), @bitCast(bytes));
+    pub fn ChannelBytesWritten(self: KAutoSaveFile, channel: i32, bytes: i64) void {
+        qtc.QIODevice_ChannelBytesWritten(@ptrCast(self.ptr), @bitCast(channel), @bitCast(bytes));
     }
 
     /// Inherited from QIODevice
@@ -1532,12 +1569,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    /// ` callback: *const fn (self: QtC.KAutoSaveFile, channel: i32, bytes: i64) callconv(.c) void `
+    /// ` callback: *const fn (self: KAutoSaveFile, channel: i32, bytes: i64) callconv(.c) void `
     ///
-    pub fn OnChannelBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i64) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ChannelBytesWritten(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChannelBytesWritten(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile, i32, i64) callconv(.c) void) void {
+        qtc.QIODevice_Connect_ChannelBytesWritten(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1546,10 +1583,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn AboutToClose(self: ?*anyopaque) void {
-        qtc.QIODevice_AboutToClose(@ptrCast(self));
+    pub fn AboutToClose(self: KAutoSaveFile) void {
+        qtc.QIODevice_AboutToClose(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1558,12 +1595,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    /// ` callback: *const fn (self: QtC.KAutoSaveFile) callconv(.c) void `
+    /// ` callback: *const fn (self: KAutoSaveFile) callconv(.c) void `
     ///
-    pub fn OnAboutToClose(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QIODevice_Connect_AboutToClose(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAboutToClose(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile) callconv(.c) void) void {
+        qtc.QIODevice_Connect_AboutToClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1572,10 +1609,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn ReadChannelFinished(self: ?*anyopaque) void {
-        qtc.QIODevice_ReadChannelFinished(@ptrCast(self));
+    pub fn ReadChannelFinished(self: KAutoSaveFile) void {
+        qtc.QIODevice_ReadChannelFinished(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1584,12 +1621,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    /// ` callback: *const fn (self: QtC.KAutoSaveFile) callconv(.c) void `
+    /// ` callback: *const fn (self: KAutoSaveFile) callconv(.c) void `
     ///
-    pub fn OnReadChannelFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ReadChannelFinished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReadChannelFinished(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile) callconv(.c) void) void {
+        qtc.QIODevice_Connect_ReadChannelFinished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1598,14 +1635,14 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
-    ///
-    /// ` maxlen: i64 `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadLine1(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine1(@ptrCast(self), @bitCast(maxlen));
+    /// ` maxlen: i64 `
+    ///
+    pub fn ReadLine1(self: KAutoSaveFile, allocator: std.mem.Allocator, maxlen: i64) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine1(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kautosavefile.ReadLine1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1618,12 +1655,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: KAutoSaveFile, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kautosavefile.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1636,12 +1673,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: KAutoSaveFile, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -1650,10 +1687,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: KAutoSaveFile) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1662,10 +1699,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: KAutoSaveFile) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1674,10 +1711,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: KAutoSaveFile) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1686,10 +1723,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: KAutoSaveFile) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1698,12 +1735,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: KAutoSaveFile, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -1712,10 +1749,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: KAutoSaveFile) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1724,12 +1761,13 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: KAutoSaveFile, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -1738,12 +1776,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: KAutoSaveFile, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1752,12 +1790,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: KAutoSaveFile, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1766,12 +1804,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: KAutoSaveFile, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1780,12 +1818,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: KAutoSaveFile, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1794,16 +1832,17 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: KAutoSaveFile, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("kautosavefile.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kautosavefile.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1813,12 +1852,13 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: KAutoSaveFile, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -1827,12 +1867,13 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: KAutoSaveFile, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -1841,12 +1882,13 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: KAutoSaveFile, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -1855,18 +1897,20 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1875,16 +1919,20 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1893,18 +1941,19 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: KAutoSaveFile, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1913,18 +1962,20 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1933,16 +1984,20 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -1951,10 +2006,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: KAutoSaveFile) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1963,12 +2018,13 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: KAutoSaveFile, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1977,10 +2033,11 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1989,10 +2046,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: KAutoSaveFile) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2001,10 +2058,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: KAutoSaveFile) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2013,15 +2070,16 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: KAutoSaveFile, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -2030,13 +2088,13 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: KAutoSaveFile, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -2045,17 +2103,16 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: KAutoSaveFile, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kautosavefile.DynamicPropertyNames: Memory allocation failed");
@@ -2074,10 +2131,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: KAutoSaveFile) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2086,10 +2143,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: KAutoSaveFile) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2098,10 +2155,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: KAutoSaveFile) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2110,12 +2167,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    /// ` callback: *const fn (self: QtC.KAutoSaveFile) callconv(.c) void `
+    /// ` callback: *const fn (self: KAutoSaveFile) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2124,10 +2181,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: KAutoSaveFile) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2136,13 +2193,13 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: KAutoSaveFile, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -2151,10 +2208,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: KAutoSaveFile) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2163,14 +2220,14 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: KAutoSaveFile, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2179,14 +2236,14 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: KAutoSaveFile, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2195,20 +2252,22 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -2217,18 +2276,22 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -2237,9 +2300,9 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2247,10 +2310,11 @@ pub const kautosavefile = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: KAutoSaveFile, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -2259,13 +2323,13 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: KAutoSaveFile, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2274,15 +2338,16 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: KAutoSaveFile, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -2291,18 +2356,19 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: KAutoSaveFile, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -2311,15 +2377,16 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: KAutoSaveFile, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -2328,12 +2395,13 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: KAutoSaveFile, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -2342,12 +2410,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    /// ` callback: *const fn (self: QtC.KAutoSaveFile, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: KAutoSaveFile, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFile
@@ -2358,12 +2426,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KAutoSaveFile_FileName(@ptrCast(self));
+    pub fn FileName(self: KAutoSaveFile, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KAutoSaveFile_FileName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kautosavefile.FileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2382,12 +2450,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperFileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KAutoSaveFile_SuperFileName(@ptrCast(self));
+    pub fn SuperFileName(self: KAutoSaveFile, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KAutoSaveFile_SuperFileName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kautosavefile.FileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2400,16 +2468,16 @@ pub const kautosavefile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile`
+    /// ` self: KAutoSaveFile`
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnFileName(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.KAutoSaveFile_OnFileName(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFileName(self: KAutoSaveFile, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.KAutoSaveFile_OnFileName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFile
@@ -2420,10 +2488,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn Size(self: ?*anyopaque) i64 {
-        return qtc.KAutoSaveFile_Size(@ptrCast(self));
+    pub fn Size(self: KAutoSaveFile) i64 {
+        return qtc.KAutoSaveFile_Size(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSize` instead
@@ -2438,10 +2506,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn SuperSize(self: ?*anyopaque) i64 {
-        return qtc.KAutoSaveFile_SuperSize(@ptrCast(self));
+    pub fn SuperSize(self: KAutoSaveFile) i64 {
+        return qtc.KAutoSaveFile_SuperSize(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFile
@@ -2452,12 +2520,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile`
+    /// ` self: KAutoSaveFile`
     ///
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
-    pub fn OnSize(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
-        qtc.KAutoSaveFile_OnSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSize(self: KAutoSaveFile, callback: *const fn () callconv(.c) i64) void {
+        qtc.KAutoSaveFile_OnSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFile
@@ -2468,12 +2536,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` sz: i64 `
     ///
-    pub fn Resize(self: ?*anyopaque, sz: i64) bool {
-        return qtc.KAutoSaveFile_Resize(@ptrCast(self), @bitCast(sz));
+    pub fn Resize(self: KAutoSaveFile, sz: i64) bool {
+        return qtc.KAutoSaveFile_Resize(@ptrCast(self.ptr), @bitCast(sz));
     }
 
     /// ### DEPRECATED: Use `SuperResize` instead
@@ -2488,12 +2556,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` sz: i64 `
     ///
-    pub fn SuperResize(self: ?*anyopaque, sz: i64) bool {
-        return qtc.KAutoSaveFile_SuperResize(@ptrCast(self), @bitCast(sz));
+    pub fn SuperResize(self: KAutoSaveFile, sz: i64) bool {
+        return qtc.KAutoSaveFile_SuperResize(@ptrCast(self.ptr), @bitCast(sz));
     }
 
     /// Inherited from QFile
@@ -2504,12 +2572,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile`
+    /// ` self: KAutoSaveFile`
     ///
-    /// ` callback: *const fn (self: QtC.KAutoSaveFile, sz: i64) callconv(.c) bool `
+    /// ` callback: *const fn (self: KAutoSaveFile, sz: i64) callconv(.c) bool `
     ///
-    pub fn OnResize(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) bool) void {
-        qtc.KAutoSaveFile_OnResize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResize(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile, i64) callconv(.c) bool) void {
+        qtc.KAutoSaveFile_OnResize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFile
@@ -2520,14 +2588,14 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ## Returns:
     ///
     /// ` flag of qfiledevice_enums.Permission `
     ///
-    pub fn Permissions(self: ?*anyopaque) i32 {
-        return qtc.KAutoSaveFile_Permissions(@ptrCast(self));
+    pub fn Permissions(self: KAutoSaveFile) i32 {
+        return qtc.KAutoSaveFile_Permissions(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperPermissions` instead
@@ -2542,14 +2610,14 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ## Returns:
     ///
     /// ` flag of qfiledevice_enums.Permission `
     ///
-    pub fn SuperPermissions(self: ?*anyopaque) i32 {
-        return qtc.KAutoSaveFile_SuperPermissions(@ptrCast(self));
+    pub fn SuperPermissions(self: KAutoSaveFile) i32 {
+        return qtc.KAutoSaveFile_SuperPermissions(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFile
@@ -2560,12 +2628,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile`
+    /// ` self: KAutoSaveFile`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnPermissions(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KAutoSaveFile_OnPermissions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPermissions(self: KAutoSaveFile, callback: *const fn () callconv(.c) i32) void {
+        qtc.KAutoSaveFile_OnPermissions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFile
@@ -2576,12 +2644,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` permissionSpec: flag of qfiledevice_enums.Permission `
     ///
-    pub fn SetPermissions(self: ?*anyopaque, permissionSpec: i32) bool {
-        return qtc.KAutoSaveFile_SetPermissions(@ptrCast(self), @bitCast(permissionSpec));
+    pub fn SetPermissions(self: KAutoSaveFile, permissionSpec: i32) bool {
+        return qtc.KAutoSaveFile_SetPermissions(@ptrCast(self.ptr), @bitCast(permissionSpec));
     }
 
     /// ### DEPRECATED: Use `SuperSetPermissions` instead
@@ -2596,12 +2664,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` permissionSpec: flag of qfiledevice_enums.Permission `
     ///
-    pub fn SuperSetPermissions(self: ?*anyopaque, permissionSpec: i32) bool {
-        return qtc.KAutoSaveFile_SuperSetPermissions(@ptrCast(self), @bitCast(permissionSpec));
+    pub fn SuperSetPermissions(self: KAutoSaveFile, permissionSpec: i32) bool {
+        return qtc.KAutoSaveFile_SuperSetPermissions(@ptrCast(self.ptr), @bitCast(permissionSpec));
     }
 
     /// Inherited from QFile
@@ -2612,12 +2680,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile`
+    /// ` self: KAutoSaveFile`
     ///
-    /// ` callback: *const fn (self: QtC.KAutoSaveFile, permissionSpec: flag of qfiledevice_enums.Permission) callconv(.c) bool `
+    /// ` callback: *const fn (self: KAutoSaveFile, permissionSpec: flag of qfiledevice_enums.Permission) callconv(.c) bool `
     ///
-    pub fn OnSetPermissions(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KAutoSaveFile_OnSetPermissions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetPermissions(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile, i32) callconv(.c) bool) void {
+        qtc.KAutoSaveFile_OnSetPermissions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFileDevice
@@ -2628,10 +2696,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn Close(self: ?*anyopaque) void {
-        qtc.KAutoSaveFile_Close(@ptrCast(self));
+    pub fn Close(self: KAutoSaveFile) void {
+        qtc.KAutoSaveFile_Close(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperClose` instead
@@ -2646,10 +2714,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn SuperClose(self: ?*anyopaque) void {
-        qtc.KAutoSaveFile_SuperClose(@ptrCast(self));
+    pub fn SuperClose(self: KAutoSaveFile) void {
+        qtc.KAutoSaveFile_SuperClose(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFileDevice
@@ -2660,12 +2728,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile`
+    /// ` self: KAutoSaveFile`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnClose(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KAutoSaveFile_OnClose(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnClose(self: KAutoSaveFile, callback: *const fn () callconv(.c) void) void {
+        qtc.KAutoSaveFile_OnClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFileDevice
@@ -2676,10 +2744,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn IsSequential(self: ?*anyopaque) bool {
-        return qtc.KAutoSaveFile_IsSequential(@ptrCast(self));
+    pub fn IsSequential(self: KAutoSaveFile) bool {
+        return qtc.KAutoSaveFile_IsSequential(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSequential` instead
@@ -2694,10 +2762,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn SuperIsSequential(self: ?*anyopaque) bool {
-        return qtc.KAutoSaveFile_SuperIsSequential(@ptrCast(self));
+    pub fn SuperIsSequential(self: KAutoSaveFile) bool {
+        return qtc.KAutoSaveFile_SuperIsSequential(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFileDevice
@@ -2708,12 +2776,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile`
+    /// ` self: KAutoSaveFile`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnIsSequential(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KAutoSaveFile_OnIsSequential(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSequential(self: KAutoSaveFile, callback: *const fn () callconv(.c) bool) void {
+        qtc.KAutoSaveFile_OnIsSequential(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFileDevice
@@ -2724,10 +2792,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn Pos(self: ?*anyopaque) i64 {
-        return qtc.KAutoSaveFile_Pos(@ptrCast(self));
+    pub fn Pos(self: KAutoSaveFile) i64 {
+        return qtc.KAutoSaveFile_Pos(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperPos` instead
@@ -2742,10 +2810,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn SuperPos(self: ?*anyopaque) i64 {
-        return qtc.KAutoSaveFile_SuperPos(@ptrCast(self));
+    pub fn SuperPos(self: KAutoSaveFile) i64 {
+        return qtc.KAutoSaveFile_SuperPos(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFileDevice
@@ -2756,12 +2824,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile`
+    /// ` self: KAutoSaveFile`
     ///
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
-    pub fn OnPos(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
-        qtc.KAutoSaveFile_OnPos(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPos(self: KAutoSaveFile, callback: *const fn () callconv(.c) i64) void {
+        qtc.KAutoSaveFile_OnPos(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFileDevice
@@ -2772,12 +2840,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` offset: i64 `
     ///
-    pub fn Seek(self: ?*anyopaque, offset: i64) bool {
-        return qtc.KAutoSaveFile_Seek(@ptrCast(self), @bitCast(offset));
+    pub fn Seek(self: KAutoSaveFile, offset: i64) bool {
+        return qtc.KAutoSaveFile_Seek(@ptrCast(self.ptr), @bitCast(offset));
     }
 
     /// ### DEPRECATED: Use `SuperSeek` instead
@@ -2792,12 +2860,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` offset: i64 `
     ///
-    pub fn SuperSeek(self: ?*anyopaque, offset: i64) bool {
-        return qtc.KAutoSaveFile_SuperSeek(@ptrCast(self), @bitCast(offset));
+    pub fn SuperSeek(self: KAutoSaveFile, offset: i64) bool {
+        return qtc.KAutoSaveFile_SuperSeek(@ptrCast(self.ptr), @bitCast(offset));
     }
 
     /// Inherited from QFileDevice
@@ -2808,12 +2876,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile`
+    /// ` self: KAutoSaveFile`
     ///
-    /// ` callback: *const fn (self: QtC.KAutoSaveFile, offset: i64) callconv(.c) bool `
+    /// ` callback: *const fn (self: KAutoSaveFile, offset: i64) callconv(.c) bool `
     ///
-    pub fn OnSeek(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) bool) void {
-        qtc.KAutoSaveFile_OnSeek(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSeek(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile, i64) callconv(.c) bool) void {
+        qtc.KAutoSaveFile_OnSeek(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFileDevice
@@ -2824,10 +2892,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn AtEnd(self: ?*anyopaque) bool {
-        return qtc.KAutoSaveFile_AtEnd(@ptrCast(self));
+    pub fn AtEnd(self: KAutoSaveFile) bool {
+        return qtc.KAutoSaveFile_AtEnd(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperAtEnd` instead
@@ -2842,10 +2910,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn SuperAtEnd(self: ?*anyopaque) bool {
-        return qtc.KAutoSaveFile_SuperAtEnd(@ptrCast(self));
+    pub fn SuperAtEnd(self: KAutoSaveFile) bool {
+        return qtc.KAutoSaveFile_SuperAtEnd(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFileDevice
@@ -2856,12 +2924,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile`
+    /// ` self: KAutoSaveFile`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnAtEnd(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KAutoSaveFile_OnAtEnd(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAtEnd(self: KAutoSaveFile, callback: *const fn () callconv(.c) bool) void {
+        qtc.KAutoSaveFile_OnAtEnd(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFileDevice
@@ -2872,15 +2940,15 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` data: [:0]u8 `
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn ReadData(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn ReadData(self: KAutoSaveFile, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.KAutoSaveFile_ReadData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.KAutoSaveFile_ReadData(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
     /// ### DEPRECATED: Use `SuperReadData` instead
@@ -2895,15 +2963,15 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` data: [:0]u8 `
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn SuperReadData(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn SuperReadData(self: KAutoSaveFile, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.KAutoSaveFile_SuperReadData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.KAutoSaveFile_SuperReadData(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
     /// Inherited from QFileDevice
@@ -2914,12 +2982,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile`
+    /// ` self: KAutoSaveFile`
     ///
-    /// ` callback: *const fn (self: QtC.KAutoSaveFile, data: qtc.libqt_string, maxlen: i64) callconv(.c) i64 `
+    /// ` callback: *const fn (self: KAutoSaveFile, data: qtc.libqt_string, maxlen: i64) callconv(.c) i64 `
     ///
-    pub fn OnReadData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, i64) callconv(.c) i64) void {
-        qtc.KAutoSaveFile_OnReadData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReadData(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile, qtc.libqt_string, i64) callconv(.c) i64) void {
+        qtc.KAutoSaveFile_OnReadData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFileDevice
@@ -2930,15 +2998,15 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` data: [:0]const u8 `
     ///
     /// ` lenVal: i64 `
     ///
-    pub fn WriteData(self: ?*anyopaque, data: [:0]const u8, lenVal: i64) i64 {
+    pub fn WriteData(self: KAutoSaveFile, data: [:0]const u8, lenVal: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.KAutoSaveFile_WriteData(@ptrCast(self), data_Cstring, @bitCast(lenVal));
+        return qtc.KAutoSaveFile_WriteData(@ptrCast(self.ptr), data_Cstring, @bitCast(lenVal));
     }
 
     /// ### DEPRECATED: Use `SuperWriteData` instead
@@ -2953,15 +3021,15 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` data: [:0]const u8 `
     ///
     /// ` lenVal: i64 `
     ///
-    pub fn SuperWriteData(self: ?*anyopaque, data: [:0]const u8, lenVal: i64) i64 {
+    pub fn SuperWriteData(self: KAutoSaveFile, data: [:0]const u8, lenVal: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.KAutoSaveFile_SuperWriteData(@ptrCast(self), data_Cstring, @bitCast(lenVal));
+        return qtc.KAutoSaveFile_SuperWriteData(@ptrCast(self.ptr), data_Cstring, @bitCast(lenVal));
     }
 
     /// Inherited from QFileDevice
@@ -2972,12 +3040,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile`
+    /// ` self: KAutoSaveFile`
     ///
-    /// ` callback: *const fn (self: QtC.KAutoSaveFile, data: [*:0]const u8, lenVal: i64) callconv(.c) i64 `
+    /// ` callback: *const fn (self: KAutoSaveFile, data: [*:0]const u8, lenVal: i64) callconv(.c) i64 `
     ///
-    pub fn OnWriteData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
-        qtc.KAutoSaveFile_OnWriteData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWriteData(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile, [*:0]const u8, i64) callconv(.c) i64) void {
+        qtc.KAutoSaveFile_OnWriteData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFileDevice
@@ -2988,15 +3056,15 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` data: [:0]u8 `
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn ReadLineData(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn ReadLineData(self: KAutoSaveFile, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.KAutoSaveFile_ReadLineData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.KAutoSaveFile_ReadLineData(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
     /// ### DEPRECATED: Use `SuperReadLineData` instead
@@ -3011,15 +3079,15 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` data: [:0]u8 `
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn SuperReadLineData(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn SuperReadLineData(self: KAutoSaveFile, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.KAutoSaveFile_SuperReadLineData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.KAutoSaveFile_SuperReadLineData(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
     /// Inherited from QFileDevice
@@ -3030,12 +3098,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile`
+    /// ` self: KAutoSaveFile`
     ///
-    /// ` callback: *const fn (self: QtC.KAutoSaveFile, data: qtc.libqt_string, maxlen: i64) callconv(.c) i64 `
+    /// ` callback: *const fn (self: KAutoSaveFile, data: qtc.libqt_string, maxlen: i64) callconv(.c) i64 `
     ///
-    pub fn OnReadLineData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, i64) callconv(.c) i64) void {
-        qtc.KAutoSaveFile_OnReadLineData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReadLineData(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile, qtc.libqt_string, i64) callconv(.c) i64) void {
+        qtc.KAutoSaveFile_OnReadLineData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -3046,10 +3114,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn Reset(self: ?*anyopaque) bool {
-        return qtc.KAutoSaveFile_Reset(@ptrCast(self));
+    pub fn Reset(self: KAutoSaveFile) bool {
+        return qtc.KAutoSaveFile_Reset(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperReset` instead
@@ -3064,10 +3132,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn SuperReset(self: ?*anyopaque) bool {
-        return qtc.KAutoSaveFile_SuperReset(@ptrCast(self));
+    pub fn SuperReset(self: KAutoSaveFile) bool {
+        return qtc.KAutoSaveFile_SuperReset(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -3078,12 +3146,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile`
+    /// ` self: KAutoSaveFile`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnReset(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KAutoSaveFile_OnReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReset(self: KAutoSaveFile, callback: *const fn () callconv(.c) bool) void {
+        qtc.KAutoSaveFile_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -3094,10 +3162,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn BytesAvailable(self: ?*anyopaque) i64 {
-        return qtc.KAutoSaveFile_BytesAvailable(@ptrCast(self));
+    pub fn BytesAvailable(self: KAutoSaveFile) i64 {
+        return qtc.KAutoSaveFile_BytesAvailable(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperBytesAvailable` instead
@@ -3112,10 +3180,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn SuperBytesAvailable(self: ?*anyopaque) i64 {
-        return qtc.KAutoSaveFile_SuperBytesAvailable(@ptrCast(self));
+    pub fn SuperBytesAvailable(self: KAutoSaveFile) i64 {
+        return qtc.KAutoSaveFile_SuperBytesAvailable(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -3126,12 +3194,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile`
+    /// ` self: KAutoSaveFile`
     ///
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
-    pub fn OnBytesAvailable(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
-        qtc.KAutoSaveFile_OnBytesAvailable(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBytesAvailable(self: KAutoSaveFile, callback: *const fn () callconv(.c) i64) void {
+        qtc.KAutoSaveFile_OnBytesAvailable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -3142,10 +3210,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn BytesToWrite(self: ?*anyopaque) i64 {
-        return qtc.KAutoSaveFile_BytesToWrite(@ptrCast(self));
+    pub fn BytesToWrite(self: KAutoSaveFile) i64 {
+        return qtc.KAutoSaveFile_BytesToWrite(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperBytesToWrite` instead
@@ -3160,10 +3228,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn SuperBytesToWrite(self: ?*anyopaque) i64 {
-        return qtc.KAutoSaveFile_SuperBytesToWrite(@ptrCast(self));
+    pub fn SuperBytesToWrite(self: KAutoSaveFile) i64 {
+        return qtc.KAutoSaveFile_SuperBytesToWrite(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -3174,12 +3242,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile`
+    /// ` self: KAutoSaveFile`
     ///
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
-    pub fn OnBytesToWrite(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
-        qtc.KAutoSaveFile_OnBytesToWrite(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBytesToWrite(self: KAutoSaveFile, callback: *const fn () callconv(.c) i64) void {
+        qtc.KAutoSaveFile_OnBytesToWrite(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -3190,10 +3258,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn CanReadLine(self: ?*anyopaque) bool {
-        return qtc.KAutoSaveFile_CanReadLine(@ptrCast(self));
+    pub fn CanReadLine(self: KAutoSaveFile) bool {
+        return qtc.KAutoSaveFile_CanReadLine(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCanReadLine` instead
@@ -3208,10 +3276,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn SuperCanReadLine(self: ?*anyopaque) bool {
-        return qtc.KAutoSaveFile_SuperCanReadLine(@ptrCast(self));
+    pub fn SuperCanReadLine(self: KAutoSaveFile) bool {
+        return qtc.KAutoSaveFile_SuperCanReadLine(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -3222,12 +3290,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile`
+    /// ` self: KAutoSaveFile`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnCanReadLine(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KAutoSaveFile_OnCanReadLine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCanReadLine(self: KAutoSaveFile, callback: *const fn () callconv(.c) bool) void {
+        qtc.KAutoSaveFile_OnCanReadLine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -3238,12 +3306,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` msecs: i32 `
     ///
-    pub fn WaitForReadyRead(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.KAutoSaveFile_WaitForReadyRead(@ptrCast(self), @bitCast(msecs));
+    pub fn WaitForReadyRead(self: KAutoSaveFile, msecs: i32) bool {
+        return qtc.KAutoSaveFile_WaitForReadyRead(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
     /// ### DEPRECATED: Use `SuperWaitForReadyRead` instead
@@ -3258,12 +3326,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` msecs: i32 `
     ///
-    pub fn SuperWaitForReadyRead(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.KAutoSaveFile_SuperWaitForReadyRead(@ptrCast(self), @bitCast(msecs));
+    pub fn SuperWaitForReadyRead(self: KAutoSaveFile, msecs: i32) bool {
+        return qtc.KAutoSaveFile_SuperWaitForReadyRead(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
     /// Inherited from QIODevice
@@ -3274,12 +3342,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile`
+    /// ` self: KAutoSaveFile`
     ///
-    /// ` callback: *const fn (self: QtC.KAutoSaveFile, msecs: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: KAutoSaveFile, msecs: i32) callconv(.c) bool `
     ///
-    pub fn OnWaitForReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KAutoSaveFile_OnWaitForReadyRead(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWaitForReadyRead(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile, i32) callconv(.c) bool) void {
+        qtc.KAutoSaveFile_OnWaitForReadyRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -3290,12 +3358,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` msecs: i32 `
     ///
-    pub fn WaitForBytesWritten(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.KAutoSaveFile_WaitForBytesWritten(@ptrCast(self), @bitCast(msecs));
+    pub fn WaitForBytesWritten(self: KAutoSaveFile, msecs: i32) bool {
+        return qtc.KAutoSaveFile_WaitForBytesWritten(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
     /// ### DEPRECATED: Use `SuperWaitForBytesWritten` instead
@@ -3310,12 +3378,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` msecs: i32 `
     ///
-    pub fn SuperWaitForBytesWritten(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.KAutoSaveFile_SuperWaitForBytesWritten(@ptrCast(self), @bitCast(msecs));
+    pub fn SuperWaitForBytesWritten(self: KAutoSaveFile, msecs: i32) bool {
+        return qtc.KAutoSaveFile_SuperWaitForBytesWritten(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
     /// Inherited from QIODevice
@@ -3326,12 +3394,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile`
+    /// ` self: KAutoSaveFile`
     ///
-    /// ` callback: *const fn (self: QtC.KAutoSaveFile, msecs: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: KAutoSaveFile, msecs: i32) callconv(.c) bool `
     ///
-    pub fn OnWaitForBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KAutoSaveFile_OnWaitForBytesWritten(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWaitForBytesWritten(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile, i32) callconv(.c) bool) void {
+        qtc.KAutoSaveFile_OnWaitForBytesWritten(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -3342,12 +3410,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` maxSize: i64 `
     ///
-    pub fn SkipData(self: ?*anyopaque, maxSize: i64) i64 {
-        return qtc.KAutoSaveFile_SkipData(@ptrCast(self), @bitCast(maxSize));
+    pub fn SkipData(self: KAutoSaveFile, maxSize: i64) i64 {
+        return qtc.KAutoSaveFile_SkipData(@ptrCast(self.ptr), @bitCast(maxSize));
     }
 
     /// ### DEPRECATED: Use `SuperSkipData` instead
@@ -3362,12 +3430,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` maxSize: i64 `
     ///
-    pub fn SuperSkipData(self: ?*anyopaque, maxSize: i64) i64 {
-        return qtc.KAutoSaveFile_SuperSkipData(@ptrCast(self), @bitCast(maxSize));
+    pub fn SuperSkipData(self: KAutoSaveFile, maxSize: i64) i64 {
+        return qtc.KAutoSaveFile_SuperSkipData(@ptrCast(self.ptr), @bitCast(maxSize));
     }
 
     /// Inherited from QIODevice
@@ -3378,12 +3446,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile`
+    /// ` self: KAutoSaveFile`
     ///
-    /// ` callback: *const fn (self: QtC.KAutoSaveFile, maxSize: i64) callconv(.c) i64 `
+    /// ` callback: *const fn (self: KAutoSaveFile, maxSize: i64) callconv(.c) i64 `
     ///
-    pub fn OnSkipData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) i64) void {
-        qtc.KAutoSaveFile_OnSkipData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSkipData(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile, i64) callconv(.c) i64) void {
+        qtc.KAutoSaveFile_OnSkipData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3394,12 +3462,13 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KAutoSaveFile_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: KAutoSaveFile, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KAutoSaveFile_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -3414,12 +3483,13 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KAutoSaveFile_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: KAutoSaveFile, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KAutoSaveFile_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3430,12 +3500,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile`
+    /// ` self: KAutoSaveFile`
     ///
-    /// ` callback: *const fn (self: QtC.KAutoSaveFile, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KAutoSaveFile, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KAutoSaveFile_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile, QEvent) callconv(.c) bool) void {
+        qtc.KAutoSaveFile_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3446,14 +3516,16 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KAutoSaveFile_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: KAutoSaveFile, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KAutoSaveFile_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -3468,14 +3540,16 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KAutoSaveFile_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: KAutoSaveFile, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KAutoSaveFile_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3486,12 +3560,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile`
+    /// ` self: KAutoSaveFile`
     ///
-    /// ` callback: *const fn (self: QtC.KAutoSaveFile, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KAutoSaveFile, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KAutoSaveFile_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile, QObject, QEvent) callconv(.c) bool) void {
+        qtc.KAutoSaveFile_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3502,12 +3576,13 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KAutoSaveFile_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: KAutoSaveFile, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KAutoSaveFile_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -3522,12 +3597,13 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KAutoSaveFile_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: KAutoSaveFile, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KAutoSaveFile_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3538,12 +3614,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile`
+    /// ` self: KAutoSaveFile`
     ///
-    /// ` callback: *const fn (self: QtC.KAutoSaveFile, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KAutoSaveFile, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KAutoSaveFile_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile, QTimerEvent) callconv(.c) void) void {
+        qtc.KAutoSaveFile_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3554,12 +3630,13 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KAutoSaveFile_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: KAutoSaveFile, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KAutoSaveFile_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -3574,12 +3651,13 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KAutoSaveFile_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: KAutoSaveFile, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KAutoSaveFile_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3590,12 +3668,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile`
+    /// ` self: KAutoSaveFile`
     ///
-    /// ` callback: *const fn (self: QtC.KAutoSaveFile, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KAutoSaveFile, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KAutoSaveFile_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile, QChildEvent) callconv(.c) void) void {
+        qtc.KAutoSaveFile_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3606,12 +3684,13 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KAutoSaveFile_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: KAutoSaveFile, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KAutoSaveFile_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -3626,12 +3705,13 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KAutoSaveFile_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: KAutoSaveFile, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KAutoSaveFile_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3642,12 +3722,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile`
+    /// ` self: KAutoSaveFile`
     ///
-    /// ` callback: *const fn (self: QtC.KAutoSaveFile, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KAutoSaveFile, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KAutoSaveFile_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile, QEvent) callconv(.c) void) void {
+        qtc.KAutoSaveFile_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3658,12 +3738,13 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KAutoSaveFile_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: KAutoSaveFile, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KAutoSaveFile_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -3678,12 +3759,13 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KAutoSaveFile_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: KAutoSaveFile, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KAutoSaveFile_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -3694,12 +3776,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile`
+    /// ` self: KAutoSaveFile`
     ///
-    /// ` callback: *const fn (self: QtC.KAutoSaveFile, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KAutoSaveFile, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KAutoSaveFile_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile, QMetaMethod) callconv(.c) void) void {
+        qtc.KAutoSaveFile_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3710,12 +3792,13 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KAutoSaveFile_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: KAutoSaveFile, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KAutoSaveFile_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -3730,12 +3813,13 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KAutoSaveFile_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: KAutoSaveFile, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KAutoSaveFile_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -3746,12 +3830,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile`
+    /// ` self: KAutoSaveFile`
     ///
-    /// ` callback: *const fn (self: QtC.KAutoSaveFile, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KAutoSaveFile, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KAutoSaveFile_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile, QMetaMethod) callconv(.c) void) void {
+        qtc.KAutoSaveFile_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -3762,12 +3846,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn SetOpenMode(self: ?*anyopaque, openMode: i32) void {
-        qtc.KAutoSaveFile_SetOpenMode(@ptrCast(self), @bitCast(openMode));
+    pub fn SetOpenMode(self: KAutoSaveFile, openMode: i32) void {
+        qtc.KAutoSaveFile_SetOpenMode(@ptrCast(self.ptr), @bitCast(openMode));
     }
 
     /// ### DEPRECATED: Use `SuperSetOpenMode` instead
@@ -3782,12 +3866,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn SuperSetOpenMode(self: ?*anyopaque, openMode: i32) void {
-        qtc.KAutoSaveFile_SuperSetOpenMode(@ptrCast(self), @bitCast(openMode));
+    pub fn SuperSetOpenMode(self: KAutoSaveFile, openMode: i32) void {
+        qtc.KAutoSaveFile_SuperSetOpenMode(@ptrCast(self.ptr), @bitCast(openMode));
     }
 
     /// Inherited from QIODevice
@@ -3798,12 +3882,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile`
+    /// ` self: KAutoSaveFile`
     ///
-    /// ` callback: *const fn (self: QtC.KAutoSaveFile, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void `
+    /// ` callback: *const fn (self: KAutoSaveFile, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void `
     ///
-    pub fn OnSetOpenMode(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KAutoSaveFile_OnSetOpenMode(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetOpenMode(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile, i32) callconv(.c) void) void {
+        qtc.KAutoSaveFile_OnSetOpenMode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -3814,16 +3898,16 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` errorString: []const u8 `
     ///
-    pub fn SetErrorString(self: ?*anyopaque, errorString: []const u8) void {
+    pub fn SetErrorString(self: KAutoSaveFile, errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
             .len = errorString.len,
             .data = errorString.ptr,
         };
-        qtc.KAutoSaveFile_SetErrorString(@ptrCast(self), errorString_str);
+        qtc.KAutoSaveFile_SetErrorString(@ptrCast(self.ptr), errorString_str);
     }
 
     /// ### DEPRECATED: Use `SuperSetErrorString` instead
@@ -3838,16 +3922,16 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` errorString: []const u8 `
     ///
-    pub fn SuperSetErrorString(self: ?*anyopaque, errorString: []const u8) void {
+    pub fn SuperSetErrorString(self: KAutoSaveFile, errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
             .len = errorString.len,
             .data = errorString.ptr,
         };
-        qtc.KAutoSaveFile_SuperSetErrorString(@ptrCast(self), errorString_str);
+        qtc.KAutoSaveFile_SuperSetErrorString(@ptrCast(self.ptr), errorString_str);
     }
 
     /// Inherited from QIODevice
@@ -3858,12 +3942,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile`
+    /// ` self: KAutoSaveFile`
     ///
-    /// ` callback: *const fn (self: QtC.KAutoSaveFile, errorString: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KAutoSaveFile, errorString: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetErrorString(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KAutoSaveFile_OnSetErrorString(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetErrorString(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile, [*:0]const u8) callconv(.c) void) void {
+        qtc.KAutoSaveFile_OnSetErrorString(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3874,10 +3958,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KAutoSaveFile_Sender(@ptrCast(self));
+    pub fn Sender(self: KAutoSaveFile) QObject {
+        return .{ .ptr = qtc.KAutoSaveFile_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -3892,10 +3976,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KAutoSaveFile_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: KAutoSaveFile) QObject {
+        return .{ .ptr = qtc.KAutoSaveFile_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -3906,12 +3990,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile`
+    /// ` self: KAutoSaveFile`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.KAutoSaveFile_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: KAutoSaveFile, callback: *const fn () callconv(.c) QObject) void {
+        qtc.KAutoSaveFile_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3922,10 +4006,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KAutoSaveFile_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: KAutoSaveFile) i32 {
+        return qtc.KAutoSaveFile_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -3940,10 +4024,10 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KAutoSaveFile_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: KAutoSaveFile) i32 {
+        return qtc.KAutoSaveFile_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -3954,12 +4038,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile`
+    /// ` self: KAutoSaveFile`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KAutoSaveFile_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: KAutoSaveFile, callback: *const fn () callconv(.c) i32) void {
+        qtc.KAutoSaveFile_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3970,13 +4054,13 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: KAutoSaveFile, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KAutoSaveFile_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.KAutoSaveFile_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -3991,13 +4075,13 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: KAutoSaveFile, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KAutoSaveFile_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KAutoSaveFile_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -4008,12 +4092,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile`
+    /// ` self: KAutoSaveFile`
     ///
-    /// ` callback: *const fn (self: QtC.KAutoSaveFile, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KAutoSaveFile, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KAutoSaveFile_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KAutoSaveFile_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4024,12 +4108,13 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KAutoSaveFile_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: KAutoSaveFile, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KAutoSaveFile_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -4044,12 +4129,13 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KAutoSaveFile_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: KAutoSaveFile, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KAutoSaveFile_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -4060,12 +4146,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile`
+    /// ` self: KAutoSaveFile`
     ///
-    /// ` callback: *const fn (self: QtC.KAutoSaveFile, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: KAutoSaveFile, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KAutoSaveFile_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile, QMetaMethod) callconv(.c) bool) void {
+        qtc.KAutoSaveFile_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4076,12 +4162,12 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    /// ` callback: *const fn (self: QtC.KAutoSaveFile, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KAutoSaveFile, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -4094,9 +4180,9 @@ pub const kautosavefile = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KAutoSaveFile `
+    /// ` self: KAutoSaveFile `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KAutoSaveFile_Delete(@ptrCast(self));
+    pub fn Delete(self: KAutoSaveFile) void {
+        qtc.KAutoSaveFile_Delete(@ptrCast(self.ptr));
     }
 };

@@ -3,16 +3,24 @@ const qtc = @import("qt6c");
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/kkeyserver.html)
-pub const kkeyserver = struct {
+pub const KKeyServer = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kkeyserver.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KKeyServer,
+
+    pub const _is_KKeyServer = {};
+
     /// ### [Upstream resources](https://api.kde.org/kkeyserver.html#modToStringUser)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: u32 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ModToStringUser(param1: u32, allocator: std.mem.Allocator) []const u8 {
+    /// ` param1: u32 `
+    ///
+    pub fn ModToStringUser(allocator: std.mem.Allocator, param1: u32) []const u8 {
         var _str = qtc.KKeyServer_ModToStringUser(@bitCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kkeyserver.ModToStringUser: Memory allocation failed");
@@ -126,11 +134,11 @@ pub const kkeyserver = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: i32 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn KeyQtToSymXs(param1: i32, allocator: std.mem.Allocator) []i32 {
+    /// ` param1: i32 `
+    ///
+    pub fn KeyQtToSymXs(allocator: std.mem.Allocator, param1: i32) []i32 {
         const _arr: qtc.libqt_list = qtc.KKeyServer_KeyQtToSymXs(@bitCast(param1));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(i32, _arr.len) catch @panic("kkeyserver.KeyQtToSymXs: Memory allocation failed");
@@ -155,11 +163,11 @@ pub const kkeyserver = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: i32 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn KeyQtToCodeXs(param1: i32, allocator: std.mem.Allocator) []i32 {
+    /// ` param1: i32 `
+    ///
+    pub fn KeyQtToCodeXs(allocator: std.mem.Allocator, param1: i32) []i32 {
         const _arr: qtc.libqt_list = qtc.KKeyServer_KeyQtToCodeXs(@bitCast(param1));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(i32, _arr.len) catch @panic("kkeyserver.KeyQtToCodeXs: Memory allocation failed");

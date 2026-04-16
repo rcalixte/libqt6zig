@@ -1,30 +1,55 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QAbstractItemModel = @import("libqt6").QAbstractItemModel;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QEvent = @import("libqt6").QEvent;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QModelIndex = @import("libqt6").QModelIndex;
+const QObject = @import("libqt6").QObject;
+const QPalette = @import("libqt6").QPalette;
+const QRect = @import("libqt6").QRect;
+const QSize = @import("libqt6").QSize;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
 const kabstractviewadapter_enums = enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/kabstractviewadapter.html)
-pub const kabstractviewadapter = struct {
+pub const KAbstractViewAdapter = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kabstractviewadapter.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KAbstractViewAdapter,
+
+    pub const _is_KAbstractViewAdapter = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new KAbstractViewAdapter object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New(parent: ?*anyopaque) QtC.KAbstractViewAdapter {
-        return qtc.KAbstractViewAdapter_new(@ptrCast(parent));
+    pub fn New(parent: anytype) KAbstractViewAdapter {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.KAbstractViewAdapter_new(@ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kabstractviewadapter.html#model)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    pub fn Model(self: ?*anyopaque) QtC.QAbstractItemModel {
-        return qtc.KAbstractViewAdapter_Model(@ptrCast(self));
+    pub fn Model(self: KAbstractViewAdapter) QAbstractItemModel {
+        return .{ .ptr = qtc.KAbstractViewAdapter_Model(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kabstractviewadapter.html#model)
@@ -33,12 +58,12 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QAbstractItemModel `
+    /// ` callback: *const fn () callconv(.c) QAbstractItemModel `
     ///
-    pub fn OnModel(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAbstractItemModel) void {
-        qtc.KAbstractViewAdapter_OnModel(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnModel(self: KAbstractViewAdapter, callback: *const fn () callconv(.c) QAbstractItemModel) void {
+        qtc.KAbstractViewAdapter_OnModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperModel` instead
@@ -51,20 +76,20 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    pub fn SuperModel(self: ?*anyopaque) QtC.QAbstractItemModel {
-        return qtc.KAbstractViewAdapter_SuperModel(@ptrCast(self));
+    pub fn SuperModel(self: KAbstractViewAdapter) QAbstractItemModel {
+        return .{ .ptr = qtc.KAbstractViewAdapter_SuperModel(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kabstractviewadapter.html#iconSize)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    pub fn IconSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.KAbstractViewAdapter_IconSize(@ptrCast(self));
+    pub fn IconSize(self: KAbstractViewAdapter) QSize {
+        return .{ .ptr = qtc.KAbstractViewAdapter_IconSize(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kabstractviewadapter.html#iconSize)
@@ -73,12 +98,12 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnIconSize(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.KAbstractViewAdapter_OnIconSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIconSize(self: KAbstractViewAdapter, callback: *const fn () callconv(.c) QSize) void {
+        qtc.KAbstractViewAdapter_OnIconSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperIconSize` instead
@@ -91,20 +116,20 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    pub fn SuperIconSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.KAbstractViewAdapter_SuperIconSize(@ptrCast(self));
+    pub fn SuperIconSize(self: KAbstractViewAdapter) QSize {
+        return .{ .ptr = qtc.KAbstractViewAdapter_SuperIconSize(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kabstractviewadapter.html#palette)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    pub fn Palette(self: ?*anyopaque) QtC.QPalette {
-        return qtc.KAbstractViewAdapter_Palette(@ptrCast(self));
+    pub fn Palette(self: KAbstractViewAdapter) QPalette {
+        return .{ .ptr = qtc.KAbstractViewAdapter_Palette(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kabstractviewadapter.html#palette)
@@ -113,12 +138,12 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPalette `
+    /// ` callback: *const fn () callconv(.c) QPalette `
     ///
-    pub fn OnPalette(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPalette) void {
-        qtc.KAbstractViewAdapter_OnPalette(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPalette(self: KAbstractViewAdapter, callback: *const fn () callconv(.c) QPalette) void {
+        qtc.KAbstractViewAdapter_OnPalette(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperPalette` instead
@@ -131,20 +156,20 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    pub fn SuperPalette(self: ?*anyopaque) QtC.QPalette {
-        return qtc.KAbstractViewAdapter_SuperPalette(@ptrCast(self));
+    pub fn SuperPalette(self: KAbstractViewAdapter) QPalette {
+        return .{ .ptr = qtc.KAbstractViewAdapter_SuperPalette(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kabstractviewadapter.html#visibleArea)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    pub fn VisibleArea(self: ?*anyopaque) QtC.QRect {
-        return qtc.KAbstractViewAdapter_VisibleArea(@ptrCast(self));
+    pub fn VisibleArea(self: KAbstractViewAdapter) QRect {
+        return .{ .ptr = qtc.KAbstractViewAdapter_VisibleArea(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kabstractviewadapter.html#visibleArea)
@@ -153,12 +178,12 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QRect `
+    /// ` callback: *const fn () callconv(.c) QRect `
     ///
-    pub fn OnVisibleArea(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRect) void {
-        qtc.KAbstractViewAdapter_OnVisibleArea(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnVisibleArea(self: KAbstractViewAdapter, callback: *const fn () callconv(.c) QRect) void {
+        qtc.KAbstractViewAdapter_OnVisibleArea(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperVisibleArea` instead
@@ -171,22 +196,23 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    pub fn SuperVisibleArea(self: ?*anyopaque) QtC.QRect {
-        return qtc.KAbstractViewAdapter_SuperVisibleArea(@ptrCast(self));
+    pub fn SuperVisibleArea(self: KAbstractViewAdapter) QRect {
+        return .{ .ptr = qtc.KAbstractViewAdapter_SuperVisibleArea(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kabstractviewadapter.html#visualRect)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn VisualRect(self: ?*anyopaque, index: ?*anyopaque) QtC.QRect {
-        return qtc.KAbstractViewAdapter_VisualRect(@ptrCast(self), @ptrCast(index));
+    pub fn VisualRect(self: KAbstractViewAdapter, index: anytype) QRect {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.KAbstractViewAdapter_VisualRect(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kabstractviewadapter.html#visualRect)
@@ -195,12 +221,12 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    /// ` callback: *const fn (self: QtC.KAbstractViewAdapter, index: QtC.QModelIndex) callconv(.c) QtC.QRect `
+    /// ` callback: *const fn (self: KAbstractViewAdapter, index: QModelIndex) callconv(.c) QRect `
     ///
-    pub fn OnVisualRect(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRect) void {
-        qtc.KAbstractViewAdapter_OnVisualRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnVisualRect(self: KAbstractViewAdapter, callback: *const fn (KAbstractViewAdapter, QModelIndex) callconv(.c) QRect) void {
+        qtc.KAbstractViewAdapter_OnVisualRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperVisualRect` instead
@@ -213,29 +239,31 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SuperVisualRect(self: ?*anyopaque, index: ?*anyopaque) QtC.QRect {
-        return qtc.KAbstractViewAdapter_SuperVisualRect(@ptrCast(self), @ptrCast(index));
+    pub fn SuperVisualRect(self: KAbstractViewAdapter, index: anytype) QRect {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.KAbstractViewAdapter_SuperVisualRect(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kabstractviewadapter.html#connect)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
     /// ` signal: kabstractviewadapter_enums.Signal `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` slot: [:0]const u8 `
     ///
-    pub fn Connect(self: ?*anyopaque, signal: i32, receiver: ?*anyopaque, slot: [:0]const u8) void {
+    pub fn Connect(self: KAbstractViewAdapter, signal: i32, receiver: anytype, slot: [:0]const u8) void {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const slot_Cstring = slot.ptr;
-        qtc.KAbstractViewAdapter_Connect(@ptrCast(self), @bitCast(signal), @ptrCast(receiver), slot_Cstring);
+        qtc.KAbstractViewAdapter_Connect(@ptrCast(self.ptr), @bitCast(signal), @ptrCast(receiver.ptr), slot_Cstring);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kabstractviewadapter.html#connect)
@@ -244,12 +272,12 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    /// ` callback: *const fn (self: QtC.KAbstractViewAdapter, signal: kabstractviewadapter_enums.Signal, receiver: QtC.QObject, slot: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KAbstractViewAdapter, signal: kabstractviewadapter_enums.Signal, receiver: QObject, slot: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnConnect(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KAbstractViewAdapter_OnConnect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnect(self: KAbstractViewAdapter, callback: *const fn (KAbstractViewAdapter, i32, QObject, [*:0]const u8) callconv(.c) void) void {
+        qtc.KAbstractViewAdapter_OnConnect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperConnect` instead
@@ -262,17 +290,18 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
     /// ` signal: kabstractviewadapter_enums.Signal `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` slot: [:0]const u8 `
     ///
-    pub fn SuperConnect(self: ?*anyopaque, signal: i32, receiver: ?*anyopaque, slot: [:0]const u8) void {
+    pub fn SuperConnect(self: KAbstractViewAdapter, signal: i32, receiver: anytype, slot: [:0]const u8) void {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const slot_Cstring = slot.ptr;
-        qtc.KAbstractViewAdapter_SuperConnect(@ptrCast(self), @bitCast(signal), @ptrCast(receiver), slot_Cstring);
+        qtc.KAbstractViewAdapter_SuperConnect(@ptrCast(self.ptr), @bitCast(signal), @ptrCast(receiver.ptr), slot_Cstring);
     }
 
     /// Inherited from QObject
@@ -281,11 +310,11 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -300,12 +329,12 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: KAbstractViewAdapter, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kabstractviewadapter.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -318,12 +347,12 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: KAbstractViewAdapter, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -332,10 +361,10 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: KAbstractViewAdapter) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -344,10 +373,10 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: KAbstractViewAdapter) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -356,10 +385,10 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: KAbstractViewAdapter) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -368,10 +397,10 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: KAbstractViewAdapter) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -380,12 +409,12 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: KAbstractViewAdapter, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -394,10 +423,10 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: KAbstractViewAdapter) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -406,12 +435,13 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: KAbstractViewAdapter, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -420,12 +450,12 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: KAbstractViewAdapter, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -434,12 +464,12 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: KAbstractViewAdapter, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -448,12 +478,12 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: KAbstractViewAdapter, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -462,12 +492,12 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: KAbstractViewAdapter, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -476,16 +506,17 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: KAbstractViewAdapter, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("kabstractviewadapter.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kabstractviewadapter.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -495,12 +526,13 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: KAbstractViewAdapter, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -509,12 +541,13 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: KAbstractViewAdapter, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -523,12 +556,13 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: KAbstractViewAdapter, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -537,16 +571,20 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -555,18 +593,19 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: KAbstractViewAdapter, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -575,18 +614,20 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -595,16 +636,20 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -613,10 +658,10 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: KAbstractViewAdapter) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -625,12 +670,13 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: KAbstractViewAdapter, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -639,10 +685,11 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -651,10 +698,10 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: KAbstractViewAdapter) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -663,10 +710,10 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: KAbstractViewAdapter) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -675,15 +722,16 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: KAbstractViewAdapter, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -692,13 +740,13 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: KAbstractViewAdapter, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -707,17 +755,16 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: KAbstractViewAdapter, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kabstractviewadapter.DynamicPropertyNames: Memory allocation failed");
@@ -736,10 +783,10 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: KAbstractViewAdapter) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -748,10 +795,10 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: KAbstractViewAdapter) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -760,10 +807,10 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: KAbstractViewAdapter) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -772,12 +819,12 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    /// ` callback: *const fn (self: QtC.KAbstractViewAdapter) callconv(.c) void `
+    /// ` callback: *const fn (self: KAbstractViewAdapter) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: KAbstractViewAdapter, callback: *const fn (KAbstractViewAdapter) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -786,10 +833,10 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: KAbstractViewAdapter) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -798,13 +845,13 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: KAbstractViewAdapter, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -813,10 +860,10 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: KAbstractViewAdapter) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -825,13 +872,13 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -847,15 +894,15 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -871,14 +918,14 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: KAbstractViewAdapter, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -887,14 +934,14 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: KAbstractViewAdapter, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -903,20 +950,22 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -925,18 +974,22 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -945,9 +998,9 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -955,10 +1008,11 @@ pub const kabstractviewadapter = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: KAbstractViewAdapter, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -967,13 +1021,13 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: KAbstractViewAdapter, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -982,15 +1036,16 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: KAbstractViewAdapter, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -999,18 +1054,19 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: KAbstractViewAdapter, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1019,15 +1075,16 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: KAbstractViewAdapter, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1036,12 +1093,13 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: KAbstractViewAdapter, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1050,12 +1108,12 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    /// ` callback: *const fn (self: QtC.KAbstractViewAdapter, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: KAbstractViewAdapter, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: KAbstractViewAdapter, callback: *const fn (KAbstractViewAdapter, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1066,10 +1124,10 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KAbstractViewAdapter_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: KAbstractViewAdapter) QMetaObject {
+        return .{ .ptr = qtc.KAbstractViewAdapter_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -1084,10 +1142,10 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KAbstractViewAdapter_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: KAbstractViewAdapter) QMetaObject {
+        return .{ .ptr = qtc.KAbstractViewAdapter_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1098,12 +1156,12 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAbstractViewAdapter`
+    /// ` self: KAbstractViewAdapter`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.KAbstractViewAdapter_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: KAbstractViewAdapter, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.KAbstractViewAdapter_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1114,13 +1172,13 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: KAbstractViewAdapter, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KAbstractViewAdapter_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.KAbstractViewAdapter_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -1135,13 +1193,13 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: KAbstractViewAdapter, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KAbstractViewAdapter_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KAbstractViewAdapter_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Inherited from QObject
@@ -1152,12 +1210,12 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAbstractViewAdapter`
+    /// ` self: KAbstractViewAdapter`
     ///
-    /// ` callback: *const fn (self: QtC.KAbstractViewAdapter, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: KAbstractViewAdapter, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.KAbstractViewAdapter_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: KAbstractViewAdapter, callback: *const fn (KAbstractViewAdapter, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.KAbstractViewAdapter_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1168,7 +1226,7 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -1176,8 +1234,8 @@ pub const kabstractviewadapter = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KAbstractViewAdapter_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: KAbstractViewAdapter, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KAbstractViewAdapter_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -1192,7 +1250,7 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -1200,8 +1258,8 @@ pub const kabstractviewadapter = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KAbstractViewAdapter_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: KAbstractViewAdapter, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KAbstractViewAdapter_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Inherited from QObject
@@ -1212,12 +1270,12 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAbstractViewAdapter`
+    /// ` self: KAbstractViewAdapter`
     ///
-    /// ` callback: *const fn (self: QtC.KAbstractViewAdapter, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KAbstractViewAdapter, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.KAbstractViewAdapter_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: KAbstractViewAdapter, callback: *const fn (KAbstractViewAdapter, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.KAbstractViewAdapter_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1228,12 +1286,13 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KAbstractViewAdapter_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: KAbstractViewAdapter, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KAbstractViewAdapter_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -1248,12 +1307,13 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KAbstractViewAdapter_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: KAbstractViewAdapter, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KAbstractViewAdapter_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1264,12 +1324,12 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAbstractViewAdapter`
+    /// ` self: KAbstractViewAdapter`
     ///
-    /// ` callback: *const fn (self: QtC.KAbstractViewAdapter, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KAbstractViewAdapter, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KAbstractViewAdapter_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: KAbstractViewAdapter, callback: *const fn (KAbstractViewAdapter, QEvent) callconv(.c) bool) void {
+        qtc.KAbstractViewAdapter_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1280,14 +1340,16 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KAbstractViewAdapter_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: KAbstractViewAdapter, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KAbstractViewAdapter_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -1302,14 +1364,16 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KAbstractViewAdapter_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: KAbstractViewAdapter, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KAbstractViewAdapter_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1320,12 +1384,12 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAbstractViewAdapter`
+    /// ` self: KAbstractViewAdapter`
     ///
-    /// ` callback: *const fn (self: QtC.KAbstractViewAdapter, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KAbstractViewAdapter, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KAbstractViewAdapter_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: KAbstractViewAdapter, callback: *const fn (KAbstractViewAdapter, QObject, QEvent) callconv(.c) bool) void {
+        qtc.KAbstractViewAdapter_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1336,12 +1400,13 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KAbstractViewAdapter_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: KAbstractViewAdapter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KAbstractViewAdapter_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -1356,12 +1421,13 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KAbstractViewAdapter_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: KAbstractViewAdapter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KAbstractViewAdapter_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1372,12 +1438,12 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAbstractViewAdapter`
+    /// ` self: KAbstractViewAdapter`
     ///
-    /// ` callback: *const fn (self: QtC.KAbstractViewAdapter, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KAbstractViewAdapter, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KAbstractViewAdapter_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: KAbstractViewAdapter, callback: *const fn (KAbstractViewAdapter, QTimerEvent) callconv(.c) void) void {
+        qtc.KAbstractViewAdapter_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1388,12 +1454,13 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KAbstractViewAdapter_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: KAbstractViewAdapter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KAbstractViewAdapter_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -1408,12 +1475,13 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KAbstractViewAdapter_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: KAbstractViewAdapter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KAbstractViewAdapter_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1424,12 +1492,12 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAbstractViewAdapter`
+    /// ` self: KAbstractViewAdapter`
     ///
-    /// ` callback: *const fn (self: QtC.KAbstractViewAdapter, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KAbstractViewAdapter, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KAbstractViewAdapter_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: KAbstractViewAdapter, callback: *const fn (KAbstractViewAdapter, QChildEvent) callconv(.c) void) void {
+        qtc.KAbstractViewAdapter_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1440,12 +1508,13 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KAbstractViewAdapter_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: KAbstractViewAdapter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KAbstractViewAdapter_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -1460,12 +1529,13 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KAbstractViewAdapter_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: KAbstractViewAdapter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KAbstractViewAdapter_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1476,12 +1546,12 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAbstractViewAdapter`
+    /// ` self: KAbstractViewAdapter`
     ///
-    /// ` callback: *const fn (self: QtC.KAbstractViewAdapter, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KAbstractViewAdapter, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KAbstractViewAdapter_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: KAbstractViewAdapter, callback: *const fn (KAbstractViewAdapter, QEvent) callconv(.c) void) void {
+        qtc.KAbstractViewAdapter_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1492,12 +1562,13 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KAbstractViewAdapter_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: KAbstractViewAdapter, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KAbstractViewAdapter_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -1512,12 +1583,13 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KAbstractViewAdapter_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: KAbstractViewAdapter, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KAbstractViewAdapter_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1528,12 +1600,12 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAbstractViewAdapter`
+    /// ` self: KAbstractViewAdapter`
     ///
-    /// ` callback: *const fn (self: QtC.KAbstractViewAdapter, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KAbstractViewAdapter, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KAbstractViewAdapter_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: KAbstractViewAdapter, callback: *const fn (KAbstractViewAdapter, QMetaMethod) callconv(.c) void) void {
+        qtc.KAbstractViewAdapter_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1544,12 +1616,13 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KAbstractViewAdapter_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: KAbstractViewAdapter, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KAbstractViewAdapter_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -1564,12 +1637,13 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KAbstractViewAdapter_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: KAbstractViewAdapter, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KAbstractViewAdapter_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1580,12 +1654,12 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAbstractViewAdapter`
+    /// ` self: KAbstractViewAdapter`
     ///
-    /// ` callback: *const fn (self: QtC.KAbstractViewAdapter, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KAbstractViewAdapter, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KAbstractViewAdapter_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: KAbstractViewAdapter, callback: *const fn (KAbstractViewAdapter, QMetaMethod) callconv(.c) void) void {
+        qtc.KAbstractViewAdapter_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1596,10 +1670,10 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KAbstractViewAdapter_Sender(@ptrCast(self));
+    pub fn Sender(self: KAbstractViewAdapter) QObject {
+        return .{ .ptr = qtc.KAbstractViewAdapter_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -1614,10 +1688,10 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KAbstractViewAdapter_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: KAbstractViewAdapter) QObject {
+        return .{ .ptr = qtc.KAbstractViewAdapter_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1628,12 +1702,12 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAbstractViewAdapter`
+    /// ` self: KAbstractViewAdapter`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.KAbstractViewAdapter_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: KAbstractViewAdapter, callback: *const fn () callconv(.c) QObject) void {
+        qtc.KAbstractViewAdapter_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1644,10 +1718,10 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KAbstractViewAdapter_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: KAbstractViewAdapter) i32 {
+        return qtc.KAbstractViewAdapter_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -1662,10 +1736,10 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KAbstractViewAdapter_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: KAbstractViewAdapter) i32 {
+        return qtc.KAbstractViewAdapter_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1676,12 +1750,12 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAbstractViewAdapter`
+    /// ` self: KAbstractViewAdapter`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KAbstractViewAdapter_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: KAbstractViewAdapter, callback: *const fn () callconv(.c) i32) void {
+        qtc.KAbstractViewAdapter_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1692,13 +1766,13 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: KAbstractViewAdapter, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KAbstractViewAdapter_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.KAbstractViewAdapter_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -1713,13 +1787,13 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: KAbstractViewAdapter, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KAbstractViewAdapter_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KAbstractViewAdapter_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1730,12 +1804,12 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAbstractViewAdapter`
+    /// ` self: KAbstractViewAdapter`
     ///
-    /// ` callback: *const fn (self: QtC.KAbstractViewAdapter, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KAbstractViewAdapter, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KAbstractViewAdapter_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: KAbstractViewAdapter, callback: *const fn (KAbstractViewAdapter, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KAbstractViewAdapter_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1746,12 +1820,13 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KAbstractViewAdapter_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: KAbstractViewAdapter, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KAbstractViewAdapter_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -1766,12 +1841,13 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KAbstractViewAdapter_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: KAbstractViewAdapter, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KAbstractViewAdapter_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1782,12 +1858,12 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAbstractViewAdapter`
+    /// ` self: KAbstractViewAdapter`
     ///
-    /// ` callback: *const fn (self: QtC.KAbstractViewAdapter, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: KAbstractViewAdapter, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KAbstractViewAdapter_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: KAbstractViewAdapter, callback: *const fn (KAbstractViewAdapter, QMetaMethod) callconv(.c) bool) void {
+        qtc.KAbstractViewAdapter_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1798,12 +1874,12 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    /// ` callback: *const fn (self: QtC.KAbstractViewAdapter, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KAbstractViewAdapter, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: KAbstractViewAdapter, callback: *const fn (KAbstractViewAdapter, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -1816,10 +1892,10 @@ pub const kabstractviewadapter = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KAbstractViewAdapter `
+    /// ` self: KAbstractViewAdapter `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KAbstractViewAdapter_Delete(@ptrCast(self));
+    pub fn Delete(self: KAbstractViewAdapter) void {
+        qtc.KAbstractViewAdapter_Delete(@ptrCast(self.ptr));
     }
 };
 

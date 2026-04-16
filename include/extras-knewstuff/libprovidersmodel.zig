@@ -1,38 +1,66 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QDataStream = @import("libqt6").QDataStream;
+const QEvent = @import("libqt6").QEvent;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QMimeData = @import("libqt6").QMimeData;
+const QModelIndex = @import("libqt6").QModelIndex;
+const QModelRoleDataSpan = @import("libqt6").QModelRoleDataSpan;
+const QObject = @import("libqt6").QObject;
+const QPersistentModelIndex = @import("libqt6").QPersistentModelIndex;
+const QSize = @import("libqt6").QSize;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
 const qabstractitemmodel_enums = @import("../libqabstractitemmodel.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-const arraymap_i32_qtcqvariant = std.array_hash_map.Auto(i32, QtC.QVariant);
-const map_i32_u8 = std.AutoHashMapUnmanaged(i32, []u8);
+const ArrayMap_i32_QVariant = std.array_hash_map.Auto(i32, QVariant);
+const Map_i32_u8 = std.AutoHashMapUnmanaged(i32, []u8);
 
 /// ### [Upstream resources](https://api.kde.org/knscore-providersmodel.html)
-pub const knscore__providersmodel = struct {
+pub const KNSCore__ProvidersModel = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/knscore-providersmodel.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KNSCore__ProvidersModel,
+
+    pub const _is_KNSCore__ProvidersModel = {};
+    pub const _is_QAbstractListModel = {};
+    pub const _is_QAbstractItemModel = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new KNSCore::ProvidersModel object.
     ///
-    pub fn New() QtC.KNSCore__ProvidersModel {
-        return qtc.KNSCore__ProvidersModel_new();
+    pub fn New() KNSCore__ProvidersModel {
+        return .{ .ptr = qtc.KNSCore__ProvidersModel_new() };
     }
 
     /// New2 constructs a new KNSCore::ProvidersModel object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New2(parent: ?*anyopaque) QtC.KNSCore__ProvidersModel {
-        return qtc.KNSCore__ProvidersModel_new2(@ptrCast(parent));
+    pub fn New2(parent: anytype) KNSCore__ProvidersModel {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.KNSCore__ProvidersModel_new2(@ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KNSCore__ProvidersModel_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: KNSCore__ProvidersModel) QMetaObject {
+        return .{ .ptr = qtc.KNSCore__ProvidersModel_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -41,12 +69,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.KNSCore__ProvidersModel_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: KNSCore__ProvidersModel, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.KNSCore__ProvidersModel_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -59,33 +87,33 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KNSCore__ProvidersModel_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: KNSCore__ProvidersModel) QMetaObject {
+        return .{ .ptr = qtc.KNSCore__ProvidersModel_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: KNSCore__ProvidersModel, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KNSCore__ProvidersModel_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.KNSCore__ProvidersModel_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.KNSCore__ProvidersModel_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.KNSCore__ProvidersModel_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -96,18 +124,18 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: KNSCore__ProvidersModel, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KNSCore__ProvidersModel_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KNSCore__ProvidersModel_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -115,20 +143,20 @@ pub const knscore__providersmodel = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KNSCore__ProvidersModel_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: KNSCore__ProvidersModel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KNSCore__ProvidersModel_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.KNSCore__ProvidersModel_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.KNSCore__ProvidersModel_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -139,7 +167,7 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -147,19 +175,19 @@ pub const knscore__providersmodel = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KNSCore__ProvidersModel_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: KNSCore__ProvidersModel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KNSCore__ProvidersModel_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -172,13 +200,13 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn RoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
-        const _map: qtc.libqt_map = qtc.KNSCore__ProvidersModel_RoleNames(@ptrCast(self));
-        var _ret: map_i32_u8 = .empty;
+    pub fn RoleNames(self: KNSCore__ProvidersModel, allocator: std.mem.Allocator) Map_i32_u8 {
+        const _map: qtc.libqt_map = qtc.KNSCore__ProvidersModel_RoleNames(@ptrCast(self.ptr));
+        var _ret: Map_i32_u8 = .empty;
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -206,16 +234,16 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` callback: *const fn () callconv(.c) qtc.libqt_map `
     ///
     /// ## Callback Returns:
     ///
-    /// ` C ABI representation of map_i32_u8 `
+    /// ` C ABI representation of Map_i32_u8 `
     ///
-    pub fn OnRoleNames(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_map) void {
-        qtc.KNSCore__ProvidersModel_OnRoleNames(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRoleNames(self: KNSCore__ProvidersModel, callback: *const fn () callconv(.c) qtc.libqt_map) void {
+        qtc.KNSCore__ProvidersModel_OnRoleNames(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperRoleNames` instead
@@ -228,13 +256,13 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperRoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
-        const _map: qtc.libqt_map = qtc.KNSCore__ProvidersModel_SuperRoleNames(@ptrCast(self));
-        var _ret: map_i32_u8 = .empty;
+    pub fn SuperRoleNames(self: KNSCore__ProvidersModel, allocator: std.mem.Allocator) Map_i32_u8 {
+        const _map: qtc.libqt_map = qtc.KNSCore__ProvidersModel_SuperRoleNames(@ptrCast(self.ptr));
+        var _ret: Map_i32_u8 = .empty;
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -260,14 +288,15 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
     /// ` role: i32 `
     ///
-    pub fn Data(self: ?*anyopaque, index: ?*anyopaque, role: i32) QtC.QVariant {
-        return qtc.KNSCore__ProvidersModel_Data(@ptrCast(self), @ptrCast(index), @bitCast(role));
+    pub fn Data(self: KNSCore__ProvidersModel, index: anytype, role: i32) QVariant {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.KNSCore__ProvidersModel_Data(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(role)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/knscore-providersmodel.html#data)
@@ -276,12 +305,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, index: QtC.QModelIndex, role: i32) callconv(.c) QtC.QVariant `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, index: QModelIndex, role: i32) callconv(.c) QVariant `
     ///
-    pub fn OnData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.KNSCore__ProvidersModel_OnData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnData(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QModelIndex, i32) callconv(.c) QVariant) void {
+        qtc.KNSCore__ProvidersModel_OnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperData` instead
@@ -294,26 +323,28 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
     /// ` role: i32 `
     ///
-    pub fn SuperData(self: ?*anyopaque, index: ?*anyopaque, role: i32) QtC.QVariant {
-        return qtc.KNSCore__ProvidersModel_SuperData(@ptrCast(self), @ptrCast(index), @bitCast(role));
+    pub fn SuperData(self: KNSCore__ProvidersModel, index: anytype, role: i32) QVariant {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.KNSCore__ProvidersModel_SuperData(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(role)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/knscore-providersmodel.html#rowCount)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn RowCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
-        return qtc.KNSCore__ProvidersModel_RowCount(@ptrCast(self), @ptrCast(parent));
+    pub fn RowCount(self: KNSCore__ProvidersModel, parent: anytype) i32 {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KNSCore__ProvidersModel_RowCount(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knscore-providersmodel.html#rowCount)
@@ -322,12 +353,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, parent: QtC.QModelIndex) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, parent: QModelIndex) callconv(.c) i32 `
     ///
-    pub fn OnRowCount(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KNSCore__ProvidersModel_OnRowCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowCount(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QModelIndex) callconv(.c) i32) void {
+        qtc.KNSCore__ProvidersModel_OnRowCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperRowCount` instead
@@ -340,57 +371,59 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperRowCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
-        return qtc.KNSCore__ProvidersModel_SuperRowCount(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperRowCount(self: KNSCore__ProvidersModel, parent: anytype) i32 {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KNSCore__ProvidersModel_SuperRowCount(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knscore-providersmodel.html#engine)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    pub fn Engine(self: ?*anyopaque) QtC.QObject {
-        return qtc.KNSCore__ProvidersModel_Engine(@ptrCast(self));
+    pub fn Engine(self: KNSCore__ProvidersModel) QObject {
+        return .{ .ptr = qtc.KNSCore__ProvidersModel_Engine(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/knscore-providersmodel.html#setEngine)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` engine: QtC.QObject `
+    /// ` engine: QObject `
     ///
-    pub fn SetEngine(self: ?*anyopaque, engine: ?*anyopaque) void {
-        qtc.KNSCore__ProvidersModel_SetEngine(@ptrCast(self), @ptrCast(engine));
+    pub fn SetEngine(self: KNSCore__ProvidersModel, engine: anytype) void {
+        comptime _ = @TypeOf(engine)._is_QObject;
+        qtc.KNSCore__ProvidersModel_SetEngine(@ptrCast(self.ptr), @ptrCast(engine.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knscore-providersmodel.html#engineChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    pub fn EngineChanged(self: ?*anyopaque) void {
-        qtc.KNSCore__ProvidersModel_EngineChanged(@ptrCast(self));
+    pub fn EngineChanged(self: KNSCore__ProvidersModel) void {
+        qtc.KNSCore__ProvidersModel_EngineChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -404,15 +437,15 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -428,14 +461,14 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    pub fn HasIndex(self: ?*anyopaque, row: i32, column: i32) bool {
-        return qtc.QAbstractItemModel_HasIndex(@ptrCast(self), @bitCast(row), @bitCast(column));
+    pub fn HasIndex(self: KNSCore__ProvidersModel, row: i32, column: i32) bool {
+        return qtc.QAbstractItemModel_HasIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemModel
@@ -444,12 +477,13 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` child: QtC.QModelIndex `
+    /// ` child: QModelIndex `
     ///
-    pub fn Parent(self: ?*anyopaque, child: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QAbstractItemModel_Parent(@ptrCast(self), @ptrCast(child));
+    pub fn Parent(self: KNSCore__ProvidersModel, child: anytype) QModelIndex {
+        comptime _ = @TypeOf(child)._is_QModelIndex;
+        return .{ .ptr = qtc.QAbstractItemModel_Parent(@ptrCast(self.ptr), @ptrCast(child.ptr)) };
     }
 
     /// Inherited from QAbstractItemModel
@@ -460,12 +494,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, child: QtC.QModelIndex) callconv(.c) QtC.QModelIndex `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, child: QModelIndex) callconv(.c) QModelIndex `
     ///
-    pub fn OnParent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.QAbstractItemModel_OnParent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnParent(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QModelIndex) callconv(.c) QModelIndex) void {
+        qtc.QAbstractItemModel_OnParent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperParent` instead
@@ -480,12 +514,13 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` child: QtC.QModelIndex `
+    /// ` child: QModelIndex `
     ///
-    pub fn SuperParent(self: ?*anyopaque, child: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QAbstractItemModel_SuperParent(@ptrCast(self), @ptrCast(child));
+    pub fn SuperParent(self: KNSCore__ProvidersModel, child: anytype) QModelIndex {
+        comptime _ = @TypeOf(child)._is_QModelIndex;
+        return .{ .ptr = qtc.QAbstractItemModel_SuperParent(@ptrCast(self.ptr), @ptrCast(child.ptr)) };
     }
 
     /// Inherited from QAbstractItemModel
@@ -494,12 +529,13 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn ColumnCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
-        return qtc.QAbstractItemModel_ColumnCount(@ptrCast(self), @ptrCast(parent));
+    pub fn ColumnCount(self: KNSCore__ProvidersModel, parent: anytype) i32 {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_ColumnCount(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -510,12 +546,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, parent: QtC.QModelIndex) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, parent: QModelIndex) callconv(.c) i32 `
     ///
-    pub fn OnColumnCount(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QAbstractItemModel_OnColumnCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnCount(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QModelIndex) callconv(.c) i32) void {
+        qtc.QAbstractItemModel_OnColumnCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperColumnCount` instead
@@ -530,12 +566,13 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperColumnCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
-        return qtc.QAbstractItemModel_SuperColumnCount(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperColumnCount(self: KNSCore__ProvidersModel, parent: anytype) i32 {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_SuperColumnCount(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -544,12 +581,13 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn HasChildren(self: ?*anyopaque, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_HasChildren(@ptrCast(self), @ptrCast(parent));
+    pub fn HasChildren(self: KNSCore__ProvidersModel, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_HasChildren(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -560,12 +598,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnHasChildren(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractItemModel_OnHasChildren(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHasChildren(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QModelIndex) callconv(.c) bool) void {
+        qtc.QAbstractItemModel_OnHasChildren(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperHasChildren` instead
@@ -580,12 +618,13 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperHasChildren(self: ?*anyopaque, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_SuperHasChildren(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperHasChildren(self: KNSCore__ProvidersModel, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_SuperHasChildren(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -594,12 +633,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` row: i32 `
     ///
-    pub fn InsertRow(self: ?*anyopaque, row: i32) bool {
-        return qtc.QAbstractItemModel_InsertRow(@ptrCast(self), @bitCast(row));
+    pub fn InsertRow(self: KNSCore__ProvidersModel, row: i32) bool {
+        return qtc.QAbstractItemModel_InsertRow(@ptrCast(self.ptr), @bitCast(row));
     }
 
     /// Inherited from QAbstractItemModel
@@ -608,12 +647,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` column: i32 `
     ///
-    pub fn InsertColumn(self: ?*anyopaque, column: i32) bool {
-        return qtc.QAbstractItemModel_InsertColumn(@ptrCast(self), @bitCast(column));
+    pub fn InsertColumn(self: KNSCore__ProvidersModel, column: i32) bool {
+        return qtc.QAbstractItemModel_InsertColumn(@ptrCast(self.ptr), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemModel
@@ -622,12 +661,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` row: i32 `
     ///
-    pub fn RemoveRow(self: ?*anyopaque, row: i32) bool {
-        return qtc.QAbstractItemModel_RemoveRow(@ptrCast(self), @bitCast(row));
+    pub fn RemoveRow(self: KNSCore__ProvidersModel, row: i32) bool {
+        return qtc.QAbstractItemModel_RemoveRow(@ptrCast(self.ptr), @bitCast(row));
     }
 
     /// Inherited from QAbstractItemModel
@@ -636,12 +675,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` column: i32 `
     ///
-    pub fn RemoveColumn(self: ?*anyopaque, column: i32) bool {
-        return qtc.QAbstractItemModel_RemoveColumn(@ptrCast(self), @bitCast(column));
+    pub fn RemoveColumn(self: KNSCore__ProvidersModel, column: i32) bool {
+        return qtc.QAbstractItemModel_RemoveColumn(@ptrCast(self.ptr), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemModel
@@ -650,18 +689,20 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceRow: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn MoveRow(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.QAbstractItemModel_MoveRow(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceRow), @ptrCast(destinationParent), @bitCast(destinationChild));
+    pub fn MoveRow(self: KNSCore__ProvidersModel, sourceParent: anytype, sourceRow: i32, destinationParent: anytype, destinationChild: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_MoveRow(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceRow), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -670,18 +711,20 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceColumn: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn MoveColumn(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.QAbstractItemModel_MoveColumn(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @ptrCast(destinationParent), @bitCast(destinationChild));
+    pub fn MoveColumn(self: KNSCore__ProvidersModel, sourceParent: anytype, sourceColumn: i32, destinationParent: anytype, destinationChild: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_MoveColumn(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceColumn), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -690,12 +733,13 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn CheckIndex(self: ?*anyopaque, index: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_CheckIndex(@ptrCast(self), @ptrCast(index));
+    pub fn CheckIndex(self: KNSCore__ProvidersModel, index: anytype) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.QAbstractItemModel_CheckIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -704,14 +748,16 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` topLeft: QtC.QModelIndex `
+    /// ` topLeft: QModelIndex `
     ///
-    /// ` bottomRight: QtC.QModelIndex `
+    /// ` bottomRight: QModelIndex `
     ///
-    pub fn DataChanged(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque) void {
-        qtc.QAbstractItemModel_DataChanged(@ptrCast(self), @ptrCast(topLeft), @ptrCast(bottomRight));
+    pub fn DataChanged(self: KNSCore__ProvidersModel, topLeft: anytype, bottomRight: anytype) void {
+        comptime _ = @TypeOf(topLeft)._is_QModelIndex;
+        comptime _ = @TypeOf(bottomRight)._is_QModelIndex;
+        qtc.QAbstractItemModel_DataChanged(@ptrCast(self.ptr), @ptrCast(topLeft.ptr), @ptrCast(bottomRight.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -720,12 +766,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, topLeft: QModelIndex, bottomRight: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_DataChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDataChanged(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QModelIndex, QModelIndex) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_DataChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -734,7 +780,7 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` orientation: qnamespace_enums.Orientation `
     ///
@@ -742,8 +788,8 @@ pub const knscore__providersmodel = struct {
     ///
     /// ` last: i32 `
     ///
-    pub fn HeaderDataChanged(self: ?*anyopaque, orientation: i32, first: i32, last: i32) void {
-        qtc.QAbstractItemModel_HeaderDataChanged(@ptrCast(self), @bitCast(orientation), @bitCast(first), @bitCast(last));
+    pub fn HeaderDataChanged(self: KNSCore__ProvidersModel, orientation: i32, first: i32, last: i32) void {
+        qtc.QAbstractItemModel_HeaderDataChanged(@ptrCast(self.ptr), @bitCast(orientation), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -752,12 +798,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, orientation: qnamespace_enums.Orientation, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, orientation: qnamespace_enums.Orientation, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnHeaderDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_HeaderDataChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHeaderDataChanged(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, i32, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_HeaderDataChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -766,10 +812,10 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    pub fn LayoutChanged(self: ?*anyopaque) void {
-        qtc.QAbstractItemModel_LayoutChanged(@ptrCast(self));
+    pub fn LayoutChanged(self: KNSCore__ProvidersModel) void {
+        qtc.QAbstractItemModel_LayoutChanged(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -778,12 +824,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel) callconv(.c) void `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel) callconv(.c) void `
     ///
-    pub fn OnLayoutChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLayoutChanged(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_LayoutChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -792,10 +838,10 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    pub fn LayoutAboutToBeChanged(self: ?*anyopaque) void {
-        qtc.QAbstractItemModel_LayoutAboutToBeChanged(@ptrCast(self));
+    pub fn LayoutAboutToBeChanged(self: KNSCore__ProvidersModel) void {
+        qtc.QAbstractItemModel_LayoutAboutToBeChanged(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -804,12 +850,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel) callconv(.c) void `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel) callconv(.c) void `
     ///
-    pub fn OnLayoutAboutToBeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLayoutAboutToBeChanged(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -818,16 +864,17 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn HasIndex3(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_HasIndex3(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn HasIndex3(self: KNSCore__ProvidersModel, row: i32, column: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_HasIndex3(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -836,14 +883,15 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` row: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn InsertRow2(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_InsertRow2(@ptrCast(self), @bitCast(row), @ptrCast(parent));
+    pub fn InsertRow2(self: KNSCore__ProvidersModel, row: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_InsertRow2(@ptrCast(self.ptr), @bitCast(row), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -852,14 +900,15 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn InsertColumn2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_InsertColumn2(@ptrCast(self), @bitCast(column), @ptrCast(parent));
+    pub fn InsertColumn2(self: KNSCore__ProvidersModel, column: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_InsertColumn2(@ptrCast(self.ptr), @bitCast(column), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -868,14 +917,15 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` row: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn RemoveRow2(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_RemoveRow2(@ptrCast(self), @bitCast(row), @ptrCast(parent));
+    pub fn RemoveRow2(self: KNSCore__ProvidersModel, row: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_RemoveRow2(@ptrCast(self.ptr), @bitCast(row), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -884,14 +934,15 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn RemoveColumn2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_RemoveColumn2(@ptrCast(self), @bitCast(column), @ptrCast(parent));
+    pub fn RemoveColumn2(self: KNSCore__ProvidersModel, column: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_RemoveColumn2(@ptrCast(self.ptr), @bitCast(column), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -900,14 +951,15 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
     /// ` options: flag of qabstractitemmodel_enums.CheckIndexOption `
     ///
-    pub fn CheckIndex2(self: ?*anyopaque, index: ?*anyopaque, options: i32) bool {
-        return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self), @ptrCast(index), @bitCast(options));
+    pub fn CheckIndex2(self: KNSCore__ProvidersModel, index: anytype, options: i32) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(options));
     }
 
     /// Inherited from QAbstractItemModel
@@ -916,20 +968,22 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` topLeft: QtC.QModelIndex `
+    /// ` topLeft: QModelIndex `
     ///
-    /// ` bottomRight: QtC.QModelIndex `
+    /// ` bottomRight: QModelIndex `
     ///
     /// ` roles: []i32 `
     ///
-    pub fn DataChanged3(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque, roles: []i32) void {
+    pub fn DataChanged3(self: KNSCore__ProvidersModel, topLeft: anytype, bottomRight: anytype, roles: []i32) void {
+        comptime _ = @TypeOf(topLeft)._is_QModelIndex;
+        comptime _ = @TypeOf(bottomRight)._is_QModelIndex;
         const roles_list = qtc.libqt_list{
             .len = roles.len,
             .data = roles.ptr,
         };
-        qtc.QAbstractItemModel_DataChanged3(@ptrCast(self), @ptrCast(topLeft), @ptrCast(bottomRight), roles_list);
+        qtc.QAbstractItemModel_DataChanged3(@ptrCast(self.ptr), @ptrCast(topLeft.ptr), @ptrCast(bottomRight.ptr), roles_list);
     }
 
     /// Inherited from QAbstractItemModel
@@ -938,12 +992,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: qtc.libqt_list ([]i32)) callconv(.c) void `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, topLeft: QModelIndex, bottomRight: QModelIndex, roles: qtc.libqt_list ([]i32)) callconv(.c) void `
     ///
-    pub fn OnDataChanged3(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_DataChanged3(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDataChanged3(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QModelIndex, QModelIndex, qtc.libqt_list) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_DataChanged3(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -952,16 +1006,16 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` parents: []QtC.QPersistentModelIndex `
+    /// ` parents: []QPersistentModelIndex `
     ///
-    pub fn LayoutChanged1(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex) void {
+    pub fn LayoutChanged1(self: KNSCore__ProvidersModel, parents: []QPersistentModelIndex) void {
         const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
-        qtc.QAbstractItemModel_LayoutChanged1(@ptrCast(self), parents_list);
+        qtc.QAbstractItemModel_LayoutChanged1(@ptrCast(self.ptr), parents_list);
     }
 
     /// Inherited from QAbstractItemModel
@@ -970,12 +1024,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex)) callconv(.c) void `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, parents: qtc.libqt_list ([]QPersistentModelIndex)) callconv(.c) void `
     ///
-    pub fn OnLayoutChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutChanged1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLayoutChanged1(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, qtc.libqt_list) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_LayoutChanged1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -984,18 +1038,18 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` parents: []QtC.QPersistentModelIndex `
+    /// ` parents: []QPersistentModelIndex `
     ///
     /// ` hint: qabstractitemmodel_enums.LayoutChangeHint `
     ///
-    pub fn LayoutChanged2(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex, hint: i32) void {
+    pub fn LayoutChanged2(self: KNSCore__ProvidersModel, parents: []QPersistentModelIndex, hint: i32) void {
         const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
-        qtc.QAbstractItemModel_LayoutChanged2(@ptrCast(self), parents_list, @bitCast(hint));
+        qtc.QAbstractItemModel_LayoutChanged2(@ptrCast(self.ptr), parents_list, @bitCast(hint));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1004,12 +1058,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, parents: qtc.libqt_list ([]QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
     ///
-    pub fn OnLayoutChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutChanged2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLayoutChanged2(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, qtc.libqt_list, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_LayoutChanged2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1018,16 +1072,16 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` parents: []QtC.QPersistentModelIndex `
+    /// ` parents: []QPersistentModelIndex `
     ///
-    pub fn LayoutAboutToBeChanged1(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex) void {
+    pub fn LayoutAboutToBeChanged1(self: KNSCore__ProvidersModel, parents: []QPersistentModelIndex) void {
         const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
-        qtc.QAbstractItemModel_LayoutAboutToBeChanged1(@ptrCast(self), parents_list);
+        qtc.QAbstractItemModel_LayoutAboutToBeChanged1(@ptrCast(self.ptr), parents_list);
     }
 
     /// Inherited from QAbstractItemModel
@@ -1036,12 +1090,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex)) callconv(.c) void `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, parents: qtc.libqt_list ([]QPersistentModelIndex)) callconv(.c) void `
     ///
-    pub fn OnLayoutAboutToBeChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLayoutAboutToBeChanged1(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, qtc.libqt_list) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1050,18 +1104,18 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` parents: []QtC.QPersistentModelIndex `
+    /// ` parents: []QPersistentModelIndex `
     ///
     /// ` hint: qabstractitemmodel_enums.LayoutChangeHint `
     ///
-    pub fn LayoutAboutToBeChanged2(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex, hint: i32) void {
+    pub fn LayoutAboutToBeChanged2(self: KNSCore__ProvidersModel, parents: []QPersistentModelIndex, hint: i32) void {
         const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
-        qtc.QAbstractItemModel_LayoutAboutToBeChanged2(@ptrCast(self), parents_list, @bitCast(hint));
+        qtc.QAbstractItemModel_LayoutAboutToBeChanged2(@ptrCast(self.ptr), parents_list, @bitCast(hint));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1070,12 +1124,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, parents: qtc.libqt_list ([]QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
     ///
-    pub fn OnLayoutAboutToBeChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLayoutAboutToBeChanged2(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, qtc.libqt_list, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1084,12 +1138,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: KNSCore__ProvidersModel, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore__providersmodel.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1102,12 +1156,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: KNSCore__ProvidersModel, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -1116,10 +1170,10 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: KNSCore__ProvidersModel) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1128,10 +1182,10 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: KNSCore__ProvidersModel) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1140,10 +1194,10 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: KNSCore__ProvidersModel) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1152,10 +1206,10 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: KNSCore__ProvidersModel) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1164,12 +1218,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: KNSCore__ProvidersModel, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -1178,10 +1232,10 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: KNSCore__ProvidersModel) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1190,12 +1244,13 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: KNSCore__ProvidersModel, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -1204,12 +1259,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: KNSCore__ProvidersModel, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1218,12 +1273,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: KNSCore__ProvidersModel, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1232,12 +1287,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: KNSCore__ProvidersModel, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1246,12 +1301,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: KNSCore__ProvidersModel, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1260,16 +1315,17 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: KNSCore__ProvidersModel, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("knscore__providersmodel.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("knscore__providersmodel.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1279,12 +1335,13 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: KNSCore__ProvidersModel, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -1293,12 +1350,13 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: KNSCore__ProvidersModel, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -1307,12 +1365,13 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: KNSCore__ProvidersModel, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -1321,18 +1380,20 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1341,16 +1402,20 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1359,18 +1424,19 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: KNSCore__ProvidersModel, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1379,18 +1445,20 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1399,16 +1467,20 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -1417,10 +1489,10 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: KNSCore__ProvidersModel) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1429,12 +1501,13 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: KNSCore__ProvidersModel, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1443,10 +1516,11 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1455,10 +1529,10 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: KNSCore__ProvidersModel) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1467,10 +1541,10 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: KNSCore__ProvidersModel) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1479,15 +1553,16 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: KNSCore__ProvidersModel, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -1496,13 +1571,13 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: KNSCore__ProvidersModel, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1511,17 +1586,16 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: KNSCore__ProvidersModel, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("knscore__providersmodel.DynamicPropertyNames: Memory allocation failed");
@@ -1540,10 +1614,10 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: KNSCore__ProvidersModel) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1552,10 +1626,10 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: KNSCore__ProvidersModel) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1564,10 +1638,10 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: KNSCore__ProvidersModel) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1576,12 +1650,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel) callconv(.c) void `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1590,13 +1664,13 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: KNSCore__ProvidersModel, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -1605,10 +1679,10 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: KNSCore__ProvidersModel) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1617,14 +1691,14 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: KNSCore__ProvidersModel, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1633,14 +1707,14 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: KNSCore__ProvidersModel, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1649,20 +1723,22 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -1671,18 +1747,22 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1691,9 +1771,9 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1701,10 +1781,11 @@ pub const knscore__providersmodel = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: KNSCore__ProvidersModel, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1713,13 +1794,13 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: KNSCore__ProvidersModel, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1728,15 +1809,16 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: KNSCore__ProvidersModel, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1745,18 +1827,19 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: KNSCore__ProvidersModel, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1765,15 +1848,16 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: KNSCore__ProvidersModel, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1782,12 +1866,13 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: KNSCore__ProvidersModel, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1796,12 +1881,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractListModel
@@ -1812,16 +1897,17 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn Index(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KNSCore__ProvidersModel_Index(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn Index(self: KNSCore__ProvidersModel, row: i32, column: i32, parent: anytype) QModelIndex {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return .{ .ptr = qtc.KNSCore__ProvidersModel_Index(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperIndex` instead
@@ -1836,16 +1922,17 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperIndex(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KNSCore__ProvidersModel_SuperIndex(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn SuperIndex(self: KNSCore__ProvidersModel, row: i32, column: i32, parent: anytype) QModelIndex {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return .{ .ptr = qtc.KNSCore__ProvidersModel_SuperIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr)) };
     }
 
     /// Inherited from QAbstractListModel
@@ -1856,12 +1943,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, row: i32, column: i32, parent: QtC.QModelIndex) callconv(.c) QtC.QModelIndex `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, row: i32, column: i32, parent: QModelIndex) callconv(.c) QModelIndex `
     ///
-    pub fn OnIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.KNSCore__ProvidersModel_OnIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIndex(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
+        qtc.KNSCore__ProvidersModel_OnIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractListModel
@@ -1872,16 +1959,17 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    /// ` idx: QtC.QModelIndex `
+    /// ` idx: QModelIndex `
     ///
-    pub fn Sibling(self: ?*anyopaque, row: i32, column: i32, idx: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KNSCore__ProvidersModel_Sibling(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(idx));
+    pub fn Sibling(self: KNSCore__ProvidersModel, row: i32, column: i32, idx: anytype) QModelIndex {
+        comptime _ = @TypeOf(idx)._is_QModelIndex;
+        return .{ .ptr = qtc.KNSCore__ProvidersModel_Sibling(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(idx.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSibling` instead
@@ -1896,16 +1984,17 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    /// ` idx: QtC.QModelIndex `
+    /// ` idx: QModelIndex `
     ///
-    pub fn SuperSibling(self: ?*anyopaque, row: i32, column: i32, idx: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KNSCore__ProvidersModel_SuperSibling(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(idx));
+    pub fn SuperSibling(self: KNSCore__ProvidersModel, row: i32, column: i32, idx: anytype) QModelIndex {
+        comptime _ = @TypeOf(idx)._is_QModelIndex;
+        return .{ .ptr = qtc.KNSCore__ProvidersModel_SuperSibling(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(idx.ptr)) };
     }
 
     /// Inherited from QAbstractListModel
@@ -1916,12 +2005,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, row: i32, column: i32, idx: QtC.QModelIndex) callconv(.c) QtC.QModelIndex `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, row: i32, column: i32, idx: QModelIndex) callconv(.c) QModelIndex `
     ///
-    pub fn OnSibling(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.KNSCore__ProvidersModel_OnSibling(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSibling(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
+        qtc.KNSCore__ProvidersModel_OnSibling(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractListModel
@@ -1932,9 +2021,9 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` data: QtC.QMimeData `
+    /// ` data: QMimeData `
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
@@ -1942,10 +2031,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn DropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.KNSCore__ProvidersModel_DropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn DropMimeData(self: KNSCore__ProvidersModel, data: anytype, action: i32, row: i32, column: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(data)._is_QMimeData;
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KNSCore__ProvidersModel_DropMimeData(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDropMimeData` instead
@@ -1960,9 +2051,9 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` data: QtC.QMimeData `
+    /// ` data: QMimeData `
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
@@ -1970,10 +2061,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.KNSCore__ProvidersModel_SuperDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn SuperDropMimeData(self: KNSCore__ProvidersModel, data: anytype, action: i32, row: i32, column: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(data)._is_QMimeData;
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KNSCore__ProvidersModel_SuperDropMimeData(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractListModel
@@ -1984,12 +2077,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, data: QtC.QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, data: QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnDropMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KNSCore__ProvidersModel_OnDropMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDropMimeData(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QMimeData, i32, i32, i32, QModelIndex) callconv(.c) bool) void {
+        qtc.KNSCore__ProvidersModel_OnDropMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractListModel
@@ -2000,16 +2093,17 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.ItemFlag `
     ///
-    pub fn Flags(self: ?*anyopaque, index: ?*anyopaque) i32 {
-        return qtc.KNSCore__ProvidersModel_Flags(@ptrCast(self), @ptrCast(index));
+    pub fn Flags(self: KNSCore__ProvidersModel, index: anytype) i32 {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.KNSCore__ProvidersModel_Flags(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFlags` instead
@@ -2024,16 +2118,17 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.ItemFlag `
     ///
-    pub fn SuperFlags(self: ?*anyopaque, index: ?*anyopaque) i32 {
-        return qtc.KNSCore__ProvidersModel_SuperFlags(@ptrCast(self), @ptrCast(index));
+    pub fn SuperFlags(self: KNSCore__ProvidersModel, index: anytype) i32 {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.KNSCore__ProvidersModel_SuperFlags(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// Inherited from QAbstractListModel
@@ -2044,12 +2139,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, index: QtC.QModelIndex) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, index: QModelIndex) callconv(.c) i32 `
     ///
-    pub fn OnFlags(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KNSCore__ProvidersModel_OnFlags(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFlags(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QModelIndex) callconv(.c) i32) void {
+        qtc.KNSCore__ProvidersModel_OnFlags(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2060,16 +2155,18 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
     /// ` role: i32 `
     ///
-    pub fn SetData(self: ?*anyopaque, index: ?*anyopaque, value: ?*anyopaque, role: i32) bool {
-        return qtc.KNSCore__ProvidersModel_SetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @bitCast(role));
+    pub fn SetData(self: KNSCore__ProvidersModel, index: anytype, value: anytype, role: i32) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.KNSCore__ProvidersModel_SetData(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(value.ptr), @bitCast(role));
     }
 
     /// ### DEPRECATED: Use `SuperSetData` instead
@@ -2084,16 +2181,18 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
     /// ` role: i32 `
     ///
-    pub fn SuperSetData(self: ?*anyopaque, index: ?*anyopaque, value: ?*anyopaque, role: i32) bool {
-        return qtc.KNSCore__ProvidersModel_SuperSetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @bitCast(role));
+    pub fn SuperSetData(self: KNSCore__ProvidersModel, index: anytype, value: anytype, role: i32) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.KNSCore__ProvidersModel_SuperSetData(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(value.ptr), @bitCast(role));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2104,12 +2203,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, index: QtC.QModelIndex, value: QtC.QVariant, role: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, index: QModelIndex, value: QVariant, role: i32) callconv(.c) bool `
     ///
-    pub fn OnSetData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KNSCore__ProvidersModel_OnSetData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetData(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QModelIndex, QVariant, i32) callconv(.c) bool) void {
+        qtc.KNSCore__ProvidersModel_OnSetData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2120,7 +2219,7 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` section: i32 `
     ///
@@ -2128,8 +2227,8 @@ pub const knscore__providersmodel = struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn HeaderData(self: ?*anyopaque, section: i32, orientation: i32, role: i32) QtC.QVariant {
-        return qtc.KNSCore__ProvidersModel_HeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @bitCast(role));
+    pub fn HeaderData(self: KNSCore__ProvidersModel, section: i32, orientation: i32, role: i32) QVariant {
+        return .{ .ptr = qtc.KNSCore__ProvidersModel_HeaderData(@ptrCast(self.ptr), @bitCast(section), @bitCast(orientation), @bitCast(role)) };
     }
 
     /// ### DEPRECATED: Use `SuperHeaderData` instead
@@ -2144,7 +2243,7 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` section: i32 `
     ///
@@ -2152,8 +2251,8 @@ pub const knscore__providersmodel = struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn SuperHeaderData(self: ?*anyopaque, section: i32, orientation: i32, role: i32) QtC.QVariant {
-        return qtc.KNSCore__ProvidersModel_SuperHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @bitCast(role));
+    pub fn SuperHeaderData(self: KNSCore__ProvidersModel, section: i32, orientation: i32, role: i32) QVariant {
+        return .{ .ptr = qtc.KNSCore__ProvidersModel_SuperHeaderData(@ptrCast(self.ptr), @bitCast(section), @bitCast(orientation), @bitCast(role)) };
     }
 
     /// Inherited from QAbstractItemModel
@@ -2164,12 +2263,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32) callconv(.c) QtC.QVariant `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32) callconv(.c) QVariant `
     ///
-    pub fn OnHeaderData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) QtC.QVariant) void {
-        qtc.KNSCore__ProvidersModel_OnHeaderData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHeaderData(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, i32, i32, i32) callconv(.c) QVariant) void {
+        qtc.KNSCore__ProvidersModel_OnHeaderData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2180,18 +2279,19 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` section: i32 `
     ///
     /// ` orientation: qnamespace_enums.Orientation `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
     /// ` role: i32 `
     ///
-    pub fn SetHeaderData(self: ?*anyopaque, section: i32, orientation: i32, value: ?*anyopaque, role: i32) bool {
-        return qtc.KNSCore__ProvidersModel_SetHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @ptrCast(value), @bitCast(role));
+    pub fn SetHeaderData(self: KNSCore__ProvidersModel, section: i32, orientation: i32, value: anytype, role: i32) bool {
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.KNSCore__ProvidersModel_SetHeaderData(@ptrCast(self.ptr), @bitCast(section), @bitCast(orientation), @ptrCast(value.ptr), @bitCast(role));
     }
 
     /// ### DEPRECATED: Use `SuperSetHeaderData` instead
@@ -2206,18 +2306,19 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` section: i32 `
     ///
     /// ` orientation: qnamespace_enums.Orientation `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
     /// ` role: i32 `
     ///
-    pub fn SuperSetHeaderData(self: ?*anyopaque, section: i32, orientation: i32, value: ?*anyopaque, role: i32) bool {
-        return qtc.KNSCore__ProvidersModel_SuperSetHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @ptrCast(value), @bitCast(role));
+    pub fn SuperSetHeaderData(self: KNSCore__ProvidersModel, section: i32, orientation: i32, value: anytype, role: i32) bool {
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.KNSCore__ProvidersModel_SuperSetHeaderData(@ptrCast(self.ptr), @bitCast(section), @bitCast(orientation), @ptrCast(value.ptr), @bitCast(role));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2228,12 +2329,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, section: i32, orientation: qnamespace_enums.Orientation, value: QtC.QVariant, role: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, section: i32, orientation: qnamespace_enums.Orientation, value: QVariant, role: i32) callconv(.c) bool `
     ///
-    pub fn OnSetHeaderData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KNSCore__ProvidersModel_OnSetHeaderData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetHeaderData(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, i32, i32, QVariant, i32) callconv(.c) bool) void {
+        qtc.KNSCore__ProvidersModel_OnSetHeaderData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2244,15 +2345,16 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
-    ///
-    /// ` index: QtC.QModelIndex `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_qtcqvariant {
-        const _map: qtc.libqt_map = qtc.KNSCore__ProvidersModel_ItemData(@ptrCast(self), @ptrCast(index));
-        var _ret: arraymap_i32_qtcqvariant = .empty;
+    /// ` index: QModelIndex `
+    ///
+    pub fn ItemData(self: KNSCore__ProvidersModel, allocator: std.mem.Allocator, index: anytype) ArrayMap_i32_QVariant {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        const _map: qtc.libqt_map = qtc.KNSCore__ProvidersModel_ItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
+        var _ret: ArrayMap_i32_QVariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -2263,7 +2365,7 @@ pub const knscore__providersmodel = struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            _ret.put(allocator, _key, @ptrCast(_value)) catch @panic("knscore__providersmodel.ItemData: Memory allocation failed");
+            _ret.put(allocator, _key, .{ .ptr = @ptrCast(_value) }) catch @panic("knscore__providersmodel.ItemData: Memory allocation failed");
         }
         return _ret;
     }
@@ -2280,15 +2382,16 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
-    ///
-    /// ` index: QtC.QModelIndex `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_qtcqvariant {
-        const _map: qtc.libqt_map = qtc.KNSCore__ProvidersModel_SuperItemData(@ptrCast(self), @ptrCast(index));
-        var _ret: arraymap_i32_qtcqvariant = .empty;
+    /// ` index: QModelIndex `
+    ///
+    pub fn SuperItemData(self: KNSCore__ProvidersModel, allocator: std.mem.Allocator, index: anytype) ArrayMap_i32_QVariant {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        const _map: qtc.libqt_map = qtc.KNSCore__ProvidersModel_SuperItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
+        var _ret: ArrayMap_i32_QVariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -2299,7 +2402,7 @@ pub const knscore__providersmodel = struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            _ret.put(allocator, _key, @ptrCast(_value)) catch @panic("knscore__providersmodel.ItemData: Memory allocation failed");
+            _ret.put(allocator, _key, .{ .ptr = @ptrCast(_value) }) catch @panic("knscore__providersmodel.ItemData: Memory allocation failed");
         }
         return _ret;
     }
@@ -2312,16 +2415,16 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, index: QtC.QModelIndex) callconv(.c) qtc.libqt_map `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, index: QModelIndex) callconv(.c) qtc.libqt_map `
     ///
     /// ## Callback Returns:
     ///
-    /// ` C ABI representation of arraymap_i32_qtcqvariant `
+    /// ` C ABI representation of ArrayMap_i32_QVariant `
     ///
-    pub fn OnItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) qtc.libqt_map) void {
-        qtc.KNSCore__ProvidersModel_OnItemData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnItemData(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QModelIndex) callconv(.c) qtc.libqt_map) void {
+        qtc.KNSCore__ProvidersModel_OnItemData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2332,15 +2435,16 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
-    ///
-    /// ` index: QtC.QModelIndex `
-    ///
-    /// ` roles: arraymap_i32_qtcqvariant `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetItemData(self: ?*anyopaque, index: ?*anyopaque, roles: arraymap_i32_qtcqvariant, allocator: std.mem.Allocator) bool {
+    /// ` index: QModelIndex `
+    ///
+    /// ` roles: ArrayMap_i32_QVariant `
+    ///
+    pub fn SetItemData(self: KNSCore__ProvidersModel, allocator: std.mem.Allocator, index: anytype, roles: ArrayMap_i32_QVariant) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
         const roles_count = roles.count();
         const roles_keys = allocator.alloc(i32, roles_count) catch @panic("knscore__providersmodel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_keys);
@@ -2351,14 +2455,14 @@ pub const knscore__providersmodel = struct {
         while (roles_it.next()) |it_entry| : (i += 1) {
             const roles_key = it_entry.key_ptr.*;
             roles_keys[i] = @bitCast(roles_key);
-            roles_values[i] = @ptrCast(it_entry.value_ptr.*);
+            roles_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const roles_map = qtc.libqt_map{
             .len = roles_count,
             .keys = @ptrCast(roles_keys.ptr),
             .values = @ptrCast(roles_values.ptr),
         };
-        return qtc.KNSCore__ProvidersModel_SetItemData(@ptrCast(self), @ptrCast(index), roles_map);
+        return qtc.KNSCore__ProvidersModel_SetItemData(@ptrCast(self.ptr), @ptrCast(index.ptr), roles_map);
     }
 
     /// ### DEPRECATED: Use `SuperSetItemData` instead
@@ -2373,15 +2477,16 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
-    ///
-    /// ` index: QtC.QModelIndex `
-    ///
-    /// ` roles: arraymap_i32_qtcqvariant `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperSetItemData(self: ?*anyopaque, index: ?*anyopaque, roles: arraymap_i32_qtcqvariant, allocator: std.mem.Allocator) bool {
+    /// ` index: QModelIndex `
+    ///
+    /// ` roles: ArrayMap_i32_QVariant `
+    ///
+    pub fn SuperSetItemData(self: KNSCore__ProvidersModel, allocator: std.mem.Allocator, index: anytype, roles: ArrayMap_i32_QVariant) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
         const roles_count = roles.count();
         const roles_keys = allocator.alloc(i32, roles_count) catch @panic("knscore__providersmodel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_keys);
@@ -2392,14 +2497,14 @@ pub const knscore__providersmodel = struct {
         while (roles_it.next()) |it_entry| : (i += 1) {
             const roles_key = it_entry.key_ptr.*;
             roles_keys[i] = @bitCast(roles_key);
-            roles_values[i] = @ptrCast(it_entry.value_ptr.*);
+            roles_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const roles_map = qtc.libqt_map{
             .len = roles_count,
             .keys = @ptrCast(roles_keys.ptr),
             .values = @ptrCast(roles_values.ptr),
         };
-        return qtc.KNSCore__ProvidersModel_SuperSetItemData(@ptrCast(self), @ptrCast(index), roles_map);
+        return qtc.KNSCore__ProvidersModel_SuperSetItemData(@ptrCast(self.ptr), @ptrCast(index.ptr), roles_map);
     }
 
     /// Inherited from QAbstractItemModel
@@ -2410,12 +2515,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, index: QtC.QModelIndex, roles: qtc.libqt_map (arraymap_i32_qtcqvariant)) callconv(.c) bool `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, index: QModelIndex, roles: qtc.libqt_map (ArrayMap_i32_QVariant)) callconv(.c) bool `
     ///
-    pub fn OnSetItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, qtc.libqt_map) callconv(.c) bool) void {
-        qtc.KNSCore__ProvidersModel_OnSetItemData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetItemData(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QModelIndex, qtc.libqt_map) callconv(.c) bool) void {
+        qtc.KNSCore__ProvidersModel_OnSetItemData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2426,12 +2531,13 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn ClearItemData(self: ?*anyopaque, index: ?*anyopaque) bool {
-        return qtc.KNSCore__ProvidersModel_ClearItemData(@ptrCast(self), @ptrCast(index));
+    pub fn ClearItemData(self: KNSCore__ProvidersModel, index: anytype) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.KNSCore__ProvidersModel_ClearItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperClearItemData` instead
@@ -2446,12 +2552,13 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SuperClearItemData(self: ?*anyopaque, index: ?*anyopaque) bool {
-        return qtc.KNSCore__ProvidersModel_SuperClearItemData(@ptrCast(self), @ptrCast(index));
+    pub fn SuperClearItemData(self: KNSCore__ProvidersModel, index: anytype) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.KNSCore__ProvidersModel_SuperClearItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2462,12 +2569,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, index: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, index: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnClearItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KNSCore__ProvidersModel_OnClearItemData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnClearItemData(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QModelIndex) callconv(.c) bool) void {
+        qtc.KNSCore__ProvidersModel_OnClearItemData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2478,17 +2585,16 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KNSCore__ProvidersModel_MimeTypes(@ptrCast(self));
+    pub fn MimeTypes(self: KNSCore__ProvidersModel, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.KNSCore__ProvidersModel_MimeTypes(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("knscore__providersmodel.MimeTypes: Memory allocation failed");
@@ -2513,17 +2619,16 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KNSCore__ProvidersModel_SuperMimeTypes(@ptrCast(self));
+    pub fn SuperMimeTypes(self: KNSCore__ProvidersModel, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.KNSCore__ProvidersModel_SuperMimeTypes(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("knscore__providersmodel.MimeTypes: Memory allocation failed");
@@ -2542,16 +2647,16 @@ pub const knscore__providersmodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
     /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnMimeTypes(self: ?*anyopaque, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
-        qtc.KNSCore__ProvidersModel_OnMimeTypes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMimeTypes(self: KNSCore__ProvidersModel, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
+        qtc.KNSCore__ProvidersModel_OnMimeTypes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2562,16 +2667,16 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` indexes: []QtC.QModelIndex `
+    /// ` indexes: []QModelIndex `
     ///
-    pub fn MimeData(self: ?*anyopaque, indexes: []QtC.QModelIndex) QtC.QMimeData {
+    pub fn MimeData(self: KNSCore__ProvidersModel, indexes: []QModelIndex) QMimeData {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
-        return qtc.KNSCore__ProvidersModel_MimeData(@ptrCast(self), indexes_list);
+        return .{ .ptr = qtc.KNSCore__ProvidersModel_MimeData(@ptrCast(self.ptr), indexes_list) };
     }
 
     /// ### DEPRECATED: Use `SuperMimeData` instead
@@ -2586,16 +2691,16 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` indexes: []QtC.QModelIndex `
+    /// ` indexes: []QModelIndex `
     ///
-    pub fn SuperMimeData(self: ?*anyopaque, indexes: []QtC.QModelIndex) QtC.QMimeData {
+    pub fn SuperMimeData(self: KNSCore__ProvidersModel, indexes: []QModelIndex) QMimeData {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
-        return qtc.KNSCore__ProvidersModel_SuperMimeData(@ptrCast(self), indexes_list);
+        return .{ .ptr = qtc.KNSCore__ProvidersModel_SuperMimeData(@ptrCast(self.ptr), indexes_list) };
     }
 
     /// Inherited from QAbstractItemModel
@@ -2606,12 +2711,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, indexes: qtc.libqt_list ([]QtC.QModelIndex)) callconv(.c) QtC.QMimeData `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, indexes: qtc.libqt_list ([]QModelIndex)) callconv(.c) QMimeData `
     ///
-    pub fn OnMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) QtC.QMimeData) void {
-        qtc.KNSCore__ProvidersModel_OnMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMimeData(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, qtc.libqt_list) callconv(.c) QMimeData) void {
+        qtc.KNSCore__ProvidersModel_OnMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2622,9 +2727,9 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` data: QtC.QMimeData `
+    /// ` data: QMimeData `
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
@@ -2632,10 +2737,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn CanDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.KNSCore__ProvidersModel_CanDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn CanDropMimeData(self: KNSCore__ProvidersModel, data: anytype, action: i32, row: i32, column: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(data)._is_QMimeData;
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KNSCore__ProvidersModel_CanDropMimeData(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCanDropMimeData` instead
@@ -2650,9 +2757,9 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` data: QtC.QMimeData `
+    /// ` data: QMimeData `
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
@@ -2660,10 +2767,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperCanDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.KNSCore__ProvidersModel_SuperCanDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn SuperCanDropMimeData(self: KNSCore__ProvidersModel, data: anytype, action: i32, row: i32, column: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(data)._is_QMimeData;
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KNSCore__ProvidersModel_SuperCanDropMimeData(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2674,12 +2783,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, data: QtC.QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, data: QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnCanDropMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KNSCore__ProvidersModel_OnCanDropMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCanDropMimeData(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QMimeData, i32, i32, i32, QModelIndex) callconv(.c) bool) void {
+        qtc.KNSCore__ProvidersModel_OnCanDropMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2690,14 +2799,14 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SupportedDropActions(self: ?*anyopaque) i32 {
-        return qtc.KNSCore__ProvidersModel_SupportedDropActions(@ptrCast(self));
+    pub fn SupportedDropActions(self: KNSCore__ProvidersModel) i32 {
+        return qtc.KNSCore__ProvidersModel_SupportedDropActions(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSupportedDropActions` instead
@@ -2712,14 +2821,14 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SuperSupportedDropActions(self: ?*anyopaque) i32 {
-        return qtc.KNSCore__ProvidersModel_SuperSupportedDropActions(@ptrCast(self));
+    pub fn SuperSupportedDropActions(self: KNSCore__ProvidersModel) i32 {
+        return qtc.KNSCore__ProvidersModel_SuperSupportedDropActions(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2730,12 +2839,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSupportedDropActions(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KNSCore__ProvidersModel_OnSupportedDropActions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSupportedDropActions(self: KNSCore__ProvidersModel, callback: *const fn () callconv(.c) i32) void {
+        qtc.KNSCore__ProvidersModel_OnSupportedDropActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2746,14 +2855,14 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SupportedDragActions(self: ?*anyopaque) i32 {
-        return qtc.KNSCore__ProvidersModel_SupportedDragActions(@ptrCast(self));
+    pub fn SupportedDragActions(self: KNSCore__ProvidersModel) i32 {
+        return qtc.KNSCore__ProvidersModel_SupportedDragActions(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSupportedDragActions` instead
@@ -2768,14 +2877,14 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SuperSupportedDragActions(self: ?*anyopaque) i32 {
-        return qtc.KNSCore__ProvidersModel_SuperSupportedDragActions(@ptrCast(self));
+    pub fn SuperSupportedDragActions(self: KNSCore__ProvidersModel) i32 {
+        return qtc.KNSCore__ProvidersModel_SuperSupportedDragActions(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2786,12 +2895,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSupportedDragActions(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KNSCore__ProvidersModel_OnSupportedDragActions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSupportedDragActions(self: KNSCore__ProvidersModel, callback: *const fn () callconv(.c) i32) void {
+        qtc.KNSCore__ProvidersModel_OnSupportedDragActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2802,16 +2911,17 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` row: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn InsertRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KNSCore__ProvidersModel_InsertRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
+    pub fn InsertRows(self: KNSCore__ProvidersModel, row: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KNSCore__ProvidersModel_InsertRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInsertRows` instead
@@ -2826,16 +2936,17 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` row: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperInsertRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KNSCore__ProvidersModel_SuperInsertRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
+    pub fn SuperInsertRows(self: KNSCore__ProvidersModel, row: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KNSCore__ProvidersModel_SuperInsertRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2846,12 +2957,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, row: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, row: i32, count: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnInsertRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KNSCore__ProvidersModel_OnInsertRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInsertRows(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, i32, i32, QModelIndex) callconv(.c) bool) void {
+        qtc.KNSCore__ProvidersModel_OnInsertRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2862,16 +2973,17 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` column: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn InsertColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KNSCore__ProvidersModel_InsertColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
+    pub fn InsertColumns(self: KNSCore__ProvidersModel, column: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KNSCore__ProvidersModel_InsertColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInsertColumns` instead
@@ -2886,16 +2998,17 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` column: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperInsertColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KNSCore__ProvidersModel_SuperInsertColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
+    pub fn SuperInsertColumns(self: KNSCore__ProvidersModel, column: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KNSCore__ProvidersModel_SuperInsertColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2906,12 +3019,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, column: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, column: i32, count: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnInsertColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KNSCore__ProvidersModel_OnInsertColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInsertColumns(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, i32, i32, QModelIndex) callconv(.c) bool) void {
+        qtc.KNSCore__ProvidersModel_OnInsertColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2922,16 +3035,17 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` row: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn RemoveRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KNSCore__ProvidersModel_RemoveRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
+    pub fn RemoveRows(self: KNSCore__ProvidersModel, row: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KNSCore__ProvidersModel_RemoveRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperRemoveRows` instead
@@ -2946,16 +3060,17 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` row: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperRemoveRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KNSCore__ProvidersModel_SuperRemoveRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
+    pub fn SuperRemoveRows(self: KNSCore__ProvidersModel, row: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KNSCore__ProvidersModel_SuperRemoveRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2966,12 +3081,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, row: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, row: i32, count: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnRemoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KNSCore__ProvidersModel_OnRemoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRemoveRows(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, i32, i32, QModelIndex) callconv(.c) bool) void {
+        qtc.KNSCore__ProvidersModel_OnRemoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2982,16 +3097,17 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` column: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn RemoveColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KNSCore__ProvidersModel_RemoveColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
+    pub fn RemoveColumns(self: KNSCore__ProvidersModel, column: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KNSCore__ProvidersModel_RemoveColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperRemoveColumns` instead
@@ -3006,16 +3122,17 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` column: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperRemoveColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KNSCore__ProvidersModel_SuperRemoveColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
+    pub fn SuperRemoveColumns(self: KNSCore__ProvidersModel, column: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KNSCore__ProvidersModel_SuperRemoveColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3026,12 +3143,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, column: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, column: i32, count: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnRemoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KNSCore__ProvidersModel_OnRemoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRemoveColumns(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, i32, i32, QModelIndex) callconv(.c) bool) void {
+        qtc.KNSCore__ProvidersModel_OnRemoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3042,20 +3159,22 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceRow: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn MoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.KNSCore__ProvidersModel_MoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
+    pub fn MoveRows(self: KNSCore__ProvidersModel, sourceParent: anytype, sourceRow: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KNSCore__ProvidersModel_MoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
 
     /// ### DEPRECATED: Use `SuperMoveRows` instead
@@ -3070,20 +3189,22 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceRow: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn SuperMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.KNSCore__ProvidersModel_SuperMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
+    pub fn SuperMoveRows(self: KNSCore__ProvidersModel, sourceParent: anytype, sourceRow: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KNSCore__ProvidersModel_SuperMoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3094,12 +3215,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, sourceParent: QtC.QModelIndex, sourceRow: i32, count: i32, destinationParent: QtC.QModelIndex, destinationChild: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, sourceParent: QModelIndex, sourceRow: i32, count: i32, destinationParent: QModelIndex, destinationChild: i32) callconv(.c) bool `
     ///
-    pub fn OnMoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KNSCore__ProvidersModel_OnMoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMoveRows(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
+        qtc.KNSCore__ProvidersModel_OnMoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3110,20 +3231,22 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceColumn: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn MoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.KNSCore__ProvidersModel_MoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
+    pub fn MoveColumns(self: KNSCore__ProvidersModel, sourceParent: anytype, sourceColumn: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KNSCore__ProvidersModel_MoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
 
     /// ### DEPRECATED: Use `SuperMoveColumns` instead
@@ -3138,20 +3261,22 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceColumn: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn SuperMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.KNSCore__ProvidersModel_SuperMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
+    pub fn SuperMoveColumns(self: KNSCore__ProvidersModel, sourceParent: anytype, sourceColumn: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KNSCore__ProvidersModel_SuperMoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3162,12 +3287,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, sourceParent: QtC.QModelIndex, sourceColumn: i32, count: i32, destinationParent: QtC.QModelIndex, destinationChild: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, sourceParent: QModelIndex, sourceColumn: i32, count: i32, destinationParent: QModelIndex, destinationChild: i32) callconv(.c) bool `
     ///
-    pub fn OnMoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KNSCore__ProvidersModel_OnMoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMoveColumns(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
+        qtc.KNSCore__ProvidersModel_OnMoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3178,12 +3303,13 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn FetchMore(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.KNSCore__ProvidersModel_FetchMore(@ptrCast(self), @ptrCast(parent));
+    pub fn FetchMore(self: KNSCore__ProvidersModel, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KNSCore__ProvidersModel_FetchMore(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFetchMore` instead
@@ -3198,12 +3324,13 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperFetchMore(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.KNSCore__ProvidersModel_SuperFetchMore(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperFetchMore(self: KNSCore__ProvidersModel, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KNSCore__ProvidersModel_SuperFetchMore(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3214,12 +3341,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, parent: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, parent: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnFetchMore(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KNSCore__ProvidersModel_OnFetchMore(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFetchMore(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QModelIndex) callconv(.c) void) void {
+        qtc.KNSCore__ProvidersModel_OnFetchMore(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3230,12 +3357,13 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn CanFetchMore(self: ?*anyopaque, parent: ?*anyopaque) bool {
-        return qtc.KNSCore__ProvidersModel_CanFetchMore(@ptrCast(self), @ptrCast(parent));
+    pub fn CanFetchMore(self: KNSCore__ProvidersModel, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KNSCore__ProvidersModel_CanFetchMore(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCanFetchMore` instead
@@ -3250,12 +3378,13 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperCanFetchMore(self: ?*anyopaque, parent: ?*anyopaque) bool {
-        return qtc.KNSCore__ProvidersModel_SuperCanFetchMore(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperCanFetchMore(self: KNSCore__ProvidersModel, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KNSCore__ProvidersModel_SuperCanFetchMore(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3266,12 +3395,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnCanFetchMore(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KNSCore__ProvidersModel_OnCanFetchMore(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCanFetchMore(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QModelIndex) callconv(.c) bool) void {
+        qtc.KNSCore__ProvidersModel_OnCanFetchMore(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3282,14 +3411,14 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` column: i32 `
     ///
     /// ` order: qnamespace_enums.SortOrder `
     ///
-    pub fn Sort(self: ?*anyopaque, column: i32, order: i32) void {
-        qtc.KNSCore__ProvidersModel_Sort(@ptrCast(self), @bitCast(column), @bitCast(order));
+    pub fn Sort(self: KNSCore__ProvidersModel, column: i32, order: i32) void {
+        qtc.KNSCore__ProvidersModel_Sort(@ptrCast(self.ptr), @bitCast(column), @bitCast(order));
     }
 
     /// ### DEPRECATED: Use `SuperSort` instead
@@ -3304,14 +3433,14 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` column: i32 `
     ///
     /// ` order: qnamespace_enums.SortOrder `
     ///
-    pub fn SuperSort(self: ?*anyopaque, column: i32, order: i32) void {
-        qtc.KNSCore__ProvidersModel_SuperSort(@ptrCast(self), @bitCast(column), @bitCast(order));
+    pub fn SuperSort(self: KNSCore__ProvidersModel, column: i32, order: i32) void {
+        qtc.KNSCore__ProvidersModel_SuperSort(@ptrCast(self.ptr), @bitCast(column), @bitCast(order));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3322,12 +3451,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, column: i32, order: qnamespace_enums.SortOrder) callconv(.c) void `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, column: i32, order: qnamespace_enums.SortOrder) callconv(.c) void `
     ///
-    pub fn OnSort(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KNSCore__ProvidersModel_OnSort(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSort(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, i32, i32) callconv(.c) void) void {
+        qtc.KNSCore__ProvidersModel_OnSort(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3338,12 +3467,13 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn Buddy(self: ?*anyopaque, index: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KNSCore__ProvidersModel_Buddy(@ptrCast(self), @ptrCast(index));
+    pub fn Buddy(self: KNSCore__ProvidersModel, index: anytype) QModelIndex {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.KNSCore__ProvidersModel_Buddy(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperBuddy` instead
@@ -3358,12 +3488,13 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SuperBuddy(self: ?*anyopaque, index: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KNSCore__ProvidersModel_SuperBuddy(@ptrCast(self), @ptrCast(index));
+    pub fn SuperBuddy(self: KNSCore__ProvidersModel, index: anytype) QModelIndex {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.KNSCore__ProvidersModel_SuperBuddy(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// Inherited from QAbstractItemModel
@@ -3374,12 +3505,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, index: QtC.QModelIndex) callconv(.c) QtC.QModelIndex `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, index: QModelIndex) callconv(.c) QModelIndex `
     ///
-    pub fn OnBuddy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.KNSCore__ProvidersModel_OnBuddy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBuddy(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QModelIndex) callconv(.c) QModelIndex) void {
+        qtc.KNSCore__ProvidersModel_OnBuddy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3390,26 +3521,29 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` start: QtC.QModelIndex `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` start: QModelIndex `
     ///
     /// ` role: i32 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
     /// ` hits: i32 `
     ///
     /// ` flags: flag of qnamespace_enums.MatchFlag `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Match(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.KNSCore__ProvidersModel_Match(@ptrCast(self), @ptrCast(start), @bitCast(role), @ptrCast(value), @bitCast(hits), @bitCast(flags));
+    pub fn Match(self: KNSCore__ProvidersModel, allocator: std.mem.Allocator, start: anytype, role: i32, value: anytype, hits: i32, flags: i32) []QModelIndex {
+        comptime _ = @TypeOf(start)._is_QModelIndex;
+        comptime _ = @TypeOf(value)._is_QVariant;
+        const _arr: qtc.libqt_list = qtc.KNSCore__ProvidersModel_Match(@ptrCast(self.ptr), @ptrCast(start.ptr), @bitCast(role), @ptrCast(value.ptr), @bitCast(hits), @bitCast(flags));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("knscore__providersmodel.Match: Memory allocation failed");
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("knscore__providersmodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -3425,26 +3559,29 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` start: QtC.QModelIndex `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` start: QModelIndex `
     ///
     /// ` role: i32 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
     /// ` hits: i32 `
     ///
     /// ` flags: flag of qnamespace_enums.MatchFlag `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn SuperMatch(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.KNSCore__ProvidersModel_SuperMatch(@ptrCast(self), @ptrCast(start), @bitCast(role), @ptrCast(value), @bitCast(hits), @bitCast(flags));
+    pub fn SuperMatch(self: KNSCore__ProvidersModel, allocator: std.mem.Allocator, start: anytype, role: i32, value: anytype, hits: i32, flags: i32) []QModelIndex {
+        comptime _ = @TypeOf(start)._is_QModelIndex;
+        comptime _ = @TypeOf(value)._is_QVariant;
+        const _arr: qtc.libqt_list = qtc.KNSCore__ProvidersModel_SuperMatch(@ptrCast(self.ptr), @ptrCast(start.ptr), @bitCast(role), @ptrCast(value.ptr), @bitCast(hits), @bitCast(flags));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("knscore__providersmodel.Match: Memory allocation failed");
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("knscore__providersmodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -3454,20 +3591,20 @@ pub const knscore__providersmodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag) callconv(.c) qtc.libqt_list `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, start: QModelIndex, role: i32, value: QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag) callconv(.c) qtc.libqt_list `
     ///
     /// ## Callback Returns:
     ///
-    /// ` C ABI representation of []QtC.QModelIndex `
+    /// ` C ABI representation of []QModelIndex `
     ///
-    pub fn OnMatch(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, i32, i32) callconv(.c) qtc.libqt_list) void {
-        qtc.KNSCore__ProvidersModel_OnMatch(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMatch(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QModelIndex, i32, QVariant, i32, i32) callconv(.c) qtc.libqt_list) void {
+        qtc.KNSCore__ProvidersModel_OnMatch(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3478,12 +3615,13 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn Span(self: ?*anyopaque, index: ?*anyopaque) QtC.QSize {
-        return qtc.KNSCore__ProvidersModel_Span(@ptrCast(self), @ptrCast(index));
+    pub fn Span(self: KNSCore__ProvidersModel, index: anytype) QSize {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.KNSCore__ProvidersModel_Span(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSpan` instead
@@ -3498,12 +3636,13 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SuperSpan(self: ?*anyopaque, index: ?*anyopaque) QtC.QSize {
-        return qtc.KNSCore__ProvidersModel_SuperSpan(@ptrCast(self), @ptrCast(index));
+    pub fn SuperSpan(self: KNSCore__ProvidersModel, index: anytype) QSize {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.KNSCore__ProvidersModel_SuperSpan(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// Inherited from QAbstractItemModel
@@ -3514,12 +3653,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, index: QtC.QModelIndex) callconv(.c) QtC.QSize `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, index: QModelIndex) callconv(.c) QSize `
     ///
-    pub fn OnSpan(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QSize) void {
-        qtc.KNSCore__ProvidersModel_OnSpan(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSpan(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QModelIndex) callconv(.c) QSize) void {
+        qtc.KNSCore__ProvidersModel_OnSpan(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3530,14 +3669,16 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    /// ` roleDataSpan: QtC.QModelRoleDataSpan `
+    /// ` roleDataSpan: QModelRoleDataSpan `
     ///
-    pub fn MultiData(self: ?*anyopaque, index: ?*anyopaque, roleDataSpan: QtC.QModelRoleDataSpan) void {
-        qtc.KNSCore__ProvidersModel_MultiData(@ptrCast(self), @ptrCast(index), @ptrCast(roleDataSpan));
+    pub fn MultiData(self: KNSCore__ProvidersModel, index: anytype, roleDataSpan: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        comptime _ = @TypeOf(roleDataSpan)._is_QModelRoleDataSpan;
+        qtc.KNSCore__ProvidersModel_MultiData(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(roleDataSpan.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMultiData` instead
@@ -3552,14 +3693,16 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    /// ` roleDataSpan: QtC.QModelRoleDataSpan `
+    /// ` roleDataSpan: QModelRoleDataSpan `
     ///
-    pub fn SuperMultiData(self: ?*anyopaque, index: ?*anyopaque, roleDataSpan: QtC.QModelRoleDataSpan) void {
-        qtc.KNSCore__ProvidersModel_SuperMultiData(@ptrCast(self), @ptrCast(index), @ptrCast(roleDataSpan));
+    pub fn SuperMultiData(self: KNSCore__ProvidersModel, index: anytype, roleDataSpan: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        comptime _ = @TypeOf(roleDataSpan)._is_QModelRoleDataSpan;
+        qtc.KNSCore__ProvidersModel_SuperMultiData(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(roleDataSpan.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3570,12 +3713,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, index: QtC.QModelIndex, roleDataSpan: QtC.QModelRoleDataSpan) callconv(.c) void `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, index: QModelIndex, roleDataSpan: QModelRoleDataSpan) callconv(.c) void `
     ///
-    pub fn OnMultiData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, QtC.QModelRoleDataSpan) callconv(.c) void) void {
-        qtc.KNSCore__ProvidersModel_OnMultiData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMultiData(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QModelIndex, QModelRoleDataSpan) callconv(.c) void) void {
+        qtc.KNSCore__ProvidersModel_OnMultiData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3586,10 +3729,10 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    pub fn Submit(self: ?*anyopaque) bool {
-        return qtc.KNSCore__ProvidersModel_Submit(@ptrCast(self));
+    pub fn Submit(self: KNSCore__ProvidersModel) bool {
+        return qtc.KNSCore__ProvidersModel_Submit(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSubmit` instead
@@ -3604,10 +3747,10 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    pub fn SuperSubmit(self: ?*anyopaque) bool {
-        return qtc.KNSCore__ProvidersModel_SuperSubmit(@ptrCast(self));
+    pub fn SuperSubmit(self: KNSCore__ProvidersModel) bool {
+        return qtc.KNSCore__ProvidersModel_SuperSubmit(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3618,12 +3761,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnSubmit(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KNSCore__ProvidersModel_OnSubmit(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSubmit(self: KNSCore__ProvidersModel, callback: *const fn () callconv(.c) bool) void {
+        qtc.KNSCore__ProvidersModel_OnSubmit(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3634,10 +3777,10 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    pub fn Revert(self: ?*anyopaque) void {
-        qtc.KNSCore__ProvidersModel_Revert(@ptrCast(self));
+    pub fn Revert(self: KNSCore__ProvidersModel) void {
+        qtc.KNSCore__ProvidersModel_Revert(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperRevert` instead
@@ -3652,10 +3795,10 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    pub fn SuperRevert(self: ?*anyopaque) void {
-        qtc.KNSCore__ProvidersModel_SuperRevert(@ptrCast(self));
+    pub fn SuperRevert(self: KNSCore__ProvidersModel) void {
+        qtc.KNSCore__ProvidersModel_SuperRevert(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3666,12 +3809,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnRevert(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KNSCore__ProvidersModel_OnRevert(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRevert(self: KNSCore__ProvidersModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KNSCore__ProvidersModel_OnRevert(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3682,10 +3825,10 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    pub fn ResetInternalData(self: ?*anyopaque) void {
-        qtc.KNSCore__ProvidersModel_ResetInternalData(@ptrCast(self));
+    pub fn ResetInternalData(self: KNSCore__ProvidersModel) void {
+        qtc.KNSCore__ProvidersModel_ResetInternalData(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperResetInternalData` instead
@@ -3700,10 +3843,10 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    pub fn SuperResetInternalData(self: ?*anyopaque) void {
-        qtc.KNSCore__ProvidersModel_SuperResetInternalData(@ptrCast(self));
+    pub fn SuperResetInternalData(self: KNSCore__ProvidersModel) void {
+        qtc.KNSCore__ProvidersModel_SuperResetInternalData(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3714,12 +3857,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnResetInternalData(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KNSCore__ProvidersModel_OnResetInternalData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResetInternalData(self: KNSCore__ProvidersModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KNSCore__ProvidersModel_OnResetInternalData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3730,12 +3873,13 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KNSCore__ProvidersModel_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: KNSCore__ProvidersModel, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KNSCore__ProvidersModel_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -3750,12 +3894,13 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KNSCore__ProvidersModel_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: KNSCore__ProvidersModel, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KNSCore__ProvidersModel_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3766,12 +3911,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KNSCore__ProvidersModel_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QEvent) callconv(.c) bool) void {
+        qtc.KNSCore__ProvidersModel_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3782,14 +3927,16 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KNSCore__ProvidersModel_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: KNSCore__ProvidersModel, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KNSCore__ProvidersModel_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -3804,14 +3951,16 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KNSCore__ProvidersModel_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: KNSCore__ProvidersModel, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KNSCore__ProvidersModel_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3822,12 +3971,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KNSCore__ProvidersModel_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QObject, QEvent) callconv(.c) bool) void {
+        qtc.KNSCore__ProvidersModel_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3838,12 +3987,13 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KNSCore__ProvidersModel_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: KNSCore__ProvidersModel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KNSCore__ProvidersModel_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -3858,12 +4008,13 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KNSCore__ProvidersModel_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: KNSCore__ProvidersModel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KNSCore__ProvidersModel_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3874,12 +4025,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KNSCore__ProvidersModel_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QTimerEvent) callconv(.c) void) void {
+        qtc.KNSCore__ProvidersModel_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3890,12 +4041,13 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KNSCore__ProvidersModel_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: KNSCore__ProvidersModel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KNSCore__ProvidersModel_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -3910,12 +4062,13 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KNSCore__ProvidersModel_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: KNSCore__ProvidersModel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KNSCore__ProvidersModel_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3926,12 +4079,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KNSCore__ProvidersModel_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QChildEvent) callconv(.c) void) void {
+        qtc.KNSCore__ProvidersModel_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3942,12 +4095,13 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KNSCore__ProvidersModel_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: KNSCore__ProvidersModel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KNSCore__ProvidersModel_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -3962,12 +4116,13 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KNSCore__ProvidersModel_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: KNSCore__ProvidersModel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KNSCore__ProvidersModel_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3978,12 +4133,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KNSCore__ProvidersModel_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QEvent) callconv(.c) void) void {
+        qtc.KNSCore__ProvidersModel_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3994,12 +4149,13 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KNSCore__ProvidersModel_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: KNSCore__ProvidersModel, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KNSCore__ProvidersModel_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -4014,12 +4170,13 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KNSCore__ProvidersModel_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: KNSCore__ProvidersModel, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KNSCore__ProvidersModel_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -4030,12 +4187,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KNSCore__ProvidersModel_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QMetaMethod) callconv(.c) void) void {
+        qtc.KNSCore__ProvidersModel_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4046,12 +4203,13 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KNSCore__ProvidersModel_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: KNSCore__ProvidersModel, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KNSCore__ProvidersModel_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -4066,12 +4224,13 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KNSCore__ProvidersModel_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: KNSCore__ProvidersModel, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KNSCore__ProvidersModel_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -4082,12 +4241,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KNSCore__ProvidersModel_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QMetaMethod) callconv(.c) void) void {
+        qtc.KNSCore__ProvidersModel_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4098,14 +4257,14 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    pub fn CreateIndex(self: ?*anyopaque, row: i32, column: i32) QtC.QModelIndex {
-        return qtc.KNSCore__ProvidersModel_CreateIndex(@ptrCast(self), @bitCast(row), @bitCast(column));
+    pub fn CreateIndex(self: KNSCore__ProvidersModel, row: i32, column: i32) QModelIndex {
+        return .{ .ptr = qtc.KNSCore__ProvidersModel_CreateIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column)) };
     }
 
     /// ### DEPRECATED: Use `SuperCreateIndex` instead
@@ -4120,14 +4279,14 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    pub fn SuperCreateIndex(self: ?*anyopaque, row: i32, column: i32) QtC.QModelIndex {
-        return qtc.KNSCore__ProvidersModel_SuperCreateIndex(@ptrCast(self), @bitCast(row), @bitCast(column));
+    pub fn SuperCreateIndex(self: KNSCore__ProvidersModel, row: i32, column: i32) QModelIndex {
+        return .{ .ptr = qtc.KNSCore__ProvidersModel_SuperCreateIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column)) };
     }
 
     /// Inherited from QAbstractItemModel
@@ -4138,12 +4297,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, row: i32, column: i32) callconv(.c) QtC.QModelIndex `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, row: i32, column: i32) callconv(.c) QModelIndex `
     ///
-    pub fn OnCreateIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) QtC.QModelIndex) void {
-        qtc.KNSCore__ProvidersModel_OnCreateIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreateIndex(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, i32, i32) callconv(.c) QModelIndex) void {
+        qtc.KNSCore__ProvidersModel_OnCreateIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4154,18 +4313,19 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` indexes: []QtC.QModelIndex `
+    /// ` indexes: []QModelIndex `
     ///
-    /// ` stream: QtC.QDataStream `
+    /// ` stream: QDataStream `
     ///
-    pub fn EncodeData(self: ?*anyopaque, indexes: []QtC.QModelIndex, stream: ?*anyopaque) void {
+    pub fn EncodeData(self: KNSCore__ProvidersModel, indexes: []QModelIndex, stream: anytype) void {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
-        qtc.KNSCore__ProvidersModel_EncodeData(@ptrCast(self), indexes_list, @ptrCast(stream));
+        comptime _ = @TypeOf(stream)._is_QDataStream;
+        qtc.KNSCore__ProvidersModel_EncodeData(@ptrCast(self.ptr), indexes_list, @ptrCast(stream.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEncodeData` instead
@@ -4180,18 +4340,19 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` indexes: []QtC.QModelIndex `
+    /// ` indexes: []QModelIndex `
     ///
-    /// ` stream: QtC.QDataStream `
+    /// ` stream: QDataStream `
     ///
-    pub fn SuperEncodeData(self: ?*anyopaque, indexes: []QtC.QModelIndex, stream: ?*anyopaque) void {
+    pub fn SuperEncodeData(self: KNSCore__ProvidersModel, indexes: []QModelIndex, stream: anytype) void {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
-        qtc.KNSCore__ProvidersModel_SuperEncodeData(@ptrCast(self), indexes_list, @ptrCast(stream));
+        comptime _ = @TypeOf(stream)._is_QDataStream;
+        qtc.KNSCore__ProvidersModel_SuperEncodeData(@ptrCast(self.ptr), indexes_list, @ptrCast(stream.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4202,12 +4363,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, indexes: qtc.libqt_list ([]QtC.QModelIndex), stream: QtC.QDataStream) callconv(.c) void `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, indexes: qtc.libqt_list ([]QModelIndex), stream: QDataStream) callconv(.c) void `
     ///
-    pub fn OnEncodeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, ?*anyopaque) callconv(.c) void) void {
-        qtc.KNSCore__ProvidersModel_OnEncodeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEncodeData(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, qtc.libqt_list, QDataStream) callconv(.c) void) void {
+        qtc.KNSCore__ProvidersModel_OnEncodeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4218,18 +4379,20 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    /// ` stream: QtC.QDataStream `
+    /// ` stream: QDataStream `
     ///
-    pub fn DecodeData(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque, stream: ?*anyopaque) bool {
-        return qtc.KNSCore__ProvidersModel_DecodeData(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent), @ptrCast(stream));
+    pub fn DecodeData(self: KNSCore__ProvidersModel, row: i32, column: i32, parent: anytype, stream: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        comptime _ = @TypeOf(stream)._is_QDataStream;
+        return qtc.KNSCore__ProvidersModel_DecodeData(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr), @ptrCast(stream.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDecodeData` instead
@@ -4244,18 +4407,20 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    /// ` stream: QtC.QDataStream `
+    /// ` stream: QDataStream `
     ///
-    pub fn SuperDecodeData(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque, stream: ?*anyopaque) bool {
-        return qtc.KNSCore__ProvidersModel_SuperDecodeData(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent), @ptrCast(stream));
+    pub fn SuperDecodeData(self: KNSCore__ProvidersModel, row: i32, column: i32, parent: anytype, stream: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        comptime _ = @TypeOf(stream)._is_QDataStream;
+        return qtc.KNSCore__ProvidersModel_SuperDecodeData(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr), @ptrCast(stream.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4266,12 +4431,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, row: i32, column: i32, parent: QtC.QModelIndex, stream: QtC.QDataStream) callconv(.c) bool `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, row: i32, column: i32, parent: QModelIndex, stream: QDataStream) callconv(.c) bool `
     ///
-    pub fn OnDecodeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KNSCore__ProvidersModel_OnDecodeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDecodeData(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, i32, i32, QModelIndex, QDataStream) callconv(.c) bool) void {
+        qtc.KNSCore__ProvidersModel_OnDecodeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4282,16 +4447,17 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn BeginInsertRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KNSCore__ProvidersModel_BeginInsertRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn BeginInsertRows(self: KNSCore__ProvidersModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KNSCore__ProvidersModel_BeginInsertRows(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// ### DEPRECATED: Use `SuperBeginInsertRows` instead
@@ -4306,16 +4472,17 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn SuperBeginInsertRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KNSCore__ProvidersModel_SuperBeginInsertRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn SuperBeginInsertRows(self: KNSCore__ProvidersModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KNSCore__ProvidersModel_SuperBeginInsertRows(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4326,12 +4493,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnBeginInsertRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KNSCore__ProvidersModel_OnBeginInsertRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBeginInsertRows(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.KNSCore__ProvidersModel_OnBeginInsertRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4342,10 +4509,10 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    pub fn EndInsertRows(self: ?*anyopaque) void {
-        qtc.KNSCore__ProvidersModel_EndInsertRows(@ptrCast(self));
+    pub fn EndInsertRows(self: KNSCore__ProvidersModel) void {
+        qtc.KNSCore__ProvidersModel_EndInsertRows(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEndInsertRows` instead
@@ -4360,10 +4527,10 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    pub fn SuperEndInsertRows(self: ?*anyopaque) void {
-        qtc.KNSCore__ProvidersModel_SuperEndInsertRows(@ptrCast(self));
+    pub fn SuperEndInsertRows(self: KNSCore__ProvidersModel) void {
+        qtc.KNSCore__ProvidersModel_SuperEndInsertRows(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4374,12 +4541,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndInsertRows(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KNSCore__ProvidersModel_OnEndInsertRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEndInsertRows(self: KNSCore__ProvidersModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KNSCore__ProvidersModel_OnEndInsertRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4390,16 +4557,17 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn BeginRemoveRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KNSCore__ProvidersModel_BeginRemoveRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn BeginRemoveRows(self: KNSCore__ProvidersModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KNSCore__ProvidersModel_BeginRemoveRows(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// ### DEPRECATED: Use `SuperBeginRemoveRows` instead
@@ -4414,16 +4582,17 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn SuperBeginRemoveRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KNSCore__ProvidersModel_SuperBeginRemoveRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn SuperBeginRemoveRows(self: KNSCore__ProvidersModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KNSCore__ProvidersModel_SuperBeginRemoveRows(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4434,12 +4603,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnBeginRemoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KNSCore__ProvidersModel_OnBeginRemoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBeginRemoveRows(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.KNSCore__ProvidersModel_OnBeginRemoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4450,10 +4619,10 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    pub fn EndRemoveRows(self: ?*anyopaque) void {
-        qtc.KNSCore__ProvidersModel_EndRemoveRows(@ptrCast(self));
+    pub fn EndRemoveRows(self: KNSCore__ProvidersModel) void {
+        qtc.KNSCore__ProvidersModel_EndRemoveRows(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEndRemoveRows` instead
@@ -4468,10 +4637,10 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    pub fn SuperEndRemoveRows(self: ?*anyopaque) void {
-        qtc.KNSCore__ProvidersModel_SuperEndRemoveRows(@ptrCast(self));
+    pub fn SuperEndRemoveRows(self: KNSCore__ProvidersModel) void {
+        qtc.KNSCore__ProvidersModel_SuperEndRemoveRows(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4482,12 +4651,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndRemoveRows(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KNSCore__ProvidersModel_OnEndRemoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEndRemoveRows(self: KNSCore__ProvidersModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KNSCore__ProvidersModel_OnEndRemoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4498,20 +4667,22 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceFirst: i32 `
     ///
     /// ` sourceLast: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationRow: i32 `
     ///
-    pub fn BeginMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationRow: i32) bool {
-        return qtc.KNSCore__ProvidersModel_BeginMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationRow));
+    pub fn BeginMoveRows(self: KNSCore__ProvidersModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationRow: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KNSCore__ProvidersModel_BeginMoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationRow));
     }
 
     /// ### DEPRECATED: Use `SuperBeginMoveRows` instead
@@ -4526,20 +4697,22 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceFirst: i32 `
     ///
     /// ` sourceLast: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationRow: i32 `
     ///
-    pub fn SuperBeginMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationRow: i32) bool {
-        return qtc.KNSCore__ProvidersModel_SuperBeginMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationRow));
+    pub fn SuperBeginMoveRows(self: KNSCore__ProvidersModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationRow: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KNSCore__ProvidersModel_SuperBeginMoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationRow));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4550,12 +4723,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, sourceParent: QtC.QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, sourceParent: QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QModelIndex, destinationRow: i32) callconv(.c) bool `
     ///
-    pub fn OnBeginMoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KNSCore__ProvidersModel_OnBeginMoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBeginMoveRows(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
+        qtc.KNSCore__ProvidersModel_OnBeginMoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4566,10 +4739,10 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    pub fn EndMoveRows(self: ?*anyopaque) void {
-        qtc.KNSCore__ProvidersModel_EndMoveRows(@ptrCast(self));
+    pub fn EndMoveRows(self: KNSCore__ProvidersModel) void {
+        qtc.KNSCore__ProvidersModel_EndMoveRows(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEndMoveRows` instead
@@ -4584,10 +4757,10 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    pub fn SuperEndMoveRows(self: ?*anyopaque) void {
-        qtc.KNSCore__ProvidersModel_SuperEndMoveRows(@ptrCast(self));
+    pub fn SuperEndMoveRows(self: KNSCore__ProvidersModel) void {
+        qtc.KNSCore__ProvidersModel_SuperEndMoveRows(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4598,12 +4771,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndMoveRows(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KNSCore__ProvidersModel_OnEndMoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEndMoveRows(self: KNSCore__ProvidersModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KNSCore__ProvidersModel_OnEndMoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4614,16 +4787,17 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn BeginInsertColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KNSCore__ProvidersModel_BeginInsertColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn BeginInsertColumns(self: KNSCore__ProvidersModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KNSCore__ProvidersModel_BeginInsertColumns(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// ### DEPRECATED: Use `SuperBeginInsertColumns` instead
@@ -4638,16 +4812,17 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn SuperBeginInsertColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KNSCore__ProvidersModel_SuperBeginInsertColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn SuperBeginInsertColumns(self: KNSCore__ProvidersModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KNSCore__ProvidersModel_SuperBeginInsertColumns(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4658,12 +4833,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnBeginInsertColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KNSCore__ProvidersModel_OnBeginInsertColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBeginInsertColumns(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.KNSCore__ProvidersModel_OnBeginInsertColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4674,10 +4849,10 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    pub fn EndInsertColumns(self: ?*anyopaque) void {
-        qtc.KNSCore__ProvidersModel_EndInsertColumns(@ptrCast(self));
+    pub fn EndInsertColumns(self: KNSCore__ProvidersModel) void {
+        qtc.KNSCore__ProvidersModel_EndInsertColumns(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEndInsertColumns` instead
@@ -4692,10 +4867,10 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    pub fn SuperEndInsertColumns(self: ?*anyopaque) void {
-        qtc.KNSCore__ProvidersModel_SuperEndInsertColumns(@ptrCast(self));
+    pub fn SuperEndInsertColumns(self: KNSCore__ProvidersModel) void {
+        qtc.KNSCore__ProvidersModel_SuperEndInsertColumns(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4706,12 +4881,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndInsertColumns(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KNSCore__ProvidersModel_OnEndInsertColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEndInsertColumns(self: KNSCore__ProvidersModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KNSCore__ProvidersModel_OnEndInsertColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4722,16 +4897,17 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn BeginRemoveColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KNSCore__ProvidersModel_BeginRemoveColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn BeginRemoveColumns(self: KNSCore__ProvidersModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KNSCore__ProvidersModel_BeginRemoveColumns(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// ### DEPRECATED: Use `SuperBeginRemoveColumns` instead
@@ -4746,16 +4922,17 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn SuperBeginRemoveColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KNSCore__ProvidersModel_SuperBeginRemoveColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn SuperBeginRemoveColumns(self: KNSCore__ProvidersModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KNSCore__ProvidersModel_SuperBeginRemoveColumns(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4766,12 +4943,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnBeginRemoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KNSCore__ProvidersModel_OnBeginRemoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBeginRemoveColumns(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.KNSCore__ProvidersModel_OnBeginRemoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4782,10 +4959,10 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    pub fn EndRemoveColumns(self: ?*anyopaque) void {
-        qtc.KNSCore__ProvidersModel_EndRemoveColumns(@ptrCast(self));
+    pub fn EndRemoveColumns(self: KNSCore__ProvidersModel) void {
+        qtc.KNSCore__ProvidersModel_EndRemoveColumns(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEndRemoveColumns` instead
@@ -4800,10 +4977,10 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    pub fn SuperEndRemoveColumns(self: ?*anyopaque) void {
-        qtc.KNSCore__ProvidersModel_SuperEndRemoveColumns(@ptrCast(self));
+    pub fn SuperEndRemoveColumns(self: KNSCore__ProvidersModel) void {
+        qtc.KNSCore__ProvidersModel_SuperEndRemoveColumns(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4814,12 +4991,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndRemoveColumns(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KNSCore__ProvidersModel_OnEndRemoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEndRemoveColumns(self: KNSCore__ProvidersModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KNSCore__ProvidersModel_OnEndRemoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4830,20 +5007,22 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceFirst: i32 `
     ///
     /// ` sourceLast: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationColumn: i32 `
     ///
-    pub fn BeginMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationColumn: i32) bool {
-        return qtc.KNSCore__ProvidersModel_BeginMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationColumn));
+    pub fn BeginMoveColumns(self: KNSCore__ProvidersModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationColumn: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KNSCore__ProvidersModel_BeginMoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationColumn));
     }
 
     /// ### DEPRECATED: Use `SuperBeginMoveColumns` instead
@@ -4858,20 +5037,22 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceFirst: i32 `
     ///
     /// ` sourceLast: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationColumn: i32 `
     ///
-    pub fn SuperBeginMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationColumn: i32) bool {
-        return qtc.KNSCore__ProvidersModel_SuperBeginMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationColumn));
+    pub fn SuperBeginMoveColumns(self: KNSCore__ProvidersModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationColumn: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KNSCore__ProvidersModel_SuperBeginMoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationColumn));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4882,12 +5063,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, sourceParent: QtC.QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, sourceParent: QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QModelIndex, destinationColumn: i32) callconv(.c) bool `
     ///
-    pub fn OnBeginMoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KNSCore__ProvidersModel_OnBeginMoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBeginMoveColumns(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
+        qtc.KNSCore__ProvidersModel_OnBeginMoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4898,10 +5079,10 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    pub fn EndMoveColumns(self: ?*anyopaque) void {
-        qtc.KNSCore__ProvidersModel_EndMoveColumns(@ptrCast(self));
+    pub fn EndMoveColumns(self: KNSCore__ProvidersModel) void {
+        qtc.KNSCore__ProvidersModel_EndMoveColumns(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEndMoveColumns` instead
@@ -4916,10 +5097,10 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    pub fn SuperEndMoveColumns(self: ?*anyopaque) void {
-        qtc.KNSCore__ProvidersModel_SuperEndMoveColumns(@ptrCast(self));
+    pub fn SuperEndMoveColumns(self: KNSCore__ProvidersModel) void {
+        qtc.KNSCore__ProvidersModel_SuperEndMoveColumns(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4930,12 +5111,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndMoveColumns(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KNSCore__ProvidersModel_OnEndMoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEndMoveColumns(self: KNSCore__ProvidersModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KNSCore__ProvidersModel_OnEndMoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4946,10 +5127,10 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    pub fn BeginResetModel(self: ?*anyopaque) void {
-        qtc.KNSCore__ProvidersModel_BeginResetModel(@ptrCast(self));
+    pub fn BeginResetModel(self: KNSCore__ProvidersModel) void {
+        qtc.KNSCore__ProvidersModel_BeginResetModel(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperBeginResetModel` instead
@@ -4964,10 +5145,10 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    pub fn SuperBeginResetModel(self: ?*anyopaque) void {
-        qtc.KNSCore__ProvidersModel_SuperBeginResetModel(@ptrCast(self));
+    pub fn SuperBeginResetModel(self: KNSCore__ProvidersModel) void {
+        qtc.KNSCore__ProvidersModel_SuperBeginResetModel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4978,12 +5159,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnBeginResetModel(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KNSCore__ProvidersModel_OnBeginResetModel(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBeginResetModel(self: KNSCore__ProvidersModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KNSCore__ProvidersModel_OnBeginResetModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4994,10 +5175,10 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    pub fn EndResetModel(self: ?*anyopaque) void {
-        qtc.KNSCore__ProvidersModel_EndResetModel(@ptrCast(self));
+    pub fn EndResetModel(self: KNSCore__ProvidersModel) void {
+        qtc.KNSCore__ProvidersModel_EndResetModel(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEndResetModel` instead
@@ -5012,10 +5193,10 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    pub fn SuperEndResetModel(self: ?*anyopaque) void {
-        qtc.KNSCore__ProvidersModel_SuperEndResetModel(@ptrCast(self));
+    pub fn SuperEndResetModel(self: KNSCore__ProvidersModel) void {
+        qtc.KNSCore__ProvidersModel_SuperEndResetModel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5026,12 +5207,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndResetModel(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KNSCore__ProvidersModel_OnEndResetModel(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEndResetModel(self: KNSCore__ProvidersModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KNSCore__ProvidersModel_OnEndResetModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5042,14 +5223,16 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` from: QtC.QModelIndex `
+    /// ` from: QModelIndex `
     ///
-    /// ` to: QtC.QModelIndex `
+    /// ` to: QModelIndex `
     ///
-    pub fn ChangePersistentIndex(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque) void {
-        qtc.KNSCore__ProvidersModel_ChangePersistentIndex(@ptrCast(self), @ptrCast(from), @ptrCast(to));
+    pub fn ChangePersistentIndex(self: KNSCore__ProvidersModel, from: anytype, to: anytype) void {
+        comptime _ = @TypeOf(from)._is_QModelIndex;
+        comptime _ = @TypeOf(to)._is_QModelIndex;
+        qtc.KNSCore__ProvidersModel_ChangePersistentIndex(@ptrCast(self.ptr), @ptrCast(from.ptr), @ptrCast(to.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChangePersistentIndex` instead
@@ -5064,14 +5247,16 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` from: QtC.QModelIndex `
+    /// ` from: QModelIndex `
     ///
-    /// ` to: QtC.QModelIndex `
+    /// ` to: QModelIndex `
     ///
-    pub fn SuperChangePersistentIndex(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque) void {
-        qtc.KNSCore__ProvidersModel_SuperChangePersistentIndex(@ptrCast(self), @ptrCast(from), @ptrCast(to));
+    pub fn SuperChangePersistentIndex(self: KNSCore__ProvidersModel, from: anytype, to: anytype) void {
+        comptime _ = @TypeOf(from)._is_QModelIndex;
+        comptime _ = @TypeOf(to)._is_QModelIndex;
+        qtc.KNSCore__ProvidersModel_SuperChangePersistentIndex(@ptrCast(self.ptr), @ptrCast(from.ptr), @ptrCast(to.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5082,12 +5267,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, from: QtC.QModelIndex, to: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, from: QModelIndex, to: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnChangePersistentIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KNSCore__ProvidersModel_OnChangePersistentIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChangePersistentIndex(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QModelIndex, QModelIndex) callconv(.c) void) void {
+        qtc.KNSCore__ProvidersModel_OnChangePersistentIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5098,13 +5283,13 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` from: []QtC.QModelIndex `
+    /// ` from: []QModelIndex `
     ///
-    /// ` to: []QtC.QModelIndex `
+    /// ` to: []QModelIndex `
     ///
-    pub fn ChangePersistentIndexList(self: ?*anyopaque, from: []QtC.QModelIndex, to: []QtC.QModelIndex) void {
+    pub fn ChangePersistentIndexList(self: KNSCore__ProvidersModel, from: []QModelIndex, to: []QModelIndex) void {
         const from_list = qtc.libqt_list{
             .len = from.len,
             .data = @ptrCast(from.ptr),
@@ -5113,7 +5298,7 @@ pub const knscore__providersmodel = struct {
             .len = to.len,
             .data = @ptrCast(to.ptr),
         };
-        qtc.KNSCore__ProvidersModel_ChangePersistentIndexList(@ptrCast(self), from_list, to_list);
+        qtc.KNSCore__ProvidersModel_ChangePersistentIndexList(@ptrCast(self.ptr), from_list, to_list);
     }
 
     /// ### DEPRECATED: Use `SuperChangePersistentIndexList` instead
@@ -5128,13 +5313,13 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` from: []QtC.QModelIndex `
+    /// ` from: []QModelIndex `
     ///
-    /// ` to: []QtC.QModelIndex `
+    /// ` to: []QModelIndex `
     ///
-    pub fn SuperChangePersistentIndexList(self: ?*anyopaque, from: []QtC.QModelIndex, to: []QtC.QModelIndex) void {
+    pub fn SuperChangePersistentIndexList(self: KNSCore__ProvidersModel, from: []QModelIndex, to: []QModelIndex) void {
         const from_list = qtc.libqt_list{
             .len = from.len,
             .data = @ptrCast(from.ptr),
@@ -5143,7 +5328,7 @@ pub const knscore__providersmodel = struct {
             .len = to.len,
             .data = @ptrCast(to.ptr),
         };
-        qtc.KNSCore__ProvidersModel_SuperChangePersistentIndexList(@ptrCast(self), from_list, to_list);
+        qtc.KNSCore__ProvidersModel_SuperChangePersistentIndexList(@ptrCast(self.ptr), from_list, to_list);
     }
 
     /// Inherited from QAbstractItemModel
@@ -5154,12 +5339,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, from: qtc.libqt_list ([]QtC.QModelIndex), to: qtc.libqt_list ([]QtC.QModelIndex)) callconv(.c) void `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, from: qtc.libqt_list ([]QModelIndex), to: qtc.libqt_list ([]QModelIndex)) callconv(.c) void `
     ///
-    pub fn OnChangePersistentIndexList(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, qtc.libqt_list) callconv(.c) void) void {
-        qtc.KNSCore__ProvidersModel_OnChangePersistentIndexList(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChangePersistentIndexList(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, qtc.libqt_list, qtc.libqt_list) callconv(.c) void) void {
+        qtc.KNSCore__ProvidersModel_OnChangePersistentIndexList(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5170,16 +5355,17 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PersistentIndexList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.KNSCore__ProvidersModel_PersistentIndexList(@ptrCast(self));
+    pub fn PersistentIndexList(self: KNSCore__ProvidersModel, allocator: std.mem.Allocator) []QModelIndex {
+        const _arr: qtc.libqt_list = qtc.KNSCore__ProvidersModel_PersistentIndexList(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("knscore__providersmodel.PersistentIndexList: Memory allocation failed");
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("knscore__providersmodel.PersistentIndexList: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -5195,16 +5381,17 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperPersistentIndexList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.KNSCore__ProvidersModel_SuperPersistentIndexList(@ptrCast(self));
+    pub fn SuperPersistentIndexList(self: KNSCore__ProvidersModel, allocator: std.mem.Allocator) []QModelIndex {
+        const _arr: qtc.libqt_list = qtc.KNSCore__ProvidersModel_SuperPersistentIndexList(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("knscore__providersmodel.PersistentIndexList: Memory allocation failed");
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("knscore__providersmodel.PersistentIndexList: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -5214,20 +5401,20 @@ pub const knscore__providersmodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
     /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
     ///
     /// ## Callback Returns:
     ///
-    /// ` C ABI representation of []QtC.QModelIndex `
+    /// ` C ABI representation of []QModelIndex `
     ///
-    pub fn OnPersistentIndexList(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
-        qtc.KNSCore__ProvidersModel_OnPersistentIndexList(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPersistentIndexList(self: KNSCore__ProvidersModel, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+        qtc.KNSCore__ProvidersModel_OnPersistentIndexList(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5238,10 +5425,10 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KNSCore__ProvidersModel_Sender(@ptrCast(self));
+    pub fn Sender(self: KNSCore__ProvidersModel) QObject {
+        return .{ .ptr = qtc.KNSCore__ProvidersModel_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -5256,10 +5443,10 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KNSCore__ProvidersModel_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: KNSCore__ProvidersModel) QObject {
+        return .{ .ptr = qtc.KNSCore__ProvidersModel_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5270,12 +5457,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.KNSCore__ProvidersModel_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: KNSCore__ProvidersModel, callback: *const fn () callconv(.c) QObject) void {
+        qtc.KNSCore__ProvidersModel_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5286,10 +5473,10 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KNSCore__ProvidersModel_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: KNSCore__ProvidersModel) i32 {
+        return qtc.KNSCore__ProvidersModel_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -5304,10 +5491,10 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KNSCore__ProvidersModel_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: KNSCore__ProvidersModel) i32 {
+        return qtc.KNSCore__ProvidersModel_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5318,12 +5505,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KNSCore__ProvidersModel_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: KNSCore__ProvidersModel, callback: *const fn () callconv(.c) i32) void {
+        qtc.KNSCore__ProvidersModel_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5334,13 +5521,13 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: KNSCore__ProvidersModel, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KNSCore__ProvidersModel_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.KNSCore__ProvidersModel_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -5355,13 +5542,13 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: KNSCore__ProvidersModel, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KNSCore__ProvidersModel_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KNSCore__ProvidersModel_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -5372,12 +5559,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KNSCore__ProvidersModel_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KNSCore__ProvidersModel_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5388,12 +5575,13 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KNSCore__ProvidersModel_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: KNSCore__ProvidersModel, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KNSCore__ProvidersModel_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -5408,12 +5596,13 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KNSCore__ProvidersModel_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: KNSCore__ProvidersModel, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KNSCore__ProvidersModel_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -5424,12 +5613,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel`
+    /// ` self: KNSCore__ProvidersModel`
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KNSCore__ProvidersModel_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QMetaMethod) callconv(.c) bool) void {
+        qtc.KNSCore__ProvidersModel_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5440,12 +5629,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnRowsAboutToBeInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsAboutToBeInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowsAboutToBeInserted(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_RowsAboutToBeInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5456,12 +5645,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnRowsInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowsInserted(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_RowsInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5472,12 +5661,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnRowsAboutToBeRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsAboutToBeRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowsAboutToBeRemoved(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_RowsAboutToBeRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5488,12 +5677,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnRowsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowsRemoved(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_RowsRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5504,12 +5693,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsAboutToBeInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnsAboutToBeInserted(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5520,12 +5709,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnsInserted(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ColumnsInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5536,12 +5725,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsAboutToBeRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnsAboutToBeRemoved(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5552,12 +5741,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnsRemoved(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ColumnsRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5568,12 +5757,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel) callconv(.c) void `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel) callconv(.c) void `
     ///
-    pub fn OnModelAboutToBeReset(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ModelAboutToBeReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnModelAboutToBeReset(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ModelAboutToBeReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5584,12 +5773,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel) callconv(.c) void `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel) callconv(.c) void `
     ///
-    pub fn OnModelReset(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ModelReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnModelReset(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ModelReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5600,12 +5789,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, sourceParent: QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QModelIndex, destinationRow: i32) callconv(.c) void `
     ///
-    pub fn OnRowsAboutToBeMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsAboutToBeMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowsAboutToBeMoved(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_RowsAboutToBeMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5616,12 +5805,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, sourceParent: QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QModelIndex, destinationRow: i32) callconv(.c) void `
     ///
-    pub fn OnRowsMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowsMoved(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_RowsMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5632,12 +5821,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, sourceParent: QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QModelIndex, destinationColumn: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsAboutToBeMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnsAboutToBeMoved(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5648,12 +5837,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, sourceParent: QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QModelIndex, destinationColumn: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnsMoved(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ColumnsMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5664,12 +5853,12 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ProvidersModel, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KNSCore__ProvidersModel, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -5680,10 +5869,10 @@ pub const knscore__providersmodel = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KNSCore__ProvidersModel `
+    /// ` self: KNSCore__ProvidersModel `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KNSCore__ProvidersModel_Delete(@ptrCast(self));
+    pub fn Delete(self: KNSCore__ProvidersModel) void {
+        qtc.KNSCore__ProvidersModel_Delete(@ptrCast(self.ptr));
     }
 };
 

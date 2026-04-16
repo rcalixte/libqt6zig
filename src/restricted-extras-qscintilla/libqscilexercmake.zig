@@ -1,35 +1,61 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QColor = @import("libqt6").QColor;
+const QEvent = @import("libqt6").QEvent;
+const QFont = @import("libqt6").QFont;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QSettings = @import("libqt6").QSettings;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
+const QsciAbstractAPIs = @import("libqt6").QsciAbstractAPIs;
+const QsciScintilla = @import("libqt6").QsciScintilla;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
-pub const qscilexercmake = struct {
+pub const QsciLexerCMake = extern struct {
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QsciLexerCMake,
+
+    pub const _is_QsciLexerCMake = {};
+    pub const _is_QsciLexer = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new QsciLexerCMake object.
     ///
-    pub fn New() QtC.QsciLexerCMake {
-        return qtc.QsciLexerCMake_new();
+    pub fn New() QsciLexerCMake {
+        return .{ .ptr = qtc.QsciLexerCMake_new() };
     }
 
     /// New2 constructs a new QsciLexerCMake object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New2(parent: ?*anyopaque) QtC.QsciLexerCMake {
-        return qtc.QsciLexerCMake_new2(@ptrCast(parent));
+    pub fn New2(parent: anytype) QsciLexerCMake {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.QsciLexerCMake_new2(@ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QsciLexerCMake_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QsciLexerCMake) QMetaObject {
+        return .{ .ptr = qtc.QsciLexerCMake_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -38,12 +64,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QsciLexerCMake_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QsciLexerCMake, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QsciLexerCMake_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -56,33 +82,33 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QsciLexerCMake_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QsciLexerCMake) QMetaObject {
+        return .{ .ptr = qtc.QsciLexerCMake_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QsciLexerCMake, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QsciLexerCMake_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QsciLexerCMake_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerCMake, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QsciLexerCMake, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QsciLexerCMake_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QsciLexerCMake, callback: *const fn (QsciLexerCMake, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QsciLexerCMake_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -93,18 +119,18 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QsciLexerCMake, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QsciLexerCMake_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QsciLexerCMake_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -112,20 +138,20 @@ pub const qscilexercmake = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QsciLexerCMake_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QsciLexerCMake, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QsciLexerCMake_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerCMake, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QsciLexerCMake, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QsciLexerCMake_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QsciLexerCMake, callback: *const fn (QsciLexerCMake, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QsciLexerCMake_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -136,7 +162,7 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -144,19 +170,19 @@ pub const qscilexercmake = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QsciLexerCMake_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QsciLexerCMake, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QsciLexerCMake_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -169,10 +195,10 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    pub fn Language(self: ?*anyopaque) [:0]const u8 {
-        const _ret = qtc.QsciLexerCMake_Language(@ptrCast(self));
+    pub fn Language(self: QsciLexerCMake) [:0]const u8 {
+        const _ret = qtc.QsciLexerCMake_Language(@ptrCast(self.ptr));
         return std.mem.span(_ret);
     }
 
@@ -180,10 +206,10 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    pub fn Lexer(self: ?*anyopaque) [:0]const u8 {
-        const _ret = qtc.QsciLexerCMake_Lexer(@ptrCast(self));
+    pub fn Lexer(self: QsciLexerCMake) [:0]const u8 {
+        const _ret = qtc.QsciLexerCMake_Lexer(@ptrCast(self.ptr));
         return std.mem.span(_ret);
     }
 
@@ -191,48 +217,48 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` style: i32 `
     ///
-    pub fn DefaultColor(self: ?*anyopaque, style: i32) QtC.QColor {
-        return qtc.QsciLexerCMake_DefaultColor(@ptrCast(self), @bitCast(style));
+    pub fn DefaultColor(self: QsciLexerCMake, style: i32) QColor {
+        return .{ .ptr = qtc.QsciLexerCMake_DefaultColor(@ptrCast(self.ptr), @bitCast(style)) };
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` style: i32 `
     ///
-    pub fn DefaultFont(self: ?*anyopaque, style: i32) QtC.QFont {
-        return qtc.QsciLexerCMake_DefaultFont(@ptrCast(self), @bitCast(style));
+    pub fn DefaultFont(self: QsciLexerCMake, style: i32) QFont {
+        return .{ .ptr = qtc.QsciLexerCMake_DefaultFont(@ptrCast(self.ptr), @bitCast(style)) };
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` style: i32 `
     ///
-    pub fn DefaultPaper(self: ?*anyopaque, style: i32) QtC.QColor {
-        return qtc.QsciLexerCMake_DefaultPaper(@ptrCast(self), @bitCast(style));
+    pub fn DefaultPaper(self: QsciLexerCMake, style: i32) QColor {
+        return .{ .ptr = qtc.QsciLexerCMake_DefaultPaper(@ptrCast(self.ptr), @bitCast(style)) };
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` set: i32 `
     ///
-    pub fn Keywords(self: ?*anyopaque, set: i32) [:0]const u8 {
-        const _ret = qtc.QsciLexerCMake_Keywords(@ptrCast(self), @bitCast(set));
+    pub fn Keywords(self: QsciLexerCMake, set: i32) [:0]const u8 {
+        const _ret = qtc.QsciLexerCMake_Keywords(@ptrCast(self.ptr), @bitCast(set));
         return std.mem.span(_ret);
     }
 
@@ -240,14 +266,14 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
-    ///
-    /// ` style: i32 `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Description(self: ?*anyopaque, style: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QsciLexerCMake_Description(@ptrCast(self), @bitCast(style));
+    /// ` style: i32 `
+    ///
+    pub fn Description(self: QsciLexerCMake, allocator: std.mem.Allocator, style: i32) []const u8 {
+        var _str = qtc.QsciLexerCMake_Description(@ptrCast(self.ptr), @bitCast(style));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qscilexercmake.Description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -258,32 +284,32 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    pub fn RefreshProperties(self: ?*anyopaque) void {
-        qtc.QsciLexerCMake_RefreshProperties(@ptrCast(self));
+    pub fn RefreshProperties(self: QsciLexerCMake) void {
+        qtc.QsciLexerCMake_RefreshProperties(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    pub fn FoldAtElse(self: ?*anyopaque) bool {
-        return qtc.QsciLexerCMake_FoldAtElse(@ptrCast(self));
+    pub fn FoldAtElse(self: QsciLexerCMake) bool {
+        return qtc.QsciLexerCMake_FoldAtElse(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` fold: bool `
     ///
-    pub fn SetFoldAtElse(self: ?*anyopaque, fold: bool) void {
-        qtc.QsciLexerCMake_SetFoldAtElse(@ptrCast(self), fold);
+    pub fn SetFoldAtElse(self: QsciLexerCMake, fold: bool) void {
+        qtc.QsciLexerCMake_SetFoldAtElse(@ptrCast(self.ptr), fold);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
@@ -292,12 +318,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerCMake, fold: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciLexerCMake, fold: bool) callconv(.c) void `
     ///
-    pub fn OnSetFoldAtElse(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QsciLexerCMake_OnSetFoldAtElse(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetFoldAtElse(self: QsciLexerCMake, callback: *const fn (QsciLexerCMake, bool) callconv(.c) void) void {
+        qtc.QsciLexerCMake_OnSetFoldAtElse(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetFoldAtElse` instead
@@ -310,30 +336,31 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` fold: bool `
     ///
-    pub fn SuperSetFoldAtElse(self: ?*anyopaque, fold: bool) void {
-        qtc.QsciLexerCMake_SuperSetFoldAtElse(@ptrCast(self), fold);
+    pub fn SuperSetFoldAtElse(self: QsciLexerCMake, fold: bool) void {
+        qtc.QsciLexerCMake_SuperSetFoldAtElse(@ptrCast(self.ptr), fold);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` qs: QtC.QSettings `
+    /// ` qs: QSettings `
     ///
     /// ` prefix: []const u8 `
     ///
-    pub fn ReadProperties(self: ?*anyopaque, qs: ?*anyopaque, prefix: []const u8) bool {
+    pub fn ReadProperties(self: QsciLexerCMake, qs: anytype, prefix: []const u8) bool {
+        comptime _ = @TypeOf(qs)._is_QSettings;
         const prefix_str = qtc.libqt_string{
             .len = prefix.len,
             .data = prefix.ptr,
         };
-        return qtc.QsciLexerCMake_ReadProperties(@ptrCast(self), @ptrCast(qs), prefix_str);
+        return qtc.QsciLexerCMake_ReadProperties(@ptrCast(self.ptr), @ptrCast(qs.ptr), prefix_str);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
@@ -342,12 +369,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerCMake, qs: QtC.QSettings, prefix: [*:0]const u8) callconv(.c) bool `
+    /// ` callback: *const fn (self: QsciLexerCMake, qs: QSettings, prefix: [*:0]const u8) callconv(.c) bool `
     ///
-    pub fn OnReadProperties(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) bool) void {
-        qtc.QsciLexerCMake_OnReadProperties(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReadProperties(self: QsciLexerCMake, callback: *const fn (QsciLexerCMake, QSettings, [*:0]const u8) callconv(.c) bool) void {
+        qtc.QsciLexerCMake_OnReadProperties(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperReadProperties` instead
@@ -360,36 +387,38 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` qs: QtC.QSettings `
+    /// ` qs: QSettings `
     ///
     /// ` prefix: []const u8 `
     ///
-    pub fn SuperReadProperties(self: ?*anyopaque, qs: ?*anyopaque, prefix: []const u8) bool {
+    pub fn SuperReadProperties(self: QsciLexerCMake, qs: anytype, prefix: []const u8) bool {
+        comptime _ = @TypeOf(qs)._is_QSettings;
         const prefix_str = qtc.libqt_string{
             .len = prefix.len,
             .data = prefix.ptr,
         };
-        return qtc.QsciLexerCMake_SuperReadProperties(@ptrCast(self), @ptrCast(qs), prefix_str);
+        return qtc.QsciLexerCMake_SuperReadProperties(@ptrCast(self.ptr), @ptrCast(qs.ptr), prefix_str);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` qs: QtC.QSettings `
+    /// ` qs: QSettings `
     ///
     /// ` prefix: []const u8 `
     ///
-    pub fn WriteProperties(self: ?*anyopaque, qs: ?*anyopaque, prefix: []const u8) bool {
+    pub fn WriteProperties(self: QsciLexerCMake, qs: anytype, prefix: []const u8) bool {
+        comptime _ = @TypeOf(qs)._is_QSettings;
         const prefix_str = qtc.libqt_string{
             .len = prefix.len,
             .data = prefix.ptr,
         };
-        return qtc.QsciLexerCMake_WriteProperties(@ptrCast(self), @ptrCast(qs), prefix_str);
+        return qtc.QsciLexerCMake_WriteProperties(@ptrCast(self.ptr), @ptrCast(qs.ptr), prefix_str);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCMake.html)
@@ -398,12 +427,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerCMake, qs: QtC.QSettings, prefix: [*:0]const u8) callconv(.c) bool `
+    /// ` callback: *const fn (self: QsciLexerCMake, qs: QSettings, prefix: [*:0]const u8) callconv(.c) bool `
     ///
-    pub fn OnWriteProperties(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) bool) void {
-        qtc.QsciLexerCMake_OnWriteProperties(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWriteProperties(self: QsciLexerCMake, callback: *const fn (QsciLexerCMake, QSettings, [*:0]const u8) callconv(.c) bool) void {
+        qtc.QsciLexerCMake_OnWriteProperties(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperWriteProperties` instead
@@ -416,31 +445,32 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` qs: QtC.QSettings `
+    /// ` qs: QSettings `
     ///
     /// ` prefix: []const u8 `
     ///
-    pub fn SuperWriteProperties(self: ?*anyopaque, qs: ?*anyopaque, prefix: []const u8) bool {
+    pub fn SuperWriteProperties(self: QsciLexerCMake, qs: anytype, prefix: []const u8) bool {
+        comptime _ = @TypeOf(qs)._is_QSettings;
         const prefix_str = qtc.libqt_string{
             .len = prefix.len,
             .data = prefix.ptr,
         };
-        return qtc.QsciLexerCMake_SuperWriteProperties(@ptrCast(self), @ptrCast(qs), prefix_str);
+        return qtc.QsciLexerCMake_SuperWriteProperties(@ptrCast(self.ptr), @ptrCast(qs.ptr), prefix_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -454,15 +484,15 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -478,10 +508,10 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    pub fn Apis(self: ?*anyopaque) QtC.QsciAbstractAPIs {
-        return qtc.QsciLexer_Apis(@ptrCast(self));
+    pub fn Apis(self: QsciLexerCMake) QsciAbstractAPIs {
+        return .{ .ptr = qtc.QsciLexer_Apis(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QsciLexer
@@ -490,10 +520,10 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    pub fn AutoIndentStyle(self: ?*anyopaque) i32 {
-        return qtc.QsciLexer_AutoIndentStyle(@ptrCast(self));
+    pub fn AutoIndentStyle(self: QsciLexerCMake) i32 {
+        return qtc.QsciLexer_AutoIndentStyle(@ptrCast(self.ptr));
     }
 
     /// Inherited from QsciLexer
@@ -502,10 +532,10 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    pub fn Editor(self: ?*anyopaque) QtC.QsciScintilla {
-        return qtc.QsciLexer_Editor(@ptrCast(self));
+    pub fn Editor(self: QsciLexerCMake) QsciScintilla {
+        return .{ .ptr = qtc.QsciLexer_Editor(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QsciLexer
@@ -514,12 +544,13 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` apis: QtC.QsciAbstractAPIs `
+    /// ` apis: QsciAbstractAPIs `
     ///
-    pub fn SetAPIs(self: ?*anyopaque, apis: ?*anyopaque) void {
-        qtc.QsciLexer_SetAPIs(@ptrCast(self), @ptrCast(apis));
+    pub fn SetAPIs(self: QsciLexerCMake, apis: anytype) void {
+        comptime _ = @TypeOf(apis)._is_QsciAbstractAPIs;
+        qtc.QsciLexer_SetAPIs(@ptrCast(self.ptr), @ptrCast(apis.ptr));
     }
 
     /// Inherited from QsciLexer
@@ -528,12 +559,13 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` c: QtC.QColor `
+    /// ` c: QColor `
     ///
-    pub fn SetDefaultColor(self: ?*anyopaque, c: ?*anyopaque) void {
-        qtc.QsciLexer_SetDefaultColor(@ptrCast(self), @ptrCast(c));
+    pub fn SetDefaultColor(self: QsciLexerCMake, c: anytype) void {
+        comptime _ = @TypeOf(c)._is_QColor;
+        qtc.QsciLexer_SetDefaultColor(@ptrCast(self.ptr), @ptrCast(c.ptr));
     }
 
     /// Inherited from QsciLexer
@@ -542,12 +574,13 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` f: QtC.QFont `
+    /// ` f: QFont `
     ///
-    pub fn SetDefaultFont(self: ?*anyopaque, f: ?*anyopaque) void {
-        qtc.QsciLexer_SetDefaultFont(@ptrCast(self), @ptrCast(f));
+    pub fn SetDefaultFont(self: QsciLexerCMake, f: anytype) void {
+        comptime _ = @TypeOf(f)._is_QFont;
+        qtc.QsciLexer_SetDefaultFont(@ptrCast(self.ptr), @ptrCast(f.ptr));
     }
 
     /// Inherited from QsciLexer
@@ -556,12 +589,13 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` c: QtC.QColor `
+    /// ` c: QColor `
     ///
-    pub fn SetDefaultPaper(self: ?*anyopaque, c: ?*anyopaque) void {
-        qtc.QsciLexer_SetDefaultPaper(@ptrCast(self), @ptrCast(c));
+    pub fn SetDefaultPaper(self: QsciLexerCMake, c: anytype) void {
+        comptime _ = @TypeOf(c)._is_QColor;
+        qtc.QsciLexer_SetDefaultPaper(@ptrCast(self.ptr), @ptrCast(c.ptr));
     }
 
     /// Inherited from QsciLexer
@@ -570,12 +604,13 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` qs: QtC.QSettings `
+    /// ` qs: QSettings `
     ///
-    pub fn ReadSettings(self: ?*anyopaque, qs: ?*anyopaque) bool {
-        return qtc.QsciLexer_ReadSettings(@ptrCast(self), @ptrCast(qs));
+    pub fn ReadSettings(self: QsciLexerCMake, qs: anytype) bool {
+        comptime _ = @TypeOf(qs)._is_QSettings;
+        return qtc.QsciLexer_ReadSettings(@ptrCast(self.ptr), @ptrCast(qs.ptr));
     }
 
     /// Inherited from QsciLexer
@@ -584,12 +619,13 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` qs: QtC.QSettings `
+    /// ` qs: QSettings `
     ///
-    pub fn WriteSettings(self: ?*anyopaque, qs: ?*anyopaque) bool {
-        return qtc.QsciLexer_WriteSettings(@ptrCast(self), @ptrCast(qs));
+    pub fn WriteSettings(self: QsciLexerCMake, qs: anytype) bool {
+        comptime _ = @TypeOf(qs)._is_QSettings;
+        return qtc.QsciLexer_WriteSettings(@ptrCast(self.ptr), @ptrCast(qs.ptr));
     }
 
     /// Inherited from QsciLexer
@@ -598,14 +634,15 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` c: QtC.QColor `
+    /// ` c: QColor `
     ///
     /// ` style: i32 `
     ///
-    pub fn ColorChanged(self: ?*anyopaque, c: ?*anyopaque, style: i32) void {
-        qtc.QsciLexer_ColorChanged(@ptrCast(self), @ptrCast(c), @bitCast(style));
+    pub fn ColorChanged(self: QsciLexerCMake, c: anytype, style: i32) void {
+        comptime _ = @TypeOf(c)._is_QColor;
+        qtc.QsciLexer_ColorChanged(@ptrCast(self.ptr), @ptrCast(c.ptr), @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -614,12 +651,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerCMake, c: QtC.QColor, style: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciLexerCMake, c: QColor, style: i32) callconv(.c) void `
     ///
-    pub fn OnColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QsciLexer_Connect_ColorChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColorChanged(self: QsciLexerCMake, callback: *const fn (QsciLexerCMake, QColor, i32) callconv(.c) void) void {
+        qtc.QsciLexer_Connect_ColorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -628,14 +665,14 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` eolfilled: bool `
     ///
     /// ` style: i32 `
     ///
-    pub fn EolFillChanged(self: ?*anyopaque, eolfilled: bool, style: i32) void {
-        qtc.QsciLexer_EolFillChanged(@ptrCast(self), eolfilled, @bitCast(style));
+    pub fn EolFillChanged(self: QsciLexerCMake, eolfilled: bool, style: i32) void {
+        qtc.QsciLexer_EolFillChanged(@ptrCast(self.ptr), eolfilled, @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -644,12 +681,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerCMake, eolfilled: bool, style: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciLexerCMake, eolfilled: bool, style: i32) callconv(.c) void `
     ///
-    pub fn OnEolFillChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool, i32) callconv(.c) void) void {
-        qtc.QsciLexer_Connect_EolFillChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEolFillChanged(self: QsciLexerCMake, callback: *const fn (QsciLexerCMake, bool, i32) callconv(.c) void) void {
+        qtc.QsciLexer_Connect_EolFillChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -658,14 +695,15 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` f: QtC.QFont `
+    /// ` f: QFont `
     ///
     /// ` style: i32 `
     ///
-    pub fn FontChanged(self: ?*anyopaque, f: ?*anyopaque, style: i32) void {
-        qtc.QsciLexer_FontChanged(@ptrCast(self), @ptrCast(f), @bitCast(style));
+    pub fn FontChanged(self: QsciLexerCMake, f: anytype, style: i32) void {
+        comptime _ = @TypeOf(f)._is_QFont;
+        qtc.QsciLexer_FontChanged(@ptrCast(self.ptr), @ptrCast(f.ptr), @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -674,12 +712,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerCMake, f: QtC.QFont, style: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciLexerCMake, f: QFont, style: i32) callconv(.c) void `
     ///
-    pub fn OnFontChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QsciLexer_Connect_FontChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFontChanged(self: QsciLexerCMake, callback: *const fn (QsciLexerCMake, QFont, i32) callconv(.c) void) void {
+        qtc.QsciLexer_Connect_FontChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -688,14 +726,15 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` c: QtC.QColor `
+    /// ` c: QColor `
     ///
     /// ` style: i32 `
     ///
-    pub fn PaperChanged(self: ?*anyopaque, c: ?*anyopaque, style: i32) void {
-        qtc.QsciLexer_PaperChanged(@ptrCast(self), @ptrCast(c), @bitCast(style));
+    pub fn PaperChanged(self: QsciLexerCMake, c: anytype, style: i32) void {
+        comptime _ = @TypeOf(c)._is_QColor;
+        qtc.QsciLexer_PaperChanged(@ptrCast(self.ptr), @ptrCast(c.ptr), @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -704,12 +743,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerCMake, c: QtC.QColor, style: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciLexerCMake, c: QColor, style: i32) callconv(.c) void `
     ///
-    pub fn OnPaperChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QsciLexer_Connect_PaperChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaperChanged(self: QsciLexerCMake, callback: *const fn (QsciLexerCMake, QColor, i32) callconv(.c) void) void {
+        qtc.QsciLexer_Connect_PaperChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -718,16 +757,16 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` prop: [:0]const u8 `
     ///
     /// ` val: [:0]const u8 `
     ///
-    pub fn PropertyChanged(self: ?*anyopaque, prop: [:0]const u8, val: [:0]const u8) void {
+    pub fn PropertyChanged(self: QsciLexerCMake, prop: [:0]const u8, val: [:0]const u8) void {
         const prop_Cstring = prop.ptr;
         const val_Cstring = val.ptr;
-        qtc.QsciLexer_PropertyChanged(@ptrCast(self), prop_Cstring, val_Cstring);
+        qtc.QsciLexer_PropertyChanged(@ptrCast(self.ptr), prop_Cstring, val_Cstring);
     }
 
     /// Inherited from QsciLexer
@@ -736,12 +775,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerCMake, prop: [*:0]const u8, val: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciLexerCMake, prop: [*:0]const u8, val: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnPropertyChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
-        qtc.QsciLexer_Connect_PropertyChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPropertyChanged(self: QsciLexerCMake, callback: *const fn (QsciLexerCMake, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
+        qtc.QsciLexer_Connect_PropertyChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -750,15 +789,16 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` qs: QtC.QSettings `
+    /// ` qs: QSettings `
     ///
     /// ` prefix: [:0]const u8 `
     ///
-    pub fn ReadSettings2(self: ?*anyopaque, qs: ?*anyopaque, prefix: [:0]const u8) bool {
+    pub fn ReadSettings2(self: QsciLexerCMake, qs: anytype, prefix: [:0]const u8) bool {
+        comptime _ = @TypeOf(qs)._is_QSettings;
         const prefix_Cstring = prefix.ptr;
-        return qtc.QsciLexer_ReadSettings2(@ptrCast(self), @ptrCast(qs), prefix_Cstring);
+        return qtc.QsciLexer_ReadSettings2(@ptrCast(self.ptr), @ptrCast(qs.ptr), prefix_Cstring);
     }
 
     /// Inherited from QsciLexer
@@ -767,15 +807,16 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` qs: QtC.QSettings `
+    /// ` qs: QSettings `
     ///
     /// ` prefix: [:0]const u8 `
     ///
-    pub fn WriteSettings2(self: ?*anyopaque, qs: ?*anyopaque, prefix: [:0]const u8) bool {
+    pub fn WriteSettings2(self: QsciLexerCMake, qs: anytype, prefix: [:0]const u8) bool {
+        comptime _ = @TypeOf(qs)._is_QSettings;
         const prefix_Cstring = prefix.ptr;
-        return qtc.QsciLexer_WriteSettings2(@ptrCast(self), @ptrCast(qs), prefix_Cstring);
+        return qtc.QsciLexer_WriteSettings2(@ptrCast(self.ptr), @ptrCast(qs.ptr), prefix_Cstring);
     }
 
     /// Inherited from QObject
@@ -784,12 +825,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QsciLexerCMake, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qscilexercmake.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -802,12 +843,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QsciLexerCMake, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -816,10 +857,10 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QsciLexerCMake) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -828,10 +869,10 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QsciLexerCMake) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -840,10 +881,10 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QsciLexerCMake) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -852,10 +893,10 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QsciLexerCMake) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -864,12 +905,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QsciLexerCMake, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -878,10 +919,10 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QsciLexerCMake) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -890,12 +931,13 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QsciLexerCMake, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -904,12 +946,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QsciLexerCMake, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -918,12 +960,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QsciLexerCMake, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -932,12 +974,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QsciLexerCMake, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -946,12 +988,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QsciLexerCMake, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -960,16 +1002,17 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QsciLexerCMake, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qscilexercmake.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qscilexercmake.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -979,12 +1022,13 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QsciLexerCMake, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -993,12 +1037,13 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QsciLexerCMake, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -1007,12 +1052,13 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QsciLexerCMake, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -1021,18 +1067,20 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1041,16 +1089,20 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1059,18 +1111,19 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QsciLexerCMake, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1079,18 +1132,20 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1099,16 +1154,20 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -1117,10 +1176,10 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QsciLexerCMake) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1129,12 +1188,13 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QsciLexerCMake, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1143,10 +1203,11 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1155,10 +1216,10 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QsciLexerCMake) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1167,10 +1228,10 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QsciLexerCMake) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1179,15 +1240,16 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QsciLexerCMake, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -1196,13 +1258,13 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QsciLexerCMake, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1211,17 +1273,16 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QsciLexerCMake, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qscilexercmake.DynamicPropertyNames: Memory allocation failed");
@@ -1240,10 +1301,10 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QsciLexerCMake) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1252,10 +1313,10 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QsciLexerCMake) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1264,10 +1325,10 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QsciLexerCMake) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1276,12 +1337,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerCMake) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciLexerCMake) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QsciLexerCMake, callback: *const fn (QsciLexerCMake) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1290,10 +1351,10 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QsciLexerCMake) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1302,13 +1363,13 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QsciLexerCMake, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -1317,10 +1378,10 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QsciLexerCMake) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1329,14 +1390,14 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QsciLexerCMake, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1345,14 +1406,14 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QsciLexerCMake, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1361,20 +1422,22 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -1383,18 +1446,22 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1403,9 +1470,9 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1413,10 +1480,11 @@ pub const qscilexercmake = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QsciLexerCMake, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1425,13 +1493,13 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QsciLexerCMake, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1440,15 +1508,16 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QsciLexerCMake, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1457,18 +1526,19 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QsciLexerCMake, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1477,15 +1547,16 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QsciLexerCMake, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1494,12 +1565,13 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QsciLexerCMake, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1508,12 +1580,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerCMake, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciLexerCMake, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QsciLexerCMake, callback: *const fn (QsciLexerCMake, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -1524,10 +1596,10 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    pub fn LexerId(self: ?*anyopaque) i32 {
-        return qtc.QsciLexerCMake_LexerId(@ptrCast(self));
+    pub fn LexerId(self: QsciLexerCMake) i32 {
+        return qtc.QsciLexerCMake_LexerId(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperLexerId` instead
@@ -1542,10 +1614,10 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    pub fn SuperLexerId(self: ?*anyopaque) i32 {
-        return qtc.QsciLexerCMake_SuperLexerId(@ptrCast(self));
+    pub fn SuperLexerId(self: QsciLexerCMake) i32 {
+        return qtc.QsciLexerCMake_SuperLexerId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QsciLexer
@@ -1556,12 +1628,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake`
+    /// ` self: QsciLexerCMake`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnLexerId(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QsciLexerCMake_OnLexerId(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLexerId(self: QsciLexerCMake, callback: *const fn () callconv(.c) i32) void {
+        qtc.QsciLexerCMake_OnLexerId(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -1572,10 +1644,10 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    pub fn AutoCompletionFillups(self: ?*anyopaque) [:0]const u8 {
-        const _ret = qtc.QsciLexerCMake_AutoCompletionFillups(@ptrCast(self));
+    pub fn AutoCompletionFillups(self: QsciLexerCMake) [:0]const u8 {
+        const _ret = qtc.QsciLexerCMake_AutoCompletionFillups(@ptrCast(self.ptr));
         return std.mem.span(_ret);
     }
 
@@ -1591,10 +1663,10 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    pub fn SuperAutoCompletionFillups(self: ?*anyopaque) [:0]const u8 {
-        const _ret = qtc.QsciLexerCMake_SuperAutoCompletionFillups(@ptrCast(self));
+    pub fn SuperAutoCompletionFillups(self: QsciLexerCMake) [:0]const u8 {
+        const _ret = qtc.QsciLexerCMake_SuperAutoCompletionFillups(@ptrCast(self.ptr));
         return std.mem.span(_ret);
     }
 
@@ -1604,16 +1676,16 @@ pub const qscilexercmake = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake`
+    /// ` self: QsciLexerCMake`
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnAutoCompletionFillups(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.QsciLexerCMake_OnAutoCompletionFillups(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAutoCompletionFillups(self: QsciLexerCMake, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.QsciLexerCMake_OnAutoCompletionFillups(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -1624,17 +1696,16 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AutoCompletionWordSeparators(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QsciLexerCMake_AutoCompletionWordSeparators(@ptrCast(self));
+    pub fn AutoCompletionWordSeparators(self: QsciLexerCMake, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.QsciLexerCMake_AutoCompletionWordSeparators(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qscilexercmake.AutoCompletionWordSeparators: Memory allocation failed");
@@ -1659,17 +1730,16 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperAutoCompletionWordSeparators(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QsciLexerCMake_SuperAutoCompletionWordSeparators(@ptrCast(self));
+    pub fn SuperAutoCompletionWordSeparators(self: QsciLexerCMake, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.QsciLexerCMake_SuperAutoCompletionWordSeparators(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qscilexercmake.AutoCompletionWordSeparators: Memory allocation failed");
@@ -1688,16 +1758,16 @@ pub const qscilexercmake = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake`
+    /// ` self: QsciLexerCMake`
     ///
     /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnAutoCompletionWordSeparators(self: ?*anyopaque, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
-        qtc.QsciLexerCMake_OnAutoCompletionWordSeparators(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAutoCompletionWordSeparators(self: QsciLexerCMake, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
+        qtc.QsciLexerCMake_OnAutoCompletionWordSeparators(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -1708,12 +1778,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` style: *i32 `
     ///
-    pub fn BlockEnd(self: ?*anyopaque, style: *i32) [:0]const u8 {
-        const _ret = qtc.QsciLexerCMake_BlockEnd(@ptrCast(self), @ptrCast(style));
+    pub fn BlockEnd(self: QsciLexerCMake, style: *i32) [:0]const u8 {
+        const _ret = qtc.QsciLexerCMake_BlockEnd(@ptrCast(self.ptr), @ptrCast(style));
         return std.mem.span(_ret);
     }
 
@@ -1729,12 +1799,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` style: *i32 `
     ///
-    pub fn SuperBlockEnd(self: ?*anyopaque, style: *i32) [:0]const u8 {
-        const _ret = qtc.QsciLexerCMake_SuperBlockEnd(@ptrCast(self), @ptrCast(style));
+    pub fn SuperBlockEnd(self: QsciLexerCMake, style: *i32) [:0]const u8 {
+        const _ret = qtc.QsciLexerCMake_SuperBlockEnd(@ptrCast(self.ptr), @ptrCast(style));
         return std.mem.span(_ret);
     }
 
@@ -1744,16 +1814,16 @@ pub const qscilexercmake = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake`
+    /// ` self: QsciLexerCMake`
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerCMake, style: *i32) callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: QsciLexerCMake, style: *i32) callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnBlockEnd(self: ?*anyopaque, callback: *const fn (?*anyopaque, *i32) callconv(.c) [*:0]const u8) void {
-        qtc.QsciLexerCMake_OnBlockEnd(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBlockEnd(self: QsciLexerCMake, callback: *const fn (QsciLexerCMake, *i32) callconv(.c) [*:0]const u8) void {
+        qtc.QsciLexerCMake_OnBlockEnd(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -1764,10 +1834,10 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    pub fn BlockLookback(self: ?*anyopaque) i32 {
-        return qtc.QsciLexerCMake_BlockLookback(@ptrCast(self));
+    pub fn BlockLookback(self: QsciLexerCMake) i32 {
+        return qtc.QsciLexerCMake_BlockLookback(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperBlockLookback` instead
@@ -1782,10 +1852,10 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    pub fn SuperBlockLookback(self: ?*anyopaque) i32 {
-        return qtc.QsciLexerCMake_SuperBlockLookback(@ptrCast(self));
+    pub fn SuperBlockLookback(self: QsciLexerCMake) i32 {
+        return qtc.QsciLexerCMake_SuperBlockLookback(@ptrCast(self.ptr));
     }
 
     /// Inherited from QsciLexer
@@ -1796,12 +1866,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake`
+    /// ` self: QsciLexerCMake`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnBlockLookback(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QsciLexerCMake_OnBlockLookback(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBlockLookback(self: QsciLexerCMake, callback: *const fn () callconv(.c) i32) void {
+        qtc.QsciLexerCMake_OnBlockLookback(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -1812,12 +1882,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` style: *i32 `
     ///
-    pub fn BlockStart(self: ?*anyopaque, style: *i32) [:0]const u8 {
-        const _ret = qtc.QsciLexerCMake_BlockStart(@ptrCast(self), @ptrCast(style));
+    pub fn BlockStart(self: QsciLexerCMake, style: *i32) [:0]const u8 {
+        const _ret = qtc.QsciLexerCMake_BlockStart(@ptrCast(self.ptr), @ptrCast(style));
         return std.mem.span(_ret);
     }
 
@@ -1833,12 +1903,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` style: *i32 `
     ///
-    pub fn SuperBlockStart(self: ?*anyopaque, style: *i32) [:0]const u8 {
-        const _ret = qtc.QsciLexerCMake_SuperBlockStart(@ptrCast(self), @ptrCast(style));
+    pub fn SuperBlockStart(self: QsciLexerCMake, style: *i32) [:0]const u8 {
+        const _ret = qtc.QsciLexerCMake_SuperBlockStart(@ptrCast(self.ptr), @ptrCast(style));
         return std.mem.span(_ret);
     }
 
@@ -1848,16 +1918,16 @@ pub const qscilexercmake = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake`
+    /// ` self: QsciLexerCMake`
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerCMake, style: *i32) callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: QsciLexerCMake, style: *i32) callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnBlockStart(self: ?*anyopaque, callback: *const fn (?*anyopaque, *i32) callconv(.c) [*:0]const u8) void {
-        qtc.QsciLexerCMake_OnBlockStart(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBlockStart(self: QsciLexerCMake, callback: *const fn (QsciLexerCMake, *i32) callconv(.c) [*:0]const u8) void {
+        qtc.QsciLexerCMake_OnBlockStart(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -1868,12 +1938,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` style: *i32 `
     ///
-    pub fn BlockStartKeyword(self: ?*anyopaque, style: *i32) [:0]const u8 {
-        const _ret = qtc.QsciLexerCMake_BlockStartKeyword(@ptrCast(self), @ptrCast(style));
+    pub fn BlockStartKeyword(self: QsciLexerCMake, style: *i32) [:0]const u8 {
+        const _ret = qtc.QsciLexerCMake_BlockStartKeyword(@ptrCast(self.ptr), @ptrCast(style));
         return std.mem.span(_ret);
     }
 
@@ -1889,12 +1959,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` style: *i32 `
     ///
-    pub fn SuperBlockStartKeyword(self: ?*anyopaque, style: *i32) [:0]const u8 {
-        const _ret = qtc.QsciLexerCMake_SuperBlockStartKeyword(@ptrCast(self), @ptrCast(style));
+    pub fn SuperBlockStartKeyword(self: QsciLexerCMake, style: *i32) [:0]const u8 {
+        const _ret = qtc.QsciLexerCMake_SuperBlockStartKeyword(@ptrCast(self.ptr), @ptrCast(style));
         return std.mem.span(_ret);
     }
 
@@ -1904,16 +1974,16 @@ pub const qscilexercmake = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake`
+    /// ` self: QsciLexerCMake`
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerCMake, style: *i32) callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: QsciLexerCMake, style: *i32) callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnBlockStartKeyword(self: ?*anyopaque, callback: *const fn (?*anyopaque, *i32) callconv(.c) [*:0]const u8) void {
-        qtc.QsciLexerCMake_OnBlockStartKeyword(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBlockStartKeyword(self: QsciLexerCMake, callback: *const fn (QsciLexerCMake, *i32) callconv(.c) [*:0]const u8) void {
+        qtc.QsciLexerCMake_OnBlockStartKeyword(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -1924,10 +1994,10 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    pub fn BraceStyle(self: ?*anyopaque) i32 {
-        return qtc.QsciLexerCMake_BraceStyle(@ptrCast(self));
+    pub fn BraceStyle(self: QsciLexerCMake) i32 {
+        return qtc.QsciLexerCMake_BraceStyle(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperBraceStyle` instead
@@ -1942,10 +2012,10 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    pub fn SuperBraceStyle(self: ?*anyopaque) i32 {
-        return qtc.QsciLexerCMake_SuperBraceStyle(@ptrCast(self));
+    pub fn SuperBraceStyle(self: QsciLexerCMake) i32 {
+        return qtc.QsciLexerCMake_SuperBraceStyle(@ptrCast(self.ptr));
     }
 
     /// Inherited from QsciLexer
@@ -1956,12 +2026,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake`
+    /// ` self: QsciLexerCMake`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnBraceStyle(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QsciLexerCMake_OnBraceStyle(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBraceStyle(self: QsciLexerCMake, callback: *const fn () callconv(.c) i32) void {
+        qtc.QsciLexerCMake_OnBraceStyle(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -1972,10 +2042,10 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    pub fn CaseSensitive(self: ?*anyopaque) bool {
-        return qtc.QsciLexerCMake_CaseSensitive(@ptrCast(self));
+    pub fn CaseSensitive(self: QsciLexerCMake) bool {
+        return qtc.QsciLexerCMake_CaseSensitive(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCaseSensitive` instead
@@ -1990,10 +2060,10 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    pub fn SuperCaseSensitive(self: ?*anyopaque) bool {
-        return qtc.QsciLexerCMake_SuperCaseSensitive(@ptrCast(self));
+    pub fn SuperCaseSensitive(self: QsciLexerCMake) bool {
+        return qtc.QsciLexerCMake_SuperCaseSensitive(@ptrCast(self.ptr));
     }
 
     /// Inherited from QsciLexer
@@ -2004,12 +2074,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake`
+    /// ` self: QsciLexerCMake`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnCaseSensitive(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QsciLexerCMake_OnCaseSensitive(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCaseSensitive(self: QsciLexerCMake, callback: *const fn () callconv(.c) bool) void {
+        qtc.QsciLexerCMake_OnCaseSensitive(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -2020,12 +2090,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` style: i32 `
     ///
-    pub fn Color(self: ?*anyopaque, style: i32) QtC.QColor {
-        return qtc.QsciLexerCMake_Color(@ptrCast(self), @bitCast(style));
+    pub fn Color(self: QsciLexerCMake, style: i32) QColor {
+        return .{ .ptr = qtc.QsciLexerCMake_Color(@ptrCast(self.ptr), @bitCast(style)) };
     }
 
     /// ### DEPRECATED: Use `SuperColor` instead
@@ -2040,12 +2110,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` style: i32 `
     ///
-    pub fn SuperColor(self: ?*anyopaque, style: i32) QtC.QColor {
-        return qtc.QsciLexerCMake_SuperColor(@ptrCast(self), @bitCast(style));
+    pub fn SuperColor(self: QsciLexerCMake, style: i32) QColor {
+        return .{ .ptr = qtc.QsciLexerCMake_SuperColor(@ptrCast(self.ptr), @bitCast(style)) };
     }
 
     /// Inherited from QsciLexer
@@ -2056,12 +2126,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake`
+    /// ` self: QsciLexerCMake`
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerCMake, style: i32) callconv(.c) QtC.QColor `
+    /// ` callback: *const fn (self: QsciLexerCMake, style: i32) callconv(.c) QColor `
     ///
-    pub fn OnColor(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QColor) void {
-        qtc.QsciLexerCMake_OnColor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColor(self: QsciLexerCMake, callback: *const fn (QsciLexerCMake, i32) callconv(.c) QColor) void {
+        qtc.QsciLexerCMake_OnColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -2072,12 +2142,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` style: i32 `
     ///
-    pub fn EolFill(self: ?*anyopaque, style: i32) bool {
-        return qtc.QsciLexerCMake_EolFill(@ptrCast(self), @bitCast(style));
+    pub fn EolFill(self: QsciLexerCMake, style: i32) bool {
+        return qtc.QsciLexerCMake_EolFill(@ptrCast(self.ptr), @bitCast(style));
     }
 
     /// ### DEPRECATED: Use `SuperEolFill` instead
@@ -2092,12 +2162,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` style: i32 `
     ///
-    pub fn SuperEolFill(self: ?*anyopaque, style: i32) bool {
-        return qtc.QsciLexerCMake_SuperEolFill(@ptrCast(self), @bitCast(style));
+    pub fn SuperEolFill(self: QsciLexerCMake, style: i32) bool {
+        return qtc.QsciLexerCMake_SuperEolFill(@ptrCast(self.ptr), @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -2108,12 +2178,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake`
+    /// ` self: QsciLexerCMake`
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerCMake, style: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: QsciLexerCMake, style: i32) callconv(.c) bool `
     ///
-    pub fn OnEolFill(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QsciLexerCMake_OnEolFill(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEolFill(self: QsciLexerCMake, callback: *const fn (QsciLexerCMake, i32) callconv(.c) bool) void {
+        qtc.QsciLexerCMake_OnEolFill(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -2124,12 +2194,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` style: i32 `
     ///
-    pub fn Font(self: ?*anyopaque, style: i32) QtC.QFont {
-        return qtc.QsciLexerCMake_Font(@ptrCast(self), @bitCast(style));
+    pub fn Font(self: QsciLexerCMake, style: i32) QFont {
+        return .{ .ptr = qtc.QsciLexerCMake_Font(@ptrCast(self.ptr), @bitCast(style)) };
     }
 
     /// ### DEPRECATED: Use `SuperFont` instead
@@ -2144,12 +2214,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` style: i32 `
     ///
-    pub fn SuperFont(self: ?*anyopaque, style: i32) QtC.QFont {
-        return qtc.QsciLexerCMake_SuperFont(@ptrCast(self), @bitCast(style));
+    pub fn SuperFont(self: QsciLexerCMake, style: i32) QFont {
+        return .{ .ptr = qtc.QsciLexerCMake_SuperFont(@ptrCast(self.ptr), @bitCast(style)) };
     }
 
     /// Inherited from QsciLexer
@@ -2160,12 +2230,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake`
+    /// ` self: QsciLexerCMake`
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerCMake, style: i32) callconv(.c) QtC.QFont `
+    /// ` callback: *const fn (self: QsciLexerCMake, style: i32) callconv(.c) QFont `
     ///
-    pub fn OnFont(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QFont) void {
-        qtc.QsciLexerCMake_OnFont(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFont(self: QsciLexerCMake, callback: *const fn (QsciLexerCMake, i32) callconv(.c) QFont) void {
+        qtc.QsciLexerCMake_OnFont(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -2176,10 +2246,10 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    pub fn IndentationGuideView(self: ?*anyopaque) i32 {
-        return qtc.QsciLexerCMake_IndentationGuideView(@ptrCast(self));
+    pub fn IndentationGuideView(self: QsciLexerCMake) i32 {
+        return qtc.QsciLexerCMake_IndentationGuideView(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIndentationGuideView` instead
@@ -2194,10 +2264,10 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    pub fn SuperIndentationGuideView(self: ?*anyopaque) i32 {
-        return qtc.QsciLexerCMake_SuperIndentationGuideView(@ptrCast(self));
+    pub fn SuperIndentationGuideView(self: QsciLexerCMake) i32 {
+        return qtc.QsciLexerCMake_SuperIndentationGuideView(@ptrCast(self.ptr));
     }
 
     /// Inherited from QsciLexer
@@ -2208,12 +2278,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake`
+    /// ` self: QsciLexerCMake`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnIndentationGuideView(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QsciLexerCMake_OnIndentationGuideView(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIndentationGuideView(self: QsciLexerCMake, callback: *const fn () callconv(.c) i32) void {
+        qtc.QsciLexerCMake_OnIndentationGuideView(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -2224,10 +2294,10 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    pub fn DefaultStyle(self: ?*anyopaque) i32 {
-        return qtc.QsciLexerCMake_DefaultStyle(@ptrCast(self));
+    pub fn DefaultStyle(self: QsciLexerCMake) i32 {
+        return qtc.QsciLexerCMake_DefaultStyle(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDefaultStyle` instead
@@ -2242,10 +2312,10 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    pub fn SuperDefaultStyle(self: ?*anyopaque) i32 {
-        return qtc.QsciLexerCMake_SuperDefaultStyle(@ptrCast(self));
+    pub fn SuperDefaultStyle(self: QsciLexerCMake) i32 {
+        return qtc.QsciLexerCMake_SuperDefaultStyle(@ptrCast(self.ptr));
     }
 
     /// Inherited from QsciLexer
@@ -2256,12 +2326,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake`
+    /// ` self: QsciLexerCMake`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDefaultStyle(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QsciLexerCMake_OnDefaultStyle(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDefaultStyle(self: QsciLexerCMake, callback: *const fn () callconv(.c) i32) void {
+        qtc.QsciLexerCMake_OnDefaultStyle(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -2272,12 +2342,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` style: i32 `
     ///
-    pub fn Paper(self: ?*anyopaque, style: i32) QtC.QColor {
-        return qtc.QsciLexerCMake_Paper(@ptrCast(self), @bitCast(style));
+    pub fn Paper(self: QsciLexerCMake, style: i32) QColor {
+        return .{ .ptr = qtc.QsciLexerCMake_Paper(@ptrCast(self.ptr), @bitCast(style)) };
     }
 
     /// ### DEPRECATED: Use `SuperPaper` instead
@@ -2292,12 +2362,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` style: i32 `
     ///
-    pub fn SuperPaper(self: ?*anyopaque, style: i32) QtC.QColor {
-        return qtc.QsciLexerCMake_SuperPaper(@ptrCast(self), @bitCast(style));
+    pub fn SuperPaper(self: QsciLexerCMake, style: i32) QColor {
+        return .{ .ptr = qtc.QsciLexerCMake_SuperPaper(@ptrCast(self.ptr), @bitCast(style)) };
     }
 
     /// Inherited from QsciLexer
@@ -2308,12 +2378,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake`
+    /// ` self: QsciLexerCMake`
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerCMake, style: i32) callconv(.c) QtC.QColor `
+    /// ` callback: *const fn (self: QsciLexerCMake, style: i32) callconv(.c) QColor `
     ///
-    pub fn OnPaper(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QColor) void {
-        qtc.QsciLexerCMake_OnPaper(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaper(self: QsciLexerCMake, callback: *const fn (QsciLexerCMake, i32) callconv(.c) QColor) void {
+        qtc.QsciLexerCMake_OnPaper(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -2324,12 +2394,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` style: i32 `
     ///
-    pub fn DefaultColor2(self: ?*anyopaque, style: i32) QtC.QColor {
-        return qtc.QsciLexerCMake_DefaultColor2(@ptrCast(self), @bitCast(style));
+    pub fn DefaultColor2(self: QsciLexerCMake, style: i32) QColor {
+        return .{ .ptr = qtc.QsciLexerCMake_DefaultColor2(@ptrCast(self.ptr), @bitCast(style)) };
     }
 
     /// ### DEPRECATED: Use `SuperDefaultColor2` instead
@@ -2344,12 +2414,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` style: i32 `
     ///
-    pub fn SuperDefaultColor2(self: ?*anyopaque, style: i32) QtC.QColor {
-        return qtc.QsciLexerCMake_SuperDefaultColor2(@ptrCast(self), @bitCast(style));
+    pub fn SuperDefaultColor2(self: QsciLexerCMake, style: i32) QColor {
+        return .{ .ptr = qtc.QsciLexerCMake_SuperDefaultColor2(@ptrCast(self.ptr), @bitCast(style)) };
     }
 
     /// Inherited from QsciLexer
@@ -2360,12 +2430,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake`
+    /// ` self: QsciLexerCMake`
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerCMake, style: i32) callconv(.c) QtC.QColor `
+    /// ` callback: *const fn (self: QsciLexerCMake, style: i32) callconv(.c) QColor `
     ///
-    pub fn OnDefaultColor2(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QColor) void {
-        qtc.QsciLexerCMake_OnDefaultColor2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDefaultColor2(self: QsciLexerCMake, callback: *const fn (QsciLexerCMake, i32) callconv(.c) QColor) void {
+        qtc.QsciLexerCMake_OnDefaultColor2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -2376,12 +2446,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` style: i32 `
     ///
-    pub fn DefaultEolFill(self: ?*anyopaque, style: i32) bool {
-        return qtc.QsciLexerCMake_DefaultEolFill(@ptrCast(self), @bitCast(style));
+    pub fn DefaultEolFill(self: QsciLexerCMake, style: i32) bool {
+        return qtc.QsciLexerCMake_DefaultEolFill(@ptrCast(self.ptr), @bitCast(style));
     }
 
     /// ### DEPRECATED: Use `SuperDefaultEolFill` instead
@@ -2396,12 +2466,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` style: i32 `
     ///
-    pub fn SuperDefaultEolFill(self: ?*anyopaque, style: i32) bool {
-        return qtc.QsciLexerCMake_SuperDefaultEolFill(@ptrCast(self), @bitCast(style));
+    pub fn SuperDefaultEolFill(self: QsciLexerCMake, style: i32) bool {
+        return qtc.QsciLexerCMake_SuperDefaultEolFill(@ptrCast(self.ptr), @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -2412,12 +2482,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake`
+    /// ` self: QsciLexerCMake`
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerCMake, style: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: QsciLexerCMake, style: i32) callconv(.c) bool `
     ///
-    pub fn OnDefaultEolFill(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QsciLexerCMake_OnDefaultEolFill(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDefaultEolFill(self: QsciLexerCMake, callback: *const fn (QsciLexerCMake, i32) callconv(.c) bool) void {
+        qtc.QsciLexerCMake_OnDefaultEolFill(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -2428,12 +2498,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` style: i32 `
     ///
-    pub fn DefaultFont2(self: ?*anyopaque, style: i32) QtC.QFont {
-        return qtc.QsciLexerCMake_DefaultFont2(@ptrCast(self), @bitCast(style));
+    pub fn DefaultFont2(self: QsciLexerCMake, style: i32) QFont {
+        return .{ .ptr = qtc.QsciLexerCMake_DefaultFont2(@ptrCast(self.ptr), @bitCast(style)) };
     }
 
     /// ### DEPRECATED: Use `SuperDefaultFont2` instead
@@ -2448,12 +2518,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` style: i32 `
     ///
-    pub fn SuperDefaultFont2(self: ?*anyopaque, style: i32) QtC.QFont {
-        return qtc.QsciLexerCMake_SuperDefaultFont2(@ptrCast(self), @bitCast(style));
+    pub fn SuperDefaultFont2(self: QsciLexerCMake, style: i32) QFont {
+        return .{ .ptr = qtc.QsciLexerCMake_SuperDefaultFont2(@ptrCast(self.ptr), @bitCast(style)) };
     }
 
     /// Inherited from QsciLexer
@@ -2464,12 +2534,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake`
+    /// ` self: QsciLexerCMake`
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerCMake, style: i32) callconv(.c) QtC.QFont `
+    /// ` callback: *const fn (self: QsciLexerCMake, style: i32) callconv(.c) QFont `
     ///
-    pub fn OnDefaultFont2(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QFont) void {
-        qtc.QsciLexerCMake_OnDefaultFont2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDefaultFont2(self: QsciLexerCMake, callback: *const fn (QsciLexerCMake, i32) callconv(.c) QFont) void {
+        qtc.QsciLexerCMake_OnDefaultFont2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -2480,12 +2550,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` style: i32 `
     ///
-    pub fn DefaultPaper2(self: ?*anyopaque, style: i32) QtC.QColor {
-        return qtc.QsciLexerCMake_DefaultPaper2(@ptrCast(self), @bitCast(style));
+    pub fn DefaultPaper2(self: QsciLexerCMake, style: i32) QColor {
+        return .{ .ptr = qtc.QsciLexerCMake_DefaultPaper2(@ptrCast(self.ptr), @bitCast(style)) };
     }
 
     /// ### DEPRECATED: Use `SuperDefaultPaper2` instead
@@ -2500,12 +2570,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` style: i32 `
     ///
-    pub fn SuperDefaultPaper2(self: ?*anyopaque, style: i32) QtC.QColor {
-        return qtc.QsciLexerCMake_SuperDefaultPaper2(@ptrCast(self), @bitCast(style));
+    pub fn SuperDefaultPaper2(self: QsciLexerCMake, style: i32) QColor {
+        return .{ .ptr = qtc.QsciLexerCMake_SuperDefaultPaper2(@ptrCast(self.ptr), @bitCast(style)) };
     }
 
     /// Inherited from QsciLexer
@@ -2516,12 +2586,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake`
+    /// ` self: QsciLexerCMake`
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerCMake, style: i32) callconv(.c) QtC.QColor `
+    /// ` callback: *const fn (self: QsciLexerCMake, style: i32) callconv(.c) QColor `
     ///
-    pub fn OnDefaultPaper2(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QColor) void {
-        qtc.QsciLexerCMake_OnDefaultPaper2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDefaultPaper2(self: QsciLexerCMake, callback: *const fn (QsciLexerCMake, i32) callconv(.c) QColor) void {
+        qtc.QsciLexerCMake_OnDefaultPaper2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -2532,12 +2602,13 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` editor: QtC.QsciScintilla `
+    /// ` editor: QsciScintilla `
     ///
-    pub fn SetEditor(self: ?*anyopaque, editor: ?*anyopaque) void {
-        qtc.QsciLexerCMake_SetEditor(@ptrCast(self), @ptrCast(editor));
+    pub fn SetEditor(self: QsciLexerCMake, editor: anytype) void {
+        comptime _ = @TypeOf(editor)._is_QsciScintilla;
+        qtc.QsciLexerCMake_SetEditor(@ptrCast(self.ptr), @ptrCast(editor.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSetEditor` instead
@@ -2552,12 +2623,13 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` editor: QtC.QsciScintilla `
+    /// ` editor: QsciScintilla `
     ///
-    pub fn SuperSetEditor(self: ?*anyopaque, editor: ?*anyopaque) void {
-        qtc.QsciLexerCMake_SuperSetEditor(@ptrCast(self), @ptrCast(editor));
+    pub fn SuperSetEditor(self: QsciLexerCMake, editor: anytype) void {
+        comptime _ = @TypeOf(editor)._is_QsciScintilla;
+        qtc.QsciLexerCMake_SuperSetEditor(@ptrCast(self.ptr), @ptrCast(editor.ptr));
     }
 
     /// Inherited from QsciLexer
@@ -2568,12 +2640,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake`
+    /// ` self: QsciLexerCMake`
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerCMake, editor: QtC.QsciScintilla) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciLexerCMake, editor: QsciScintilla) callconv(.c) void `
     ///
-    pub fn OnSetEditor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciLexerCMake_OnSetEditor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetEditor(self: QsciLexerCMake, callback: *const fn (QsciLexerCMake, QsciScintilla) callconv(.c) void) void {
+        qtc.QsciLexerCMake_OnSetEditor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -2584,10 +2656,10 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    pub fn StyleBitsNeeded(self: ?*anyopaque) i32 {
-        return qtc.QsciLexerCMake_StyleBitsNeeded(@ptrCast(self));
+    pub fn StyleBitsNeeded(self: QsciLexerCMake) i32 {
+        return qtc.QsciLexerCMake_StyleBitsNeeded(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperStyleBitsNeeded` instead
@@ -2602,10 +2674,10 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    pub fn SuperStyleBitsNeeded(self: ?*anyopaque) i32 {
-        return qtc.QsciLexerCMake_SuperStyleBitsNeeded(@ptrCast(self));
+    pub fn SuperStyleBitsNeeded(self: QsciLexerCMake) i32 {
+        return qtc.QsciLexerCMake_SuperStyleBitsNeeded(@ptrCast(self.ptr));
     }
 
     /// Inherited from QsciLexer
@@ -2616,12 +2688,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake`
+    /// ` self: QsciLexerCMake`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnStyleBitsNeeded(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QsciLexerCMake_OnStyleBitsNeeded(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnStyleBitsNeeded(self: QsciLexerCMake, callback: *const fn () callconv(.c) i32) void {
+        qtc.QsciLexerCMake_OnStyleBitsNeeded(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -2632,10 +2704,10 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    pub fn WordCharacters(self: ?*anyopaque) [:0]const u8 {
-        const _ret = qtc.QsciLexerCMake_WordCharacters(@ptrCast(self));
+    pub fn WordCharacters(self: QsciLexerCMake) [:0]const u8 {
+        const _ret = qtc.QsciLexerCMake_WordCharacters(@ptrCast(self.ptr));
         return std.mem.span(_ret);
     }
 
@@ -2651,10 +2723,10 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    pub fn SuperWordCharacters(self: ?*anyopaque) [:0]const u8 {
-        const _ret = qtc.QsciLexerCMake_SuperWordCharacters(@ptrCast(self));
+    pub fn SuperWordCharacters(self: QsciLexerCMake) [:0]const u8 {
+        const _ret = qtc.QsciLexerCMake_SuperWordCharacters(@ptrCast(self.ptr));
         return std.mem.span(_ret);
     }
 
@@ -2664,16 +2736,16 @@ pub const qscilexercmake = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake`
+    /// ` self: QsciLexerCMake`
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnWordCharacters(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.QsciLexerCMake_OnWordCharacters(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWordCharacters(self: QsciLexerCMake, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.QsciLexerCMake_OnWordCharacters(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -2684,12 +2756,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` autoindentstyle: i32 `
     ///
-    pub fn SetAutoIndentStyle(self: ?*anyopaque, autoindentstyle: i32) void {
-        qtc.QsciLexerCMake_SetAutoIndentStyle(@ptrCast(self), @bitCast(autoindentstyle));
+    pub fn SetAutoIndentStyle(self: QsciLexerCMake, autoindentstyle: i32) void {
+        qtc.QsciLexerCMake_SetAutoIndentStyle(@ptrCast(self.ptr), @bitCast(autoindentstyle));
     }
 
     /// ### DEPRECATED: Use `SuperSetAutoIndentStyle` instead
@@ -2704,12 +2776,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` autoindentstyle: i32 `
     ///
-    pub fn SuperSetAutoIndentStyle(self: ?*anyopaque, autoindentstyle: i32) void {
-        qtc.QsciLexerCMake_SuperSetAutoIndentStyle(@ptrCast(self), @bitCast(autoindentstyle));
+    pub fn SuperSetAutoIndentStyle(self: QsciLexerCMake, autoindentstyle: i32) void {
+        qtc.QsciLexerCMake_SuperSetAutoIndentStyle(@ptrCast(self.ptr), @bitCast(autoindentstyle));
     }
 
     /// Inherited from QsciLexer
@@ -2720,12 +2792,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake`
+    /// ` self: QsciLexerCMake`
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerCMake, autoindentstyle: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciLexerCMake, autoindentstyle: i32) callconv(.c) void `
     ///
-    pub fn OnSetAutoIndentStyle(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QsciLexerCMake_OnSetAutoIndentStyle(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetAutoIndentStyle(self: QsciLexerCMake, callback: *const fn (QsciLexerCMake, i32) callconv(.c) void) void {
+        qtc.QsciLexerCMake_OnSetAutoIndentStyle(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -2736,14 +2808,15 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` c: QtC.QColor `
+    /// ` c: QColor `
     ///
     /// ` style: i32 `
     ///
-    pub fn SetColor(self: ?*anyopaque, c: ?*anyopaque, style: i32) void {
-        qtc.QsciLexerCMake_SetColor(@ptrCast(self), @ptrCast(c), @bitCast(style));
+    pub fn SetColor(self: QsciLexerCMake, c: anytype, style: i32) void {
+        comptime _ = @TypeOf(c)._is_QColor;
+        qtc.QsciLexerCMake_SetColor(@ptrCast(self.ptr), @ptrCast(c.ptr), @bitCast(style));
     }
 
     /// ### DEPRECATED: Use `SuperSetColor` instead
@@ -2758,14 +2831,15 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` c: QtC.QColor `
+    /// ` c: QColor `
     ///
     /// ` style: i32 `
     ///
-    pub fn SuperSetColor(self: ?*anyopaque, c: ?*anyopaque, style: i32) void {
-        qtc.QsciLexerCMake_SuperSetColor(@ptrCast(self), @ptrCast(c), @bitCast(style));
+    pub fn SuperSetColor(self: QsciLexerCMake, c: anytype, style: i32) void {
+        comptime _ = @TypeOf(c)._is_QColor;
+        qtc.QsciLexerCMake_SuperSetColor(@ptrCast(self.ptr), @ptrCast(c.ptr), @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -2776,12 +2850,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake`
+    /// ` self: QsciLexerCMake`
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerCMake, c: QtC.QColor, style: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciLexerCMake, c: QColor, style: i32) callconv(.c) void `
     ///
-    pub fn OnSetColor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QsciLexerCMake_OnSetColor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetColor(self: QsciLexerCMake, callback: *const fn (QsciLexerCMake, QColor, i32) callconv(.c) void) void {
+        qtc.QsciLexerCMake_OnSetColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -2792,14 +2866,14 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` eoffill: bool `
     ///
     /// ` style: i32 `
     ///
-    pub fn SetEolFill(self: ?*anyopaque, eoffill: bool, style: i32) void {
-        qtc.QsciLexerCMake_SetEolFill(@ptrCast(self), eoffill, @bitCast(style));
+    pub fn SetEolFill(self: QsciLexerCMake, eoffill: bool, style: i32) void {
+        qtc.QsciLexerCMake_SetEolFill(@ptrCast(self.ptr), eoffill, @bitCast(style));
     }
 
     /// ### DEPRECATED: Use `SuperSetEolFill` instead
@@ -2814,14 +2888,14 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` eoffill: bool `
     ///
     /// ` style: i32 `
     ///
-    pub fn SuperSetEolFill(self: ?*anyopaque, eoffill: bool, style: i32) void {
-        qtc.QsciLexerCMake_SuperSetEolFill(@ptrCast(self), eoffill, @bitCast(style));
+    pub fn SuperSetEolFill(self: QsciLexerCMake, eoffill: bool, style: i32) void {
+        qtc.QsciLexerCMake_SuperSetEolFill(@ptrCast(self.ptr), eoffill, @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -2832,12 +2906,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake`
+    /// ` self: QsciLexerCMake`
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerCMake, eoffill: bool, style: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciLexerCMake, eoffill: bool, style: i32) callconv(.c) void `
     ///
-    pub fn OnSetEolFill(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool, i32) callconv(.c) void) void {
-        qtc.QsciLexerCMake_OnSetEolFill(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetEolFill(self: QsciLexerCMake, callback: *const fn (QsciLexerCMake, bool, i32) callconv(.c) void) void {
+        qtc.QsciLexerCMake_OnSetEolFill(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -2848,14 +2922,15 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` f: QtC.QFont `
+    /// ` f: QFont `
     ///
     /// ` style: i32 `
     ///
-    pub fn SetFont(self: ?*anyopaque, f: ?*anyopaque, style: i32) void {
-        qtc.QsciLexerCMake_SetFont(@ptrCast(self), @ptrCast(f), @bitCast(style));
+    pub fn SetFont(self: QsciLexerCMake, f: anytype, style: i32) void {
+        comptime _ = @TypeOf(f)._is_QFont;
+        qtc.QsciLexerCMake_SetFont(@ptrCast(self.ptr), @ptrCast(f.ptr), @bitCast(style));
     }
 
     /// ### DEPRECATED: Use `SuperSetFont` instead
@@ -2870,14 +2945,15 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` f: QtC.QFont `
+    /// ` f: QFont `
     ///
     /// ` style: i32 `
     ///
-    pub fn SuperSetFont(self: ?*anyopaque, f: ?*anyopaque, style: i32) void {
-        qtc.QsciLexerCMake_SuperSetFont(@ptrCast(self), @ptrCast(f), @bitCast(style));
+    pub fn SuperSetFont(self: QsciLexerCMake, f: anytype, style: i32) void {
+        comptime _ = @TypeOf(f)._is_QFont;
+        qtc.QsciLexerCMake_SuperSetFont(@ptrCast(self.ptr), @ptrCast(f.ptr), @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -2888,12 +2964,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake`
+    /// ` self: QsciLexerCMake`
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerCMake, f: QtC.QFont, style: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciLexerCMake, f: QFont, style: i32) callconv(.c) void `
     ///
-    pub fn OnSetFont(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QsciLexerCMake_OnSetFont(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetFont(self: QsciLexerCMake, callback: *const fn (QsciLexerCMake, QFont, i32) callconv(.c) void) void {
+        qtc.QsciLexerCMake_OnSetFont(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -2904,14 +2980,15 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` c: QtC.QColor `
+    /// ` c: QColor `
     ///
     /// ` style: i32 `
     ///
-    pub fn SetPaper(self: ?*anyopaque, c: ?*anyopaque, style: i32) void {
-        qtc.QsciLexerCMake_SetPaper(@ptrCast(self), @ptrCast(c), @bitCast(style));
+    pub fn SetPaper(self: QsciLexerCMake, c: anytype, style: i32) void {
+        comptime _ = @TypeOf(c)._is_QColor;
+        qtc.QsciLexerCMake_SetPaper(@ptrCast(self.ptr), @ptrCast(c.ptr), @bitCast(style));
     }
 
     /// ### DEPRECATED: Use `SuperSetPaper` instead
@@ -2926,14 +3003,15 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` c: QtC.QColor `
+    /// ` c: QColor `
     ///
     /// ` style: i32 `
     ///
-    pub fn SuperSetPaper(self: ?*anyopaque, c: ?*anyopaque, style: i32) void {
-        qtc.QsciLexerCMake_SuperSetPaper(@ptrCast(self), @ptrCast(c), @bitCast(style));
+    pub fn SuperSetPaper(self: QsciLexerCMake, c: anytype, style: i32) void {
+        comptime _ = @TypeOf(c)._is_QColor;
+        qtc.QsciLexerCMake_SuperSetPaper(@ptrCast(self.ptr), @ptrCast(c.ptr), @bitCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -2944,12 +3022,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake`
+    /// ` self: QsciLexerCMake`
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerCMake, c: QtC.QColor, style: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciLexerCMake, c: QColor, style: i32) callconv(.c) void `
     ///
-    pub fn OnSetPaper(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QsciLexerCMake_OnSetPaper(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetPaper(self: QsciLexerCMake, callback: *const fn (QsciLexerCMake, QColor, i32) callconv(.c) void) void {
+        qtc.QsciLexerCMake_OnSetPaper(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2960,12 +3038,13 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QsciLexerCMake_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: QsciLexerCMake, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QsciLexerCMake_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -2980,12 +3059,13 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QsciLexerCMake_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: QsciLexerCMake, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QsciLexerCMake_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2996,12 +3076,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake`
+    /// ` self: QsciLexerCMake`
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerCMake, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QsciLexerCMake, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QsciLexerCMake_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QsciLexerCMake, callback: *const fn (QsciLexerCMake, QEvent) callconv(.c) bool) void {
+        qtc.QsciLexerCMake_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3012,14 +3092,16 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QsciLexerCMake_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: QsciLexerCMake, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QsciLexerCMake_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -3034,14 +3116,16 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QsciLexerCMake_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: QsciLexerCMake, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QsciLexerCMake_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3052,12 +3136,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake`
+    /// ` self: QsciLexerCMake`
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerCMake, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QsciLexerCMake, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QsciLexerCMake_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QsciLexerCMake, callback: *const fn (QsciLexerCMake, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QsciLexerCMake_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3068,12 +3152,13 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QsciLexerCMake_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: QsciLexerCMake, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QsciLexerCMake_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -3088,12 +3173,13 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QsciLexerCMake_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: QsciLexerCMake, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QsciLexerCMake_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3104,12 +3190,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake`
+    /// ` self: QsciLexerCMake`
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerCMake, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciLexerCMake, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciLexerCMake_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QsciLexerCMake, callback: *const fn (QsciLexerCMake, QTimerEvent) callconv(.c) void) void {
+        qtc.QsciLexerCMake_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3120,12 +3206,13 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QsciLexerCMake_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: QsciLexerCMake, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QsciLexerCMake_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -3140,12 +3227,13 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QsciLexerCMake_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: QsciLexerCMake, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QsciLexerCMake_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3156,12 +3244,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake`
+    /// ` self: QsciLexerCMake`
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerCMake, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciLexerCMake, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciLexerCMake_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QsciLexerCMake, callback: *const fn (QsciLexerCMake, QChildEvent) callconv(.c) void) void {
+        qtc.QsciLexerCMake_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3172,12 +3260,13 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QsciLexerCMake_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QsciLexerCMake, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QsciLexerCMake_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -3192,12 +3281,13 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QsciLexerCMake_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QsciLexerCMake, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QsciLexerCMake_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3208,12 +3298,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake`
+    /// ` self: QsciLexerCMake`
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerCMake, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciLexerCMake, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciLexerCMake_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QsciLexerCMake, callback: *const fn (QsciLexerCMake, QEvent) callconv(.c) void) void {
+        qtc.QsciLexerCMake_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3224,12 +3314,13 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QsciLexerCMake_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QsciLexerCMake, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QsciLexerCMake_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -3244,12 +3335,13 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QsciLexerCMake_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QsciLexerCMake, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QsciLexerCMake_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -3260,12 +3352,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake`
+    /// ` self: QsciLexerCMake`
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerCMake, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciLexerCMake, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciLexerCMake_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QsciLexerCMake, callback: *const fn (QsciLexerCMake, QMetaMethod) callconv(.c) void) void {
+        qtc.QsciLexerCMake_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3276,12 +3368,13 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QsciLexerCMake_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QsciLexerCMake, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QsciLexerCMake_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -3296,12 +3389,13 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QsciLexerCMake_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QsciLexerCMake, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QsciLexerCMake_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -3312,12 +3406,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake`
+    /// ` self: QsciLexerCMake`
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerCMake, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciLexerCMake, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciLexerCMake_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QsciLexerCMake, callback: *const fn (QsciLexerCMake, QMetaMethod) callconv(.c) void) void {
+        qtc.QsciLexerCMake_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -3328,18 +3422,18 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
-    ///
-    /// ` text: []const u8 `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TextAsBytes(self: ?*anyopaque, text: []const u8, allocator: std.mem.Allocator) []u8 {
+    /// ` text: []const u8 `
+    ///
+    pub fn TextAsBytes(self: QsciLexerCMake, allocator: std.mem.Allocator, text: []const u8) []u8 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.QsciLexerCMake_TextAsBytes(@ptrCast(self), text_str);
+        var _bytearray: qtc.libqt_string = qtc.QsciLexerCMake_TextAsBytes(@ptrCast(self.ptr), text_str);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qscilexercmake.TextAsBytes: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -3358,18 +3452,18 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
-    ///
-    /// ` text: []const u8 `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperTextAsBytes(self: ?*anyopaque, text: []const u8, allocator: std.mem.Allocator) []u8 {
+    /// ` text: []const u8 `
+    ///
+    pub fn SuperTextAsBytes(self: QsciLexerCMake, allocator: std.mem.Allocator, text: []const u8) []u8 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.QsciLexerCMake_SuperTextAsBytes(@ptrCast(self), text_str);
+        var _bytearray: qtc.libqt_string = qtc.QsciLexerCMake_SuperTextAsBytes(@ptrCast(self.ptr), text_str);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qscilexercmake.TextAsBytes: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -3384,12 +3478,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake`
+    /// ` self: QsciLexerCMake`
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerCMake, text: [*:0]const u8) callconv(.c) qtc.libqt_string `
+    /// ` callback: *const fn (self: QsciLexerCMake, text: [*:0]const u8) callconv(.c) qtc.libqt_string `
     ///
-    pub fn OnTextAsBytes(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) qtc.libqt_string) void {
-        qtc.QsciLexerCMake_OnTextAsBytes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTextAsBytes(self: QsciLexerCMake, callback: *const fn (QsciLexerCMake, [*:0]const u8) callconv(.c) qtc.libqt_string) void {
+        qtc.QsciLexerCMake_OnTextAsBytes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -3400,17 +3494,17 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` bytes: [:0]const u8 `
     ///
     /// ` size: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn BytesAsText(self: ?*anyopaque, bytes: [:0]const u8, size: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn BytesAsText(self: QsciLexerCMake, allocator: std.mem.Allocator, bytes: [:0]const u8, size: i32) []const u8 {
         const bytes_Cstring = bytes.ptr;
-        var _str = qtc.QsciLexerCMake_BytesAsText(@ptrCast(self), bytes_Cstring, @bitCast(size));
+        var _str = qtc.QsciLexerCMake_BytesAsText(@ptrCast(self.ptr), bytes_Cstring, @bitCast(size));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qscilexercmake.BytesAsText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3429,17 +3523,17 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` bytes: [:0]const u8 `
     ///
     /// ` size: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn SuperBytesAsText(self: ?*anyopaque, bytes: [:0]const u8, size: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn SuperBytesAsText(self: QsciLexerCMake, allocator: std.mem.Allocator, bytes: [:0]const u8, size: i32) []const u8 {
         const bytes_Cstring = bytes.ptr;
-        var _str = qtc.QsciLexerCMake_SuperBytesAsText(@ptrCast(self), bytes_Cstring, @bitCast(size));
+        var _str = qtc.QsciLexerCMake_SuperBytesAsText(@ptrCast(self.ptr), bytes_Cstring, @bitCast(size));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qscilexercmake.BytesAsText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3452,16 +3546,16 @@ pub const qscilexercmake = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake`
+    /// ` self: QsciLexerCMake`
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerCMake, bytes: [*:0]const u8, size: i32) callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: QsciLexerCMake, bytes: [*:0]const u8, size: i32) callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnBytesAsText(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) [*:0]const u8) void {
-        qtc.QsciLexerCMake_OnBytesAsText(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBytesAsText(self: QsciLexerCMake, callback: *const fn (QsciLexerCMake, [*:0]const u8, i32) callconv(.c) [*:0]const u8) void {
+        qtc.QsciLexerCMake_OnBytesAsText(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3472,10 +3566,10 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QsciLexerCMake_Sender(@ptrCast(self));
+    pub fn Sender(self: QsciLexerCMake) QObject {
+        return .{ .ptr = qtc.QsciLexerCMake_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -3490,10 +3584,10 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QsciLexerCMake_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QsciLexerCMake) QObject {
+        return .{ .ptr = qtc.QsciLexerCMake_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -3504,12 +3598,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake`
+    /// ` self: QsciLexerCMake`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QsciLexerCMake_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QsciLexerCMake, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QsciLexerCMake_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3520,10 +3614,10 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QsciLexerCMake_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QsciLexerCMake) i32 {
+        return qtc.QsciLexerCMake_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -3538,10 +3632,10 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QsciLexerCMake_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QsciLexerCMake) i32 {
+        return qtc.QsciLexerCMake_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -3552,12 +3646,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake`
+    /// ` self: QsciLexerCMake`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QsciLexerCMake_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QsciLexerCMake, callback: *const fn () callconv(.c) i32) void {
+        qtc.QsciLexerCMake_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3568,13 +3662,13 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QsciLexerCMake, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QsciLexerCMake_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QsciLexerCMake_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -3589,13 +3683,13 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QsciLexerCMake, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QsciLexerCMake_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QsciLexerCMake_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -3606,12 +3700,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake`
+    /// ` self: QsciLexerCMake`
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerCMake, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QsciLexerCMake, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QsciLexerCMake_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QsciLexerCMake, callback: *const fn (QsciLexerCMake, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QsciLexerCMake_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3622,12 +3716,13 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QsciLexerCMake_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QsciLexerCMake, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QsciLexerCMake_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -3642,12 +3737,13 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QsciLexerCMake_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QsciLexerCMake, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QsciLexerCMake_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -3658,12 +3754,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake`
+    /// ` self: QsciLexerCMake`
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerCMake, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QsciLexerCMake, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QsciLexerCMake_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QsciLexerCMake, callback: *const fn (QsciLexerCMake, QMetaMethod) callconv(.c) bool) void {
+        qtc.QsciLexerCMake_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3674,12 +3770,12 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    /// ` callback: *const fn (self: QtC.QsciLexerCMake, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciLexerCMake, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QsciLexerCMake, callback: *const fn (QsciLexerCMake, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -3692,10 +3788,10 @@ pub const qscilexercmake = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QsciLexerCMake `
+    /// ` self: QsciLexerCMake `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QsciLexerCMake_Delete(@ptrCast(self));
+    pub fn Delete(self: QsciLexerCMake) void {
+        qtc.QsciLexerCMake_Delete(@ptrCast(self.ptr));
     }
 };
 

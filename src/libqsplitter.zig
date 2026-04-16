@@ -1,5 +1,64 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QAction = @import("libqt6").QAction;
+const QActionEvent = @import("libqt6").QActionEvent;
+const QBackingStore = @import("libqt6").QBackingStore;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QBitmap = @import("libqt6").QBitmap;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QCloseEvent = @import("libqt6").QCloseEvent;
+const QContextMenuEvent = @import("libqt6").QContextMenuEvent;
+const QCursor = @import("libqt6").QCursor;
+const QDragEnterEvent = @import("libqt6").QDragEnterEvent;
+const QDragLeaveEvent = @import("libqt6").QDragLeaveEvent;
+const QDragMoveEvent = @import("libqt6").QDragMoveEvent;
+const QDropEvent = @import("libqt6").QDropEvent;
+const QEnterEvent = @import("libqt6").QEnterEvent;
+const QEvent = @import("libqt6").QEvent;
+const QFocusEvent = @import("libqt6").QFocusEvent;
+const QFont = @import("libqt6").QFont;
+const QFontInfo = @import("libqt6").QFontInfo;
+const QFontMetrics = @import("libqt6").QFontMetrics;
+const QGraphicsEffect = @import("libqt6").QGraphicsEffect;
+const QGraphicsProxyWidget = @import("libqt6").QGraphicsProxyWidget;
+const QHideEvent = @import("libqt6").QHideEvent;
+const QIcon = @import("libqt6").QIcon;
+const QInputMethodEvent = @import("libqt6").QInputMethodEvent;
+const QKeyEvent = @import("libqt6").QKeyEvent;
+const QKeySequence = @import("libqt6").QKeySequence;
+const QLayout = @import("libqt6").QLayout;
+const QLocale = @import("libqt6").QLocale;
+const QMargins = @import("libqt6").QMargins;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QMouseEvent = @import("libqt6").QMouseEvent;
+const QMoveEvent = @import("libqt6").QMoveEvent;
+const QObject = @import("libqt6").QObject;
+const QPaintDevice = @import("libqt6").QPaintDevice;
+const QPaintEngine = @import("libqt6").QPaintEngine;
+const QPaintEvent = @import("libqt6").QPaintEvent;
+const QPainter = @import("libqt6").QPainter;
+const QPalette = @import("libqt6").QPalette;
+const QPixmap = @import("libqt6").QPixmap;
+const QPoint = @import("libqt6").QPoint;
+const QPointF = @import("libqt6").QPointF;
+const QRect = @import("libqt6").QRect;
+const QRegion = @import("libqt6").QRegion;
+const QResizeEvent = @import("libqt6").QResizeEvent;
+const QScreen = @import("libqt6").QScreen;
+const QShowEvent = @import("libqt6").QShowEvent;
+const QSize = @import("libqt6").QSize;
+const QSizePolicy = @import("libqt6").QSizePolicy;
+const QStyle = @import("libqt6").QStyle;
+const QStyleOptionFrame = @import("libqt6").QStyleOptionFrame;
+const QTabletEvent = @import("libqt6").QTabletEvent;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
+const QWheelEvent = @import("libqt6").QWheelEvent;
+const QWidget = @import("libqt6").QWidget;
+const QWindow = @import("libqt6").QWindow;
 const qframe_enums = @import("libqframe.zig").enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
@@ -10,21 +69,34 @@ const qwidget_enums = @import("libqwidget.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html)
-pub const qsplitter = struct {
+pub const QSplitter = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QSplitter,
+
+    pub const _is_QSplitter = {};
+    pub const _is_QFrame = {};
+    pub const _is_QWidget = {};
+    pub const _is_QObject = {};
+    pub const _is_QPaintDevice = {};
+
     /// New constructs a new QSplitter object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn New(parent: ?*anyopaque) QtC.QSplitter {
-        return qtc.QSplitter_new(@ptrCast(parent));
+    pub fn New(parent: anytype) QSplitter {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QSplitter_new(@ptrCast(parent.ptr)) };
     }
 
     /// New2 constructs a new QSplitter object.
     ///
-    pub fn New2() QtC.QSplitter {
-        return qtc.QSplitter_new2();
+    pub fn New2() QSplitter {
+        return .{ .ptr = qtc.QSplitter_new2() };
     }
 
     /// New3 constructs a new QSplitter object.
@@ -33,8 +105,8 @@ pub const qsplitter = struct {
     ///
     /// ` param1: qnamespace_enums.Orientation `
     ///
-    pub fn New3(param1: i32) QtC.QSplitter {
-        return qtc.QSplitter_new3(@bitCast(param1));
+    pub fn New3(param1: i32) QSplitter {
+        return .{ .ptr = qtc.QSplitter_new3(@bitCast(param1)) };
     }
 
     /// New4 constructs a new QSplitter object.
@@ -43,20 +115,21 @@ pub const qsplitter = struct {
     ///
     /// ` param1: qnamespace_enums.Orientation `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn New4(param1: i32, parent: ?*anyopaque) QtC.QSplitter {
-        return qtc.QSplitter_new4(@bitCast(param1), @ptrCast(parent));
+    pub fn New4(param1: i32, parent: anytype) QSplitter {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QSplitter_new4(@bitCast(param1), @ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QSplitter_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QSplitter) QMetaObject {
+        return .{ .ptr = qtc.QSplitter_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -65,12 +138,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QSplitter_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QSplitter, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QSplitter_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -83,33 +156,33 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QSplitter_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QSplitter) QMetaObject {
+        return .{ .ptr = qtc.QSplitter_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QSplitter, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QSplitter_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QSplitter_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QSplitter, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QSplitter_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QSplitter, callback: *const fn (QSplitter, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QSplitter_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -120,18 +193,18 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QSplitter, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QSplitter_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QSplitter_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -139,20 +212,20 @@ pub const qsplitter = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QSplitter_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QSplitter, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QSplitter_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QSplitter, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QSplitter_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QSplitter, callback: *const fn (QSplitter, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QSplitter_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -163,7 +236,7 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -171,19 +244,19 @@ pub const qsplitter = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QSplitter_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QSplitter, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QSplitter_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -196,154 +269,157 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn AddWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.QSplitter_AddWidget(@ptrCast(self), @ptrCast(widget));
+    pub fn AddWidget(self: QSplitter, widget: anytype) void {
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.QSplitter_AddWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#insertWidget)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` index: i32 `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn InsertWidget(self: ?*anyopaque, index: i32, widget: ?*anyopaque) void {
-        qtc.QSplitter_InsertWidget(@ptrCast(self), @bitCast(index), @ptrCast(widget));
+    pub fn InsertWidget(self: QSplitter, index: i32, widget: anytype) void {
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.QSplitter_InsertWidget(@ptrCast(self.ptr), @bitCast(index), @ptrCast(widget.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#replaceWidget)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` index: i32 `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn ReplaceWidget(self: ?*anyopaque, index: i32, widget: ?*anyopaque) QtC.QWidget {
-        return qtc.QSplitter_ReplaceWidget(@ptrCast(self), @bitCast(index), @ptrCast(widget));
+    pub fn ReplaceWidget(self: QSplitter, index: i32, widget: anytype) QWidget {
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        return .{ .ptr = qtc.QSplitter_ReplaceWidget(@ptrCast(self.ptr), @bitCast(index), @ptrCast(widget.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#setOrientation)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` orientation: qnamespace_enums.Orientation `
     ///
-    pub fn SetOrientation(self: ?*anyopaque, orientation: i32) void {
-        qtc.QSplitter_SetOrientation(@ptrCast(self), @bitCast(orientation));
+    pub fn SetOrientation(self: QSplitter, orientation: i32) void {
+        qtc.QSplitter_SetOrientation(@ptrCast(self.ptr), @bitCast(orientation));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#orientation)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.Orientation `
     ///
-    pub fn Orientation(self: ?*anyopaque) i32 {
-        return qtc.QSplitter_Orientation(@ptrCast(self));
+    pub fn Orientation(self: QSplitter) i32 {
+        return qtc.QSplitter_Orientation(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#setChildrenCollapsible)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` childrenCollapsible: bool `
     ///
-    pub fn SetChildrenCollapsible(self: ?*anyopaque, childrenCollapsible: bool) void {
-        qtc.QSplitter_SetChildrenCollapsible(@ptrCast(self), childrenCollapsible);
+    pub fn SetChildrenCollapsible(self: QSplitter, childrenCollapsible: bool) void {
+        qtc.QSplitter_SetChildrenCollapsible(@ptrCast(self.ptr), childrenCollapsible);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#childrenCollapsible)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn ChildrenCollapsible(self: ?*anyopaque) bool {
-        return qtc.QSplitter_ChildrenCollapsible(@ptrCast(self));
+    pub fn ChildrenCollapsible(self: QSplitter) bool {
+        return qtc.QSplitter_ChildrenCollapsible(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#setCollapsible)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` index: i32 `
     ///
     /// ` param2: bool `
     ///
-    pub fn SetCollapsible(self: ?*anyopaque, index: i32, param2: bool) void {
-        qtc.QSplitter_SetCollapsible(@ptrCast(self), @bitCast(index), param2);
+    pub fn SetCollapsible(self: QSplitter, index: i32, param2: bool) void {
+        qtc.QSplitter_SetCollapsible(@ptrCast(self.ptr), @bitCast(index), param2);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#isCollapsible)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` index: i32 `
     ///
-    pub fn IsCollapsible(self: ?*anyopaque, index: i32) bool {
-        return qtc.QSplitter_IsCollapsible(@ptrCast(self), @bitCast(index));
+    pub fn IsCollapsible(self: QSplitter, index: i32) bool {
+        return qtc.QSplitter_IsCollapsible(@ptrCast(self.ptr), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#setOpaqueResize)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn SetOpaqueResize(self: ?*anyopaque) void {
-        qtc.QSplitter_SetOpaqueResize(@ptrCast(self));
+    pub fn SetOpaqueResize(self: QSplitter) void {
+        qtc.QSplitter_SetOpaqueResize(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#opaqueResize)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn OpaqueResize(self: ?*anyopaque) bool {
-        return qtc.QSplitter_OpaqueResize(@ptrCast(self));
+    pub fn OpaqueResize(self: QSplitter) bool {
+        return qtc.QSplitter_OpaqueResize(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#refresh)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn Refresh(self: ?*anyopaque) void {
-        qtc.QSplitter_Refresh(@ptrCast(self));
+    pub fn Refresh(self: QSplitter) void {
+        qtc.QSplitter_Refresh(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#sizeHint)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QSplitter_SizeHint(@ptrCast(self));
+    pub fn SizeHint(self: QSplitter) QSize {
+        return .{ .ptr = qtc.QSplitter_SizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#sizeHint)
@@ -352,12 +428,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QSplitter_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSizeHint(self: QSplitter, callback: *const fn () callconv(.c) QSize) void {
+        qtc.QSplitter_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSizeHint` instead
@@ -370,20 +446,20 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QSplitter_SuperSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: QSplitter) QSize {
+        return .{ .ptr = qtc.QSplitter_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#minimumSizeHint)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn MinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QSplitter_MinimumSizeHint(@ptrCast(self));
+    pub fn MinimumSizeHint(self: QSplitter) QSize {
+        return .{ .ptr = qtc.QSplitter_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#minimumSizeHint)
@@ -392,12 +468,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnMinimumSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QSplitter_OnMinimumSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMinimumSizeHint(self: QSplitter, callback: *const fn () callconv(.c) QSize) void {
+        qtc.QSplitter_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
@@ -410,22 +486,22 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn SuperMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QSplitter_SuperMinimumSizeHint(@ptrCast(self));
+    pub fn SuperMinimumSizeHint(self: QSplitter) QSize {
+        return .{ .ptr = qtc.QSplitter_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#sizes)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Sizes(self: ?*anyopaque, allocator: std.mem.Allocator) []i32 {
-        const _arr: qtc.libqt_list = qtc.QSplitter_Sizes(@ptrCast(self));
+    pub fn Sizes(self: QSplitter, allocator: std.mem.Allocator) []i32 {
+        const _arr: qtc.libqt_list = qtc.QSplitter_Sizes(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(i32, _arr.len) catch @panic("qsplitter.Sizes: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
@@ -437,28 +513,28 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` list: []i32 `
     ///
-    pub fn SetSizes(self: ?*anyopaque, list: []i32) void {
+    pub fn SetSizes(self: QSplitter, list: []i32) void {
         const list_list = qtc.libqt_list{
             .len = list.len,
             .data = list.ptr,
         };
-        qtc.QSplitter_SetSizes(@ptrCast(self), list_list);
+        qtc.QSplitter_SetSizes(@ptrCast(self.ptr), list_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#saveState)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveState(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QSplitter_SaveState(@ptrCast(self));
+    pub fn SaveState(self: QSplitter, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QSplitter_SaveState(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsplitter.SaveState: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -469,79 +545,80 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` state: []u8 `
     ///
-    pub fn RestoreState(self: ?*anyopaque, state: []u8) bool {
+    pub fn RestoreState(self: QSplitter, state: []u8) bool {
         const state_str = qtc.libqt_string{
             .len = state.len,
             .data = state.ptr,
         };
-        return qtc.QSplitter_RestoreState(@ptrCast(self), state_str);
+        return qtc.QSplitter_RestoreState(@ptrCast(self.ptr), state_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#handleWidth)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn HandleWidth(self: ?*anyopaque) i32 {
-        return qtc.QSplitter_HandleWidth(@ptrCast(self));
+    pub fn HandleWidth(self: QSplitter) i32 {
+        return qtc.QSplitter_HandleWidth(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#setHandleWidth)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` handleWidth: i32 `
     ///
-    pub fn SetHandleWidth(self: ?*anyopaque, handleWidth: i32) void {
-        qtc.QSplitter_SetHandleWidth(@ptrCast(self), @bitCast(handleWidth));
+    pub fn SetHandleWidth(self: QSplitter, handleWidth: i32) void {
+        qtc.QSplitter_SetHandleWidth(@ptrCast(self.ptr), @bitCast(handleWidth));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#indexOf)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` w: QtC.QWidget `
+    /// ` w: QWidget `
     ///
-    pub fn IndexOf(self: ?*anyopaque, w: ?*anyopaque) i32 {
-        return qtc.QSplitter_IndexOf(@ptrCast(self), @ptrCast(w));
+    pub fn IndexOf(self: QSplitter, w: anytype) i32 {
+        comptime _ = @TypeOf(w)._is_QWidget;
+        return qtc.QSplitter_IndexOf(@ptrCast(self.ptr), @ptrCast(w.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#widget)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` index: i32 `
     ///
-    pub fn Widget(self: ?*anyopaque, index: i32) QtC.QWidget {
-        return qtc.QSplitter_Widget(@ptrCast(self), @bitCast(index));
+    pub fn Widget(self: QSplitter, index: i32) QWidget {
+        return .{ .ptr = qtc.QSplitter_Widget(@ptrCast(self.ptr), @bitCast(index)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#count)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn Count(self: ?*anyopaque) i32 {
-        return qtc.QSplitter_Count(@ptrCast(self));
+    pub fn Count(self: QSplitter) i32 {
+        return qtc.QSplitter_Count(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#getRange)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` index: i32 `
     ///
@@ -549,70 +626,70 @@ pub const qsplitter = struct {
     ///
     /// ` param3: *i32 `
     ///
-    pub fn GetRange(self: ?*anyopaque, index: i32, param2: *i32, param3: *i32) void {
-        qtc.QSplitter_GetRange(@ptrCast(self), @bitCast(index), @ptrCast(param2), @ptrCast(param3));
+    pub fn GetRange(self: QSplitter, index: i32, param2: *i32, param3: *i32) void {
+        qtc.QSplitter_GetRange(@ptrCast(self.ptr), @bitCast(index), @ptrCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#handle)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` index: i32 `
     ///
-    pub fn Handle(self: ?*anyopaque, index: i32) QtC.QSplitterHandle {
-        return qtc.QSplitter_Handle(@ptrCast(self), @bitCast(index));
+    pub fn Handle(self: QSplitter, index: i32) QSplitterHandle {
+        return .{ .ptr = qtc.QSplitter_Handle(@ptrCast(self.ptr), @bitCast(index)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#setStretchFactor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` index: i32 `
     ///
     /// ` stretch: i32 `
     ///
-    pub fn SetStretchFactor(self: ?*anyopaque, index: i32, stretch: i32) void {
-        qtc.QSplitter_SetStretchFactor(@ptrCast(self), @bitCast(index), @bitCast(stretch));
+    pub fn SetStretchFactor(self: QSplitter, index: i32, stretch: i32) void {
+        qtc.QSplitter_SetStretchFactor(@ptrCast(self.ptr), @bitCast(index), @bitCast(stretch));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#splitterMoved)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` pos: i32 `
     ///
     /// ` index: i32 `
     ///
-    pub fn SplitterMoved(self: ?*anyopaque, pos: i32, index: i32) void {
-        qtc.QSplitter_SplitterMoved(@ptrCast(self), @bitCast(pos), @bitCast(index));
+    pub fn SplitterMoved(self: QSplitter, pos: i32, index: i32) void {
+        qtc.QSplitter_SplitterMoved(@ptrCast(self.ptr), @bitCast(pos), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#splitterMoved)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, pos: i32, index: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitter, pos: i32, index: i32) callconv(.c) void `
     ///
-    pub fn OnSplitterMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QSplitter_Connect_SplitterMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSplitterMoved(self: QSplitter, callback: *const fn (QSplitter, i32, i32) callconv(.c) void) void {
+        qtc.QSplitter_Connect_SplitterMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#createHandle)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn CreateHandle(self: ?*anyopaque) QtC.QSplitterHandle {
-        return qtc.QSplitter_CreateHandle(@ptrCast(self));
+    pub fn CreateHandle(self: QSplitter) QSplitterHandle {
+        return .{ .ptr = qtc.QSplitter_CreateHandle(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#createHandle)
@@ -621,12 +698,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSplitterHandle `
+    /// ` callback: *const fn () callconv(.c) QSplitterHandle `
     ///
-    pub fn OnCreateHandle(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSplitterHandle) void {
-        qtc.QSplitter_OnCreateHandle(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreateHandle(self: QSplitter, callback: *const fn () callconv(.c) QSplitterHandle) void {
+        qtc.QSplitter_OnCreateHandle(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperCreateHandle` instead
@@ -639,22 +716,23 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn SuperCreateHandle(self: ?*anyopaque) QtC.QSplitterHandle {
-        return qtc.QSplitter_SuperCreateHandle(@ptrCast(self));
+    pub fn SuperCreateHandle(self: QSplitter) QSplitterHandle {
+        return .{ .ptr = qtc.QSplitter_SuperCreateHandle(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#childEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` param1: QtC.QChildEvent `
+    /// ` param1: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QSplitter_ChildEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn ChildEvent(self: QSplitter, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QChildEvent;
+        qtc.QSplitter_ChildEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#childEvent)
@@ -663,12 +741,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, param1: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitter, param1: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitter_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QSplitter, callback: *const fn (QSplitter, QChildEvent) callconv(.c) void) void {
+        qtc.QSplitter_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -681,24 +759,26 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` param1: QtC.QChildEvent `
+    /// ` param1: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QSplitter_SuperChildEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperChildEvent(self: QSplitter, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QChildEvent;
+        qtc.QSplitter_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#event)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` param1: QtC.QEvent `
+    /// ` param1: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QSplitter_Event(@ptrCast(self), @ptrCast(param1));
+    pub fn Event(self: QSplitter, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QEvent;
+        return qtc.QSplitter_Event(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#event)
@@ -707,12 +787,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, param1: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QSplitter, param1: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSplitter_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QSplitter, callback: *const fn (QSplitter, QEvent) callconv(.c) bool) void {
+        qtc.QSplitter_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -725,24 +805,26 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` param1: QtC.QEvent `
+    /// ` param1: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QSplitter_SuperEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperEvent(self: QSplitter, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QEvent;
+        return qtc.QSplitter_SuperEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#resizeEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` param1: QtC.QResizeEvent `
+    /// ` param1: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QSplitter_ResizeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn ResizeEvent(self: QSplitter, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QResizeEvent;
+        qtc.QSplitter_ResizeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#resizeEvent)
@@ -751,12 +833,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, param1: QtC.QResizeEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitter, param1: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitter_OnResizeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResizeEvent(self: QSplitter, callback: *const fn (QSplitter, QResizeEvent) callconv(.c) void) void {
+        qtc.QSplitter_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperResizeEvent` instead
@@ -769,24 +851,26 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` param1: QtC.QResizeEvent `
+    /// ` param1: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QSplitter_SuperResizeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperResizeEvent(self: QSplitter, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QResizeEvent;
+        qtc.QSplitter_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#changeEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` param1: QtC.QEvent `
+    /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QSplitter_ChangeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn ChangeEvent(self: QSplitter, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QEvent;
+        qtc.QSplitter_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#changeEvent)
@@ -795,12 +879,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, param1: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitter, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitter_OnChangeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChangeEvent(self: QSplitter, callback: *const fn (QSplitter, QEvent) callconv(.c) void) void {
+        qtc.QSplitter_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperChangeEvent` instead
@@ -813,26 +897,27 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` param1: QtC.QEvent `
+    /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QSplitter_SuperChangeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperChangeEvent(self: QSplitter, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QEvent;
+        qtc.QSplitter_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#moveSplitter)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` pos: i32 `
     ///
     /// ` index: i32 `
     ///
-    pub fn MoveSplitter(self: ?*anyopaque, pos: i32, index: i32) void {
-        qtc.QSplitter_MoveSplitter(@ptrCast(self), @bitCast(pos), @bitCast(index));
+    pub fn MoveSplitter(self: QSplitter, pos: i32, index: i32) void {
+        qtc.QSplitter_MoveSplitter(@ptrCast(self.ptr), @bitCast(pos), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#moveSplitter)
@@ -841,12 +926,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, pos: i32, index: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitter, pos: i32, index: i32) callconv(.c) void `
     ///
-    pub fn OnMoveSplitter(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QSplitter_OnMoveSplitter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMoveSplitter(self: QSplitter, callback: *const fn (QSplitter, i32, i32) callconv(.c) void) void {
+        qtc.QSplitter_OnMoveSplitter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMoveSplitter` instead
@@ -859,26 +944,26 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` pos: i32 `
     ///
     /// ` index: i32 `
     ///
-    pub fn SuperMoveSplitter(self: ?*anyopaque, pos: i32, index: i32) void {
-        qtc.QSplitter_SuperMoveSplitter(@ptrCast(self), @bitCast(pos), @bitCast(index));
+    pub fn SuperMoveSplitter(self: QSplitter, pos: i32, index: i32) void {
+        qtc.QSplitter_SuperMoveSplitter(@ptrCast(self.ptr), @bitCast(pos), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#setRubberBand)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` position: i32 `
     ///
-    pub fn SetRubberBand(self: ?*anyopaque, position: i32) void {
-        qtc.QSplitter_SetRubberBand(@ptrCast(self), @bitCast(position));
+    pub fn SetRubberBand(self: QSplitter, position: i32) void {
+        qtc.QSplitter_SetRubberBand(@ptrCast(self.ptr), @bitCast(position));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#setRubberBand)
@@ -887,12 +972,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, position: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitter, position: i32) callconv(.c) void `
     ///
-    pub fn OnSetRubberBand(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QSplitter_OnSetRubberBand(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetRubberBand(self: QSplitter, callback: *const fn (QSplitter, i32) callconv(.c) void) void {
+        qtc.QSplitter_OnSetRubberBand(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetRubberBand` instead
@@ -905,26 +990,26 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` position: i32 `
     ///
-    pub fn SuperSetRubberBand(self: ?*anyopaque, position: i32) void {
-        qtc.QSplitter_SuperSetRubberBand(@ptrCast(self), @bitCast(position));
+    pub fn SuperSetRubberBand(self: QSplitter, position: i32) void {
+        qtc.QSplitter_SuperSetRubberBand(@ptrCast(self.ptr), @bitCast(position));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#closestLegalPosition)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` param1: i32 `
     ///
     /// ` param2: i32 `
     ///
-    pub fn ClosestLegalPosition(self: ?*anyopaque, param1: i32, param2: i32) i32 {
-        return qtc.QSplitter_ClosestLegalPosition(@ptrCast(self), @bitCast(param1), @bitCast(param2));
+    pub fn ClosestLegalPosition(self: QSplitter, param1: i32, param2: i32) i32 {
+        return qtc.QSplitter_ClosestLegalPosition(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#closestLegalPosition)
@@ -933,12 +1018,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, param1: i32, param2: i32) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QSplitter, param1: i32, param2: i32) callconv(.c) i32 `
     ///
-    pub fn OnClosestLegalPosition(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) i32) void {
-        qtc.QSplitter_OnClosestLegalPosition(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnClosestLegalPosition(self: QSplitter, callback: *const fn (QSplitter, i32, i32) callconv(.c) i32) void {
+        qtc.QSplitter_OnClosestLegalPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperClosestLegalPosition` instead
@@ -951,27 +1036,27 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` param1: i32 `
     ///
     /// ` param2: i32 `
     ///
-    pub fn SuperClosestLegalPosition(self: ?*anyopaque, param1: i32, param2: i32) i32 {
-        return qtc.QSplitter_SuperClosestLegalPosition(@ptrCast(self), @bitCast(param1), @bitCast(param2));
+    pub fn SuperClosestLegalPosition(self: QSplitter, param1: i32, param2: i32) i32 {
+        return qtc.QSplitter_SuperClosestLegalPosition(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -985,15 +1070,15 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -1007,12 +1092,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` opaqueVal: bool `
     ///
-    pub fn SetOpaqueResize1(self: ?*anyopaque, opaqueVal: bool) void {
-        qtc.QSplitter_SetOpaqueResize1(@ptrCast(self), opaqueVal);
+    pub fn SetOpaqueResize1(self: QSplitter, opaqueVal: bool) void {
+        qtc.QSplitter_SetOpaqueResize1(@ptrCast(self.ptr), opaqueVal);
     }
 
     /// Inherited from QFrame
@@ -1021,10 +1106,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn FrameStyle(self: ?*anyopaque) i32 {
-        return qtc.QFrame_FrameStyle(@ptrCast(self));
+    pub fn FrameStyle(self: QSplitter) i32 {
+        return qtc.QFrame_FrameStyle(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -1033,12 +1118,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` frameStyle: i32 `
     ///
-    pub fn SetFrameStyle(self: ?*anyopaque, frameStyle: i32) void {
-        qtc.QFrame_SetFrameStyle(@ptrCast(self), @bitCast(frameStyle));
+    pub fn SetFrameStyle(self: QSplitter, frameStyle: i32) void {
+        qtc.QFrame_SetFrameStyle(@ptrCast(self.ptr), @bitCast(frameStyle));
     }
 
     /// Inherited from QFrame
@@ -1047,10 +1132,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn FrameWidth(self: ?*anyopaque) i32 {
-        return qtc.QFrame_FrameWidth(@ptrCast(self));
+    pub fn FrameWidth(self: QSplitter) i32 {
+        return qtc.QFrame_FrameWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -1059,14 +1144,14 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ## Returns:
     ///
     /// ` qframe_enums.Shape `
     ///
-    pub fn FrameShape(self: ?*anyopaque) i32 {
-        return qtc.QFrame_FrameShape(@ptrCast(self));
+    pub fn FrameShape(self: QSplitter) i32 {
+        return qtc.QFrame_FrameShape(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -1075,12 +1160,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` frameShape: qframe_enums.Shape `
     ///
-    pub fn SetFrameShape(self: ?*anyopaque, frameShape: i32) void {
-        qtc.QFrame_SetFrameShape(@ptrCast(self), @bitCast(frameShape));
+    pub fn SetFrameShape(self: QSplitter, frameShape: i32) void {
+        qtc.QFrame_SetFrameShape(@ptrCast(self.ptr), @bitCast(frameShape));
     }
 
     /// Inherited from QFrame
@@ -1089,14 +1174,14 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ## Returns:
     ///
     /// ` qframe_enums.Shadow `
     ///
-    pub fn FrameShadow(self: ?*anyopaque) i32 {
-        return qtc.QFrame_FrameShadow(@ptrCast(self));
+    pub fn FrameShadow(self: QSplitter) i32 {
+        return qtc.QFrame_FrameShadow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -1105,12 +1190,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` frameShadow: qframe_enums.Shadow `
     ///
-    pub fn SetFrameShadow(self: ?*anyopaque, frameShadow: i32) void {
-        qtc.QFrame_SetFrameShadow(@ptrCast(self), @bitCast(frameShadow));
+    pub fn SetFrameShadow(self: QSplitter, frameShadow: i32) void {
+        qtc.QFrame_SetFrameShadow(@ptrCast(self.ptr), @bitCast(frameShadow));
     }
 
     /// Inherited from QFrame
@@ -1119,10 +1204,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn LineWidth(self: ?*anyopaque) i32 {
-        return qtc.QFrame_LineWidth(@ptrCast(self));
+    pub fn LineWidth(self: QSplitter) i32 {
+        return qtc.QFrame_LineWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -1131,12 +1216,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` lineWidth: i32 `
     ///
-    pub fn SetLineWidth(self: ?*anyopaque, lineWidth: i32) void {
-        qtc.QFrame_SetLineWidth(@ptrCast(self), @bitCast(lineWidth));
+    pub fn SetLineWidth(self: QSplitter, lineWidth: i32) void {
+        qtc.QFrame_SetLineWidth(@ptrCast(self.ptr), @bitCast(lineWidth));
     }
 
     /// Inherited from QFrame
@@ -1145,10 +1230,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn MidLineWidth(self: ?*anyopaque) i32 {
-        return qtc.QFrame_MidLineWidth(@ptrCast(self));
+    pub fn MidLineWidth(self: QSplitter) i32 {
+        return qtc.QFrame_MidLineWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -1157,12 +1242,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` midLineWidth: i32 `
     ///
-    pub fn SetMidLineWidth(self: ?*anyopaque, midLineWidth: i32) void {
-        qtc.QFrame_SetMidLineWidth(@ptrCast(self), @bitCast(midLineWidth));
+    pub fn SetMidLineWidth(self: QSplitter, midLineWidth: i32) void {
+        qtc.QFrame_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(midLineWidth));
     }
 
     /// Inherited from QFrame
@@ -1171,10 +1256,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn FrameRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QFrame_FrameRect(@ptrCast(self));
+    pub fn FrameRect(self: QSplitter) QRect {
+        return .{ .ptr = qtc.QFrame_FrameRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QFrame
@@ -1183,12 +1268,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` frameRect: QtC.QRect `
+    /// ` frameRect: QRect `
     ///
-    pub fn SetFrameRect(self: ?*anyopaque, frameRect: ?*anyopaque) void {
-        qtc.QFrame_SetFrameRect(@ptrCast(self), @ptrCast(frameRect));
+    pub fn SetFrameRect(self: QSplitter, frameRect: anytype) void {
+        comptime _ = @TypeOf(frameRect)._is_QRect;
+        qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(frameRect.ptr));
     }
 
     /// Inherited from QWidget
@@ -1197,10 +1283,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn WinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_WinId(@ptrCast(self));
+    pub fn WinId(self: QSplitter) usize {
+        return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1209,10 +1295,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn CreateWinId(self: ?*anyopaque) void {
-        qtc.QWidget_CreateWinId(@ptrCast(self));
+    pub fn CreateWinId(self: QSplitter) void {
+        qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1221,10 +1307,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn InternalWinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_InternalWinId(@ptrCast(self));
+    pub fn InternalWinId(self: QSplitter) usize {
+        return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1233,10 +1319,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn EffectiveWinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_EffectiveWinId(@ptrCast(self));
+    pub fn EffectiveWinId(self: QSplitter) usize {
+        return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1245,10 +1331,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn Style(self: ?*anyopaque) QtC.QStyle {
-        return qtc.QWidget_Style(@ptrCast(self));
+    pub fn Style(self: QSplitter) QStyle {
+        return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1257,12 +1343,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` style: QtC.QStyle `
+    /// ` style: QStyle `
     ///
-    pub fn SetStyle(self: ?*anyopaque, style: ?*anyopaque) void {
-        qtc.QWidget_SetStyle(@ptrCast(self), @ptrCast(style));
+    pub fn SetStyle(self: QSplitter, style: anytype) void {
+        comptime _ = @TypeOf(style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
     }
 
     /// Inherited from QWidget
@@ -1271,10 +1358,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn IsTopLevel(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsTopLevel(@ptrCast(self));
+    pub fn IsTopLevel(self: QSplitter) bool {
+        return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1283,10 +1370,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn IsWindow(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsWindow(@ptrCast(self));
+    pub fn IsWindow(self: QSplitter) bool {
+        return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1295,10 +1382,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn IsModal(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsModal(@ptrCast(self));
+    pub fn IsModal(self: QSplitter) bool {
+        return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1307,14 +1394,14 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowModality(@ptrCast(self));
+    pub fn WindowModality(self: QSplitter) i32 {
+        return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1323,12 +1410,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self), @bitCast(windowModality));
+    pub fn SetWindowModality(self: QSplitter, windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
     }
 
     /// Inherited from QWidget
@@ -1337,10 +1424,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn IsEnabled(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsEnabled(@ptrCast(self));
+    pub fn IsEnabled(self: QSplitter) bool {
+        return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1349,12 +1436,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidget_IsEnabledTo(@ptrCast(self), @ptrCast(param1));
+    pub fn IsEnabledTo(self: QSplitter, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -1363,12 +1451,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
-        qtc.QWidget_SetEnabled(@ptrCast(self), enabled);
+    pub fn SetEnabled(self: QSplitter, enabled: bool) void {
+        qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QWidget
@@ -1377,12 +1465,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: ?*anyopaque, disabled: bool) void {
-        qtc.QWidget_SetDisabled(@ptrCast(self), disabled);
+    pub fn SetDisabled(self: QSplitter, disabled: bool) void {
+        qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
 
     /// Inherited from QWidget
@@ -1391,12 +1479,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: ?*anyopaque, windowModified: bool) void {
-        qtc.QWidget_SetWindowModified(@ptrCast(self), windowModified);
+    pub fn SetWindowModified(self: QSplitter, windowModified: bool) void {
+        qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
 
     /// Inherited from QWidget
@@ -1405,10 +1493,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn FrameGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_FrameGeometry(@ptrCast(self));
+    pub fn FrameGeometry(self: QSplitter) QRect {
+        return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1417,10 +1505,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn Geometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_Geometry(@ptrCast(self));
+    pub fn Geometry(self: QSplitter) QRect {
+        return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1429,10 +1517,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn NormalGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_NormalGeometry(@ptrCast(self));
+    pub fn NormalGeometry(self: QSplitter) QRect {
+        return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1441,10 +1529,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn X(self: ?*anyopaque) i32 {
-        return qtc.QWidget_X(@ptrCast(self));
+    pub fn X(self: QSplitter) i32 {
+        return qtc.QWidget_X(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1453,10 +1541,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn Y(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Y(@ptrCast(self));
+    pub fn Y(self: QSplitter) i32 {
+        return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1465,10 +1553,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn Pos(self: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_Pos(@ptrCast(self));
+    pub fn Pos(self: QSplitter) QPoint {
+        return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1477,10 +1565,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_FrameSize(@ptrCast(self));
+    pub fn FrameSize(self: QSplitter) QSize {
+        return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1489,10 +1577,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn Size(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_Size(@ptrCast(self));
+    pub fn Size(self: QSplitter) QSize {
+        return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1501,10 +1589,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn Width(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Width(@ptrCast(self));
+    pub fn Width(self: QSplitter) i32 {
+        return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1513,10 +1601,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn Height(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Height(@ptrCast(self));
+    pub fn Height(self: QSplitter) i32 {
+        return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1525,10 +1613,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn Rect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_Rect(@ptrCast(self));
+    pub fn Rect(self: QSplitter) QRect {
+        return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1537,10 +1625,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn ChildrenRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_ChildrenRect(@ptrCast(self));
+    pub fn ChildrenRect(self: QSplitter) QRect {
+        return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1549,10 +1637,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn ChildrenRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_ChildrenRegion(@ptrCast(self));
+    pub fn ChildrenRegion(self: QSplitter) QRegion {
+        return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1561,10 +1649,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MinimumSize(@ptrCast(self));
+    pub fn MinimumSize(self: QSplitter) QSize {
+        return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1573,10 +1661,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MaximumSize(@ptrCast(self));
+    pub fn MaximumSize(self: QSplitter) QSize {
+        return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1585,10 +1673,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn MinimumWidth(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MinimumWidth(@ptrCast(self));
+    pub fn MinimumWidth(self: QSplitter) i32 {
+        return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1597,10 +1685,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn MinimumHeight(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MinimumHeight(@ptrCast(self));
+    pub fn MinimumHeight(self: QSplitter) i32 {
+        return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1609,10 +1697,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn MaximumWidth(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MaximumWidth(@ptrCast(self));
+    pub fn MaximumWidth(self: QSplitter) i32 {
+        return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1621,10 +1709,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn MaximumHeight(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MaximumHeight(@ptrCast(self));
+    pub fn MaximumHeight(self: QSplitter) i32 {
+        return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1633,12 +1721,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` minimumSize: QtC.QSize `
+    /// ` minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: ?*anyopaque, minimumSize: ?*anyopaque) void {
-        qtc.QWidget_SetMinimumSize(@ptrCast(self), @ptrCast(minimumSize));
+    pub fn SetMinimumSize(self: QSplitter, minimumSize: anytype) void {
+        comptime _ = @TypeOf(minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -1647,14 +1736,14 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` minw: i32 `
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
-        qtc.QWidget_SetMinimumSize2(@ptrCast(self), @bitCast(minw), @bitCast(minh));
+    pub fn SetMinimumSize2(self: QSplitter, minw: i32, minh: i32) void {
+        qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -1663,12 +1752,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` maximumSize: QtC.QSize `
+    /// ` maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: ?*anyopaque, maximumSize: ?*anyopaque) void {
-        qtc.QWidget_SetMaximumSize(@ptrCast(self), @ptrCast(maximumSize));
+    pub fn SetMaximumSize(self: QSplitter, maximumSize: anytype) void {
+        comptime _ = @TypeOf(maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -1677,14 +1767,14 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` maxw: i32 `
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
-        qtc.QWidget_SetMaximumSize2(@ptrCast(self), @bitCast(maxw), @bitCast(maxh));
+    pub fn SetMaximumSize2(self: QSplitter, maxw: i32, maxh: i32) void {
+        qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -1693,12 +1783,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
-        qtc.QWidget_SetMinimumWidth(@ptrCast(self), @bitCast(minw));
+    pub fn SetMinimumWidth(self: QSplitter, minw: i32) void {
+        qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
 
     /// Inherited from QWidget
@@ -1707,12 +1797,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
-        qtc.QWidget_SetMinimumHeight(@ptrCast(self), @bitCast(minh));
+    pub fn SetMinimumHeight(self: QSplitter, minh: i32) void {
+        qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -1721,12 +1811,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
-        qtc.QWidget_SetMaximumWidth(@ptrCast(self), @bitCast(maxw));
+    pub fn SetMaximumWidth(self: QSplitter, maxw: i32) void {
+        qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
 
     /// Inherited from QWidget
@@ -1735,12 +1825,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
-        qtc.QWidget_SetMaximumHeight(@ptrCast(self), @bitCast(maxh));
+    pub fn SetMaximumHeight(self: QSplitter, maxh: i32) void {
+        qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -1749,10 +1839,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn SizeIncrement(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_SizeIncrement(@ptrCast(self));
+    pub fn SizeIncrement(self: QSplitter) QSize {
+        return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1761,12 +1851,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` sizeIncrement: QtC.QSize `
+    /// ` sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: ?*anyopaque, sizeIncrement: ?*anyopaque) void {
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self), @ptrCast(sizeIncrement));
+    pub fn SetSizeIncrement(self: QSplitter, sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
     }
 
     /// Inherited from QWidget
@@ -1775,14 +1866,14 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetSizeIncrement2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetSizeIncrement2(self: QSplitter, w: i32, h: i32) void {
+        qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -1791,10 +1882,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn BaseSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_BaseSize(@ptrCast(self));
+    pub fn BaseSize(self: QSplitter) QSize {
+        return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1803,12 +1894,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` baseSize: QtC.QSize `
+    /// ` baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: ?*anyopaque, baseSize: ?*anyopaque) void {
-        qtc.QWidget_SetBaseSize(@ptrCast(self), @ptrCast(baseSize));
+    pub fn SetBaseSize(self: QSplitter, baseSize: anytype) void {
+        comptime _ = @TypeOf(baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -1817,14 +1909,14 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` basew: i32 `
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
-        qtc.QWidget_SetBaseSize2(@ptrCast(self), @bitCast(basew), @bitCast(baseh));
+    pub fn SetBaseSize2(self: QSplitter, basew: i32, baseh: i32) void {
+        qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
 
     /// Inherited from QWidget
@@ -1833,12 +1925,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` fixedSize: QtC.QSize `
+    /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: ?*anyopaque, fixedSize: ?*anyopaque) void {
-        qtc.QWidget_SetFixedSize(@ptrCast(self), @ptrCast(fixedSize));
+    pub fn SetFixedSize(self: QSplitter, fixedSize: anytype) void {
+        comptime _ = @TypeOf(fixedSize)._is_QSize;
+        qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -1847,14 +1940,14 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetFixedSize2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetFixedSize2(self: QSplitter, w: i32, h: i32) void {
+        qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -1863,12 +1956,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
-        qtc.QWidget_SetFixedWidth(@ptrCast(self), @bitCast(w));
+    pub fn SetFixedWidth(self: QSplitter, w: i32) void {
+        qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
 
     /// Inherited from QWidget
@@ -1877,12 +1970,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
-        qtc.QWidget_SetFixedHeight(@ptrCast(self), @bitCast(h));
+    pub fn SetFixedHeight(self: QSplitter, h: i32) void {
+        qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -1891,12 +1984,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapToGlobal(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal(self: QSplitter, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1905,12 +1999,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToGlobal2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal2(self: QSplitter, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1919,12 +2014,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFromGlobal(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal(self: QSplitter, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1933,12 +2029,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromGlobal2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal2(self: QSplitter, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1947,12 +2044,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapToParent(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent(self: QSplitter, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1961,12 +2059,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToParent2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent2(self: QSplitter, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1975,12 +2074,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFromParent(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent(self: QSplitter, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1989,12 +2089,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromParent2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent2(self: QSplitter, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2003,14 +2104,16 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPointF `
+    /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapTo(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapTo(self: QSplitter, param1: anytype, param2: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2019,14 +2122,16 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPoint `
+    /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapTo2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapTo2(self: QSplitter, param1: anytype, param2: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2035,14 +2140,16 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPointF `
+    /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFrom(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapFrom(self: QSplitter, param1: anytype, param2: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2051,14 +2158,16 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPoint `
+    /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFrom2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapFrom2(self: QSplitter, param1: anytype, param2: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2067,10 +2176,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn Window(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_Window(@ptrCast(self));
+    pub fn Window(self: QSplitter) QWidget {
+        return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2079,10 +2188,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn NativeParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_NativeParentWidget(@ptrCast(self));
+    pub fn NativeParentWidget(self: QSplitter) QWidget {
+        return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2091,10 +2200,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn TopLevelWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_TopLevelWidget(@ptrCast(self));
+    pub fn TopLevelWidget(self: QSplitter) QWidget {
+        return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2103,10 +2212,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn Palette(self: ?*anyopaque) QtC.QPalette {
-        return qtc.QWidget_Palette(@ptrCast(self));
+    pub fn Palette(self: QSplitter) QPalette {
+        return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2115,12 +2224,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` palette: QtC.QPalette `
+    /// ` palette: QPalette `
     ///
-    pub fn SetPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
-        qtc.QWidget_SetPalette(@ptrCast(self), @ptrCast(palette));
+    pub fn SetPalette(self: QSplitter, palette: anytype) void {
+        comptime _ = @TypeOf(palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
     }
 
     /// Inherited from QWidget
@@ -2129,12 +2239,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self), @bitCast(backgroundRole));
+    pub fn SetBackgroundRole(self: QSplitter, backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
     }
 
     /// Inherited from QWidget
@@ -2143,14 +2253,14 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: ?*anyopaque) i32 {
-        return qtc.QWidget_BackgroundRole(@ptrCast(self));
+    pub fn BackgroundRole(self: QSplitter) i32 {
+        return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2159,12 +2269,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self), @bitCast(foregroundRole));
+    pub fn SetForegroundRole(self: QSplitter, foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
     }
 
     /// Inherited from QWidget
@@ -2173,14 +2283,14 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ForegroundRole(@ptrCast(self));
+    pub fn ForegroundRole(self: QSplitter) i32 {
+        return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2189,10 +2299,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn Font(self: ?*anyopaque) QtC.QFont {
-        return qtc.QWidget_Font(@ptrCast(self));
+    pub fn Font(self: QSplitter) QFont {
+        return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2201,12 +2311,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` font: QtC.QFont `
+    /// ` font: QFont `
     ///
-    pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
-        qtc.QWidget_SetFont(@ptrCast(self), @ptrCast(font));
+    pub fn SetFont(self: QSplitter, font: anytype) void {
+        comptime _ = @TypeOf(font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
     }
 
     /// Inherited from QWidget
@@ -2215,10 +2326,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn FontMetrics(self: ?*anyopaque) QtC.QFontMetrics {
-        return qtc.QWidget_FontMetrics(@ptrCast(self));
+    pub fn FontMetrics(self: QSplitter) QFontMetrics {
+        return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2227,10 +2338,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn FontInfo(self: ?*anyopaque) QtC.QFontInfo {
-        return qtc.QWidget_FontInfo(@ptrCast(self));
+    pub fn FontInfo(self: QSplitter) QFontInfo {
+        return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2239,10 +2350,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
-        return qtc.QWidget_Cursor(@ptrCast(self));
+    pub fn Cursor(self: QSplitter) QCursor {
+        return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2251,12 +2362,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` cursor: QtC.QCursor `
+    /// ` cursor: QCursor `
     ///
-    pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
-        qtc.QWidget_SetCursor(@ptrCast(self), @ptrCast(cursor));
+    pub fn SetCursor(self: QSplitter, cursor: anytype) void {
+        comptime _ = @TypeOf(cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
     }
 
     /// Inherited from QWidget
@@ -2265,10 +2377,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn UnsetCursor(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetCursor(@ptrCast(self));
+    pub fn UnsetCursor(self: QSplitter) void {
+        qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2277,12 +2389,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetMouseTracking(@ptrCast(self), enable);
+    pub fn SetMouseTracking(self: QSplitter, enable: bool) void {
+        qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -2291,10 +2403,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn HasMouseTracking(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasMouseTracking(@ptrCast(self));
+    pub fn HasMouseTracking(self: QSplitter) bool {
+        return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2303,10 +2415,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn UnderMouse(self: ?*anyopaque) bool {
-        return qtc.QWidget_UnderMouse(@ptrCast(self));
+    pub fn UnderMouse(self: QSplitter) bool {
+        return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2315,12 +2427,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetTabletTracking(@ptrCast(self), enable);
+    pub fn SetTabletTracking(self: QSplitter, enable: bool) void {
+        qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -2329,10 +2441,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn HasTabletTracking(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasTabletTracking(@ptrCast(self));
+    pub fn HasTabletTracking(self: QSplitter) bool {
+        return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2341,12 +2453,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` mask: QtC.QBitmap `
+    /// ` mask: QBitmap `
     ///
-    pub fn SetMask(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMask(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask(self: QSplitter, mask: anytype) void {
+        comptime _ = @TypeOf(mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
 
     /// Inherited from QWidget
@@ -2355,12 +2468,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` mask: QtC.QRegion `
+    /// ` mask: QRegion `
     ///
-    pub fn SetMask2(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMask2(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask2(self: QSplitter, mask: anytype) void {
+        comptime _ = @TypeOf(mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
 
     /// Inherited from QWidget
@@ -2369,10 +2483,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn Mask(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_Mask(@ptrCast(self));
+    pub fn Mask(self: QSplitter) QRegion {
+        return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2381,10 +2495,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn ClearMask(self: ?*anyopaque) void {
-        qtc.QWidget_ClearMask(@ptrCast(self));
+    pub fn ClearMask(self: QSplitter) void {
+        qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2393,12 +2507,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: ?*anyopaque, target: ?*anyopaque) void {
-        qtc.QWidget_Render(@ptrCast(self), @ptrCast(target));
+    pub fn Render(self: QSplitter, target: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
 
     /// Inherited from QWidget
@@ -2407,12 +2522,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn Render2(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QWidget_Render2(@ptrCast(self), @ptrCast(painter));
+    pub fn Render2(self: QSplitter, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// Inherited from QWidget
@@ -2421,10 +2537,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn Grab(self: ?*anyopaque) QtC.QPixmap {
-        return qtc.QWidget_Grab(@ptrCast(self));
+    pub fn Grab(self: QSplitter) QPixmap {
+        return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2433,10 +2549,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
-        return qtc.QWidget_GraphicsEffect(@ptrCast(self));
+    pub fn GraphicsEffect(self: QSplitter) QGraphicsEffect {
+        return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2445,12 +2561,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` effect: QtC.QGraphicsEffect `
+    /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
-        qtc.QWidget_SetGraphicsEffect(@ptrCast(self), @ptrCast(effect));
+    pub fn SetGraphicsEffect(self: QSplitter, effect: anytype) void {
+        comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
+        qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
 
     /// Inherited from QWidget
@@ -2459,12 +2576,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_GrabGesture(@ptrCast(self), @bitCast(typeVal));
+    pub fn GrabGesture(self: QSplitter, typeVal: i32) void {
+        qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -2473,12 +2590,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_UngrabGesture(@ptrCast(self), @bitCast(typeVal));
+    pub fn UngrabGesture(self: QSplitter, typeVal: i32) void {
+        qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -2487,16 +2604,16 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
+    pub fn SetWindowTitle(self: QSplitter, windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
             .len = windowTitle.len,
             .data = windowTitle.ptr,
         };
-        qtc.QWidget_SetWindowTitle(@ptrCast(self), windowTitle_str);
+        qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
 
     /// Inherited from QWidget
@@ -2505,16 +2622,16 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
+    pub fn SetStyleSheet(self: QSplitter, styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
             .len = styleSheet.len,
             .data = styleSheet.ptr,
         };
-        qtc.QWidget_SetStyleSheet(@ptrCast(self), styleSheet_str);
+        qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
 
     /// Inherited from QWidget
@@ -2523,12 +2640,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_StyleSheet(@ptrCast(self));
+    pub fn StyleSheet(self: QSplitter, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsplitter.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2541,12 +2658,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowTitle(@ptrCast(self));
+    pub fn WindowTitle(self: QSplitter, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsplitter.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2559,12 +2676,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QWidget_SetWindowIcon(@ptrCast(self), @ptrCast(icon));
+    pub fn SetWindowIcon(self: QSplitter, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QWidget
@@ -2573,10 +2691,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn WindowIcon(self: ?*anyopaque) QtC.QIcon {
-        return qtc.QWidget_WindowIcon(@ptrCast(self));
+    pub fn WindowIcon(self: QSplitter) QIcon {
+        return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2585,16 +2703,16 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
+    pub fn SetWindowIconText(self: QSplitter, windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
             .len = windowIconText.len,
             .data = windowIconText.ptr,
         };
-        qtc.QWidget_SetWindowIconText(@ptrCast(self), windowIconText_str);
+        qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
 
     /// Inherited from QWidget
@@ -2603,12 +2721,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowIconText(@ptrCast(self));
+    pub fn WindowIconText(self: QSplitter, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsplitter.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2621,16 +2739,16 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
+    pub fn SetWindowRole(self: QSplitter, windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
             .len = windowRole.len,
             .data = windowRole.ptr,
         };
-        qtc.QWidget_SetWindowRole(@ptrCast(self), windowRole_str);
+        qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
 
     /// Inherited from QWidget
@@ -2639,12 +2757,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowRole(@ptrCast(self));
+    pub fn WindowRole(self: QSplitter, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsplitter.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2657,16 +2775,16 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
+    pub fn SetWindowFilePath(self: QSplitter, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
-        qtc.QWidget_SetWindowFilePath(@ptrCast(self), filePath_str);
+        qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
 
     /// Inherited from QWidget
@@ -2675,12 +2793,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
+    pub fn WindowFilePath(self: QSplitter, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsplitter.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2693,12 +2811,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
-        qtc.QWidget_SetWindowOpacity(@ptrCast(self), @bitCast(level));
+    pub fn SetWindowOpacity(self: QSplitter, level: f64) void {
+        qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
 
     /// Inherited from QWidget
@@ -2707,10 +2825,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn WindowOpacity(self: ?*anyopaque) f64 {
-        return qtc.QWidget_WindowOpacity(@ptrCast(self));
+    pub fn WindowOpacity(self: QSplitter) f64 {
+        return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2719,10 +2837,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn IsWindowModified(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsWindowModified(@ptrCast(self));
+    pub fn IsWindowModified(self: QSplitter) bool {
+        return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2731,16 +2849,16 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
+    pub fn SetToolTip(self: QSplitter, toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
             .len = toolTip.len,
             .data = toolTip.ptr,
         };
-        qtc.QWidget_SetToolTip(@ptrCast(self), toolTip_str);
+        qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
 
     /// Inherited from QWidget
@@ -2749,12 +2867,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_ToolTip(@ptrCast(self));
+    pub fn ToolTip(self: QSplitter, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsplitter.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2767,12 +2885,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
-        qtc.QWidget_SetToolTipDuration(@ptrCast(self), @bitCast(msec));
+    pub fn SetToolTipDuration(self: QSplitter, msec: i32) void {
+        qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
 
     /// Inherited from QWidget
@@ -2781,10 +2899,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn ToolTipDuration(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ToolTipDuration(@ptrCast(self));
+    pub fn ToolTipDuration(self: QSplitter) i32 {
+        return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2793,16 +2911,16 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
+    pub fn SetStatusTip(self: QSplitter, statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
             .len = statusTip.len,
             .data = statusTip.ptr,
         };
-        qtc.QWidget_SetStatusTip(@ptrCast(self), statusTip_str);
+        qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
 
     /// Inherited from QWidget
@@ -2811,12 +2929,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_StatusTip(@ptrCast(self));
+    pub fn StatusTip(self: QSplitter, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsplitter.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2829,16 +2947,16 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
+    pub fn SetWhatsThis(self: QSplitter, whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
             .len = whatsThis.len,
             .data = whatsThis.ptr,
         };
-        qtc.QWidget_SetWhatsThis(@ptrCast(self), whatsThis_str);
+        qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
 
     /// Inherited from QWidget
@@ -2847,12 +2965,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WhatsThis(@ptrCast(self));
+    pub fn WhatsThis(self: QSplitter, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsplitter.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2865,12 +2983,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_AccessibleName(@ptrCast(self));
+    pub fn AccessibleName(self: QSplitter, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsplitter.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2883,16 +3001,16 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
+    pub fn SetAccessibleName(self: QSplitter, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QWidget_SetAccessibleName(@ptrCast(self), name_str);
+        qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QWidget
@@ -2901,12 +3019,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
+    pub fn AccessibleDescription(self: QSplitter, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsplitter.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2919,16 +3037,16 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
+    pub fn SetAccessibleDescription(self: QSplitter, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
-        qtc.QWidget_SetAccessibleDescription(@ptrCast(self), description_str);
+        qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
 
     /// Inherited from QWidget
@@ -2937,12 +3055,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QWidget_SetLayoutDirection(@ptrCast(self), @bitCast(direction));
+    pub fn SetLayoutDirection(self: QSplitter, direction: i32) void {
+        qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
 
     /// Inherited from QWidget
@@ -2951,14 +3069,14 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: ?*anyopaque) i32 {
-        return qtc.QWidget_LayoutDirection(@ptrCast(self));
+    pub fn LayoutDirection(self: QSplitter) i32 {
+        return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2967,10 +3085,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn UnsetLayoutDirection(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self));
+    pub fn UnsetLayoutDirection(self: QSplitter) void {
+        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2979,12 +3097,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` locale: QtC.QLocale `
+    /// ` locale: QLocale `
     ///
-    pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
-        qtc.QWidget_SetLocale(@ptrCast(self), @ptrCast(locale));
+    pub fn SetLocale(self: QSplitter, locale: anytype) void {
+        comptime _ = @TypeOf(locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
     }
 
     /// Inherited from QWidget
@@ -2993,10 +3112,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn Locale(self: ?*anyopaque) QtC.QLocale {
-        return qtc.QWidget_Locale(@ptrCast(self));
+    pub fn Locale(self: QSplitter) QLocale {
+        return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3005,10 +3124,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn UnsetLocale(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetLocale(@ptrCast(self));
+    pub fn UnsetLocale(self: QSplitter) void {
+        qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3017,10 +3136,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn IsRightToLeft(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsRightToLeft(@ptrCast(self));
+    pub fn IsRightToLeft(self: QSplitter) bool {
+        return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3029,10 +3148,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn IsLeftToRight(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsLeftToRight(@ptrCast(self));
+    pub fn IsLeftToRight(self: QSplitter) bool {
+        return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3041,10 +3160,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn SetFocus(self: ?*anyopaque) void {
-        qtc.QWidget_SetFocus(@ptrCast(self));
+    pub fn SetFocus(self: QSplitter) void {
+        qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3053,10 +3172,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn IsActiveWindow(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsActiveWindow(@ptrCast(self));
+    pub fn IsActiveWindow(self: QSplitter) bool {
+        return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3065,10 +3184,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn ActivateWindow(self: ?*anyopaque) void {
-        qtc.QWidget_ActivateWindow(@ptrCast(self));
+    pub fn ActivateWindow(self: QSplitter) void {
+        qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3077,10 +3196,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn ClearFocus(self: ?*anyopaque) void {
-        qtc.QWidget_ClearFocus(@ptrCast(self));
+    pub fn ClearFocus(self: QSplitter) void {
+        qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3089,12 +3208,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
-        qtc.QWidget_SetFocus2(@ptrCast(self), @bitCast(reason));
+    pub fn SetFocus2(self: QSplitter, reason: i32) void {
+        qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
 
     /// Inherited from QWidget
@@ -3103,14 +3222,14 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: ?*anyopaque) i32 {
-        return qtc.QWidget_FocusPolicy(@ptrCast(self));
+    pub fn FocusPolicy(self: QSplitter) i32 {
+        return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3119,12 +3238,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetFocusPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetFocusPolicy(self: QSplitter, policy: i32) void {
+        qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -3133,10 +3252,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn HasFocus(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasFocus(@ptrCast(self));
+    pub fn HasFocus(self: QSplitter) bool {
+        return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3145,12 +3264,14 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QWidget `
+    /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: ?*anyopaque, param2: ?*anyopaque) void {
-        qtc.QWidget_SetTabOrder(@ptrCast(param1), @ptrCast(param2));
+    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QWidget;
+        qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
     /// Inherited from QWidget
@@ -3159,12 +3280,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` focusProxy: QtC.QWidget `
+    /// ` focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: ?*anyopaque, focusProxy: ?*anyopaque) void {
-        qtc.QWidget_SetFocusProxy(@ptrCast(self), @ptrCast(focusProxy));
+    pub fn SetFocusProxy(self: QSplitter, focusProxy: anytype) void {
+        comptime _ = @TypeOf(focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
     }
 
     /// Inherited from QWidget
@@ -3173,10 +3295,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn FocusProxy(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_FocusProxy(@ptrCast(self));
+    pub fn FocusProxy(self: QSplitter) QWidget {
+        return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3185,14 +3307,14 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
+    pub fn ContextMenuPolicy(self: QSplitter) i32 {
+        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3201,12 +3323,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetContextMenuPolicy(self: QSplitter, policy: i32) void {
+        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -3215,10 +3337,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn GrabMouse(self: ?*anyopaque) void {
-        qtc.QWidget_GrabMouse(@ptrCast(self));
+    pub fn GrabMouse(self: QSplitter) void {
+        qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3227,12 +3349,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` param1: QtC.QCursor `
+    /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_GrabMouse2(@ptrCast(self), @ptrCast(param1));
+    pub fn GrabMouse2(self: QSplitter, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QCursor;
+        qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3241,10 +3364,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn ReleaseMouse(self: ?*anyopaque) void {
-        qtc.QWidget_ReleaseMouse(@ptrCast(self));
+    pub fn ReleaseMouse(self: QSplitter) void {
+        qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3253,10 +3376,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn GrabKeyboard(self: ?*anyopaque) void {
-        qtc.QWidget_GrabKeyboard(@ptrCast(self));
+    pub fn GrabKeyboard(self: QSplitter) void {
+        qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3265,10 +3388,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn ReleaseKeyboard(self: ?*anyopaque) void {
-        qtc.QWidget_ReleaseKeyboard(@ptrCast(self));
+    pub fn ReleaseKeyboard(self: QSplitter) void {
+        qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3277,12 +3400,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` key: QtC.QKeySequence `
+    /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: ?*anyopaque, key: ?*anyopaque) i32 {
-        return qtc.QWidget_GrabShortcut(@ptrCast(self), @ptrCast(key));
+    pub fn GrabShortcut(self: QSplitter, key: anytype) i32 {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
 
     /// Inherited from QWidget
@@ -3291,12 +3415,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_ReleaseShortcut(@ptrCast(self), @bitCast(id));
+    pub fn ReleaseShortcut(self: QSplitter, id: i32) void {
+        qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -3305,12 +3429,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutEnabled(@ptrCast(self), @bitCast(id));
+    pub fn SetShortcutEnabled(self: QSplitter, id: i32) void {
+        qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -3319,28 +3443,28 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self), @bitCast(id));
+    pub fn SetShortcutAutoRepeat(self: QSplitter, id: i32) void {
+        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QtC.QWidget {
-        return qtc.QWidget_MouseGrabber();
+    pub fn MouseGrabber() QWidget {
+        return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QtC.QWidget {
-        return qtc.QWidget_KeyboardGrabber();
+    pub fn KeyboardGrabber() QWidget {
+        return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
 
     /// Inherited from QWidget
@@ -3349,10 +3473,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn UpdatesEnabled(self: ?*anyopaque) bool {
-        return qtc.QWidget_UpdatesEnabled(@ptrCast(self));
+    pub fn UpdatesEnabled(self: QSplitter) bool {
+        return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3361,12 +3485,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self), enable);
+    pub fn SetUpdatesEnabled(self: QSplitter, enable: bool) void {
+        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -3375,10 +3499,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn GraphicsProxyWidget(self: ?*anyopaque) QtC.QGraphicsProxyWidget {
-        return qtc.QWidget_GraphicsProxyWidget(@ptrCast(self));
+    pub fn GraphicsProxyWidget(self: QSplitter) QGraphicsProxyWidget {
+        return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3387,10 +3511,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn Update(self: ?*anyopaque) void {
-        qtc.QWidget_Update(@ptrCast(self));
+    pub fn Update(self: QSplitter) void {
+        qtc.QWidget_Update(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3399,10 +3523,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn Repaint(self: ?*anyopaque) void {
-        qtc.QWidget_Repaint(@ptrCast(self));
+    pub fn Repaint(self: QSplitter) void {
+        qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3411,7 +3535,7 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` x: i32 `
     ///
@@ -3421,8 +3545,8 @@ pub const qsplitter = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn Update2(self: QSplitter, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3431,12 +3555,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn Update3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Update3(@ptrCast(self), @ptrCast(param1));
+    pub fn Update3(self: QSplitter, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3445,12 +3570,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn Update4(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Update4(@ptrCast(self), @ptrCast(param1));
+    pub fn Update4(self: QSplitter, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3459,7 +3585,7 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` x: i32 `
     ///
@@ -3469,8 +3595,8 @@ pub const qsplitter = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn Repaint2(self: QSplitter, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3479,12 +3605,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Repaint3(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint3(self: QSplitter, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3493,12 +3620,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Repaint4(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint4(self: QSplitter, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3507,12 +3635,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: ?*anyopaque, hidden: bool) void {
-        qtc.QWidget_SetHidden(@ptrCast(self), hidden);
+    pub fn SetHidden(self: QSplitter, hidden: bool) void {
+        qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
 
     /// Inherited from QWidget
@@ -3521,10 +3649,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn Show(self: ?*anyopaque) void {
-        qtc.QWidget_Show(@ptrCast(self));
+    pub fn Show(self: QSplitter) void {
+        qtc.QWidget_Show(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3533,10 +3661,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn Hide(self: ?*anyopaque) void {
-        qtc.QWidget_Hide(@ptrCast(self));
+    pub fn Hide(self: QSplitter) void {
+        qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3545,10 +3673,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn ShowMinimized(self: ?*anyopaque) void {
-        qtc.QWidget_ShowMinimized(@ptrCast(self));
+    pub fn ShowMinimized(self: QSplitter) void {
+        qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3557,10 +3685,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn ShowMaximized(self: ?*anyopaque) void {
-        qtc.QWidget_ShowMaximized(@ptrCast(self));
+    pub fn ShowMaximized(self: QSplitter) void {
+        qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3569,10 +3697,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn ShowFullScreen(self: ?*anyopaque) void {
-        qtc.QWidget_ShowFullScreen(@ptrCast(self));
+    pub fn ShowFullScreen(self: QSplitter) void {
+        qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3581,10 +3709,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn ShowNormal(self: ?*anyopaque) void {
-        qtc.QWidget_ShowNormal(@ptrCast(self));
+    pub fn ShowNormal(self: QSplitter) void {
+        qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3593,10 +3721,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn Close(self: ?*anyopaque) bool {
-        return qtc.QWidget_Close(@ptrCast(self));
+    pub fn Close(self: QSplitter) bool {
+        return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3605,10 +3733,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn Raise(self: ?*anyopaque) void {
-        qtc.QWidget_Raise(@ptrCast(self));
+    pub fn Raise(self: QSplitter) void {
+        qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3617,10 +3745,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn Lower(self: ?*anyopaque) void {
-        qtc.QWidget_Lower(@ptrCast(self));
+    pub fn Lower(self: QSplitter) void {
+        qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3629,12 +3757,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_StackUnder(@ptrCast(self), @ptrCast(param1));
+    pub fn StackUnder(self: QSplitter, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3643,14 +3772,14 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn Move(self: QSplitter, x: i32, y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QWidget
@@ -3659,12 +3788,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn Move2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Move2(@ptrCast(self), @ptrCast(param1));
+    pub fn Move2(self: QSplitter, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3673,14 +3803,14 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_Resize(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn Resize(self: QSplitter, w: i32, h: i32) void {
+        qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3689,12 +3819,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` param1: QtC.QSize `
+    /// ` param1: QSize `
     ///
-    pub fn Resize2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Resize2(@ptrCast(self), @ptrCast(param1));
+    pub fn Resize2(self: QSplitter, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QSize;
+        qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3703,7 +3834,7 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` x: i32 `
     ///
@@ -3713,8 +3844,8 @@ pub const qsplitter = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn SetGeometry(self: QSplitter, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3723,12 +3854,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` geometry: QtC.QRect `
+    /// ` geometry: QRect `
     ///
-    pub fn SetGeometry2(self: ?*anyopaque, geometry: ?*anyopaque) void {
-        qtc.QWidget_SetGeometry2(@ptrCast(self), @ptrCast(geometry));
+    pub fn SetGeometry2(self: QSplitter, geometry: anytype) void {
+        comptime _ = @TypeOf(geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
     }
 
     /// Inherited from QWidget
@@ -3737,12 +3869,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
+    pub fn SaveGeometry(self: QSplitter, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsplitter.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -3755,16 +3887,16 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
+    pub fn RestoreGeometry(self: QSplitter, geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
             .len = geometry.len,
             .data = geometry.ptr,
         };
-        return qtc.QWidget_RestoreGeometry(@ptrCast(self), geometry_str);
+        return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
 
     /// Inherited from QWidget
@@ -3773,10 +3905,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn AdjustSize(self: ?*anyopaque) void {
-        qtc.QWidget_AdjustSize(@ptrCast(self));
+    pub fn AdjustSize(self: QSplitter) void {
+        qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3785,10 +3917,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn IsVisible(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsVisible(@ptrCast(self));
+    pub fn IsVisible(self: QSplitter) bool {
+        return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3797,12 +3929,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidget_IsVisibleTo(@ptrCast(self), @ptrCast(param1));
+    pub fn IsVisibleTo(self: QSplitter, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3811,10 +3944,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn IsHidden(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsHidden(@ptrCast(self));
+    pub fn IsHidden(self: QSplitter) bool {
+        return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3823,10 +3956,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn IsMinimized(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsMinimized(@ptrCast(self));
+    pub fn IsMinimized(self: QSplitter) bool {
+        return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3835,10 +3968,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn IsMaximized(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsMaximized(@ptrCast(self));
+    pub fn IsMaximized(self: QSplitter) bool {
+        return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3847,10 +3980,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn IsFullScreen(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsFullScreen(@ptrCast(self));
+    pub fn IsFullScreen(self: QSplitter) bool {
+        return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3859,14 +3992,14 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowState(@ptrCast(self));
+    pub fn WindowState(self: QSplitter) i32 {
+        return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3875,12 +4008,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_SetWindowState(@ptrCast(self), @bitCast(state));
+    pub fn SetWindowState(self: QSplitter, state: i32) void {
+        qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -3889,12 +4022,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_OverrideWindowState(@ptrCast(self), @bitCast(state));
+    pub fn OverrideWindowState(self: QSplitter, state: i32) void {
+        qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -3903,10 +4036,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
-        return qtc.QWidget_SizePolicy(@ptrCast(self));
+    pub fn SizePolicy(self: QSplitter) QSizePolicy {
+        return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3915,12 +4048,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` sizePolicy: QtC.QSizePolicy `
+    /// ` sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: QtC.QSizePolicy) void {
-        qtc.QWidget_SetSizePolicy(@ptrCast(self), @ptrCast(sizePolicy));
+    pub fn SetSizePolicy(self: QSplitter, sizePolicy: anytype) void {
+        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
     }
 
     /// Inherited from QWidget
@@ -3929,14 +4063,14 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` horizontal: qsizepolicy_enums.Policy `
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
-        qtc.QWidget_SetSizePolicy2(@ptrCast(self), @bitCast(horizontal), @bitCast(vertical));
+    pub fn SetSizePolicy2(self: QSplitter, horizontal: i32, vertical: i32) void {
+        qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
 
     /// Inherited from QWidget
@@ -3945,10 +4079,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn VisibleRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_VisibleRegion(@ptrCast(self));
+    pub fn VisibleRegion(self: QSplitter) QRegion {
+        return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3957,7 +4091,7 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` left: i32 `
     ///
@@ -3967,8 +4101,8 @@ pub const qsplitter = struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QWidget_SetContentsMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
+    pub fn SetContentsMargins(self: QSplitter, left: i32, top: i32, right: i32, bottom: i32) void {
+        qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QWidget
@@ -3977,12 +4111,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` margins: QtC.QMargins `
+    /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
-        qtc.QWidget_SetContentsMargins2(@ptrCast(self), @ptrCast(margins));
+    pub fn SetContentsMargins2(self: QSplitter, margins: anytype) void {
+        comptime _ = @TypeOf(margins)._is_QMargins;
+        qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
 
     /// Inherited from QWidget
@@ -3991,10 +4126,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
-        return qtc.QWidget_ContentsMargins(@ptrCast(self));
+    pub fn ContentsMargins(self: QSplitter) QMargins {
+        return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4003,10 +4138,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_ContentsRect(@ptrCast(self));
+    pub fn ContentsRect(self: QSplitter) QRect {
+        return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4015,10 +4150,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn Layout(self: ?*anyopaque) QtC.QLayout {
-        return qtc.QWidget_Layout(@ptrCast(self));
+    pub fn Layout(self: QSplitter) QLayout {
+        return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4027,12 +4162,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` layout: QtC.QLayout `
+    /// ` layout: QLayout `
     ///
-    pub fn SetLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
-        qtc.QWidget_SetLayout(@ptrCast(self), @ptrCast(layout));
+    pub fn SetLayout(self: QSplitter, layout: anytype) void {
+        comptime _ = @TypeOf(layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
     }
 
     /// Inherited from QWidget
@@ -4041,10 +4177,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn UpdateGeometry(self: ?*anyopaque) void {
-        qtc.QWidget_UpdateGeometry(@ptrCast(self));
+    pub fn UpdateGeometry(self: QSplitter) void {
+        qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4053,12 +4189,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QWidget_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QSplitter, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QWidget
@@ -4067,14 +4204,15 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i32) void {
-        qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @bitCast(f));
+    pub fn SetParent2(self: QSplitter, parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
     }
 
     /// Inherited from QWidget
@@ -4083,14 +4221,14 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QWidget_Scroll(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn Scroll(self: QSplitter, dx: i32, dy: i32) void {
+        qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QWidget
@@ -4099,16 +4237,17 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    /// ` param3: QtC.QRect `
+    /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
-        qtc.QWidget_Scroll2(@ptrCast(self), @bitCast(dx), @bitCast(dy), @ptrCast(param3));
+    pub fn Scroll2(self: QSplitter, dx: i32, dy: i32, param3: anytype) void {
+        comptime _ = @TypeOf(param3)._is_QRect;
+        qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
 
     /// Inherited from QWidget
@@ -4117,10 +4256,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn FocusWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_FocusWidget(@ptrCast(self));
+    pub fn FocusWidget(self: QSplitter) QWidget {
+        return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4129,10 +4268,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn NextInFocusChain(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_NextInFocusChain(@ptrCast(self));
+    pub fn NextInFocusChain(self: QSplitter) QWidget {
+        return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4141,10 +4280,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn PreviousInFocusChain(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_PreviousInFocusChain(@ptrCast(self));
+    pub fn PreviousInFocusChain(self: QSplitter) QWidget {
+        return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4153,10 +4292,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn AcceptDrops(self: ?*anyopaque) bool {
-        return qtc.QWidget_AcceptDrops(@ptrCast(self));
+    pub fn AcceptDrops(self: QSplitter) bool {
+        return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4165,12 +4304,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
-        qtc.QWidget_SetAcceptDrops(@ptrCast(self), on);
+    pub fn SetAcceptDrops(self: QSplitter, on: bool) void {
+        qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
 
     /// Inherited from QWidget
@@ -4179,12 +4318,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_AddAction(@ptrCast(self), @ptrCast(action));
+    pub fn AddAction(self: QSplitter, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -4193,16 +4333,16 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn AddActions(self: QSplitter, actions: []QAction) void {
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.QWidget_AddActions(@ptrCast(self), actions_list);
+        qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
 
     /// Inherited from QWidget
@@ -4211,18 +4351,19 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` before: QtC.QAction `
+    /// ` before: QAction `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn InsertActions(self: QSplitter, before: anytype, actions: []QAction) void {
+        comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.QWidget_InsertActions(@ptrCast(self), @ptrCast(before), actions_list);
+        qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
 
     /// Inherited from QWidget
@@ -4231,14 +4372,16 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` before: QtC.QAction `
+    /// ` before: QAction `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_InsertAction(@ptrCast(self), @ptrCast(before), @ptrCast(action));
+    pub fn InsertAction(self: QSplitter, before: anytype, action: anytype) void {
+        comptime _ = @TypeOf(before)._is_QAction;
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -4247,12 +4390,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_RemoveAction(@ptrCast(self), @ptrCast(action));
+    pub fn RemoveAction(self: QSplitter, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -4261,16 +4405,17 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
-        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self));
+    pub fn Actions(self: QSplitter, allocator: std.mem.Allocator) []QAction {
+        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("qsplitter.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("qsplitter.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -4280,16 +4425,16 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction2(self: QSplitter, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction2(@ptrCast(self), text_str);
+        return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
 
     /// Inherited from QWidget
@@ -4298,18 +4443,19 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction3(self: QSplitter, icon: anytype, text: []const u8) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction3(@ptrCast(self), @ptrCast(icon), text_str);
+        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
     /// Inherited from QWidget
@@ -4318,18 +4464,19 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction4(self: QSplitter, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction4(@ptrCast(self), text_str, @ptrCast(shortcut));
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4338,20 +4485,22 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction5(self: QSplitter, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction5(@ptrCast(self), @ptrCast(icon), text_str, @ptrCast(shortcut));
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4360,10 +4509,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ParentWidget(@ptrCast(self));
+    pub fn ParentWidget(self: QSplitter) QWidget {
+        return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4372,12 +4521,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_SetWindowFlags(@ptrCast(self), @bitCast(typeVal));
+    pub fn SetWindowFlags(self: QSplitter, typeVal: i32) void {
+        qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -4386,14 +4535,14 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowFlags(@ptrCast(self));
+    pub fn WindowFlags(self: QSplitter) i32 {
+        return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4402,12 +4551,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetWindowFlag(@ptrCast(self), @bitCast(param1));
+    pub fn SetWindowFlag(self: QSplitter, param1: i32) void {
+        qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -4416,12 +4565,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @bitCast(typeVal));
+    pub fn OverrideWindowFlags(self: QSplitter, typeVal: i32) void {
+        qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -4430,14 +4579,14 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowType(@ptrCast(self));
+    pub fn WindowType(self: QSplitter) i32 {
+        return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4448,8 +4597,8 @@ pub const qsplitter = struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QtC.QWidget {
-        return qtc.QWidget_Find(@bitCast(param1));
+    pub fn Find(param1: usize) QWidget {
+        return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
 
     /// Inherited from QWidget
@@ -4458,14 +4607,14 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
-        return qtc.QWidget_ChildAt(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn ChildAt(self: QSplitter, x: i32, y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
     }
 
     /// Inherited from QWidget
@@ -4474,12 +4623,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` p: QtC.QPoint `
+    /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAt2(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt2(self: QSplitter, p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4488,12 +4638,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` p: QtC.QPointF `
+    /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAt3(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt3(self: QSplitter, p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4502,12 +4653,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetAttribute(@ptrCast(self), @bitCast(param1));
+    pub fn SetAttribute(self: QSplitter, param1: i32) void {
+        qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -4516,12 +4667,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
-        return qtc.QWidget_TestAttribute(@ptrCast(self), @bitCast(param1));
+    pub fn TestAttribute(self: QSplitter, param1: i32) bool {
+        return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -4530,10 +4681,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn EnsurePolished(self: ?*anyopaque) void {
-        qtc.QWidget_EnsurePolished(@ptrCast(self));
+    pub fn EnsurePolished(self: QSplitter) void {
+        qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4542,12 +4693,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` child: QtC.QWidget `
+    /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
-        return qtc.QWidget_IsAncestorOf(@ptrCast(self), @ptrCast(child));
+    pub fn IsAncestorOf(self: QSplitter, child: anytype) bool {
+        comptime _ = @TypeOf(child)._is_QWidget;
+        return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
 
     /// Inherited from QWidget
@@ -4556,10 +4708,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn AutoFillBackground(self: ?*anyopaque) bool {
-        return qtc.QWidget_AutoFillBackground(@ptrCast(self));
+    pub fn AutoFillBackground(self: QSplitter) bool {
+        return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4568,12 +4720,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: ?*anyopaque, enabled: bool) void {
-        qtc.QWidget_SetAutoFillBackground(@ptrCast(self), enabled);
+    pub fn SetAutoFillBackground(self: QSplitter, enabled: bool) void {
+        qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QWidget
@@ -4582,10 +4734,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn BackingStore(self: ?*anyopaque) QtC.QBackingStore {
-        return qtc.QWidget_BackingStore(@ptrCast(self));
+    pub fn BackingStore(self: QSplitter) QBackingStore {
+        return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4594,10 +4746,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn WindowHandle(self: ?*anyopaque) QtC.QWindow {
-        return qtc.QWidget_WindowHandle(@ptrCast(self));
+    pub fn WindowHandle(self: QSplitter) QWindow {
+        return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4606,10 +4758,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn Screen(self: ?*anyopaque) QtC.QScreen {
-        return qtc.QWidget_Screen(@ptrCast(self));
+    pub fn Screen(self: QSplitter) QScreen {
+        return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4618,12 +4770,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` screen: QtC.QScreen `
+    /// ` screen: QScreen `
     ///
-    pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
-        qtc.QWidget_SetScreen(@ptrCast(self), @ptrCast(screen));
+    pub fn SetScreen(self: QSplitter, screen: anytype) void {
+        comptime _ = @TypeOf(screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
     }
 
     /// Inherited from QWidget
@@ -4632,10 +4785,11 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer(@ptrCast(window));
+    pub fn CreateWindowContainer(window: anytype) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4644,16 +4798,16 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
+    pub fn WindowTitleChanged(self: QSplitter, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        qtc.QWidget_WindowTitleChanged(@ptrCast(self), title_str);
+        qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
 
     /// Inherited from QWidget
@@ -4662,12 +4816,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, title: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitter, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowTitleChanged(self: QSplitter, callback: *const fn (QSplitter, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4676,12 +4830,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QWidget_WindowIconChanged(@ptrCast(self), @ptrCast(icon));
+    pub fn WindowIconChanged(self: QSplitter, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QWidget
@@ -4690,12 +4845,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, icon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitter, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowIconChanged(self: QSplitter, callback: *const fn (QSplitter, QIcon) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4704,16 +4859,16 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
+    pub fn WindowIconTextChanged(self: QSplitter, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
-        qtc.QWidget_WindowIconTextChanged(@ptrCast(self), iconText_str);
+        qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
 
     /// Inherited from QWidget
@@ -4722,12 +4877,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, iconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitter, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowIconTextChanged(self: QSplitter, callback: *const fn (QSplitter, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4736,12 +4891,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` pos: QtC.QPoint `
+    /// ` pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: ?*anyopaque, pos: ?*anyopaque) void {
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self), @ptrCast(pos));
+    pub fn CustomContextMenuRequested(self: QSplitter, pos: anytype) void {
+        comptime _ = @TypeOf(pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
     }
 
     /// Inherited from QWidget
@@ -4750,12 +4906,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, pos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitter, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomContextMenuRequested(self: QSplitter, callback: *const fn (QSplitter, QPoint) callconv(.c) void) void {
+        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4764,14 +4920,14 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: ?*anyopaque) i32 {
-        return qtc.QWidget_InputMethodHints(@ptrCast(self));
+    pub fn InputMethodHints(self: QSplitter) i32 {
+        return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4780,12 +4936,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
-        qtc.QWidget_SetInputMethodHints(@ptrCast(self), @bitCast(hints));
+    pub fn SetInputMethodHints(self: QSplitter, hints: i32) void {
+        qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
 
     /// Inherited from QWidget
@@ -4794,14 +4950,16 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render22(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset));
+    pub fn Render22(self: QSplitter, target: anytype, targetOffset: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// Inherited from QWidget
@@ -4810,16 +4968,19 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        qtc.QWidget_Render3(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+    pub fn Render3(self: QSplitter, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// Inherited from QWidget
@@ -4828,18 +4989,21 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
+    pub fn Render4(self: QSplitter, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -4848,14 +5012,16 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render23(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset));
+    pub fn Render23(self: QSplitter, painter: anytype, targetOffset: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// Inherited from QWidget
@@ -4864,16 +5030,19 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        qtc.QWidget_Render32(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+    pub fn Render32(self: QSplitter, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// Inherited from QWidget
@@ -4882,18 +5051,21 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
+    pub fn Render42(self: QSplitter, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -4902,12 +5074,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` rectangle: QtC.QRect `
+    /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) QtC.QPixmap {
-        return qtc.QWidget_Grab1(@ptrCast(self), @ptrCast(rectangle));
+    pub fn Grab1(self: QSplitter, rectangle: anytype) QPixmap {
+        comptime _ = @TypeOf(rectangle)._is_QRect;
+        return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4916,14 +5089,14 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i32, flags: i32) void {
-        qtc.QWidget_GrabGesture2(@ptrCast(self), @bitCast(typeVal), @bitCast(flags));
+    pub fn GrabGesture2(self: QSplitter, typeVal: i32, flags: i32) void {
+        qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
 
     /// Inherited from QWidget
@@ -4932,14 +5105,15 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` key: QtC.QKeySequence `
+    /// ` key: QKeySequence `
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
-        return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @bitCast(context));
+    pub fn GrabShortcut2(self: QSplitter, key: anytype, context: i32) i32 {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
 
     /// Inherited from QWidget
@@ -4948,14 +5122,14 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self), @bitCast(id), enable);
+    pub fn SetShortcutEnabled2(self: QSplitter, id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -4964,14 +5138,14 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self), @bitCast(id), enable);
+    pub fn SetShortcutAutoRepeat2(self: QSplitter, id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -4980,14 +5154,14 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetWindowFlag2(@ptrCast(self), @bitCast(param1), on);
+    pub fn SetWindowFlag2(self: QSplitter, param1: i32, on: bool) void {
+        qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -4996,14 +5170,14 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetAttribute2(@ptrCast(self), @bitCast(param1), on);
+    pub fn SetAttribute2(self: QSplitter, param1: i32, on: bool) void {
+        qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -5012,12 +5186,14 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer2(@ptrCast(window), @ptrCast(parent));
+    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5026,14 +5202,16 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i32) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @bitCast(flags));
+    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
     }
 
     /// Inherited from QObject
@@ -5042,12 +5220,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QSplitter, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsplitter.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5060,12 +5238,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QSplitter, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -5074,10 +5252,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QSplitter) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5086,10 +5264,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QSplitter) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5098,10 +5276,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QSplitter) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5110,10 +5288,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QSplitter) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5122,12 +5300,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QSplitter, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -5136,10 +5314,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QSplitter) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5148,12 +5326,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QSplitter, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -5162,12 +5341,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QSplitter, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -5176,12 +5355,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QSplitter, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -5190,12 +5369,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QSplitter, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -5204,12 +5383,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QSplitter, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -5218,16 +5397,17 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QSplitter, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qsplitter.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qsplitter.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -5237,12 +5417,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QSplitter, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -5251,12 +5432,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QSplitter, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -5265,18 +5447,20 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -5285,16 +5469,20 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5303,18 +5491,19 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QSplitter, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -5323,18 +5512,20 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -5343,16 +5534,20 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -5361,10 +5556,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QSplitter) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5373,12 +5568,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QSplitter, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -5387,10 +5583,11 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -5399,10 +5596,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QSplitter) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5411,10 +5608,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QSplitter) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5423,15 +5620,16 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QSplitter, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -5440,13 +5638,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QSplitter, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -5455,17 +5653,16 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QSplitter, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qsplitter.DynamicPropertyNames: Memory allocation failed");
@@ -5484,10 +5681,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QSplitter) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5496,10 +5693,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QSplitter) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5508,10 +5705,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QSplitter) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5520,12 +5717,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitter) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QSplitter, callback: *const fn (QSplitter) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5534,10 +5731,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QSplitter) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5546,13 +5743,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QSplitter, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -5561,10 +5758,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QSplitter) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5573,14 +5770,14 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QSplitter, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -5589,14 +5786,14 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QSplitter, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -5605,20 +5802,22 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -5627,18 +5826,22 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -5647,9 +5850,9 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5657,10 +5860,11 @@ pub const qsplitter = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QSplitter, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -5669,13 +5873,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QSplitter, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -5684,15 +5888,16 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QSplitter, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -5701,18 +5906,19 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QSplitter, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -5721,15 +5927,16 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QSplitter, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -5738,12 +5945,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QSplitter, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -5752,12 +5960,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitter, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QSplitter, callback: *const fn (QSplitter, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -5766,10 +5974,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn PaintingActive(self: ?*anyopaque) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self));
+    pub fn PaintingActive(self: QSplitter) bool {
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5778,10 +5986,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn WidthMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self));
+    pub fn WidthMM(self: QSplitter) i32 {
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5790,10 +5998,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn HeightMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self));
+    pub fn HeightMM(self: QSplitter) i32 {
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5802,10 +6010,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn LogicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self));
+    pub fn LogicalDpiX(self: QSplitter) i32 {
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5814,10 +6022,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn LogicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self));
+    pub fn LogicalDpiY(self: QSplitter) i32 {
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5826,10 +6034,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self));
+    pub fn PhysicalDpiX(self: QSplitter) i32 {
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5838,10 +6046,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self));
+    pub fn PhysicalDpiY(self: QSplitter) i32 {
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5850,10 +6058,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self));
+    pub fn DevicePixelRatio(self: QSplitter) f64 {
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5862,10 +6070,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self));
+    pub fn DevicePixelRatioF(self: QSplitter) f64 {
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5874,10 +6082,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn ColorCount(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self));
+    pub fn ColorCount(self: QSplitter) i32 {
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5886,10 +6094,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn Depth(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self));
+    pub fn Depth(self: QSplitter) i32 {
+        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5922,12 +6130,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` param1: QtC.QPaintEvent `
+    /// ` param1: QPaintEvent `
     ///
-    pub fn PaintEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QSplitter_PaintEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn PaintEvent(self: QSplitter, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPaintEvent;
+        qtc.QSplitter_PaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperPaintEvent` instead
@@ -5942,12 +6151,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` param1: QtC.QPaintEvent `
+    /// ` param1: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QSplitter_SuperPaintEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperPaintEvent(self: QSplitter, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPaintEvent;
+        qtc.QSplitter_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QFrame
@@ -5958,12 +6168,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, param1: QtC.QPaintEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitter, param1: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitter_OnPaintEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaintEvent(self: QSplitter, callback: *const fn (QSplitter, QPaintEvent) callconv(.c) void) void {
+        qtc.QSplitter_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFrame
@@ -5974,12 +6184,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` option: QtC.QStyleOptionFrame `
+    /// ` option: QStyleOptionFrame `
     ///
-    pub fn InitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        qtc.QSplitter_InitStyleOption(@ptrCast(self), @ptrCast(option));
+    pub fn InitStyleOption(self: QSplitter, option: anytype) void {
+        comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
+        qtc.QSplitter_InitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInitStyleOption` instead
@@ -5994,12 +6205,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` option: QtC.QStyleOptionFrame `
+    /// ` option: QStyleOptionFrame `
     ///
-    pub fn SuperInitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        qtc.QSplitter_SuperInitStyleOption(@ptrCast(self), @ptrCast(option));
+    pub fn SuperInitStyleOption(self: QSplitter, option: anytype) void {
+        comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
+        qtc.QSplitter_SuperInitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
     /// Inherited from QFrame
@@ -6010,12 +6222,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, option: QtC.QStyleOptionFrame) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitter, option: QStyleOptionFrame) callconv(.c) void `
     ///
-    pub fn OnInitStyleOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitter_OnInitStyleOption(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInitStyleOption(self: QSplitter, callback: *const fn (QSplitter, QStyleOptionFrame) callconv(.c) void) void {
+        qtc.QSplitter_OnInitStyleOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6026,10 +6238,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn DevType(self: ?*anyopaque) i32 {
-        return qtc.QSplitter_DevType(@ptrCast(self));
+    pub fn DevType(self: QSplitter) i32 {
+        return qtc.QSplitter_DevType(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDevType` instead
@@ -6044,10 +6256,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn SuperDevType(self: ?*anyopaque) i32 {
-        return qtc.QSplitter_SuperDevType(@ptrCast(self));
+    pub fn SuperDevType(self: QSplitter) i32 {
+        return qtc.QSplitter_SuperDevType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6058,12 +6270,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QSplitter_OnDevType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDevType(self: QSplitter, callback: *const fn () callconv(.c) i32) void {
+        qtc.QSplitter_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6074,12 +6286,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.QSplitter_SetVisible(@ptrCast(self), visible);
+    pub fn SetVisible(self: QSplitter, visible: bool) void {
+        qtc.QSplitter_SetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// ### DEPRECATED: Use `SuperSetVisible` instead
@@ -6094,12 +6306,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.QSplitter_SuperSetVisible(@ptrCast(self), visible);
+    pub fn SuperSetVisible(self: QSplitter, visible: bool) void {
+        qtc.QSplitter_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// Inherited from QWidget
@@ -6110,12 +6322,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, visible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitter, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QSplitter_OnSetVisible(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetVisible(self: QSplitter, callback: *const fn (QSplitter, bool) callconv(.c) void) void {
+        qtc.QSplitter_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6126,12 +6338,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QSplitter_HeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn HeightForWidth(self: QSplitter, param1: i32) i32 {
+        return qtc.QSplitter_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### DEPRECATED: Use `SuperHeightForWidth` instead
@@ -6146,12 +6358,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QSplitter_SuperHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperHeightForWidth(self: QSplitter, param1: i32) i32 {
+        return qtc.QSplitter_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -6162,12 +6374,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, param1: i32) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QSplitter, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QSplitter_OnHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHeightForWidth(self: QSplitter, callback: *const fn (QSplitter, i32) callconv(.c) i32) void {
+        qtc.QSplitter_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6178,10 +6390,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn HasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QSplitter_HasHeightForWidth(@ptrCast(self));
+    pub fn HasHeightForWidth(self: QSplitter) bool {
+        return qtc.QSplitter_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
@@ -6196,10 +6408,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QSplitter_SuperHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: QSplitter) bool {
+        return qtc.QSplitter_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6210,12 +6422,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QSplitter_OnHasHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHasHeightForWidth(self: QSplitter, callback: *const fn () callconv(.c) bool) void {
+        qtc.QSplitter_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6226,10 +6438,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn PaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QSplitter_PaintEngine(@ptrCast(self));
+    pub fn PaintEngine(self: QSplitter) QPaintEngine {
+        return .{ .ptr = qtc.QSplitter_PaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperPaintEngine` instead
@@ -6244,10 +6456,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn SuperPaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QSplitter_SuperPaintEngine(@ptrCast(self));
+    pub fn SuperPaintEngine(self: QSplitter) QPaintEngine {
+        return .{ .ptr = qtc.QSplitter_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -6258,12 +6470,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPaintEngine `
+    /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.QSplitter_OnPaintEngine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaintEngine(self: QSplitter, callback: *const fn () callconv(.c) QPaintEngine) void {
+        qtc.QSplitter_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6274,12 +6486,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_MousePressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MousePressEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QSplitter_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMousePressEvent` instead
@@ -6294,12 +6507,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_SuperMousePressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMousePressEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QSplitter_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6310,12 +6524,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitter, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitter_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMousePressEvent(self: QSplitter, callback: *const fn (QSplitter, QMouseEvent) callconv(.c) void) void {
+        qtc.QSplitter_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6326,12 +6540,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_MouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseReleaseEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QSplitter_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
@@ -6346,12 +6561,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_SuperMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseReleaseEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QSplitter_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6362,12 +6578,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitter, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitter_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseReleaseEvent(self: QSplitter, callback: *const fn (QSplitter, QMouseEvent) callconv(.c) void) void {
+        qtc.QSplitter_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6378,12 +6594,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseDoubleClickEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QSplitter_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
@@ -6398,12 +6615,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_SuperMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseDoubleClickEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QSplitter_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6414,12 +6632,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitter, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitter_OnMouseDoubleClickEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseDoubleClickEvent(self: QSplitter, callback: *const fn (QSplitter, QMouseEvent) callconv(.c) void) void {
+        qtc.QSplitter_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6430,12 +6648,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_MouseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseMoveEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QSplitter_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
@@ -6450,12 +6669,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_SuperMouseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseMoveEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QSplitter_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6466,12 +6686,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitter, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitter_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseMoveEvent(self: QSplitter, callback: *const fn (QSplitter, QMouseEvent) callconv(.c) void) void {
+        qtc.QSplitter_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6482,12 +6702,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QWheelEvent `
+    /// ` event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_WheelEvent(@ptrCast(self), @ptrCast(event));
+    pub fn WheelEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QWheelEvent;
+        qtc.QSplitter_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperWheelEvent` instead
@@ -6502,12 +6723,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QWheelEvent `
+    /// ` event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_SuperWheelEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperWheelEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QWheelEvent;
+        qtc.QSplitter_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6518,12 +6740,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, event: QtC.QWheelEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitter, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitter_OnWheelEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWheelEvent(self: QSplitter, callback: *const fn (QSplitter, QWheelEvent) callconv(.c) void) void {
+        qtc.QSplitter_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6534,12 +6756,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_KeyPressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn KeyPressEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QSplitter_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
@@ -6554,12 +6777,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_SuperKeyPressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyPressEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QSplitter_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6570,12 +6794,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, event: QtC.QKeyEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitter, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitter_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyPressEvent(self: QSplitter, callback: *const fn (QSplitter, QKeyEvent) callconv(.c) void) void {
+        qtc.QSplitter_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6586,12 +6810,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_KeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn KeyReleaseEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QSplitter_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
@@ -6606,12 +6831,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_SuperKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyReleaseEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QSplitter_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6622,12 +6848,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, event: QtC.QKeyEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitter, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitter_OnKeyReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyReleaseEvent(self: QSplitter, callback: *const fn (QSplitter, QKeyEvent) callconv(.c) void) void {
+        qtc.QSplitter_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6638,12 +6864,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_FocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn FocusInEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QSplitter_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusInEvent` instead
@@ -6658,12 +6885,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_SuperFocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusInEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QSplitter_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6674,12 +6902,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, event: QtC.QFocusEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitter, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitter_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusInEvent(self: QSplitter, callback: *const fn (QSplitter, QFocusEvent) callconv(.c) void) void {
+        qtc.QSplitter_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6690,12 +6918,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_FocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn FocusOutEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QSplitter_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
@@ -6710,12 +6939,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_SuperFocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusOutEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QSplitter_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6726,12 +6956,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, event: QtC.QFocusEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitter, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitter_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusOutEvent(self: QSplitter, callback: *const fn (QSplitter, QFocusEvent) callconv(.c) void) void {
+        qtc.QSplitter_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6742,12 +6972,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QEnterEvent `
+    /// ` event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_EnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn EnterEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEnterEvent;
+        qtc.QSplitter_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEnterEvent` instead
@@ -6762,12 +6993,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QEnterEvent `
+    /// ` event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_SuperEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEnterEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEnterEvent;
+        qtc.QSplitter_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6778,12 +7010,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, event: QtC.QEnterEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitter, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitter_OnEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEnterEvent(self: QSplitter, callback: *const fn (QSplitter, QEnterEvent) callconv(.c) void) void {
+        qtc.QSplitter_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6794,12 +7026,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn LeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_LeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn LeaveEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QSplitter_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperLeaveEvent` instead
@@ -6814,12 +7047,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_SuperLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperLeaveEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QSplitter_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6830,12 +7064,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitter, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitter_OnLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLeaveEvent(self: QSplitter, callback: *const fn (QSplitter, QEvent) callconv(.c) void) void {
+        qtc.QSplitter_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6846,12 +7080,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QMoveEvent `
+    /// ` event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_MoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MoveEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMoveEvent;
+        qtc.QSplitter_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMoveEvent` instead
@@ -6866,12 +7101,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QMoveEvent `
+    /// ` event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_SuperMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMoveEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMoveEvent;
+        qtc.QSplitter_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6882,12 +7118,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, event: QtC.QMoveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitter, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitter_OnMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMoveEvent(self: QSplitter, callback: *const fn (QSplitter, QMoveEvent) callconv(.c) void) void {
+        qtc.QSplitter_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6898,12 +7134,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QCloseEvent `
+    /// ` event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_CloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CloseEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QCloseEvent;
+        qtc.QSplitter_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCloseEvent` instead
@@ -6918,12 +7155,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QCloseEvent `
+    /// ` event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_SuperCloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCloseEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QCloseEvent;
+        qtc.QSplitter_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6934,12 +7172,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, event: QtC.QCloseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitter, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitter_OnCloseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCloseEvent(self: QSplitter, callback: *const fn (QSplitter, QCloseEvent) callconv(.c) void) void {
+        qtc.QSplitter_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6950,12 +7188,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QContextMenuEvent `
+    /// ` event: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_ContextMenuEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ContextMenuEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
+        qtc.QSplitter_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
@@ -6970,12 +7209,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QContextMenuEvent `
+    /// ` event: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_SuperContextMenuEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperContextMenuEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
+        qtc.QSplitter_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6986,12 +7226,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, event: QtC.QContextMenuEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitter, event: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitter_OnContextMenuEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnContextMenuEvent(self: QSplitter, callback: *const fn (QSplitter, QContextMenuEvent) callconv(.c) void) void {
+        qtc.QSplitter_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7002,12 +7242,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QTabletEvent `
+    /// ` event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_TabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TabletEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTabletEvent;
+        qtc.QSplitter_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTabletEvent` instead
@@ -7022,12 +7263,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QTabletEvent `
+    /// ` event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_SuperTabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTabletEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTabletEvent;
+        qtc.QSplitter_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7038,12 +7280,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, event: QtC.QTabletEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitter, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitter_OnTabletEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTabletEvent(self: QSplitter, callback: *const fn (QSplitter, QTabletEvent) callconv(.c) void) void {
+        qtc.QSplitter_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7054,12 +7296,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QActionEvent `
+    /// ` event: QActionEvent `
     ///
-    pub fn ActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_ActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ActionEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QActionEvent;
+        qtc.QSplitter_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperActionEvent` instead
@@ -7074,12 +7317,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QActionEvent `
+    /// ` event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_SuperActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperActionEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QActionEvent;
+        qtc.QSplitter_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7090,12 +7334,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, event: QtC.QActionEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitter, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitter_OnActionEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnActionEvent(self: QSplitter, callback: *const fn (QSplitter, QActionEvent) callconv(.c) void) void {
+        qtc.QSplitter_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7106,12 +7350,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QDragEnterEvent `
+    /// ` event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_DragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragEnterEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
+        qtc.QSplitter_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
@@ -7126,12 +7371,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QDragEnterEvent `
+    /// ` event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_SuperDragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragEnterEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
+        qtc.QSplitter_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7142,12 +7388,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, event: QtC.QDragEnterEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitter, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitter_OnDragEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragEnterEvent(self: QSplitter, callback: *const fn (QSplitter, QDragEnterEvent) callconv(.c) void) void {
+        qtc.QSplitter_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7158,12 +7404,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QDragMoveEvent `
+    /// ` event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_DragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragMoveEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
+        qtc.QSplitter_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
@@ -7178,12 +7425,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QDragMoveEvent `
+    /// ` event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_SuperDragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragMoveEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
+        qtc.QSplitter_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7194,12 +7442,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, event: QtC.QDragMoveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitter, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitter_OnDragMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragMoveEvent(self: QSplitter, callback: *const fn (QSplitter, QDragMoveEvent) callconv(.c) void) void {
+        qtc.QSplitter_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7210,12 +7458,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QDragLeaveEvent `
+    /// ` event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_DragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragLeaveEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
+        qtc.QSplitter_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
@@ -7230,12 +7479,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QDragLeaveEvent `
+    /// ` event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_SuperDragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragLeaveEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
+        qtc.QSplitter_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7246,12 +7496,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, event: QtC.QDragLeaveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitter, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitter_OnDragLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragLeaveEvent(self: QSplitter, callback: *const fn (QSplitter, QDragLeaveEvent) callconv(.c) void) void {
+        qtc.QSplitter_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7262,12 +7512,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QDropEvent `
+    /// ` event: QDropEvent `
     ///
-    pub fn DropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_DropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DropEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDropEvent;
+        qtc.QSplitter_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDropEvent` instead
@@ -7282,12 +7533,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QDropEvent `
+    /// ` event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_SuperDropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDropEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDropEvent;
+        qtc.QSplitter_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7298,12 +7550,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, event: QtC.QDropEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitter, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitter_OnDropEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDropEvent(self: QSplitter, callback: *const fn (QSplitter, QDropEvent) callconv(.c) void) void {
+        qtc.QSplitter_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7314,12 +7566,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QShowEvent `
+    /// ` event: QShowEvent `
     ///
-    pub fn ShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_ShowEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ShowEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QShowEvent;
+        qtc.QSplitter_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperShowEvent` instead
@@ -7334,12 +7587,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QShowEvent `
+    /// ` event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_SuperShowEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperShowEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QShowEvent;
+        qtc.QSplitter_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7350,12 +7604,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, event: QtC.QShowEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitter, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitter_OnShowEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnShowEvent(self: QSplitter, callback: *const fn (QSplitter, QShowEvent) callconv(.c) void) void {
+        qtc.QSplitter_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7366,12 +7620,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QHideEvent `
+    /// ` event: QHideEvent `
     ///
-    pub fn HideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_HideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn HideEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QHideEvent;
+        qtc.QSplitter_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHideEvent` instead
@@ -7386,12 +7641,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QHideEvent `
+    /// ` event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_SuperHideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHideEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QHideEvent;
+        qtc.QSplitter_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7402,12 +7658,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, event: QtC.QHideEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitter, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitter_OnHideEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHideEvent(self: QSplitter, callback: *const fn (QSplitter, QHideEvent) callconv(.c) void) void {
+        qtc.QSplitter_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7418,7 +7674,7 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` eventType: []u8 `
     ///
@@ -7426,12 +7682,12 @@ pub const qsplitter = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn NativeEvent(self: QSplitter, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QSplitter_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QSplitter_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// ### DEPRECATED: Use `SuperNativeEvent` instead
@@ -7446,7 +7702,7 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` eventType: []u8 `
     ///
@@ -7454,12 +7710,12 @@ pub const qsplitter = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn SuperNativeEvent(self: QSplitter, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QSplitter_SuperNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QSplitter_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -7470,12 +7726,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QSplitter, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
-        qtc.QSplitter_OnNativeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnNativeEvent(self: QSplitter, callback: *const fn (QSplitter, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+        qtc.QSplitter_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7486,12 +7742,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QSplitter_Metric(@ptrCast(self), @bitCast(param1));
+    pub fn Metric(self: QSplitter, param1: i32) i32 {
+        return qtc.QSplitter_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### DEPRECATED: Use `SuperMetric` instead
@@ -7506,12 +7762,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QSplitter_SuperMetric(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMetric(self: QSplitter, param1: i32) i32 {
+        return qtc.QSplitter_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7522,12 +7778,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QSplitter, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QSplitter_OnMetric(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetric(self: QSplitter, callback: *const fn (QSplitter, i32) callconv(.c) i32) void {
+        qtc.QSplitter_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7538,12 +7794,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QSplitter_InitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn InitPainter(self: QSplitter, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QSplitter_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInitPainter` instead
@@ -7558,12 +7815,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QSplitter_SuperInitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperInitPainter(self: QSplitter, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QSplitter_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// Inherited from QWidget
@@ -7574,12 +7832,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, painter: QtC.QPainter) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitter, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitter_OnInitPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInitPainter(self: QSplitter, callback: *const fn (QSplitter, QPainter) callconv(.c) void) void {
+        qtc.QSplitter_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7590,12 +7848,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QSplitter_Redirected(@ptrCast(self), @ptrCast(offset));
+    pub fn Redirected(self: QSplitter, offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        return .{ .ptr = qtc.QSplitter_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperRedirected` instead
@@ -7610,12 +7869,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QSplitter_SuperRedirected(@ptrCast(self), @ptrCast(offset));
+    pub fn SuperRedirected(self: QSplitter, offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        return .{ .ptr = qtc.QSplitter_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7626,12 +7886,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice `
+    /// ` callback: *const fn (self: QSplitter, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.QSplitter_OnRedirected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRedirected(self: QSplitter, callback: *const fn (QSplitter, QPoint) callconv(.c) QPaintDevice) void {
+        qtc.QSplitter_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7642,10 +7902,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn SharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QSplitter_SharedPainter(@ptrCast(self));
+    pub fn SharedPainter(self: QSplitter) QPainter {
+        return .{ .ptr = qtc.QSplitter_SharedPainter(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSharedPainter` instead
@@ -7660,10 +7920,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn SuperSharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QSplitter_SuperSharedPainter(@ptrCast(self));
+    pub fn SuperSharedPainter(self: QSplitter) QPainter {
+        return .{ .ptr = qtc.QSplitter_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7674,12 +7934,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPainter `
+    /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
-        qtc.QSplitter_OnSharedPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSharedPainter(self: QSplitter, callback: *const fn () callconv(.c) QPainter) void {
+        qtc.QSplitter_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7690,12 +7950,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` param1: QtC.QInputMethodEvent `
+    /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QSplitter_InputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn InputMethodEvent(self: QSplitter, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
+        qtc.QSplitter_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
@@ -7710,12 +7971,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` param1: QtC.QInputMethodEvent `
+    /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QSplitter_SuperInputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperInputMethodEvent(self: QSplitter, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
+        qtc.QSplitter_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -7726,12 +7988,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, param1: QtC.QInputMethodEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitter, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitter_OnInputMethodEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInputMethodEvent(self: QSplitter, callback: *const fn (QSplitter, QInputMethodEvent) callconv(.c) void) void {
+        qtc.QSplitter_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7742,12 +8004,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.QSplitter_InputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn InputMethodQuery(self: QSplitter, param1: i32) QVariant {
+        return .{ .ptr = qtc.QSplitter_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
     /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
@@ -7762,12 +8024,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.QSplitter_SuperInputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn SuperInputMethodQuery(self: QSplitter, param1: i32) QVariant {
+        return .{ .ptr = qtc.QSplitter_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
     /// Inherited from QWidget
@@ -7778,12 +8040,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
+    /// ` callback: *const fn (self: QSplitter, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
-    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QSplitter_OnInputMethodQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInputMethodQuery(self: QSplitter, callback: *const fn (QSplitter, i32) callconv(.c) QVariant) void {
+        qtc.QSplitter_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7794,12 +8056,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.QSplitter_FocusNextPrevChild(@ptrCast(self), next);
+    pub fn FocusNextPrevChild(self: QSplitter, next: bool) bool {
+        return qtc.QSplitter_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
     /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
@@ -7814,12 +8076,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.QSplitter_SuperFocusNextPrevChild(@ptrCast(self), next);
+    pub fn SuperFocusNextPrevChild(self: QSplitter, next: bool) bool {
+        return qtc.QSplitter_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
     /// Inherited from QWidget
@@ -7830,12 +8092,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, next: bool) callconv(.c) bool `
+    /// ` callback: *const fn (self: QSplitter, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
-        qtc.QSplitter_OnFocusNextPrevChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusNextPrevChild(self: QSplitter, callback: *const fn (QSplitter, bool) callconv(.c) bool) void {
+        qtc.QSplitter_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7846,14 +8108,16 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QSplitter_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: QSplitter, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QSplitter_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -7868,14 +8132,16 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QSplitter_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: QSplitter, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QSplitter_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -7886,12 +8152,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QSplitter, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSplitter_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QSplitter, callback: *const fn (QSplitter, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QSplitter_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7902,12 +8168,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QSplitter_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -7922,12 +8189,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QSplitter_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -7938,12 +8206,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitter, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitter_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QSplitter, callback: *const fn (QSplitter, QTimerEvent) callconv(.c) void) void {
+        qtc.QSplitter_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7954,12 +8222,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QSplitter_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -7974,12 +8243,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitter_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QSplitter, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QSplitter_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -7990,12 +8260,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitter, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitter_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QSplitter, callback: *const fn (QSplitter, QEvent) callconv(.c) void) void {
+        qtc.QSplitter_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8006,12 +8276,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QSplitter_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QSplitter, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QSplitter_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -8026,12 +8297,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QSplitter_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QSplitter, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QSplitter_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -8042,12 +8314,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitter, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitter_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QSplitter, callback: *const fn (QSplitter, QMetaMethod) callconv(.c) void) void {
+        qtc.QSplitter_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8058,12 +8330,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QSplitter_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QSplitter, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QSplitter_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -8078,12 +8351,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QSplitter_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QSplitter, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QSplitter_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -8094,12 +8368,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitter, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitter_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QSplitter, callback: *const fn (QSplitter, QMetaMethod) callconv(.c) void) void {
+        qtc.QSplitter_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFrame
@@ -8110,12 +8384,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` param1: QtC.QPainter `
+    /// ` param1: QPainter `
     ///
-    pub fn DrawFrame(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QSplitter_DrawFrame(@ptrCast(self), @ptrCast(param1));
+    pub fn DrawFrame(self: QSplitter, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPainter;
+        qtc.QSplitter_DrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDrawFrame` instead
@@ -8130,12 +8405,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` param1: QtC.QPainter `
+    /// ` param1: QPainter `
     ///
-    pub fn SuperDrawFrame(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QSplitter_SuperDrawFrame(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperDrawFrame(self: QSplitter, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPainter;
+        qtc.QSplitter_SuperDrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QFrame
@@ -8146,12 +8422,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, param1: QtC.QPainter) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitter, param1: QPainter) callconv(.c) void `
     ///
-    pub fn OnDrawFrame(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitter_OnDrawFrame(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDrawFrame(self: QSplitter, callback: *const fn (QSplitter, QPainter) callconv(.c) void) void {
+        qtc.QSplitter_OnDrawFrame(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8162,10 +8438,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn UpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.QSplitter_UpdateMicroFocus(@ptrCast(self));
+    pub fn UpdateMicroFocus(self: QSplitter) void {
+        qtc.QSplitter_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
@@ -8180,10 +8456,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn SuperUpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.QSplitter_SuperUpdateMicroFocus(@ptrCast(self));
+    pub fn SuperUpdateMicroFocus(self: QSplitter) void {
+        qtc.QSplitter_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8194,12 +8470,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QSplitter_OnUpdateMicroFocus(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUpdateMicroFocus(self: QSplitter, callback: *const fn () callconv(.c) void) void {
+        qtc.QSplitter_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8210,10 +8486,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn Create(self: ?*anyopaque) void {
-        qtc.QSplitter_Create(@ptrCast(self));
+    pub fn Create(self: QSplitter) void {
+        qtc.QSplitter_Create(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCreate` instead
@@ -8228,10 +8504,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn SuperCreate(self: ?*anyopaque) void {
-        qtc.QSplitter_SuperCreate(@ptrCast(self));
+    pub fn SuperCreate(self: QSplitter) void {
+        qtc.QSplitter_SuperCreate(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8242,12 +8518,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QSplitter_OnCreate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreate(self: QSplitter, callback: *const fn () callconv(.c) void) void {
+        qtc.QSplitter_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8258,10 +8534,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn Destroy(self: ?*anyopaque) void {
-        qtc.QSplitter_Destroy(@ptrCast(self));
+    pub fn Destroy(self: QSplitter) void {
+        qtc.QSplitter_Destroy(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDestroy` instead
@@ -8276,10 +8552,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn SuperDestroy(self: ?*anyopaque) void {
-        qtc.QSplitter_SuperDestroy(@ptrCast(self));
+    pub fn SuperDestroy(self: QSplitter) void {
+        qtc.QSplitter_SuperDestroy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8290,12 +8566,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QSplitter_OnDestroy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroy(self: QSplitter, callback: *const fn () callconv(.c) void) void {
+        qtc.QSplitter_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8306,10 +8582,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn FocusNextChild(self: ?*anyopaque) bool {
-        return qtc.QSplitter_FocusNextChild(@ptrCast(self));
+    pub fn FocusNextChild(self: QSplitter) bool {
+        return qtc.QSplitter_FocusNextChild(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusNextChild` instead
@@ -8324,10 +8600,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn SuperFocusNextChild(self: ?*anyopaque) bool {
-        return qtc.QSplitter_SuperFocusNextChild(@ptrCast(self));
+    pub fn SuperFocusNextChild(self: QSplitter) bool {
+        return qtc.QSplitter_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8338,12 +8614,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QSplitter_OnFocusNextChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusNextChild(self: QSplitter, callback: *const fn () callconv(.c) bool) void {
+        qtc.QSplitter_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8354,10 +8630,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn FocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.QSplitter_FocusPreviousChild(@ptrCast(self));
+    pub fn FocusPreviousChild(self: QSplitter) bool {
+        return qtc.QSplitter_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
@@ -8372,10 +8648,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn SuperFocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.QSplitter_SuperFocusPreviousChild(@ptrCast(self));
+    pub fn SuperFocusPreviousChild(self: QSplitter) bool {
+        return qtc.QSplitter_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8386,12 +8662,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QSplitter_OnFocusPreviousChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusPreviousChild(self: QSplitter, callback: *const fn () callconv(.c) bool) void {
+        qtc.QSplitter_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8402,10 +8678,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QSplitter_Sender(@ptrCast(self));
+    pub fn Sender(self: QSplitter) QObject {
+        return .{ .ptr = qtc.QSplitter_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -8420,10 +8696,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QSplitter_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QSplitter) QObject {
+        return .{ .ptr = qtc.QSplitter_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -8434,12 +8710,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QSplitter_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QSplitter, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QSplitter_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8450,10 +8726,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QSplitter_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QSplitter) i32 {
+        return qtc.QSplitter_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -8468,10 +8744,10 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QSplitter_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QSplitter) i32 {
+        return qtc.QSplitter_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -8482,12 +8758,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QSplitter_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QSplitter, callback: *const fn () callconv(.c) i32) void {
+        qtc.QSplitter_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8498,13 +8774,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QSplitter, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QSplitter_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QSplitter_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -8519,13 +8795,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QSplitter, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QSplitter_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QSplitter_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -8536,12 +8812,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QSplitter, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QSplitter_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QSplitter, callback: *const fn (QSplitter, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QSplitter_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8552,12 +8828,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QSplitter_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QSplitter, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QSplitter_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -8572,12 +8849,13 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QSplitter_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QSplitter, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QSplitter_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -8588,12 +8866,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QSplitter, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSplitter_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QSplitter, callback: *const fn (QSplitter, QMetaMethod) callconv(.c) bool) void {
+        qtc.QSplitter_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -8604,14 +8882,14 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QSplitter_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn GetDecodedMetricF(self: QSplitter, metricA: i32, metricB: i32) f64 {
+        return qtc.QSplitter_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
@@ -8626,14 +8904,14 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
     /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QSplitter_SuperGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn SuperGetDecodedMetricF(self: QSplitter, metricA: i32, metricB: i32) f64 {
+        return qtc.QSplitter_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -8644,12 +8922,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter`
+    /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
+    /// ` callback: *const fn (self: QSplitter, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.QSplitter_OnGetDecodedMetricF(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnGetDecodedMetricF(self: QSplitter, callback: *const fn (QSplitter, i32, i32) callconv(.c) f64) void {
+        qtc.QSplitter_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8660,12 +8938,12 @@ pub const qsplitter = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitter, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QSplitter, callback: *const fn (QSplitter, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -8678,35 +8956,47 @@ pub const qsplitter = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QSplitter `
+    /// ` self: QSplitter `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QSplitter_Delete(@ptrCast(self));
+    pub fn Delete(self: QSplitter) void {
+        qtc.QSplitter_Delete(@ptrCast(self.ptr));
     }
 };
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitterhandle.html)
-pub const qsplitterhandle = struct {
+pub const QSplitterHandle = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitterhandle.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QSplitterHandle,
+
+    pub const _is_QSplitterHandle = {};
+    pub const _is_QWidget = {};
+    pub const _is_QObject = {};
+    pub const _is_QPaintDevice = {};
+
     /// New constructs a new QSplitterHandle object.
     ///
     /// ## Parameter(s):
     ///
     /// ` o: qnamespace_enums.Orientation `
     ///
-    /// ` parent: QtC.QSplitter `
+    /// ` parent: QSplitter `
     ///
-    pub fn New(o: i32, parent: ?*anyopaque) QtC.QSplitterHandle {
-        return qtc.QSplitterHandle_new(@bitCast(o), @ptrCast(parent));
+    pub fn New(o: i32, parent: anytype) QSplitterHandle {
+        comptime _ = @TypeOf(parent)._is_QSplitter;
+        return .{ .ptr = qtc.QSplitterHandle_new(@bitCast(o), @ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QSplitterHandle_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QSplitterHandle) QMetaObject {
+        return .{ .ptr = qtc.QSplitterHandle_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -8715,12 +9005,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QSplitterHandle_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QSplitterHandle, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QSplitterHandle_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -8733,33 +9023,33 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QSplitterHandle_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QSplitterHandle) QMetaObject {
+        return .{ .ptr = qtc.QSplitterHandle_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QSplitterHandle, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QSplitterHandle_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QSplitterHandle_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QSplitterHandle, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QSplitterHandle_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QSplitterHandle, callback: *const fn (QSplitterHandle, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QSplitterHandle_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -8770,18 +9060,18 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QSplitterHandle, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QSplitterHandle_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QSplitterHandle_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -8789,20 +9079,20 @@ pub const qsplitterhandle = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QSplitterHandle_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QSplitterHandle, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QSplitterHandle_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QSplitterHandle, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QSplitterHandle_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QSplitterHandle, callback: *const fn (QSplitterHandle, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QSplitterHandle_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -8813,7 +9103,7 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -8821,19 +9111,19 @@ pub const qsplitterhandle = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QSplitterHandle_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QSplitterHandle, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QSplitterHandle_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -8846,56 +9136,56 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` o: qnamespace_enums.Orientation `
     ///
-    pub fn SetOrientation(self: ?*anyopaque, o: i32) void {
-        qtc.QSplitterHandle_SetOrientation(@ptrCast(self), @bitCast(o));
+    pub fn SetOrientation(self: QSplitterHandle, o: i32) void {
+        qtc.QSplitterHandle_SetOrientation(@ptrCast(self.ptr), @bitCast(o));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitterhandle.html#orientation)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.Orientation `
     ///
-    pub fn Orientation(self: ?*anyopaque) i32 {
-        return qtc.QSplitterHandle_Orientation(@ptrCast(self));
+    pub fn Orientation(self: QSplitterHandle) i32 {
+        return qtc.QSplitterHandle_Orientation(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitterhandle.html#opaqueResize)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn OpaqueResize(self: ?*anyopaque) bool {
-        return qtc.QSplitterHandle_OpaqueResize(@ptrCast(self));
+    pub fn OpaqueResize(self: QSplitterHandle) bool {
+        return qtc.QSplitterHandle_OpaqueResize(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitterhandle.html#splitter)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn Splitter(self: ?*anyopaque) QtC.QSplitter {
-        return qtc.QSplitterHandle_Splitter(@ptrCast(self));
+    pub fn Splitter(self: QSplitterHandle) QSplitter {
+        return .{ .ptr = qtc.QSplitterHandle_Splitter(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitterhandle.html#sizeHint)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QSplitterHandle_SizeHint(@ptrCast(self));
+    pub fn SizeHint(self: QSplitterHandle) QSize {
+        return .{ .ptr = qtc.QSplitterHandle_SizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitterhandle.html#sizeHint)
@@ -8904,12 +9194,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QSplitterHandle_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSizeHint(self: QSplitterHandle, callback: *const fn () callconv(.c) QSize) void {
+        qtc.QSplitterHandle_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSizeHint` instead
@@ -8922,22 +9212,23 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QSplitterHandle_SuperSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: QSplitterHandle) QSize {
+        return .{ .ptr = qtc.QSplitterHandle_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitterhandle.html#paintEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` param1: QtC.QPaintEvent `
+    /// ` param1: QPaintEvent `
     ///
-    pub fn PaintEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QSplitterHandle_PaintEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn PaintEvent(self: QSplitterHandle, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPaintEvent;
+        qtc.QSplitterHandle_PaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitterhandle.html#paintEvent)
@@ -8946,12 +9237,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, param1: QtC.QPaintEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitterHandle, param1: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitterHandle_OnPaintEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaintEvent(self: QSplitterHandle, callback: *const fn (QSplitterHandle, QPaintEvent) callconv(.c) void) void {
+        qtc.QSplitterHandle_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperPaintEvent` instead
@@ -8964,24 +9255,26 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` param1: QtC.QPaintEvent `
+    /// ` param1: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QSplitterHandle_SuperPaintEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperPaintEvent(self: QSplitterHandle, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPaintEvent;
+        qtc.QSplitterHandle_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitterhandle.html#mouseMoveEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` param1: QtC.QMouseEvent `
+    /// ` param1: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QSplitterHandle_MouseMoveEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn MouseMoveEvent(self: QSplitterHandle, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QMouseEvent;
+        qtc.QSplitterHandle_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitterhandle.html#mouseMoveEvent)
@@ -8990,12 +9283,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, param1: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitterHandle, param1: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitterHandle_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseMoveEvent(self: QSplitterHandle, callback: *const fn (QSplitterHandle, QMouseEvent) callconv(.c) void) void {
+        qtc.QSplitterHandle_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
@@ -9008,24 +9301,26 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` param1: QtC.QMouseEvent `
+    /// ` param1: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QSplitterHandle_SuperMouseMoveEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperMouseMoveEvent(self: QSplitterHandle, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QMouseEvent;
+        qtc.QSplitterHandle_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitterhandle.html#mousePressEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` param1: QtC.QMouseEvent `
+    /// ` param1: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QSplitterHandle_MousePressEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn MousePressEvent(self: QSplitterHandle, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QMouseEvent;
+        qtc.QSplitterHandle_MousePressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitterhandle.html#mousePressEvent)
@@ -9034,12 +9329,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, param1: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitterHandle, param1: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitterHandle_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMousePressEvent(self: QSplitterHandle, callback: *const fn (QSplitterHandle, QMouseEvent) callconv(.c) void) void {
+        qtc.QSplitterHandle_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMousePressEvent` instead
@@ -9052,24 +9347,26 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` param1: QtC.QMouseEvent `
+    /// ` param1: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QSplitterHandle_SuperMousePressEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperMousePressEvent(self: QSplitterHandle, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QMouseEvent;
+        qtc.QSplitterHandle_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitterhandle.html#mouseReleaseEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` param1: QtC.QMouseEvent `
+    /// ` param1: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QSplitterHandle_MouseReleaseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn MouseReleaseEvent(self: QSplitterHandle, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QMouseEvent;
+        qtc.QSplitterHandle_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitterhandle.html#mouseReleaseEvent)
@@ -9078,12 +9375,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, param1: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitterHandle, param1: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitterHandle_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseReleaseEvent(self: QSplitterHandle, callback: *const fn (QSplitterHandle, QMouseEvent) callconv(.c) void) void {
+        qtc.QSplitterHandle_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
@@ -9096,24 +9393,26 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` param1: QtC.QMouseEvent `
+    /// ` param1: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QSplitterHandle_SuperMouseReleaseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperMouseReleaseEvent(self: QSplitterHandle, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QMouseEvent;
+        qtc.QSplitterHandle_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitterhandle.html#resizeEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` param1: QtC.QResizeEvent `
+    /// ` param1: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QSplitterHandle_ResizeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn ResizeEvent(self: QSplitterHandle, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QResizeEvent;
+        qtc.QSplitterHandle_ResizeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitterhandle.html#resizeEvent)
@@ -9122,12 +9421,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, param1: QtC.QResizeEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitterHandle, param1: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitterHandle_OnResizeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResizeEvent(self: QSplitterHandle, callback: *const fn (QSplitterHandle, QResizeEvent) callconv(.c) void) void {
+        qtc.QSplitterHandle_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperResizeEvent` instead
@@ -9140,24 +9439,26 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` param1: QtC.QResizeEvent `
+    /// ` param1: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QSplitterHandle_SuperResizeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperResizeEvent(self: QSplitterHandle, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QResizeEvent;
+        qtc.QSplitterHandle_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitterhandle.html#event)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` param1: QtC.QEvent `
+    /// ` param1: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QSplitterHandle_Event(@ptrCast(self), @ptrCast(param1));
+    pub fn Event(self: QSplitterHandle, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QEvent;
+        return qtc.QSplitterHandle_Event(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitterhandle.html#event)
@@ -9166,12 +9467,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, param1: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QSplitterHandle, param1: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSplitterHandle_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QSplitterHandle, callback: *const fn (QSplitterHandle, QEvent) callconv(.c) bool) void {
+        qtc.QSplitterHandle_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -9184,24 +9485,25 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` param1: QtC.QEvent `
+    /// ` param1: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QSplitterHandle_SuperEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperEvent(self: QSplitterHandle, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QEvent;
+        return qtc.QSplitterHandle_SuperEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitterhandle.html#moveSplitter)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` p: i32 `
     ///
-    pub fn MoveSplitter(self: ?*anyopaque, p: i32) void {
-        qtc.QSplitterHandle_MoveSplitter(@ptrCast(self), @bitCast(p));
+    pub fn MoveSplitter(self: QSplitterHandle, p: i32) void {
+        qtc.QSplitterHandle_MoveSplitter(@ptrCast(self.ptr), @bitCast(p));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitterhandle.html#moveSplitter)
@@ -9210,12 +9512,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, p: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitterHandle, p: i32) callconv(.c) void `
     ///
-    pub fn OnMoveSplitter(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QSplitterHandle_OnMoveSplitter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMoveSplitter(self: QSplitterHandle, callback: *const fn (QSplitterHandle, i32) callconv(.c) void) void {
+        qtc.QSplitterHandle_OnMoveSplitter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMoveSplitter` instead
@@ -9228,24 +9530,24 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` p: i32 `
     ///
-    pub fn SuperMoveSplitter(self: ?*anyopaque, p: i32) void {
-        qtc.QSplitterHandle_SuperMoveSplitter(@ptrCast(self), @bitCast(p));
+    pub fn SuperMoveSplitter(self: QSplitterHandle, p: i32) void {
+        qtc.QSplitterHandle_SuperMoveSplitter(@ptrCast(self.ptr), @bitCast(p));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitterhandle.html#closestLegalPosition)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` p: i32 `
     ///
-    pub fn ClosestLegalPosition(self: ?*anyopaque, p: i32) i32 {
-        return qtc.QSplitterHandle_ClosestLegalPosition(@ptrCast(self), @bitCast(p));
+    pub fn ClosestLegalPosition(self: QSplitterHandle, p: i32) i32 {
+        return qtc.QSplitterHandle_ClosestLegalPosition(@ptrCast(self.ptr), @bitCast(p));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitterhandle.html#closestLegalPosition)
@@ -9254,12 +9556,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, p: i32) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QSplitterHandle, p: i32) callconv(.c) i32 `
     ///
-    pub fn OnClosestLegalPosition(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QSplitterHandle_OnClosestLegalPosition(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnClosestLegalPosition(self: QSplitterHandle, callback: *const fn (QSplitterHandle, i32) callconv(.c) i32) void {
+        qtc.QSplitterHandle_OnClosestLegalPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperClosestLegalPosition` instead
@@ -9272,25 +9574,25 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` p: i32 `
     ///
-    pub fn SuperClosestLegalPosition(self: ?*anyopaque, p: i32) i32 {
-        return qtc.QSplitterHandle_SuperClosestLegalPosition(@ptrCast(self), @bitCast(p));
+    pub fn SuperClosestLegalPosition(self: QSplitterHandle, p: i32) i32 {
+        return qtc.QSplitterHandle_SuperClosestLegalPosition(@ptrCast(self.ptr), @bitCast(p));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -9304,15 +9606,15 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -9328,10 +9630,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn WinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_WinId(@ptrCast(self));
+    pub fn WinId(self: QSplitterHandle) usize {
+        return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -9340,10 +9642,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn CreateWinId(self: ?*anyopaque) void {
-        qtc.QWidget_CreateWinId(@ptrCast(self));
+    pub fn CreateWinId(self: QSplitterHandle) void {
+        qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -9352,10 +9654,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn InternalWinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_InternalWinId(@ptrCast(self));
+    pub fn InternalWinId(self: QSplitterHandle) usize {
+        return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -9364,10 +9666,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn EffectiveWinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_EffectiveWinId(@ptrCast(self));
+    pub fn EffectiveWinId(self: QSplitterHandle) usize {
+        return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -9376,10 +9678,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn Style(self: ?*anyopaque) QtC.QStyle {
-        return qtc.QWidget_Style(@ptrCast(self));
+    pub fn Style(self: QSplitterHandle) QStyle {
+        return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -9388,12 +9690,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` style: QtC.QStyle `
+    /// ` style: QStyle `
     ///
-    pub fn SetStyle(self: ?*anyopaque, style: ?*anyopaque) void {
-        qtc.QWidget_SetStyle(@ptrCast(self), @ptrCast(style));
+    pub fn SetStyle(self: QSplitterHandle, style: anytype) void {
+        comptime _ = @TypeOf(style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
     }
 
     /// Inherited from QWidget
@@ -9402,10 +9705,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn IsTopLevel(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsTopLevel(@ptrCast(self));
+    pub fn IsTopLevel(self: QSplitterHandle) bool {
+        return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -9414,10 +9717,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn IsWindow(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsWindow(@ptrCast(self));
+    pub fn IsWindow(self: QSplitterHandle) bool {
+        return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -9426,10 +9729,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn IsModal(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsModal(@ptrCast(self));
+    pub fn IsModal(self: QSplitterHandle) bool {
+        return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -9438,14 +9741,14 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowModality(@ptrCast(self));
+    pub fn WindowModality(self: QSplitterHandle) i32 {
+        return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -9454,12 +9757,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self), @bitCast(windowModality));
+    pub fn SetWindowModality(self: QSplitterHandle, windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
     }
 
     /// Inherited from QWidget
@@ -9468,10 +9771,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn IsEnabled(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsEnabled(@ptrCast(self));
+    pub fn IsEnabled(self: QSplitterHandle) bool {
+        return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -9480,12 +9783,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidget_IsEnabledTo(@ptrCast(self), @ptrCast(param1));
+    pub fn IsEnabledTo(self: QSplitterHandle, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -9494,12 +9798,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
-        qtc.QWidget_SetEnabled(@ptrCast(self), enabled);
+    pub fn SetEnabled(self: QSplitterHandle, enabled: bool) void {
+        qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QWidget
@@ -9508,12 +9812,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: ?*anyopaque, disabled: bool) void {
-        qtc.QWidget_SetDisabled(@ptrCast(self), disabled);
+    pub fn SetDisabled(self: QSplitterHandle, disabled: bool) void {
+        qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
 
     /// Inherited from QWidget
@@ -9522,12 +9826,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: ?*anyopaque, windowModified: bool) void {
-        qtc.QWidget_SetWindowModified(@ptrCast(self), windowModified);
+    pub fn SetWindowModified(self: QSplitterHandle, windowModified: bool) void {
+        qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
 
     /// Inherited from QWidget
@@ -9536,10 +9840,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn FrameGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_FrameGeometry(@ptrCast(self));
+    pub fn FrameGeometry(self: QSplitterHandle) QRect {
+        return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -9548,10 +9852,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn Geometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_Geometry(@ptrCast(self));
+    pub fn Geometry(self: QSplitterHandle) QRect {
+        return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -9560,10 +9864,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn NormalGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_NormalGeometry(@ptrCast(self));
+    pub fn NormalGeometry(self: QSplitterHandle) QRect {
+        return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -9572,10 +9876,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn X(self: ?*anyopaque) i32 {
-        return qtc.QWidget_X(@ptrCast(self));
+    pub fn X(self: QSplitterHandle) i32 {
+        return qtc.QWidget_X(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -9584,10 +9888,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn Y(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Y(@ptrCast(self));
+    pub fn Y(self: QSplitterHandle) i32 {
+        return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -9596,10 +9900,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn Pos(self: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_Pos(@ptrCast(self));
+    pub fn Pos(self: QSplitterHandle) QPoint {
+        return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -9608,10 +9912,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_FrameSize(@ptrCast(self));
+    pub fn FrameSize(self: QSplitterHandle) QSize {
+        return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -9620,10 +9924,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn Size(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_Size(@ptrCast(self));
+    pub fn Size(self: QSplitterHandle) QSize {
+        return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -9632,10 +9936,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn Width(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Width(@ptrCast(self));
+    pub fn Width(self: QSplitterHandle) i32 {
+        return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -9644,10 +9948,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn Height(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Height(@ptrCast(self));
+    pub fn Height(self: QSplitterHandle) i32 {
+        return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -9656,10 +9960,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn Rect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_Rect(@ptrCast(self));
+    pub fn Rect(self: QSplitterHandle) QRect {
+        return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -9668,10 +9972,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn ChildrenRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_ChildrenRect(@ptrCast(self));
+    pub fn ChildrenRect(self: QSplitterHandle) QRect {
+        return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -9680,10 +9984,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn ChildrenRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_ChildrenRegion(@ptrCast(self));
+    pub fn ChildrenRegion(self: QSplitterHandle) QRegion {
+        return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -9692,10 +9996,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MinimumSize(@ptrCast(self));
+    pub fn MinimumSize(self: QSplitterHandle) QSize {
+        return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -9704,10 +10008,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MaximumSize(@ptrCast(self));
+    pub fn MaximumSize(self: QSplitterHandle) QSize {
+        return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -9716,10 +10020,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn MinimumWidth(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MinimumWidth(@ptrCast(self));
+    pub fn MinimumWidth(self: QSplitterHandle) i32 {
+        return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -9728,10 +10032,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn MinimumHeight(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MinimumHeight(@ptrCast(self));
+    pub fn MinimumHeight(self: QSplitterHandle) i32 {
+        return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -9740,10 +10044,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn MaximumWidth(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MaximumWidth(@ptrCast(self));
+    pub fn MaximumWidth(self: QSplitterHandle) i32 {
+        return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -9752,10 +10056,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn MaximumHeight(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MaximumHeight(@ptrCast(self));
+    pub fn MaximumHeight(self: QSplitterHandle) i32 {
+        return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -9764,12 +10068,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` minimumSize: QtC.QSize `
+    /// ` minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: ?*anyopaque, minimumSize: ?*anyopaque) void {
-        qtc.QWidget_SetMinimumSize(@ptrCast(self), @ptrCast(minimumSize));
+    pub fn SetMinimumSize(self: QSplitterHandle, minimumSize: anytype) void {
+        comptime _ = @TypeOf(minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -9778,14 +10083,14 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` minw: i32 `
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
-        qtc.QWidget_SetMinimumSize2(@ptrCast(self), @bitCast(minw), @bitCast(minh));
+    pub fn SetMinimumSize2(self: QSplitterHandle, minw: i32, minh: i32) void {
+        qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -9794,12 +10099,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` maximumSize: QtC.QSize `
+    /// ` maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: ?*anyopaque, maximumSize: ?*anyopaque) void {
-        qtc.QWidget_SetMaximumSize(@ptrCast(self), @ptrCast(maximumSize));
+    pub fn SetMaximumSize(self: QSplitterHandle, maximumSize: anytype) void {
+        comptime _ = @TypeOf(maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -9808,14 +10114,14 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` maxw: i32 `
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
-        qtc.QWidget_SetMaximumSize2(@ptrCast(self), @bitCast(maxw), @bitCast(maxh));
+    pub fn SetMaximumSize2(self: QSplitterHandle, maxw: i32, maxh: i32) void {
+        qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -9824,12 +10130,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
-        qtc.QWidget_SetMinimumWidth(@ptrCast(self), @bitCast(minw));
+    pub fn SetMinimumWidth(self: QSplitterHandle, minw: i32) void {
+        qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
 
     /// Inherited from QWidget
@@ -9838,12 +10144,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
-        qtc.QWidget_SetMinimumHeight(@ptrCast(self), @bitCast(minh));
+    pub fn SetMinimumHeight(self: QSplitterHandle, minh: i32) void {
+        qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -9852,12 +10158,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
-        qtc.QWidget_SetMaximumWidth(@ptrCast(self), @bitCast(maxw));
+    pub fn SetMaximumWidth(self: QSplitterHandle, maxw: i32) void {
+        qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
 
     /// Inherited from QWidget
@@ -9866,12 +10172,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
-        qtc.QWidget_SetMaximumHeight(@ptrCast(self), @bitCast(maxh));
+    pub fn SetMaximumHeight(self: QSplitterHandle, maxh: i32) void {
+        qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -9880,10 +10186,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn SizeIncrement(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_SizeIncrement(@ptrCast(self));
+    pub fn SizeIncrement(self: QSplitterHandle) QSize {
+        return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -9892,12 +10198,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` sizeIncrement: QtC.QSize `
+    /// ` sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: ?*anyopaque, sizeIncrement: ?*anyopaque) void {
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self), @ptrCast(sizeIncrement));
+    pub fn SetSizeIncrement(self: QSplitterHandle, sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
     }
 
     /// Inherited from QWidget
@@ -9906,14 +10213,14 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetSizeIncrement2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetSizeIncrement2(self: QSplitterHandle, w: i32, h: i32) void {
+        qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -9922,10 +10229,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn BaseSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_BaseSize(@ptrCast(self));
+    pub fn BaseSize(self: QSplitterHandle) QSize {
+        return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -9934,12 +10241,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` baseSize: QtC.QSize `
+    /// ` baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: ?*anyopaque, baseSize: ?*anyopaque) void {
-        qtc.QWidget_SetBaseSize(@ptrCast(self), @ptrCast(baseSize));
+    pub fn SetBaseSize(self: QSplitterHandle, baseSize: anytype) void {
+        comptime _ = @TypeOf(baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -9948,14 +10256,14 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` basew: i32 `
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
-        qtc.QWidget_SetBaseSize2(@ptrCast(self), @bitCast(basew), @bitCast(baseh));
+    pub fn SetBaseSize2(self: QSplitterHandle, basew: i32, baseh: i32) void {
+        qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
 
     /// Inherited from QWidget
@@ -9964,12 +10272,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` fixedSize: QtC.QSize `
+    /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: ?*anyopaque, fixedSize: ?*anyopaque) void {
-        qtc.QWidget_SetFixedSize(@ptrCast(self), @ptrCast(fixedSize));
+    pub fn SetFixedSize(self: QSplitterHandle, fixedSize: anytype) void {
+        comptime _ = @TypeOf(fixedSize)._is_QSize;
+        qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -9978,14 +10287,14 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetFixedSize2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetFixedSize2(self: QSplitterHandle, w: i32, h: i32) void {
+        qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -9994,12 +10303,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
-        qtc.QWidget_SetFixedWidth(@ptrCast(self), @bitCast(w));
+    pub fn SetFixedWidth(self: QSplitterHandle, w: i32) void {
+        qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
 
     /// Inherited from QWidget
@@ -10008,12 +10317,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
-        qtc.QWidget_SetFixedHeight(@ptrCast(self), @bitCast(h));
+    pub fn SetFixedHeight(self: QSplitterHandle, h: i32) void {
+        qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -10022,12 +10331,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapToGlobal(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal(self: QSplitterHandle, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10036,12 +10346,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToGlobal2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal2(self: QSplitterHandle, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10050,12 +10361,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFromGlobal(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal(self: QSplitterHandle, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10064,12 +10376,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromGlobal2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal2(self: QSplitterHandle, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10078,12 +10391,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapToParent(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent(self: QSplitterHandle, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10092,12 +10406,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToParent2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent2(self: QSplitterHandle, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10106,12 +10421,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFromParent(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent(self: QSplitterHandle, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10120,12 +10436,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromParent2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent2(self: QSplitterHandle, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10134,14 +10451,16 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPointF `
+    /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapTo(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapTo(self: QSplitterHandle, param1: anytype, param2: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10150,14 +10469,16 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPoint `
+    /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapTo2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapTo2(self: QSplitterHandle, param1: anytype, param2: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10166,14 +10487,16 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPointF `
+    /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFrom(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapFrom(self: QSplitterHandle, param1: anytype, param2: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10182,14 +10505,16 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPoint `
+    /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFrom2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapFrom2(self: QSplitterHandle, param1: anytype, param2: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10198,10 +10523,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn Window(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_Window(@ptrCast(self));
+    pub fn Window(self: QSplitterHandle) QWidget {
+        return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10210,10 +10535,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn NativeParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_NativeParentWidget(@ptrCast(self));
+    pub fn NativeParentWidget(self: QSplitterHandle) QWidget {
+        return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10222,10 +10547,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn TopLevelWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_TopLevelWidget(@ptrCast(self));
+    pub fn TopLevelWidget(self: QSplitterHandle) QWidget {
+        return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10234,10 +10559,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn Palette(self: ?*anyopaque) QtC.QPalette {
-        return qtc.QWidget_Palette(@ptrCast(self));
+    pub fn Palette(self: QSplitterHandle) QPalette {
+        return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10246,12 +10571,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` palette: QtC.QPalette `
+    /// ` palette: QPalette `
     ///
-    pub fn SetPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
-        qtc.QWidget_SetPalette(@ptrCast(self), @ptrCast(palette));
+    pub fn SetPalette(self: QSplitterHandle, palette: anytype) void {
+        comptime _ = @TypeOf(palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
     }
 
     /// Inherited from QWidget
@@ -10260,12 +10586,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self), @bitCast(backgroundRole));
+    pub fn SetBackgroundRole(self: QSplitterHandle, backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
     }
 
     /// Inherited from QWidget
@@ -10274,14 +10600,14 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: ?*anyopaque) i32 {
-        return qtc.QWidget_BackgroundRole(@ptrCast(self));
+    pub fn BackgroundRole(self: QSplitterHandle) i32 {
+        return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10290,12 +10616,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self), @bitCast(foregroundRole));
+    pub fn SetForegroundRole(self: QSplitterHandle, foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
     }
 
     /// Inherited from QWidget
@@ -10304,14 +10630,14 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ForegroundRole(@ptrCast(self));
+    pub fn ForegroundRole(self: QSplitterHandle) i32 {
+        return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10320,10 +10646,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn Font(self: ?*anyopaque) QtC.QFont {
-        return qtc.QWidget_Font(@ptrCast(self));
+    pub fn Font(self: QSplitterHandle) QFont {
+        return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10332,12 +10658,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` font: QtC.QFont `
+    /// ` font: QFont `
     ///
-    pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
-        qtc.QWidget_SetFont(@ptrCast(self), @ptrCast(font));
+    pub fn SetFont(self: QSplitterHandle, font: anytype) void {
+        comptime _ = @TypeOf(font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
     }
 
     /// Inherited from QWidget
@@ -10346,10 +10673,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn FontMetrics(self: ?*anyopaque) QtC.QFontMetrics {
-        return qtc.QWidget_FontMetrics(@ptrCast(self));
+    pub fn FontMetrics(self: QSplitterHandle) QFontMetrics {
+        return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10358,10 +10685,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn FontInfo(self: ?*anyopaque) QtC.QFontInfo {
-        return qtc.QWidget_FontInfo(@ptrCast(self));
+    pub fn FontInfo(self: QSplitterHandle) QFontInfo {
+        return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10370,10 +10697,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
-        return qtc.QWidget_Cursor(@ptrCast(self));
+    pub fn Cursor(self: QSplitterHandle) QCursor {
+        return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10382,12 +10709,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` cursor: QtC.QCursor `
+    /// ` cursor: QCursor `
     ///
-    pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
-        qtc.QWidget_SetCursor(@ptrCast(self), @ptrCast(cursor));
+    pub fn SetCursor(self: QSplitterHandle, cursor: anytype) void {
+        comptime _ = @TypeOf(cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
     }
 
     /// Inherited from QWidget
@@ -10396,10 +10724,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn UnsetCursor(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetCursor(@ptrCast(self));
+    pub fn UnsetCursor(self: QSplitterHandle) void {
+        qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10408,12 +10736,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetMouseTracking(@ptrCast(self), enable);
+    pub fn SetMouseTracking(self: QSplitterHandle, enable: bool) void {
+        qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -10422,10 +10750,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn HasMouseTracking(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasMouseTracking(@ptrCast(self));
+    pub fn HasMouseTracking(self: QSplitterHandle) bool {
+        return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10434,10 +10762,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn UnderMouse(self: ?*anyopaque) bool {
-        return qtc.QWidget_UnderMouse(@ptrCast(self));
+    pub fn UnderMouse(self: QSplitterHandle) bool {
+        return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10446,12 +10774,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetTabletTracking(@ptrCast(self), enable);
+    pub fn SetTabletTracking(self: QSplitterHandle, enable: bool) void {
+        qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -10460,10 +10788,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn HasTabletTracking(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasTabletTracking(@ptrCast(self));
+    pub fn HasTabletTracking(self: QSplitterHandle) bool {
+        return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10472,12 +10800,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` mask: QtC.QBitmap `
+    /// ` mask: QBitmap `
     ///
-    pub fn SetMask(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMask(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask(self: QSplitterHandle, mask: anytype) void {
+        comptime _ = @TypeOf(mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
 
     /// Inherited from QWidget
@@ -10486,12 +10815,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` mask: QtC.QRegion `
+    /// ` mask: QRegion `
     ///
-    pub fn SetMask2(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMask2(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask2(self: QSplitterHandle, mask: anytype) void {
+        comptime _ = @TypeOf(mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
 
     /// Inherited from QWidget
@@ -10500,10 +10830,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn Mask(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_Mask(@ptrCast(self));
+    pub fn Mask(self: QSplitterHandle) QRegion {
+        return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10512,10 +10842,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn ClearMask(self: ?*anyopaque) void {
-        qtc.QWidget_ClearMask(@ptrCast(self));
+    pub fn ClearMask(self: QSplitterHandle) void {
+        qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10524,12 +10854,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: ?*anyopaque, target: ?*anyopaque) void {
-        qtc.QWidget_Render(@ptrCast(self), @ptrCast(target));
+    pub fn Render(self: QSplitterHandle, target: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
 
     /// Inherited from QWidget
@@ -10538,12 +10869,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn Render2(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QWidget_Render2(@ptrCast(self), @ptrCast(painter));
+    pub fn Render2(self: QSplitterHandle, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// Inherited from QWidget
@@ -10552,10 +10884,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn Grab(self: ?*anyopaque) QtC.QPixmap {
-        return qtc.QWidget_Grab(@ptrCast(self));
+    pub fn Grab(self: QSplitterHandle) QPixmap {
+        return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10564,10 +10896,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
-        return qtc.QWidget_GraphicsEffect(@ptrCast(self));
+    pub fn GraphicsEffect(self: QSplitterHandle) QGraphicsEffect {
+        return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10576,12 +10908,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` effect: QtC.QGraphicsEffect `
+    /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
-        qtc.QWidget_SetGraphicsEffect(@ptrCast(self), @ptrCast(effect));
+    pub fn SetGraphicsEffect(self: QSplitterHandle, effect: anytype) void {
+        comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
+        qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
 
     /// Inherited from QWidget
@@ -10590,12 +10923,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_GrabGesture(@ptrCast(self), @bitCast(typeVal));
+    pub fn GrabGesture(self: QSplitterHandle, typeVal: i32) void {
+        qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -10604,12 +10937,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_UngrabGesture(@ptrCast(self), @bitCast(typeVal));
+    pub fn UngrabGesture(self: QSplitterHandle, typeVal: i32) void {
+        qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -10618,16 +10951,16 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
+    pub fn SetWindowTitle(self: QSplitterHandle, windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
             .len = windowTitle.len,
             .data = windowTitle.ptr,
         };
-        qtc.QWidget_SetWindowTitle(@ptrCast(self), windowTitle_str);
+        qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
 
     /// Inherited from QWidget
@@ -10636,16 +10969,16 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
+    pub fn SetStyleSheet(self: QSplitterHandle, styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
             .len = styleSheet.len,
             .data = styleSheet.ptr,
         };
-        qtc.QWidget_SetStyleSheet(@ptrCast(self), styleSheet_str);
+        qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
 
     /// Inherited from QWidget
@@ -10654,12 +10987,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_StyleSheet(@ptrCast(self));
+    pub fn StyleSheet(self: QSplitterHandle, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsplitterhandle.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -10672,12 +11005,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowTitle(@ptrCast(self));
+    pub fn WindowTitle(self: QSplitterHandle, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsplitterhandle.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -10690,12 +11023,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QWidget_SetWindowIcon(@ptrCast(self), @ptrCast(icon));
+    pub fn SetWindowIcon(self: QSplitterHandle, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QWidget
@@ -10704,10 +11038,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn WindowIcon(self: ?*anyopaque) QtC.QIcon {
-        return qtc.QWidget_WindowIcon(@ptrCast(self));
+    pub fn WindowIcon(self: QSplitterHandle) QIcon {
+        return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10716,16 +11050,16 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
+    pub fn SetWindowIconText(self: QSplitterHandle, windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
             .len = windowIconText.len,
             .data = windowIconText.ptr,
         };
-        qtc.QWidget_SetWindowIconText(@ptrCast(self), windowIconText_str);
+        qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
 
     /// Inherited from QWidget
@@ -10734,12 +11068,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowIconText(@ptrCast(self));
+    pub fn WindowIconText(self: QSplitterHandle, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsplitterhandle.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -10752,16 +11086,16 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
+    pub fn SetWindowRole(self: QSplitterHandle, windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
             .len = windowRole.len,
             .data = windowRole.ptr,
         };
-        qtc.QWidget_SetWindowRole(@ptrCast(self), windowRole_str);
+        qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
 
     /// Inherited from QWidget
@@ -10770,12 +11104,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowRole(@ptrCast(self));
+    pub fn WindowRole(self: QSplitterHandle, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsplitterhandle.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -10788,16 +11122,16 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
+    pub fn SetWindowFilePath(self: QSplitterHandle, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
-        qtc.QWidget_SetWindowFilePath(@ptrCast(self), filePath_str);
+        qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
 
     /// Inherited from QWidget
@@ -10806,12 +11140,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
+    pub fn WindowFilePath(self: QSplitterHandle, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsplitterhandle.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -10824,12 +11158,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
-        qtc.QWidget_SetWindowOpacity(@ptrCast(self), @bitCast(level));
+    pub fn SetWindowOpacity(self: QSplitterHandle, level: f64) void {
+        qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
 
     /// Inherited from QWidget
@@ -10838,10 +11172,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn WindowOpacity(self: ?*anyopaque) f64 {
-        return qtc.QWidget_WindowOpacity(@ptrCast(self));
+    pub fn WindowOpacity(self: QSplitterHandle) f64 {
+        return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10850,10 +11184,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn IsWindowModified(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsWindowModified(@ptrCast(self));
+    pub fn IsWindowModified(self: QSplitterHandle) bool {
+        return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10862,16 +11196,16 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
+    pub fn SetToolTip(self: QSplitterHandle, toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
             .len = toolTip.len,
             .data = toolTip.ptr,
         };
-        qtc.QWidget_SetToolTip(@ptrCast(self), toolTip_str);
+        qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
 
     /// Inherited from QWidget
@@ -10880,12 +11214,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_ToolTip(@ptrCast(self));
+    pub fn ToolTip(self: QSplitterHandle, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsplitterhandle.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -10898,12 +11232,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
-        qtc.QWidget_SetToolTipDuration(@ptrCast(self), @bitCast(msec));
+    pub fn SetToolTipDuration(self: QSplitterHandle, msec: i32) void {
+        qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
 
     /// Inherited from QWidget
@@ -10912,10 +11246,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn ToolTipDuration(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ToolTipDuration(@ptrCast(self));
+    pub fn ToolTipDuration(self: QSplitterHandle) i32 {
+        return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10924,16 +11258,16 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
+    pub fn SetStatusTip(self: QSplitterHandle, statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
             .len = statusTip.len,
             .data = statusTip.ptr,
         };
-        qtc.QWidget_SetStatusTip(@ptrCast(self), statusTip_str);
+        qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
 
     /// Inherited from QWidget
@@ -10942,12 +11276,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_StatusTip(@ptrCast(self));
+    pub fn StatusTip(self: QSplitterHandle, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsplitterhandle.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -10960,16 +11294,16 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
+    pub fn SetWhatsThis(self: QSplitterHandle, whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
             .len = whatsThis.len,
             .data = whatsThis.ptr,
         };
-        qtc.QWidget_SetWhatsThis(@ptrCast(self), whatsThis_str);
+        qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
 
     /// Inherited from QWidget
@@ -10978,12 +11312,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WhatsThis(@ptrCast(self));
+    pub fn WhatsThis(self: QSplitterHandle, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsplitterhandle.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -10996,12 +11330,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_AccessibleName(@ptrCast(self));
+    pub fn AccessibleName(self: QSplitterHandle, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsplitterhandle.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -11014,16 +11348,16 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
+    pub fn SetAccessibleName(self: QSplitterHandle, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QWidget_SetAccessibleName(@ptrCast(self), name_str);
+        qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QWidget
@@ -11032,12 +11366,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
+    pub fn AccessibleDescription(self: QSplitterHandle, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsplitterhandle.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -11050,16 +11384,16 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
+    pub fn SetAccessibleDescription(self: QSplitterHandle, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
-        qtc.QWidget_SetAccessibleDescription(@ptrCast(self), description_str);
+        qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
 
     /// Inherited from QWidget
@@ -11068,12 +11402,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QWidget_SetLayoutDirection(@ptrCast(self), @bitCast(direction));
+    pub fn SetLayoutDirection(self: QSplitterHandle, direction: i32) void {
+        qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
 
     /// Inherited from QWidget
@@ -11082,14 +11416,14 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: ?*anyopaque) i32 {
-        return qtc.QWidget_LayoutDirection(@ptrCast(self));
+    pub fn LayoutDirection(self: QSplitterHandle) i32 {
+        return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11098,10 +11432,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn UnsetLayoutDirection(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self));
+    pub fn UnsetLayoutDirection(self: QSplitterHandle) void {
+        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11110,12 +11444,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` locale: QtC.QLocale `
+    /// ` locale: QLocale `
     ///
-    pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
-        qtc.QWidget_SetLocale(@ptrCast(self), @ptrCast(locale));
+    pub fn SetLocale(self: QSplitterHandle, locale: anytype) void {
+        comptime _ = @TypeOf(locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
     }
 
     /// Inherited from QWidget
@@ -11124,10 +11459,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn Locale(self: ?*anyopaque) QtC.QLocale {
-        return qtc.QWidget_Locale(@ptrCast(self));
+    pub fn Locale(self: QSplitterHandle) QLocale {
+        return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -11136,10 +11471,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn UnsetLocale(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetLocale(@ptrCast(self));
+    pub fn UnsetLocale(self: QSplitterHandle) void {
+        qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11148,10 +11483,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn IsRightToLeft(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsRightToLeft(@ptrCast(self));
+    pub fn IsRightToLeft(self: QSplitterHandle) bool {
+        return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11160,10 +11495,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn IsLeftToRight(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsLeftToRight(@ptrCast(self));
+    pub fn IsLeftToRight(self: QSplitterHandle) bool {
+        return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11172,10 +11507,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn SetFocus(self: ?*anyopaque) void {
-        qtc.QWidget_SetFocus(@ptrCast(self));
+    pub fn SetFocus(self: QSplitterHandle) void {
+        qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11184,10 +11519,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn IsActiveWindow(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsActiveWindow(@ptrCast(self));
+    pub fn IsActiveWindow(self: QSplitterHandle) bool {
+        return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11196,10 +11531,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn ActivateWindow(self: ?*anyopaque) void {
-        qtc.QWidget_ActivateWindow(@ptrCast(self));
+    pub fn ActivateWindow(self: QSplitterHandle) void {
+        qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11208,10 +11543,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn ClearFocus(self: ?*anyopaque) void {
-        qtc.QWidget_ClearFocus(@ptrCast(self));
+    pub fn ClearFocus(self: QSplitterHandle) void {
+        qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11220,12 +11555,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
-        qtc.QWidget_SetFocus2(@ptrCast(self), @bitCast(reason));
+    pub fn SetFocus2(self: QSplitterHandle, reason: i32) void {
+        qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
 
     /// Inherited from QWidget
@@ -11234,14 +11569,14 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: ?*anyopaque) i32 {
-        return qtc.QWidget_FocusPolicy(@ptrCast(self));
+    pub fn FocusPolicy(self: QSplitterHandle) i32 {
+        return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11250,12 +11585,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetFocusPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetFocusPolicy(self: QSplitterHandle, policy: i32) void {
+        qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -11264,10 +11599,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn HasFocus(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasFocus(@ptrCast(self));
+    pub fn HasFocus(self: QSplitterHandle) bool {
+        return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11276,12 +11611,14 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QWidget `
+    /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: ?*anyopaque, param2: ?*anyopaque) void {
-        qtc.QWidget_SetTabOrder(@ptrCast(param1), @ptrCast(param2));
+    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QWidget;
+        qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
     /// Inherited from QWidget
@@ -11290,12 +11627,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` focusProxy: QtC.QWidget `
+    /// ` focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: ?*anyopaque, focusProxy: ?*anyopaque) void {
-        qtc.QWidget_SetFocusProxy(@ptrCast(self), @ptrCast(focusProxy));
+    pub fn SetFocusProxy(self: QSplitterHandle, focusProxy: anytype) void {
+        comptime _ = @TypeOf(focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
     }
 
     /// Inherited from QWidget
@@ -11304,10 +11642,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn FocusProxy(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_FocusProxy(@ptrCast(self));
+    pub fn FocusProxy(self: QSplitterHandle) QWidget {
+        return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -11316,14 +11654,14 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
+    pub fn ContextMenuPolicy(self: QSplitterHandle) i32 {
+        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11332,12 +11670,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetContextMenuPolicy(self: QSplitterHandle, policy: i32) void {
+        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -11346,10 +11684,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn GrabMouse(self: ?*anyopaque) void {
-        qtc.QWidget_GrabMouse(@ptrCast(self));
+    pub fn GrabMouse(self: QSplitterHandle) void {
+        qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11358,12 +11696,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` param1: QtC.QCursor `
+    /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_GrabMouse2(@ptrCast(self), @ptrCast(param1));
+    pub fn GrabMouse2(self: QSplitterHandle, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QCursor;
+        qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -11372,10 +11711,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn ReleaseMouse(self: ?*anyopaque) void {
-        qtc.QWidget_ReleaseMouse(@ptrCast(self));
+    pub fn ReleaseMouse(self: QSplitterHandle) void {
+        qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11384,10 +11723,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn GrabKeyboard(self: ?*anyopaque) void {
-        qtc.QWidget_GrabKeyboard(@ptrCast(self));
+    pub fn GrabKeyboard(self: QSplitterHandle) void {
+        qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11396,10 +11735,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn ReleaseKeyboard(self: ?*anyopaque) void {
-        qtc.QWidget_ReleaseKeyboard(@ptrCast(self));
+    pub fn ReleaseKeyboard(self: QSplitterHandle) void {
+        qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11408,12 +11747,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` key: QtC.QKeySequence `
+    /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: ?*anyopaque, key: ?*anyopaque) i32 {
-        return qtc.QWidget_GrabShortcut(@ptrCast(self), @ptrCast(key));
+    pub fn GrabShortcut(self: QSplitterHandle, key: anytype) i32 {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
 
     /// Inherited from QWidget
@@ -11422,12 +11762,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_ReleaseShortcut(@ptrCast(self), @bitCast(id));
+    pub fn ReleaseShortcut(self: QSplitterHandle, id: i32) void {
+        qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -11436,12 +11776,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutEnabled(@ptrCast(self), @bitCast(id));
+    pub fn SetShortcutEnabled(self: QSplitterHandle, id: i32) void {
+        qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -11450,28 +11790,28 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self), @bitCast(id));
+    pub fn SetShortcutAutoRepeat(self: QSplitterHandle, id: i32) void {
+        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QtC.QWidget {
-        return qtc.QWidget_MouseGrabber();
+    pub fn MouseGrabber() QWidget {
+        return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QtC.QWidget {
-        return qtc.QWidget_KeyboardGrabber();
+    pub fn KeyboardGrabber() QWidget {
+        return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
 
     /// Inherited from QWidget
@@ -11480,10 +11820,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn UpdatesEnabled(self: ?*anyopaque) bool {
-        return qtc.QWidget_UpdatesEnabled(@ptrCast(self));
+    pub fn UpdatesEnabled(self: QSplitterHandle) bool {
+        return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11492,12 +11832,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self), enable);
+    pub fn SetUpdatesEnabled(self: QSplitterHandle, enable: bool) void {
+        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -11506,10 +11846,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn GraphicsProxyWidget(self: ?*anyopaque) QtC.QGraphicsProxyWidget {
-        return qtc.QWidget_GraphicsProxyWidget(@ptrCast(self));
+    pub fn GraphicsProxyWidget(self: QSplitterHandle) QGraphicsProxyWidget {
+        return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -11518,10 +11858,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn Update(self: ?*anyopaque) void {
-        qtc.QWidget_Update(@ptrCast(self));
+    pub fn Update(self: QSplitterHandle) void {
+        qtc.QWidget_Update(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11530,10 +11870,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn Repaint(self: ?*anyopaque) void {
-        qtc.QWidget_Repaint(@ptrCast(self));
+    pub fn Repaint(self: QSplitterHandle) void {
+        qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11542,7 +11882,7 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` x: i32 `
     ///
@@ -11552,8 +11892,8 @@ pub const qsplitterhandle = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn Update2(self: QSplitterHandle, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -11562,12 +11902,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn Update3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Update3(@ptrCast(self), @ptrCast(param1));
+    pub fn Update3(self: QSplitterHandle, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -11576,12 +11917,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn Update4(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Update4(@ptrCast(self), @ptrCast(param1));
+    pub fn Update4(self: QSplitterHandle, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -11590,7 +11932,7 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` x: i32 `
     ///
@@ -11600,8 +11942,8 @@ pub const qsplitterhandle = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn Repaint2(self: QSplitterHandle, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -11610,12 +11952,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Repaint3(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint3(self: QSplitterHandle, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -11624,12 +11967,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Repaint4(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint4(self: QSplitterHandle, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -11638,12 +11982,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: ?*anyopaque, hidden: bool) void {
-        qtc.QWidget_SetHidden(@ptrCast(self), hidden);
+    pub fn SetHidden(self: QSplitterHandle, hidden: bool) void {
+        qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
 
     /// Inherited from QWidget
@@ -11652,10 +11996,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn Show(self: ?*anyopaque) void {
-        qtc.QWidget_Show(@ptrCast(self));
+    pub fn Show(self: QSplitterHandle) void {
+        qtc.QWidget_Show(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11664,10 +12008,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn Hide(self: ?*anyopaque) void {
-        qtc.QWidget_Hide(@ptrCast(self));
+    pub fn Hide(self: QSplitterHandle) void {
+        qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11676,10 +12020,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn ShowMinimized(self: ?*anyopaque) void {
-        qtc.QWidget_ShowMinimized(@ptrCast(self));
+    pub fn ShowMinimized(self: QSplitterHandle) void {
+        qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11688,10 +12032,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn ShowMaximized(self: ?*anyopaque) void {
-        qtc.QWidget_ShowMaximized(@ptrCast(self));
+    pub fn ShowMaximized(self: QSplitterHandle) void {
+        qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11700,10 +12044,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn ShowFullScreen(self: ?*anyopaque) void {
-        qtc.QWidget_ShowFullScreen(@ptrCast(self));
+    pub fn ShowFullScreen(self: QSplitterHandle) void {
+        qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11712,10 +12056,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn ShowNormal(self: ?*anyopaque) void {
-        qtc.QWidget_ShowNormal(@ptrCast(self));
+    pub fn ShowNormal(self: QSplitterHandle) void {
+        qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11724,10 +12068,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn Close(self: ?*anyopaque) bool {
-        return qtc.QWidget_Close(@ptrCast(self));
+    pub fn Close(self: QSplitterHandle) bool {
+        return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11736,10 +12080,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn Raise(self: ?*anyopaque) void {
-        qtc.QWidget_Raise(@ptrCast(self));
+    pub fn Raise(self: QSplitterHandle) void {
+        qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11748,10 +12092,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn Lower(self: ?*anyopaque) void {
-        qtc.QWidget_Lower(@ptrCast(self));
+    pub fn Lower(self: QSplitterHandle) void {
+        qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11760,12 +12104,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_StackUnder(@ptrCast(self), @ptrCast(param1));
+    pub fn StackUnder(self: QSplitterHandle, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -11774,14 +12119,14 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn Move(self: QSplitterHandle, x: i32, y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QWidget
@@ -11790,12 +12135,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn Move2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Move2(@ptrCast(self), @ptrCast(param1));
+    pub fn Move2(self: QSplitterHandle, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -11804,14 +12150,14 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_Resize(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn Resize(self: QSplitterHandle, w: i32, h: i32) void {
+        qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -11820,12 +12166,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` param1: QtC.QSize `
+    /// ` param1: QSize `
     ///
-    pub fn Resize2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Resize2(@ptrCast(self), @ptrCast(param1));
+    pub fn Resize2(self: QSplitterHandle, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QSize;
+        qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -11834,7 +12181,7 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` x: i32 `
     ///
@@ -11844,8 +12191,8 @@ pub const qsplitterhandle = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn SetGeometry(self: QSplitterHandle, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -11854,12 +12201,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` geometry: QtC.QRect `
+    /// ` geometry: QRect `
     ///
-    pub fn SetGeometry2(self: ?*anyopaque, geometry: ?*anyopaque) void {
-        qtc.QWidget_SetGeometry2(@ptrCast(self), @ptrCast(geometry));
+    pub fn SetGeometry2(self: QSplitterHandle, geometry: anytype) void {
+        comptime _ = @TypeOf(geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
     }
 
     /// Inherited from QWidget
@@ -11868,12 +12216,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
+    pub fn SaveGeometry(self: QSplitterHandle, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsplitterhandle.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -11886,16 +12234,16 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
+    pub fn RestoreGeometry(self: QSplitterHandle, geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
             .len = geometry.len,
             .data = geometry.ptr,
         };
-        return qtc.QWidget_RestoreGeometry(@ptrCast(self), geometry_str);
+        return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
 
     /// Inherited from QWidget
@@ -11904,10 +12252,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn AdjustSize(self: ?*anyopaque) void {
-        qtc.QWidget_AdjustSize(@ptrCast(self));
+    pub fn AdjustSize(self: QSplitterHandle) void {
+        qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11916,10 +12264,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn IsVisible(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsVisible(@ptrCast(self));
+    pub fn IsVisible(self: QSplitterHandle) bool {
+        return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11928,12 +12276,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidget_IsVisibleTo(@ptrCast(self), @ptrCast(param1));
+    pub fn IsVisibleTo(self: QSplitterHandle, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -11942,10 +12291,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn IsHidden(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsHidden(@ptrCast(self));
+    pub fn IsHidden(self: QSplitterHandle) bool {
+        return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11954,10 +12303,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn IsMinimized(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsMinimized(@ptrCast(self));
+    pub fn IsMinimized(self: QSplitterHandle) bool {
+        return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11966,10 +12315,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn IsMaximized(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsMaximized(@ptrCast(self));
+    pub fn IsMaximized(self: QSplitterHandle) bool {
+        return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11978,10 +12327,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn IsFullScreen(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsFullScreen(@ptrCast(self));
+    pub fn IsFullScreen(self: QSplitterHandle) bool {
+        return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11990,14 +12339,14 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowState(@ptrCast(self));
+    pub fn WindowState(self: QSplitterHandle) i32 {
+        return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -12006,12 +12355,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_SetWindowState(@ptrCast(self), @bitCast(state));
+    pub fn SetWindowState(self: QSplitterHandle, state: i32) void {
+        qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -12020,12 +12369,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_OverrideWindowState(@ptrCast(self), @bitCast(state));
+    pub fn OverrideWindowState(self: QSplitterHandle, state: i32) void {
+        qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -12034,10 +12383,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
-        return qtc.QWidget_SizePolicy(@ptrCast(self));
+    pub fn SizePolicy(self: QSplitterHandle) QSizePolicy {
+        return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -12046,12 +12395,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` sizePolicy: QtC.QSizePolicy `
+    /// ` sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: QtC.QSizePolicy) void {
-        qtc.QWidget_SetSizePolicy(@ptrCast(self), @ptrCast(sizePolicy));
+    pub fn SetSizePolicy(self: QSplitterHandle, sizePolicy: anytype) void {
+        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
     }
 
     /// Inherited from QWidget
@@ -12060,14 +12410,14 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` horizontal: qsizepolicy_enums.Policy `
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
-        qtc.QWidget_SetSizePolicy2(@ptrCast(self), @bitCast(horizontal), @bitCast(vertical));
+    pub fn SetSizePolicy2(self: QSplitterHandle, horizontal: i32, vertical: i32) void {
+        qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
 
     /// Inherited from QWidget
@@ -12076,10 +12426,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn VisibleRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_VisibleRegion(@ptrCast(self));
+    pub fn VisibleRegion(self: QSplitterHandle) QRegion {
+        return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -12088,7 +12438,7 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` left: i32 `
     ///
@@ -12098,8 +12448,8 @@ pub const qsplitterhandle = struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QWidget_SetContentsMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
+    pub fn SetContentsMargins(self: QSplitterHandle, left: i32, top: i32, right: i32, bottom: i32) void {
+        qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QWidget
@@ -12108,12 +12458,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` margins: QtC.QMargins `
+    /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
-        qtc.QWidget_SetContentsMargins2(@ptrCast(self), @ptrCast(margins));
+    pub fn SetContentsMargins2(self: QSplitterHandle, margins: anytype) void {
+        comptime _ = @TypeOf(margins)._is_QMargins;
+        qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
 
     /// Inherited from QWidget
@@ -12122,10 +12473,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
-        return qtc.QWidget_ContentsMargins(@ptrCast(self));
+    pub fn ContentsMargins(self: QSplitterHandle) QMargins {
+        return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -12134,10 +12485,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_ContentsRect(@ptrCast(self));
+    pub fn ContentsRect(self: QSplitterHandle) QRect {
+        return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -12146,10 +12497,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn Layout(self: ?*anyopaque) QtC.QLayout {
-        return qtc.QWidget_Layout(@ptrCast(self));
+    pub fn Layout(self: QSplitterHandle) QLayout {
+        return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -12158,12 +12509,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` layout: QtC.QLayout `
+    /// ` layout: QLayout `
     ///
-    pub fn SetLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
-        qtc.QWidget_SetLayout(@ptrCast(self), @ptrCast(layout));
+    pub fn SetLayout(self: QSplitterHandle, layout: anytype) void {
+        comptime _ = @TypeOf(layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
     }
 
     /// Inherited from QWidget
@@ -12172,10 +12524,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn UpdateGeometry(self: ?*anyopaque) void {
-        qtc.QWidget_UpdateGeometry(@ptrCast(self));
+    pub fn UpdateGeometry(self: QSplitterHandle) void {
+        qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -12184,12 +12536,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QWidget_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QSplitterHandle, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QWidget
@@ -12198,14 +12551,15 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i32) void {
-        qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @bitCast(f));
+    pub fn SetParent2(self: QSplitterHandle, parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
     }
 
     /// Inherited from QWidget
@@ -12214,14 +12568,14 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QWidget_Scroll(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn Scroll(self: QSplitterHandle, dx: i32, dy: i32) void {
+        qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QWidget
@@ -12230,16 +12584,17 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    /// ` param3: QtC.QRect `
+    /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
-        qtc.QWidget_Scroll2(@ptrCast(self), @bitCast(dx), @bitCast(dy), @ptrCast(param3));
+    pub fn Scroll2(self: QSplitterHandle, dx: i32, dy: i32, param3: anytype) void {
+        comptime _ = @TypeOf(param3)._is_QRect;
+        qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
 
     /// Inherited from QWidget
@@ -12248,10 +12603,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn FocusWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_FocusWidget(@ptrCast(self));
+    pub fn FocusWidget(self: QSplitterHandle) QWidget {
+        return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -12260,10 +12615,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn NextInFocusChain(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_NextInFocusChain(@ptrCast(self));
+    pub fn NextInFocusChain(self: QSplitterHandle) QWidget {
+        return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -12272,10 +12627,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn PreviousInFocusChain(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_PreviousInFocusChain(@ptrCast(self));
+    pub fn PreviousInFocusChain(self: QSplitterHandle) QWidget {
+        return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -12284,10 +12639,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn AcceptDrops(self: ?*anyopaque) bool {
-        return qtc.QWidget_AcceptDrops(@ptrCast(self));
+    pub fn AcceptDrops(self: QSplitterHandle) bool {
+        return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -12296,12 +12651,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
-        qtc.QWidget_SetAcceptDrops(@ptrCast(self), on);
+    pub fn SetAcceptDrops(self: QSplitterHandle, on: bool) void {
+        qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
 
     /// Inherited from QWidget
@@ -12310,12 +12665,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_AddAction(@ptrCast(self), @ptrCast(action));
+    pub fn AddAction(self: QSplitterHandle, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -12324,16 +12680,16 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn AddActions(self: QSplitterHandle, actions: []QAction) void {
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.QWidget_AddActions(@ptrCast(self), actions_list);
+        qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
 
     /// Inherited from QWidget
@@ -12342,18 +12698,19 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` before: QtC.QAction `
+    /// ` before: QAction `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn InsertActions(self: QSplitterHandle, before: anytype, actions: []QAction) void {
+        comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.QWidget_InsertActions(@ptrCast(self), @ptrCast(before), actions_list);
+        qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
 
     /// Inherited from QWidget
@@ -12362,14 +12719,16 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` before: QtC.QAction `
+    /// ` before: QAction `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_InsertAction(@ptrCast(self), @ptrCast(before), @ptrCast(action));
+    pub fn InsertAction(self: QSplitterHandle, before: anytype, action: anytype) void {
+        comptime _ = @TypeOf(before)._is_QAction;
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -12378,12 +12737,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_RemoveAction(@ptrCast(self), @ptrCast(action));
+    pub fn RemoveAction(self: QSplitterHandle, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -12392,16 +12752,17 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
-        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self));
+    pub fn Actions(self: QSplitterHandle, allocator: std.mem.Allocator) []QAction {
+        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("qsplitterhandle.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("qsplitterhandle.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -12411,16 +12772,16 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction2(self: QSplitterHandle, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction2(@ptrCast(self), text_str);
+        return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
 
     /// Inherited from QWidget
@@ -12429,18 +12790,19 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction3(self: QSplitterHandle, icon: anytype, text: []const u8) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction3(@ptrCast(self), @ptrCast(icon), text_str);
+        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
     /// Inherited from QWidget
@@ -12449,18 +12811,19 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction4(self: QSplitterHandle, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction4(@ptrCast(self), text_str, @ptrCast(shortcut));
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -12469,20 +12832,22 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction5(self: QSplitterHandle, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction5(@ptrCast(self), @ptrCast(icon), text_str, @ptrCast(shortcut));
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -12491,10 +12856,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ParentWidget(@ptrCast(self));
+    pub fn ParentWidget(self: QSplitterHandle) QWidget {
+        return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -12503,12 +12868,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_SetWindowFlags(@ptrCast(self), @bitCast(typeVal));
+    pub fn SetWindowFlags(self: QSplitterHandle, typeVal: i32) void {
+        qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -12517,14 +12882,14 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowFlags(@ptrCast(self));
+    pub fn WindowFlags(self: QSplitterHandle) i32 {
+        return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -12533,12 +12898,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetWindowFlag(@ptrCast(self), @bitCast(param1));
+    pub fn SetWindowFlag(self: QSplitterHandle, param1: i32) void {
+        qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -12547,12 +12912,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @bitCast(typeVal));
+    pub fn OverrideWindowFlags(self: QSplitterHandle, typeVal: i32) void {
+        qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -12561,14 +12926,14 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowType(@ptrCast(self));
+    pub fn WindowType(self: QSplitterHandle) i32 {
+        return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -12579,8 +12944,8 @@ pub const qsplitterhandle = struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QtC.QWidget {
-        return qtc.QWidget_Find(@bitCast(param1));
+    pub fn Find(param1: usize) QWidget {
+        return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
 
     /// Inherited from QWidget
@@ -12589,14 +12954,14 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
-        return qtc.QWidget_ChildAt(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn ChildAt(self: QSplitterHandle, x: i32, y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
     }
 
     /// Inherited from QWidget
@@ -12605,12 +12970,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` p: QtC.QPoint `
+    /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAt2(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt2(self: QSplitterHandle, p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -12619,12 +12985,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` p: QtC.QPointF `
+    /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAt3(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt3(self: QSplitterHandle, p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -12633,12 +13000,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetAttribute(@ptrCast(self), @bitCast(param1));
+    pub fn SetAttribute(self: QSplitterHandle, param1: i32) void {
+        qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -12647,12 +13014,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
-        return qtc.QWidget_TestAttribute(@ptrCast(self), @bitCast(param1));
+    pub fn TestAttribute(self: QSplitterHandle, param1: i32) bool {
+        return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -12661,10 +13028,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn EnsurePolished(self: ?*anyopaque) void {
-        qtc.QWidget_EnsurePolished(@ptrCast(self));
+    pub fn EnsurePolished(self: QSplitterHandle) void {
+        qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -12673,12 +13040,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` child: QtC.QWidget `
+    /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
-        return qtc.QWidget_IsAncestorOf(@ptrCast(self), @ptrCast(child));
+    pub fn IsAncestorOf(self: QSplitterHandle, child: anytype) bool {
+        comptime _ = @TypeOf(child)._is_QWidget;
+        return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
 
     /// Inherited from QWidget
@@ -12687,10 +13055,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn AutoFillBackground(self: ?*anyopaque) bool {
-        return qtc.QWidget_AutoFillBackground(@ptrCast(self));
+    pub fn AutoFillBackground(self: QSplitterHandle) bool {
+        return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -12699,12 +13067,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: ?*anyopaque, enabled: bool) void {
-        qtc.QWidget_SetAutoFillBackground(@ptrCast(self), enabled);
+    pub fn SetAutoFillBackground(self: QSplitterHandle, enabled: bool) void {
+        qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QWidget
@@ -12713,10 +13081,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn BackingStore(self: ?*anyopaque) QtC.QBackingStore {
-        return qtc.QWidget_BackingStore(@ptrCast(self));
+    pub fn BackingStore(self: QSplitterHandle) QBackingStore {
+        return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -12725,10 +13093,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn WindowHandle(self: ?*anyopaque) QtC.QWindow {
-        return qtc.QWidget_WindowHandle(@ptrCast(self));
+    pub fn WindowHandle(self: QSplitterHandle) QWindow {
+        return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -12737,10 +13105,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn Screen(self: ?*anyopaque) QtC.QScreen {
-        return qtc.QWidget_Screen(@ptrCast(self));
+    pub fn Screen(self: QSplitterHandle) QScreen {
+        return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -12749,12 +13117,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` screen: QtC.QScreen `
+    /// ` screen: QScreen `
     ///
-    pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
-        qtc.QWidget_SetScreen(@ptrCast(self), @ptrCast(screen));
+    pub fn SetScreen(self: QSplitterHandle, screen: anytype) void {
+        comptime _ = @TypeOf(screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
     }
 
     /// Inherited from QWidget
@@ -12763,10 +13132,11 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer(@ptrCast(window));
+    pub fn CreateWindowContainer(window: anytype) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -12775,16 +13145,16 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
+    pub fn WindowTitleChanged(self: QSplitterHandle, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        qtc.QWidget_WindowTitleChanged(@ptrCast(self), title_str);
+        qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
 
     /// Inherited from QWidget
@@ -12793,12 +13163,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, title: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitterHandle, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowTitleChanged(self: QSplitterHandle, callback: *const fn (QSplitterHandle, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -12807,12 +13177,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QWidget_WindowIconChanged(@ptrCast(self), @ptrCast(icon));
+    pub fn WindowIconChanged(self: QSplitterHandle, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QWidget
@@ -12821,12 +13192,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, icon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitterHandle, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowIconChanged(self: QSplitterHandle, callback: *const fn (QSplitterHandle, QIcon) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -12835,16 +13206,16 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
+    pub fn WindowIconTextChanged(self: QSplitterHandle, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
-        qtc.QWidget_WindowIconTextChanged(@ptrCast(self), iconText_str);
+        qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
 
     /// Inherited from QWidget
@@ -12853,12 +13224,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, iconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitterHandle, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowIconTextChanged(self: QSplitterHandle, callback: *const fn (QSplitterHandle, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -12867,12 +13238,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` pos: QtC.QPoint `
+    /// ` pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: ?*anyopaque, pos: ?*anyopaque) void {
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self), @ptrCast(pos));
+    pub fn CustomContextMenuRequested(self: QSplitterHandle, pos: anytype) void {
+        comptime _ = @TypeOf(pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
     }
 
     /// Inherited from QWidget
@@ -12881,12 +13253,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, pos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitterHandle, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomContextMenuRequested(self: QSplitterHandle, callback: *const fn (QSplitterHandle, QPoint) callconv(.c) void) void {
+        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -12895,14 +13267,14 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: ?*anyopaque) i32 {
-        return qtc.QWidget_InputMethodHints(@ptrCast(self));
+    pub fn InputMethodHints(self: QSplitterHandle) i32 {
+        return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -12911,12 +13283,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
-        qtc.QWidget_SetInputMethodHints(@ptrCast(self), @bitCast(hints));
+    pub fn SetInputMethodHints(self: QSplitterHandle, hints: i32) void {
+        qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
 
     /// Inherited from QWidget
@@ -12925,14 +13297,16 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render22(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset));
+    pub fn Render22(self: QSplitterHandle, target: anytype, targetOffset: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// Inherited from QWidget
@@ -12941,16 +13315,19 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        qtc.QWidget_Render3(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+    pub fn Render3(self: QSplitterHandle, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// Inherited from QWidget
@@ -12959,18 +13336,21 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
+    pub fn Render4(self: QSplitterHandle, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -12979,14 +13359,16 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render23(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset));
+    pub fn Render23(self: QSplitterHandle, painter: anytype, targetOffset: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// Inherited from QWidget
@@ -12995,16 +13377,19 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        qtc.QWidget_Render32(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+    pub fn Render32(self: QSplitterHandle, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// Inherited from QWidget
@@ -13013,18 +13398,21 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
+    pub fn Render42(self: QSplitterHandle, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -13033,12 +13421,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` rectangle: QtC.QRect `
+    /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) QtC.QPixmap {
-        return qtc.QWidget_Grab1(@ptrCast(self), @ptrCast(rectangle));
+    pub fn Grab1(self: QSplitterHandle, rectangle: anytype) QPixmap {
+        comptime _ = @TypeOf(rectangle)._is_QRect;
+        return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -13047,14 +13436,14 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i32, flags: i32) void {
-        qtc.QWidget_GrabGesture2(@ptrCast(self), @bitCast(typeVal), @bitCast(flags));
+    pub fn GrabGesture2(self: QSplitterHandle, typeVal: i32, flags: i32) void {
+        qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
 
     /// Inherited from QWidget
@@ -13063,14 +13452,15 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` key: QtC.QKeySequence `
+    /// ` key: QKeySequence `
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
-        return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @bitCast(context));
+    pub fn GrabShortcut2(self: QSplitterHandle, key: anytype, context: i32) i32 {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
 
     /// Inherited from QWidget
@@ -13079,14 +13469,14 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self), @bitCast(id), enable);
+    pub fn SetShortcutEnabled2(self: QSplitterHandle, id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -13095,14 +13485,14 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self), @bitCast(id), enable);
+    pub fn SetShortcutAutoRepeat2(self: QSplitterHandle, id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -13111,14 +13501,14 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetWindowFlag2(@ptrCast(self), @bitCast(param1), on);
+    pub fn SetWindowFlag2(self: QSplitterHandle, param1: i32, on: bool) void {
+        qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -13127,14 +13517,14 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetAttribute2(@ptrCast(self), @bitCast(param1), on);
+    pub fn SetAttribute2(self: QSplitterHandle, param1: i32, on: bool) void {
+        qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -13143,12 +13533,14 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer2(@ptrCast(window), @ptrCast(parent));
+    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -13157,14 +13549,16 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i32) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @bitCast(flags));
+    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
     }
 
     /// Inherited from QObject
@@ -13173,12 +13567,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QSplitterHandle, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsplitterhandle.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -13191,12 +13585,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QSplitterHandle, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -13205,10 +13599,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QSplitterHandle) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -13217,10 +13611,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QSplitterHandle) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -13229,10 +13623,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QSplitterHandle) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -13241,10 +13635,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QSplitterHandle) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -13253,12 +13647,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QSplitterHandle, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -13267,10 +13661,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QSplitterHandle) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -13279,12 +13673,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QSplitterHandle, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -13293,12 +13688,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QSplitterHandle, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -13307,12 +13702,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QSplitterHandle, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -13321,12 +13716,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QSplitterHandle, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -13335,12 +13730,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QSplitterHandle, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -13349,16 +13744,17 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QSplitterHandle, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qsplitterhandle.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qsplitterhandle.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -13368,12 +13764,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QSplitterHandle, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -13382,12 +13779,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QSplitterHandle, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -13396,18 +13794,20 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -13416,16 +13816,20 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -13434,18 +13838,19 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QSplitterHandle, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -13454,18 +13859,20 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -13474,16 +13881,20 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -13492,10 +13903,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QSplitterHandle) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -13504,12 +13915,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QSplitterHandle, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -13518,10 +13930,11 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -13530,10 +13943,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QSplitterHandle) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -13542,10 +13955,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QSplitterHandle) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -13554,15 +13967,16 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QSplitterHandle, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -13571,13 +13985,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QSplitterHandle, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -13586,17 +14000,16 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QSplitterHandle, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qsplitterhandle.DynamicPropertyNames: Memory allocation failed");
@@ -13615,10 +14028,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QSplitterHandle) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -13627,10 +14040,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QSplitterHandle) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -13639,10 +14052,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QSplitterHandle) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -13651,12 +14064,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitterHandle) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QSplitterHandle, callback: *const fn (QSplitterHandle) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -13665,10 +14078,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QSplitterHandle) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -13677,13 +14090,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QSplitterHandle, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -13692,10 +14105,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QSplitterHandle) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -13704,14 +14117,14 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QSplitterHandle, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -13720,14 +14133,14 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QSplitterHandle, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -13736,20 +14149,22 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -13758,18 +14173,22 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -13778,9 +14197,9 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -13788,10 +14207,11 @@ pub const qsplitterhandle = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QSplitterHandle, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -13800,13 +14220,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QSplitterHandle, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -13815,15 +14235,16 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QSplitterHandle, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -13832,18 +14253,19 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QSplitterHandle, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -13852,15 +14274,16 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QSplitterHandle, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -13869,12 +14292,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QSplitterHandle, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -13883,12 +14307,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitterHandle, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QSplitterHandle, callback: *const fn (QSplitterHandle, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -13897,10 +14321,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn PaintingActive(self: ?*anyopaque) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self));
+    pub fn PaintingActive(self: QSplitterHandle) bool {
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -13909,10 +14333,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn WidthMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self));
+    pub fn WidthMM(self: QSplitterHandle) i32 {
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -13921,10 +14345,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn HeightMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self));
+    pub fn HeightMM(self: QSplitterHandle) i32 {
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -13933,10 +14357,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn LogicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self));
+    pub fn LogicalDpiX(self: QSplitterHandle) i32 {
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -13945,10 +14369,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn LogicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self));
+    pub fn LogicalDpiY(self: QSplitterHandle) i32 {
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -13957,10 +14381,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self));
+    pub fn PhysicalDpiX(self: QSplitterHandle) i32 {
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -13969,10 +14393,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self));
+    pub fn PhysicalDpiY(self: QSplitterHandle) i32 {
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -13981,10 +14405,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self));
+    pub fn DevicePixelRatio(self: QSplitterHandle) f64 {
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -13993,10 +14417,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self));
+    pub fn DevicePixelRatioF(self: QSplitterHandle) f64 {
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -14005,10 +14429,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn ColorCount(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self));
+    pub fn ColorCount(self: QSplitterHandle) i32 {
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -14017,10 +14441,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn Depth(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self));
+    pub fn Depth(self: QSplitterHandle) i32 {
+        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -14053,10 +14477,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn DevType(self: ?*anyopaque) i32 {
-        return qtc.QSplitterHandle_DevType(@ptrCast(self));
+    pub fn DevType(self: QSplitterHandle) i32 {
+        return qtc.QSplitterHandle_DevType(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDevType` instead
@@ -14071,10 +14495,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn SuperDevType(self: ?*anyopaque) i32 {
-        return qtc.QSplitterHandle_SuperDevType(@ptrCast(self));
+    pub fn SuperDevType(self: QSplitterHandle) i32 {
+        return qtc.QSplitterHandle_SuperDevType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -14085,12 +14509,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QSplitterHandle_OnDevType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDevType(self: QSplitterHandle, callback: *const fn () callconv(.c) i32) void {
+        qtc.QSplitterHandle_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -14101,12 +14525,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.QSplitterHandle_SetVisible(@ptrCast(self), visible);
+    pub fn SetVisible(self: QSplitterHandle, visible: bool) void {
+        qtc.QSplitterHandle_SetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// ### DEPRECATED: Use `SuperSetVisible` instead
@@ -14121,12 +14545,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.QSplitterHandle_SuperSetVisible(@ptrCast(self), visible);
+    pub fn SuperSetVisible(self: QSplitterHandle, visible: bool) void {
+        qtc.QSplitterHandle_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// Inherited from QWidget
@@ -14137,12 +14561,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, visible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitterHandle, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QSplitterHandle_OnSetVisible(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetVisible(self: QSplitterHandle, callback: *const fn (QSplitterHandle, bool) callconv(.c) void) void {
+        qtc.QSplitterHandle_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -14153,10 +14577,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn MinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QSplitterHandle_MinimumSizeHint(@ptrCast(self));
+    pub fn MinimumSizeHint(self: QSplitterHandle) QSize {
+        return .{ .ptr = qtc.QSplitterHandle_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
@@ -14171,10 +14595,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn SuperMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QSplitterHandle_SuperMinimumSizeHint(@ptrCast(self));
+    pub fn SuperMinimumSizeHint(self: QSplitterHandle) QSize {
+        return .{ .ptr = qtc.QSplitterHandle_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -14185,12 +14609,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnMinimumSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QSplitterHandle_OnMinimumSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMinimumSizeHint(self: QSplitterHandle, callback: *const fn () callconv(.c) QSize) void {
+        qtc.QSplitterHandle_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -14201,12 +14625,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QSplitterHandle_HeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn HeightForWidth(self: QSplitterHandle, param1: i32) i32 {
+        return qtc.QSplitterHandle_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### DEPRECATED: Use `SuperHeightForWidth` instead
@@ -14221,12 +14645,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QSplitterHandle_SuperHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperHeightForWidth(self: QSplitterHandle, param1: i32) i32 {
+        return qtc.QSplitterHandle_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -14237,12 +14661,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, param1: i32) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QSplitterHandle, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QSplitterHandle_OnHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHeightForWidth(self: QSplitterHandle, callback: *const fn (QSplitterHandle, i32) callconv(.c) i32) void {
+        qtc.QSplitterHandle_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -14253,10 +14677,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn HasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QSplitterHandle_HasHeightForWidth(@ptrCast(self));
+    pub fn HasHeightForWidth(self: QSplitterHandle) bool {
+        return qtc.QSplitterHandle_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
@@ -14271,10 +14695,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QSplitterHandle_SuperHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: QSplitterHandle) bool {
+        return qtc.QSplitterHandle_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -14285,12 +14709,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QSplitterHandle_OnHasHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHasHeightForWidth(self: QSplitterHandle, callback: *const fn () callconv(.c) bool) void {
+        qtc.QSplitterHandle_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -14301,10 +14725,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn PaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QSplitterHandle_PaintEngine(@ptrCast(self));
+    pub fn PaintEngine(self: QSplitterHandle) QPaintEngine {
+        return .{ .ptr = qtc.QSplitterHandle_PaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperPaintEngine` instead
@@ -14319,10 +14743,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn SuperPaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QSplitterHandle_SuperPaintEngine(@ptrCast(self));
+    pub fn SuperPaintEngine(self: QSplitterHandle) QPaintEngine {
+        return .{ .ptr = qtc.QSplitterHandle_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -14333,12 +14757,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPaintEngine `
+    /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.QSplitterHandle_OnPaintEngine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaintEngine(self: QSplitterHandle, callback: *const fn () callconv(.c) QPaintEngine) void {
+        qtc.QSplitterHandle_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -14349,12 +14773,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitterHandle_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseDoubleClickEvent(self: QSplitterHandle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QSplitterHandle_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
@@ -14369,12 +14794,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitterHandle_SuperMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseDoubleClickEvent(self: QSplitterHandle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QSplitterHandle_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -14385,12 +14811,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitterHandle, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitterHandle_OnMouseDoubleClickEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseDoubleClickEvent(self: QSplitterHandle, callback: *const fn (QSplitterHandle, QMouseEvent) callconv(.c) void) void {
+        qtc.QSplitterHandle_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -14401,12 +14827,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` event: QtC.QWheelEvent `
+    /// ` event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitterHandle_WheelEvent(@ptrCast(self), @ptrCast(event));
+    pub fn WheelEvent(self: QSplitterHandle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QWheelEvent;
+        qtc.QSplitterHandle_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperWheelEvent` instead
@@ -14421,12 +14848,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` event: QtC.QWheelEvent `
+    /// ` event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitterHandle_SuperWheelEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperWheelEvent(self: QSplitterHandle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QWheelEvent;
+        qtc.QSplitterHandle_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -14437,12 +14865,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, event: QtC.QWheelEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitterHandle, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitterHandle_OnWheelEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWheelEvent(self: QSplitterHandle, callback: *const fn (QSplitterHandle, QWheelEvent) callconv(.c) void) void {
+        qtc.QSplitterHandle_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -14453,12 +14881,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitterHandle_KeyPressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn KeyPressEvent(self: QSplitterHandle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QSplitterHandle_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
@@ -14473,12 +14902,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitterHandle_SuperKeyPressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyPressEvent(self: QSplitterHandle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QSplitterHandle_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -14489,12 +14919,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, event: QtC.QKeyEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitterHandle, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitterHandle_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyPressEvent(self: QSplitterHandle, callback: *const fn (QSplitterHandle, QKeyEvent) callconv(.c) void) void {
+        qtc.QSplitterHandle_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -14505,12 +14935,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitterHandle_KeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn KeyReleaseEvent(self: QSplitterHandle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QSplitterHandle_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
@@ -14525,12 +14956,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitterHandle_SuperKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyReleaseEvent(self: QSplitterHandle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QSplitterHandle_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -14541,12 +14973,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, event: QtC.QKeyEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitterHandle, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitterHandle_OnKeyReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyReleaseEvent(self: QSplitterHandle, callback: *const fn (QSplitterHandle, QKeyEvent) callconv(.c) void) void {
+        qtc.QSplitterHandle_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -14557,12 +14989,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitterHandle_FocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn FocusInEvent(self: QSplitterHandle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QSplitterHandle_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusInEvent` instead
@@ -14577,12 +15010,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitterHandle_SuperFocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusInEvent(self: QSplitterHandle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QSplitterHandle_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -14593,12 +15027,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, event: QtC.QFocusEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitterHandle, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitterHandle_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusInEvent(self: QSplitterHandle, callback: *const fn (QSplitterHandle, QFocusEvent) callconv(.c) void) void {
+        qtc.QSplitterHandle_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -14609,12 +15043,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitterHandle_FocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn FocusOutEvent(self: QSplitterHandle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QSplitterHandle_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
@@ -14629,12 +15064,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitterHandle_SuperFocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusOutEvent(self: QSplitterHandle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QSplitterHandle_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -14645,12 +15081,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, event: QtC.QFocusEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitterHandle, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitterHandle_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusOutEvent(self: QSplitterHandle, callback: *const fn (QSplitterHandle, QFocusEvent) callconv(.c) void) void {
+        qtc.QSplitterHandle_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -14661,12 +15097,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` event: QtC.QEnterEvent `
+    /// ` event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitterHandle_EnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn EnterEvent(self: QSplitterHandle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEnterEvent;
+        qtc.QSplitterHandle_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEnterEvent` instead
@@ -14681,12 +15118,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` event: QtC.QEnterEvent `
+    /// ` event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitterHandle_SuperEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEnterEvent(self: QSplitterHandle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEnterEvent;
+        qtc.QSplitterHandle_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -14697,12 +15135,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, event: QtC.QEnterEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitterHandle, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitterHandle_OnEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEnterEvent(self: QSplitterHandle, callback: *const fn (QSplitterHandle, QEnterEvent) callconv(.c) void) void {
+        qtc.QSplitterHandle_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -14713,12 +15151,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn LeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitterHandle_LeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn LeaveEvent(self: QSplitterHandle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QSplitterHandle_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperLeaveEvent` instead
@@ -14733,12 +15172,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitterHandle_SuperLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperLeaveEvent(self: QSplitterHandle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QSplitterHandle_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -14749,12 +15189,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitterHandle, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitterHandle_OnLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLeaveEvent(self: QSplitterHandle, callback: *const fn (QSplitterHandle, QEvent) callconv(.c) void) void {
+        qtc.QSplitterHandle_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -14765,12 +15205,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` event: QtC.QMoveEvent `
+    /// ` event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitterHandle_MoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MoveEvent(self: QSplitterHandle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMoveEvent;
+        qtc.QSplitterHandle_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMoveEvent` instead
@@ -14785,12 +15226,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` event: QtC.QMoveEvent `
+    /// ` event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitterHandle_SuperMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMoveEvent(self: QSplitterHandle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMoveEvent;
+        qtc.QSplitterHandle_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -14801,12 +15243,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, event: QtC.QMoveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitterHandle, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitterHandle_OnMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMoveEvent(self: QSplitterHandle, callback: *const fn (QSplitterHandle, QMoveEvent) callconv(.c) void) void {
+        qtc.QSplitterHandle_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -14817,12 +15259,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` event: QtC.QCloseEvent `
+    /// ` event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitterHandle_CloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CloseEvent(self: QSplitterHandle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QCloseEvent;
+        qtc.QSplitterHandle_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCloseEvent` instead
@@ -14837,12 +15280,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` event: QtC.QCloseEvent `
+    /// ` event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitterHandle_SuperCloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCloseEvent(self: QSplitterHandle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QCloseEvent;
+        qtc.QSplitterHandle_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -14853,12 +15297,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, event: QtC.QCloseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitterHandle, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitterHandle_OnCloseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCloseEvent(self: QSplitterHandle, callback: *const fn (QSplitterHandle, QCloseEvent) callconv(.c) void) void {
+        qtc.QSplitterHandle_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -14869,12 +15313,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` event: QtC.QContextMenuEvent `
+    /// ` event: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitterHandle_ContextMenuEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ContextMenuEvent(self: QSplitterHandle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
+        qtc.QSplitterHandle_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
@@ -14889,12 +15334,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` event: QtC.QContextMenuEvent `
+    /// ` event: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitterHandle_SuperContextMenuEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperContextMenuEvent(self: QSplitterHandle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
+        qtc.QSplitterHandle_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -14905,12 +15351,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, event: QtC.QContextMenuEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitterHandle, event: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitterHandle_OnContextMenuEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnContextMenuEvent(self: QSplitterHandle, callback: *const fn (QSplitterHandle, QContextMenuEvent) callconv(.c) void) void {
+        qtc.QSplitterHandle_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -14921,12 +15367,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` event: QtC.QTabletEvent `
+    /// ` event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitterHandle_TabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TabletEvent(self: QSplitterHandle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTabletEvent;
+        qtc.QSplitterHandle_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTabletEvent` instead
@@ -14941,12 +15388,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` event: QtC.QTabletEvent `
+    /// ` event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitterHandle_SuperTabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTabletEvent(self: QSplitterHandle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTabletEvent;
+        qtc.QSplitterHandle_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -14957,12 +15405,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, event: QtC.QTabletEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitterHandle, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitterHandle_OnTabletEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTabletEvent(self: QSplitterHandle, callback: *const fn (QSplitterHandle, QTabletEvent) callconv(.c) void) void {
+        qtc.QSplitterHandle_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -14973,12 +15421,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` event: QtC.QActionEvent `
+    /// ` event: QActionEvent `
     ///
-    pub fn ActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitterHandle_ActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ActionEvent(self: QSplitterHandle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QActionEvent;
+        qtc.QSplitterHandle_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperActionEvent` instead
@@ -14993,12 +15442,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` event: QtC.QActionEvent `
+    /// ` event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitterHandle_SuperActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperActionEvent(self: QSplitterHandle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QActionEvent;
+        qtc.QSplitterHandle_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -15009,12 +15459,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, event: QtC.QActionEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitterHandle, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitterHandle_OnActionEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnActionEvent(self: QSplitterHandle, callback: *const fn (QSplitterHandle, QActionEvent) callconv(.c) void) void {
+        qtc.QSplitterHandle_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15025,12 +15475,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` event: QtC.QDragEnterEvent `
+    /// ` event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitterHandle_DragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragEnterEvent(self: QSplitterHandle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
+        qtc.QSplitterHandle_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
@@ -15045,12 +15496,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` event: QtC.QDragEnterEvent `
+    /// ` event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitterHandle_SuperDragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragEnterEvent(self: QSplitterHandle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
+        qtc.QSplitterHandle_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -15061,12 +15513,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, event: QtC.QDragEnterEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitterHandle, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitterHandle_OnDragEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragEnterEvent(self: QSplitterHandle, callback: *const fn (QSplitterHandle, QDragEnterEvent) callconv(.c) void) void {
+        qtc.QSplitterHandle_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15077,12 +15529,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` event: QtC.QDragMoveEvent `
+    /// ` event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitterHandle_DragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragMoveEvent(self: QSplitterHandle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
+        qtc.QSplitterHandle_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
@@ -15097,12 +15550,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` event: QtC.QDragMoveEvent `
+    /// ` event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitterHandle_SuperDragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragMoveEvent(self: QSplitterHandle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
+        qtc.QSplitterHandle_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -15113,12 +15567,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, event: QtC.QDragMoveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitterHandle, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitterHandle_OnDragMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragMoveEvent(self: QSplitterHandle, callback: *const fn (QSplitterHandle, QDragMoveEvent) callconv(.c) void) void {
+        qtc.QSplitterHandle_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15129,12 +15583,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` event: QtC.QDragLeaveEvent `
+    /// ` event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitterHandle_DragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragLeaveEvent(self: QSplitterHandle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
+        qtc.QSplitterHandle_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
@@ -15149,12 +15604,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` event: QtC.QDragLeaveEvent `
+    /// ` event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitterHandle_SuperDragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragLeaveEvent(self: QSplitterHandle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
+        qtc.QSplitterHandle_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -15165,12 +15621,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, event: QtC.QDragLeaveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitterHandle, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitterHandle_OnDragLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragLeaveEvent(self: QSplitterHandle, callback: *const fn (QSplitterHandle, QDragLeaveEvent) callconv(.c) void) void {
+        qtc.QSplitterHandle_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15181,12 +15637,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` event: QtC.QDropEvent `
+    /// ` event: QDropEvent `
     ///
-    pub fn DropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitterHandle_DropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DropEvent(self: QSplitterHandle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDropEvent;
+        qtc.QSplitterHandle_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDropEvent` instead
@@ -15201,12 +15658,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` event: QtC.QDropEvent `
+    /// ` event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitterHandle_SuperDropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDropEvent(self: QSplitterHandle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDropEvent;
+        qtc.QSplitterHandle_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -15217,12 +15675,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, event: QtC.QDropEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitterHandle, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitterHandle_OnDropEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDropEvent(self: QSplitterHandle, callback: *const fn (QSplitterHandle, QDropEvent) callconv(.c) void) void {
+        qtc.QSplitterHandle_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15233,12 +15691,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` event: QtC.QShowEvent `
+    /// ` event: QShowEvent `
     ///
-    pub fn ShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitterHandle_ShowEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ShowEvent(self: QSplitterHandle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QShowEvent;
+        qtc.QSplitterHandle_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperShowEvent` instead
@@ -15253,12 +15712,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` event: QtC.QShowEvent `
+    /// ` event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitterHandle_SuperShowEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperShowEvent(self: QSplitterHandle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QShowEvent;
+        qtc.QSplitterHandle_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -15269,12 +15729,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, event: QtC.QShowEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitterHandle, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitterHandle_OnShowEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnShowEvent(self: QSplitterHandle, callback: *const fn (QSplitterHandle, QShowEvent) callconv(.c) void) void {
+        qtc.QSplitterHandle_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15285,12 +15745,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` event: QtC.QHideEvent `
+    /// ` event: QHideEvent `
     ///
-    pub fn HideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitterHandle_HideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn HideEvent(self: QSplitterHandle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QHideEvent;
+        qtc.QSplitterHandle_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHideEvent` instead
@@ -15305,12 +15766,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` event: QtC.QHideEvent `
+    /// ` event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitterHandle_SuperHideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHideEvent(self: QSplitterHandle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QHideEvent;
+        qtc.QSplitterHandle_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -15321,12 +15783,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, event: QtC.QHideEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitterHandle, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitterHandle_OnHideEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHideEvent(self: QSplitterHandle, callback: *const fn (QSplitterHandle, QHideEvent) callconv(.c) void) void {
+        qtc.QSplitterHandle_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15337,7 +15799,7 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` eventType: []u8 `
     ///
@@ -15345,12 +15807,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn NativeEvent(self: QSplitterHandle, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QSplitterHandle_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QSplitterHandle_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// ### DEPRECATED: Use `SuperNativeEvent` instead
@@ -15365,7 +15827,7 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` eventType: []u8 `
     ///
@@ -15373,12 +15835,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn SuperNativeEvent(self: QSplitterHandle, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QSplitterHandle_SuperNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QSplitterHandle_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -15389,12 +15851,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QSplitterHandle, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
-        qtc.QSplitterHandle_OnNativeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnNativeEvent(self: QSplitterHandle, callback: *const fn (QSplitterHandle, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+        qtc.QSplitterHandle_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15405,12 +15867,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` param1: QtC.QEvent `
+    /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QSplitterHandle_ChangeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn ChangeEvent(self: QSplitterHandle, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QEvent;
+        qtc.QSplitterHandle_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChangeEvent` instead
@@ -15425,12 +15888,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` param1: QtC.QEvent `
+    /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QSplitterHandle_SuperChangeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperChangeEvent(self: QSplitterHandle, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QEvent;
+        qtc.QSplitterHandle_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -15441,12 +15905,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, param1: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitterHandle, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitterHandle_OnChangeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChangeEvent(self: QSplitterHandle, callback: *const fn (QSplitterHandle, QEvent) callconv(.c) void) void {
+        qtc.QSplitterHandle_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15457,12 +15921,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QSplitterHandle_Metric(@ptrCast(self), @bitCast(param1));
+    pub fn Metric(self: QSplitterHandle, param1: i32) i32 {
+        return qtc.QSplitterHandle_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### DEPRECATED: Use `SuperMetric` instead
@@ -15477,12 +15941,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QSplitterHandle_SuperMetric(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMetric(self: QSplitterHandle, param1: i32) i32 {
+        return qtc.QSplitterHandle_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -15493,12 +15957,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QSplitterHandle, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QSplitterHandle_OnMetric(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetric(self: QSplitterHandle, callback: *const fn (QSplitterHandle, i32) callconv(.c) i32) void {
+        qtc.QSplitterHandle_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15509,12 +15973,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QSplitterHandle_InitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn InitPainter(self: QSplitterHandle, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QSplitterHandle_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInitPainter` instead
@@ -15529,12 +15994,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QSplitterHandle_SuperInitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperInitPainter(self: QSplitterHandle, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QSplitterHandle_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// Inherited from QWidget
@@ -15545,12 +16011,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, painter: QtC.QPainter) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitterHandle, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitterHandle_OnInitPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInitPainter(self: QSplitterHandle, callback: *const fn (QSplitterHandle, QPainter) callconv(.c) void) void {
+        qtc.QSplitterHandle_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15561,12 +16027,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QSplitterHandle_Redirected(@ptrCast(self), @ptrCast(offset));
+    pub fn Redirected(self: QSplitterHandle, offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        return .{ .ptr = qtc.QSplitterHandle_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperRedirected` instead
@@ -15581,12 +16048,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QSplitterHandle_SuperRedirected(@ptrCast(self), @ptrCast(offset));
+    pub fn SuperRedirected(self: QSplitterHandle, offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        return .{ .ptr = qtc.QSplitterHandle_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -15597,12 +16065,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice `
+    /// ` callback: *const fn (self: QSplitterHandle, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.QSplitterHandle_OnRedirected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRedirected(self: QSplitterHandle, callback: *const fn (QSplitterHandle, QPoint) callconv(.c) QPaintDevice) void {
+        qtc.QSplitterHandle_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15613,10 +16081,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn SharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QSplitterHandle_SharedPainter(@ptrCast(self));
+    pub fn SharedPainter(self: QSplitterHandle) QPainter {
+        return .{ .ptr = qtc.QSplitterHandle_SharedPainter(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSharedPainter` instead
@@ -15631,10 +16099,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn SuperSharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QSplitterHandle_SuperSharedPainter(@ptrCast(self));
+    pub fn SuperSharedPainter(self: QSplitterHandle) QPainter {
+        return .{ .ptr = qtc.QSplitterHandle_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -15645,12 +16113,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPainter `
+    /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
-        qtc.QSplitterHandle_OnSharedPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSharedPainter(self: QSplitterHandle, callback: *const fn () callconv(.c) QPainter) void {
+        qtc.QSplitterHandle_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15661,12 +16129,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` param1: QtC.QInputMethodEvent `
+    /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QSplitterHandle_InputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn InputMethodEvent(self: QSplitterHandle, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
+        qtc.QSplitterHandle_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
@@ -15681,12 +16150,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` param1: QtC.QInputMethodEvent `
+    /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QSplitterHandle_SuperInputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperInputMethodEvent(self: QSplitterHandle, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
+        qtc.QSplitterHandle_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -15697,12 +16167,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, param1: QtC.QInputMethodEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitterHandle, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitterHandle_OnInputMethodEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInputMethodEvent(self: QSplitterHandle, callback: *const fn (QSplitterHandle, QInputMethodEvent) callconv(.c) void) void {
+        qtc.QSplitterHandle_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15713,12 +16183,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.QSplitterHandle_InputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn InputMethodQuery(self: QSplitterHandle, param1: i32) QVariant {
+        return .{ .ptr = qtc.QSplitterHandle_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
     /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
@@ -15733,12 +16203,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.QSplitterHandle_SuperInputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn SuperInputMethodQuery(self: QSplitterHandle, param1: i32) QVariant {
+        return .{ .ptr = qtc.QSplitterHandle_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
     /// Inherited from QWidget
@@ -15749,12 +16219,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
+    /// ` callback: *const fn (self: QSplitterHandle, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
-    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QSplitterHandle_OnInputMethodQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInputMethodQuery(self: QSplitterHandle, callback: *const fn (QSplitterHandle, i32) callconv(.c) QVariant) void {
+        qtc.QSplitterHandle_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15765,12 +16235,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.QSplitterHandle_FocusNextPrevChild(@ptrCast(self), next);
+    pub fn FocusNextPrevChild(self: QSplitterHandle, next: bool) bool {
+        return qtc.QSplitterHandle_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
     /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
@@ -15785,12 +16255,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.QSplitterHandle_SuperFocusNextPrevChild(@ptrCast(self), next);
+    pub fn SuperFocusNextPrevChild(self: QSplitterHandle, next: bool) bool {
+        return qtc.QSplitterHandle_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
     /// Inherited from QWidget
@@ -15801,12 +16271,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, next: bool) callconv(.c) bool `
+    /// ` callback: *const fn (self: QSplitterHandle, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
-        qtc.QSplitterHandle_OnFocusNextPrevChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusNextPrevChild(self: QSplitterHandle, callback: *const fn (QSplitterHandle, bool) callconv(.c) bool) void {
+        qtc.QSplitterHandle_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -15817,14 +16287,16 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QSplitterHandle_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: QSplitterHandle, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QSplitterHandle_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -15839,14 +16311,16 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QSplitterHandle_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: QSplitterHandle, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QSplitterHandle_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -15857,12 +16331,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QSplitterHandle, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSplitterHandle_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QSplitterHandle, callback: *const fn (QSplitterHandle, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QSplitterHandle_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -15873,12 +16347,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitterHandle_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: QSplitterHandle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QSplitterHandle_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -15893,12 +16368,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitterHandle_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: QSplitterHandle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QSplitterHandle_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -15909,12 +16385,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitterHandle, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitterHandle_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QSplitterHandle, callback: *const fn (QSplitterHandle, QTimerEvent) callconv(.c) void) void {
+        qtc.QSplitterHandle_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -15925,12 +16401,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitterHandle_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: QSplitterHandle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QSplitterHandle_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -15945,12 +16422,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitterHandle_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: QSplitterHandle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QSplitterHandle_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -15961,12 +16439,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitterHandle, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitterHandle_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QSplitterHandle, callback: *const fn (QSplitterHandle, QChildEvent) callconv(.c) void) void {
+        qtc.QSplitterHandle_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -15977,12 +16455,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitterHandle_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QSplitterHandle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QSplitterHandle_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -15997,12 +16476,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSplitterHandle_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QSplitterHandle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QSplitterHandle_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -16013,12 +16493,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitterHandle, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitterHandle_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QSplitterHandle, callback: *const fn (QSplitterHandle, QEvent) callconv(.c) void) void {
+        qtc.QSplitterHandle_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -16029,12 +16509,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QSplitterHandle_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QSplitterHandle, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QSplitterHandle_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -16049,12 +16530,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QSplitterHandle_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QSplitterHandle, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QSplitterHandle_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -16065,12 +16547,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitterHandle, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitterHandle_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QSplitterHandle, callback: *const fn (QSplitterHandle, QMetaMethod) callconv(.c) void) void {
+        qtc.QSplitterHandle_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -16081,12 +16563,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QSplitterHandle_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QSplitterHandle, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QSplitterHandle_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -16101,12 +16584,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QSplitterHandle_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QSplitterHandle, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QSplitterHandle_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -16117,12 +16601,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitterHandle, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSplitterHandle_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QSplitterHandle, callback: *const fn (QSplitterHandle, QMetaMethod) callconv(.c) void) void {
+        qtc.QSplitterHandle_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -16133,10 +16617,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn UpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.QSplitterHandle_UpdateMicroFocus(@ptrCast(self));
+    pub fn UpdateMicroFocus(self: QSplitterHandle) void {
+        qtc.QSplitterHandle_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
@@ -16151,10 +16635,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn SuperUpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.QSplitterHandle_SuperUpdateMicroFocus(@ptrCast(self));
+    pub fn SuperUpdateMicroFocus(self: QSplitterHandle) void {
+        qtc.QSplitterHandle_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -16165,12 +16649,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QSplitterHandle_OnUpdateMicroFocus(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUpdateMicroFocus(self: QSplitterHandle, callback: *const fn () callconv(.c) void) void {
+        qtc.QSplitterHandle_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -16181,10 +16665,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn Create(self: ?*anyopaque) void {
-        qtc.QSplitterHandle_Create(@ptrCast(self));
+    pub fn Create(self: QSplitterHandle) void {
+        qtc.QSplitterHandle_Create(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCreate` instead
@@ -16199,10 +16683,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn SuperCreate(self: ?*anyopaque) void {
-        qtc.QSplitterHandle_SuperCreate(@ptrCast(self));
+    pub fn SuperCreate(self: QSplitterHandle) void {
+        qtc.QSplitterHandle_SuperCreate(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -16213,12 +16697,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QSplitterHandle_OnCreate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreate(self: QSplitterHandle, callback: *const fn () callconv(.c) void) void {
+        qtc.QSplitterHandle_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -16229,10 +16713,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn Destroy(self: ?*anyopaque) void {
-        qtc.QSplitterHandle_Destroy(@ptrCast(self));
+    pub fn Destroy(self: QSplitterHandle) void {
+        qtc.QSplitterHandle_Destroy(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDestroy` instead
@@ -16247,10 +16731,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn SuperDestroy(self: ?*anyopaque) void {
-        qtc.QSplitterHandle_SuperDestroy(@ptrCast(self));
+    pub fn SuperDestroy(self: QSplitterHandle) void {
+        qtc.QSplitterHandle_SuperDestroy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -16261,12 +16745,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QSplitterHandle_OnDestroy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroy(self: QSplitterHandle, callback: *const fn () callconv(.c) void) void {
+        qtc.QSplitterHandle_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -16277,10 +16761,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn FocusNextChild(self: ?*anyopaque) bool {
-        return qtc.QSplitterHandle_FocusNextChild(@ptrCast(self));
+    pub fn FocusNextChild(self: QSplitterHandle) bool {
+        return qtc.QSplitterHandle_FocusNextChild(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusNextChild` instead
@@ -16295,10 +16779,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn SuperFocusNextChild(self: ?*anyopaque) bool {
-        return qtc.QSplitterHandle_SuperFocusNextChild(@ptrCast(self));
+    pub fn SuperFocusNextChild(self: QSplitterHandle) bool {
+        return qtc.QSplitterHandle_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -16309,12 +16793,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QSplitterHandle_OnFocusNextChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusNextChild(self: QSplitterHandle, callback: *const fn () callconv(.c) bool) void {
+        qtc.QSplitterHandle_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -16325,10 +16809,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn FocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.QSplitterHandle_FocusPreviousChild(@ptrCast(self));
+    pub fn FocusPreviousChild(self: QSplitterHandle) bool {
+        return qtc.QSplitterHandle_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
@@ -16343,10 +16827,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn SuperFocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.QSplitterHandle_SuperFocusPreviousChild(@ptrCast(self));
+    pub fn SuperFocusPreviousChild(self: QSplitterHandle) bool {
+        return qtc.QSplitterHandle_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -16357,12 +16841,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QSplitterHandle_OnFocusPreviousChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusPreviousChild(self: QSplitterHandle, callback: *const fn () callconv(.c) bool) void {
+        qtc.QSplitterHandle_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -16373,10 +16857,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QSplitterHandle_Sender(@ptrCast(self));
+    pub fn Sender(self: QSplitterHandle) QObject {
+        return .{ .ptr = qtc.QSplitterHandle_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -16391,10 +16875,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QSplitterHandle_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QSplitterHandle) QObject {
+        return .{ .ptr = qtc.QSplitterHandle_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -16405,12 +16889,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QSplitterHandle_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QSplitterHandle, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QSplitterHandle_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -16421,10 +16905,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QSplitterHandle_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QSplitterHandle) i32 {
+        return qtc.QSplitterHandle_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -16439,10 +16923,10 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QSplitterHandle_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QSplitterHandle) i32 {
+        return qtc.QSplitterHandle_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -16453,12 +16937,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QSplitterHandle_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QSplitterHandle, callback: *const fn () callconv(.c) i32) void {
+        qtc.QSplitterHandle_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -16469,13 +16953,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QSplitterHandle, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QSplitterHandle_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QSplitterHandle_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -16490,13 +16974,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QSplitterHandle, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QSplitterHandle_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QSplitterHandle_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -16507,12 +16991,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QSplitterHandle, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QSplitterHandle_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QSplitterHandle, callback: *const fn (QSplitterHandle, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QSplitterHandle_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -16523,12 +17007,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QSplitterHandle_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QSplitterHandle, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QSplitterHandle_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -16543,12 +17028,13 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QSplitterHandle_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QSplitterHandle, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QSplitterHandle_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -16559,12 +17045,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QSplitterHandle, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSplitterHandle_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QSplitterHandle, callback: *const fn (QSplitterHandle, QMetaMethod) callconv(.c) bool) void {
+        qtc.QSplitterHandle_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -16575,14 +17061,14 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QSplitterHandle_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn GetDecodedMetricF(self: QSplitterHandle, metricA: i32, metricB: i32) f64 {
+        return qtc.QSplitterHandle_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
@@ -16597,14 +17083,14 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
     /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QSplitterHandle_SuperGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn SuperGetDecodedMetricF(self: QSplitterHandle, metricA: i32, metricB: i32) f64 {
+        return qtc.QSplitterHandle_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -16615,12 +17101,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle`
+    /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
+    /// ` callback: *const fn (self: QSplitterHandle, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.QSplitterHandle_OnGetDecodedMetricF(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnGetDecodedMetricF(self: QSplitterHandle, callback: *const fn (QSplitterHandle, i32, i32) callconv(.c) f64) void {
+        qtc.QSplitterHandle_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -16631,12 +17117,12 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QSplitterHandle, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QSplitterHandle, callback: *const fn (QSplitterHandle, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -16649,9 +17135,9 @@ pub const qsplitterhandle = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QSplitterHandle `
+    /// ` self: QSplitterHandle `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QSplitterHandle_Delete(@ptrCast(self));
+    pub fn Delete(self: QSplitterHandle) void {
+        qtc.QSplitterHandle_Delete(@ptrCast(self.ptr));
     }
 };

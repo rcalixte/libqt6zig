@@ -1,36 +1,61 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const KFileItem = @import("libqt6").KFileItem;
+const KFileItemList = @import("libqt6").KFileItemList;
+const KIO__Job = @import("libqt6").KIO__Job;
+const KIO__ListJob = @import("libqt6").KIO__ListJob;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QEvent = @import("libqt6").QEvent;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QUrl = @import("libqt6").QUrl;
+const QVariant = @import("libqt6").QVariant;
 const kcoredirlister_enums = enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html)
-pub const kcoredirlister = struct {
+pub const KCoreDirLister = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KCoreDirLister,
+
+    pub const _is_KCoreDirLister = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new KCoreDirLister object.
     ///
-    pub fn New() QtC.KCoreDirLister {
-        return qtc.KCoreDirLister_new();
+    pub fn New() KCoreDirLister {
+        return .{ .ptr = qtc.KCoreDirLister_new() };
     }
 
     /// New2 constructs a new KCoreDirLister object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New2(parent: ?*anyopaque) QtC.KCoreDirLister {
-        return qtc.KCoreDirLister_new2(@ptrCast(parent));
+    pub fn New2(parent: anytype) KCoreDirLister {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.KCoreDirLister_new2(@ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KCoreDirLister_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: KCoreDirLister) QMetaObject {
+        return .{ .ptr = qtc.KCoreDirLister_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -39,12 +64,12 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.KCoreDirLister_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: KCoreDirLister, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.KCoreDirLister_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -57,33 +82,33 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KCoreDirLister_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: KCoreDirLister) QMetaObject {
+        return .{ .ptr = qtc.KCoreDirLister_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: KCoreDirLister, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KCoreDirLister_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.KCoreDirLister_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` callback: *const fn (self: QtC.KCoreDirLister, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: KCoreDirLister, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.KCoreDirLister_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: KCoreDirLister, callback: *const fn (KCoreDirLister, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.KCoreDirLister_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -94,18 +119,18 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: KCoreDirLister, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KCoreDirLister_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KCoreDirLister_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -113,20 +138,20 @@ pub const kcoredirlister = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KCoreDirLister_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: KCoreDirLister, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KCoreDirLister_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` callback: *const fn (self: QtC.KCoreDirLister, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KCoreDirLister, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.KCoreDirLister_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: KCoreDirLister, callback: *const fn (KCoreDirLister, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.KCoreDirLister_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -137,7 +162,7 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -145,19 +170,19 @@ pub const kcoredirlister = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KCoreDirLister_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: KCoreDirLister, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KCoreDirLister_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -170,182 +195,186 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` dirUrl: QtC.QUrl `
+    /// ` dirUrl: QUrl `
     ///
-    pub fn OpenUrl(self: ?*anyopaque, dirUrl: ?*anyopaque) bool {
-        return qtc.KCoreDirLister_OpenUrl(@ptrCast(self), @ptrCast(dirUrl));
+    pub fn OpenUrl(self: KCoreDirLister, dirUrl: anytype) bool {
+        comptime _ = @TypeOf(dirUrl)._is_QUrl;
+        return qtc.KCoreDirLister_OpenUrl(@ptrCast(self.ptr), @ptrCast(dirUrl.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#stop)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    pub fn Stop(self: ?*anyopaque) void {
-        qtc.KCoreDirLister_Stop(@ptrCast(self));
+    pub fn Stop(self: KCoreDirLister) void {
+        qtc.KCoreDirLister_Stop(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#stop)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` dirUrl: QtC.QUrl `
+    /// ` dirUrl: QUrl `
     ///
-    pub fn Stop2(self: ?*anyopaque, dirUrl: ?*anyopaque) void {
-        qtc.KCoreDirLister_Stop2(@ptrCast(self), @ptrCast(dirUrl));
+    pub fn Stop2(self: KCoreDirLister, dirUrl: anytype) void {
+        comptime _ = @TypeOf(dirUrl)._is_QUrl;
+        qtc.KCoreDirLister_Stop2(@ptrCast(self.ptr), @ptrCast(dirUrl.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#forgetDirs)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` dirUrl: QtC.QUrl `
+    /// ` dirUrl: QUrl `
     ///
-    pub fn ForgetDirs(self: ?*anyopaque, dirUrl: ?*anyopaque) void {
-        qtc.KCoreDirLister_ForgetDirs(@ptrCast(self), @ptrCast(dirUrl));
+    pub fn ForgetDirs(self: KCoreDirLister, dirUrl: anytype) void {
+        comptime _ = @TypeOf(dirUrl)._is_QUrl;
+        qtc.KCoreDirLister_ForgetDirs(@ptrCast(self.ptr), @ptrCast(dirUrl.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#delayedMimeTypes)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    pub fn DelayedMimeTypes(self: ?*anyopaque) bool {
-        return qtc.KCoreDirLister_DelayedMimeTypes(@ptrCast(self));
+    pub fn DelayedMimeTypes(self: KCoreDirLister) bool {
+        return qtc.KCoreDirLister_DelayedMimeTypes(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#setDelayedMimeTypes)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
     /// ` delayedMimeTypes: bool `
     ///
-    pub fn SetDelayedMimeTypes(self: ?*anyopaque, delayedMimeTypes: bool) void {
-        qtc.KCoreDirLister_SetDelayedMimeTypes(@ptrCast(self), delayedMimeTypes);
+    pub fn SetDelayedMimeTypes(self: KCoreDirLister, delayedMimeTypes: bool) void {
+        qtc.KCoreDirLister_SetDelayedMimeTypes(@ptrCast(self.ptr), delayedMimeTypes);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#autoUpdate)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    pub fn AutoUpdate(self: ?*anyopaque) bool {
-        return qtc.KCoreDirLister_AutoUpdate(@ptrCast(self));
+    pub fn AutoUpdate(self: KCoreDirLister) bool {
+        return qtc.KCoreDirLister_AutoUpdate(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#setAutoUpdate)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetAutoUpdate(self: ?*anyopaque, enable: bool) void {
-        qtc.KCoreDirLister_SetAutoUpdate(@ptrCast(self), enable);
+    pub fn SetAutoUpdate(self: KCoreDirLister, enable: bool) void {
+        qtc.KCoreDirLister_SetAutoUpdate(@ptrCast(self.ptr), enable);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#showHiddenFiles)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    pub fn ShowHiddenFiles(self: ?*anyopaque) bool {
-        return qtc.KCoreDirLister_ShowHiddenFiles(@ptrCast(self));
+    pub fn ShowHiddenFiles(self: KCoreDirLister) bool {
+        return qtc.KCoreDirLister_ShowHiddenFiles(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#setShowHiddenFiles)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
     /// ` showHiddenFiles: bool `
     ///
-    pub fn SetShowHiddenFiles(self: ?*anyopaque, showHiddenFiles: bool) void {
-        qtc.KCoreDirLister_SetShowHiddenFiles(@ptrCast(self), showHiddenFiles);
+    pub fn SetShowHiddenFiles(self: KCoreDirLister, showHiddenFiles: bool) void {
+        qtc.KCoreDirLister_SetShowHiddenFiles(@ptrCast(self.ptr), showHiddenFiles);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#dirOnlyMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    pub fn DirOnlyMode(self: ?*anyopaque) bool {
-        return qtc.KCoreDirLister_DirOnlyMode(@ptrCast(self));
+    pub fn DirOnlyMode(self: KCoreDirLister) bool {
+        return qtc.KCoreDirLister_DirOnlyMode(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#setDirOnlyMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
     /// ` dirsOnly: bool `
     ///
-    pub fn SetDirOnlyMode(self: ?*anyopaque, dirsOnly: bool) void {
-        qtc.KCoreDirLister_SetDirOnlyMode(@ptrCast(self), dirsOnly);
+    pub fn SetDirOnlyMode(self: KCoreDirLister, dirsOnly: bool) void {
+        qtc.KCoreDirLister_SetDirOnlyMode(@ptrCast(self.ptr), dirsOnly);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#requestMimeTypeWhileListing)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    pub fn RequestMimeTypeWhileListing(self: ?*anyopaque) bool {
-        return qtc.KCoreDirLister_RequestMimeTypeWhileListing(@ptrCast(self));
+    pub fn RequestMimeTypeWhileListing(self: KCoreDirLister) bool {
+        return qtc.KCoreDirLister_RequestMimeTypeWhileListing(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#setRequestMimeTypeWhileListing)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
     /// ` request: bool `
     ///
-    pub fn SetRequestMimeTypeWhileListing(self: ?*anyopaque, request: bool) void {
-        qtc.KCoreDirLister_SetRequestMimeTypeWhileListing(@ptrCast(self), request);
+    pub fn SetRequestMimeTypeWhileListing(self: KCoreDirLister, request: bool) void {
+        qtc.KCoreDirLister_SetRequestMimeTypeWhileListing(@ptrCast(self.ptr), request);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#url)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    pub fn Url(self: ?*anyopaque) QtC.QUrl {
-        return qtc.KCoreDirLister_Url(@ptrCast(self));
+    pub fn Url(self: KCoreDirLister) QUrl {
+        return .{ .ptr = qtc.KCoreDirLister_Url(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#directories)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Directories(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QUrl {
-        const _arr: qtc.libqt_list = qtc.KCoreDirLister_Directories(@ptrCast(self));
+    pub fn Directories(self: KCoreDirLister, allocator: std.mem.Allocator) []QUrl {
+        const _arr: qtc.libqt_list = qtc.KCoreDirLister_Directories(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QUrl, _arr.len) catch @panic("kcoredirlister.Directories: Memory allocation failed");
+        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("kcoredirlister.Directories: Memory allocation failed");
         const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -353,98 +382,100 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    pub fn EmitChanges(self: ?*anyopaque) void {
-        qtc.KCoreDirLister_EmitChanges(@ptrCast(self));
+    pub fn EmitChanges(self: KCoreDirLister) void {
+        qtc.KCoreDirLister_EmitChanges(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#updateDirectory)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` dirUrl: QtC.QUrl `
+    /// ` dirUrl: QUrl `
     ///
-    pub fn UpdateDirectory(self: ?*anyopaque, dirUrl: ?*anyopaque) void {
-        qtc.KCoreDirLister_UpdateDirectory(@ptrCast(self), @ptrCast(dirUrl));
+    pub fn UpdateDirectory(self: KCoreDirLister, dirUrl: anytype) void {
+        comptime _ = @TypeOf(dirUrl)._is_QUrl;
+        qtc.KCoreDirLister_UpdateDirectory(@ptrCast(self.ptr), @ptrCast(dirUrl.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#isFinished)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    pub fn IsFinished(self: ?*anyopaque) bool {
-        return qtc.KCoreDirLister_IsFinished(@ptrCast(self));
+    pub fn IsFinished(self: KCoreDirLister) bool {
+        return qtc.KCoreDirLister_IsFinished(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#rootItem)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    pub fn RootItem(self: ?*anyopaque) QtC.KFileItem {
-        return qtc.KCoreDirLister_RootItem(@ptrCast(self));
+    pub fn RootItem(self: KCoreDirLister) KFileItem {
+        return .{ .ptr = qtc.KCoreDirLister_RootItem(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#findByUrl)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` url: QtC.QUrl `
+    /// ` url: QUrl `
     ///
-    pub fn FindByUrl(self: ?*anyopaque, url: ?*anyopaque) QtC.KFileItem {
-        return qtc.KCoreDirLister_FindByUrl(@ptrCast(self), @ptrCast(url));
+    pub fn FindByUrl(self: KCoreDirLister, url: anytype) KFileItem {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        return .{ .ptr = qtc.KCoreDirLister_FindByUrl(@ptrCast(self.ptr), @ptrCast(url.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#findByName)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn FindByName(self: ?*anyopaque, name: []const u8) QtC.KFileItem {
+    pub fn FindByName(self: KCoreDirLister, name: []const u8) KFileItem {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.KCoreDirLister_FindByName(@ptrCast(self), name_str);
+        return .{ .ptr = qtc.KCoreDirLister_FindByName(@ptrCast(self.ptr), name_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#setNameFilter)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
     /// ` filter: []const u8 `
     ///
-    pub fn SetNameFilter(self: ?*anyopaque, filter: []const u8) void {
+    pub fn SetNameFilter(self: KCoreDirLister, filter: []const u8) void {
         const filter_str = qtc.libqt_string{
             .len = filter.len,
             .data = filter.ptr,
         };
-        qtc.KCoreDirLister_SetNameFilter(@ptrCast(self), filter_str);
+        qtc.KCoreDirLister_SetNameFilter(@ptrCast(self.ptr), filter_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#nameFilter)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NameFilter(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KCoreDirLister_NameFilter(@ptrCast(self));
+    pub fn NameFilter(self: KCoreDirLister, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KCoreDirLister_NameFilter(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kcoredirlister.NameFilter: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -455,79 +486,76 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
-    ///
-    /// ` mimeList: []const []const u8 `
+    /// ` self: KCoreDirLister `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetMimeFilter(self: ?*anyopaque, mimeList: []const []const u8, allocator: std.mem.Allocator) void {
+    /// ` mimeList: []const []const u8 `
+    ///
+    pub fn SetMimeFilter(self: KCoreDirLister, allocator: std.mem.Allocator, mimeList: []const []const u8) void {
         const mimeList_arr = allocator.alloc(qtc.libqt_string, mimeList.len) catch @panic("kcoredirlister.SetMimeFilter: Memory allocation failed");
         defer allocator.free(mimeList_arr);
-        for (mimeList, 0..mimeList.len) |item, i| {
+        for (mimeList, 0..mimeList.len) |item, i|
             mimeList_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const mimeList_list = qtc.libqt_list{
             .len = mimeList.len,
             .data = mimeList_arr.ptr,
         };
-        qtc.KCoreDirLister_SetMimeFilter(@ptrCast(self), mimeList_list);
+        qtc.KCoreDirLister_SetMimeFilter(@ptrCast(self.ptr), mimeList_list);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#setMimeExcludeFilter)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
-    ///
-    /// ` mimeList: []const []const u8 `
+    /// ` self: KCoreDirLister `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetMimeExcludeFilter(self: ?*anyopaque, mimeList: []const []const u8, allocator: std.mem.Allocator) void {
+    /// ` mimeList: []const []const u8 `
+    ///
+    pub fn SetMimeExcludeFilter(self: KCoreDirLister, allocator: std.mem.Allocator, mimeList: []const []const u8) void {
         const mimeList_arr = allocator.alloc(qtc.libqt_string, mimeList.len) catch @panic("kcoredirlister.SetMimeExcludeFilter: Memory allocation failed");
         defer allocator.free(mimeList_arr);
-        for (mimeList, 0..mimeList.len) |item, i| {
+        for (mimeList, 0..mimeList.len) |item, i|
             mimeList_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const mimeList_list = qtc.libqt_list{
             .len = mimeList.len,
             .data = mimeList_arr.ptr,
         };
-        qtc.KCoreDirLister_SetMimeExcludeFilter(@ptrCast(self), mimeList_list);
+        qtc.KCoreDirLister_SetMimeExcludeFilter(@ptrCast(self.ptr), mimeList_list);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#clearMimeFilter)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    pub fn ClearMimeFilter(self: ?*anyopaque) void {
-        qtc.KCoreDirLister_ClearMimeFilter(@ptrCast(self));
+    pub fn ClearMimeFilter(self: KCoreDirLister) void {
+        qtc.KCoreDirLister_ClearMimeFilter(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#mimeFilters)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeFilters(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KCoreDirLister_MimeFilters(@ptrCast(self));
+    pub fn MimeFilters(self: KCoreDirLister, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.KCoreDirLister_MimeFilters(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kcoredirlister.MimeFilters: Memory allocation failed");
@@ -544,500 +572,515 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    pub fn Items(self: ?*anyopaque) QtC.KFileItemList {
-        return qtc.KCoreDirLister_Items(@ptrCast(self));
+    pub fn Items(self: KCoreDirLister) KFileItemList {
+        return .{ .ptr = qtc.KCoreDirLister_Items(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#itemsForDir)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` dirUrl: QtC.QUrl `
+    /// ` dirUrl: QUrl `
     ///
-    pub fn ItemsForDir(self: ?*anyopaque, dirUrl: ?*anyopaque) QtC.KFileItemList {
-        return qtc.KCoreDirLister_ItemsForDir(@ptrCast(self), @ptrCast(dirUrl));
+    pub fn ItemsForDir(self: KCoreDirLister, dirUrl: anytype) KFileItemList {
+        comptime _ = @TypeOf(dirUrl)._is_QUrl;
+        return .{ .ptr = qtc.KCoreDirLister_ItemsForDir(@ptrCast(self.ptr), @ptrCast(dirUrl.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#cachedItemForUrl)
     ///
     /// ## Parameter(s):
     ///
-    /// ` url: QtC.QUrl `
+    /// ` url: QUrl `
     ///
-    pub fn CachedItemForUrl(url: ?*anyopaque) QtC.KFileItem {
-        return qtc.KCoreDirLister_CachedItemForUrl(@ptrCast(url));
+    pub fn CachedItemForUrl(url: anytype) KFileItem {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        return .{ .ptr = qtc.KCoreDirLister_CachedItemForUrl(@ptrCast(url.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#autoErrorHandlingEnabled)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    pub fn AutoErrorHandlingEnabled(self: ?*anyopaque) bool {
-        return qtc.KCoreDirLister_AutoErrorHandlingEnabled(@ptrCast(self));
+    pub fn AutoErrorHandlingEnabled(self: KCoreDirLister) bool {
+        return qtc.KCoreDirLister_AutoErrorHandlingEnabled(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#setAutoErrorHandlingEnabled)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetAutoErrorHandlingEnabled(self: ?*anyopaque, enable: bool) void {
-        qtc.KCoreDirLister_SetAutoErrorHandlingEnabled(@ptrCast(self), enable);
+    pub fn SetAutoErrorHandlingEnabled(self: KCoreDirLister, enable: bool) void {
+        qtc.KCoreDirLister_SetAutoErrorHandlingEnabled(@ptrCast(self.ptr), enable);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#started)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` dirUrl: QtC.QUrl `
+    /// ` dirUrl: QUrl `
     ///
-    pub fn Started(self: ?*anyopaque, dirUrl: ?*anyopaque) void {
-        qtc.KCoreDirLister_Started(@ptrCast(self), @ptrCast(dirUrl));
+    pub fn Started(self: KCoreDirLister, dirUrl: anytype) void {
+        comptime _ = @TypeOf(dirUrl)._is_QUrl;
+        qtc.KCoreDirLister_Started(@ptrCast(self.ptr), @ptrCast(dirUrl.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#started)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` callback: *const fn (self: QtC.KCoreDirLister, dirUrl: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: KCoreDirLister, dirUrl: QUrl) callconv(.c) void `
     ///
-    pub fn OnStarted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreDirLister_Connect_Started(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnStarted(self: KCoreDirLister, callback: *const fn (KCoreDirLister, QUrl) callconv(.c) void) void {
+        qtc.KCoreDirLister_Connect_Started(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#completed)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    pub fn Completed(self: ?*anyopaque) void {
-        qtc.KCoreDirLister_Completed(@ptrCast(self));
+    pub fn Completed(self: KCoreDirLister) void {
+        qtc.KCoreDirLister_Completed(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#completed)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` callback: *const fn (self: QtC.KCoreDirLister) callconv(.c) void `
+    /// ` callback: *const fn (self: KCoreDirLister) callconv(.c) void `
     ///
-    pub fn OnCompleted(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreDirLister_Connect_Completed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCompleted(self: KCoreDirLister, callback: *const fn (KCoreDirLister) callconv(.c) void) void {
+        qtc.KCoreDirLister_Connect_Completed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#listingDirCompleted)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` dirUrl: QtC.QUrl `
+    /// ` dirUrl: QUrl `
     ///
-    pub fn ListingDirCompleted(self: ?*anyopaque, dirUrl: ?*anyopaque) void {
-        qtc.KCoreDirLister_ListingDirCompleted(@ptrCast(self), @ptrCast(dirUrl));
+    pub fn ListingDirCompleted(self: KCoreDirLister, dirUrl: anytype) void {
+        comptime _ = @TypeOf(dirUrl)._is_QUrl;
+        qtc.KCoreDirLister_ListingDirCompleted(@ptrCast(self.ptr), @ptrCast(dirUrl.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#listingDirCompleted)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` callback: *const fn (self: QtC.KCoreDirLister, dirUrl: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: KCoreDirLister, dirUrl: QUrl) callconv(.c) void `
     ///
-    pub fn OnListingDirCompleted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreDirLister_Connect_ListingDirCompleted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnListingDirCompleted(self: KCoreDirLister, callback: *const fn (KCoreDirLister, QUrl) callconv(.c) void) void {
+        qtc.KCoreDirLister_Connect_ListingDirCompleted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#canceled)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    pub fn Canceled(self: ?*anyopaque) void {
-        qtc.KCoreDirLister_Canceled(@ptrCast(self));
+    pub fn Canceled(self: KCoreDirLister) void {
+        qtc.KCoreDirLister_Canceled(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#canceled)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` callback: *const fn (self: QtC.KCoreDirLister) callconv(.c) void `
+    /// ` callback: *const fn (self: KCoreDirLister) callconv(.c) void `
     ///
-    pub fn OnCanceled(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreDirLister_Connect_Canceled(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCanceled(self: KCoreDirLister, callback: *const fn (KCoreDirLister) callconv(.c) void) void {
+        qtc.KCoreDirLister_Connect_Canceled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#listingDirCanceled)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` dirUrl: QtC.QUrl `
+    /// ` dirUrl: QUrl `
     ///
-    pub fn ListingDirCanceled(self: ?*anyopaque, dirUrl: ?*anyopaque) void {
-        qtc.KCoreDirLister_ListingDirCanceled(@ptrCast(self), @ptrCast(dirUrl));
+    pub fn ListingDirCanceled(self: KCoreDirLister, dirUrl: anytype) void {
+        comptime _ = @TypeOf(dirUrl)._is_QUrl;
+        qtc.KCoreDirLister_ListingDirCanceled(@ptrCast(self.ptr), @ptrCast(dirUrl.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#listingDirCanceled)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` callback: *const fn (self: QtC.KCoreDirLister, dirUrl: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: KCoreDirLister, dirUrl: QUrl) callconv(.c) void `
     ///
-    pub fn OnListingDirCanceled(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreDirLister_Connect_ListingDirCanceled(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnListingDirCanceled(self: KCoreDirLister, callback: *const fn (KCoreDirLister, QUrl) callconv(.c) void) void {
+        qtc.KCoreDirLister_Connect_ListingDirCanceled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#redirection)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` oldUrl: QtC.QUrl `
+    /// ` oldUrl: QUrl `
     ///
-    /// ` newUrl: QtC.QUrl `
+    /// ` newUrl: QUrl `
     ///
-    pub fn Redirection(self: ?*anyopaque, oldUrl: ?*anyopaque, newUrl: ?*anyopaque) void {
-        qtc.KCoreDirLister_Redirection(@ptrCast(self), @ptrCast(oldUrl), @ptrCast(newUrl));
+    pub fn Redirection(self: KCoreDirLister, oldUrl: anytype, newUrl: anytype) void {
+        comptime _ = @TypeOf(oldUrl)._is_QUrl;
+        comptime _ = @TypeOf(newUrl)._is_QUrl;
+        qtc.KCoreDirLister_Redirection(@ptrCast(self.ptr), @ptrCast(oldUrl.ptr), @ptrCast(newUrl.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#redirection)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` callback: *const fn (self: QtC.KCoreDirLister, oldUrl: QtC.QUrl, newUrl: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: KCoreDirLister, oldUrl: QUrl, newUrl: QUrl) callconv(.c) void `
     ///
-    pub fn OnRedirection(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreDirLister_Connect_Redirection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRedirection(self: KCoreDirLister, callback: *const fn (KCoreDirLister, QUrl, QUrl) callconv(.c) void) void {
+        qtc.KCoreDirLister_Connect_Redirection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#clear)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    pub fn Clear(self: ?*anyopaque) void {
-        qtc.KCoreDirLister_Clear(@ptrCast(self));
+    pub fn Clear(self: KCoreDirLister) void {
+        qtc.KCoreDirLister_Clear(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#clear)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` callback: *const fn (self: QtC.KCoreDirLister) callconv(.c) void `
+    /// ` callback: *const fn (self: KCoreDirLister) callconv(.c) void `
     ///
-    pub fn OnClear(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreDirLister_Connect_Clear(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnClear(self: KCoreDirLister, callback: *const fn (KCoreDirLister) callconv(.c) void) void {
+        qtc.KCoreDirLister_Connect_Clear(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#clearDir)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` dirUrl: QtC.QUrl `
+    /// ` dirUrl: QUrl `
     ///
-    pub fn ClearDir(self: ?*anyopaque, dirUrl: ?*anyopaque) void {
-        qtc.KCoreDirLister_ClearDir(@ptrCast(self), @ptrCast(dirUrl));
+    pub fn ClearDir(self: KCoreDirLister, dirUrl: anytype) void {
+        comptime _ = @TypeOf(dirUrl)._is_QUrl;
+        qtc.KCoreDirLister_ClearDir(@ptrCast(self.ptr), @ptrCast(dirUrl.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#clearDir)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` callback: *const fn (self: QtC.KCoreDirLister, dirUrl: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: KCoreDirLister, dirUrl: QUrl) callconv(.c) void `
     ///
-    pub fn OnClearDir(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreDirLister_Connect_ClearDir(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnClearDir(self: KCoreDirLister, callback: *const fn (KCoreDirLister, QUrl) callconv(.c) void) void {
+        qtc.KCoreDirLister_Connect_ClearDir(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#newItems)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` items: QtC.KFileItemList `
+    /// ` items: KFileItemList `
     ///
-    pub fn NewItems(self: ?*anyopaque, items: ?*anyopaque) void {
-        qtc.KCoreDirLister_NewItems(@ptrCast(self), @ptrCast(items));
+    pub fn NewItems(self: KCoreDirLister, items: anytype) void {
+        comptime _ = @TypeOf(items)._is_KFileItemList;
+        qtc.KCoreDirLister_NewItems(@ptrCast(self.ptr), @ptrCast(items.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#newItems)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` callback: *const fn (self: QtC.KCoreDirLister, items: QtC.KFileItemList) callconv(.c) void `
+    /// ` callback: *const fn (self: KCoreDirLister, items: KFileItemList) callconv(.c) void `
     ///
-    pub fn OnNewItems(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreDirLister_Connect_NewItems(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnNewItems(self: KCoreDirLister, callback: *const fn (KCoreDirLister, KFileItemList) callconv(.c) void) void {
+        qtc.KCoreDirLister_Connect_NewItems(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#itemsAdded)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` directoryUrl: QtC.QUrl `
+    /// ` directoryUrl: QUrl `
     ///
-    /// ` items: QtC.KFileItemList `
+    /// ` items: KFileItemList `
     ///
-    pub fn ItemsAdded(self: ?*anyopaque, directoryUrl: ?*anyopaque, items: ?*anyopaque) void {
-        qtc.KCoreDirLister_ItemsAdded(@ptrCast(self), @ptrCast(directoryUrl), @ptrCast(items));
+    pub fn ItemsAdded(self: KCoreDirLister, directoryUrl: anytype, items: anytype) void {
+        comptime _ = @TypeOf(directoryUrl)._is_QUrl;
+        comptime _ = @TypeOf(items)._is_KFileItemList;
+        qtc.KCoreDirLister_ItemsAdded(@ptrCast(self.ptr), @ptrCast(directoryUrl.ptr), @ptrCast(items.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#itemsAdded)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` callback: *const fn (self: QtC.KCoreDirLister, directoryUrl: QtC.QUrl, items: QtC.KFileItemList) callconv(.c) void `
+    /// ` callback: *const fn (self: KCoreDirLister, directoryUrl: QUrl, items: KFileItemList) callconv(.c) void `
     ///
-    pub fn OnItemsAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreDirLister_Connect_ItemsAdded(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnItemsAdded(self: KCoreDirLister, callback: *const fn (KCoreDirLister, QUrl, KFileItemList) callconv(.c) void) void {
+        qtc.KCoreDirLister_Connect_ItemsAdded(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#itemsFilteredByMime)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` items: QtC.KFileItemList `
+    /// ` items: KFileItemList `
     ///
-    pub fn ItemsFilteredByMime(self: ?*anyopaque, items: ?*anyopaque) void {
-        qtc.KCoreDirLister_ItemsFilteredByMime(@ptrCast(self), @ptrCast(items));
+    pub fn ItemsFilteredByMime(self: KCoreDirLister, items: anytype) void {
+        comptime _ = @TypeOf(items)._is_KFileItemList;
+        qtc.KCoreDirLister_ItemsFilteredByMime(@ptrCast(self.ptr), @ptrCast(items.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#itemsFilteredByMime)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` callback: *const fn (self: QtC.KCoreDirLister, items: QtC.KFileItemList) callconv(.c) void `
+    /// ` callback: *const fn (self: KCoreDirLister, items: KFileItemList) callconv(.c) void `
     ///
-    pub fn OnItemsFilteredByMime(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreDirLister_Connect_ItemsFilteredByMime(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnItemsFilteredByMime(self: KCoreDirLister, callback: *const fn (KCoreDirLister, KFileItemList) callconv(.c) void) void {
+        qtc.KCoreDirLister_Connect_ItemsFilteredByMime(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#itemsDeleted)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` items: QtC.KFileItemList `
+    /// ` items: KFileItemList `
     ///
-    pub fn ItemsDeleted(self: ?*anyopaque, items: ?*anyopaque) void {
-        qtc.KCoreDirLister_ItemsDeleted(@ptrCast(self), @ptrCast(items));
+    pub fn ItemsDeleted(self: KCoreDirLister, items: anytype) void {
+        comptime _ = @TypeOf(items)._is_KFileItemList;
+        qtc.KCoreDirLister_ItemsDeleted(@ptrCast(self.ptr), @ptrCast(items.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#itemsDeleted)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` callback: *const fn (self: QtC.KCoreDirLister, items: QtC.KFileItemList) callconv(.c) void `
+    /// ` callback: *const fn (self: KCoreDirLister, items: KFileItemList) callconv(.c) void `
     ///
-    pub fn OnItemsDeleted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreDirLister_Connect_ItemsDeleted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnItemsDeleted(self: KCoreDirLister, callback: *const fn (KCoreDirLister, KFileItemList) callconv(.c) void) void {
+        qtc.KCoreDirLister_Connect_ItemsDeleted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#infoMessage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
     /// ` msg: []const u8 `
     ///
-    pub fn InfoMessage(self: ?*anyopaque, msg: []const u8) void {
+    pub fn InfoMessage(self: KCoreDirLister, msg: []const u8) void {
         const msg_str = qtc.libqt_string{
             .len = msg.len,
             .data = msg.ptr,
         };
-        qtc.KCoreDirLister_InfoMessage(@ptrCast(self), msg_str);
+        qtc.KCoreDirLister_InfoMessage(@ptrCast(self.ptr), msg_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#infoMessage)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` callback: *const fn (self: QtC.KCoreDirLister, msg: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KCoreDirLister, msg: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnInfoMessage(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KCoreDirLister_Connect_InfoMessage(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInfoMessage(self: KCoreDirLister, callback: *const fn (KCoreDirLister, [*:0]const u8) callconv(.c) void) void {
+        qtc.KCoreDirLister_Connect_InfoMessage(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#percent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
     /// ` percent: i32 `
     ///
-    pub fn Percent(self: ?*anyopaque, percent: i32) void {
-        qtc.KCoreDirLister_Percent(@ptrCast(self), @bitCast(percent));
+    pub fn Percent(self: KCoreDirLister, percent: i32) void {
+        qtc.KCoreDirLister_Percent(@ptrCast(self.ptr), @bitCast(percent));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#percent)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` callback: *const fn (self: QtC.KCoreDirLister, percent: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KCoreDirLister, percent: i32) callconv(.c) void `
     ///
-    pub fn OnPercent(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KCoreDirLister_Connect_Percent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPercent(self: KCoreDirLister, callback: *const fn (KCoreDirLister, i32) callconv(.c) void) void {
+        qtc.KCoreDirLister_Connect_Percent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#totalSize)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
     /// ` size: usize `
     ///
-    pub fn TotalSize(self: ?*anyopaque, size: usize) void {
-        qtc.KCoreDirLister_TotalSize(@ptrCast(self), @bitCast(size));
+    pub fn TotalSize(self: KCoreDirLister, size: usize) void {
+        qtc.KCoreDirLister_TotalSize(@ptrCast(self.ptr), @bitCast(size));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#totalSize)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` callback: *const fn (self: QtC.KCoreDirLister, size: usize) callconv(.c) void `
+    /// ` callback: *const fn (self: KCoreDirLister, size: usize) callconv(.c) void `
     ///
-    pub fn OnTotalSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, usize) callconv(.c) void) void {
-        qtc.KCoreDirLister_Connect_TotalSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTotalSize(self: KCoreDirLister, callback: *const fn (KCoreDirLister, usize) callconv(.c) void) void {
+        qtc.KCoreDirLister_Connect_TotalSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#processedSize)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
     /// ` size: usize `
     ///
-    pub fn ProcessedSize(self: ?*anyopaque, size: usize) void {
-        qtc.KCoreDirLister_ProcessedSize(@ptrCast(self), @bitCast(size));
+    pub fn ProcessedSize(self: KCoreDirLister, size: usize) void {
+        qtc.KCoreDirLister_ProcessedSize(@ptrCast(self.ptr), @bitCast(size));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#processedSize)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` callback: *const fn (self: QtC.KCoreDirLister, size: usize) callconv(.c) void `
+    /// ` callback: *const fn (self: KCoreDirLister, size: usize) callconv(.c) void `
     ///
-    pub fn OnProcessedSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, usize) callconv(.c) void) void {
-        qtc.KCoreDirLister_Connect_ProcessedSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnProcessedSize(self: KCoreDirLister, callback: *const fn (KCoreDirLister, usize) callconv(.c) void) void {
+        qtc.KCoreDirLister_Connect_ProcessedSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#speed)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
     /// ` bytes_per_second: i32 `
     ///
-    pub fn Speed(self: ?*anyopaque, bytes_per_second: i32) void {
-        qtc.KCoreDirLister_Speed(@ptrCast(self), @bitCast(bytes_per_second));
+    pub fn Speed(self: KCoreDirLister, bytes_per_second: i32) void {
+        qtc.KCoreDirLister_Speed(@ptrCast(self.ptr), @bitCast(bytes_per_second));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#speed)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` callback: *const fn (self: QtC.KCoreDirLister, bytes_per_second: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KCoreDirLister, bytes_per_second: i32) callconv(.c) void `
     ///
-    pub fn OnSpeed(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KCoreDirLister_Connect_Speed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSpeed(self: KCoreDirLister, callback: *const fn (KCoreDirLister, i32) callconv(.c) void) void {
+        qtc.KCoreDirLister_Connect_Speed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#jobError)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` job: QtC.KIO__Job `
+    /// ` job: KIO__Job `
     ///
-    pub fn JobError(self: ?*anyopaque, job: ?*anyopaque) void {
-        qtc.KCoreDirLister_JobError(@ptrCast(self), @ptrCast(job));
+    pub fn JobError(self: KCoreDirLister, job: anytype) void {
+        comptime _ = @TypeOf(job)._is_KIO__Job;
+        qtc.KCoreDirLister_JobError(@ptrCast(self.ptr), @ptrCast(job.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#jobError)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` callback: *const fn (self: QtC.KCoreDirLister, job: QtC.KIO__Job) callconv(.c) void `
+    /// ` callback: *const fn (self: KCoreDirLister, job: KIO__Job) callconv(.c) void `
     ///
-    pub fn OnJobError(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreDirLister_Connect_JobError(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnJobError(self: KCoreDirLister, callback: *const fn (KCoreDirLister, KIO__Job) callconv(.c) void) void {
+        qtc.KCoreDirLister_Connect_JobError(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#jobStarted)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` param1: QtC.KIO__ListJob `
+    /// ` param1: KIO__ListJob `
     ///
-    pub fn JobStarted(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KCoreDirLister_JobStarted(@ptrCast(self), @ptrCast(param1));
+    pub fn JobStarted(self: KCoreDirLister, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_KIO__ListJob;
+        qtc.KCoreDirLister_JobStarted(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#jobStarted)
@@ -1046,12 +1089,12 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` callback: *const fn (self: QtC.KCoreDirLister, param1: QtC.KIO__ListJob) callconv(.c) void `
+    /// ` callback: *const fn (self: KCoreDirLister, param1: KIO__ListJob) callconv(.c) void `
     ///
-    pub fn OnJobStarted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreDirLister_OnJobStarted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnJobStarted(self: KCoreDirLister, callback: *const fn (KCoreDirLister, KIO__ListJob) callconv(.c) void) void {
+        qtc.KCoreDirLister_OnJobStarted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperJobStarted` instead
@@ -1064,25 +1107,26 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` param1: QtC.KIO__ListJob `
+    /// ` param1: KIO__ListJob `
     ///
-    pub fn SuperJobStarted(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KCoreDirLister_SuperJobStarted(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperJobStarted(self: KCoreDirLister, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_KIO__ListJob;
+        qtc.KCoreDirLister_SuperJobStarted(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -1096,15 +1140,15 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -1118,40 +1162,42 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` dirUrl: QtC.QUrl `
+    /// ` dirUrl: QUrl `
     ///
     /// ` flags: flag of kcoredirlister_enums.OpenUrlFlag `
     ///
-    pub fn OpenUrl2(self: ?*anyopaque, dirUrl: ?*anyopaque, flags: i32) bool {
-        return qtc.KCoreDirLister_OpenUrl2(@ptrCast(self), @ptrCast(dirUrl), @bitCast(flags));
+    pub fn OpenUrl2(self: KCoreDirLister, dirUrl: anytype, flags: i32) bool {
+        comptime _ = @TypeOf(dirUrl)._is_QUrl;
+        return qtc.KCoreDirLister_OpenUrl2(@ptrCast(self.ptr), @ptrCast(dirUrl.ptr), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#items)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
     /// ` which: kcoredirlister_enums.WhichItems `
     ///
-    pub fn Items1(self: ?*anyopaque, which: i32) QtC.KFileItemList {
-        return qtc.KCoreDirLister_Items1(@ptrCast(self), @bitCast(which));
+    pub fn Items1(self: KCoreDirLister, which: i32) KFileItemList {
+        return .{ .ptr = qtc.KCoreDirLister_Items1(@ptrCast(self.ptr), @bitCast(which)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#itemsForDir)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` dirUrl: QtC.QUrl `
+    /// ` dirUrl: QUrl `
     ///
     /// ` which: kcoredirlister_enums.WhichItems `
     ///
-    pub fn ItemsForDir2(self: ?*anyopaque, dirUrl: ?*anyopaque, which: i32) QtC.KFileItemList {
-        return qtc.KCoreDirLister_ItemsForDir2(@ptrCast(self), @ptrCast(dirUrl), @bitCast(which));
+    pub fn ItemsForDir2(self: KCoreDirLister, dirUrl: anytype, which: i32) KFileItemList {
+        comptime _ = @TypeOf(dirUrl)._is_QUrl;
+        return .{ .ptr = qtc.KCoreDirLister_ItemsForDir2(@ptrCast(self.ptr), @ptrCast(dirUrl.ptr), @bitCast(which)) };
     }
 
     /// Inherited from QObject
@@ -1160,12 +1206,12 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: KCoreDirLister, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kcoredirlister.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1178,12 +1224,12 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: KCoreDirLister, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -1192,10 +1238,10 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: KCoreDirLister) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1204,10 +1250,10 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: KCoreDirLister) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1216,10 +1262,10 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: KCoreDirLister) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1228,10 +1274,10 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: KCoreDirLister) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1240,12 +1286,12 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: KCoreDirLister, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -1254,10 +1300,10 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: KCoreDirLister) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1266,12 +1312,13 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: KCoreDirLister, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -1280,12 +1327,12 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: KCoreDirLister, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1294,12 +1341,12 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: KCoreDirLister, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1308,12 +1355,12 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: KCoreDirLister, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1322,12 +1369,12 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: KCoreDirLister, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1336,16 +1383,17 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: KCoreDirLister, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("kcoredirlister.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kcoredirlister.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1355,12 +1403,13 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: KCoreDirLister, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -1369,12 +1418,13 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: KCoreDirLister, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -1383,12 +1433,13 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: KCoreDirLister, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -1397,18 +1448,20 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1417,16 +1470,20 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1435,18 +1492,19 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: KCoreDirLister, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1455,18 +1513,20 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1475,16 +1535,20 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -1493,10 +1557,10 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: KCoreDirLister) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1505,12 +1569,13 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: KCoreDirLister, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1519,10 +1584,11 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1531,10 +1597,10 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: KCoreDirLister) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1543,10 +1609,10 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: KCoreDirLister) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1555,15 +1621,16 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: KCoreDirLister, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -1572,13 +1639,13 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: KCoreDirLister, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1587,17 +1654,16 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: KCoreDirLister, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kcoredirlister.DynamicPropertyNames: Memory allocation failed");
@@ -1616,10 +1682,10 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: KCoreDirLister) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1628,10 +1694,10 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: KCoreDirLister) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1640,10 +1706,10 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: KCoreDirLister) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1652,12 +1718,12 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` callback: *const fn (self: QtC.KCoreDirLister) callconv(.c) void `
+    /// ` callback: *const fn (self: KCoreDirLister) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: KCoreDirLister, callback: *const fn (KCoreDirLister) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1666,10 +1732,10 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: KCoreDirLister) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1678,13 +1744,13 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: KCoreDirLister, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -1693,10 +1759,10 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: KCoreDirLister) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1705,14 +1771,14 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: KCoreDirLister, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1721,14 +1787,14 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: KCoreDirLister, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1737,20 +1803,22 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -1759,18 +1827,22 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1779,9 +1851,9 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1789,10 +1861,11 @@ pub const kcoredirlister = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: KCoreDirLister, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1801,13 +1874,13 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: KCoreDirLister, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1816,15 +1889,16 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: KCoreDirLister, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1833,18 +1907,19 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: KCoreDirLister, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1853,15 +1928,16 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: KCoreDirLister, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1870,12 +1946,13 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: KCoreDirLister, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1884,12 +1961,12 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` callback: *const fn (self: QtC.KCoreDirLister, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: KCoreDirLister, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: KCoreDirLister, callback: *const fn (KCoreDirLister, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1900,12 +1977,13 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KCoreDirLister_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: KCoreDirLister, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KCoreDirLister_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -1920,12 +1998,13 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KCoreDirLister_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: KCoreDirLister, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KCoreDirLister_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1936,12 +2015,12 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KCoreDirLister`
+    /// ` self: KCoreDirLister`
     ///
-    /// ` callback: *const fn (self: QtC.KCoreDirLister, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KCoreDirLister, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCoreDirLister_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: KCoreDirLister, callback: *const fn (KCoreDirLister, QEvent) callconv(.c) bool) void {
+        qtc.KCoreDirLister_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1952,14 +2031,16 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KCoreDirLister_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: KCoreDirLister, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KCoreDirLister_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -1974,14 +2055,16 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KCoreDirLister_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: KCoreDirLister, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KCoreDirLister_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1992,12 +2075,12 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KCoreDirLister`
+    /// ` self: KCoreDirLister`
     ///
-    /// ` callback: *const fn (self: QtC.KCoreDirLister, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KCoreDirLister, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCoreDirLister_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: KCoreDirLister, callback: *const fn (KCoreDirLister, QObject, QEvent) callconv(.c) bool) void {
+        qtc.KCoreDirLister_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2008,12 +2091,13 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KCoreDirLister_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: KCoreDirLister, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KCoreDirLister_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -2028,12 +2112,13 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KCoreDirLister_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: KCoreDirLister, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KCoreDirLister_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2044,12 +2129,12 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KCoreDirLister`
+    /// ` self: KCoreDirLister`
     ///
-    /// ` callback: *const fn (self: QtC.KCoreDirLister, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KCoreDirLister, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreDirLister_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: KCoreDirLister, callback: *const fn (KCoreDirLister, QTimerEvent) callconv(.c) void) void {
+        qtc.KCoreDirLister_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2060,12 +2145,13 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KCoreDirLister_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: KCoreDirLister, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KCoreDirLister_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -2080,12 +2166,13 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KCoreDirLister_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: KCoreDirLister, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KCoreDirLister_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2096,12 +2183,12 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KCoreDirLister`
+    /// ` self: KCoreDirLister`
     ///
-    /// ` callback: *const fn (self: QtC.KCoreDirLister, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KCoreDirLister, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreDirLister_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: KCoreDirLister, callback: *const fn (KCoreDirLister, QChildEvent) callconv(.c) void) void {
+        qtc.KCoreDirLister_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2112,12 +2199,13 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KCoreDirLister_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: KCoreDirLister, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KCoreDirLister_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -2132,12 +2220,13 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KCoreDirLister_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: KCoreDirLister, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KCoreDirLister_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2148,12 +2237,12 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KCoreDirLister`
+    /// ` self: KCoreDirLister`
     ///
-    /// ` callback: *const fn (self: QtC.KCoreDirLister, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KCoreDirLister, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreDirLister_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: KCoreDirLister, callback: *const fn (KCoreDirLister, QEvent) callconv(.c) void) void {
+        qtc.KCoreDirLister_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2164,12 +2253,13 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KCoreDirLister_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: KCoreDirLister, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KCoreDirLister_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -2184,12 +2274,13 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KCoreDirLister_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: KCoreDirLister, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KCoreDirLister_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -2200,12 +2291,12 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KCoreDirLister`
+    /// ` self: KCoreDirLister`
     ///
-    /// ` callback: *const fn (self: QtC.KCoreDirLister, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KCoreDirLister, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreDirLister_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: KCoreDirLister, callback: *const fn (KCoreDirLister, QMetaMethod) callconv(.c) void) void {
+        qtc.KCoreDirLister_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2216,12 +2307,13 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KCoreDirLister_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: KCoreDirLister, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KCoreDirLister_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -2236,12 +2328,13 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KCoreDirLister_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: KCoreDirLister, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KCoreDirLister_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -2252,12 +2345,12 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KCoreDirLister`
+    /// ` self: KCoreDirLister`
     ///
-    /// ` callback: *const fn (self: QtC.KCoreDirLister, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KCoreDirLister, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreDirLister_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: KCoreDirLister, callback: *const fn (KCoreDirLister, QMetaMethod) callconv(.c) void) void {
+        qtc.KCoreDirLister_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2268,10 +2361,10 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KCoreDirLister_Sender(@ptrCast(self));
+    pub fn Sender(self: KCoreDirLister) QObject {
+        return .{ .ptr = qtc.KCoreDirLister_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -2286,10 +2379,10 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KCoreDirLister_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: KCoreDirLister) QObject {
+        return .{ .ptr = qtc.KCoreDirLister_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2300,12 +2393,12 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KCoreDirLister`
+    /// ` self: KCoreDirLister`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.KCoreDirLister_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: KCoreDirLister, callback: *const fn () callconv(.c) QObject) void {
+        qtc.KCoreDirLister_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2316,10 +2409,10 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KCoreDirLister_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: KCoreDirLister) i32 {
+        return qtc.KCoreDirLister_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -2334,10 +2427,10 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KCoreDirLister_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: KCoreDirLister) i32 {
+        return qtc.KCoreDirLister_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2348,12 +2441,12 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KCoreDirLister`
+    /// ` self: KCoreDirLister`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KCoreDirLister_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: KCoreDirLister, callback: *const fn () callconv(.c) i32) void {
+        qtc.KCoreDirLister_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2364,13 +2457,13 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: KCoreDirLister, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KCoreDirLister_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.KCoreDirLister_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -2385,13 +2478,13 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: KCoreDirLister, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KCoreDirLister_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KCoreDirLister_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2402,12 +2495,12 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KCoreDirLister`
+    /// ` self: KCoreDirLister`
     ///
-    /// ` callback: *const fn (self: QtC.KCoreDirLister, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KCoreDirLister, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KCoreDirLister_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: KCoreDirLister, callback: *const fn (KCoreDirLister, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KCoreDirLister_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2418,12 +2511,13 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KCoreDirLister_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: KCoreDirLister, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KCoreDirLister_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -2438,12 +2532,13 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KCoreDirLister_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: KCoreDirLister, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KCoreDirLister_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -2454,12 +2549,12 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KCoreDirLister`
+    /// ` self: KCoreDirLister`
     ///
-    /// ` callback: *const fn (self: QtC.KCoreDirLister, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: KCoreDirLister, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCoreDirLister_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: KCoreDirLister, callback: *const fn (KCoreDirLister, QMetaMethod) callconv(.c) bool) void {
+        qtc.KCoreDirLister_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2470,12 +2565,12 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    /// ` callback: *const fn (self: QtC.KCoreDirLister, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KCoreDirLister, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: KCoreDirLister, callback: *const fn (KCoreDirLister, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -2488,10 +2583,10 @@ pub const kcoredirlister = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KCoreDirLister `
+    /// ` self: KCoreDirLister `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KCoreDirLister_Delete(@ptrCast(self));
+    pub fn Delete(self: KCoreDirLister) void {
+        qtc.KCoreDirLister_Delete(@ptrCast(self.ptr));
     }
 };
 

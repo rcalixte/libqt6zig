@@ -1,151 +1,167 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QTreeWidget = @import("libqt6").QTreeWidget;
+const QTreeWidgetItem = @import("libqt6").QTreeWidgetItem;
 const qtreewidgetitemiterator_enums = enums;
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html)
-pub const qtreewidgetitemiterator = struct {
+pub const QTreeWidgetItemIterator = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QTreeWidgetItemIterator,
+
+    pub const _is_QTreeWidgetItemIterator = {};
+
     /// New constructs a new QTreeWidgetItemIterator object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` it: QtC.QTreeWidgetItemIterator `
+    /// ` it: QTreeWidgetItemIterator `
     ///
-    pub fn New(it: ?*anyopaque) QtC.QTreeWidgetItemIterator {
-        return qtc.QTreeWidgetItemIterator_new(@ptrCast(it));
+    pub fn New(it: anytype) QTreeWidgetItemIterator {
+        comptime _ = @TypeOf(it)._is_QTreeWidgetItemIterator;
+        return .{ .ptr = qtc.QTreeWidgetItemIterator_new(@ptrCast(it.ptr)) };
     }
 
     /// New2 constructs a new QTreeWidgetItemIterator object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` widget: QtC.QTreeWidget `
+    /// ` widget: QTreeWidget `
     ///
-    pub fn New2(widget: ?*anyopaque) QtC.QTreeWidgetItemIterator {
-        return qtc.QTreeWidgetItemIterator_new2(@ptrCast(widget));
+    pub fn New2(widget: anytype) QTreeWidgetItemIterator {
+        comptime _ = @TypeOf(widget)._is_QTreeWidget;
+        return .{ .ptr = qtc.QTreeWidgetItemIterator_new2(@ptrCast(widget.ptr)) };
     }
 
     /// New3 constructs a new QTreeWidgetItemIterator object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` item: QtC.QTreeWidgetItem `
+    /// ` item: QTreeWidgetItem `
     ///
-    pub fn New3(item: ?*anyopaque) QtC.QTreeWidgetItemIterator {
-        return qtc.QTreeWidgetItemIterator_new3(@ptrCast(item));
+    pub fn New3(item: anytype) QTreeWidgetItemIterator {
+        comptime _ = @TypeOf(item)._is_QTreeWidgetItem;
+        return .{ .ptr = qtc.QTreeWidgetItemIterator_new3(@ptrCast(item.ptr)) };
     }
 
     /// New4 constructs a new QTreeWidgetItemIterator object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` widget: QtC.QTreeWidget `
+    /// ` widget: QTreeWidget `
     ///
     /// ` flags: flag of qtreewidgetitemiterator_enums.IteratorFlag `
     ///
-    pub fn New4(widget: ?*anyopaque, flags: i32) QtC.QTreeWidgetItemIterator {
-        return qtc.QTreeWidgetItemIterator_new4(@ptrCast(widget), @bitCast(flags));
+    pub fn New4(widget: anytype, flags: i32) QTreeWidgetItemIterator {
+        comptime _ = @TypeOf(widget)._is_QTreeWidget;
+        return .{ .ptr = qtc.QTreeWidgetItemIterator_new4(@ptrCast(widget.ptr), @bitCast(flags)) };
     }
 
     /// New5 constructs a new QTreeWidgetItemIterator object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` item: QtC.QTreeWidgetItem `
+    /// ` item: QTreeWidgetItem `
     ///
     /// ` flags: flag of qtreewidgetitemiterator_enums.IteratorFlag `
     ///
-    pub fn New5(item: ?*anyopaque, flags: i32) QtC.QTreeWidgetItemIterator {
-        return qtc.QTreeWidgetItemIterator_new5(@ptrCast(item), @bitCast(flags));
+    pub fn New5(item: anytype, flags: i32) QTreeWidgetItemIterator {
+        comptime _ = @TypeOf(item)._is_QTreeWidgetItem;
+        return .{ .ptr = qtc.QTreeWidgetItemIterator_new5(@ptrCast(item.ptr), @bitCast(flags)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeWidgetItemIterator `
+    /// ` self: QTreeWidgetItemIterator `
     ///
-    /// ` it: QtC.QTreeWidgetItemIterator `
+    /// ` it: QTreeWidgetItemIterator `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, it: ?*anyopaque) void {
-        qtc.QTreeWidgetItemIterator_OperatorAssign(@ptrCast(self), @ptrCast(it));
+    pub fn OperatorAssign(self: QTreeWidgetItemIterator, it: anytype) void {
+        comptime _ = @TypeOf(it)._is_QTreeWidgetItemIterator;
+        qtc.QTreeWidgetItemIterator_OperatorAssign(@ptrCast(self.ptr), @ptrCast(it.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#operator-2b-2b)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeWidgetItemIterator `
+    /// ` self: QTreeWidgetItemIterator `
     ///
-    pub fn OperatorPlusPlus(self: ?*anyopaque) QtC.QTreeWidgetItemIterator {
-        return qtc.QTreeWidgetItemIterator_OperatorPlusPlus(@ptrCast(self));
+    pub fn OperatorPlusPlus(self: QTreeWidgetItemIterator) QTreeWidgetItemIterator {
+        return .{ .ptr = qtc.QTreeWidgetItemIterator_OperatorPlusPlus(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#operator-2b-2b)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeWidgetItemIterator `
+    /// ` self: QTreeWidgetItemIterator `
     ///
     /// ` param1: i32 `
     ///
-    pub fn OperatorPlusPlus2(self: ?*anyopaque, param1: i32) QtC.QTreeWidgetItemIterator {
-        return qtc.QTreeWidgetItemIterator_OperatorPlusPlus2(@ptrCast(self), @bitCast(param1));
+    pub fn OperatorPlusPlus2(self: QTreeWidgetItemIterator, param1: i32) QTreeWidgetItemIterator {
+        return .{ .ptr = qtc.QTreeWidgetItemIterator_OperatorPlusPlus2(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#operator-2b-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeWidgetItemIterator `
+    /// ` self: QTreeWidgetItemIterator `
     ///
     /// ` n: i32 `
     ///
-    pub fn OperatorPlusAssign(self: ?*anyopaque, n: i32) QtC.QTreeWidgetItemIterator {
-        return qtc.QTreeWidgetItemIterator_OperatorPlusAssign(@ptrCast(self), @bitCast(n));
+    pub fn OperatorPlusAssign(self: QTreeWidgetItemIterator, n: i32) QTreeWidgetItemIterator {
+        return .{ .ptr = qtc.QTreeWidgetItemIterator_OperatorPlusAssign(@ptrCast(self.ptr), @bitCast(n)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#operator--)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeWidgetItemIterator `
+    /// ` self: QTreeWidgetItemIterator `
     ///
-    pub fn OperatorMinusMinus(self: ?*anyopaque) QtC.QTreeWidgetItemIterator {
-        return qtc.QTreeWidgetItemIterator_OperatorMinusMinus(@ptrCast(self));
+    pub fn OperatorMinusMinus(self: QTreeWidgetItemIterator) QTreeWidgetItemIterator {
+        return .{ .ptr = qtc.QTreeWidgetItemIterator_OperatorMinusMinus(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#operator--)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeWidgetItemIterator `
+    /// ` self: QTreeWidgetItemIterator `
     ///
     /// ` param1: i32 `
     ///
-    pub fn OperatorMinusMinus2(self: ?*anyopaque, param1: i32) QtC.QTreeWidgetItemIterator {
-        return qtc.QTreeWidgetItemIterator_OperatorMinusMinus2(@ptrCast(self), @bitCast(param1));
+    pub fn OperatorMinusMinus2(self: QTreeWidgetItemIterator, param1: i32) QTreeWidgetItemIterator {
+        return .{ .ptr = qtc.QTreeWidgetItemIterator_OperatorMinusMinus2(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#operator--eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeWidgetItemIterator `
+    /// ` self: QTreeWidgetItemIterator `
     ///
     /// ` n: i32 `
     ///
-    pub fn OperatorMinusAssign(self: ?*anyopaque, n: i32) QtC.QTreeWidgetItemIterator {
-        return qtc.QTreeWidgetItemIterator_OperatorMinusAssign(@ptrCast(self), @bitCast(n));
+    pub fn OperatorMinusAssign(self: QTreeWidgetItemIterator, n: i32) QTreeWidgetItemIterator {
+        return .{ .ptr = qtc.QTreeWidgetItemIterator_OperatorMinusAssign(@ptrCast(self.ptr), @bitCast(n)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#operator-2a)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeWidgetItemIterator `
+    /// ` self: QTreeWidgetItemIterator `
     ///
-    pub fn OperatorMultiply(self: ?*anyopaque) QtC.QTreeWidgetItem {
-        return qtc.QTreeWidgetItemIterator_OperatorMultiply(@ptrCast(self));
+    pub fn OperatorMultiply(self: QTreeWidgetItemIterator) QTreeWidgetItem {
+        return .{ .ptr = qtc.QTreeWidgetItemIterator_OperatorMultiply(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -158,10 +174,10 @@ pub const qtreewidgetitemiterator = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QTreeWidgetItemIterator `
+    /// ` self: QTreeWidgetItemIterator `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QTreeWidgetItemIterator_Delete(@ptrCast(self));
+    pub fn Delete(self: QTreeWidgetItemIterator) void {
+        qtc.QTreeWidgetItemIterator_Delete(@ptrCast(self.ptr));
     }
 };
 

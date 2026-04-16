@@ -1,6 +1,3 @@
-const QtC = @import("qt6zig");
-const qtc = @import("qt6c");
-
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocation.html#public-types)
 pub const enums = struct {
     pub const Visibility = enum(i32) {

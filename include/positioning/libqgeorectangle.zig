@@ -1,353 +1,380 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QGeoCoordinate = @import("libqt6").QGeoCoordinate;
+const QGeoShape = @import("libqt6").QGeoShape;
 const qgeoshape_enums = @import("libqgeoshape.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorectangle.html)
-pub const qgeorectangle = struct {
+pub const QGeoRectangle = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorectangle.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QGeoRectangle,
+
+    pub const _is_QGeoRectangle = {};
+    pub const _is_QGeoShape = {};
+
     /// New constructs a new QGeoRectangle object.
     ///
-    pub fn New() QtC.QGeoRectangle {
-        return qtc.QGeoRectangle_new();
+    pub fn New() QGeoRectangle {
+        return .{ .ptr = qtc.QGeoRectangle_new() };
     }
 
     /// New2 constructs a new QGeoRectangle object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` center: QtC.QGeoCoordinate `
+    /// ` center: QGeoCoordinate `
     ///
     /// ` degreesWidth: f64 `
     ///
     /// ` degreesHeight: f64 `
     ///
-    pub fn New2(center: ?*anyopaque, degreesWidth: f64, degreesHeight: f64) QtC.QGeoRectangle {
-        return qtc.QGeoRectangle_new2(@ptrCast(center), @bitCast(degreesWidth), @bitCast(degreesHeight));
+    pub fn New2(center: anytype, degreesWidth: f64, degreesHeight: f64) QGeoRectangle {
+        comptime _ = @TypeOf(center)._is_QGeoCoordinate;
+        return .{ .ptr = qtc.QGeoRectangle_new2(@ptrCast(center.ptr), @bitCast(degreesWidth), @bitCast(degreesHeight)) };
     }
 
     /// New3 constructs a new QGeoRectangle object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` topLeft: QtC.QGeoCoordinate `
+    /// ` topLeft: QGeoCoordinate `
     ///
-    /// ` bottomRight: QtC.QGeoCoordinate `
+    /// ` bottomRight: QGeoCoordinate `
     ///
-    pub fn New3(topLeft: ?*anyopaque, bottomRight: ?*anyopaque) QtC.QGeoRectangle {
-        return qtc.QGeoRectangle_new3(@ptrCast(topLeft), @ptrCast(bottomRight));
+    pub fn New3(topLeft: anytype, bottomRight: anytype) QGeoRectangle {
+        comptime _ = @TypeOf(topLeft)._is_QGeoCoordinate;
+        comptime _ = @TypeOf(bottomRight)._is_QGeoCoordinate;
+        return .{ .ptr = qtc.QGeoRectangle_new3(@ptrCast(topLeft.ptr), @ptrCast(bottomRight.ptr)) };
     }
 
     /// New4 constructs a new QGeoRectangle object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` coordinates: []QtC.QGeoCoordinate `
+    /// ` coordinates: []QGeoCoordinate `
     ///
-    pub fn New4(coordinates: []QtC.QGeoCoordinate) QtC.QGeoRectangle {
+    pub fn New4(coordinates: []QGeoCoordinate) QGeoRectangle {
         const coordinates_list = qtc.libqt_list{
             .len = coordinates.len,
             .data = @ptrCast(coordinates.ptr),
         };
-
-        return qtc.QGeoRectangle_new4(coordinates_list);
+        return .{ .ptr = qtc.QGeoRectangle_new4(coordinates_list) };
     }
 
     /// New5 constructs a new QGeoRectangle object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QGeoRectangle `
+    /// ` other: QGeoRectangle `
     ///
-    pub fn New5(other: ?*anyopaque) QtC.QGeoRectangle {
-        return qtc.QGeoRectangle_new5(@ptrCast(other));
+    pub fn New5(other: anytype) QGeoRectangle {
+        comptime _ = @TypeOf(other)._is_QGeoRectangle;
+        return .{ .ptr = qtc.QGeoRectangle_new5(@ptrCast(other.ptr)) };
     }
 
     /// New6 constructs a new QGeoRectangle object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QGeoShape `
+    /// ` other: QGeoShape `
     ///
-    pub fn New6(other: ?*anyopaque) QtC.QGeoRectangle {
-        return qtc.QGeoRectangle_new6(@ptrCast(other));
+    pub fn New6(other: anytype) QGeoRectangle {
+        comptime _ = @TypeOf(other)._is_QGeoShape;
+        return .{ .ptr = qtc.QGeoRectangle_new6(@ptrCast(other.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorectangle.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRectangle `
+    /// ` self: QGeoRectangle `
     ///
-    /// ` other: QtC.QGeoRectangle `
+    /// ` other: QGeoRectangle `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QGeoRectangle_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorAssign(self: QGeoRectangle, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QGeoRectangle;
+        qtc.QGeoRectangle_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorectangle.html#setTopLeft)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRectangle `
+    /// ` self: QGeoRectangle `
     ///
-    /// ` topLeft: QtC.QGeoCoordinate `
+    /// ` topLeft: QGeoCoordinate `
     ///
-    pub fn SetTopLeft(self: ?*anyopaque, topLeft: ?*anyopaque) void {
-        qtc.QGeoRectangle_SetTopLeft(@ptrCast(self), @ptrCast(topLeft));
+    pub fn SetTopLeft(self: QGeoRectangle, topLeft: anytype) void {
+        comptime _ = @TypeOf(topLeft)._is_QGeoCoordinate;
+        qtc.QGeoRectangle_SetTopLeft(@ptrCast(self.ptr), @ptrCast(topLeft.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorectangle.html#topLeft)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRectangle `
+    /// ` self: QGeoRectangle `
     ///
-    pub fn TopLeft(self: ?*anyopaque) QtC.QGeoCoordinate {
-        return qtc.QGeoRectangle_TopLeft(@ptrCast(self));
+    pub fn TopLeft(self: QGeoRectangle) QGeoCoordinate {
+        return .{ .ptr = qtc.QGeoRectangle_TopLeft(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorectangle.html#setTopRight)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRectangle `
+    /// ` self: QGeoRectangle `
     ///
-    /// ` topRight: QtC.QGeoCoordinate `
+    /// ` topRight: QGeoCoordinate `
     ///
-    pub fn SetTopRight(self: ?*anyopaque, topRight: ?*anyopaque) void {
-        qtc.QGeoRectangle_SetTopRight(@ptrCast(self), @ptrCast(topRight));
+    pub fn SetTopRight(self: QGeoRectangle, topRight: anytype) void {
+        comptime _ = @TypeOf(topRight)._is_QGeoCoordinate;
+        qtc.QGeoRectangle_SetTopRight(@ptrCast(self.ptr), @ptrCast(topRight.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorectangle.html#topRight)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRectangle `
+    /// ` self: QGeoRectangle `
     ///
-    pub fn TopRight(self: ?*anyopaque) QtC.QGeoCoordinate {
-        return qtc.QGeoRectangle_TopRight(@ptrCast(self));
+    pub fn TopRight(self: QGeoRectangle) QGeoCoordinate {
+        return .{ .ptr = qtc.QGeoRectangle_TopRight(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorectangle.html#setBottomLeft)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRectangle `
+    /// ` self: QGeoRectangle `
     ///
-    /// ` bottomLeft: QtC.QGeoCoordinate `
+    /// ` bottomLeft: QGeoCoordinate `
     ///
-    pub fn SetBottomLeft(self: ?*anyopaque, bottomLeft: ?*anyopaque) void {
-        qtc.QGeoRectangle_SetBottomLeft(@ptrCast(self), @ptrCast(bottomLeft));
+    pub fn SetBottomLeft(self: QGeoRectangle, bottomLeft: anytype) void {
+        comptime _ = @TypeOf(bottomLeft)._is_QGeoCoordinate;
+        qtc.QGeoRectangle_SetBottomLeft(@ptrCast(self.ptr), @ptrCast(bottomLeft.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorectangle.html#bottomLeft)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRectangle `
+    /// ` self: QGeoRectangle `
     ///
-    pub fn BottomLeft(self: ?*anyopaque) QtC.QGeoCoordinate {
-        return qtc.QGeoRectangle_BottomLeft(@ptrCast(self));
+    pub fn BottomLeft(self: QGeoRectangle) QGeoCoordinate {
+        return .{ .ptr = qtc.QGeoRectangle_BottomLeft(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorectangle.html#setBottomRight)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRectangle `
+    /// ` self: QGeoRectangle `
     ///
-    /// ` bottomRight: QtC.QGeoCoordinate `
+    /// ` bottomRight: QGeoCoordinate `
     ///
-    pub fn SetBottomRight(self: ?*anyopaque, bottomRight: ?*anyopaque) void {
-        qtc.QGeoRectangle_SetBottomRight(@ptrCast(self), @ptrCast(bottomRight));
+    pub fn SetBottomRight(self: QGeoRectangle, bottomRight: anytype) void {
+        comptime _ = @TypeOf(bottomRight)._is_QGeoCoordinate;
+        qtc.QGeoRectangle_SetBottomRight(@ptrCast(self.ptr), @ptrCast(bottomRight.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorectangle.html#bottomRight)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRectangle `
+    /// ` self: QGeoRectangle `
     ///
-    pub fn BottomRight(self: ?*anyopaque) QtC.QGeoCoordinate {
-        return qtc.QGeoRectangle_BottomRight(@ptrCast(self));
+    pub fn BottomRight(self: QGeoRectangle) QGeoCoordinate {
+        return .{ .ptr = qtc.QGeoRectangle_BottomRight(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorectangle.html#setCenter)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRectangle `
+    /// ` self: QGeoRectangle `
     ///
-    /// ` center: QtC.QGeoCoordinate `
+    /// ` center: QGeoCoordinate `
     ///
-    pub fn SetCenter(self: ?*anyopaque, center: ?*anyopaque) void {
-        qtc.QGeoRectangle_SetCenter(@ptrCast(self), @ptrCast(center));
+    pub fn SetCenter(self: QGeoRectangle, center: anytype) void {
+        comptime _ = @TypeOf(center)._is_QGeoCoordinate;
+        qtc.QGeoRectangle_SetCenter(@ptrCast(self.ptr), @ptrCast(center.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorectangle.html#center)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRectangle `
+    /// ` self: QGeoRectangle `
     ///
-    pub fn Center(self: ?*anyopaque) QtC.QGeoCoordinate {
-        return qtc.QGeoRectangle_Center(@ptrCast(self));
+    pub fn Center(self: QGeoRectangle) QGeoCoordinate {
+        return .{ .ptr = qtc.QGeoRectangle_Center(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorectangle.html#setWidth)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRectangle `
+    /// ` self: QGeoRectangle `
     ///
     /// ` degreesWidth: f64 `
     ///
-    pub fn SetWidth(self: ?*anyopaque, degreesWidth: f64) void {
-        qtc.QGeoRectangle_SetWidth(@ptrCast(self), @bitCast(degreesWidth));
+    pub fn SetWidth(self: QGeoRectangle, degreesWidth: f64) void {
+        qtc.QGeoRectangle_SetWidth(@ptrCast(self.ptr), @bitCast(degreesWidth));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorectangle.html#width)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRectangle `
+    /// ` self: QGeoRectangle `
     ///
-    pub fn Width(self: ?*anyopaque) f64 {
-        return qtc.QGeoRectangle_Width(@ptrCast(self));
+    pub fn Width(self: QGeoRectangle) f64 {
+        return qtc.QGeoRectangle_Width(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorectangle.html#setHeight)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRectangle `
+    /// ` self: QGeoRectangle `
     ///
     /// ` degreesHeight: f64 `
     ///
-    pub fn SetHeight(self: ?*anyopaque, degreesHeight: f64) void {
-        qtc.QGeoRectangle_SetHeight(@ptrCast(self), @bitCast(degreesHeight));
+    pub fn SetHeight(self: QGeoRectangle, degreesHeight: f64) void {
+        qtc.QGeoRectangle_SetHeight(@ptrCast(self.ptr), @bitCast(degreesHeight));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorectangle.html#height)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRectangle `
+    /// ` self: QGeoRectangle `
     ///
-    pub fn Height(self: ?*anyopaque) f64 {
-        return qtc.QGeoRectangle_Height(@ptrCast(self));
+    pub fn Height(self: QGeoRectangle) f64 {
+        return qtc.QGeoRectangle_Height(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorectangle.html#contains)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRectangle `
+    /// ` self: QGeoRectangle `
     ///
-    /// ` rectangle: QtC.QGeoRectangle `
+    /// ` rectangle: QGeoRectangle `
     ///
-    pub fn Contains(self: ?*anyopaque, rectangle: ?*anyopaque) bool {
-        return qtc.QGeoRectangle_Contains(@ptrCast(self), @ptrCast(rectangle));
+    pub fn Contains(self: QGeoRectangle, rectangle: anytype) bool {
+        comptime _ = @TypeOf(rectangle)._is_QGeoRectangle;
+        return qtc.QGeoRectangle_Contains(@ptrCast(self.ptr), @ptrCast(rectangle.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorectangle.html#intersects)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRectangle `
+    /// ` self: QGeoRectangle `
     ///
-    /// ` rectangle: QtC.QGeoRectangle `
+    /// ` rectangle: QGeoRectangle `
     ///
-    pub fn Intersects(self: ?*anyopaque, rectangle: ?*anyopaque) bool {
-        return qtc.QGeoRectangle_Intersects(@ptrCast(self), @ptrCast(rectangle));
+    pub fn Intersects(self: QGeoRectangle, rectangle: anytype) bool {
+        comptime _ = @TypeOf(rectangle)._is_QGeoRectangle;
+        return qtc.QGeoRectangle_Intersects(@ptrCast(self.ptr), @ptrCast(rectangle.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorectangle.html#translate)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRectangle `
+    /// ` self: QGeoRectangle `
     ///
     /// ` degreesLatitude: f64 `
     ///
     /// ` degreesLongitude: f64 `
     ///
-    pub fn Translate(self: ?*anyopaque, degreesLatitude: f64, degreesLongitude: f64) void {
-        qtc.QGeoRectangle_Translate(@ptrCast(self), @bitCast(degreesLatitude), @bitCast(degreesLongitude));
+    pub fn Translate(self: QGeoRectangle, degreesLatitude: f64, degreesLongitude: f64) void {
+        qtc.QGeoRectangle_Translate(@ptrCast(self.ptr), @bitCast(degreesLatitude), @bitCast(degreesLongitude));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorectangle.html#translated)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRectangle `
+    /// ` self: QGeoRectangle `
     ///
     /// ` degreesLatitude: f64 `
     ///
     /// ` degreesLongitude: f64 `
     ///
-    pub fn Translated(self: ?*anyopaque, degreesLatitude: f64, degreesLongitude: f64) QtC.QGeoRectangle {
-        return qtc.QGeoRectangle_Translated(@ptrCast(self), @bitCast(degreesLatitude), @bitCast(degreesLongitude));
+    pub fn Translated(self: QGeoRectangle, degreesLatitude: f64, degreesLongitude: f64) QGeoRectangle {
+        return .{ .ptr = qtc.QGeoRectangle_Translated(@ptrCast(self.ptr), @bitCast(degreesLatitude), @bitCast(degreesLongitude)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorectangle.html#extendRectangle)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRectangle `
+    /// ` self: QGeoRectangle `
     ///
-    /// ` coordinate: QtC.QGeoCoordinate `
+    /// ` coordinate: QGeoCoordinate `
     ///
-    pub fn ExtendRectangle(self: ?*anyopaque, coordinate: ?*anyopaque) void {
-        qtc.QGeoRectangle_ExtendRectangle(@ptrCast(self), @ptrCast(coordinate));
+    pub fn ExtendRectangle(self: QGeoRectangle, coordinate: anytype) void {
+        comptime _ = @TypeOf(coordinate)._is_QGeoCoordinate;
+        qtc.QGeoRectangle_ExtendRectangle(@ptrCast(self.ptr), @ptrCast(coordinate.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorectangle.html#united)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRectangle `
+    /// ` self: QGeoRectangle `
     ///
-    /// ` rectangle: QtC.QGeoRectangle `
+    /// ` rectangle: QGeoRectangle `
     ///
-    pub fn United(self: ?*anyopaque, rectangle: ?*anyopaque) QtC.QGeoRectangle {
-        return qtc.QGeoRectangle_United(@ptrCast(self), @ptrCast(rectangle));
+    pub fn United(self: QGeoRectangle, rectangle: anytype) QGeoRectangle {
+        comptime _ = @TypeOf(rectangle)._is_QGeoRectangle;
+        return .{ .ptr = qtc.QGeoRectangle_United(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorectangle.html#operator-7c)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRectangle `
+    /// ` self: QGeoRectangle `
     ///
-    /// ` rectangle: QtC.QGeoRectangle `
+    /// ` rectangle: QGeoRectangle `
     ///
-    pub fn OperatorBitwiseOr(self: ?*anyopaque, rectangle: ?*anyopaque) QtC.QGeoRectangle {
-        return qtc.QGeoRectangle_OperatorBitwiseOr(@ptrCast(self), @ptrCast(rectangle));
+    pub fn OperatorBitwiseOr(self: QGeoRectangle, rectangle: anytype) QGeoRectangle {
+        comptime _ = @TypeOf(rectangle)._is_QGeoRectangle;
+        return .{ .ptr = qtc.QGeoRectangle_OperatorBitwiseOr(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorectangle.html#operator-7c-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRectangle `
+    /// ` self: QGeoRectangle `
     ///
-    /// ` rectangle: QtC.QGeoRectangle `
+    /// ` rectangle: QGeoRectangle `
     ///
-    pub fn OperatorBitwiseOrAssign(self: ?*anyopaque, rectangle: ?*anyopaque) void {
-        qtc.QGeoRectangle_OperatorBitwiseOrAssign(@ptrCast(self), @ptrCast(rectangle));
+    pub fn OperatorBitwiseOrAssign(self: QGeoRectangle, rectangle: anytype) void {
+        comptime _ = @TypeOf(rectangle)._is_QGeoRectangle;
+        qtc.QGeoRectangle_OperatorBitwiseOrAssign(@ptrCast(self.ptr), @ptrCast(rectangle.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorectangle.html#toString)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRectangle `
+    /// ` self: QGeoRectangle `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QGeoRectangle_ToString(@ptrCast(self));
+    pub fn ToString(self: QGeoRectangle, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QGeoRectangle_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qgeorectangle.ToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -360,14 +387,14 @@ pub const qgeorectangle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRectangle `
+    /// ` self: QGeoRectangle `
     ///
     /// ## Returns:
     ///
     /// ` qgeoshape_enums.ShapeType `
     ///
-    pub fn Type(self: ?*anyopaque) i32 {
-        return qtc.QGeoShape_Type(@ptrCast(self));
+    pub fn Type(self: QGeoRectangle) i32 {
+        return qtc.QGeoShape_Type(@ptrCast(self.ptr));
     }
 
     /// Inherited from QGeoShape
@@ -376,10 +403,10 @@ pub const qgeorectangle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRectangle `
+    /// ` self: QGeoRectangle `
     ///
-    pub fn IsValid(self: ?*anyopaque) bool {
-        return qtc.QGeoShape_IsValid(@ptrCast(self));
+    pub fn IsValid(self: QGeoRectangle) bool {
+        return qtc.QGeoShape_IsValid(@ptrCast(self.ptr));
     }
 
     /// Inherited from QGeoShape
@@ -388,10 +415,10 @@ pub const qgeorectangle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRectangle `
+    /// ` self: QGeoRectangle `
     ///
-    pub fn IsEmpty(self: ?*anyopaque) bool {
-        return qtc.QGeoShape_IsEmpty(@ptrCast(self));
+    pub fn IsEmpty(self: QGeoRectangle) bool {
+        return qtc.QGeoShape_IsEmpty(@ptrCast(self.ptr));
     }
 
     /// Inherited from QGeoShape
@@ -400,10 +427,10 @@ pub const qgeorectangle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRectangle `
+    /// ` self: QGeoRectangle `
     ///
-    pub fn BoundingGeoRectangle(self: ?*anyopaque) QtC.QGeoRectangle {
-        return qtc.QGeoShape_BoundingGeoRectangle(@ptrCast(self));
+    pub fn BoundingGeoRectangle(self: QGeoRectangle) QGeoRectangle {
+        return .{ .ptr = qtc.QGeoShape_BoundingGeoRectangle(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -416,9 +443,9 @@ pub const qgeorectangle = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QGeoRectangle `
+    /// ` self: QGeoRectangle `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QGeoRectangle_Delete(@ptrCast(self));
+    pub fn Delete(self: QGeoRectangle) void {
+        qtc.QGeoRectangle_Delete(@ptrCast(self.ptr));
     }
 };

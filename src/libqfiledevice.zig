@@ -1,5 +1,14 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QDateTime = @import("libqt6").QDateTime;
+const QEvent = @import("libqt6").QEvent;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QThread = @import("libqt6").QThread;
+const QVariant = @import("libqt6").QVariant;
 const qfiledevice_enums = enums;
 const qiodevicebase_enums = @import("libqiodevicebase.zig").enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
@@ -7,31 +16,42 @@ const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html)
-pub const qfiledevice = struct {
+pub const QFileDevice = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QFileDevice,
+
+    pub const _is_QFileDevice = {};
+    pub const _is_QIODevice = {};
+    pub const _is_QObject = {};
+    pub const _is_QIODeviceBase = {};
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QFileDevice_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QFileDevice) QMetaObject {
+        return .{ .ptr = qtc.QFileDevice_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QFileDevice, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QFileDevice_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QFileDevice_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -39,19 +59,19 @@ pub const qfiledevice = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QFileDevice_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QFileDevice, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QFileDevice_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -64,66 +84,66 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ## Returns:
     ///
     /// ` qfiledevice_enums.FileError `
     ///
-    pub fn Error(self: ?*anyopaque) i32 {
-        return qtc.QFileDevice_Error(@ptrCast(self));
+    pub fn Error(self: QFileDevice) i32 {
+        return qtc.QFileDevice_Error(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#unsetError)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    pub fn UnsetError(self: ?*anyopaque) void {
-        qtc.QFileDevice_UnsetError(@ptrCast(self));
+    pub fn UnsetError(self: QFileDevice) void {
+        qtc.QFileDevice_UnsetError(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#close)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    pub fn Close(self: ?*anyopaque) void {
-        qtc.QFileDevice_Close(@ptrCast(self));
+    pub fn Close(self: QFileDevice) void {
+        qtc.QFileDevice_Close(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#isSequential)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    pub fn IsSequential(self: ?*anyopaque) bool {
-        return qtc.QFileDevice_IsSequential(@ptrCast(self));
+    pub fn IsSequential(self: QFileDevice) bool {
+        return qtc.QFileDevice_IsSequential(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#handle)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    pub fn Handle(self: ?*anyopaque) i32 {
-        return qtc.QFileDevice_Handle(@ptrCast(self));
+    pub fn Handle(self: QFileDevice) i32 {
+        return qtc.QFileDevice_Handle(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#fileName)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QFileDevice_FileName(@ptrCast(self));
+    pub fn FileName(self: QFileDevice, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QFileDevice_FileName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledevice.FileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -134,155 +154,156 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    pub fn Pos(self: ?*anyopaque) i64 {
-        return qtc.QFileDevice_Pos(@ptrCast(self));
+    pub fn Pos(self: QFileDevice) i64 {
+        return qtc.QFileDevice_Pos(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#seek)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` offset: i64 `
     ///
-    pub fn Seek(self: ?*anyopaque, offset: i64) bool {
-        return qtc.QFileDevice_Seek(@ptrCast(self), @bitCast(offset));
+    pub fn Seek(self: QFileDevice, offset: i64) bool {
+        return qtc.QFileDevice_Seek(@ptrCast(self.ptr), @bitCast(offset));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#atEnd)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    pub fn AtEnd(self: ?*anyopaque) bool {
-        return qtc.QFileDevice_AtEnd(@ptrCast(self));
+    pub fn AtEnd(self: QFileDevice) bool {
+        return qtc.QFileDevice_AtEnd(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#flush)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    pub fn Flush(self: ?*anyopaque) bool {
-        return qtc.QFileDevice_Flush(@ptrCast(self));
+    pub fn Flush(self: QFileDevice) bool {
+        return qtc.QFileDevice_Flush(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#size)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    pub fn Size(self: ?*anyopaque) i64 {
-        return qtc.QFileDevice_Size(@ptrCast(self));
+    pub fn Size(self: QFileDevice) i64 {
+        return qtc.QFileDevice_Size(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#resize)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` sz: i64 `
     ///
-    pub fn Resize(self: ?*anyopaque, sz: i64) bool {
-        return qtc.QFileDevice_Resize(@ptrCast(self), @bitCast(sz));
+    pub fn Resize(self: QFileDevice, sz: i64) bool {
+        return qtc.QFileDevice_Resize(@ptrCast(self.ptr), @bitCast(sz));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#permissions)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ## Returns:
     ///
     /// ` flag of qfiledevice_enums.Permission `
     ///
-    pub fn Permissions(self: ?*anyopaque) i32 {
-        return qtc.QFileDevice_Permissions(@ptrCast(self));
+    pub fn Permissions(self: QFileDevice) i32 {
+        return qtc.QFileDevice_Permissions(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#setPermissions)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` permissionSpec: flag of qfiledevice_enums.Permission `
     ///
-    pub fn SetPermissions(self: ?*anyopaque, permissionSpec: i32) bool {
-        return qtc.QFileDevice_SetPermissions(@ptrCast(self), @bitCast(permissionSpec));
+    pub fn SetPermissions(self: QFileDevice, permissionSpec: i32) bool {
+        return qtc.QFileDevice_SetPermissions(@ptrCast(self.ptr), @bitCast(permissionSpec));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#map)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` offset: i64 `
     ///
     /// ` size: i64 `
     ///
-    pub fn Map(self: ?*anyopaque, offset: i64, size: i64) ?*u8 {
-        return @ptrCast(qtc.QFileDevice_Map(@ptrCast(self), @bitCast(offset), @bitCast(size)));
+    pub fn Map(self: QFileDevice, offset: i64, size: i64) ?*u8 {
+        return @ptrCast(qtc.QFileDevice_Map(@ptrCast(self.ptr), @bitCast(offset), @bitCast(size)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#unmap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` address: *u8 `
     ///
-    pub fn Unmap(self: ?*anyopaque, address: *u8) bool {
-        return qtc.QFileDevice_Unmap(@ptrCast(self), @ptrCast(address));
+    pub fn Unmap(self: QFileDevice, address: *u8) bool {
+        return qtc.QFileDevice_Unmap(@ptrCast(self.ptr), @ptrCast(address));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#fileTime)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` time: qfiledevice_enums.FileTime `
     ///
-    pub fn FileTime(self: ?*anyopaque, time: i32) QtC.QDateTime {
-        return qtc.QFileDevice_FileTime(@ptrCast(self), @bitCast(time));
+    pub fn FileTime(self: QFileDevice, time: i32) QDateTime {
+        return .{ .ptr = qtc.QFileDevice_FileTime(@ptrCast(self.ptr), @bitCast(time)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfiledevice.html#setFileTime)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    /// ` newDate: QtC.QDateTime `
+    /// ` newDate: QDateTime `
     ///
     /// ` fileTime: qfiledevice_enums.FileTime `
     ///
-    pub fn SetFileTime(self: ?*anyopaque, newDate: ?*anyopaque, fileTime: i32) bool {
-        return qtc.QFileDevice_SetFileTime(@ptrCast(self), @ptrCast(newDate), @bitCast(fileTime));
+    pub fn SetFileTime(self: QFileDevice, newDate: anytype, fileTime: i32) bool {
+        comptime _ = @TypeOf(newDate)._is_QDateTime;
+        return qtc.QFileDevice_SetFileTime(@ptrCast(self.ptr), @ptrCast(newDate.ptr), @bitCast(fileTime));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -296,15 +317,15 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -318,7 +339,7 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` offset: i64 `
     ///
@@ -326,8 +347,8 @@ pub const qfiledevice = struct {
     ///
     /// ` flags: flag of qfiledevice_enums.MemoryMapFlag `
     ///
-    pub fn Map3(self: ?*anyopaque, offset: i64, size: i64, flags: i32) ?*u8 {
-        return @ptrCast(qtc.QFileDevice_Map3(@ptrCast(self), @bitCast(offset), @bitCast(size), @bitCast(flags)));
+    pub fn Map3(self: QFileDevice, offset: i64, size: i64, flags: i32) ?*u8 {
+        return @ptrCast(qtc.QFileDevice_Map3(@ptrCast(self.ptr), @bitCast(offset), @bitCast(size), @bitCast(flags)));
     }
 
     /// Inherited from QIODevice
@@ -336,14 +357,14 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ## Returns:
     ///
     /// ` flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn OpenMode(self: ?*anyopaque) i32 {
-        return qtc.QIODevice_OpenMode(@ptrCast(self));
+    pub fn OpenMode(self: QFileDevice) i32 {
+        return qtc.QIODevice_OpenMode(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -352,12 +373,12 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetTextModeEnabled(self: ?*anyopaque, enabled: bool) void {
-        qtc.QIODevice_SetTextModeEnabled(@ptrCast(self), enabled);
+    pub fn SetTextModeEnabled(self: QFileDevice, enabled: bool) void {
+        qtc.QIODevice_SetTextModeEnabled(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QIODevice
@@ -366,10 +387,10 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    pub fn IsTextModeEnabled(self: ?*anyopaque) bool {
-        return qtc.QIODevice_IsTextModeEnabled(@ptrCast(self));
+    pub fn IsTextModeEnabled(self: QFileDevice) bool {
+        return qtc.QIODevice_IsTextModeEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -378,10 +399,10 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    pub fn IsOpen(self: ?*anyopaque) bool {
-        return qtc.QIODevice_IsOpen(@ptrCast(self));
+    pub fn IsOpen(self: QFileDevice) bool {
+        return qtc.QIODevice_IsOpen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -390,10 +411,10 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    pub fn IsReadable(self: ?*anyopaque) bool {
-        return qtc.QIODevice_IsReadable(@ptrCast(self));
+    pub fn IsReadable(self: QFileDevice) bool {
+        return qtc.QIODevice_IsReadable(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -402,10 +423,10 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    pub fn IsWritable(self: ?*anyopaque) bool {
-        return qtc.QIODevice_IsWritable(@ptrCast(self));
+    pub fn IsWritable(self: QFileDevice) bool {
+        return qtc.QIODevice_IsWritable(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -414,10 +435,10 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    pub fn ReadChannelCount(self: ?*anyopaque) i32 {
-        return qtc.QIODevice_ReadChannelCount(@ptrCast(self));
+    pub fn ReadChannelCount(self: QFileDevice) i32 {
+        return qtc.QIODevice_ReadChannelCount(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -426,10 +447,10 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    pub fn WriteChannelCount(self: ?*anyopaque) i32 {
-        return qtc.QIODevice_WriteChannelCount(@ptrCast(self));
+    pub fn WriteChannelCount(self: QFileDevice) i32 {
+        return qtc.QIODevice_WriteChannelCount(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -438,10 +459,10 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    pub fn CurrentReadChannel(self: ?*anyopaque) i32 {
-        return qtc.QIODevice_CurrentReadChannel(@ptrCast(self));
+    pub fn CurrentReadChannel(self: QFileDevice) i32 {
+        return qtc.QIODevice_CurrentReadChannel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -450,12 +471,12 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` channel: i32 `
     ///
-    pub fn SetCurrentReadChannel(self: ?*anyopaque, channel: i32) void {
-        qtc.QIODevice_SetCurrentReadChannel(@ptrCast(self), @bitCast(channel));
+    pub fn SetCurrentReadChannel(self: QFileDevice, channel: i32) void {
+        qtc.QIODevice_SetCurrentReadChannel(@ptrCast(self.ptr), @bitCast(channel));
     }
 
     /// Inherited from QIODevice
@@ -464,10 +485,10 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    pub fn CurrentWriteChannel(self: ?*anyopaque) i32 {
-        return qtc.QIODevice_CurrentWriteChannel(@ptrCast(self));
+    pub fn CurrentWriteChannel(self: QFileDevice) i32 {
+        return qtc.QIODevice_CurrentWriteChannel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -476,12 +497,12 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` channel: i32 `
     ///
-    pub fn SetCurrentWriteChannel(self: ?*anyopaque, channel: i32) void {
-        qtc.QIODevice_SetCurrentWriteChannel(@ptrCast(self), @bitCast(channel));
+    pub fn SetCurrentWriteChannel(self: QFileDevice, channel: i32) void {
+        qtc.QIODevice_SetCurrentWriteChannel(@ptrCast(self.ptr), @bitCast(channel));
     }
 
     /// Inherited from QIODevice
@@ -490,12 +511,12 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn Open(self: ?*anyopaque, mode: i32) bool {
-        return qtc.QIODevice_Open(@ptrCast(self), @bitCast(mode));
+    pub fn Open(self: QFileDevice, mode: i32) bool {
+        return qtc.QIODevice_Open(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// Inherited from QIODevice
@@ -504,10 +525,10 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    pub fn Reset(self: ?*anyopaque) bool {
-        return qtc.QIODevice_Reset(@ptrCast(self));
+    pub fn Reset(self: QFileDevice) bool {
+        return qtc.QIODevice_Reset(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -516,10 +537,10 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    pub fn BytesAvailable(self: ?*anyopaque) i64 {
-        return qtc.QIODevice_BytesAvailable(@ptrCast(self));
+    pub fn BytesAvailable(self: QFileDevice) i64 {
+        return qtc.QIODevice_BytesAvailable(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -528,10 +549,10 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    pub fn BytesToWrite(self: ?*anyopaque) i64 {
-        return qtc.QIODevice_BytesToWrite(@ptrCast(self));
+    pub fn BytesToWrite(self: QFileDevice) i64 {
+        return qtc.QIODevice_BytesToWrite(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -540,15 +561,15 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` data: [:0]u8 `
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn Read(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn Read(self: QFileDevice, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_Read(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.QIODevice_Read(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
     /// Inherited from QIODevice
@@ -557,14 +578,14 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
-    ///
-    /// ` maxlen: i64 `
+    /// ` self: QFileDevice `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Read2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QIODevice_Read2(@ptrCast(self), @bitCast(maxlen));
+    /// ` maxlen: i64 `
+    ///
+    pub fn Read2(self: QFileDevice, allocator: std.mem.Allocator, maxlen: i64) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QIODevice_Read2(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qfiledevice.Read2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -577,12 +598,12 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadAll(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadAll(@ptrCast(self));
+    pub fn ReadAll(self: QFileDevice, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadAll(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qfiledevice.ReadAll: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -595,15 +616,15 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` data: [:0]u8 `
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn ReadLine(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn ReadLine(self: QFileDevice, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_ReadLine(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.QIODevice_ReadLine(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
     /// Inherited from QIODevice
@@ -612,12 +633,12 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadLine2(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine2(@ptrCast(self));
+    pub fn ReadLine2(self: QFileDevice, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine2(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qfiledevice.ReadLine2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -630,10 +651,10 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    pub fn CanReadLine(self: ?*anyopaque) bool {
-        return qtc.QIODevice_CanReadLine(@ptrCast(self));
+    pub fn CanReadLine(self: QFileDevice) bool {
+        return qtc.QIODevice_CanReadLine(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -642,10 +663,10 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    pub fn StartTransaction(self: ?*anyopaque) void {
-        qtc.QIODevice_StartTransaction(@ptrCast(self));
+    pub fn StartTransaction(self: QFileDevice) void {
+        qtc.QIODevice_StartTransaction(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -654,10 +675,10 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    pub fn CommitTransaction(self: ?*anyopaque) void {
-        qtc.QIODevice_CommitTransaction(@ptrCast(self));
+    pub fn CommitTransaction(self: QFileDevice) void {
+        qtc.QIODevice_CommitTransaction(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -666,10 +687,10 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    pub fn RollbackTransaction(self: ?*anyopaque) void {
-        qtc.QIODevice_RollbackTransaction(@ptrCast(self));
+    pub fn RollbackTransaction(self: QFileDevice) void {
+        qtc.QIODevice_RollbackTransaction(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -678,10 +699,10 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    pub fn IsTransactionStarted(self: ?*anyopaque) bool {
-        return qtc.QIODevice_IsTransactionStarted(@ptrCast(self));
+    pub fn IsTransactionStarted(self: QFileDevice) bool {
+        return qtc.QIODevice_IsTransactionStarted(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -690,15 +711,15 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` data: [:0]const u8 `
     ///
     /// ` lenVal: i64 `
     ///
-    pub fn Write(self: ?*anyopaque, data: [:0]const u8, lenVal: i64) i64 {
+    pub fn Write(self: QFileDevice, data: [:0]const u8, lenVal: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_Write(@ptrCast(self), data_Cstring, @bitCast(lenVal));
+        return qtc.QIODevice_Write(@ptrCast(self.ptr), data_Cstring, @bitCast(lenVal));
     }
 
     /// Inherited from QIODevice
@@ -707,13 +728,13 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` data: [:0]const u8 `
     ///
-    pub fn Write2(self: ?*anyopaque, data: [:0]const u8) i64 {
+    pub fn Write2(self: QFileDevice, data: [:0]const u8) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_Write2(@ptrCast(self), data_Cstring);
+        return qtc.QIODevice_Write2(@ptrCast(self.ptr), data_Cstring);
     }
 
     /// Inherited from QIODevice
@@ -722,16 +743,16 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` data: []u8 `
     ///
-    pub fn Write3(self: ?*anyopaque, data: []u8) i64 {
+    pub fn Write3(self: QFileDevice, data: []u8) i64 {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
-        return qtc.QIODevice_Write3(@ptrCast(self), data_str);
+        return qtc.QIODevice_Write3(@ptrCast(self.ptr), data_str);
     }
 
     /// Inherited from QIODevice
@@ -740,15 +761,15 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` data: [:0]u8 `
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn Peek(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn Peek(self: QFileDevice, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_Peek(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.QIODevice_Peek(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
     /// Inherited from QIODevice
@@ -757,14 +778,14 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
-    ///
-    /// ` maxlen: i64 `
+    /// ` self: QFileDevice `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Peek2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QIODevice_Peek2(@ptrCast(self), @bitCast(maxlen));
+    /// ` maxlen: i64 `
+    ///
+    pub fn Peek2(self: QFileDevice, allocator: std.mem.Allocator, maxlen: i64) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QIODevice_Peek2(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qfiledevice.Peek2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -777,12 +798,12 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` maxSize: i64 `
     ///
-    pub fn Skip(self: ?*anyopaque, maxSize: i64) i64 {
-        return qtc.QIODevice_Skip(@ptrCast(self), @bitCast(maxSize));
+    pub fn Skip(self: QFileDevice, maxSize: i64) i64 {
+        return qtc.QIODevice_Skip(@ptrCast(self.ptr), @bitCast(maxSize));
     }
 
     /// Inherited from QIODevice
@@ -791,12 +812,12 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` msecs: i32 `
     ///
-    pub fn WaitForReadyRead(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QIODevice_WaitForReadyRead(@ptrCast(self), @bitCast(msecs));
+    pub fn WaitForReadyRead(self: QFileDevice, msecs: i32) bool {
+        return qtc.QIODevice_WaitForReadyRead(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
     /// Inherited from QIODevice
@@ -805,12 +826,12 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` msecs: i32 `
     ///
-    pub fn WaitForBytesWritten(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QIODevice_WaitForBytesWritten(@ptrCast(self), @bitCast(msecs));
+    pub fn WaitForBytesWritten(self: QFileDevice, msecs: i32) bool {
+        return qtc.QIODevice_WaitForBytesWritten(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
     /// Inherited from QIODevice
@@ -819,12 +840,12 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` c: u8 `
     ///
-    pub fn UngetChar(self: ?*anyopaque, c: u8) void {
-        qtc.QIODevice_UngetChar(@ptrCast(self), @bitCast(c));
+    pub fn UngetChar(self: QFileDevice, c: u8) void {
+        qtc.QIODevice_UngetChar(@ptrCast(self.ptr), @bitCast(c));
     }
 
     /// Inherited from QIODevice
@@ -833,12 +854,12 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` c: u8 `
     ///
-    pub fn PutChar(self: ?*anyopaque, c: u8) bool {
-        return qtc.QIODevice_PutChar(@ptrCast(self), @bitCast(c));
+    pub fn PutChar(self: QFileDevice, c: u8) bool {
+        return qtc.QIODevice_PutChar(@ptrCast(self.ptr), @bitCast(c));
     }
 
     /// Inherited from QIODevice
@@ -847,13 +868,13 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` c: [:0]u8 `
     ///
-    pub fn GetChar(self: ?*anyopaque, c: [:0]u8) bool {
+    pub fn GetChar(self: QFileDevice, c: [:0]u8) bool {
         const c_Cstring = c.ptr;
-        return qtc.QIODevice_GetChar(@ptrCast(self), c_Cstring);
+        return qtc.QIODevice_GetChar(@ptrCast(self.ptr), c_Cstring);
     }
 
     /// Inherited from QIODevice
@@ -862,12 +883,12 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QIODevice_ErrorString(@ptrCast(self));
+    pub fn ErrorString(self: QFileDevice, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QIODevice_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledevice.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -880,10 +901,10 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    pub fn ReadyRead(self: ?*anyopaque) void {
-        qtc.QIODevice_ReadyRead(@ptrCast(self));
+    pub fn ReadyRead(self: QFileDevice) void {
+        qtc.QIODevice_ReadyRead(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -892,12 +913,12 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDevice) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDevice) callconv(.c) void `
     ///
-    pub fn OnReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ReadyRead(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReadyRead(self: QFileDevice, callback: *const fn (QFileDevice) callconv(.c) void) void {
+        qtc.QIODevice_Connect_ReadyRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -906,12 +927,12 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` channel: i32 `
     ///
-    pub fn ChannelReadyRead(self: ?*anyopaque, channel: i32) void {
-        qtc.QIODevice_ChannelReadyRead(@ptrCast(self), @bitCast(channel));
+    pub fn ChannelReadyRead(self: QFileDevice, channel: i32) void {
+        qtc.QIODevice_ChannelReadyRead(@ptrCast(self.ptr), @bitCast(channel));
     }
 
     /// Inherited from QIODevice
@@ -920,12 +941,12 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDevice, channel: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDevice, channel: i32) callconv(.c) void `
     ///
-    pub fn OnChannelReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ChannelReadyRead(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChannelReadyRead(self: QFileDevice, callback: *const fn (QFileDevice, i32) callconv(.c) void) void {
+        qtc.QIODevice_Connect_ChannelReadyRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -934,12 +955,12 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` bytes: i64 `
     ///
-    pub fn BytesWritten(self: ?*anyopaque, bytes: i64) void {
-        qtc.QIODevice_BytesWritten(@ptrCast(self), @bitCast(bytes));
+    pub fn BytesWritten(self: QFileDevice, bytes: i64) void {
+        qtc.QIODevice_BytesWritten(@ptrCast(self.ptr), @bitCast(bytes));
     }
 
     /// Inherited from QIODevice
@@ -948,12 +969,12 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDevice, bytes: i64) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDevice, bytes: i64) callconv(.c) void `
     ///
-    pub fn OnBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) void) void {
-        qtc.QIODevice_Connect_BytesWritten(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBytesWritten(self: QFileDevice, callback: *const fn (QFileDevice, i64) callconv(.c) void) void {
+        qtc.QIODevice_Connect_BytesWritten(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -962,14 +983,14 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` channel: i32 `
     ///
     /// ` bytes: i64 `
     ///
-    pub fn ChannelBytesWritten(self: ?*anyopaque, channel: i32, bytes: i64) void {
-        qtc.QIODevice_ChannelBytesWritten(@ptrCast(self), @bitCast(channel), @bitCast(bytes));
+    pub fn ChannelBytesWritten(self: QFileDevice, channel: i32, bytes: i64) void {
+        qtc.QIODevice_ChannelBytesWritten(@ptrCast(self.ptr), @bitCast(channel), @bitCast(bytes));
     }
 
     /// Inherited from QIODevice
@@ -978,12 +999,12 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDevice, channel: i32, bytes: i64) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDevice, channel: i32, bytes: i64) callconv(.c) void `
     ///
-    pub fn OnChannelBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i64) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ChannelBytesWritten(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChannelBytesWritten(self: QFileDevice, callback: *const fn (QFileDevice, i32, i64) callconv(.c) void) void {
+        qtc.QIODevice_Connect_ChannelBytesWritten(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -992,10 +1013,10 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    pub fn AboutToClose(self: ?*anyopaque) void {
-        qtc.QIODevice_AboutToClose(@ptrCast(self));
+    pub fn AboutToClose(self: QFileDevice) void {
+        qtc.QIODevice_AboutToClose(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1004,12 +1025,12 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDevice) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDevice) callconv(.c) void `
     ///
-    pub fn OnAboutToClose(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QIODevice_Connect_AboutToClose(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAboutToClose(self: QFileDevice, callback: *const fn (QFileDevice) callconv(.c) void) void {
+        qtc.QIODevice_Connect_AboutToClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1018,10 +1039,10 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    pub fn ReadChannelFinished(self: ?*anyopaque) void {
-        qtc.QIODevice_ReadChannelFinished(@ptrCast(self));
+    pub fn ReadChannelFinished(self: QFileDevice) void {
+        qtc.QIODevice_ReadChannelFinished(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1030,12 +1051,12 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDevice) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDevice) callconv(.c) void `
     ///
-    pub fn OnReadChannelFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ReadChannelFinished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReadChannelFinished(self: QFileDevice, callback: *const fn (QFileDevice) callconv(.c) void) void {
+        qtc.QIODevice_Connect_ReadChannelFinished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1044,14 +1065,14 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
-    ///
-    /// ` maxlen: i64 `
+    /// ` self: QFileDevice `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadLine1(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine1(@ptrCast(self), @bitCast(maxlen));
+    /// ` maxlen: i64 `
+    ///
+    pub fn ReadLine1(self: QFileDevice, allocator: std.mem.Allocator, maxlen: i64) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine1(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qfiledevice.ReadLine1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1064,12 +1085,13 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QObject_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: QFileDevice, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QObject_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1078,14 +1100,16 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QObject_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: QFileDevice, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1094,12 +1118,12 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QFileDevice, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledevice.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1112,12 +1136,12 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QFileDevice, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -1126,10 +1150,10 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QFileDevice) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1138,10 +1162,10 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QFileDevice) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1150,10 +1174,10 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QFileDevice) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1162,10 +1186,10 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QFileDevice) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1174,12 +1198,12 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QFileDevice, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -1188,10 +1212,10 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QFileDevice) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1200,12 +1224,13 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QFileDevice, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -1214,12 +1239,12 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QFileDevice, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1228,12 +1253,12 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QFileDevice, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1242,12 +1267,12 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QFileDevice, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1256,12 +1281,12 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QFileDevice, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1270,16 +1295,17 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QFileDevice, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qfiledevice.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qfiledevice.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1289,12 +1315,13 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QFileDevice, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -1303,12 +1330,13 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QFileDevice, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -1317,12 +1345,13 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QFileDevice, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -1331,18 +1360,20 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1351,16 +1382,20 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1369,18 +1404,19 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QFileDevice, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1389,18 +1425,20 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1409,16 +1447,20 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -1427,10 +1469,10 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QFileDevice) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1439,12 +1481,13 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QFileDevice, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1453,10 +1496,11 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1465,10 +1509,10 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QFileDevice) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1477,10 +1521,10 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QFileDevice) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1489,15 +1533,16 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QFileDevice, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -1506,13 +1551,13 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QFileDevice, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1521,17 +1566,16 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QFileDevice, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qfiledevice.DynamicPropertyNames: Memory allocation failed");
@@ -1550,10 +1594,10 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QFileDevice) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1562,10 +1606,10 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QFileDevice) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1574,10 +1618,10 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QFileDevice) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1586,12 +1630,12 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDevice) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDevice) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QFileDevice, callback: *const fn (QFileDevice) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1600,10 +1644,10 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QFileDevice) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1612,13 +1656,13 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QFileDevice, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -1627,10 +1671,10 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QFileDevice) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1639,14 +1683,14 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QFileDevice, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1655,14 +1699,14 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QFileDevice, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1671,20 +1715,22 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -1693,18 +1739,22 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1713,9 +1763,9 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1723,10 +1773,11 @@ pub const qfiledevice = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QFileDevice, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1735,13 +1786,13 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QFileDevice, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1750,15 +1801,16 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QFileDevice, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1767,18 +1819,19 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QFileDevice, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1787,15 +1840,16 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QFileDevice, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1804,12 +1858,13 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QFileDevice, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1818,12 +1873,12 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDevice, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDevice, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QFileDevice, callback: *const fn (QFileDevice, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1834,12 +1889,12 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDevice, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileDevice, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QFileDevice, callback: *const fn (QFileDevice, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -1852,10 +1907,10 @@ pub const qfiledevice = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QFileDevice `
+    /// ` self: QFileDevice `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QFileDevice_Delete(@ptrCast(self));
+    pub fn Delete(self: QFileDevice) void {
+        qtc.QFileDevice_Delete(@ptrCast(self.ptr));
     }
 };
 

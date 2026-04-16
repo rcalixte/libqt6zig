@@ -1,29 +1,41 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const KTextEditor__Cursor = @import("libqt6").KTextEditor__Cursor;
+const KTextEditor__View = @import("libqt6").KTextEditor__View;
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/ktexteditor-texthintprovider.html)
-pub const ktexteditor__texthintprovider = struct {
+pub const KTextEditor__TextHintProvider = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-texthintprovider.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KTextEditor__TextHintProvider,
+
+    pub const _is_KTextEditor__TextHintProvider = {};
+
     /// New constructs a new KTextEditor::TextHintProvider object.
     ///
-    pub fn New() QtC.KTextEditor__TextHintProvider {
-        return qtc.KTextEditor__TextHintProvider_new();
+    pub fn New() KTextEditor__TextHintProvider {
+        return .{ .ptr = qtc.KTextEditor__TextHintProvider_new() };
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-texthintprovider.html#textHint)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__TextHintProvider `
-    ///
-    /// ` view: QtC.KTextEditor__View `
-    ///
-    /// ` position: QtC.KTextEditor__Cursor `
+    /// ` self: KTextEditor__TextHintProvider `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TextHint(self: ?*anyopaque, view: ?*anyopaque, position: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KTextEditor__TextHintProvider_TextHint(@ptrCast(self), @ptrCast(view), @ptrCast(position));
+    /// ` view: KTextEditor__View `
+    ///
+    /// ` position: KTextEditor__Cursor `
+    ///
+    pub fn TextHint(self: KTextEditor__TextHintProvider, allocator: std.mem.Allocator, view: anytype, position: anytype) []const u8 {
+        comptime _ = @TypeOf(view)._is_KTextEditor__View;
+        comptime _ = @TypeOf(position)._is_KTextEditor__Cursor;
+        var _str = qtc.KTextEditor__TextHintProvider_TextHint(@ptrCast(self.ptr), @ptrCast(view.ptr), @ptrCast(position.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__texthintprovider.TextHint: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -34,16 +46,16 @@ pub const ktexteditor__texthintprovider = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__TextHintProvider `
+    /// ` self: KTextEditor__TextHintProvider `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__TextHintProvider, view: QtC.KTextEditor__View, position: QtC.KTextEditor__Cursor) callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: KTextEditor__TextHintProvider, view: KTextEditor__View, position: KTextEditor__Cursor) callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnTextHint(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) [*:0]const u8) void {
-        qtc.KTextEditor__TextHintProvider_OnTextHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTextHint(self: KTextEditor__TextHintProvider, callback: *const fn (KTextEditor__TextHintProvider, KTextEditor__View, KTextEditor__Cursor) callconv(.c) [*:0]const u8) void {
+        qtc.KTextEditor__TextHintProvider_OnTextHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperTextHint` instead
@@ -56,16 +68,18 @@ pub const ktexteditor__texthintprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__TextHintProvider `
-    ///
-    /// ` view: QtC.KTextEditor__View `
-    ///
-    /// ` position: QtC.KTextEditor__Cursor `
+    /// ` self: KTextEditor__TextHintProvider `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperTextHint(self: ?*anyopaque, view: ?*anyopaque, position: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KTextEditor__TextHintProvider_SuperTextHint(@ptrCast(self), @ptrCast(view), @ptrCast(position));
+    /// ` view: KTextEditor__View `
+    ///
+    /// ` position: KTextEditor__Cursor `
+    ///
+    pub fn SuperTextHint(self: KTextEditor__TextHintProvider, allocator: std.mem.Allocator, view: anytype, position: anytype) []const u8 {
+        comptime _ = @TypeOf(view)._is_KTextEditor__View;
+        comptime _ = @TypeOf(position)._is_KTextEditor__Cursor;
+        var _str = qtc.KTextEditor__TextHintProvider_SuperTextHint(@ptrCast(self.ptr), @ptrCast(view.ptr), @ptrCast(position.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__texthintprovider.TextHint: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -80,9 +94,9 @@ pub const ktexteditor__texthintprovider = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KTextEditor__TextHintProvider `
+    /// ` self: KTextEditor__TextHintProvider `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KTextEditor__TextHintProvider_Delete(@ptrCast(self));
+    pub fn Delete(self: KTextEditor__TextHintProvider) void {
+        qtc.KTextEditor__TextHintProvider_Delete(@ptrCast(self.ptr));
     }
 };

@@ -1,12 +1,34 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QDialog = @import("libqt6").QDialog;
+const QEvent = @import("libqt6").QEvent;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QRegularExpressionMatch = @import("libqt6").QRegularExpressionMatch;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
+const QWidget = @import("libqt6").QWidget;
 const kfind_enums = enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/kfind.html)
-pub const kfind = struct {
+pub const KFind = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kfind.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KFind,
+
+    pub const _is_KFind = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new KFind object.
     ///
     /// ## Parameter(s):
@@ -15,15 +37,15 @@ pub const kfind = struct {
     ///
     /// ` options: isize `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn New(pattern: []const u8, options: isize, parent: ?*anyopaque) QtC.KFind {
+    pub fn New(pattern: []const u8, options: isize, parent: anytype) KFind {
         const pattern_str = qtc.libqt_string{
             .len = pattern.len,
             .data = pattern.ptr,
         };
-
-        return qtc.KFind_new(pattern_str, @bitCast(options), @ptrCast(parent));
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.KFind_new(pattern_str, @bitCast(options), @ptrCast(parent.ptr)) };
     }
 
     /// New2 constructs a new KFind object.
@@ -34,27 +56,28 @@ pub const kfind = struct {
     ///
     /// ` options: isize `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    /// ` findDialog: QtC.QWidget `
+    /// ` findDialog: QWidget `
     ///
-    pub fn New2(pattern: []const u8, options: isize, parent: ?*anyopaque, findDialog: ?*anyopaque) QtC.KFind {
+    pub fn New2(pattern: []const u8, options: isize, parent: anytype, findDialog: anytype) KFind {
         const pattern_str = qtc.libqt_string{
             .len = pattern.len,
             .data = pattern.ptr,
         };
-
-        return qtc.KFind_new2(pattern_str, @bitCast(options), @ptrCast(parent), @ptrCast(findDialog));
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        comptime _ = @TypeOf(findDialog)._is_QWidget;
+        return .{ .ptr = qtc.KFind_new2(pattern_str, @bitCast(options), @ptrCast(parent.ptr), @ptrCast(findDialog.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KFind_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: KFind) QMetaObject {
+        return .{ .ptr = qtc.KFind_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -63,12 +86,12 @@ pub const kfind = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.KFind_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: KFind, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.KFind_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -81,33 +104,33 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KFind_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: KFind) QMetaObject {
+        return .{ .ptr = qtc.KFind_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: KFind, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KFind_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.KFind_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    /// ` callback: *const fn (self: QtC.KFind, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: KFind, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.KFind_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: KFind, callback: *const fn (KFind, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.KFind_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -118,18 +141,18 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: KFind, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KFind_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KFind_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -137,20 +160,20 @@ pub const kfind = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KFind_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: KFind, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KFind_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    /// ` callback: *const fn (self: QtC.KFind, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KFind, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.KFind_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: KFind, callback: *const fn (KFind, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.KFind_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -161,7 +184,7 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -169,19 +192,19 @@ pub const kfind = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KFind_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: KFind, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KFind_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -194,80 +217,80 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    pub fn NeedData(self: ?*anyopaque) bool {
-        return qtc.KFind_NeedData(@ptrCast(self));
+    pub fn NeedData(self: KFind) bool {
+        return qtc.KFind_NeedData(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfind.html#setData)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
     /// ` data: []const u8 `
     ///
-    pub fn SetData(self: ?*anyopaque, data: []const u8) void {
+    pub fn SetData(self: KFind, data: []const u8) void {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
-        qtc.KFind_SetData(@ptrCast(self), data_str);
+        qtc.KFind_SetData(@ptrCast(self.ptr), data_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfind.html#setData)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
     /// ` id: i32 `
     ///
     /// ` data: []const u8 `
     ///
-    pub fn SetData2(self: ?*anyopaque, id: i32, data: []const u8) void {
+    pub fn SetData2(self: KFind, id: i32, data: []const u8) void {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
-        qtc.KFind_SetData2(@ptrCast(self), @bitCast(id), data_str);
+        qtc.KFind_SetData2(@ptrCast(self.ptr), @bitCast(id), data_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfind.html#find)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
     /// ## Returns:
     ///
     /// ` kfind_enums.Result `
     ///
-    pub fn Find(self: ?*anyopaque) i32 {
-        return qtc.KFind_Find(@ptrCast(self));
+    pub fn Find(self: KFind) i32 {
+        return qtc.KFind_Find(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfind.html#options)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    pub fn Options(self: ?*anyopaque) isize {
-        return qtc.KFind_Options(@ptrCast(self));
+    pub fn Options(self: KFind) isize {
+        return qtc.KFind_Options(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfind.html#setOptions)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
     /// ` options: isize `
     ///
-    pub fn SetOptions(self: ?*anyopaque, options: isize) void {
-        qtc.KFind_SetOptions(@ptrCast(self), @bitCast(options));
+    pub fn SetOptions(self: KFind, options: isize) void {
+        qtc.KFind_SetOptions(@ptrCast(self.ptr), @bitCast(options));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfind.html#setOptions)
@@ -276,12 +299,12 @@ pub const kfind = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    /// ` callback: *const fn (self: QtC.KFind, options: isize) callconv(.c) void `
+    /// ` callback: *const fn (self: KFind, options: isize) callconv(.c) void `
     ///
-    pub fn OnSetOptions(self: ?*anyopaque, callback: *const fn (?*anyopaque, isize) callconv(.c) void) void {
-        qtc.KFind_OnSetOptions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetOptions(self: KFind, callback: *const fn (KFind, isize) callconv(.c) void) void {
+        qtc.KFind_OnSetOptions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetOptions` instead
@@ -294,24 +317,24 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
     /// ` options: isize `
     ///
-    pub fn SuperSetOptions(self: ?*anyopaque, options: isize) void {
-        qtc.KFind_SuperSetOptions(@ptrCast(self), @bitCast(options));
+    pub fn SuperSetOptions(self: KFind, options: isize) void {
+        qtc.KFind_SuperSetOptions(@ptrCast(self.ptr), @bitCast(options));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfind.html#pattern)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Pattern(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KFind_Pattern(@ptrCast(self));
+    pub fn Pattern(self: KFind, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KFind_Pattern(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kfind.Pattern: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -322,36 +345,36 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
     /// ` pattern: []const u8 `
     ///
-    pub fn SetPattern(self: ?*anyopaque, pattern: []const u8) void {
+    pub fn SetPattern(self: KFind, pattern: []const u8) void {
         const pattern_str = qtc.libqt_string{
             .len = pattern.len,
             .data = pattern.ptr,
         };
-        qtc.KFind_SetPattern(@ptrCast(self), pattern_str);
+        qtc.KFind_SetPattern(@ptrCast(self.ptr), pattern_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfind.html#numMatches)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    pub fn NumMatches(self: ?*anyopaque) i32 {
-        return qtc.KFind_NumMatches(@ptrCast(self));
+    pub fn NumMatches(self: KFind) i32 {
+        return qtc.KFind_NumMatches(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfind.html#resetCounts)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    pub fn ResetCounts(self: ?*anyopaque) void {
-        qtc.KFind_ResetCounts(@ptrCast(self));
+    pub fn ResetCounts(self: KFind) void {
+        qtc.KFind_ResetCounts(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfind.html#resetCounts)
@@ -360,12 +383,12 @@ pub const kfind = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnResetCounts(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KFind_OnResetCounts(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResetCounts(self: KFind, callback: *const fn () callconv(.c) void) void {
+        qtc.KFind_OnResetCounts(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperResetCounts` instead
@@ -378,17 +401,17 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    pub fn SuperResetCounts(self: ?*anyopaque) void {
-        qtc.KFind_SuperResetCounts(@ptrCast(self));
+    pub fn SuperResetCounts(self: KFind) void {
+        qtc.KFind_SuperResetCounts(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfind.html#validateMatch)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
     /// ` text: []const u8 `
     ///
@@ -396,12 +419,12 @@ pub const kfind = struct {
     ///
     /// ` matchedlength: i32 `
     ///
-    pub fn ValidateMatch(self: ?*anyopaque, text: []const u8, index: i32, matchedlength: i32) bool {
+    pub fn ValidateMatch(self: KFind, text: []const u8, index: i32, matchedlength: i32) bool {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.KFind_ValidateMatch(@ptrCast(self), text_str, @bitCast(index), @bitCast(matchedlength));
+        return qtc.KFind_ValidateMatch(@ptrCast(self.ptr), text_str, @bitCast(index), @bitCast(matchedlength));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfind.html#validateMatch)
@@ -410,12 +433,12 @@ pub const kfind = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    /// ` callback: *const fn (self: QtC.KFind, text: [*:0]const u8, index: i32, matchedlength: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: KFind, text: [*:0]const u8, index: i32, matchedlength: i32) callconv(.c) bool `
     ///
-    pub fn OnValidateMatch(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, i32) callconv(.c) bool) void {
-        qtc.KFind_OnValidateMatch(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnValidateMatch(self: KFind, callback: *const fn (KFind, [*:0]const u8, i32, i32) callconv(.c) bool) void {
+        qtc.KFind_OnValidateMatch(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperValidateMatch` instead
@@ -428,7 +451,7 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
     /// ` text: []const u8 `
     ///
@@ -436,26 +459,26 @@ pub const kfind = struct {
     ///
     /// ` matchedlength: i32 `
     ///
-    pub fn SuperValidateMatch(self: ?*anyopaque, text: []const u8, index: i32, matchedlength: i32) bool {
+    pub fn SuperValidateMatch(self: KFind, text: []const u8, index: i32, matchedlength: i32) bool {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.KFind_SuperValidateMatch(@ptrCast(self), text_str, @bitCast(index), @bitCast(matchedlength));
+        return qtc.KFind_SuperValidateMatch(@ptrCast(self.ptr), text_str, @bitCast(index), @bitCast(matchedlength));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfind.html#shouldRestart)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
     /// ` forceAsking: bool `
     ///
     /// ` showNumMatches: bool `
     ///
-    pub fn ShouldRestart(self: ?*anyopaque, forceAsking: bool, showNumMatches: bool) bool {
-        return qtc.KFind_ShouldRestart(@ptrCast(self), forceAsking, showNumMatches);
+    pub fn ShouldRestart(self: KFind, forceAsking: bool, showNumMatches: bool) bool {
+        return qtc.KFind_ShouldRestart(@ptrCast(self.ptr), forceAsking, showNumMatches);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfind.html#shouldRestart)
@@ -464,12 +487,12 @@ pub const kfind = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    /// ` callback: *const fn (self: QtC.KFind, forceAsking: bool, showNumMatches: bool) callconv(.c) bool `
+    /// ` callback: *const fn (self: KFind, forceAsking: bool, showNumMatches: bool) callconv(.c) bool `
     ///
-    pub fn OnShouldRestart(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool, bool) callconv(.c) bool) void {
-        qtc.KFind_OnShouldRestart(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnShouldRestart(self: KFind, callback: *const fn (KFind, bool, bool) callconv(.c) bool) void {
+        qtc.KFind_OnShouldRestart(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperShouldRestart` instead
@@ -482,14 +505,14 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
     /// ` forceAsking: bool `
     ///
     /// ` showNumMatches: bool `
     ///
-    pub fn SuperShouldRestart(self: ?*anyopaque, forceAsking: bool, showNumMatches: bool) bool {
-        return qtc.KFind_SuperShouldRestart(@ptrCast(self), forceAsking, showNumMatches);
+    pub fn SuperShouldRestart(self: KFind, forceAsking: bool, showNumMatches: bool) bool {
+        return qtc.KFind_SuperShouldRestart(@ptrCast(self.ptr), forceAsking, showNumMatches);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfind.html#find)
@@ -506,9 +529,9 @@ pub const kfind = struct {
     ///
     /// ` matchedLength: *i32 `
     ///
-    /// ` rmatch: QtC.QRegularExpressionMatch `
+    /// ` rmatch: QRegularExpressionMatch `
     ///
-    pub fn Find2(text: []const u8, pattern: []const u8, index: i32, options: isize, matchedLength: *i32, rmatch: ?*anyopaque) i32 {
+    pub fn Find2(text: []const u8, pattern: []const u8, index: i32, options: isize, matchedLength: *i32, rmatch: anytype) i32 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -517,17 +540,18 @@ pub const kfind = struct {
             .len = pattern.len,
             .data = pattern.ptr,
         };
-        return qtc.KFind_Find2(text_str, pattern_str, @bitCast(index), @bitCast(options), @ptrCast(matchedLength), @ptrCast(rmatch));
+        comptime _ = @TypeOf(rmatch)._is_QRegularExpressionMatch;
+        return qtc.KFind_Find2(text_str, pattern_str, @bitCast(index), @bitCast(options), @ptrCast(matchedLength), @ptrCast(rmatch.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfind.html#displayFinalDialog)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    pub fn DisplayFinalDialog(self: ?*anyopaque) void {
-        qtc.KFind_DisplayFinalDialog(@ptrCast(self));
+    pub fn DisplayFinalDialog(self: KFind) void {
+        qtc.KFind_DisplayFinalDialog(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfind.html#displayFinalDialog)
@@ -536,12 +560,12 @@ pub const kfind = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDisplayFinalDialog(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KFind_OnDisplayFinalDialog(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisplayFinalDialog(self: KFind, callback: *const fn () callconv(.c) void) void {
+        qtc.KFind_OnDisplayFinalDialog(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperDisplayFinalDialog` instead
@@ -554,47 +578,47 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    pub fn SuperDisplayFinalDialog(self: ?*anyopaque) void {
-        qtc.KFind_SuperDisplayFinalDialog(@ptrCast(self));
+    pub fn SuperDisplayFinalDialog(self: KFind) void {
+        qtc.KFind_SuperDisplayFinalDialog(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfind.html#findNextDialog)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    pub fn FindNextDialog(self: ?*anyopaque) QtC.QDialog {
-        return qtc.KFind_FindNextDialog(@ptrCast(self));
+    pub fn FindNextDialog(self: KFind) QDialog {
+        return .{ .ptr = qtc.KFind_FindNextDialog(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfind.html#closeFindNextDialog)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    pub fn CloseFindNextDialog(self: ?*anyopaque) void {
-        qtc.KFind_CloseFindNextDialog(@ptrCast(self));
+    pub fn CloseFindNextDialog(self: KFind) void {
+        qtc.KFind_CloseFindNextDialog(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfind.html#index)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    pub fn Index(self: ?*anyopaque) i32 {
-        return qtc.KFind_Index(@ptrCast(self));
+    pub fn Index(self: KFind) i32 {
+        return qtc.KFind_Index(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfind.html#textFound)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
     /// ` text: []const u8 `
     ///
@@ -602,31 +626,31 @@ pub const kfind = struct {
     ///
     /// ` matchedLength: i32 `
     ///
-    pub fn TextFound(self: ?*anyopaque, text: []const u8, matchingIndex: i32, matchedLength: i32) void {
+    pub fn TextFound(self: KFind, text: []const u8, matchingIndex: i32, matchedLength: i32) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.KFind_TextFound(@ptrCast(self), text_str, @bitCast(matchingIndex), @bitCast(matchedLength));
+        qtc.KFind_TextFound(@ptrCast(self.ptr), text_str, @bitCast(matchingIndex), @bitCast(matchedLength));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfind.html#textFound)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    /// ` callback: *const fn (self: QtC.KFind, text: [*:0]const u8, matchingIndex: i32, matchedLength: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KFind, text: [*:0]const u8, matchingIndex: i32, matchedLength: i32) callconv(.c) void `
     ///
-    pub fn OnTextFound(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, i32) callconv(.c) void) void {
-        qtc.KFind_Connect_TextFound(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTextFound(self: KFind, callback: *const fn (KFind, [*:0]const u8, i32, i32) callconv(.c) void) void {
+        qtc.KFind_Connect_TextFound(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfind.html#textFoundAtId)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
     /// ` id: i32 `
     ///
@@ -634,96 +658,96 @@ pub const kfind = struct {
     ///
     /// ` matchedLength: i32 `
     ///
-    pub fn TextFoundAtId(self: ?*anyopaque, id: i32, matchingIndex: i32, matchedLength: i32) void {
-        qtc.KFind_TextFoundAtId(@ptrCast(self), @bitCast(id), @bitCast(matchingIndex), @bitCast(matchedLength));
+    pub fn TextFoundAtId(self: KFind, id: i32, matchingIndex: i32, matchedLength: i32) void {
+        qtc.KFind_TextFoundAtId(@ptrCast(self.ptr), @bitCast(id), @bitCast(matchingIndex), @bitCast(matchedLength));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfind.html#textFoundAtId)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    /// ` callback: *const fn (self: QtC.KFind, id: i32, matchingIndex: i32, matchedLength: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KFind, id: i32, matchingIndex: i32, matchedLength: i32) callconv(.c) void `
     ///
-    pub fn OnTextFoundAtId(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
-        qtc.KFind_Connect_TextFoundAtId(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTextFoundAtId(self: KFind, callback: *const fn (KFind, i32, i32, i32) callconv(.c) void) void {
+        qtc.KFind_Connect_TextFoundAtId(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfind.html#findNext)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    pub fn FindNext(self: ?*anyopaque) void {
-        qtc.KFind_FindNext(@ptrCast(self));
+    pub fn FindNext(self: KFind) void {
+        qtc.KFind_FindNext(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfind.html#findNext)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    /// ` callback: *const fn (self: QtC.KFind) callconv(.c) void `
+    /// ` callback: *const fn (self: KFind) callconv(.c) void `
     ///
-    pub fn OnFindNext(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KFind_Connect_FindNext(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFindNext(self: KFind, callback: *const fn (KFind) callconv(.c) void) void {
+        qtc.KFind_Connect_FindNext(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfind.html#optionsChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    pub fn OptionsChanged(self: ?*anyopaque) void {
-        qtc.KFind_OptionsChanged(@ptrCast(self));
+    pub fn OptionsChanged(self: KFind) void {
+        qtc.KFind_OptionsChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfind.html#optionsChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    /// ` callback: *const fn (self: QtC.KFind) callconv(.c) void `
+    /// ` callback: *const fn (self: KFind) callconv(.c) void `
     ///
-    pub fn OnOptionsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KFind_Connect_OptionsChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnOptionsChanged(self: KFind, callback: *const fn (KFind) callconv(.c) void) void {
+        qtc.KFind_Connect_OptionsChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfind.html#dialogClosed)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    pub fn DialogClosed(self: ?*anyopaque) void {
-        qtc.KFind_DialogClosed(@ptrCast(self));
+    pub fn DialogClosed(self: KFind) void {
+        qtc.KFind_DialogClosed(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfind.html#dialogClosed)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    /// ` callback: *const fn (self: QtC.KFind) callconv(.c) void `
+    /// ` callback: *const fn (self: KFind) callconv(.c) void `
     ///
-    pub fn OnDialogClosed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KFind_Connect_DialogClosed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDialogClosed(self: KFind, callback: *const fn (KFind) callconv(.c) void) void {
+        qtc.KFind_Connect_DialogClosed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfind.html#parentWidget)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.KFind_ParentWidget(@ptrCast(self));
+    pub fn ParentWidget(self: KFind) QWidget {
+        return .{ .ptr = qtc.KFind_ParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfind.html#parentWidget)
@@ -732,12 +756,12 @@ pub const kfind = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QWidget `
+    /// ` callback: *const fn () callconv(.c) QWidget `
     ///
-    pub fn OnParentWidget(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QWidget) void {
-        qtc.KFind_OnParentWidget(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnParentWidget(self: KFind, callback: *const fn () callconv(.c) QWidget) void {
+        qtc.KFind_OnParentWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperParentWidget` instead
@@ -750,20 +774,20 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    pub fn SuperParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.KFind_SuperParentWidget(@ptrCast(self));
+    pub fn SuperParentWidget(self: KFind) QWidget {
+        return .{ .ptr = qtc.KFind_SuperParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfind.html#dialogsParent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    pub fn DialogsParent(self: ?*anyopaque) QtC.QWidget {
-        return qtc.KFind_DialogsParent(@ptrCast(self));
+    pub fn DialogsParent(self: KFind) QWidget {
+        return .{ .ptr = qtc.KFind_DialogsParent(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfind.html#dialogsParent)
@@ -772,12 +796,12 @@ pub const kfind = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QWidget `
+    /// ` callback: *const fn () callconv(.c) QWidget `
     ///
-    pub fn OnDialogsParent(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QWidget) void {
-        qtc.KFind_OnDialogsParent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDialogsParent(self: KFind, callback: *const fn () callconv(.c) QWidget) void {
+        qtc.KFind_OnDialogsParent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperDialogsParent` instead
@@ -790,23 +814,23 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    pub fn SuperDialogsParent(self: ?*anyopaque) QtC.QWidget {
-        return qtc.KFind_SuperDialogsParent(@ptrCast(self));
+    pub fn SuperDialogsParent(self: KFind) QWidget {
+        return .{ .ptr = qtc.KFind_SuperDialogsParent(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -820,15 +844,15 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -842,25 +866,25 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
     /// ` data: []const u8 `
     ///
     /// ` startPos: i32 `
     ///
-    pub fn SetData22(self: ?*anyopaque, data: []const u8, startPos: i32) void {
+    pub fn SetData22(self: KFind, data: []const u8, startPos: i32) void {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
-        qtc.KFind_SetData22(@ptrCast(self), data_str, @bitCast(startPos));
+        qtc.KFind_SetData22(@ptrCast(self.ptr), data_str, @bitCast(startPos));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfind.html#setData)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
     /// ` id: i32 `
     ///
@@ -868,24 +892,24 @@ pub const kfind = struct {
     ///
     /// ` startPos: i32 `
     ///
-    pub fn SetData3(self: ?*anyopaque, id: i32, data: []const u8, startPos: i32) void {
+    pub fn SetData3(self: KFind, id: i32, data: []const u8, startPos: i32) void {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
-        qtc.KFind_SetData3(@ptrCast(self), @bitCast(id), data_str, @bitCast(startPos));
+        qtc.KFind_SetData3(@ptrCast(self.ptr), @bitCast(id), data_str, @bitCast(startPos));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfind.html#findNextDialog)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
     /// ` create: bool `
     ///
-    pub fn FindNextDialog1(self: ?*anyopaque, create: bool) QtC.QDialog {
-        return qtc.KFind_FindNextDialog1(@ptrCast(self), create);
+    pub fn FindNextDialog1(self: KFind, create: bool) QDialog {
+        return .{ .ptr = qtc.KFind_FindNextDialog1(@ptrCast(self.ptr), create) };
     }
 
     /// Inherited from QObject
@@ -894,12 +918,12 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: KFind, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kfind.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -912,12 +936,12 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: KFind, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -926,10 +950,10 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: KFind) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -938,10 +962,10 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: KFind) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -950,10 +974,10 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: KFind) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -962,10 +986,10 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: KFind) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -974,12 +998,12 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: KFind, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -988,10 +1012,10 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: KFind) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1000,12 +1024,13 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: KFind, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -1014,12 +1039,12 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: KFind, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1028,12 +1053,12 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: KFind, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1042,12 +1067,12 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: KFind, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1056,12 +1081,12 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: KFind, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1070,16 +1095,17 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: KFind, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("kfind.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kfind.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1089,12 +1115,13 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: KFind, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -1103,12 +1130,13 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: KFind, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -1117,12 +1145,13 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: KFind, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -1131,18 +1160,20 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1151,16 +1182,20 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1169,18 +1204,19 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: KFind, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1189,18 +1225,20 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1209,16 +1247,20 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -1227,10 +1269,10 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: KFind) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1239,12 +1281,13 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: KFind, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1253,10 +1296,11 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1265,10 +1309,10 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: KFind) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1277,10 +1321,10 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: KFind) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1289,15 +1333,16 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: KFind, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -1306,13 +1351,13 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: KFind, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1321,17 +1366,16 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: KFind, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kfind.DynamicPropertyNames: Memory allocation failed");
@@ -1350,10 +1394,10 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: KFind) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1362,10 +1406,10 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: KFind) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1374,10 +1418,10 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: KFind) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1386,12 +1430,12 @@ pub const kfind = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    /// ` callback: *const fn (self: QtC.KFind) callconv(.c) void `
+    /// ` callback: *const fn (self: KFind) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: KFind, callback: *const fn (KFind) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1400,10 +1444,10 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: KFind) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1412,13 +1456,13 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: KFind, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -1427,10 +1471,10 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: KFind) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1439,14 +1483,14 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: KFind, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1455,14 +1499,14 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: KFind, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1471,20 +1515,22 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -1493,18 +1539,22 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1513,9 +1563,9 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1523,10 +1573,11 @@ pub const kfind = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: KFind, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1535,13 +1586,13 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: KFind, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1550,15 +1601,16 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: KFind, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1567,18 +1619,19 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: KFind, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1587,15 +1640,16 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: KFind, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1604,12 +1658,13 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: KFind, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1618,12 +1673,12 @@ pub const kfind = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    /// ` callback: *const fn (self: QtC.KFind, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: KFind, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: KFind, callback: *const fn (KFind, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1634,12 +1689,13 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KFind_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: KFind, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KFind_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -1654,12 +1710,13 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KFind_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: KFind, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KFind_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1670,12 +1727,12 @@ pub const kfind = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KFind`
+    /// ` self: KFind`
     ///
-    /// ` callback: *const fn (self: QtC.KFind, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KFind, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KFind_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: KFind, callback: *const fn (KFind, QEvent) callconv(.c) bool) void {
+        qtc.KFind_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1686,14 +1743,16 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KFind_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: KFind, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KFind_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -1708,14 +1767,16 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KFind_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: KFind, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KFind_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1726,12 +1787,12 @@ pub const kfind = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KFind`
+    /// ` self: KFind`
     ///
-    /// ` callback: *const fn (self: QtC.KFind, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KFind, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KFind_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: KFind, callback: *const fn (KFind, QObject, QEvent) callconv(.c) bool) void {
+        qtc.KFind_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1742,12 +1803,13 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KFind_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: KFind, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KFind_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -1762,12 +1824,13 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KFind_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: KFind, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KFind_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1778,12 +1841,12 @@ pub const kfind = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KFind`
+    /// ` self: KFind`
     ///
-    /// ` callback: *const fn (self: QtC.KFind, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KFind, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KFind_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: KFind, callback: *const fn (KFind, QTimerEvent) callconv(.c) void) void {
+        qtc.KFind_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1794,12 +1857,13 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KFind_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: KFind, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KFind_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -1814,12 +1878,13 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KFind_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: KFind, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KFind_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1830,12 +1895,12 @@ pub const kfind = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KFind`
+    /// ` self: KFind`
     ///
-    /// ` callback: *const fn (self: QtC.KFind, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KFind, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KFind_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: KFind, callback: *const fn (KFind, QChildEvent) callconv(.c) void) void {
+        qtc.KFind_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1846,12 +1911,13 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KFind_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: KFind, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KFind_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -1866,12 +1932,13 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KFind_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: KFind, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KFind_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1882,12 +1949,12 @@ pub const kfind = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KFind`
+    /// ` self: KFind`
     ///
-    /// ` callback: *const fn (self: QtC.KFind, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KFind, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KFind_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: KFind, callback: *const fn (KFind, QEvent) callconv(.c) void) void {
+        qtc.KFind_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1898,12 +1965,13 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KFind_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: KFind, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KFind_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -1918,12 +1986,13 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KFind_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: KFind, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KFind_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1934,12 +2003,12 @@ pub const kfind = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KFind`
+    /// ` self: KFind`
     ///
-    /// ` callback: *const fn (self: QtC.KFind, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KFind, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KFind_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: KFind, callback: *const fn (KFind, QMetaMethod) callconv(.c) void) void {
+        qtc.KFind_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1950,12 +2019,13 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KFind_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: KFind, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KFind_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -1970,12 +2040,13 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KFind_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: KFind, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KFind_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1986,12 +2057,12 @@ pub const kfind = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KFind`
+    /// ` self: KFind`
     ///
-    /// ` callback: *const fn (self: QtC.KFind, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KFind, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KFind_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: KFind, callback: *const fn (KFind, QMetaMethod) callconv(.c) void) void {
+        qtc.KFind_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2002,10 +2073,10 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KFind_Sender(@ptrCast(self));
+    pub fn Sender(self: KFind) QObject {
+        return .{ .ptr = qtc.KFind_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -2020,10 +2091,10 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KFind_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: KFind) QObject {
+        return .{ .ptr = qtc.KFind_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2034,12 +2105,12 @@ pub const kfind = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KFind`
+    /// ` self: KFind`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.KFind_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: KFind, callback: *const fn () callconv(.c) QObject) void {
+        qtc.KFind_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2050,10 +2121,10 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KFind_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: KFind) i32 {
+        return qtc.KFind_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -2068,10 +2139,10 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KFind_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: KFind) i32 {
+        return qtc.KFind_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2082,12 +2153,12 @@ pub const kfind = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KFind`
+    /// ` self: KFind`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KFind_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: KFind, callback: *const fn () callconv(.c) i32) void {
+        qtc.KFind_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2098,13 +2169,13 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: KFind, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KFind_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.KFind_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -2119,13 +2190,13 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: KFind, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KFind_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KFind_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2136,12 +2207,12 @@ pub const kfind = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KFind`
+    /// ` self: KFind`
     ///
-    /// ` callback: *const fn (self: QtC.KFind, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KFind, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KFind_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: KFind, callback: *const fn (KFind, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KFind_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2152,12 +2223,13 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KFind_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: KFind, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KFind_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -2172,12 +2244,13 @@ pub const kfind = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KFind_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: KFind, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KFind_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -2188,12 +2261,12 @@ pub const kfind = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KFind`
+    /// ` self: KFind`
     ///
-    /// ` callback: *const fn (self: QtC.KFind, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: KFind, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KFind_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: KFind, callback: *const fn (KFind, QMetaMethod) callconv(.c) bool) void {
+        qtc.KFind_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2204,12 +2277,12 @@ pub const kfind = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    /// ` callback: *const fn (self: QtC.KFind, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KFind, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: KFind, callback: *const fn (KFind, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -2222,10 +2295,10 @@ pub const kfind = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KFind `
+    /// ` self: KFind `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KFind_Delete(@ptrCast(self));
+    pub fn Delete(self: KFind) void {
+        qtc.KFind_Delete(@ptrCast(self.ptr));
     }
 };
 
