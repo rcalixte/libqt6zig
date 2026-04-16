@@ -124,11 +124,11 @@ const qt6 = @import("libqt6zig");
 
 	// Create methods to register and unregister the resource
 	defMethods := `pub fn init() bool {
-    return qt6.qresource.RegisterResource2(&` + varName + `[0]);
+    return qt6.QResource.RegisterResource2(&` + varName + `[0]);
 }
 
 pub fn deinit() bool {
-    return qt6.qresource.UnregisterResource2(&` + varName + `[0]);
+    return qt6.QResource.UnregisterResource2(&` + varName + `[0]);
 }
 `
 
