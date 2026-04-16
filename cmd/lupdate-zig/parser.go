@@ -30,6 +30,7 @@ func parse(filePaths []string, options FlagOptions) (string, error) {
 		var currentContext Context
 		var contexts []Context
 		var comments, extracomments []string
+		var lastTok string
 
 		fset := token.NewFileSet()
 		file := fset.AddFile(filePath, -1, len(fileContent))
@@ -166,7 +167,7 @@ func parse(filePaths []string, options FlagOptions) (string, error) {
 					}
 
 				} else if lit == "Tr" || lit == "Tr2" || lit == "Tr3" {
-					name = "QObject"
+					name = lastTok
 
 					for i := range contexts {
 						if contexts[i].Name == name {
@@ -177,13 +178,14 @@ func parse(filePaths []string, options FlagOptions) (string, error) {
 
 					currentContext.Name = name
 
-					if lit == "Tr" {
+					switch lit {
+					case "Tr":
 						expectedParams = 1
 
-					} else if lit == "Tr2" {
+					case "Tr2":
 						expectedParams = 2
 
-					} else if lit == "Tr3" {
+					case "Tr3":
 						expectedParams = 3
 						expectingNumerus = true
 					}
@@ -277,6 +279,7 @@ func parse(filePaths []string, options FlagOptions) (string, error) {
 						contexts = append(contexts, currentContext)
 					}
 				}
+				lastTok = lit
 			}
 
 			if tok == token.EOF {

@@ -67,7 +67,8 @@ Execution design
 3. Write out the translation file.
 
 > [!NOTE]
-> As a workaround, all `tr` methods use `QObject` as the translation context.
+> All `tr` methods must be fully-scoped to ensure proper translation context
+> resolution.
 
 <sup>1</sup>Only raw string and integer parameter types used in valid syntax
 are supported.
