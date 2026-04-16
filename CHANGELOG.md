@@ -1,4 +1,8 @@
 
+### 6.8.2 rev70 (16 April 2026)
+
+* **MAJOR BREAKING CHANGE:** Support more idiomatic allocators, types, and dot-call syntax (#135)
+
 ### 6.8.2 rev69 (15 April 2026)
 
 * **BREAKING CHANGE:** Update to Zig 0.16 (#134)
